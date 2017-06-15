@@ -24,7 +24,7 @@
 <br/>
 <br/>
 	<div class="container">
-		<form class="form-horizontal" role="form" id="frm" method="post">
+		<form class="form-horizontal" role="form" id="frm" method="post" enctype="multipart/form-data">
 			<fieldset>
 				<legend>
 					<h1>제휴 등록</h1><br/>
@@ -90,7 +90,7 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label" for="txt9">파일업로드</label>
 					<div class="col-sm-3">
-						<input type="file" class="form-control" name="txt9" id="txt9"
+						<input type="file" class="form-control" name="file" id="file"
 							placeholder="">
 					</div>
 				</div>

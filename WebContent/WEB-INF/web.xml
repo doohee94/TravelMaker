@@ -15,9 +15,9 @@
   		<param-value>
   		/WEB-INF/springconfig/common-servlet.xml
   		/WEB-INF/springconfig/alloance-servlet.xml
+  		/WEB-INF/springconfig/admin-servlet.xml
   		</param-value>
   	</init-param>
-  	<load-on-startup>1</load-on-startup>
   </servlet>
   
   <servlet-mapping>

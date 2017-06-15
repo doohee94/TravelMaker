@@ -8,7 +8,7 @@
 <style type="text/css">
 	img{
 		width: 1000px;
-		margin-left: auto%;
+		margin-left: auto;
 		margin-right: auto;
 	}
 	.button{
