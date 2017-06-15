@@ -33,9 +33,6 @@
 <link href="/Test/resource/admin/css/jquery-ui-1.10.4.min.css"
 	rel="stylesheet">
 	
-<!-- popup -->
-<link rel="stylesheet" type="text/css" href="/Test/resource/admin/css/alopex-ui-default.css" />
-
 </head>
 
 <body>
@@ -130,8 +127,33 @@
 										<td>Mark</td>
 										<td>Otto</td>
 										<td>
-											<a class="btn btn-success" href="" title="Bootstrap 3 themes generator">답변완료</a>
-											<input type="hidden" value="글번호 예스"/>
+											<a class="btn btn-success" data-toggle="modal" href="#myModal" title="Bootstrap 3 themes generator">답변완료</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+															<h4 class="modal-title">답변달기</h4>
+														</div>
+														<div class="modal-body">
+															<form role="form" class="form-inline">
+															<input type="hidden" name="num" value="글번호들어갈곳"/>
+																<div class="form-group">
+																	<label class="control-label col-sm-2">문의 내용</label>
+																	<div class="col-sm-10">
+																		<textarea class="form-control ckeditor" name="editor1" rows="6" readonly="readonly"></textarea>
+																	</div>
+																	<label class="control-label col-sm-2" style="margin-top: 4%;">답변 내용</label>
+																	<div class="col-sm-10">
+																		<textarea class="form-control ckeditor" name="editor1" rows="6" style="margin-top: 5%;"></textarea>
+																	</div>
+																	<a class="btn btn-success" title="Bootstrap 3 themes generator" style="margin-left: 80%; margin-top: 2%;">답변완료</a>
+																</div>
+															</form>
+														</div>
+													</div>
+												</div>
+											</div>
 										</td>
 									</tr>
 									<tr>
@@ -139,20 +161,37 @@
 										<td>Jacob</td>
 										<td>Thornton</td>
 										<td>
-											<a class="btn btn-danger" href="" title="Bootstrap 3 themes generator">답변필요</a>
-											<input type="hidden" value="글번호 노"/>
+											<a class="btn btn-danger" data-toggle="modal" href="#myModal2" title="Bootstrap 3 themes generator">답변필요</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal2" class="modal fade">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+															<h4 class="modal-title">답변달기</h4>
+														</div>
+														<div class="modal-body">
+															<form role="form">
+																<div class="form-group">
+																	<div class="form-group">
+																		<label class="control-label col-sm-2">문의 내용</label>
+																		<div class="col-sm-10">
+																			<textarea class="form-control ckeditor" name="editor1" rows="6" readonly="readonly"></textarea>
+																		</div>
+																	</div>
+																	<div class="form-group">
+																		<label class="control-label col-sm-2" style="margin-top: 4%;">답변 내용</label>
+																		<div class="col-sm-10">
+																			<textarea class="form-control ckeditor" name="editor1" rows="6" style="margin-left: 80%; margin-top: 2%;"></textarea>
+																		</div>
+																	</div>
+																	<a class="btn btn-success" title="Bootstrap 3 themes generator">답변완료</a>
+																</div>
+															</form>
+														</div>
+													</div>
+												</div>
+											</div>
 										</td>
-									</tr>
-									<tr>
-										<td>3</td>
-										<td colspan="2">Larry the Bird</td>
-										<td>@twitter</td>
-									</tr>
-									<tr>
-										<td>3</td>
-										<td>Sumon</td>
-										<td>Mosa</td>
-										<td>@twitter</td>
 									</tr>
 								</tbody>
 							</table>
@@ -191,23 +230,5 @@
 	<!--custome script for all page-->
 	<script src="/Test/resource/admin/js/scripts.js"></script>
 	
-	<!-- popup -->
-	<script type="text/javascript" src="/Test/resource/admin/js/alopex-ui.min.js"></script>
-
-	<script type="text/javascript">
-		$(".btn-success").click(evt);
-		$(".btn-danger").click(evt);
-		
-		function evt(){
-			var num = $(this).next().val();
-			$a.popup({
-				title : "답변 달기",
-				width : 600, //크기
-				height : 500,
-				url : "adminQnaPopup.tm", 
-				iframe : true
-			});
-		};
-	</script>
 </body>
 </html>

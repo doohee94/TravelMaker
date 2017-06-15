@@ -39,7 +39,7 @@ public class AllianceDTO {
 			this.savefile = genId + originfile;
 			//파일 저장 경로
 			File f = new File("C:\\TravelMaker\\TravelMaker\\WebContent\\upload\\alliance\\"+savefile);
-			
+			System.out.println(savefile);
 			try {
 				file.transferTo(f);
 			} catch (IllegalStateException | IOException e) {
