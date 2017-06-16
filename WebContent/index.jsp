@@ -10,6 +10,8 @@
 
 <a href="allianceMain.tm">dddd</a>
 
+<a href="tmadmin/adminMember.tm">관리자</a>
+
 <a href="searchpage/search.tm">서치페이지</a>
 
 <form action="searchpage/search.tm" method="get">
