@@ -213,4 +213,43 @@
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script type="text/javascript" src="/TravelMaker/resource/search/js/list.js"></script>
 </body>
+<!-- API 받아오는 스크립트~~~ -->
+<script type="text/javascript">
+//관광지 받아오기
+
+var mapx = "";
+var mapy = "";
+
+var keyword = '${cityName}';
+	$.ajax({
+	
+		url : "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?ServiceKey=6eo8W%2BYDwcd6mq99M0oUaSvi0uKT5iYW8SvMUzSnq8iSDXL2tJcbbQlYNqKsq2k6xovjplHXuqBJq1m8ud1hIQ%3D%3D"
+		,dataType:"json"
+		,data : {
+			
+			"keyword":keyword,
+			"MobileOS":"ETC",
+			"MobileApp":"AppTesting",
+			"numOfRows":"20",
+			"arrange":"B",
+			"_type":"json"
+		}
+		,success:function(data){
+			var item
+			
+			mapx = data.reposn
+			
+			
+			
+			
+		}
+		,error:function(err){
+			alert("실패!"+err.status);
+		}
+	
+	
+	});
+
+
+</script>
 </html>
