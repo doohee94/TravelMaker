@@ -7,7 +7,6 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>WebContent/WEB-INF/springconfig/search-servlet.xml</config>
 	</configs>
 	<autoconfigs>
 		<config>WebContent/WEB-INF/springconfig/admin-servlet.xml</config>
