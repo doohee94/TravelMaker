@@ -32,7 +32,6 @@
 	rel="stylesheet" />
 <link href="/resource/admin/css/jquery-ui-1.10.4.min.css"
 	rel="stylesheet">
-	
 </head>
 
 <body>
@@ -63,19 +62,19 @@
 							<i class="icon_house_alt"></i> <span>회원관리</span>
 						</a>
 					</li>
-					<li class="active">
+					<li>
 						<a class="" href="adminQna.tm">
 							<i class="icon_desktop"></i> <span>QnA</span>
 						</a>
 					</li>
-					<li class="sub-menu">
+					<li class="sub-menu active">
 						<a href="javascript:;" class="">
 							<i class="icon_genius"></i> <span>광고</span>
 							<span class="menu-arrow arrow_carrot-right"></span>
 						</a>
 						<ul class="sub">
 							<li><a class="" href="adminadList.tm">리스트</a></li>
-							<li><a class="" href="adminadSetting.tm">등록</a></li>
+							<li class="active"><a class="" href="adminadSetting.tm">등록</a></li>
 						</ul>
 					</li>
 					<li class="sub-menu">
@@ -100,98 +99,60 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h3 class="page-header">
-							<i class="fa fa-laptop"></i> Qna
+							<i class="fa fa-laptop"></i> 광고 추가
 						</h3>
 						<ol class="breadcrumb">
 							<li><i class="fa fa-home"></i><a href="adminMember.tm">Home</a></li>
-							<li><i class="fa fa-desktop"></i>Qna</li>
+							<li><i class="icon_genius"></i>광고</li>
+							<li><i class="icon_documents_alt"></i>광고 추가</li>
 						</ol>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-lg-12">
 						<section class="panel">
-							<header class="panel-heading"> 회원목록 </header>
-							<table class="table table-hover">
-								<thead>
-									<tr>
-										<th>문의 번호</th>
-										<th>문의 유형</th>
-										<th>작성자</th>
-										<th>답변여부</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>1</td>
-										<td>Mark</td>
-										<td>Otto</td>
-										<td>
-											<a class="btn btn-success" data-toggle="modal" href="#myModal" title="Bootstrap 3 themes generator">답변완료</a>
-											<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-												<div class="modal-dialog">
-													<div class="modal-content">
-														<div class="modal-header">
-															<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-															<h4 class="modal-title">답변달기</h4>
-														</div>
-														<div class="modal-body">
-															<form role="form" class="form-inline">
-															<input type="hidden" name="num" value="글번호들어갈곳"/>
-																<div class="form-group">
-																	<label class="control-label col-sm-2">문의 내용</label>
-																	<div class="col-sm-10">
-																		<textarea class="form-control ckeditor" name="editor1" rows="6" readonly="readonly"></textarea>
-																	</div>
-																	<label class="control-label col-sm-2" style="margin-top: 4%;">답변 내용</label>
-																	<div class="col-sm-10">
-																		<textarea class="form-control ckeditor" name="editor1" rows="6" style="margin-top: 5%;"></textarea>
-																	</div>
-																	<a class="btn btn-success" title="Bootstrap 3 themes generator" style="margin-left: 80%; margin-top: 2%;">답변완료</a>
-																</div>
-															</form>
-														</div>
-													</div>
-												</div>
+							<header class="panel-heading"> 광고추가 </header>
+							<div class="panel-body">
+								<div class="form">
+									<form class="form-validate form-horizontal" id="feedback_form" method="post" action="">
+										<div class="form-group ">
+											<label for="cname" class="control-label col-lg-2">
+												회사명
+											</label>
+											<div class="col-lg-3">
+												<input class="form-control" id="cname" name="fullname" minlength="5" type="text" readonly="readonly" />
 											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>2</td>
-										<td>Jacob</td>
-										<td>Thornton</td>
-										<td>
-											<a class="btn btn-danger" data-toggle="modal" href="#myModal2" title="Bootstrap 3 themes generator">답변필요</a>
-											<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal2" class="modal fade">
-												<div class="modal-dialog">
-													<div class="modal-content">
-														<div class="modal-header">
-															<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-															<h4 class="modal-title">답변달기</h4>
-														</div>
-														<div class="modal-body">
-															<form role="form" class="form-inline">
-															<input type="hidden" name="num" value="글번호들어갈곳"/>
-																<div class="form-group">
-																	<label class="control-label col-sm-2">문의 내용</label>
-																	<div class="col-sm-10">
-																		<textarea class="form-control ckeditor" name="editor1" rows="6" readonly="readonly"></textarea>
-																	</div>
-																	<label class="control-label col-sm-2" style="margin-top: 4%;">답변 내용</label>
-																	<div class="col-sm-10">
-																		<textarea class="form-control ckeditor" name="editor1" rows="6" style="margin-top: 5%;"></textarea>
-																	</div>
-																	<a class="btn btn-success" title="Bootstrap 3 themes generator" style="margin-left: 80%; margin-top: 2%;">답변완료</a>
-																</div>
-															</form>
-														</div>
-													</div>
-												</div>
+											<a class="btn btn-info" href="adminadInsert.tm" title="Bootstrap 3 themes generator">제휴 회사 리스트</a> 
+										</div>
+										<div class="form-group ">
+											<label for="cemail" class="control-label col-lg-2">설명</label>
+											<div class="col-lg-6">
+												<input class="form-control " id="cemail" type="text" name="email" required />
 											</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
+										</div>
+										<div class="form-group ">
+											<label for="cemail" class="control-label col-lg-2">File input</label>
+											<div class="col-lg-10">
+												<input type="file" id="fileupload" required>
+											</div>
+										</div>
+										<div class="form-group ">
+											<label for="cemail" class="control-label col-lg-2">미리보기</label>
+											<div class="col-lg-10">
+												<img id="show" src="#">
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-lg-offset-2 col-lg-10">
+												<button class="btn btn-primary" id="submit" type="submit">Save</button>
+												<button class="btn btn-default" type="reset">Cancel</button>
+												<a class="btn btn-info" href="adminadList.tm" title="Bootstrap 3 themes generator">제휴 회사 리스트</a> 
+											</div>
+										</div>
+									</form>
+								</div>
+
+							</div>
 						</section>
 					</div>
 				</div>
@@ -226,6 +187,28 @@
 
 	<!--custome script for all page-->
 	<script src="/resource/admin/js/scripts.js"></script>
+	<script type="text/javascript">
+		$("#submit").click(function(){
+			if($("#cname").val() == "" || $("#cname").val() == null){
+				alert("회사를 선택");
+				return false;
+			}
+		});
 	
+		$("#fileupload").change(function(){
+			showImg(this);
+		});
+		
+		function showImg(input){	
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function (e) {
+					$('#show').attr('src', e.target.result); 
+				}
+				reader.readAsDataURL(input.files[0]); 
+			}
+		}
+	</script>
+
 </body>
 </html>

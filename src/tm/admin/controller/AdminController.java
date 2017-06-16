@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * dir : 폴더 경로
  */
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/tmadmin")
 public class AdminController {
 	
 	private String dir = "admin/";
@@ -20,13 +20,8 @@ public class AdminController {
 	 * 인자값 전달이 필요없는 부분 담당
 	 */
 	@RequestMapping("/{url}.tm")
-	public String alliance(@PathVariable String url) {
+	public String admin(@PathVariable String url) {
 		return dir + url;
 	}
 	
-	@RequestMapping("/adminQnaPopup")
-	public String test(){
-		System.out.println("dㅇㅇ");
-		return "adminQnaPopup";
-	}
 }

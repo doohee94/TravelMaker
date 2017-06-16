@@ -73,8 +73,8 @@
 							<span class="menu-arrow arrow_carrot-right"></span>
 						</a>
 						<ul class="sub">
-							<li><a class="" href="adminadSetting.tm">등록</a></li>
 							<li><a class="" href="adminadList.tm">리스트</a></li>
+							<li><a class="" href="adminadSetting.tm">등록</a></li>
 						</ul>
 					</li>
 					<li class="sub-menu">

@@ -32,7 +32,17 @@
 	rel="stylesheet" />
 <link href="/resource/admin/css/jquery-ui-1.10.4.min.css"
 	rel="stylesheet">
-	
+<style type="text/css">
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  padding: 10px;
+}
+</style>
 </head>
 
 <body>
@@ -63,18 +73,18 @@
 							<i class="icon_house_alt"></i> <span>회원관리</span>
 						</a>
 					</li>
-					<li class="active">
+					<li>
 						<a class="" href="adminQna.tm">
 							<i class="icon_desktop"></i> <span>QnA</span>
 						</a>
 					</li>
-					<li class="sub-menu">
+					<li class="sub-menu active">
 						<a href="javascript:;" class="">
 							<i class="icon_genius"></i> <span>광고</span>
 							<span class="menu-arrow arrow_carrot-right"></span>
 						</a>
 						<ul class="sub">
-							<li><a class="" href="adminadList.tm">리스트</a></li>
+							<li class="active"><a class="" href="adminadList.tm">리스트</a></li>
 							<li><a class="" href="adminadSetting.tm">등록</a></li>
 						</ul>
 					</li>
@@ -100,94 +110,70 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h3 class="page-header">
-							<i class="fa fa-laptop"></i> Qna
+							<i class="fa fa-laptop"></i> 광고 리스트
 						</h3>
 						<ol class="breadcrumb">
 							<li><i class="fa fa-home"></i><a href="adminMember.tm">Home</a></li>
-							<li><i class="fa fa-desktop"></i>Qna</li>
+							<li><i class="icon_genius"></i>광고</li>
+							<li><i class="fa fa-th-list"></i>광고 리스트</li>
 						</ol>
 					</div>
 				</div>
+
 				<div class="row">
-					<div class="col-lg-12">
+					<div class="col-sm-10">
 						<section class="panel">
-							<header class="panel-heading"> 회원목록 </header>
-							<table class="table table-hover">
-								<thead>
-									<tr>
-										<th>문의 번호</th>
-										<th>문의 유형</th>
-										<th>작성자</th>
-										<th>답변여부</th>
-									</tr>
-								</thead>
+							<header class="panel-heading" style="padding: 6px;">
+							광고리스트
+							<a class="btn btn-success" href="" title="Bootstrap 3 themes generator" style="margin-left:10px; float: right;">설정완료</a>
+							<a class="btn btn-info" href="adminadSetting.tm" title="Bootstrap 3 themes generator" style="margin-left:10px; float: right;">광고추가</a>
+							<form class="form-inline" role="form" style="float: right;">
+									<div class="form-group">
+										<input type="text" class="form-control" id="exampleInputEmail2" required="required" placeholder="회사명 입력">
+									</div>
+									<button type="submit" class="btn btn-primary">검색</button>
+							</form>
+							</header>
+							<table class="table">
 								<tbody>
 									<tr>
-										<td>1</td>
-										<td>Mark</td>
-										<td>Otto</td>
 										<td>
-											<a class="btn btn-success" data-toggle="modal" href="#myModal" title="Bootstrap 3 themes generator">답변완료</a>
-											<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-												<div class="modal-dialog">
-													<div class="modal-content">
-														<div class="modal-header">
-															<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-															<h4 class="modal-title">답변달기</h4>
-														</div>
-														<div class="modal-body">
-															<form role="form" class="form-inline">
-															<input type="hidden" name="num" value="글번호들어갈곳"/>
-																<div class="form-group">
-																	<label class="control-label col-sm-2">문의 내용</label>
-																	<div class="col-sm-10">
-																		<textarea class="form-control ckeditor" name="editor1" rows="6" readonly="readonly"></textarea>
-																	</div>
-																	<label class="control-label col-sm-2" style="margin-top: 4%;">답변 내용</label>
-																	<div class="col-sm-10">
-																		<textarea class="form-control ckeditor" name="editor1" rows="6" style="margin-top: 5%;"></textarea>
-																	</div>
-																	<a class="btn btn-success" title="Bootstrap 3 themes generator" style="margin-left: 80%; margin-top: 2%;">답변완료</a>
-																</div>
-															</form>
-														</div>
-													</div>
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>2</td>
-										<td>Jacob</td>
-										<td>Thornton</td>
-										<td>
-											<a class="btn btn-danger" data-toggle="modal" href="#myModal2" title="Bootstrap 3 themes generator">답변필요</a>
-											<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal2" class="modal fade">
-												<div class="modal-dialog">
-													<div class="modal-content">
-														<div class="modal-header">
-															<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-															<h4 class="modal-title">답변달기</h4>
-														</div>
-														<div class="modal-body">
-															<form role="form" class="form-inline">
-															<input type="hidden" name="num" value="글번호들어갈곳"/>
-																<div class="form-group">
-																	<label class="control-label col-sm-2">문의 내용</label>
-																	<div class="col-sm-10">
-																		<textarea class="form-control ckeditor" name="editor1" rows="6" readonly="readonly"></textarea>
-																	</div>
-																	<label class="control-label col-sm-2" style="margin-top: 4%;">답변 내용</label>
-																	<div class="col-sm-10">
-																		<textarea class="form-control ckeditor" name="editor1" rows="6" style="margin-top: 5%;"></textarea>
-																	</div>
-																	<a class="btn btn-success" title="Bootstrap 3 themes generator" style="margin-left: 80%; margin-top: 2%;">답변완료</a>
-																</div>
-															</form>
-														</div>
-													</div>
-												</div>
-											</div>
+											<table style="float:left; margin-left: 50px; margin-right: 50px;">
+												<tr>
+													<td rowspan="2" style="border-top: none;">
+														<div class="checkbox">
+															<label><input type="checkbox" value=""></label>
+														</div>	
+													</td>
+													<td style="border-top: none;">
+														<img alt="" src="/upload/admin/ad1.png" >
+													</td>
+												</tr>
+												<tr>
+													<td align="center">
+														요기 설명 버튼
+														<a class="btn btn-danger" href="" title="Bootstrap 3 themes generator" style="float: right;">삭제</a>
+													</td>
+												</tr>
+											</table>
+											<table style="float: inherit; margin-left: 50px; margin-right: 50px;">
+												<tr>
+													<td rowspan="2" style="border-top: none;">
+														<div class="checkbox">
+															<label><input type="checkbox" value="" ></label>
+														</div>	
+													</td>
+													<td style="border-top: none;">
+														<img alt="" src="/upload/admin/ad1.png" >
+													</td>
+												</tr>
+												<tr>
+													<td align="center">
+														요기 설명 버튼
+														<a class="btn btn-danger" href="" title="Bootstrap 3 themes generator" style="float: right;">삭제</a>
+													</td>
+												</tr>
+											</table>
 										</td>
 									</tr>
 								</tbody>
@@ -226,6 +212,7 @@
 
 	<!--custome script for all page-->
 	<script src="/resource/admin/js/scripts.js"></script>
-	
+
+
 </body>
 </html>

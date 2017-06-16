@@ -15,22 +15,22 @@
 <title>관리자 기본틀</title>
 
 <!-- Bootstrap CSS -->
-<link href="/Test/resource/admin/css/bootstrap.min.css" rel="stylesheet">
+<link href="/resource/admin/css/bootstrap.min.css" rel="stylesheet">
 <!-- bootstrap theme -->
-<link href="/Test/resource/admin/css/bootstrap-theme.css"
+<link href="/resource/admin/css/bootstrap-theme.css"
 	rel="stylesheet">
 <!--external css-->
 <!-- font icon -->
-<link href="/Test/resource/admin/css/elegant-icons-style.css"
+<link href="/resource/admin/css/elegant-icons-style.css"
 	rel="stylesheet" />
-<link href="/Test/resource/admin/css/font-awesome.min.css"
+<link href="/resource/admin/css/font-awesome.min.css"
 	rel="stylesheet" />
 <!-- Custom styles -->
-<link href="/Test/resource/admin/css/widgets.css" rel="stylesheet">
-<link href="/Test/resource/admin/css/style.css" rel="stylesheet">
-<link href="/Test/resource/admin/css/style-responsive.css"
+<link href="/resource/admin/css/widgets.css" rel="stylesheet">
+<link href="/resource/admin/css/style.css" rel="stylesheet">
+<link href="/resource/admin/css/style-responsive.css"
 	rel="stylesheet" />
-<link href="/Test/resource/admin/css/jquery-ui-1.10.4.min.css"
+<link href="/resource/admin/css/jquery-ui-1.10.4.min.css"
 	rel="stylesheet">
 </head>
 
@@ -73,8 +73,8 @@
 							<span class="menu-arrow arrow_carrot-right"></span>
 						</a>
 						<ul class="sub">
-							<li><a class="" href="adminadSetting.tm">등록</a></li>
 							<li><a class="" href="adminadList.tm">리스트</a></li>
+							<li><a class="" href="adminadSetting.tm">등록</a></li>
 						</ul>
 					</li>
 					<li class="sub-menu">
@@ -217,30 +217,30 @@
 	<!-- container section start -->
 
 	<!-- javascripts -->
-	<script src="/Test/resource/admin/js/jquery.js"></script>
-	<script src="/Test/resource/admin/js/jquery-ui-1.10.4.min.js"></script>
-	<script src="/Test/resource/admin/js/jquery-1.8.3.min.js"></script>
+	<script src="/resource/admin/js/jquery.js"></script>
+	<script src="/resource/admin/js/jquery-ui-1.10.4.min.js"></script>
+	<script src="/resource/admin/js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript"
-		src="/Test/resource/admin/js/jquery-ui-1.9.2.custom.min.js"></script>
+		src="/resource/admin/js/jquery-ui-1.9.2.custom.min.js"></script>
 
 	<!-- bootstrap -->
-	<script src="/Test/resource/admin/js/bootstrap.min.js"></script>
+	<script src="/resource/admin/js/bootstrap.min.js"></script>
 
 	<!-- nice scroll -->
-	<script src="/Test/resource/admin/js/jquery.scrollTo.min.js"></script>
-	<script src="/Test/resource/admin/js/jquery.nicescroll.js"
+	<script src="/resource/admin/js/jquery.scrollTo.min.js"></script>
+	<script src="/resource/admin/js/jquery.nicescroll.js"
 		type="text/javascript"></script>
 
 	<!-- charts scripts -->
-	<script src="/Test/resource/admin/js/jquery.sparkline.js"
+	<script src="/resource/admin/js/jquery.sparkline.js"
 		type="text/javascript"></script>
-	<script src="/Test/resource/admin/js/owl.carousel.js"></script>
+	<script src="/resource/admin/js/owl.carousel.js"></script>
 
 	<!-- custom select -->
-	<script src="/Test/resource/admin/js/jquery.customSelect.min.js"></script>
+	<script src="/resource/admin/js/jquery.customSelect.min.js"></script>
 
 	<!--custome script for all page-->
-	<script src="/Test/resource/admin/js/scripts.js"></script>
+	<script src="/resource/admin/js/scripts.js"></script>
 
 
 </body>

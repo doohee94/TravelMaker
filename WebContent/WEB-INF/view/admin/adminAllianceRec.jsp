@@ -32,7 +32,6 @@
 	rel="stylesheet" />
 <link href="/resource/admin/css/jquery-ui-1.10.4.min.css"
 	rel="stylesheet">
-	
 </head>
 
 <body>
@@ -63,7 +62,7 @@
 							<i class="icon_house_alt"></i> <span>회원관리</span>
 						</a>
 					</li>
-					<li class="active">
+					<li>
 						<a class="" href="adminQna.tm">
 							<i class="icon_desktop"></i> <span>QnA</span>
 						</a>
@@ -78,14 +77,14 @@
 							<li><a class="" href="adminadSetting.tm">등록</a></li>
 						</ul>
 					</li>
-					<li class="sub-menu">
+					<li class="sub-menu active">
 						<a href="javascript:;" class="">
 							<i class="icon_documents_alt"></i> <span>제휴</span>
 							<span class="menu-arrow arrow_carrot-right"></span>
 						</a>
 						<ul class="sub">
 							<li><a class="" href="adminAllianceList.tm">리스트</a></li>
-							<li><a class="" href="adminAllianceRec.tm">승인</a></li>
+							<li class="active"><a class="" href="adminAllianceRec.tm">승인</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -100,93 +99,94 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h3 class="page-header">
-							<i class="fa fa-laptop"></i> Qna
+							<i class="fa fa-laptop"></i> 제휴 승인
 						</h3>
 						<ol class="breadcrumb">
 							<li><i class="fa fa-home"></i><a href="adminMember.tm">Home</a></li>
-							<li><i class="fa fa-desktop"></i>Qna</li>
+							<li><i class="icon_documents_alt"></i>제휴</li>
+							<li><i class="icon_check_alt2"></i>제휴 승인</li>
 						</ol>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-lg-12">
 						<section class="panel">
-							<header class="panel-heading"> 회원목록 </header>
-							<table class="table table-hover">
-								<thead>
-									<tr>
-										<th>문의 번호</th>
-										<th>문의 유형</th>
-										<th>작성자</th>
-										<th>답변여부</th>
-									</tr>
-								</thead>
+							<header class="panel-heading" style="padding: 5px;">
+							제휴 승인 리스트
+								<form class="form-inline" role="form" style="float: right;">
+									<div class="form-group">
+										<input type="text" class="form-control" id="exampleInputEmail2" required="required" placeholder="회사명 입력">
+									</div>
+									<button type="submit" class="btn btn-primary">검색</button>
+								</form>
+							</header>
+							<table class="table table-striped table-advance table-hover">
 								<tbody>
 									<tr>
-										<td>1</td>
-										<td>Mark</td>
-										<td>Otto</td>
-										<td>
-											<a class="btn btn-success" data-toggle="modal" href="#myModal" title="Bootstrap 3 themes generator">답변완료</a>
-											<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-												<div class="modal-dialog">
-													<div class="modal-content">
-														<div class="modal-header">
-															<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-															<h4 class="modal-title">답변달기</h4>
-														</div>
-														<div class="modal-body">
-															<form role="form" class="form-inline">
-															<input type="hidden" name="num" value="글번호들어갈곳"/>
-																<div class="form-group">
-																	<label class="control-label col-sm-2">문의 내용</label>
-																	<div class="col-sm-10">
-																		<textarea class="form-control ckeditor" name="editor1" rows="6" readonly="readonly"></textarea>
-																	</div>
-																	<label class="control-label col-sm-2" style="margin-top: 4%;">답변 내용</label>
-																	<div class="col-sm-10">
-																		<textarea class="form-control ckeditor" name="editor1" rows="6" style="margin-top: 5%;"></textarea>
-																	</div>
-																	<a class="btn btn-success" title="Bootstrap 3 themes generator" style="margin-left: 80%; margin-top: 2%;">답변완료</a>
-																</div>
-															</form>
-														</div>
-													</div>
-												</div>
-											</div>
-										</td>
+										<th><i class="icon_pin_alt"></i> 제휴번호</th>
+										<th><i class="icon_calendar"></i> 회사명</th>
+										<th><i class="icon_documents_alt"></i> 사업자등록번호</th>
+										<th><i class="icon_calendar"></i> 신청일</th>
+										<th><i class="icon_plus_alt2"></i> 상세보기</th>
 									</tr>
 									<tr>
-										<td>2</td>
-										<td>Jacob</td>
-										<td>Thornton</td>
+										<td>00001</td>
+										<td>KOSTA</td>
+										<td>176-026-5992</td>
+										<td>17.01.01</td>
 										<td>
-											<a class="btn btn-danger" data-toggle="modal" href="#myModal2" title="Bootstrap 3 themes generator">답변필요</a>
-											<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal2" class="modal fade">
-												<div class="modal-dialog">
-													<div class="modal-content">
-														<div class="modal-header">
-															<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-															<h4 class="modal-title">답변달기</h4>
-														</div>
-														<div class="modal-body">
-															<form role="form" class="form-inline">
-															<input type="hidden" name="num" value="글번호들어갈곳"/>
-																<div class="form-group">
-																	<label class="control-label col-sm-2">문의 내용</label>
-																	<div class="col-sm-10">
+											<div class="btn-group">
+												<a class="btn btn-primary" href="#showview" data-toggle="modal">
+													<i class="icon_plus_alt2"> 상세보기</i>
+												</a>
+												<div aria-hidden="true" aria-labelledby="myModalLabel"
+													role="dialog" tabindex="-1" id="showview" class="modal fade">
+													<div class="modal-dialog">
+														<div class="modal-content">
+															<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal"
+																	class="close" type="button">×</button>
+																<h4 class="modal-title">상세보기</h4>
+															</div>
+															<div class="modal-body">
+																<form role="form">
+																	<div class="form-group">
+																		<label for="exampleInputEmail1">제휴번호</label>
+																		<input type="email" class="form-control"
+																			id="exampleInputEmail3" >
+																	</div>
+																	<div class="form-group">
+																		<label for="exampleInputEmail1">회사명/대표명/사업자번호</label>
+																		<input type="email" class="form-control"
+																			id="exampleInputEmail3" >
+																	</div>
+																	<div class="form-group">
+																		<label for="exampleInputEmail1">신청일</label>
+																		<input type="email" class="form-control"
+																			id="exampleInputEmail3" >
+																	</div>
+																	<div>
+																		<label for="exampleInputEmail1">문의 내용</label>
 																		<textarea class="form-control ckeditor" name="editor1" rows="6" readonly="readonly"></textarea>
 																	</div>
-																	<label class="control-label col-sm-2" style="margin-top: 4%;">답변 내용</label>
-																	<div class="col-sm-10">
-																		<textarea class="form-control ckeditor" name="editor1" rows="6" style="margin-top: 5%;"></textarea>
+																	<div class="form-group">
+																		<label for="exampleInputEmail1">사업자 등록증</label>
 																	</div>
-																	<a class="btn btn-success" title="Bootstrap 3 themes generator" style="margin-left: 80%; margin-top: 2%;">답변완료</a>
-																</div>
-															</form>
+																	<div class="form-group">
+																		<img id="imgshow" alt="사업자등록증" src="/upload/alliance/num01.gif" width="50px" height="70px">
+																	</div>
+																	<button type="close" class="btn btn-primary">닫기</button>
+																</form>
+															</div>
 														</div>
 													</div>
 												</div>
+												<a class="btn btn-success" href="#">
+													<i class="icon_check_alt2"> 승인</i>
+												</a>
+												<a class="btn btn-danger" href="#">
+													<i class="icon_close_alt2"> 거절</i>
+												</a>
 											</div>
 										</td>
 									</tr>
@@ -227,5 +227,42 @@
 	<!--custome script for all page-->
 	<script src="/resource/admin/js/scripts.js"></script>
 	
+	<script type="text/javascript">
+		$("#imgshow").click(function(){
+			doImgPop($(this).attr("src"));
+		});
+		
+		
+		function doImgPop(img) {
+			img1 = new Image();
+			img1.src = (img);
+			imgControll(img);
+		}
+
+		function imgControll(img) {
+			if ((img1.width != 0) && (img1.height != 0)) {
+				viewImage(img);
+			} else {
+				controller = "imgControll('" + img + "')";
+				intervalID = setTimeout(controller, 20);
+			}
+		}
+
+		function viewImage(img) {
+			W = img1.width;
+			H = img1.height;
+			O = "width=" + W + ",height=" + H + ",scrollbars=yes";
+			imgWin = window.open("", "", O);
+			imgWin.document
+					.write("<html><head><title>상세보기</title></head>");
+			imgWin.document.write("<body topmargin=0 leftmargin=0>");
+			imgWin.document
+					.write("<img src="
+							+ img
+							+ " onclick='self.close()' style='cursor:pointer;' title ='클릭하시면 창이 닫힙니다.'>");
+			imgWin.document.close();
+		}
+	</script>
+
 </body>
 </html>
