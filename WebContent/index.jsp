@@ -10,5 +10,13 @@
 
 <a href="allianceMain.tm">dddd</a>
 
+<a href="searchpage/search.tm">서치페이지</a>
+
+<form action="searchpage/search.tm" method="get">
+
+<input type="text" name="cityName"/>
+<input type="submit"/>
+</form>
+
 </body>
 </html>

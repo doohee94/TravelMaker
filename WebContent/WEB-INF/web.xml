@@ -16,6 +16,7 @@
   		/WEB-INF/springconfig/common-servlet.xml
   		/WEB-INF/springconfig/alloance-servlet.xml
   		/WEB-INF/springconfig/admin-servlet.xml
+  		/WEB-INF/springconfig/search-servlet.xml
   		</param-value>
   	</init-param>
   </servlet>
