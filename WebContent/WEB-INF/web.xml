@@ -17,6 +17,7 @@
   		/WEB-INF/springconfig/alloance-servlet.xml
   		/WEB-INF/springconfig/admin-servlet.xml
   		/WEB-INF/springconfig/search-servlet.xml
+  		/WEB-INF/springconfig/step2-servlet.xml
   		</param-value>
   	</init-param>
   </servlet>
