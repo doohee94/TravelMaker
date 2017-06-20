@@ -89,7 +89,7 @@
    href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resource/step3/step3.css">
 
-<!-- <!-- header CSS파일 --> -->
+<!-- <!-- header CSS파일 -->
 <!-- <link rel="stylesheet" href="../header/css/header.css"> -->
 
 </head>

@@ -23,7 +23,7 @@
 
 <!-- 팝업 js파일/cnd -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript"  src="script/alopex-ui.min.js"></script>  
+<script type="text/javascript"  src="/resource/step3/script/alopex-ui.min.js"></script>  
 
 </head>
 <body>

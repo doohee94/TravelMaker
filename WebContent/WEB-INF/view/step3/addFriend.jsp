@@ -33,7 +33,7 @@
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript"  src="script/alopex-ui.min.js"></script>  
+<script type="text/javascript"  src="/resource/step3/script/alopex-ui.min.js"></script>  
 <title>Insert title here</title>
 </head>
 <body>
@@ -55,7 +55,7 @@
 <button id="addBtn">추가</button>
 <br/>
 <%//}else{ %> <!--  받아오는 아이디가 없으면 밑에 출력 -->
-<img src="step3_image/no.png""/>
+<img src="/resource/step3/step3_image/no.png""/>
 <div  style="display: inline-block;">존재하는 아이디가 없습니다</div>
 <%//} %>
 </div>

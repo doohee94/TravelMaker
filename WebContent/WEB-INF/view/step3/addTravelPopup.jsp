@@ -12,9 +12,9 @@
 <!-- jquery, jquery mobile 관련 cdn -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script type="text/javascript" src="step3Content.js"></script>
+<script type="text/javascript" src="/resource/step3/step3Content.js"></script>
 <!-- 팝업 관련 파일 -->
-<script type="text/javascript"  src="script/alopex-ui.min.js"></script>
+<script type="text/javascript"  src="/resource/step3/script/alopex-ui.min.js"></script>
 </head>
 <body>
 <div align="center">

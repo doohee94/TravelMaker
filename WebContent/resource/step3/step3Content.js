@@ -107,7 +107,7 @@ $( function() {
    //개인일정 추가 버튼 누르면 팝업 띄우고 결과값 리스트에 저장하는 함수
    $("#chuga").click(function(){
       $a.popup({
-         url : "addTravelPopup.jsp",
+         url : "addTravelPopup.tm",
          ifram:true,
          width : 600,
          height : 250,
@@ -349,7 +349,7 @@ $( function() {
    //친구추가버튼 누를 시 팝업 뜨기
    $("#addFriend").click(function(){
       $a.popup({
-             url: "addFriend.jsp" // 팝업에 표시될 HTML
+             url: "step/addFriend.tm" // 팝업에 표시될 HTML
            , iframe: true // default
            , width: 600
            , height : 250
@@ -364,7 +364,7 @@ $( function() {
    $("#tempSave").click(function(){
          var state =0;
       $a.popup({
-             url: "tempSave.jsp" // 팝업에 표시될 HTML
+             url: "tempSave.tm" // 팝업에 표시될 HTML
            , iframe: true // default
            , width: 600
            , height : 250
@@ -394,7 +394,7 @@ $( function() {
    $("#save").click(function(){
       var state =0;
       $a.popup({
-             url: "save.jsp" //
+             url: "save.tm" //
            , iframe: true // default
            , width: 600
            , height : 250
@@ -536,8 +536,7 @@ $( function() {
    
    
    
-   //채팅 입력 하면!!!!!!
-   $("#chat_body").scrollTop($("#chat_body")[0].scrollHeight); //스트롤바 하단유지
+   //채팅 입력화면!!!!!!
    $("#send").click(function(){
       
       var chat = $("#chat_text").val();
