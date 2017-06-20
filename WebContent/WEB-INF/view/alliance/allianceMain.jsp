@@ -19,9 +19,9 @@
 <body>
 <center>
 위에 헤더 붙이고<br/>
-<img alt="" src="/Test/resource/alliance/image/alliance.jpg" />
+<img alt="" src="/resource/alliance/image/alliance.jpg" />
 <br/>
-<a href="allianceReq.tm"><img alt="" class="button" src="/Test/resource/alliance/image/button.png" /></a>
+<a href="allianceReq.tm"><img alt="" class="button" src="/resource/alliance/image/button.png" /></a>
 </center>
 
 </body>

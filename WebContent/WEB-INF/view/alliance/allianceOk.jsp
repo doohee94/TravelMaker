@@ -19,9 +19,9 @@
 </head>
 <body>
 <center>
-<img alt="" src="/Test/resource/alliance/image/finsh.jpg" />
+<img alt="" src="/resource/alliance/image/finsh.jpg" />
 <br/>
-<a href="allianceMain.tm"><img alt="" class="button" src="/Test/resource/alliance/image/main.png" /></a>
+<a href="allianceMain.tm"><img alt="" class="button" src="/resource/alliance/image/main.png" /></a>
 </center>
 
 </body>

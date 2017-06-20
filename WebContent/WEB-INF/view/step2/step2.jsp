@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -144,36 +145,42 @@
   border-radius: 15px;
 }
 
-.panel-front { /* Only for this preview */
-display:inline-block;
-	margin-right:20px;
-	width : 30%;
-    margin-bottom:20px;
-    margin-top:20px;
+.cours2{
+	position:relative;
+	margin-bottom:50px;
+	width: 30%;	
+	margin-left:30px;
+	float: left;
 }
 
-.panel-front .panel-heading .panel-title img {
-	border-radius:3px 3px 0px 0px;
-	width:100%;
+.cours3{
+	-border:1px solid red;
+	position:absolute;
+	top:-100px;
+	opacity:0;
+	-bottom:100px;
+	-background-color:rgba(142,198,63,.8);
+	background-color:rgba(0,0,0,0.9);
+	color:white;
+	padding:10p;
+}
+.cours2:hover .cours3 {
+	opacity:1;
+	top:20px;
+	transition:1s;
 }
 
-.panel-front .panel-heading {
-	padding: 0px;	
+.cours2:hover {
+	opacity:1;
+	bottom:0;
+	transition:1s;
+}
+.cours2:hover .hover{
+	transform:scale(1.3);
+	transition:1s;
 }
 
-.panel-front .panel-heading h4 {
-	line-height: 0;
-}
 
-.panel-front .panel-body h4 {
-	font-weight: bold;
-	margin-top: 5px;
-	margin-bottom: 15px;
-}
-
-.text-right {
-    margin-top: 10px;
-}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -195,6 +202,54 @@ display:inline-block;
     	}
     });
     
+    $(".sellist").click(function(){
+    	var keyword = $(this).text();
+    	var key = "CKOKxPOpAhEnu8gzrMSEwqHCW3zGNCxaFWAOjtXL%2B82aon1CjzdWU8g%2BkknZZRWgd9CnHDJywcDr495yzWoV4g%3D%3D";
+		$.ajax({
+			url : "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?ServiceKey="+key
+			,dataType:"json"
+			,data : {
+				"keyword":keyword,
+				"MobileOS":"ETC",
+				"MobileApp":"AppTesting",
+				"arrange":"B",
+				"numOfRows":"6",
+				"_type":"json"
+			}
+			,success:function(data){
+				$(".mainright").text("");
+				//undefined
+				for (var i = 0; i < 7; i++) {
+					$(".mainright").append("<div class='for2"+[i]+" cours2' style='overflow:hidden;'>");
+					if(data.response.body.items.item[i].firstimage == null || data.response.body.items.item[i].firstimage=="undefined"){
+						$(".for2"+[i]).append("<img class='hover' src='/resource/step2/noimage.jpg' style='width:100%;height:200px;border:1px solid transparent;transition:1s;'>");
+					}else{
+						$(".for2"+[i]).append("<img class='hover' src='"+data.response.body.items.item[i].firstimage+"' style='width:100%;height:200px;border:1px solid transparent;transition:1s;'>");
+					}
+					$(".for2"+[i]).append("<div class='for3"+[i]+" cours3'>");
+					$(".for3"+[i]).append("<h2 style='text-align:center;margin-top:-6px;color:rgb(237,78,110);'>"+data.response.body.items.item[i].title+"</h2>");
+					$(".for3"+[i]).append("<h5 style='text-align:center;'>"+data.response.body.items.item[i].addr1+data.response.body.items.item[i].addr2+"</h5>");
+				}
+				
+			}//end success
+			,error:function(err){
+				alert("실패!"+err.status);
+			}
+		}); //end of ajax
+  	
+	});
+    
+    $("#changelistbtn").click(function(){
+    	var str = "";
+    	$(".changelist li").each(function(){
+    		str += $(this).text();
+    		str += " ";
+    	});
+    	$("#changelist").val(str.trim());
+    	$("#frm").attr("action","step2.tm");
+    	$("#frm").submit();
+    });
+    
   } );
 </script>
 </head>
@@ -211,42 +266,33 @@ display:inline-block;
 		<div class="showlist">
 			<div class="stepwizard">
 				<div class="stepwizard-row">
-					<div class="stepwizard-step">
-						<button type="button" class="btn btn-primary btn-circle" disabled="disabled">start</button>
-						<p>출발지</p>
-					</div>
-					<div class="stepwizard-step">
-						<button type="button" class="btn btn-default btn-circle" disabled="disabled">1</button>
-						<p>경유지</p>
-					</div>
-					<div class="stepwizard-step">
-						<button type="button" class="btn btn-default btn-circle" disabled="disabled">2</button>
-						<p>경유지</p>
-					</div>
-					<div class="stepwizard-step">
-						<button type="button" class="btn btn-default btn-circle" disabled="disabled">3</button>
-						<p>경유지</p>
-					</div>
-					<div class="stepwizard-step">
-						<button type="button" class="btn btn-primary btn-circle" disabled="disabled">end</button>
-						<p>도착지</p>
-					</div>
-					
+					<c:if test="${list !=null }">
+						<c:set var="i">0</c:set>
+						<c:forEach var="s" items="${list}">
+							<div class="stepwizard-step">
+								<button type="button" class="btn btn-default btn-circle" disabled="disabled">${s }</button>
+								<p>${s }</p>
+							</div>
+						</c:forEach>
+					</c:if>
 				</div>
 			</div>
 		<div>
 
-
 		<br /><br />
-		<div><a href="#" class="btn btn-primary btn-info" style="float: right;"><span class="glyphicon glyphicon-check"></span>변경</a><span style="padding-right:30px; float:right; text-align: right; font-size: 1.5em;">변경 여행 리스트</span></div>
+		<form id="frm" method="post">
+			<input type="hidden" id="changelist" name="changelist" />
+		<div><a href="#" id="changelistbtn" class="btn btn-primary btn-info" style="float: right;"><span class="glyphicon glyphicon-check"></span>변경</a><span style="padding-right:30px; float:right; text-align: right; font-size: 1.5em;">변경 여행 리스트</span></div>
+		</form>
 		<br /><br />
 		<div style="border: 2px inset #EAEAEA;">
 			<ul id="changelist" class="changelist">
-				<li class="changelist">출발지</li>
-				<li class="changelist">경유</li>
-				<li class="changelist">경유</li>
-				<li class="changelist">경유</li>
-				<li class="changelist">도착지</li>
+				<c:if test="${list !=null }">
+					<c:set var="i">0</c:set>
+					<c:forEach var="s" items="${list}">
+						<li class="changelist">${s }</li>
+					</c:forEach>
+				</c:if>
 			</ul>
 		</div>
 		<br /> <br /><br />
@@ -258,49 +304,33 @@ display:inline-block;
 		<div class="main">
 			<div class="mainleft">
 				<ul id="selectlist" class="dropfalse">
-					<li class="sellist">경유</li>
-					<li class="sellist">경유</li>
-					<li class="sellist">경유</li>
-					<li class="sellist">경유</li>
-					<li class="sellist">경유</li>
-					<li class="sellist">경유</li>
-					<li class="sellist">경유</li>
-					<li class="sellist">경유</li>
-					<li class="sellist">경유</li>
+					<c:if test="${addlist !=null }">
+						<c:forEach var="add" items="${addlist}">
+							<li class="sellist">${add }</li>
+						</c:forEach>
+					</c:if>
 				</ul>
 			</div>
 			<div class="mainright">
-				<div class="panel panel-default panel-front">
-					<div class="panel-heading">
-						<h4 class="panel-title">
-							<a href="#"><img src="http://blog.fujixerox.co.kr/wp-content/uploads/1/cfile5.uf.1402B64B5146BF16164376.jpg" style="width: 100%; height: 100	%;"></a>
-						</h4>
-					</div>
-					<div class="panel-body">
-						<h4>장소이름</h4>
-							주소
+				<div class="cours2" style="overflow:hidden;">
+					<img class="hover" src="https://cdn.shutterstock.com/shutterstock/videos/5276318/thumb/1.jpg" style="width:100%;height:200px;border:1px solid transparent;transition:1s;">
+					<div class="cours3">
+						<h2 style="text-align:center;margin-top:-6px;color:rgb(237,78,110);">이름</h2>
+						<h5 style="text-align:center;">주소</h5>
 					</div>
 				</div>
-				<div class="panel panel-default panel-front">
-					<div class="panel-heading">
-						<h4 class="panel-title">
-							<a href="#"><img src="http://blog.fujixerox.co.kr/wp-content/uploads/1/cfile5.uf.1402B64B5146BF16164376.jpg" style="width: 100%; height: 100	%;"></a>
-						</h4>
-					</div>
-					<div class="panel-body">
-						<h4>장소이름</h4>
-							주소
+				<div class="cours2" style="overflow:hidden;">
+					<img class="hover" src="https://cdn.shutterstock.com/shutterstock/videos/5276318/thumb/1.jpg" style="width:100%;height:200px;border:1px solid transparent;transition:1s;">
+					<div class="cours3">
+						<h2 style="text-align:center;margin-top:-6px;color:rgb(237,78,110);">이름</h2>
+						<h5 style="text-align:center;">주소</h5>
 					</div>
 				</div>
-				<div class="panel panel-default panel-front">
-					<div class="panel-heading">
-						<h4 class="panel-title">
-							<a href="#"><img src="http://blog.fujixerox.co.kr/wp-content/uploads/1/cfile5.uf.1402B64B5146BF16164376.jpg" style="width: 100%; height: 100	%;"></a>
-						</h4>
-					</div>
-					<div class="panel-body">
-						<h4>장소이름</h4>
-							주소
+				<div class="cours2" style="overflow:hidden;">
+					<img class="hover" src="https://cdn.shutterstock.com/shutterstock/videos/5276318/thumb/1.jpg" style="width:100%;height:200px;border:1px solid transparent;transition:1s;">
+					<div class="cours3">
+						<h2 style="text-align:center;margin-top:-6px;color:rgb(237,78,110);">이름</h2>
+						<h5 style="text-align:center;">주소</h5>
 					</div>
 				</div>
 			</div>
