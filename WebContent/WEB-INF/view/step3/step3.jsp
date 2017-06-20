@@ -254,6 +254,8 @@
                 
                 
 </div>
+<!--  채팅용 js -->
+<script type="text/javascript" src="/resource/step3/ws.js">
 <script type="text/javascript">
 
 //DAY change
