@@ -13,6 +13,37 @@
 	
 $( function() {
    
+	
+	
+	//경로최적화 버튼
+	
+	
+	$("#distanceCal").click(function(){
+		
+	
+		var test = {"a":"1",
+				"b":"2",
+					"c":"3"};
+		
+		$.ajax({
+			
+			url : "/step/distanceCal.tm"
+			,data:test
+			,dataType:"JSON"
+			,success:function(data){
+				alert(data.a);
+			}
+			,error:function(err,status,error){
+				alert("실패!"+err.status+error);
+			}
+			
+		});
+		
+	});//end 경로 최적화 
+	
+	
+	
+	
   
 //   /*맨처음 디폴트로 띄울 지도 위치*/
 //    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 

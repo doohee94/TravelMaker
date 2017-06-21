@@ -200,6 +200,7 @@
    <div id="map" style="width: 40%; height: 750px;display:inline-block;"></div>
 </div><!--  지도/리스트들 끝끝 -->
 
+<input type="button" value="경로 최적화" id="distanceCal" />
 
 <!-- 채팅 슬라이드 내비 부분@@@@ -->
 <div id="mySidenav" class="sidenav">
@@ -238,9 +239,7 @@
                 <p class="text-muted">Matt Townsen</p>
                     <p>Test message</p>
                 </div>
-
-                
-            </div>
+	        </div>
             <div class="panel-footer">
                  <div class="input-group">
                   <input type="text" id="chat_text" class="form-control">
@@ -250,9 +249,7 @@
                 </div>
             </div>
           </div>
-        </div>
-                
-                
+        </div>    
 </div>
 <!--  채팅용 js -->
 <script type="text/javascript" src="/resource/step3/ws.js">
