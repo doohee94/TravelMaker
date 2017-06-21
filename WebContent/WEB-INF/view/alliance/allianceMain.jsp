@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!-- 
+	allianceMain.jsp
+	제휴 페이지 Main 페이지
+ -->
 <!DOCTYPE html>
 <html>
 <head>

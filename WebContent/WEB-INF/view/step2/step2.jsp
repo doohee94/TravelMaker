@@ -1,15 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>jQuery UI Sortable - Handle empty lists</title>
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <!-- Optional theme -->
@@ -266,13 +267,28 @@
 		<div class="showlist">
 			<div class="stepwizard">
 				<div class="stepwizard-row">
-					<c:if test="${list !=null }">
-						<c:set var="i">0</c:set>
-						<c:forEach var="s" items="${list}">
-							<div class="stepwizard-step">
-								<button type="button" class="btn btn-default btn-circle" disabled="disabled">${s }</button>
-								<p>${s }</p>
-							</div>
+					<c:if test="${!empty list }">
+						<c:forEach var="s" items="${list}" varStatus="cnt">
+							<c:choose>
+								<c:when test="${cnt.index eq '0'}">
+									<div class="stepwizard-step">
+										<button type="button" class="btn btn-default btn-circle" disabled="disabled">start</button>
+										<p>${s }</p>
+									</div>
+								</c:when>
+								<c:when test="${cnt.count eq fn:length(list)}">
+									<div class="stepwizard-step">
+										<button type="button" class="btn btn-default btn-circle" disabled="disabled">end</button>
+										<p>${s }</p>
+									</div>
+								</c:when>
+								<c:otherwise>
+									<div class="stepwizard-step">
+										<button type="button" class="btn btn-default btn-circle" disabled="disabled"><c:out value="${cnt.index }" /></button>
+										<p>${s }</p>
+									</div>
+								</c:otherwise>
+							</c:choose>
 						</c:forEach>
 					</c:if>
 				</div>
@@ -312,27 +328,6 @@
 				</ul>
 			</div>
 			<div class="mainright">
-				<div class="cours2" style="overflow:hidden;">
-					<img class="hover" src="https://cdn.shutterstock.com/shutterstock/videos/5276318/thumb/1.jpg" style="width:100%;height:200px;border:1px solid transparent;transition:1s;">
-					<div class="cours3">
-						<h2 style="text-align:center;margin-top:-6px;color:rgb(237,78,110);">이름</h2>
-						<h5 style="text-align:center;">주소</h5>
-					</div>
-				</div>
-				<div class="cours2" style="overflow:hidden;">
-					<img class="hover" src="https://cdn.shutterstock.com/shutterstock/videos/5276318/thumb/1.jpg" style="width:100%;height:200px;border:1px solid transparent;transition:1s;">
-					<div class="cours3">
-						<h2 style="text-align:center;margin-top:-6px;color:rgb(237,78,110);">이름</h2>
-						<h5 style="text-align:center;">주소</h5>
-					</div>
-				</div>
-				<div class="cours2" style="overflow:hidden;">
-					<img class="hover" src="https://cdn.shutterstock.com/shutterstock/videos/5276318/thumb/1.jpg" style="width:100%;height:200px;border:1px solid transparent;transition:1s;">
-					<div class="cours3">
-						<h2 style="text-align:center;margin-top:-6px;color:rgb(237,78,110);">이름</h2>
-						<h5 style="text-align:center;">주소</h5>
-					</div>
-				</div>
 			</div>
 		</div>
 		<br style="clear: both">
