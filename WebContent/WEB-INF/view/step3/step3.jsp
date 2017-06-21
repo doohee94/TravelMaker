@@ -205,8 +205,6 @@
 <!-- 채팅 슬라이드 내비 부분@@@@ -->
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  
-  
  <div class="panel panel-default" style="width: 280px; margin-top: 150px">
           <div class="panel-heading">Panel heading without title</div>
           <div class="panel-body" align="left">

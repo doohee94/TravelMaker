@@ -20,18 +20,27 @@ $( function() {
 	
 	$("#distanceCal").click(function(){
 		
-	
-		var test = {"a":"1",
-				"b":"2",
-					"c":"3"};
+		var title = ["1","2","3"];
+		var mapx = ["37.477723","37.472560","37.477598"];//위도 가로
+		var mapy = ["126.881967","126.885288","126.889277"];//경도 세로
+		var addr = ["a","v","b"];
+		
+		var test ={
+				
+			"title": title,
+			"mapx":mapx,
+			"mapy":mapy,
+			"addr":addr
+		};
 		
 		$.ajax({
-			
-			url : "/step/distanceCal.tm"
-			,data:test
+			method:"post"
+			,contentType:"application/json "
+			,url : "/step/distanceCal.tm"
+			,data:JSON.stringify(test)
 			,dataType:"JSON"
 			,success:function(data){
-				alert(data.a);
+				alert(data.test);
 			}
 			,error:function(err,status,error){
 				alert("실패!"+err.status+error);

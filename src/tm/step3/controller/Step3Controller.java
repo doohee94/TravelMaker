@@ -5,6 +5,7 @@ import java.util.HashMap;
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,12 +31,11 @@ public class Step3Controller {
 	
 	@RequestMapping("/distanceCal.tm")
 	@ResponseBody
-	public HashMap<String,Object> distanceCal(@RequestParam HashMap<String,Object> test){
+	public String distanceCal(@RequestBody String test){
 		System.out.println("스프링@@@@"+test);
-		System.out.println("@@ 값"+test.get("a"));
 		
 		
-	
+		
 		return test;
 	}
 	
