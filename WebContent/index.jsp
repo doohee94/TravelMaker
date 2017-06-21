@@ -42,7 +42,7 @@
 <input type="submit"/>
 </form>   
 
-<a href = "step2/step2.tm">스텝222222222222222가기</a> <br/>
+<a href = "step2/step2.tm" id="clicka" >스텝222222222222222가기</a> <br/>
 <a href = "step/step3.tm">스텝3333가기</a> 
 
 
