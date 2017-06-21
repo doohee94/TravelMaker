@@ -1,7 +1,11 @@
 package tm.step2.controller;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -10,6 +14,8 @@ import java.util.StringTokenizer;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
+import org.json.simple.parser.JSONParser;
+import org.springframework.context.support.StaticApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,101 +61,104 @@ public class Step2Controller {
 		}
 		
 		//받은 값에 대한 위도 경도 (초기값)
-		ArrayList<Double> coordinatelist = new ArrayList<Double>();
+		ArrayList<String> coordinatelist = new ArrayList<String>();
 		
 		//중간 위도 경도(최종 위도)
-		ArrayList<Double> addcoordinatelist = new ArrayList<Double>();
+		ArrayList<String> addcoordinatelist = new ArrayList<String>();
 		
 		//추가되는 리스트(최종본)
 		ArrayList<String> addlist = new ArrayList<String>();
 		
-		
+		long start = System.currentTimeMillis();
 		//list에 저장된 값을 읽어 coordinatelist에 도시에 대한 좌표 저장
 		for (String s : list) {
-			Double [] res = Geocoding(s);
-			coordinatelist.add(res[0]);
-			coordinatelist.add(res[1]);
+			String res = Geocoding(s);
+			coordinatelist.add(res);
 		}
+		long finsh = System.currentTimeMillis();
+		System.out.println("1번 시간(도시명 받아서 위도 경도 변환) : " + (finsh - start));
 		
 		//지정 위치 사이의 거리와 중간점을 뽑아낸다
-		// 3(1), 5(2), 9(4). 17(8), 33(16), 65(32)
-		//50 100 150 300 450 650 
-		for (int i = 0; i < coordinatelist.size(); i++) {
-			if( i!=1 && i%2==1){
-				double resrange = range(coordinatelist.get(i-3),coordinatelist.get(i-2),coordinatelist.get(i-1),coordinatelist.get(i));
-				//거리에 따른 반복횟수
-				int count = 0;
-				if(resrange <= 20) count = 0;
-				else if(resrange <= 50) count = 1;
-				else if(resrange <= 100) count = 2;
-				else if(resrange <= 180) count = 3;
-				else if(resrange <= 300) count = 4;
-				else if(resrange <= 450) count = 5;
-				else if(resrange <= 650) count = 6;
+		start = System.currentTimeMillis();
+		for (int i = 1; i < coordinatelist.size(); i++) {
+			double resrange = range(coordinatelist.get(i-1),coordinatelist.get(i));
+			//거리에 따른 반복횟수
+			int count = 0;
+			if(resrange <= 20) count = 0;
+			else if(resrange <= 50) count = 1;
+			else if(resrange <= 100) count = 2;
+			else if(resrange <= 180) count = 3;
+			else if(resrange <= 300) count = 4;
+			else if(resrange <= 450) count = 5;
+			else if(resrange <= 650) count = 6;
+			//두 좌표 비교 후 거리를 계산하여 중간좌표의 갯수를 조절
 				
-				//두 좌표 비교 후 거리를 계산하여 중간좌표의 갯수를 조절
+			//초기배열 (처음값 : 두좌표만)
+			ArrayList<String> initialvalueArr = new ArrayList<String>();
+			initialvalueArr.add(coordinatelist.get(i-1));
+			initialvalueArr.add(coordinatelist.get(i));
 				
-				//초기배열 (처음값 : 두좌표만)
-				ArrayList<Double> initialvalueArr = new ArrayList<Double>();
-				initialvalueArr.add(coordinatelist.get(i-3));
-				initialvalueArr.add(coordinatelist.get(i-2));
-				initialvalueArr.add(coordinatelist.get(i-1));
-				initialvalueArr.add(coordinatelist.get(i));
+			//추가배열
+			ArrayList<String> addvalueArr = new ArrayList<String>();
 				
-				//추가배열
-				ArrayList<Double> addvalueArr = new ArrayList<Double>();
+			//종합결과배열
+			ArrayList<String> resultvalueArr = new ArrayList<String>();
+			//종합결과배열의 초기값은 처음 배열과 같다
+			resultvalueArr.addAll(initialvalueArr);
 				
-				//종합결과배열
-				ArrayList<Double> resultvalueArr = new ArrayList<Double>();
-				//종합결과배열의 초기값은 처음 배열과 같다
-				resultvalueArr.addAll(initialvalueArr);
-				
-				//횟수만큼 반복
-				double[] add;
-				for (int j = 0; j < count; j++) {
-					for (int k = 0; k < initialvalueArr.size(); k++) {
-						if( k!=1 && k%2==1){
-							add = centralpoint(initialvalueArr.get(k-3),initialvalueArr.get(k-2),initialvalueArr.get(k-1),initialvalueArr.get(k));
-							addvalueArr.add(add[0]);
-							addvalueArr.add(add[1]);
-							resultvalueArr.addAll(k-3,addvalueArr);
-						}
-					}
-					initialvalueArr.clear();
-					initialvalueArr.addAll(resultvalueArr);
+			//횟수만큼 반복
+			String add="";
+			for (int j = 0; j < count; j++) {
+				for (int k = 1; k < initialvalueArr.size(); k++) {
+					//직선거리상 중간좌표를 뽑음
+					add = centralpoint(initialvalueArr.get(k-1),initialvalueArr.get(k));
+					addvalueArr.add(add);
+					resultvalueArr.addAll(k-1,addvalueArr);
 				}
-				addcoordinatelist.addAll(initialvalueArr);
+				initialvalueArr.clear();
+				initialvalueArr.addAll(resultvalueArr);
 			}
+			addcoordinatelist.addAll(initialvalueArr);
+			initialvalueArr.clear();
 		}
+		finsh = System.currentTimeMillis();
+		System.out.println("2번 시간(중간 좌표 뽑기) : " + (finsh - start));
 		
 		
-		//추가된 위도 경도로 도시명을 끌고온다
-		for (int i = 0; i < addcoordinatelist.size(); i++) {
-			if(i%2==1){
-				addlist.add(Geocoding(addcoordinatelist.get(i-1),addcoordinatelist.get(i)));
-			}
-		}
-		
-		//중복제거
-		HashSet hs = new HashSet(addlist);
+		start = System.currentTimeMillis();
+		HashSet hs = new HashSet(addcoordinatelist);
 		
 		ArrayList<String> newaddList = new ArrayList<String>(hs);
+		finsh = System.currentTimeMillis();
+		System.out.println("3번 시간 (중복제거): " + (finsh - start));
 		
-		//이미 선택된 위치 제거
+		//추가된 위도 경도로 도시명을 끌고온다
+		start = System.currentTimeMillis();
 		for (int i = 0; i < newaddList.size(); i++) {
+			addlist.add(ReGeocoding(newaddList.get(i)));
+		}
+		finsh = System.currentTimeMillis();
+		System.out.println("4번 시간(위도경도->도시명) : " + (finsh - start));
+		
+		//중복제거
+		start = System.currentTimeMillis();
+		HashSet hs2 = new HashSet(addlist);
+		ArrayList<String> newaddList2 = new ArrayList<String>(hs2);
+		//이미 선택된 위치 제거
+		for (int i = 0; i < newaddList2.size(); i++) {
 			for (String s : list) {
-				if(newaddList.get(i).equals(s)){
-					newaddList.remove(i);
+				if(newaddList2.get(i).equals(s)){
+					newaddList2.remove(i);
 					i=0;
 				}
 			}
 		}
-	
+		finsh = System.currentTimeMillis();
+		System.out.println("5번 시간 (선택한 위치 제거) : " + (finsh - start));
 		
 		ModelAndView mv =  new ModelAndView();
-		
 		mv.addObject("list", list);
-		mv.addObject("addlist", newaddList);
+		mv.addObject("addlist", newaddList2);
 		mv.setViewName(dir+"step2");
 		return mv;
 	}
@@ -161,10 +170,12 @@ public class Step2Controller {
 	 * 인자값 :  String(시/군)
 	 * 리턴값 : Double 배열 (위도 경도)
 	 */
-	public Double[] Geocoding (String sigun) {
+	public String Geocoding (String sigun) {
+		//구글
 		String key = "AIzaSyAPFngomh3VBqBO3RqPRaKCcfefgFCCN0o";
+		//다음
 		URL url;
-		Double [] res = new Double[2];
+		String res = "";
 		try {
 			url = new URL("https://maps.googleapis.com/maps/api/geocode/json?address="+sigun+"&key="+key);
 			// 한글 처리를 위해 InputStreamReader를 UTF-8 인코딩으로 감싼다.
@@ -180,8 +191,7 @@ public class Step2Controller {
 			//결과값 위도 경도
 			Double lat = (Double)(location.get("lat"));
 			Double lng = (Double)(location.get("lng"));
-			res[0]=lat;
-			res[1]=lng;
+			res = lat + ","+ lng;
 			
 		} catch (Exception e) {
 			System.out.println("에러발생 : " + e.getMessage());
@@ -191,17 +201,26 @@ public class Step2Controller {
 	}
 	
 	/**
-	 * Geocoding
+	 * ReGeocoding
 	 * 좌표를 입력받아 도시명으로 출력
 	 * 인자값 : 좌표
 	 * 리턴값 : String(도시명)
 	 */
-	public String Geocoding(double x, double y) {
+	public String ReGeocoding(String coordinates) {
 		String key = "AIzaSyAPFngomh3VBqBO3RqPRaKCcfefgFCCN0o";
 		URL url;
 		String res = "";
+		
+		//다음
+//		String apiKey = "47e8dd0317a1353f952001a6f28a33f2";
+		String apiKey = "d7cd900845b5f9c431bb5325b827e675";
+		String inputLine;
+		
+//		BufferedReader bufferedReader = null;
 		try {
-			url = new URL("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + x + "," + y + "&key=" + key
+			
+			//구글
+			url = new URL("https://maps.googleapis.com/maps/api/geocode/json?latlng=" +coordinates + "&key=" + key
 					+ "&language=ko");
 			// 한글 처리를 위해 InputStreamReader를 UTF-8 인코딩으로 감싼다.
 			InputStreamReader isr = new InputStreamReader(url.openConnection().getInputStream(), "UTF-8");
@@ -231,11 +250,44 @@ public class Step2Controller {
 					break;
 				}
 			}
-
+			
+			
+			//다음
+			//****** coordinates -> 분리해야함
+//			double[] result = splitMet(coordinates);
+//			String requestUrl = "https://apis.daum.net/local/geo/coord2addr";
+//			requestUrl += "?apikey=" + apiKey; // 발급된 키
+//			requestUrl += "&longitude=" + result[1];
+//			requestUrl += "&latitude=" + result[0];
+//			requestUrl += "&inputCoordSystem=WGS84&output=json";
+//			url = new URL(requestUrl);
+//			URLConnection conn = url.openConnection();
+//			bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+//			JSONParser jsonParser = new JSONParser();
+//			JSONObject jsonObject = (JSONObject) jsonParser.parse(bufferedReader);
+//			String name1 = (String) (jsonObject.get("name1"));
+//			String name2= (String) (jsonObject.get("name2"));
+//			//주소를 받아서 도시명 만 넘겨줌
+//			if(name1.contains("특별시")){
+//				res = name1.split(" ")[0].replace("특별시", "");
+//			}else if(name1.contains("광역시")){
+//				res = name1.split(" ")[0].replace("광역시", "");
+//			}else if (name2.contains("시")){
+//				res = name2.split(" ")[0].replace("시", "");
+//			}else if (name2.contains("군")){
+//				res = name2.split(" ")[0].replace("군", "");
+//			}
 		} catch (Exception e) {
 			System.out.println("에러발생 : " + e.getMessage());
 			e.printStackTrace();
 		}
+//		finally {
+//			try {
+//				if(bufferedReader !=null)bufferedReader.close();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
 		return res;
 	}
 	
@@ -245,12 +297,34 @@ public class Step2Controller {
 	 * 인자값 : x1,y1 과 x2,y2 좌표 2개
 	 * 결과값 : res (거리 : 단위 km)
 	 */
-	public static double range(double x1, double y1, double x2, double y2) {
+	public static double range(String a1, String a2) {
+		double[] result1 = splitMet(a1);
+		double[] result2 = splitMet(a2);
+		
 		double res = 0;
-		res = Math.acos(Math.cos(Math.toRadians(90 - x1)) * Math.cos(Math.toRadians(90 - x2))
-				+ Math.sin(Math.toRadians(90 - x1)) * Math.sin(Math.toRadians(90 - x2))
-						* Math.cos(Math.toRadians(y1 - y2)))
+		res = Math.acos(Math.cos(Math.toRadians(90 - result1[0])) * Math.cos(Math.toRadians(90 - result2[0]))
+				+ Math.sin(Math.toRadians(90 - result1[0])) * Math.sin(Math.toRadians(90 - result2[0]))
+						* Math.cos(Math.toRadians(result1[1] - result2[1])))
 				* 6371;
+		return res;
+	}
+	
+	
+	/**
+	 * splitMet
+	 * 문자열로 들어오는 좌표를 분리
+	 * 인자값 : 문자열 좌표
+	 * 리턴값 : double배열
+	 */
+	public static double[] splitMet(String arr) {
+		StringTokenizer st = new StringTokenizer(arr,",");
+		
+		double[] res = new double[2];
+		int i = 0;
+		while(st.hasMoreTokens()){
+			res[i] = Double.parseDouble(st.nextToken());
+			i++;
+		}
 		return res;
 	}
 
@@ -260,11 +334,16 @@ public class Step2Controller {
 	 * 인자값 : 두 지점의 좌표
 	 * 결과값 : 중간 좌표
 	 */
-	public static double[] centralpoint(double x1, double y1, double x2, double y2) {
-		double[] res = new double[2];
+	public static String centralpoint(String a1, String a2) {
+		double[] result1 = splitMet(a1);
+		double[] result2 = splitMet(a2);
+		
+		String res = "";
 		DecimalFormat df = new DecimalFormat(".000000");
-		res[0] = Double.parseDouble(df.format((x1 + x2) / 2));
-		res[1] = Double.parseDouble(df.format((y1 + y2) / 2));
+		res = df.format((result1[0] + result2[0]) / 2);
+		res += ",";
+		res += df.format((result2[1] + result2[1]) / 2);
+		
 		return res;
 	}
 

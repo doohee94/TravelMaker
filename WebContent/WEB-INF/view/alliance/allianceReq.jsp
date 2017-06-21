@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<!-- 
+	allianceReq.jsp
+	제휴 등록 페이지
+ -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +19,6 @@
 	crossorigin="anonymous">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 
 </head>
 <body>
@@ -117,6 +120,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>   
 	<script type="text/javascript">
 		$(".btn-info").click(function(){
+			//유효성 검사
+			
 			if($("#txt1").val() == "" || $("#txt1").val() == null){
 				alert("회사명 누락");
 				$("#txt1").focus();
@@ -203,6 +208,7 @@
 				return false;
 			}
 			
+			//검사 후 완료되면 submit
 			$("#frm").attr("action","allianceOk.tm");
 			$("#frm").submit();
 		});
