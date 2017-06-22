@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import tm.admin.dao.AdminDAO;
 import tm.admin.dto.AdminMemberDTO;
+import tm.admin.dto.AdminQnaDTO;
 
 /**
  * AdminController
@@ -77,4 +78,18 @@ public class AdminController {
 		
 		return list;
 	}
+	
+	@RequestMapping("/adminQna.tm")
+	public ModelAndView adminqna() {
+		List<AdminQnaDTO> list = dao.qnalist();
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName(dir+"adminQna");
+		mv.addObject("qnalist", list);
+		
+		return mv;
+	}
+	
+	
+	
 }

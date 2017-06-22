@@ -15,4 +15,10 @@
 		</where>
 		ORDER BY user_type desc
 	</select>
+	
+	<select id="qnalist" resultType="tm.admin.dto.AdminQnaDTO">
+		SELECT *
+		FROM QNA
+		ORDER BY qna_num desc
+	</select>
 </mapper>

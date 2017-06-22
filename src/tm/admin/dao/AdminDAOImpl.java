@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import tm.admin.dto.AdminMemberDTO;
+import tm.admin.dto.AdminQnaDTO;
 
 @Service
 public class AdminDAOImpl implements AdminDAO {
@@ -42,6 +43,12 @@ public class AdminDAOImpl implements AdminDAO {
 		
 		List<AdminMemberDTO> list = ss.selectList(namespace+".memberlist",map);
 		
+		return list;
+	}
+
+	@Override
+	public List<AdminQnaDTO> qnalist() {
+		List<AdminQnaDTO> list = ss.selectList(namespace+".qnalist");
 		return list;
 	}
 

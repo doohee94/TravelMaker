@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!-- 
 	adminQna.jsp
 	관리자 QNA 페이지 
@@ -126,74 +127,61 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>1</td>
-										<td>Mark</td>
-										<td>Otto</td>
-										<td>
-											<a class="btn btn-success" data-toggle="modal" href="#myModal" title="Bootstrap 3 themes generator">답변완료</a>
-											<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-												<div class="modal-dialog">
-													<div class="modal-content">
-														<div class="modal-header">
-															<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-															<h4 class="modal-title">답변달기</h4>
-														</div>
-														<div class="modal-body">
-															<form role="form" class="form-inline">
-															<input type="hidden" name="num" value="글번호들어갈곳"/>
-																<div class="form-group">
-																	<label class="control-label col-sm-2">문의 내용</label>
-																	<div class="col-sm-10">
-																		<textarea class="form-control ckeditor" name="editor1" rows="6" readonly="readonly"></textarea>
+									<c:choose>
+										<c:when test="${!empty qnalist }">
+											<c:forEach items="${qnalist}" var="q">
+												<tr>
+													<td>${q.qnaNum }</td>
+													<td>${q.qnaType }</td>
+													<td>${q.userId }</td>
+													<td>
+														<c:choose>
+															<c:when test="${!empty q.qnaReply }">
+																<a class="btn btn-success" data-toggle="modal" href="#${q.qnaNum }" title="Bootstrap 3 themes generator">답변완료</a>
+															</c:when>
+															<c:otherwise>
+																<a class="btn btn-danger" data-toggle="modal" href="#${q.qnaNum }" title="Bootstrap 3 themes generator">답변필요</a>
+															</c:otherwise>
+														</c:choose>
+														
+														<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="${q.qnaNum }" class="modal fade">
+															<div class="modal-dialog">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+																		<h4 class="modal-title">답변달기</h4>
 																	</div>
-																	<label class="control-label col-sm-2" style="margin-top: 4%;">답변 내용</label>
-																	<div class="col-sm-10">
-																		<textarea class="form-control ckeditor" name="editor1" rows="6" style="margin-top: 5%;"></textarea>
+																	<div class="modal-body">
+																		<form role="form" class="form-inline">
+																		<input type="hidden" name="qnaNum" value="${q.qnaNum }"/>
+																			<div class="form-group">
+																				<label class="control-label col-sm-2">문의 내용</label>
+																				<div class="col-sm-10">
+																					<textarea class="form-control ckeditor" name="qnaContent" rows="6" readonly="readonly">${q.qnaContent }</textarea>
+																				</div>
+																				<label class="control-label col-sm-2" style="margin-top: 4%;">답변 내용</label>
+																				<div class="col-sm-10">
+																					<textarea class="form-control ckeditor" name="qnaReply" rows="6" style="margin-top: 5%;">${q.qnaReply }</textarea>
+																				</div>
+																				<c:if test="${empty q.qnaReply }">
+																					<a class="btn btn-success" title="Bootstrap 3 themes generator" style="margin-left: 80%; margin-top: 2%;">답변완료</a>
+																				</c:if>
+																			</div>
+																		</form>
 																	</div>
-																	<a class="btn btn-success" title="Bootstrap 3 themes generator" style="margin-left: 80%; margin-top: 2%;">답변완료</a>
 																</div>
-															</form>
+															</div>
 														</div>
-													</div>
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>2</td>
-										<td>Jacob</td>
-										<td>Thornton</td>
-										<td>
-											<a class="btn btn-danger" data-toggle="modal" href="#myModal2" title="Bootstrap 3 themes generator">답변필요</a>
-											<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal2" class="modal fade">
-												<div class="modal-dialog">
-													<div class="modal-content">
-														<div class="modal-header">
-															<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-															<h4 class="modal-title">답변달기</h4>
-														</div>
-														<div class="modal-body">
-															<form role="form" class="form-inline">
-															<input type="hidden" name="num" value="글번호들어갈곳"/>
-																<div class="form-group">
-																	<label class="control-label col-sm-2">문의 내용</label>
-																	<div class="col-sm-10">
-																		<textarea class="form-control ckeditor" name="editor1" rows="6" readonly="readonly"></textarea>
-																	</div>
-																	<label class="control-label col-sm-2" style="margin-top: 4%;">답변 내용</label>
-																	<div class="col-sm-10">
-																		<textarea class="form-control ckeditor" name="editor1" rows="6" style="margin-top: 5%;"></textarea>
-																	</div>
-																	<a class="btn btn-success" title="Bootstrap 3 themes generator" style="margin-left: 80%; margin-top: 2%;">답변완료</a>
-																</div>
-															</form>
-														</div>
-													</div>
-												</div>
-											</div>
-										</td>
-									</tr>
+													</td>
+												</tr>
+											</c:forEach>
+										</c:when>
+										<c:otherwise>
+											<tr>
+												<td colspan="4">검색 결과가 없습니다</td>
+											</tr>
+										</c:otherwise>
+									</c:choose>
 								</tbody>
 							</table>
 						</section>

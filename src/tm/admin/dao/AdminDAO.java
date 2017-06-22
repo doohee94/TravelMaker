@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import tm.admin.dto.AdminMemberDTO;
+import tm.admin.dto.AdminQnaDTO;
 
 public interface AdminDAO {
 	
@@ -27,4 +28,10 @@ public interface AdminDAO {
 	 */
 	public List<AdminMemberDTO> Membersearch(String sel, String con);
 	
+	
+	/**
+	 * qnalist
+	 * QNA 전체 리스트를 출력
+	 */
+	public List<AdminQnaDTO> qnalist();
 }
