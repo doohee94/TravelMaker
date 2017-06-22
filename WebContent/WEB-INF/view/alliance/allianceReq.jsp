@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!-- 
-	allianceReq.jsp
-	제휴 등록 페이지
- -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +15,7 @@
 	crossorigin="anonymous">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 
 </head>
 <body>
@@ -38,54 +35,48 @@
 				</legend>
 				
 				<div class="form-group">
-					<label class="col-sm-3 control-label" for="txt1">회사명</label>
+					<label class="col-sm-3 control-label" for="partnerComname">회사명</label>
 					<div class="col-sm-3">
-						<input type="text" class="form-control" name="txt1" id="txt1" placeholder="회사명을 입력해주세요">
+						<input type="text" class="form-control" name="partnerComname" id="partnerComname" placeholder="회사명을 입력해주세요">
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="partnerCeoname">대표명</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control" name="partnerCeoname" id="partnerCeoname" placeholder="대표자 성함을 입력해주세요">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label class="col-sm-3 control-label" for="txt2">이름</label>
+					<label class="col-sm-3 control-label" for="partnerReginum">사업자 등록번호</label>
 					<div class="col-sm-3">
-						<input type="text" class="form-control" name="txt2" id="txt2" placeholder="이름을 입력해주세요">
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-sm-3 control-label" for="txt3">대표명</label>
-					<div class="col-sm-3">
-						<input type="text" class="form-control" name="txt3" id="txt3" placeholder="대표자 성함을 입력해주세요">
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-sm-3 control-label" for="txt4">사업자 등록번호</label>
-					<div class="col-sm-3">
-						<input type="text" class="form-control" name="txt4" id="txt4"
+						<input type="text" class="form-control" name="partnerReginum" id="partnerReginum"
 							placeholder="사업자번호를 (-) 없이 입력해주세요" >
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label class="col-sm-3 control-label" for="txt5">E-Mail</label>
+					<label class="col-sm-3 control-label" for="partnerEmail">E-Mail</label>
 					<div class="col-sm-3">
-						<input type="text" class="form-control" name="txt5" id="txt5"
+						<input type="text" class="form-control" name="partnerEmail" id="partnerEmail"
 							placeholder="E-mail 주소를 입력해주세요">
 					</div>
 				</div>
 
 
 				<div class="form-group">
-					<label class="col-sm-3 control-label" for="txt6">연락처</label>
+					<label class="col-sm-3 control-label" for="partnerTel1">연락처</label>
 					<div class="row">
 						<div class="col-sm-1">
-							<input type="text" class="form-control" name="txt6" id="txt6">
+							<input type="text" class="form-control" name="partnerTel1" id="partnerTel1">
 						</div>
 						<div class="col-sm-1">
-							<input type="text" class="form-control" name="txt7" id="txt7">
+							<input type="text" class="form-control" name="partnerTel2" id="partnerTel2">
 						</div>
 						<div class="col-sm-1">
-							<input type="text" class="form-control" name="txt8" id="txt8">
+							<input type="text" class="form-control" name="partnerTel3" id="partnerTel3">
 						</div>
 					</div>
 				</div>
@@ -99,9 +90,9 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-sm-3 control-label" for="txt10">문의내용</label>
+					<label class="col-sm-3 control-label" for="partnerContent">문의내용</label>
 					<div class="col-sm-5">
-						<textarea name="textarea" class="form-control" name="txt10" id="txt10" rows="5"></textarea>
+						<textarea class="form-control" name="partnerContent" id="partnerContent" rows="5"></textarea>
 					</div>
 				</div>
 
@@ -120,95 +111,86 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>   
 	<script type="text/javascript">
 		$(".btn-info").click(function(){
-			//유효성 검사
-			
-			if($("#txt1").val() == "" || $("#txt1").val() == null){
+			if($("#partnerComname").val() == "" || $("#partnerComname").val() == null){
 				alert("회사명 누락");
-				$("#txt1").focus();
+				$("#partnerComname").focus();
 				return false;
 			}
 			
-			if($("#txt2").val() == "" || $("#txt2").val() == null){
-				alert("이름 누락");
-				$("#txt2").focus();
-				return false;
-			}
-			
-			if($("#txt3").val() == "" || $("#txt3").val() == null){
+			if($("#partnerCeoname").val() == "" || $("#partnerCeoname").val() == null){
 				alert("대표자명 누락");
-				$("#txt3").focus();
+				$("#partnerCeoname").focus();
 				return false;
 			}
 			
-			if($("#txt4").val() == "" || $("#txt4").val() == null){
+			if($("#partnerReginum").val() == "" || $("#partnerReginum").val() == null){
 				alert("사업자번호 누락");
-				$("#txt4").focus();
+				$("#partnerReginum").focus();
 				return false;
 			}
 			
 			var pattern1=/[0-9]{10}$/;
-			if(!(pattern1.test($("#txt4").val()))){
+			if(!(pattern1.test($("#partnerReginum").val()))){
 				alert("잘못된 입력");
-				$("#txt4").focus();
+				$("#partnerReginum").focus();
 				return false;
 			}
 			
-			if($("#txt5").val() == "" || $("#txt5").val() == null){
+			if($("#partnerEmail").val() == "" || $("#partnerEmail").val() == null){
 				alert("E-mail 누락");
-				$("#txt5").focus();
+				$("#partnerEmail").focus();
 				return false;
 			}
 			
 			var pattern2=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-			if(!(pattern2.test($("#txt5").val()))){
+			if(!(pattern2.test($("#partnerEmail").val()))){
 				alert("E-mail 잘못");
-				$("#txt5").focus();
+				$("#partnerEmail").focus();
 				return false;
 			}
 			
 			var pattern3=/[0-9]{2,3}$/;
-			if($("#txt6").val() == "" || $("#txt6").val() == null){
+			if($("#partnerTel1").val() == "" || $("#partnerTel1").val() == null){
 				alert("전화번호 누락");
-				$("#txt6").focus();
+				$("#partnerTel1").focus();
 				return false;
 			}
-			if(!(pattern3.test($("#txt6").val()))){
+			if(!(pattern3.test($("#partnerTel1").val()))){
 				alert("전화번호 잘못된입력");
-				$("#txt6").focus();
+				$("#partnerTel1").focus();
 				return false;
 			}
 			
 			var pattern4=/[0-9]{3,4}$/;
-			if($("#txt7").val() == "" || $("#txt7").val() == null){
+			if($("#partnerTel2").val() == "" || $("#partnerTel2").val() == null){
 				alert("전화번호 누락");
-				$("#txt7").focus();
+				$("#partnerTel2").focus();
 				return false;
 			}
-			if(!(pattern4.test($("#txt7").val()))){
+			if(!(pattern4.test($("#partnerTel2").val()))){
 				alert("전화번호 잘못된입력");
-				$("#txt7").focus();
+				$("#partnerTel2").focus();
 				return false;
 			}
 			
 			var pattern5=/[0-9]{4}$/;
-			if($("#txt8").val() == "" || $("#txt8").val() == null){
+			if($("#partnerTel3").val() == "" || $("#partnerTel3").val() == null){
 				alert("전화번호 누락");
-				$("#txt8").focus();
+				$("#partnerTel3").focus();
 				return false;
 			}
-			if(!(pattern5.test($("#txt8").val()))){
+			if(!(pattern5.test($("#partnerTel3").val()))){
 				alert("전화번호 잘못된입력");
-				$("#txt8").focus();
+				$("#partnerTel3").focus();
 				return false;
 			}
 			
-			if($("#txt10").val() == "" || $("#txt10").val() == null){
+			if($("#partnerContent").val() == "" || $("#partnerContent").val() == null){
 				alert("내용 누락");
-				$("#txt10").focus();
+				$("#partnerContent").focus();
 				return false;
 			}
 			
-			//검사 후 완료되면 submit
 			$("#frm").attr("action","allianceOk.tm");
 			$("#frm").submit();
 		});

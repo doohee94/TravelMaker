@@ -1,1 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="alliance">
+	
+	<select id="alnumber" resultType="String">
+		SELECT seq_partner.nextval as num
+		FROM dual 
+	</select>
+	
+	<insert id="insert" parameterType="allianceDTO">
+		INSERT INTO partner(partner_num,
+		partner_reginum,
+		partner_comname,
+		partner_photo,
+		partner_photofake,
+		partner_ceoname,
+		partner_email,
+		partner_tel,
+		partner_content,
+		partner_date,
+		partner_state,
+		partner_type)
+		VALUES (#{partnerNum},
+		#{partnerReginum},
+		#{partnerComname},
+		#{partnerPhoto},
+		#{partnerPhotofake},
+		#{partnerCeoname},
+		#{partnerEmail},
+		#{partnerTel},
+		#{partnerContent},sysdate,10,0)
+	</insert>
+</mapper>

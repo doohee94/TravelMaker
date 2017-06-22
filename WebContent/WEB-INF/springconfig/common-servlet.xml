@@ -13,7 +13,12 @@
 	<!-- 마이바티즈 설정 -->
 	<bean id="factoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
-		<property name="mapperLocations" value="classpath*:memtest/member/mybatis/*.xml"/>
+		<property name="configLocation" value="classpath:/mybatis-config.xml" /> 
+		<property name="mapperLocations">
+			<array>
+				<value>classpath:tm/alliance/mapper/*.xml</value>
+			</array>
+		</property>
 	</bean>
 
 	<bean id="ss" class="org.mybatis.spring.SqlSessionTemplate">

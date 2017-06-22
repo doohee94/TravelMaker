@@ -7,22 +7,41 @@ import java.util.UUID;
 import org.springframework.web.multipart.MultipartFile;
 
 public class AllianceDTO {
-	private String txt1;
-	private String txt2;
-	private String txt3;
-	private String txt4;
-	private String txt5;
-	private String txt6;
-	private String txt7;
-	private String txt8;
-	private String txt9;
-	private String txt10;
+	/*
+CREATE TABLE partner (
+	partner_num       VARCHAR2(50)   NOT NULL CONSTRAINT pk_tm_partner_num PRIMARY key, -- 제휴번호
+	partner_reginum   VARCHAR2(50)   NOT NULL, -- 사업자등록번호
+	partner_comname   VARCHAR2(50)   NOT NULL, -- 회사명
+	partner_photo     VARCHAR2(50)   ,         -- 사업자등록증사진경로
+	partner_photofake VARCHAR2(500)  ,         -- 사업자등록증 가짜이름
+	partner_ceoname   VARCHAR2(50)   NOT NULL, -- 대표명
+	partner_email     VARCHAR2(50)   NOT NULL, -- EMAIL
+	partner_tel       VARCHAR2(50)   NOT NULL, -- 연락처
+	partner_content   VARCHAR2(1024) NOT NULL, -- 문의내용
+	partner_date      date           NOT NULL, -- 등록일
+	partner_state     NUMBER         NOT NULL, -- 승인/비승인상태
+	partner_type      NUMBER         NOT NULL  -- 제휴종류상태
+);
+	 */
+	
+	private String partnerNum;
+	private String partnerReginum;
+	private String partnerComname;
+	private String partnerPhoto;
+	private String partnerPhotofake;
+	private String partnerCeoname;
+	private String partnerEmail;
+	private String partnerTel;
+	private String partnerTel1;
+	private String partnerTel2;
+	private String partnerTel3;
+	private String partnerContent;
+	private String partnerDate;
+	private int partnerState;
+	private int partnerType;
+
 	
 	MultipartFile file;
-	
-	private String savefile;
-	private String originfile;
-	
 	
 	public MultipartFile getFile() {
 		return file;
@@ -33,13 +52,13 @@ public class AllianceDTO {
 		//파일 저장 부분
 		if( ! file.isEmpty() ){
 			//업로드 되는 파일 이름
-			this.originfile = file.getOriginalFilename();
+			this.partnerPhoto = file.getOriginalFilename();
 			//중복방지 파일명처리
 			String genId = UUID.randomUUID().toString();
-			this.savefile = genId + originfile;
+			this.partnerPhotofake = genId + partnerPhoto;
 			//파일 저장 경로
-			File f = new File("C:\\TravelMaker\\TravelMaker\\WebContent\\upload\\alliance\\"+savefile);
-			System.out.println(savefile);
+//			File f = new File("C:\\TravelMaker\\TravelMaker\\WebContent\\upload\\alliance\\"+partnerPhotofake);
+			File f = new File("C:\\TravelMaker\\Test\\WebContent\\upload\\alliance\\"+partnerPhotofake);
 			try {
 				file.transferTo(f);
 			} catch (IllegalStateException | IOException e) {
@@ -47,78 +66,96 @@ public class AllianceDTO {
 			}
 		}
 	}
-	
-	public String getSavefile() {
-		return savefile;
+	public String getPartnerNum() {
+		return partnerNum;
 	}
-	public void setSavefile(String savefile) {
-		this.savefile = savefile;
+	public void setPartnerNum(String partnerNum) {
+		this.partnerNum = partnerNum;
 	}
-	public String getOriginfile() {
-		return originfile;
+	public String getPartnerReginum() {
+		return partnerReginum;
 	}
-	public void setOriginfile(String originfile) {
-		this.originfile = originfile;
+	public void setPartnerReginum(String partnerReginum) {
+		this.partnerReginum = partnerReginum.substring(0,3) + "-" + partnerReginum.substring(3,5) + "-" + partnerReginum.substring(5);
 	}
-	public String getTxt1() {
-		return txt1;
+	public String getPartnerComname() {
+		return partnerComname;
 	}
-	public void setTxt1(String txt1) {
-		this.txt1 = txt1;
+	public void setPartnerComname(String partnerComname) {
+		this.partnerComname = partnerComname;
 	}
-	public String getTxt2() {
-		return txt2;
+	public String getPartnerPhoto() {
+		return partnerPhoto;
 	}
-	public void setTxt2(String txt2) {
-		this.txt2 = txt2;
+	public void setPartnerPhoto(String partnerPhoto) {
+		this.partnerPhoto = partnerPhoto;
 	}
-	public String getTxt3() {
-		return txt3;
+	public String getPartnerPhotofake() {
+		return partnerPhotofake;
 	}
-	public void setTxt3(String txt3) {
-		this.txt3 = txt3;
+	public void setPartnerPhotofake(String partnerPhotofake) {
+		this.partnerPhotofake = partnerPhotofake;
 	}
-	public String getTxt4() {
-		return txt4;
+	public String getPartnerCeoname() {
+		return partnerCeoname;
 	}
-	public void setTxt4(String txt4) {
-		this.txt4 = txt4;
+	public void setPartnerCeoname(String partnerCeoname) {
+		this.partnerCeoname = partnerCeoname;
 	}
-	public String getTxt5() {
-		return txt5;
+	public String getPartnerEmail() {
+		return partnerEmail;
 	}
-	public void setTxt5(String txt5) {
-		this.txt5 = txt5;
+	public void setPartnerEmail(String partnerEmail) {
+		this.partnerEmail = partnerEmail;
 	}
-	public String getTxt6() {
-		return txt6;
+	public String getPartnerTel() {
+		return partnerTel;
 	}
-	public void setTxt6(String txt6) {
-		this.txt6 = txt6;
+	public void setPartnerTel(String partnerTel) {
+		this.partnerTel = partnerTel;
 	}
-	public String getTxt7() {
-		return txt7;
+	public String getPartnerContent() {
+		return partnerContent;
 	}
-	public void setTxt7(String txt7) {
-		this.txt7 = txt7;
+	public void setPartnerContent(String partnerContent) {
+		this.partnerContent = partnerContent;
 	}
-	public String getTxt8() {
-		return txt8;
+	public int getPartnerState() {
+		return partnerState;
 	}
-	public void setTxt8(String txt8) {
-		this.txt8 = txt8;
+	public void setPartnerState(int partnerState) {
+		this.partnerState = partnerState;
 	}
-	public String getTxt9() {
-		return txt9;
+	public int getPartnerType() {
+		return partnerType;
 	}
-	public void setTxt9(String txt9) {
-		this.txt9 = txt9;
+	public void setPartnerType(int partnerType) {
+		this.partnerType = partnerType;
 	}
-	public String getTxt10() {
-		return txt10;
+	public String getPartnerDate() {
+		return partnerDate;
 	}
-	public void setTxt10(String txt10) {
-		this.txt10 = txt10;
+	public void setPartnerDate(String partnerDate) {
+		this.partnerDate = partnerDate;
+	}
+	public String getPartnerTel1() {
+		return partnerTel1;
+	}
+	public void setPartnerTel1(String partnerTel1) {
+		this.partnerTel1 = partnerTel1;
+	}
+	public String getPartnerTel2() {
+		return partnerTel2;
+	}
+	public void setPartnerTel2(String partnerTel2) {
+		this.partnerTel2 = partnerTel2;
+	}
+	public String getPartnerTel3() {
+		return partnerTel3;
+	}
+	public void setPartnerTel3(String partnerTel3) {
+		this.partnerTel3 = partnerTel3;
+		this.partnerTel = partnerTel1+"-"+partnerTel2+"-"+partnerTel3;
 	}
 	
 }
