@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<!-- 
+	adminMember.jsp
+	관리자 회원 관리 페이지
+ -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -113,17 +118,17 @@
 					<form class="form-inline" role="form" >
 						<div class="select">
 							<div class="col-lg-1">
-								<select class="form-control m-bot15">
-									<option>ID</option>
-									<option>이름</option>
+								<select class="form-control m-bot15" id="searchsel">
+									<option value="user_id">ID</option>
+									<option value="user_name">이름</option>
+									<option value="user_nick">닉네임</option>
 								</select>
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="sr-only" for="exampleInputEmail2">Email address</label>
-							<input type="text" class="form-control" id="exampleInputEmail2" placeholder="검색어 입력">
+							<input type="text" class="form-control" id="searchcon" placeholder="검색어 입력">
 						</div>
-						<button type="submit" class="btn btn-primary">검색</button>
+						<button type="button" id="searchmember" class="btn btn-primary">검색</button>
 					</form>
 				</div>
 				<!-- end -->
@@ -134,36 +139,30 @@
 							<table class="table table-hover">
 								<thead>
 									<tr>
-										<th>회원번호</th>
 										<th>ID</th>
+										<th>닉네임</th>
 										<th>이름</th>
 										<th>가입일</th>
 									</tr>
 								</thead>
-								<tbody>
-									<tr>
-										<td>1</td>
-										<td>Mark</td>
-										<td>Otto</td>
-										<td>@mdo</td>
-									</tr>
-									<tr>
-										<td>2</td>
-										<td>Jacob</td>
-										<td>Thornton</td>
-										<td>@fat</td>
-									</tr>
-									<tr>
-										<td>3</td>
-										<td colspan="2">Larry the Bird</td>
-										<td>@twitter</td>
-									</tr>
-									<tr>
-										<td>3</td>
-										<td>Sumon</td>
-										<td>Mosa</td>
-										<td>@twitter</td>
-									</tr>
+								<tbody class="listview">
+									<c:choose>
+										<c:when test="${!empty memlist}">
+											<c:forEach items="${memlist }" var="s">
+												<tr class="selectid">
+													<td>${s.userId }</td>
+													<td>${s.userNick }</td>
+													<td>${s.userName }</td>
+													<td>${s.userDate }</td>
+												</tr>
+											</c:forEach>
+										</c:when>
+										<c:otherwise>
+											<tr>
+												<td colspan="4">입력된 데이타없음</td>
+											</tr>
+										</c:otherwise>
+									</c:choose>
 								</tbody>
 							</table>
 						</section>
@@ -171,37 +170,37 @@
 					<div class="col-lg-3">
                       <section class="panel">
                           <header class="panel-heading">
-                              Basic Forms
+                             	 회원 상세 정보
                           </header>
                           <div class="panel-body">
                               <form role="form">
                                   <div class="form-group">
                                       <label for="exampleInputEmail1">ID</label>
-                                      <input type="text" class="form-control" id="exampleInputEmail1" value="ID값">
+                                      <input type="text" class="form-control" id="userId" disabled="disabled">
                                   </div>
                                   <div class="form-group">
                                       <label for="exampleInputPassword1">Password</label>
-                                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                      <input type="password" class="form-control" id="userPw" disabled="disabled">
                                   </div>
                                   <div class="form-group">
                                       <label for="exampleInputEmail1">이름</label>
-                                      <input type="text" class="form-control" id="exampleInputEmail1" value="이름값">
+                                      <input type="text" class="form-control" id="userName" disabled="disabled">
                                   </div>
                                   <div class="form-group">
                                       <label for="exampleInputEmail1">닉네임</label>
-                                      <input type="text" class="form-control" id="exampleInputEmail1" value="닉네임">
+                                      <input type="text" class="form-control" id="userNick" disabled="disabled">
                                   </div>
                                   <div class="form-group">
                                       <label for="exampleInputEmail1">주소</label>
-                                      <input type="text" class="form-control" id="exampleInputEmail1" value="주소">
+                                      <input type="text" class="form-control" id="userAddr" disabled="disabled">
                                   </div>
                                   <div class="form-group">
                                       <label for="exampleInputEmail1">전화번호</label>
-                                      <input type="text" class="form-control" id="exampleInputEmail1" value="전화번호">
+                                      <input type="text" class="form-control" id="userTel" disabled="disabled">
                                   </div>
                                   <div class="form-group">
                                       <label for="exampleInputEmail1">가입일</label>
-                                      <input type="text" class="form-control" id="exampleInputEmail1" value="가입일">
+                                      <input type="text" class="form-control" id="userDate" disabled="disabled">
                                   </div>
                                   <button type="submit" class="btn btn-primary">Submit</button>
                               </form>
@@ -241,7 +240,59 @@
 
 	<!--custome script for all page-->
 	<script src="/resource/admin/js/scripts.js"></script>
-
+	
+	<script type="text/javascript">
+		//리스트 클릭
+		$(".selectid").click(function(){
+			//현재 클릭된 라인에 id컬럼값만 얻어옴
+			var id = $(this).children().first().text();
+			$.ajax({
+				url : "/tmadmin/adminshowmem.tm",
+				type : "POST",
+				data : "user_id="+id,
+				dataType : "json",
+				success : function(data){
+					$("#userId").val(data.userId);
+					$("#userPw").val(data.userPw);
+					$("#userName").val(data.userName);
+					$("#userNick").val(data.userNick);
+					$("#userAddr").val(data.userAddr);
+					$("#userTel").val(data.userTel);
+					$("#userDate").val(data.userDate);
+				}
+			});
+		});
+		
+		$("#searchmember").click(function(){
+			//선택한 옵션과 내용값을 가져옴
+			var con = $("#searchcon").val();
+			var sel = $("#searchsel").val();
+			$.ajax({
+				url : "/tmadmin/adminsearchmem.tm",
+				type : "POST",
+				data : {
+					"con" : con,
+					"sel" : sel
+				},
+				dataType : "json",
+				success : function(data){
+					//내용값을 지우고
+					$(".listview").empty();
+					//결과 리스트를 읽어와서 추가
+					for (var i = 0; i < data.length; i++) {
+						$(".listview").append("<tr class='se"+ i +"selectid'>");
+						$(".se"+ i +"selectid").append("<td>"+data[i].userId);
+						$(".se"+ i +"selectid").append("<td>"+data[i].userNick);
+						$(".se"+ i +"selectid").append("<td>"+data[i].userName);
+						$(".se"+ i +"selectid").append("<td>"+data[i].userDate);
+					}
+					
+				}
+			});
+			$("#searchcon").val("");
+		});
+		
+	</script>
 
 </body>
 </html>

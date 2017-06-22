@@ -11,6 +11,7 @@
 	<!-- 별칭 -->
 	<typeAliases>
 		<typeAlias alias="allianceDTO" type="tm.alliance.dto.AllianceDTO" />
+		<typeAlias alias="adminMemberDTO" type="tm.admin.dto.AdminMemberDTO" />
 	</typeAliases>
 
 </configuration>

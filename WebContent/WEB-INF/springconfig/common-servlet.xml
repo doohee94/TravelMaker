@@ -17,6 +17,7 @@
 		<property name="mapperLocations">
 			<array>
 				<value>classpath:tm/alliance/mapper/*.xml</value>
+				<value>classpath:tm/admin/mapper/*.xml</value>
 			</array>
 		</property>
 	</bean>
