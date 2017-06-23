@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="admin">
+	<select id="memberlist" parameterType="hashMap" resultType="adminMemberDTO">
+		SELECT *
+		FROM member
+		<where>
+			<if test="id != null">
+				user_id = #{id}
+			</if>
+			<if test="sel != null">
+				${sel} like '%'||#{con}||'%'
+			</if>
+		</where>
+		ORDER BY user_type desc
+	</select>
+	
+	<select id="qnalist" resultType="tm.admin.dto.AdminQnaDTO">
+		SELECT *
+		FROM QNA
+		ORDER BY qna_num desc
+	</select>
+	
+	<update id="reply" parameterType="tm.admin.dto.AdminQnaDTO">
+		UPDATE QNA 
+		SET qna_reply = #{qnaReply}
+		WHERE qna_num = #{qnaNum}
+	</update>
+	
+	<select id="adlist" resultType="tm.admin.dto.AdminadDTO">
+		SELECT *
+		FROM advertisement
+	</select>
+	
+	<select id="allist" parameterType="hashMap" resultType="allianceDTO">
+		SELECT * 
+		FROM partner
+		<where>
+			<if test="partnerComname != null">
+				partner_comname like '%'||#{partnerComname}||'%'
+			</if>
+		</where>
+	</select>
+	
+	<select id="adnumber" resultType="String">
+		SELECT seq_advertisement.nextval as num
+		FROM dual 
+	</select>
+	
+	
+	<insert id="adinsert" parameterType="tm.admin.dto.AdminadDTO">
+		INSERT INTO advertisement
+		(ad_num,   
+		partner_num,
+		ad_title,
+		ad_photo,
+		ad_photofake,
+		ad_check,
+		ad_stdate,
+		ad_eddate)
+		VALUES (
+		#{adNum},
+		#{partnerNum},
+		#{adTitle},
+		#{adPhoto},
+		#{adPhotofake},
+		0,
+		#{adStdate},
+		#{adEddate}
+		)
+	</insert>
+	
+	<delete id="addelete" parameterType="hashMap">
+		DELETE FROM advertisement
+		WHERE ad_num=#{num}
+	</delete>
+	
+</mapper>

@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<!-- 
+	adminadList.jsp
+	광고 리스트 페이지
+ -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -138,42 +143,50 @@ input[type=checkbox]
 								<tbody>
 									<tr>
 										<td>
-											<table style="float:left; margin-left: 50px; margin-right: 50px;">
-												<tr>
-													<td rowspan="2" style="border-top: none;">
-														<div class="checkbox">
-															<label><input type="checkbox" value=""></label>
-														</div>	
-													</td>
-													<td style="border-top: none;">
-														<img alt="" src="/upload/admin/ad1.png" >
-													</td>
-												</tr>
-												<tr>
-													<td align="center">
-														요기 설명 버튼
-														<a class="btn btn-danger" href="" title="Bootstrap 3 themes generator" style="float: right;">삭제</a>
-													</td>
-												</tr>
-											</table>
-											<table style="float: inherit; margin-left: 50px; margin-right: 50px;">
-												<tr>
-													<td rowspan="2" style="border-top: none;">
-														<div class="checkbox">
-															<label><input type="checkbox" value="" ></label>
-														</div>	
-													</td>
-													<td style="border-top: none;">
-														<img alt="" src="/upload/admin/ad1.png" >
-													</td>
-												</tr>
-												<tr>
-													<td align="center">
-														요기 설명 버튼
-														<a class="btn btn-danger" href="" title="Bootstrap 3 themes generator" style="float: right;">삭제</a>
-													</td>
-												</tr>
-											</table>
+											<c:choose>
+												<c:when test="${!empty adlist}">
+													<c:forEach items="${adlist }" var="a" varStatus="i">
+														<c:choose>
+															<c:when test="${(i.index)%2 eq '0' }">
+																<table class="${i.index }cccc" style="float:left; margin-left: 50px; margin-right: 50px;">
+															</c:when>
+															<c:otherwise>
+																<table class="${i.index }cccc" style="margin-left: 50px; margin-right: 50px;">
+															</c:otherwise>
+														</c:choose>
+															<tr>
+																<td rowspan="2" style="border-top: none;">
+																	<div class="checkbox">
+																		<c:choose>
+																			<c:when test="${a.adCheck eq '1' }">
+																				<label><input type="checkbox" checked="checked"/></label>
+																			</c:when>
+																			<c:otherwise>
+																				<label><input type="checkbox" /></label>
+																			</c:otherwise>
+																		</c:choose>
+																	</div>	
+																</td>
+																<td style="border-top: none;">
+																	<img alt="" src="/upload/alliance/${a.adPhotofake }" style="width: 450px; height: 200px;" >
+																</td>
+															</tr>
+															<tr>
+																<td align="center">
+																	${a.adTitle }
+																	<a class="btn btn-danger" href="#" title="Bootstrap 3 themes generator" style="float: right;">삭제</a>
+																	<form method="get">
+																		<input type="hidden" name="num" value="${a.adNum }">
+																	</form>
+																</td>
+															</tr>
+														</table>
+													</c:forEach>
+												</c:when>
+												<c:otherwise>
+													값이없습니다
+												</c:otherwise>
+											</c:choose>
 										</td>
 									</tr>
 								</tbody>
@@ -213,6 +226,11 @@ input[type=checkbox]
 	<!--custome script for all page-->
 	<script src="/resource/admin/js/scripts.js"></script>
 
-
+	<script type="text/javascript">
+		$(".btn-danger").click(function(){
+			$(this).next().attr("action","adminadList.tm");
+			$(this).next().submit();
+		});
+	</script>
 </body>
 </html>

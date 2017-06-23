@@ -243,7 +243,7 @@
 	
 	<script type="text/javascript">
 		//리스트 클릭
-		$(".selectid").click(function(){
+		$(document).on("click",".selectid",function(){
 			//현재 클릭된 라인에 id컬럼값만 얻어옴
 			var id = $(this).children().first().text();
 			$.ajax({
@@ -280,11 +280,11 @@
 					$(".listview").empty();
 					//결과 리스트를 읽어와서 추가
 					for (var i = 0; i < data.length; i++) {
-						$(".listview").append("<tr class='se"+ i +"selectid'>");
-						$(".se"+ i +"selectid").append("<td>"+data[i].userId);
-						$(".se"+ i +"selectid").append("<td>"+data[i].userNick);
-						$(".se"+ i +"selectid").append("<td>"+data[i].userName);
-						$(".se"+ i +"selectid").append("<td>"+data[i].userDate);
+						$(".listview").append("<tr class='se"+ i +" selectid'>");
+						$(".se"+ i).append("<td>"+data[i].userId);
+						$(".se"+ i).append("<td>"+data[i].userNick);
+						$(".se"+ i).append("<td>"+data[i].userName);
+						$(".se"+ i).append("<td>"+data[i].userDate);
 					}
 					
 				}

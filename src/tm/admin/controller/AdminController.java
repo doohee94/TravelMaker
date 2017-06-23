@@ -14,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 import tm.admin.dao.AdminDAO;
 import tm.admin.dto.AdminMemberDTO;
 import tm.admin.dto.AdminQnaDTO;
+import tm.admin.dto.AdminadDTO;
+import tm.alliance.dto.AllianceDTO;
 
 /**
  * AdminController
@@ -79,8 +81,18 @@ public class AdminController {
 		return list;
 	}
 	
+	/**
+	 * adminqna
+	 * QNA리스트를 출력
+	 */
 	@RequestMapping("/adminQna.tm")
-	public ModelAndView adminqna() {
+	public ModelAndView adminqna(AdminQnaDTO adminQnaDTO) {
+		if(adminQnaDTO.getQnaReply() != null){
+			int res = dao.qnareply(adminQnaDTO);
+			if(res > 0){
+				adminQnaDTO.setQnaReply(null);
+			}
+		}
 		List<AdminQnaDTO> list = dao.qnalist();
 		ModelAndView mv = new ModelAndView();
 		
@@ -90,6 +102,48 @@ public class AdminController {
 		return mv;
 	}
 	
+	/**
+	 * adminadlist
+	 * 광고 리스트 출력
+	 */
+	@RequestMapping("/adminadList.tm")
+	public ModelAndView adminadlist(String num) {
+		if(num != null){
+			int res = dao.addelete(num);
+		}
+		List<AdminadDTO> list = dao.adlist();
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(dir+"adminadList");
+		mv.addObject("adlist", list);
+		return mv;
+	}
 	
+	/**
+	 * adadsearch
+	 * 광고등록에서 검색한 제휴회사 리스트를 출력
+	 */
+	@RequestMapping("/adadsearch.tm")
+	public @ResponseBody List<AllianceDTO> adadsearch(@RequestParam String partnercomname) {
+		
+		List<AllianceDTO> list = dao.alsearch(partnercomname);
+		
+		return list;
+	}
 	
+	/**
+	 * 광고DB등록
+	 */
+	@RequestMapping("/adadinsert.tm")
+	public ModelAndView insertad(AdminadDTO adminadDTO) {
+		adminadDTO.setAdStdate(adminadDTO.getStartyear()+"/"+adminadDTO.getStartmonth()+"/"+adminadDTO.getStartday());
+		adminadDTO.setAdEddate(adminadDTO.getEndyear()+"/"+adminadDTO.getEndmonth()+"/"+adminadDTO.getEndday());
+		
+		int res = dao.adadinsert(adminadDTO);
+		
+		List<AdminadDTO> list = dao.adlist();
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(dir+"adminadList");
+		mv.addObject("adlist", list);
+		return mv;
+	}
 }

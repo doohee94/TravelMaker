@@ -152,7 +152,7 @@
 																		<h4 class="modal-title">답변달기</h4>
 																	</div>
 																	<div class="modal-body">
-																		<form role="form" class="form-inline">
+																		<form role="form" class="form-inline" id="qnafrm" method="post">
 																		<input type="hidden" name="qnaNum" value="${q.qnaNum }"/>
 																			<div class="form-group">
 																				<label class="control-label col-sm-2">문의 내용</label>
@@ -164,7 +164,7 @@
 																					<textarea class="form-control ckeditor" name="qnaReply" rows="6" style="margin-top: 5%;">${q.qnaReply }</textarea>
 																				</div>
 																				<c:if test="${empty q.qnaReply }">
-																					<a class="btn btn-success" title="Bootstrap 3 themes generator" style="margin-left: 80%; margin-top: 2%;">답변완료</a>
+																					<a class="btn btn-success" data-dismiss="modal" id="replybtn" title="Bootstrap 3 themes generator" style="margin-left: 80%; margin-top: 2%;">답변완료</a>
 																				</c:if>
 																			</div>
 																		</form>
@@ -218,6 +218,15 @@
 
 	<!--custome script for all page-->
 	<script src="/resource/admin/js/scripts.js"></script>
+	
+	
+	<script type="text/javascript">
+		$("#replybtn").click(function(){
+			$("#qnafrm").attr("src","adminQna.tm");
+			$("#qnafrm").submit();
+		});
+	</script>
+	
 	
 </body>
 </html>
