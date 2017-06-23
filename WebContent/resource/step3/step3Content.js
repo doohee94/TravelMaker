@@ -12,44 +12,132 @@
 	}
 	
 $( function() {
-   
-	
-	
-	//경로최적화 버튼
-	
-	
-	$("#distanceCal").click(function(){
-		
-		var title = ["1","2","3"];
-		var mapx = ["37.477723","37.472560","37.477598"];//위도 가로
-		var mapy = ["126.881967","126.885288","126.889277"];//경도 세로
-		var addr = ["a","v","b"];
-		
-		var test ={
-				
-			"title": title,
-			"mapx":mapx,
-			"mapy":mapy,
-			"addr":addr
-		};
-		
-		$.ajax({
-			method:"post"
-			,contentType:"application/json "
-			,url : "/step/distanceCal.tm"
-			,data:JSON.stringify(test)
-			,dataType:"JSON"
-			,success:function(data){
-				alert(data.test);
-			}
-			,error:function(err,status,error){
-				alert("실패!"+err.status+error);
-			}
-			
-		});
-		
-	});//end 경로 최적화 
-	
+
+	//경로 최적화 버튼 눌렀을 경우
+	   $("#distanceCal").click(function(){
+	      
+	      var title = [];
+	      var image = [];
+	      var addr = [];
+	      var mapx = [];
+	      var mapy = [];
+
+	      //리스트의 정보를 ajax로 넘긴다
+	      $('#myList > li').each(function(i,item){
+	         title[i] = $(item).find(".name").text();
+	         image[i] = $(item).find("img").attr("src");
+	         addr[i] = $(item).find(".addr").text();
+	         mapx[i] = $(item).find(".mapx").attr("value");
+	         mapy[i] = $(item).find(".mapy").attr("value"); 
+
+	         //alert(i + '/' + title);
+	      });
+	      
+	      var listInfo = {
+	            "image":image,
+	            "title":title,
+	            "addr":addr,
+	            "mapx":mapx,
+	            "mapy":mapy
+	      };
+
+	      $.ajax({
+
+	         url : "/step/distanceCal.tm"
+	         ,method:"post"
+	            ,contentType:"application/json "
+	            ,data:JSON.stringify(listInfo)
+	            ,dataType:"JSON"
+	               ,success:function(data){
+	            	  
+	            	  
+	            	  $("#myList").empty();
+	            	  
+	            	   for(var i=0; i<data.title.length;i++){
+	            		   
+	            		  $("#myList").append(' <li class="list-group-item remove draggable"  style="color:#000;"> <div class="col-xs-12 col-sm-3">'+
+	                              '<img src="'+data.image[i]+'" style="width:62px; height:62px" class="img-responsive img-circle"  /></div>'+
+	                              ' <div class="col-xs-12 col-sm-9" align = "center">' +
+	                              '<span class="name" style="color:#000;">'+data.title[i]+'</span><br/>'+
+	                              '<span style="color:#000;" class="addr" >'+data.addr[i]+'</span>'+
+	                              '<input type="hidden" class="mapx" value="'+data.mapx[i]+'"/>'+
+	                              '<input type="hidden" class="mapy" value="'+data.mapy[i]+'"/>'+
+	                              '</div><div class="clearfix"></div></li>');
+
+	            	   }//end for
+	            	   
+	            	   var arrayX = [];
+	            	   var arrayY = [];
+	            	 //리스트가 바뀔 때마다 위도, 경도 정보 가져와 배열에 저장하기
+	                   $('#myList > li').each(function(i,item){
+	                     var mapx = $(item).find(".mapx").attr("value");
+	                     var mapy = $(item).find(".mapy").attr("value");
+	                     
+	                     arrayX[i] = mapx;
+	                     arrayY[i] = mapy;
+	                     index++;
+	                     
+	                   });
+	                   
+	                 //리스트 더블클릭하면 삭제
+	                 $(this).children(".remove").dblclick(function(){
+	                     $(this).remove();
+	                 });
+	                 
+	                 /*리스트 정보를 지도에 경로 표시*/
+	                 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	                  mapOption = { 
+	                      center: new daum.maps.LatLng(arrayY[0], arrayX[0]), // 지도의 중심좌표
+	                      level: 3 // 지도의 확대 레벨
+	                  };  
+
+	                 var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+	                 
+	                 // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+	                 var linePath=[];
+	                 for(var i=0; i<arrayX.length; i++){
+	                    linePath[i] = new daum.maps.LatLng(arrayY[i], arrayX[i]);
+	                 }
+	                 //선 UI 설정
+	                 var polyline = new daum.maps.Polyline({
+	                    path: linePath, // 선을 구성하는 좌표배열 입니다
+	                     strokeWeight: 5, // 선의 두께 입니다
+	                     strokeColor: '#f00', // 선의 색깔입니다
+	                     strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+	                     strokeStyle: 'solid' // 선의 스타일입니다
+	                 });
+	                 
+	                 // 지도를 재설정할 범위정보를 가지고 있을 LatLngBounds 객체를 생성합니다
+	                 var bounds = new daum.maps.LatLngBounds();
+	                 
+	                 var i, marker;
+	                 for (i = 0; i < linePath.length; i++) {
+	                     // 배열의 좌표들이 잘 보이게 마커를 지도에 추가합니다
+	                     marker = new daum.maps.Marker({ position : linePath[i] });
+	                     marker.setMap(map);
+	                     
+	                     // LatLngBounds 객체에 좌표를 추가합니다
+	                     bounds.extend(linePath[i]);
+	                 }
+	                 
+	                 // LatLngBounds 객체에 추가된 좌표들을 기준으로 지도의 범위를 재설정합니다
+	                  // 이때 지도의 중심좌표와 레벨이 변경될 수 있습니다
+	                  map.setBounds(bounds);
+	                 
+	                 // 지도에 선을 표시합니다 
+	                 polyline.setMap(map);
+	                 
+	               
+	            	   
+	            	   
+	               }
+	      ,error:function(err,status,error){
+	         alert("실패!"+err.status+error);
+	      }
+
+	      });
+
+	   });//end 경로 최적화
 	
 	
 	
@@ -229,7 +317,7 @@ $( function() {
                      '<img src="'+firstimage+'" style="width:62px; height:62px" class="img-responsive img-circle"  /></div>'+
                      ' <div class="col-xs-12 col-sm-9" align = "center">' +
                      '<span class="name" style="color:#000;">'+item[i].title+'</span><br/>'+
-                     '<span style="color:#000;" >'+item[i].addr1+'</span>'+
+                     '<span style="color:#000;" class="addr" >'+item[i].addr1+'</span>'+
                      '<input type="hidden" class="mapx" value="'+item[i].mapx+'"/>'+
                      '<input type="hidden" class="mapy" value="'+item[i].mapy+'"/>'+
                      '</div><div class="clearfix"></div></li>'
@@ -338,7 +426,7 @@ $( function() {
                         '<img src="'+firstimage+'" style="width:62px; height:62px" class="img-responsive img-circle"  /></div>'+
                         ' <div class="col-xs-12 col-sm-9" align = "center">' +
                         '<span class="name" style="color:#000;">'+item[i].title+'</span><br/>'+
-                        '<span style="color:#000;" >'+item[i].addr1+'</span>'+
+                        '<span style="color:#000;"class="addr" >'+item[i].addr1+'</span>'+
                         '<input type="hidden" class="mapx" value="'+item[i].mapx+'"/>'+
                         '<input type="hidden" class="mapy" value="'+item[i].mapy+'"/>'+
                         '</div><div class="clearfix"></div></li>'
@@ -525,7 +613,7 @@ $( function() {
                         '<img src="'+firstimage+'" style="width:62px; height:62px" class="img-responsive img-circle"  /></div>'+
                         ' <div class="col-xs-12 col-sm-9" align = "center">' +
                         '<span class="name" style="color:#000;">'+item[i].title+'</span><br/>'+
-                        '<span style="color:#000;" >'+item[i].addr1+'</span>'+
+                        '<span style="color:#000;" class="addr">'+item[i].addr1+'</span>'+
                         '<input type="hidden" class="mapx" value="'+item[i].mapx+'"/>'+
                         '<input type="hidden" class="mapy" value="'+item[i].mapy+'"/>'+
                         '</div><div class="clearfix"></div></li>'
