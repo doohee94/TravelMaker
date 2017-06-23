@@ -2,8 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.8.xsd">
 	
 	<!-- JNDI 설정 -->
 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
@@ -34,6 +36,30 @@
 		<property name="prefix" value="/WEB-INF/view/" />
 		<property name="suffix" value=".jsp"/>
 	</bean>
+	
+	
+	<!--  몽고디비 연결 -->
+		<mongo:mongo-client
+		    host="localhost"
+		    port="27017"
+		    credentials="user:1234@admin"
+		    >
+		    <mongo:client-options
+		        connections-per-host="8"
+		        threads-allowed-to-block-for-connection-multiplier="4"
+		        connect-timeout="1000"
+		        max-wait-time="1500"
+		        socket-keep-alive="true"
+		        socket-timeout="1500"
+		        />
+		</mongo:mongo-client>
+		<!--  몽고 연결 객체 생성 value는 db이름 -->
+		<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+    		<constructor-arg ref="mongo"/>
+    		<constructor-arg name="databaseName" value="schedule"/>
+		</bean>
+	
+	
 	
 	<mvc:annotation-driven>
 		<mvc:message-converters>
