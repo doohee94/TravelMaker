@@ -42,7 +42,7 @@
 		<mongo:mongo-client
 		    host="localhost"
 		    port="27017"
-		    credentials="user:1234@admin"
+		    credentials="tm:1234@admin"
 		    >
 		    <mongo:client-options
 		        connections-per-host="8"

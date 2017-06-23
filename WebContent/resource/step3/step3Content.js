@@ -228,6 +228,11 @@ $( function() {
           // 지도에 선을 표시합니다 
           polyline.setMap(map);
           
+          	
+          
+          
+          
+          
         }
       });
       
@@ -518,33 +523,7 @@ $( function() {
 
      
    
-   //저장버튼
-   $("#save").click(function(){
-      var state =0;
-      $a.popup({
-             url: "save.tm" //
-           , iframe: true // default
-           , width: 600
-           , height : 250
-           , callback:function(stateData){ // $a.close(data) API 사용 시 동작하는 콜백
-              if(data != null){ // 팝업 우측 상단 x 버튼으로 닫을 경우, $a.close(data); 와 같이 data를 넘겨주지 않으므로 data === null이다.
-                 state=stateData; //여기서 state 상태값 바꿔서 저장할때 바로 넘기는 작업하면 될듯!
-                 alert(state);
-              }
-    
-           }//end calback
-           ,alias: "flag1"
-               , xButtonClickCallback : function(el){  // 우측 상단 X 버튼으로 닫을 경우 동작하는 콜백
-                     if(el.alias === "flag1"){
-                         if(confirm("일정을 다시 계획 하시겠어요?")){
-                             return true; // true를 return 시, 내부적으로 close 동작이 자동 수행됩니다.
-                         }else{
-                             return false; // false를 return 시, 내부적으로 close하는 동작을 제어 합니다.
-                         }
-                     }
-           }         
-      });
-      });//end savaBtn
+   
    
    
    //Q모양 검색을 눌렀을 때
@@ -678,5 +657,6 @@ $( function() {
       $("#chat_body").scrollTop($("#chat_body")[0].scrollHeight); //스트롤바 하단유지
    });
   
+   
    
 });

@@ -9,6 +9,7 @@
 	<configs>
 		<config>WebContent/WEB-INF/springconfig/search-servlet.xml</config>
 		<config>WebContent/WEB-INF/springconfig/step3-servlet.xml</config>
+		<config>WebContent/WEB-INF/springconfig/schedule-mongo-context.xml</config>
 	</configs>
 	<autoconfigs>
 		<config>WebContent/WEB-INF/springconfig/admin-servlet.xml</config>
