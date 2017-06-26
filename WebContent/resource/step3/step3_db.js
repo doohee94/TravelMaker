@@ -43,14 +43,15 @@ $(function(){
 	           	    	           	      
 	           	      });
 	           	      
-	           	      
-	           	      
+	           	     
+	           	      var id=2;
 	           	     var schedule={
-	           	    		"_id":"1",
+	           	    		"_id":id++,
 	           	    		"schedule_num":"1",
 	           	    		"member_id":"doohee94",
 	           	    		"friend":"5",
 	           	    		"group_num":"254",
+	           	    		"tour_title":"즐거운 여행~",
 	           	    		 "tour" :[{
 	           	    			"date":date,
 	           	    			"city":city,
@@ -73,6 +74,7 @@ $(function(){
 	            	     }
 	                 ,error:function(err,status,error){
 	        	         alert("실패!"+err.status+error);
+	        	        
 	        	      }
 	                 });
 	                	 

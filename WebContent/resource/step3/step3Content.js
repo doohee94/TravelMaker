@@ -161,7 +161,7 @@ $( function() {
       connectWith: "ul",
       dropOnEmpty: false
    });
-   
+   var place =[];
    var arrayX = [];
    var arrayY=[];
    var index = 0;
@@ -169,8 +169,11 @@ $( function() {
          connectWith: "ul",
          item:'#myList > li',
          update:function(event, ui){
+        	 
+        	
+        	 
             //리스트가 바뀔 때마다 위도, 경도 정보 가져와 배열에 저장하기
-            $('#myList > li').each(function(i,item){
+           $('#myList > li').each(function(i,item){
               var mapx = $(item).find(".mapx").attr("value");
               var mapy = $(item).find(".mapy").attr("value");
               
@@ -178,9 +181,16 @@ $( function() {
               arrayY[i] = mapy;
               index++;
               
+              var list={
+	           	    	"title":$(item).find(".name").text(),
+	           	    	"image":$(item).find("img").attr("src"),
+	           	    	"mapx":$(item).find(".mapx").attr("value"),
+	           	    	"mapy":$(item).find(".mapy").attr("value"),  
+	           	      }
+              place[i] = list;
             });
             
-           
+          
             
           //리스트 더블클릭하면 삭제
           $(this).children(".remove").dblclick(function(){
@@ -229,7 +239,43 @@ $( function() {
           
           // 지도에 선을 표시합니다 
           polyline.setMap(map); 
+ 
           
+         var city =  $("#hiddenCity").val();
+   	     var date="2017-05-02";
+   	     var state="0";
+   	     alert(city);
+   	     var id=2;
+   	     var schedule={
+   	    		"_id":id++,
+   	    		"schedule_num":"1",
+   	    		"member_id":"doohee94",
+   	    		"friend":"5",
+   	    		"group_num":"254",
+   	    		"tour_title":"즐거운 여행~",
+   	    		 "tour" :[{
+   	    			"date":date,
+   	    			"city":city,
+   	    			"place":place
+   	    			
+   	    		}],
+   	    		"save_state":state
+   	      }                     
+          //정렬 될 때 마다 리스트 순서를 불러와서 ajax로 넘겨 준 후 디비에 저장!
+   	  alert(schedule);
+   	     $.ajax({
+        	 url : "/step/listSave.tm"
+    	     ,type:"post"
+    	     ,contentType:"application/json "
+    	     ,data:JSON.stringify(schedule)
+    	     ,success:function(data){
+    	    	alert(data);
+    	     }
+         ,error:function(err,status,error){
+	         alert("실패!"+err.status+error);
+	        
+	      }
+         });
           
           
           

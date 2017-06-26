@@ -159,18 +159,19 @@ public class Step3Controller {
 	   try{
 		   Document doc = Document.parse(list);
 	   
-		  // mongoTemplate.insert(doc,"schedule");
+		   mongoTemplate.save(doc,"schedule");
 		   
-		   Criteria critefia  = new Criteria("_id");
-		   critefia.is("1");
+//		   Criteria critefia  = new Criteria("_id");
+//		   critefia.is("1");
+//		   
+//		   Query query = new Query(critefia);
+//		   
+//		   
+//		   Update update = new Update();
+//		   update.set("tour.city","인천");
 		   
-		   Query query = new Query(critefia);
-		   
-		   Update update = new Update();
-		   update.set("tour.city","인천");
-		   
-		   mongoTemplate.updateFirst(query, update, "schedule");
-		   
+		  // mongoTemplate.updateFirst(query, update, "schedule");
+		   //mongoTemplate.save(doc,"");
 	   }catch(Exception ex){
 		   ex.printStackTrace();
 	   }
