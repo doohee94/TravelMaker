@@ -1,0 +1,175 @@
+@CHARSET "UTF-8";
+
+
+/* /* review */ */
+/* 	/* star icon*/ */
+
+#hearts { color: #ee8b2d;}
+#hearts-existing { color: #ee8b2d;}
+
+
+	
+	/* total reviewinput div */
+.reviewinputdiv{
+	width:100%; height:300px;
+	border: 3px solid black;
+	overflow: auto;
+	padding-top:10px;padding-bottom:5px;padding-left:8%;
+	margin-bottom:10px;
+}
+
+	/* review btngroup */
+.reviewinputdiv .reviewinput{
+	overflow: auto;
+	width:90%; height:80%;
+	border:2px solid yellow;
+	margin-top:5px; margin-bottom:10px;
+}
+
+	/* review input */
+.reviewinputdiv .reviewinput .reviewinputform .reviewinputtextarea{
+	width:95%; 
+	margin-left:10px; 
+	overflow: auto;
+	resize:none;
+	
+}
+.reviewinputdiv .reviewinput .reviewinputform button{
+	margin-left:10px;
+}
+	
+	/* review .reviewregisted */
+.reviewregisted{
+	overflow: auto;
+	width:80%; height:35%;
+	border:2px solid red;
+	margin-top:5px; margin-bottom:10px;
+}
+
+	/* review registed */
+.reviewform{
+	width:100%; height:200px;
+	border:3px solid black;
+	margin-bottom:10px;
+	overflow: auto;
+	padding-top:10px;padding-bottom:5px;padding-left:8%;
+}
+
+
+
+
+
+/* starscore, like, sharebutton */
+.container .reviewinputdiv .reviewinput .reviewinputform #starscore #NOW_TIME{
+	float:right;
+	margin-top:10px; margin-right:10px;
+}
+
+.container .reviewinputdiv .reviewinput .reviewinputform #starscore #hearts-existing{
+	float:left;
+	margin-top:10px; margin-right:10px;
+}
+
+.reviewinputdiv .reviewinput .reviewinputform #starscore{
+	margin-left:10px;
+}
+
+	/* heart img location */
+.container .btngroup .likelocation{
+	border:1px solid red;
+}
+
+	/* share button location */
+.container .btngroup .sharebtn{
+	border:1px solid blue;
+}	
+
+/* slide */
+.container #myCarousel{
+	margin-top:10px;
+}
+/* end slide */
+
+
+/* 2 row */
+
+.container .detailtextarea{
+	width:100%; height:200px; 
+	border: 3px solid black;
+	margin-top:10px; margin-bottom: 10px;
+	overflow:auto;
+}
+
+.container .detailtextarea .ptextarea{
+	 text-align:center;
+	 margin-top:5px; margin-bottom:5px;
+/* 	vertical-align:middle; */
+}
+
+.container .detailtextarea .ptarow1{
+	padding: 10px 5% 10px 5%;
+	margin-bottom:5px;
+}
+
+.container .detailtextarea .ptarow2{
+	padding: 10px 5% 10px 5%;
+	margin-bottom:5px;
+}
+
+.container .detailtextarea .ptarow3{
+	padding: 10px 5% 10px 5%;
+	margin-bottom:5%;
+}
+
+/* start row 1col 2col 3col */
+.container .detailtextarea .ptarow1 .startrow1c{
+	float:left; width:10%; 
+}
+.container .detailtextarea .ptarow1 .startrow2c{
+	float:left; width:20%; 
+}
+.container .detailtextarea .ptarow1 .startrow3c{
+	float:left; width:70%;
+}
+
+/* stopover row 1col 2col 3col */
+.container .detailtextarea .ptarow2 .ptarowstopover1c{
+	float:left; width:10%; 
+}
+.container .detailtextarea .ptarow2 .ptarowstopover2c{
+	float:left; width:20%; 
+}
+.container .detailtextarea .ptarow2 .ptarowstopover3c{
+	float:left; width:70%; 
+} 
+
+/* last row 1col 2col 3col */
+.container .detailtextarea .ptarow3 .lastrow1c{
+	float:left; width:10%;
+}
+.container .detailtextarea .ptarow3 .lastrow2c{
+	float:left; width:20%;
+}
+.container .detailtextarea .ptarow3 .lastrow3c{
+	float:left; width:70%;
+}
+	
+/* end 1 */
+
+/* 3 row */
+
+.container .btngroup{
+	width:100%;
+	height:200px;
+	border:3px solid black;
+	margin-bottom:10px;
+}
+
+.container .travelpath{
+	width:100%;
+	height:200px;
+	border:3px solid black;
+	margin-bottom:10px;
+}
+
+/* end 2 */
