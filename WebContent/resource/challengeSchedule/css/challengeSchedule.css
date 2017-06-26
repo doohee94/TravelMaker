@@ -1,0 +1,52 @@
+/* @CHARSET "UTF-8"; */
+
+ 							/* trytravel label */
+/* first label dojeoniljeong*/
+body .tryhead{
+	border:1px solid blue;
+	text-align:center;
+	background-color:blue;
+	color:white;
+	font-size:30px;
+	height:auto;
+}
+
+/* second label best3*/
+body .bestthree{
+	margin-bottom:7px;
+	border: 5px solid yellow;
+	text-align:center;
+	font-size:30px;
+	heigth:auto;
+}
+
+/* */
+body .dojeonlist{
+	margin-top:7px;
+	margin-bottom:7px;
+	border: 1px solid #ff0080;
+	text-align:center;
+	background-color: #ff0080;
+	color:white;
+	font-size:30px;
+}
+
+
+.thumbnail {
+    position:relative;
+    overflow:hidden;
+}
+ 
+.caption {
+    position:absolute;
+    top:0;
+    right:0;
+    background:rgba(90, 90, 90, 0.75);
+    width:100%;
+    height:100%;
+    padding:2%;
+    display: none;
+    text-align: left;
+    color:#fff !important;
+    z-index:2;
+}
