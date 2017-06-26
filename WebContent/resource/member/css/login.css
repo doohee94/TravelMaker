@@ -1,0 +1,66 @@
+
+
+.main{
+    margin-top: 50px;
+}
+
+.main-content {
+/*    background-color:##2995F7;*/
+    border: 2px solid #2995F7;
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 20px 40px;
+    color: #ccc;
+    text-shadow: none;
+
+}
+
+
+.input-group{
+	margin: 20px 0px;
+}
+.input-group-addon { /* 로그인창에 있는 이미지그림 */
+    color: #2995F7 ;
+    font-size: 17px;
+}
+
+.input-insert{
+    margin: 0 auto;
+}
+.login-button{
+    margin: 0px auto;
+    max-width: 210px;
+    
+}
+
+
+
+.insert-button{
+	margin:0px auto;
+	font-size: 15px;
+	max-width:100px;
+	white-space: nowrap;
+	WIDTH: 72pt;
+	HEIGHT: 32pt;
+	border:1x solid;
+	color:#ffffff;
+	border: 0;
+	outline: 0;
+	border-radius: 5px;
+	
+}
+
+
+.form-header{
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #2995F7;
+    color: #fff;
+    width: 100% ;
+    padding: 20px 0px;
+    border-top-right-radius:10px ;
+    border-top-left-radius:10px 
+}
+.remember{
+    color: black;
+}

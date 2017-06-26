@@ -23,16 +23,16 @@ body {
 	overflow-x:hidden;
 }
 
-hi,h2,h3,h4,h5,h6 {
+body hi,h2,h3,h4,h5,h6 {
 	color:#333;
 	line-height:1.1em;
 }
 
-p {
+body p {
 	color:#333;
 	font-size:13px;
 }
-a {
+body a {
     text-decoration:none;
     transition: all 0.1s ease-in-out;
     -moz-transition: all 0.1s ease-in-out;
@@ -41,12 +41,12 @@ a {
     outline: none;
 	color:#333;
 }
-a:hover {
+body a:hover {
 	text-decoration: none;
 	color:#eee;	
 	}
 
-.btn-primary {
+body .btn-primary {
   padding: 8px 20px;
   background: #1BBD36;
   color: #fff;
@@ -55,16 +55,16 @@ a:hover {
   margin-top: 10px;
 }
 	
-.text-center h2 {
+body .text-center h2 {
 	margin-bottom:30px;
 }
 
-.text-center p {
+body.text-center p {
 	margin-bottom:50px;
 	color:#333;
 }
 
-.btn-default {
+body.btn-default {
   color: #333;
   background-color: #fff;
   border-color: #fff;
@@ -74,78 +74,78 @@ a:hover {
   margin-left:-10px;
 }
 
-#breadcrumb {
+body#breadcrumb {
 	background-color: #1BBD36;
 	margin-top: -20px;
 }
 
-.breadcrumb { 
+body.breadcrumb { 
   list-style: none;
   background-color: #1BBD36;
   border-radius: 0px;
   padding:3px 10px;
 }
 
-.breadcrumb li {
+body.breadcrumb li {
    text-transform:uppercase;
    margin-top:125px;
    font-weight:600;
 }
 /* --- button ---*/
-.btn#more{
-	margin-left: 74%
+body #more{
+	margin-left: 80%
 }
 
 /* --- about us --- */
-.aboutus {
+body.aboutus {
 	padding:50px;
 }
 
-.aboutus img {
+body.aboutus img {
 	border-radius:6px;
 }
 
-.aboutus h3 {
+body.aboutus h3 {
 	margin-bottom:30px;
 	font-weight:800;
 }
 
-.aboutus h4 {
+body.aboutus h4 {
 	margin-top:30px;
 	margin-bottom:30px;
 	font-weight:700;
 }
 
-.skill h2{
+body.skill h2{
 	margin-top:-10px;
 	margin-bottom: 25px;
 }
 
-.progress-wrap{
+body.progress-wrap{
   position: relative;
 }
 
-.progress .color1,
+body.progress .color1,
 .progress .color1 .bar-width{
   background: #2d7da4;
 }
 
-.progress .color2,
+body.progress .color2,
 .progress .color2 .bar-width{
   background: #6aa42f;
 }
 
-.progress .color3,
+body.progress .color3,
 .progress .color3 .bar-width{
   background: #ffcc33;
 }
 
-.progress .color4,
+body.progress .color4,
 .progress .color4 .bar-width{
   background: #db3615;
 }
 
-.progress, 
+body.progress, 
 .progress-bar {
   height: 15px;
   line-height: 15px;
@@ -158,11 +158,11 @@ a:hover {
   text-align: right;
 }
 
-.progress{
+body.progress{
   position: relative;
 }
 
-.progress .bar-width{
+body.progress .bar-width{
   position: absolute;
   width: 40px;
   height: 20px;
@@ -175,11 +175,11 @@ a:hover {
   margin-left: -30px;
 }
 
-.progress span{
+body.progress span{
   position: relative;
 }
 
-.progress span:before{
+body.progress span:before{
   content: " ";
   position: absolute;
   width: auto;
@@ -190,15 +190,15 @@ a:hover {
   right: 8px;
 }
 
-.progress .color1 span:before{
+body.progress .color1 span:before{
   border-color: #2d7da4 transparent transparent transparent;
 }
 
-.progress .color2 span:before{
+body.progress .color2 span:before{
   border-color: #6aa42f transparent transparent transparent;
 }
 
-.progress .color3 span:before{
+body.progress .color3 span:before{
   border-color: #ffcc33 transparent transparent transparent;
 }
 
@@ -263,7 +263,7 @@ a:hover {
 	padding:15px 22px;
 }
 
-ul.social-network {
+body ul.social-network {
 	list-style:none;
 	margin-top:20px;	
 	padding:10px;
@@ -273,7 +273,7 @@ ul.social-network {
   -o-transition: all 0.3s ease-in-out;
 }
 
-ul.social-network li {
+body ul.social-network li {
 	display:inline;
 	margin: 0 18px;	
 	font-size:25px;	
@@ -281,17 +281,17 @@ ul.social-network li {
 
 
 
-ul.social-network li a {	
+body ul.social-network li a {	
 	color:#FFFF;	
 }
 
 
-.copyright {
+body.copyright {
 	margin-top:30px;
     text-align: right;
 }
 
-.copyright a {
+body.copyright a {
 	color:#fff;
 	font-weight:600;
 	font-size:12px;
@@ -301,7 +301,7 @@ ul.social-network li a {
 
 
 /**** Isotope CSS3 transitions ****/
-.isotope,
+body.isotope,
 .isotope .isotope-item {
   -webkit-transition-duration: 0.8s;
   -moz-transition-duration: 0.8s;
@@ -310,7 +310,7 @@ ul.social-network li a {
   transition-duration: 0.8s;
 }
 
-.isotope {
+body.isotope {
   -webkit-transition-property: height, width;
   -moz-transition-property: height, width;
   -ms-transition-property: height, width;
@@ -318,7 +318,7 @@ ul.social-network li a {
   transition-property: height, width;
 }
 
-.isotope .isotope-item {
+body.isotope .isotope-item {
   -webkit-transition-property: -webkit-transform, opacity;
   -moz-transition-property: -moz-transform, opacity;
   -ms-transition-property: -ms-transform, opacity;
@@ -327,7 +327,7 @@ ul.social-network li a {
 }
 
 /**** disabling Isotope CSS3 transitions ****/
-.isotope.no-transition,
+body.isotope.no-transition,
 .isotope.no-transition .isotope-item,
 .isotope .isotope-item.no-transition {
   -webkit-transition-duration: 0s;
@@ -339,7 +339,7 @@ ul.social-network li a {
 
 /* End: Recommended Isotope styles */
 /* disable CSS transitions for containers with infinite scrolling*/
-.isotope.infinite-scrolling {
+body.isotope.infinite-scrolling {
   -webkit-transition: none;
   -moz-transition: none;
   -ms-transition: none;

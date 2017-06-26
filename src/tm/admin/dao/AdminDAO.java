@@ -10,6 +10,9 @@ import tm.alliance.dto.AllianceDTO;
 
 public interface AdminDAO {
 	
+	
+	/************** 회원 ******************/
+	
 	/**
 	 * MemberList
 	 * 회원 목록을 가져옴
@@ -31,6 +34,8 @@ public interface AdminDAO {
 	public List<AdminMemberDTO> Membersearch(String sel, String con);
 	
 	
+	/************** QNA ******************/
+	
 	/**
 	 * qnalist
 	 * QNA 전체 리스트를 출력
@@ -44,17 +49,14 @@ public interface AdminDAO {
 	 */
 	public int qnareply(AdminQnaDTO adminQnaDTO);
 	
+	
+	/************** 광고 ******************/
+	
 	/**
 	 * adlist
 	 * 광고 리스트 출력
 	 */
 	public List<AdminadDTO> adlist();
-	
-	/**
-	 * alsearch
-	 * 제휴 검색 리스트 출력
-	 */
-	public List<AllianceDTO> alsearch(String partnercomname);
 	
 	/**
 	 * adadinsert
@@ -67,4 +69,40 @@ public interface AdminDAO {
 	 * 광고 삭제
 	 */
 	public int addelete(String num);
+	
+	
+	/************** 제휴 ******************/
+	
+
+	/**
+	 * alsearch
+	 * 제휴 검색 리스트 출력
+	 */
+	public List<AllianceDTO> alsearch(String partnercomname);
+	
+	/**
+	 * adallist
+	 * 제휴 리스트 출력
+	 */
+	public List<AllianceDTO> adallist();
+	
+	/**
+	 * allianceDel
+	 * 제휴 삭제 / 거절
+	 */
+	public int allianceDel(String num); 
+	
+	/**
+	 * adminalup
+	 * 제휴 승인
+	 */
+	public int adminalup(String num);
+
+	
+	/**
+	 * stateupdate 
+	 * 제휴 타입 변경
+	 */
+	public int typeupdate(AllianceDTO allianceDTO); 
+	
 }

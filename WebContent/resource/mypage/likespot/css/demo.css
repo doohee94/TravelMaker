@@ -15,7 +15,7 @@
 .clearfix:after { clear: both; }
 
 body {
-	background: #D3EEE2;
+	background: white;
 	color: #2E3444;
 	font-size: 100%;
 	line-height: 1.25;
@@ -23,29 +23,34 @@ body {
 	font-weight: 300;
 }
 
-a {
-	color: #FF2A48;
+body a {
+	color: #ffffff;
+	text-decoration: none;
+	outline: none;
+}
+body #delete{
+	color: #ff0000;
 	text-decoration: none;
 	outline: none;
 }
 
-a:hover, a:focus {
-	color: #2E3444;
+body a:hover, a:focus {
+	color: #0000ff;
 }
 
-.codrops-header {
+body .codrops-header {
 	margin: 0 auto;
 	padding: 2em;
 	text-align: center;
 }
 
-.codrops-header h1 {
+body .codrops-header h1 {
 	margin: 0;
 	font-size: 2.5em;
 	font-weight: 900;
 }
 
-.codrops-header h1 span {
+body .codrops-header h1 span {
 	display: block;
 	padding: 0.2em 0 0.6em 0.1em;
 	font-size: 0.6em;
@@ -53,11 +58,11 @@ a:hover, a:focus {
 }
 
 /* Demo links */
-.codrops-demos {
+body .codrops-demos {
 	padding-top: 50px;
 }
 
-.codrops-demos a {
+body .codrops-demos a {
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	margin: 15px;
@@ -65,12 +70,12 @@ a:hover, a:focus {
 	font-weight: 900;
 }
 
-.codrops-demos a.current-demo {
+body .codrops-demos a.current-demo {
 	color: #2E3444;
 }
 
 /* To Navigation Style */
-.codrops-top {
+body .codrops-top {
 	width: 100%;
 	text-transform: uppercase;
 	font-weight: 800;
@@ -79,23 +84,23 @@ a:hover, a:focus {
 	line-height: 2.2;
 }
 
-.codrops-top a {
+body .codrops-top a {
 	display: inline-block;
 	padding: 0 1em;
 	text-decoration: none;
 	letter-spacing: 1px;
 }
 
-.codrops-top span.right {
+body .codrops-top span.right {
 	float: right;
 }
 
-.codrops-top span.right a {
+body .codrops-top span.right a {
 	display: block;
 	float: left;
 }
 
-.codrops-icon:before {
+body .codrops-icon:before {
 	margin: 0 4px;
 	text-transform: none;
 	font-weight: normal;
@@ -107,29 +112,29 @@ a:hover, a:focus {
 	-webkit-font-smoothing: antialiased;
 }
 
-.codrops-icon-drop:before {
+body .codrops-icon-drop:before {
 	content: "\e001";
 }
 
-.codrops-icon-prev:before {
+body .codrops-icon-prev:before {
 	content: "\e004";
 }
 
-section {
+body section {
 	padding: 1em;
 	text-align: center;
 }
 
-.related {
+body .related {
 	padding: 15em 0 3em;
 	clear: both;
 }
 
-.related p {
+body .related p {
 	font-size: 1.5em;
 }
 
-.related > a {
+body .related > a {
 	border: 1px solid #2E3444;
 	display: inline-block;
 	text-align: center;
@@ -138,18 +143,18 @@ section {
 	color: #2E3444;
 }
 
-.related a:hover {
+body .related a:hover {
 	border-color: #FF2A48;
 	color: #FF2A48;
 }
 
-.related a img {
+body .related a img {
 	max-width: 100%;
 	opacity: 0.8;
 }
 
-.related a:hover img,
-.related a:active img {
+body .related a:hover img,
+body .related a:active img {
 	opacity: 1;
 }
 
@@ -158,6 +163,10 @@ section {
 	padding: 0.5em 0 0.3em;
 	max-width: 300px;
 	text-align: left;
+}
+.imagelist{
+	width: 300px;
+	height: 400px;
 }
 
 @media screen and (max-width: 25em) {

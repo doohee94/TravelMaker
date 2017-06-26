@@ -23,10 +23,10 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
 <!-- 지역탭 부분 css링크 -->
-<link rel="stylesheet" href="reviewlist.css">
+<link rel="stylesheet" href="/resource/travelReview/css/reviewlist.css">
 
-<script src="reviewlist.js"></script>
-<script src="travelRegion.js"></script>
+<script src="/resource/travelReview/js/reviewlist.js"></script>
+<script src="/resource/travelReview/js/travelRegion.js"></script>
 
 </head>
 
@@ -50,8 +50,7 @@
 					<div class="row box-shadow">
 						<div class="col-md-6">
 							<button id="<%=i+1%>" class="images">
-								<img class="lib-img-show"
-									src="http://lorempixel.com/850/850/?random=123">
+								<img class="lib-img-show" src="http://lorempixel.com/850/850/?random=123">
 							</button>
 						</div>
 						<div class="col-md-6">

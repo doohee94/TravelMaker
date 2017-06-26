@@ -1,0 +1,6 @@
+@CHARSET "UTF-8";
+
+body .container ul li a{
+	font-size:18px;
+	font-weight:600;
+}

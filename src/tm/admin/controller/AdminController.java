@@ -58,7 +58,7 @@ public class AdminController {
 	
 	/**
 	 * showMember
-	 * 한 회원의 정보를 출력
+	 * 한 회원의 정보를 출력(ajax)
 	 */
 	@RequestMapping("/adminshowmem.tm")
 	//@ResponseBody AdminMemberDTO로 리턴값을 json파일로 전송
@@ -70,7 +70,7 @@ public class AdminController {
 	
 	/**
 	 * searchmem
-	 * 검색한 결과를 출력
+	 * 검색한 결과를 출력(ajax)
 	 * @param sel,con
 	 */
 	@RequestMapping("/adminsearchmem.tm")
@@ -120,7 +120,7 @@ public class AdminController {
 	
 	/**
 	 * adadsearch
-	 * 광고등록에서 검색한 제휴회사 리스트를 출력
+	 * 광고등록에서 검색한 제휴회사 리스트를 출력(ajax)
 	 */
 	@RequestMapping("/adadsearch.tm")
 	public @ResponseBody List<AllianceDTO> adadsearch(@RequestParam String partnercomname) {
@@ -145,5 +145,81 @@ public class AdminController {
 		mv.setViewName(dir+"adminadList");
 		mv.addObject("adlist", list);
 		return mv;
+	}
+	
+	/**
+	 * allianceList
+	 * 제휴 리스트
+	 */
+	
+	@RequestMapping("/adminAllianceList.tm")
+	public ModelAndView allianceList() {
+		List<AllianceDTO> list = dao.adallist();
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(dir+"adminAllianceList");
+		mv.addObject("allist", list);
+		
+		return mv;
+	}
+	
+	
+	/**
+	 * adminAllianceRec
+	 * 제휴 리스트
+	 */
+	@RequestMapping("/adminAllianceRec.tm")
+	public ModelAndView adminAllianceRec() {
+		List<AllianceDTO> list = dao.adallist();
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(dir+"adminAllianceRec");
+		mv.addObject("allist", list);
+		
+		return mv;
+	}
+	
+	/**
+	 * deleteAlliance
+	 * 제휴 리스트 삭제
+	 */
+	@RequestMapping("/adminalliancedel.tm")
+	public String deleteAlliance(String num) {
+		
+		int res = dao.allianceDel(num);
+		
+		return "redirect:/tmadmin/adminAllianceList.tm";
+	}
+	
+	/**
+	 * adminalup
+	 * 제휴 승인
+	 */
+	@RequestMapping("/adminalup.tm")
+	public String adminalup(String num) {
+		dao.adminalup(num);
+		
+		return "redirect:/tmadmin/adminAllianceRec.tm";
+	}
+	
+	/**
+	 * adminalup
+	 * 제휴 거절
+	 */
+	@RequestMapping("/adminalde.tm")
+	public String adminalde(String num) {
+		dao.allianceDel(num);
+		
+		return "redirect:/tmadmin/adminAllianceRec.tm";
+	}
+	
+	/**
+	 * stateupdate
+	 * 제휴형태 변경
+	 */
+	@RequestMapping("/stateupdate.tm")
+	public String stateupdate(AllianceDTO allianceDTO) {
+		
+		dao.typeupdate(allianceDTO);
+		
+		return "redirect:/tmadmin/adminAllianceList.tm";
 	}
 }

@@ -57,8 +57,7 @@ CREATE TABLE partner (
 			String genId = UUID.randomUUID().toString();
 			this.partnerPhotofake = genId + partnerPhoto;
 			//파일 저장 경로
-//			File f = new File("C:\\TravelMaker\\TravelMaker\\WebContent\\upload\\alliance\\"+partnerPhotofake);
-			File f = new File("C:\\TravelMaker\\Test\\WebContent\\upload\\alliance\\"+partnerPhotofake);
+			File f = new File("C:\\TravelMaker\\TravelMaker\\WebContent\\upload\\alliance\\"+partnerPhotofake);
 			try {
 				file.transferTo(f);
 			} catch (IllegalStateException | IOException e) {
@@ -76,7 +75,10 @@ CREATE TABLE partner (
 		return partnerReginum;
 	}
 	public void setPartnerReginum(String partnerReginum) {
-		this.partnerReginum = partnerReginum.substring(0,3) + "-" + partnerReginum.substring(3,5) + "-" + partnerReginum.substring(5);
+		if(partnerReginum.contains("-"))
+			this.partnerReginum = partnerReginum;
+		else
+			this.partnerReginum = partnerReginum.substring(0,3) + "-" + partnerReginum.substring(3,5) + "-" + partnerReginum.substring(5);
 	}
 	public String getPartnerComname() {
 		return partnerComname;

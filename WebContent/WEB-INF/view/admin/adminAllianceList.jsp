@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<!-- 
+	adminAllianceList.jsp
+	제휴 회사 리스트 페이지
+ -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -129,65 +134,106 @@
 										<th><i class="icon_calendar"></i> 등록일</th>
 										<th><i class="icon_plus_alt2"></i> 상세보기</th>
 									</tr>
-									<tr>
-										<td>00001</td>
-										<td>SCOTT</td>
-										<td>176-026-5992</td>
-										<td>17.01.01</td>
-										<td>
-											<div class="btn-group">
-												<a class="btn btn-primary" href="#showview" data-toggle="modal">
-													<i class="icon_plus_alt2"> 상세보기</i>
-												</a>
-												<div aria-hidden="true" aria-labelledby="myModalLabel"
-													role="dialog" tabindex="-1" id="showview" class="modal fade">
-													<div class="modal-dialog">
-														<div class="modal-content">
-															<div class="modal-header">
-																<button aria-hidden="true" data-dismiss="modal"
-																	class="close" type="button">×</button>
-																<h4 class="modal-title">상세보기</h4>
+									<c:choose>
+										<c:when test="${!empty allist }">
+											<c:forEach items="${allist }" var="a">
+												<tr>
+													<td>${a.partnerNum }</td>
+													<td>${a.partnerComname }</td>
+													<td>${a.partnerReginum }</td>
+													<td>${a.partnerDate }</td>
+													<td>
+														<div class="btn-group">
+															<a class="infodiv btn btn-primary" href="#${a.partnerNum }" data-toggle="modal">
+																<i class="icon_plus_alt2"> 상세보기</i>
+															</a>
+															<div aria-hidden="true" aria-labelledby="myModalLabel"
+																role="dialog" tabindex="-1" id="${a.partnerNum }" class="modal fade">
+																<div class="modal-dialog">
+																	<div class="modal-content">
+																		<div class="modal-header">
+																			<button aria-hidden="true" data-dismiss="modal"
+																				class="close" type="button">×</button>
+																			<h4 class="modal-title">상세보기</h4>
+																		</div>
+																		<div class="modal-body">
+																			<form role="form" method="post" class="submitform">
+																				<div class="form-group">
+																					<label for="partnerNum">제휴번호</label>
+																					<input type="text" class="form-control" 
+																					name="partnerNum" id="partnerNum" readonly="readonly" value="${a.partnerNum }">
+																				</div>
+																				<div class="form-group">
+																					<label for="infoCom">회사명/대표명/사업자번호</label>
+																					<input type="text" class="form-control"
+																						name="infoCom" id="infoCom" readonly="readonly" 
+																						value="${a.partnerComname }/${a.partnerCeoname }/${a.partnerReginum }">
+																				</div>
+																				<div class="form-group">
+																					<label for="partnerDate">등록일</label>
+																					<input type="text" class="form-control"
+																						name="partnerDate" id="partnerDate" readonly="readonly"
+																						value="${a.partnerDate }">
+																				</div>
+																				<div class="stateview form-group">
+																					<label for="partnerStateview">제휴 형태</label>
+																					<c:choose>
+																						<c:when test="${a.partnerType=='10' }">
+																							<c:set var="str" value="제휴"/>
+																						</c:when>
+																						<c:when test="${a.partnerType=='20' }">
+																							<c:set var="str" value="광고"/>
+																						</c:when>
+																						<c:when test="${a.partnerType=='30' }">
+																							<c:set var="str" value="스탬프"/>
+																						</c:when>
+																						<c:when test="${a.partnerType=='40' }">
+																							<c:set var="str" value="광고/스템프"/>
+																						</c:when>
+																						<c:otherwise>
+																							<c:set var="str" value="승인대기"/>
+																						</c:otherwise>
+																					</c:choose>
+																					<input type="text" class="state form-control"
+																						name="partnerStateview" id="partnerStateview"  readonly="readonly"
+																						value='${str }'>
+																					<input type="hidden" value="${a.partnerType}">
+																					<button type="button" class="partnerch btn btn-info">변경</button>
+																					<select class="partnerType form-control m-bot15" id="partnerType" name="partnerType">
+																						<option value="10">제휴</option>
+																						<option value="20">광고</option>
+																						<option value="30">스탬프</option>
+																						<option value="40">광고/스탬프</option>
+																					</select>
+																				</div>
+																				<div class="form-group">
+																					<label for="imgshow">사업자 등록증</label>
+																				</div>
+																				<div class="form-group">
+																					<img class="imgshow" id="imgshow" alt="사업자등록증" src="/upload/alliance/${a.partnerPhotofake }" width="50px" height="70px">
+																				</div>
+																				<button type="button" data-dismiss="modal" class="partnerStatech btn btn-info">변경</button>
+																				<button type="button" data-dismiss="modal" class="btn btn-primary">닫기</button>
+																			</form>
+																		</div>
+																	</div>
+																</div>
 															</div>
-															<div class="modal-body">
-																<form role="form">
-																	<div class="form-group">
-																		<label for="exampleInputEmail1">제휴번호</label>
-																		<input type="email" class="form-control"
-																			id="exampleInputEmail3" >
-																	</div>
-																	<div class="form-group">
-																		<label for="exampleInputEmail1">회사명/대표명/사업자번호</label>
-																		<input type="email" class="form-control"
-																			id="exampleInputEmail3" >
-																	</div>
-																	<div class="form-group">
-																		<label for="exampleInputEmail1">등록일</label>
-																		<input type="email" class="form-control"
-																			id="exampleInputEmail3" >
-																	</div>
-																	<div class="form-group">
-																		<label for="exampleInputEmail1">제휴 형태</label>
-																		<input type="email" class="form-control"
-																			id="exampleInputEmail3" >
-																	</div>
-																	<div class="form-group">
-																		<label for="exampleInputEmail1">사업자 등록증</label>
-																	</div>
-																	<div class="form-group">
-																		<img id="imgshow" alt="사업자등록증" src="/upload/alliance/num01.gif" width="50px" height="70px">
-																	</div>
-																	<button type="close" class="btn btn-primary">닫기</button>
-																</form>
-															</div>
+															<a class="btn btn-danger" href="#">
+																<i class="delete icon_close_alt2" id="deletebtn"> 삭제</i>
+																<input type="hidden" value="${a.partnerNum }" />
+															</a>
 														</div>
-													</div>
-												</div>
-												<a class="btn btn-danger" href="#">
-													<i class="icon_close_alt2"> 삭제</i>
-												</a>
-											</div>
-										</td>
-									</tr>
+													</td>
+												</tr>
+											</c:forEach>
+										</c:when>
+										<c:otherwise>
+											<tr>
+												<td colspan="5">검색결과가 없습니다</td>
+											</tr>
+										</c:otherwise>
+									</c:choose>
 								</tbody>
 							</table>
 						</section>
@@ -227,10 +273,51 @@
 	<script src="/resource/admin/js/scripts.js"></script>
 	
 	<script type="text/javascript">
-		$("#imgshow").click(function(){
+		$(".infodiv").click(function(){
+			$(this).next().modal({backdrop: 'static'});
+		});
+	
+		$(".partnerType").hide();
+		$(".partnerStatech").hide();
+		
+		$(".imgshow").click(function(){
 			doImgPop($(this).attr("src"));
 		});
 		
+		$(".delete").click(function(){
+			var check = confirm("삭제 하시겠습니까? \n삭제 하시면 관련광고와 함께 삭제됩니다");
+			var num = $(this).next().val();
+			if(check){
+				location.href="adminalliancedel.tm?num="+num;
+			}
+		});
+		
+		$(".partnerch").click(function(){
+	 		$(".partnerType").show();
+			
+	 		$(".partnerStatech").show();
+
+	 		$(".state").hide(); 
+	 		$(this).hide();
+	 		var pre = $(this).prev();
+	 		$(this).next().find("option").each(function() {
+	 			if($(this).val() == pre.val()){
+	 				$(this).attr('selected', true);
+	 			};
+	 		});
+	 		
+		});
+		
+		$(".partnerStatech").click(function(){
+			$(".partnerType").hide();
+	 		$(".partnerStatech").hide();
+	 		$(".state").show(); 
+	 		$(".partnerch").show();
+			
+			var form = $(this).parents();
+			form.attr("action","stateupdate.tm");
+			form.submit();
+		});
 		
 		function doImgPop(img) {
 			img1 = new Image();

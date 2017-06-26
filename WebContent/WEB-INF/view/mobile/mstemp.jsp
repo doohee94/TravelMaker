@@ -38,8 +38,7 @@
 
    </div>   
    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-   <script><!-- jQuery Mobile init event handling position --></script>
    <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
-   <script type="text/javascript" src="/VSampleCoding/resource/mobile/js/function.js"></script>
+   <script type="text/javascript" src="/resource/mobile/js/function.js"></script>
 </body>
 </html>
