@@ -25,7 +25,7 @@
 				<li><a href="memberUpdate.tm">정보보기</a></li>
 				<li><a href="memberDelete.tm">회원탈퇴</a></li>
 			</ul>
-		<div class="subtitle"><a href="http://localhost:8080/TravelMakerTest/mylist/menubar.tm">나의일정</a></div>
+		<div class="subtitle"><a href="http://http://localhost:8080/mylist/menubar.tm">나의일정</a></div>
 		<div class="subtitle"><a href="">관심일정</a></div>
 		<div class="subtitle"><a href="">관심여행지</a></div>
 		<div class="subtitle"><a href="">QnA</a></div>
@@ -33,15 +33,15 @@
 	</div>
 
 <!--  달성률 보는 곳 -->
-<article   style="margin-left:100px; background-image:url('/TravelMaker/image/test3.png'); height: 250px">
+<article   style="margin-left:100px; background-image:url('/resource/mylist/images/test3.png'); height: 250px">
 	
-	<img src="/TravelMaker/image/flag.png" style="display: inline-block; margin-left:1500px"/>
+	<img src="/resource/member/css/images/flag.png" style="display: inline-block; margin-left:1500px"/>
 	<div id="rate" style="margin-left:35%;display:inline-block;"></div>
 
 </article>
 
 <center><article><br/>
-<img alt="" src="/TravelMaker/image/dropout.png" width="100" height="90" align=center><br/><br/>
+<img alt="" src="/resource/member/css/images/dropout.png" width="100" height="90" align=center><br/><br/>
 <font size="5"> 정말 TRAVEL MAKER를 탈퇴하시겠습니까?</font><br/><br/>
 <font size="3">탈퇴시 1주간 회원가입이 불가능합니다</font><br/><br/>
 <div> 비밀번호:

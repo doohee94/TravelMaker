@@ -40,7 +40,7 @@
 				<li><a href="memberUpdate.tm">정보보기</a></li>
 				<li><a href="memberDelete.tm">회원탈퇴</a></li>
 			</ul>
-		<div class="subtitle"><a href="http://localhost:8080/TravelMakerTest/mylist/menubar.tm">나의일정</a></div>
+		<div class="subtitle"><a href="http://localhost:8080/mylist/menubar.tm">나의일정</a></div>
 		<div class="subtitle"><a href="">관심일정</a></div>
 		<div class="subtitle"><a href="">관심여행지</a></div>
 		<div class="subtitle"><a href="">QnA</a></div>

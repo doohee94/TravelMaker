@@ -57,10 +57,10 @@ text-decoration:none;
 		<h1>마이페이지</h1>
 		<div class="subtitle"><a href="#">내정보</a></div>
 			<ul class="sub" style="display:none;">
-				<li><a href="http://localhost:8080/TravelMaker/member/memberUpdate.tm">정보보기</a></li>
-				<li><a href="http://localhost:8080/TravelMaker/member/memberDelete.tm">회원탈퇴</a></li>
+				<li><a href="http://localhost:8080/member/memberUpdate.tm">정보보기</a></li>
+				<li><a href="http://localhost:8080/member/memberDelete.tm">회원탈퇴</a></li>
 			</ul>
-		<div class="subtitle"><a href="http://localhost:8080/TravelMaker/mylist/menubar.tm">나의일정</a></div>
+		<div class="subtitle"><a href="http://http://localhost:8080/mylist/menubar.tm">나의일정</a></div>
 		<div class="subtitle"><a href="">관심일정</a></div>
 		<div class="subtitle"><a href="">관심여행지</a></div>
 		<div class="subtitle"><a href="">QnA</a></div>

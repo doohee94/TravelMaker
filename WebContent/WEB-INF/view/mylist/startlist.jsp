@@ -51,10 +51,10 @@ text-decoration:none;
 		<h1>마이페이지</h1>
 		<div class="subtitle"><a href="#">내정보</a></div>
 			<ul class="sub" style="display:none;">
-				<li><a href="http://localhost:8080/TravelMaker/member/memberUpdate.tm">정보보기</a></li>
-				<li><a href="http://localhost:8080/TravelMaker/member/memberDelete.tm">회원탈퇴</a></li>
+				<li><a href="http://localhost:8080/member/memberUpdate.tm">정보보기</a></li>
+				<li><a href="http://localhost:8080/member/memberDelete.tm">회원탈퇴</a></li>
 			</ul>
-		<div class="subtitle"><a href="http://localhost:8080/TravelMaker/mylist/menubar.tm">나의일정</a></div>
+		<div class="subtitle"><a href="http://http://localhost:8080/mylist/menubar.tm">나의일정</a></div>
 		<div class="subtitle"><a href="">관심일정</a></div>
 		<div class="subtitle"><a href="">관심여행지</a></div>
 		<div class="subtitle"><a href="">QnA</a></div>
@@ -62,9 +62,9 @@ text-decoration:none;
 	</div>
 
 <!--  달성률 보는 곳 -->
-<article   style="margin-left:100px; background-image:url('/TravelMaker/image/test3.png'); height: 250px">
+<article   style="margin-left:100px; background-image:url('/resource/mylist/images/test3.png'); height: 250px">
 	
-	<img src="/TravelMakerTest/image/flag.png" style="display: inline-block; margin-left:1500px"/>
+	<img src="/resource/mylist/images/flag.png" style="display: inline-block; margin-left:1500px"/>
 	<div id="rate" style="margin-left:35%;display:inline-block;"></div>
 
 </article>
@@ -85,10 +85,6 @@ text-decoration:none;
         </div>
         <br/>
 
-
-
-            <!-- <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter ing">
-                 <img src="/TravelMakerTest/image/image_1.JPG" class="img-responsive" style="display:block;">  -->
             
 <div>          
             
