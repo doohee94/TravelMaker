@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mypage">
+	<select id="listspot" parameterType="hashMap" resultType="likespotDTO">
+		SELECT *
+		FROM likespot 
+		WHERE user_id = #{userId}
+	</select>
+	<delete id="deletespot" parameterType="hashMap">
+		DELETE
+		FROM likespot
+		<where>
+		user_id =#{userId} AND likespot_num =#{likespotNum}
+		</where>
+	</delete>
+</mapper>
