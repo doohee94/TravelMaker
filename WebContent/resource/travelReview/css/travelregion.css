@@ -1,0 +1,215 @@
+@CHARSET "UTF-8";
+			/* mouseover cursor */					
+.wrap .city1 ul li a{
+	cursor:pointer;
+}
+.wrap .city2 ul li a{
+	cursor:pointer;
+}
+						/* menu tab fold/unfold  */
+.wrap .Gangwondodiv{
+	display:none;
+}
+.wrap .Gyeonggidodiv{
+	display:none;
+}
+.wrap .Gyeongsangnamdodiv{
+	display:none;
+}
+.wrap .Gyeongsangbukdodiv{
+	display:none;
+} 
+.wrap .Jeollanamdodiv{
+	display:none;
+}
+.wrap .Jeollabukdodiv{
+	display:none;
+}
+.wrap .Chungcheongnamdodiv{
+	display:none;
+}
+.wrap .Chungcheongbukdodiv{
+	display:none;
+} 
+
+/* .wrap .city1 ul .Gangwondo:hover ul{ */
+/* 	display:block; */
+/* }  */
+
+							/**Major region choice's first row  */
+.wrap .city0 ul {
+	padding-top:3px;
+	overflow: auto;
+	list-style:none;
+	border: 2px solid #dedede;
+}
+
+.wrap .city0 ul li{
+	float: left;
+	font: bold 15px Dotum;
+	padding: 0 5px;
+	margin: 0px 20px 0px 15px;
+}
+
+.wrap .city0 ul li #majorcitymark{
+	border: 2px solid #2995f7;
+	padding:3px;
+	margin-top:7px;
+}
+
+							/**Major region choice's second row  */
+ .wrap .city1 ul {
+	padding-top:3px;
+	overflow: auto;
+	list-style:none;
+	border: 2px solid #dedede;
+}
+
+.wrap .city1 ul li{
+	float: left;
+	font: bold 15px Dotum;
+	padding: 0 5px;
+	margin: 0px 20px 0px 15px;
+}
+/* .wrap .city1 ul li a{ */
+/* 	font: bold 15px Dotum; */
+/* 	pading:  */
+
+/* } */
+
+
+								/**Gangwondo choiced*/
+ .wrap .Gangwondodiv ul {
+	padding-top:3px;
+	overflow: auto;
+	list-style:none;
+	border: 2px solid #dedede;
+}
+
+.wrap .Gangwondodiv ul li{
+	float: left;
+	font: bold 15px Dotum;
+	padding: 0 5px;
+	margin: 0px 20px 0px 15px;
+}
+
+							/**Gyeonggido choiced*/
+ .wrap .Gyeonggidodiv ul {
+	padding-top:3px;
+	overflow: auto;
+	list-style:none;
+	border: 2px solid #dedede;
+}
+
+.wrap .Gyeonggidodiv ul li{
+	float: left;
+	font: bold 15px Dotum;
+	padding: 0 5px;
+	margin: 0px 20px 0px 15px;
+}	
+							/**Gyeongsangnamdo choiced*/
+ .wrap .Gyeongsangnamdodiv ul {
+	padding-top:3px;
+	overflow: auto;
+	list-style:none;
+	border: 2px solid #dedede;
+}
+
+.wrap .Gyeongsangnamdodiv ul li{
+	float: left;
+	font: bold 15px Dotum;
+	padding: 0 5px;
+	margin: 0px 20px 0px 15px;
+}	
+
+							/**Gyeongsangbukdo choiced*/
+ .wrap .Gyeongsangbukdodiv ul {
+	padding-top:3px;
+	overflow: auto;
+	list-style:none;
+	border: 2px solid #dedede;
+}
+
+.wrap .Gyeongsangbukdodiv ul li{
+	float: left;
+	font: bold 15px Dotum;
+	padding: 0 5px;
+	margin: 0px 20px 0px 15px;
+}	
+
+							/**Jeollanamdo choiced*/
+ .wrap .Jeollanamdodiv ul {
+	padding-top:3px;
+	overflow: auto;
+	list-style:none;
+	border: 2px solid #dedede;
+}
+
+.wrap .Jeollanamdodiv ul li{
+	float: left;
+	font: bold 15px Dotum;
+	padding: 0 5px;
+	margin: 0px 20px 0px 15px;
+}	
+							/**Jeollabukdo choiced*/
+ .wrap .Jeollabukdodiv ul {
+	padding-top:3px;
+	overflow: auto;
+	list-style:none;
+	border: 2px solid #dedede;
+}
+
+.wrap .Jeollabukdodiv ul li{
+	float: left;
+	font: bold 15px Dotum;
+	padding: 0 5px;
+	margin: 0px 20px 0px 15px;
+}	
+							/**Chungcheongnamdo choiced*/
+ .wrap .Chungcheongnamdodiv ul {
+	padding-top:3px;
+	overflow: auto;
+	list-style:none;
+	border: 2px solid #dedede;
+}
+
+.wrap .Chungcheongnamdodiv ul li{
+	float: left;
+	font: bold 15px Dotum;
+	padding: 0 5px;
+	margin: 0px 20px 0px 15px;
+}	
+							/**Chungcheongbukdo choiced*/
+ .wrap .Chungcheongbukdodiv ul {
+	padding-top:3px;
+	overflow: auto;
+	list-style:none;
+	border: 2px solid #dedede;
+}
+
+.wrap .Chungcheongbukdodiv ul li{
+	float: left;
+	font: bold 15px Dotum;
+	padding: 0 5px;
+	margin: 0px 20px 0px 15px;
+}	
+
+						/**Major region choice's third row  */
+ .wrap .city2 ul {
+	padding-top:3px;
+	overflow: auto;
+	list-style:none;
+	border: 2px solid #dedede;
+}
+
+.wrap .city2 ul li{
+	float: left;
+	font: bold 15px Dotum;
+	padding: 0 5px;
+	margin: 0px 20px 0px 15px;
+}
+
+
+
+
+

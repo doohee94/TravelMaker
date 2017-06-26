@@ -20,6 +20,7 @@
   		/WEB-INF/springconfig/step2-servlet.xml
   		/WEB-INF/springconfig/step3-websocket-config.xml
   		/WEB-INF/springconfig/step3-servlet.xml
+  		/WEB-INF/springconfig/mypage_checklist-servlet.xml
   		</param-value>
   	</init-param>
   </servlet>
