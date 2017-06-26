@@ -21,6 +21,8 @@ $( function() {
 	      var addr = [];
 	      var mapx = [];
 	      var mapy = [];
+	      
+	      var place =[];
 
 	      //리스트의 정보를 ajax로 넘긴다
 	      $('#myList > li').each(function(i,item){
@@ -31,6 +33,14 @@ $( function() {
 	         mapy[i] = $(item).find(".mapy").attr("value"); 
 
 	         //alert(i + '/' + title);
+	         
+	         var list={
+	           	    	"title":$(item).find(".name").text(),
+	           	    	"image":$(item).find("img").attr("src"),
+	           	    	"mapx":$(item).find(".mapx").attr("value"),
+	           	    	"mapy":$(item).find(".mapy").attr("value"),  
+	           	      }
+           place[i] = list;
 	      });
 	      
 	      var listInfo = {
@@ -77,12 +87,7 @@ $( function() {
 	                     arrayY[i] = mapy;
 	                     index++;
 	                     
-	                   });
-	                   
-	                 //리스트 더블클릭하면 삭제
-	                 $(this).children(".remove").dblclick(function(){
-	                     $(this).remove();
-	                 });
+	                   });	                   
 	                 
 	                 /*리스트 정보를 지도에 경로 표시*/
 	                 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -128,7 +133,40 @@ $( function() {
 	                 polyline.setMap(map);
 	                 
 	               
-	            	   
+	                 var city =  $("#hiddenCity").val();
+	           	     var date="2017-05-02";
+	           	     var state="0";
+	           	     alert(city);
+	           	     var id=2;
+	           	     var schedule={
+	           	    		"_id":id++,
+	           	    		"schedule_num":"1",
+	           	    		"member_id":"doohee94",
+	           	    		"friend":"5",
+	           	    		"group_num":"254",
+	           	    		"tour_title":"즐거운 여행~",
+	           	    		 "tour" :[{
+	           	    			"date":date,
+	           	    			"city":city,
+	           	    			"place":place
+	           	    			
+	           	    		}],
+	           	    		"save_state":state
+	           	      }                     
+	                  //정렬 될 때 마다 리스트 순서를 불러와서 ajax로 넘겨 준 후 디비에 저장!
+	           	     $.ajax({
+	                	 url : "/step/listSave.tm"
+	            	     ,type:"post"
+	            	     ,contentType:"application/json "
+	            	     ,data:JSON.stringify(schedule)
+	            	     ,success:function(data){
+	            	    	alert(data);
+	            	     }
+	                 ,error:function(err,status,error){
+	        	         alert("실패!"+err.status+error);
+	        	        
+	        	      }
+	                 });  
 	            	   
 	               }
 	      ,error:function(err,status,error){
@@ -189,13 +227,6 @@ $( function() {
 	           	      }
               place[i] = list;
             });
-            
-          
-            
-          //리스트 더블클릭하면 삭제
-          $(this).children(".remove").dblclick(function(){
-              $(this).remove();
-          });
           
           /*리스트 정보를 지도에 경로 표시*/
           var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -262,7 +293,6 @@ $( function() {
    	    		"save_state":state
    	      }                     
           //정렬 될 때 마다 리스트 순서를 불러와서 ajax로 넘겨 준 후 디비에 저장!
-   	  alert(schedule);
    	     $.ajax({
         	 url : "/step/listSave.tm"
     	     ,type:"post"
@@ -294,7 +324,14 @@ $( function() {
          height : 250,
          callback:function(data){ // $a.close(data) API 사용 시 동작하는 콜백
             if(data !== null){ // 팝업 우측 상단 x 버튼으로 닫을 경우, $a.close(data); 와 같이 data를 넘겨주지 않으므로 data === null이다.
-               $("#myList").append("<li class='myList' style='color:#000;'>"+data+"</li>");   //결과 값 리스트에 붙이기
+            	$("#myList").append(' <li class="list-group-item remove draggable" style="color:#000;"> <div class="col-xs-12 col-sm-3">'+
+                        '<img src="step3_image/cityscape.png" style="width:62px; height:62px" class="img-responsive img-circle"  /></div>'+
+                        ' <div class="col-xs-12 col-sm-9" align = "center">' +
+                        '<span class="name" style="color:#000;">'+data+'</span><br/>'+
+                        '<input type="hidden" class="mapx" value=0.0 />'+
+                        '<input type="hidden" class="mapy" value=0.0 />'+
+                        '</div><div class="clearfix"></div></li>'//결과 값 리스트에 붙이기
+                  );   //결과 값 리스트에 붙이기
             }
          },
          alias : "flag1",
@@ -708,3 +745,69 @@ $( function() {
    
    
 });
+
+function listSave(){
+	var title = [];
+	      var image = [];
+	      var mapx = [];
+	      var mapy = [];
+	      var city =  $("#hiddenCity").val();
+	      var date="2017-05-02";
+	      
+	   var place = [];
+	      
+	      //리스트의 정보를 ajax로 넘긴다
+	      $('#myList > li').each(function(i,item){
+	         title[i] = $(item).find(".name").text();
+	         image[i] = $(item).find("img").attr("src");
+	         mapx[i] = $(item).find(".mapx").attr("value");
+	         mapy[i] = $(item).find(".mapy").attr("value"); 
+
+	         //alert(i + '/' + title);
+	         
+	      var list={
+   	    	"title":$(item).find(".name").text(),
+   	    	"image":$(item).find("img").attr("src"),
+   	    	"mapx":$(item).find(".mapx").attr("value"),
+   	    	"mapy":$(item).find(".mapy").attr("value"),  
+   	      }
+	      
+	      place[i] = list;
+	    	           	      
+	      });
+	      
+	     
+	      var id=2;
+	     var schedule={
+	    		"_id":id++,
+	    		"schedule_num":"1",
+	    		"member_id":"doohee94",
+	    		"friend":"5",
+	    		"group_num":"254",
+	    		"tour_title":"즐거운 여행~",
+	    		 "tour" :[{
+	    			"date":date,
+	    			"city":city,
+	    			"place":place
+	    			
+	    		}],
+	    		"save_state":state
+	      }                  
+	      
+	      
+	   
+    //정렬 될 때 마다 리스트 순서를 불러와서 ajax로 넘겨 준 후 디비에 저장!
+   $.ajax({
+  	 url : "/step/listSave.tm"
+	     ,type:"post"
+	     ,contentType:"application/json "
+	     ,data:JSON.stringify(schedule)
+	     ,success:function(data){
+	    	alert(data);
+	     }
+   ,error:function(err,status,error){
+       alert("실패!"+err.status+error);
+      
+    }
+   });
+}
