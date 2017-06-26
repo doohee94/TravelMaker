@@ -71,7 +71,7 @@ function nochk(){
 			return false;
 		} 
 		/* 닉네임 정규화 */
- 		var reg_nick=/^[가-힣a-zA-Z]+$/;
+ 		var reg_nick=/^[가-힣a-zA-Z0-9]+$/;
 		if(!(reg_pass.test($("#nick").val()))){
 			alert("닉네임 형식이 잘못되었습니다");
 			$("#nick").focus();
