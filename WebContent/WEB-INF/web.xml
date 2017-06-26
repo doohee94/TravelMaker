@@ -22,6 +22,8 @@
   		/WEB-INF/springconfig/step3-servlet.xml
   		/WEB-INF/springconfig/mypage_checklist-servlet.xml
   		/WEB-INF/springconfig/travelReview-servlet.xml
+  		/WEB-INF/springconfig/member-servlet.xml
+  		/WEB-INF/springconfig/mylist-servlet.xml
   		</param-value>
   	</init-param>
   </servlet>

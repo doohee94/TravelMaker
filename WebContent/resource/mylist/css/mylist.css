@@ -1,0 +1,17 @@
+
+.btn-default:active .filter-button:active
+{
+    background-color: #2995F7;
+    color: white;
+}
+
+.port-image
+{
+	float: left;
+    width: 100%;
+}
+
+.gallery_product
+{
+    margin-bottom: 30px;
+}
