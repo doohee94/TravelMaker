@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+	<!-- 회원가입 insert -->
+	<insert id="insert" parameterType="tm.member.dto.MemberDTO">
+	insert into member values(
+	#{userId,jdbcType=VARCHAR2},#{userPw,jdbcType=VARCHAR2},#{userName,jdbcType=VARCHAR2},#{userNick,jdbcType=VARCHAR2},#{userAddr,jdbcType=VARCHAR2},#{userTel,jdbcType=VARCHAR2},#{userType,jdbcType=NUMBER},#{userDate,jdbcType=DATE})
+	</insert>
+</mapper>
