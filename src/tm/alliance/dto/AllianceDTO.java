@@ -76,7 +76,10 @@ CREATE TABLE partner (
 		return partnerReginum;
 	}
 	public void setPartnerReginum(String partnerReginum) {
-		this.partnerReginum = partnerReginum.substring(0,3) + "-" + partnerReginum.substring(3,5) + "-" + partnerReginum.substring(5);
+		if(partnerReginum.contains("-"))
+			this.partnerReginum = partnerReginum;
+		else
+			this.partnerReginum = partnerReginum.substring(0,3) + "-" + partnerReginum.substring(3,5) + "-" + partnerReginum.substring(5);
 	}
 	public String getPartnerComname() {
 		return partnerComname;

@@ -103,11 +103,51 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	@Override
-	public int addelete(String num) {
+	public int addelete(String adnum) {
 		HashMap map = new HashMap();
-		map.put("num",num);
+		map.put("adnum",adnum);
 		
 		int res = ss.delete(namespace + ".addelete", map);
+		return res;
+	}
+
+	@Override
+	public List<AllianceDTO> adallist() {
+		
+		List<AllianceDTO> list = ss.selectList(namespace + ".allist");
+		
+		return list;
+	}
+
+	@Override
+	public int allianceDel(String partnernum) {
+		
+		HashMap map = new HashMap();
+		map.put("partnernum", partnernum);
+		
+		int resad = ss.delete(namespace + ".addelete", map);
+		
+		int resal = ss.delete(namespace + ".alliancedel", map);
+		
+		return resal;
+	}
+
+	@Override
+	public int adminalup(String num) {
+		
+		HashMap map = new HashMap();
+		map.put("partnernum", num);
+		
+		int res = ss.update(namespace + ".allianceapproval", map);
+		
+		return res;
+	}
+
+	@Override
+	public int typeupdate(AllianceDTO allianceDTO) {
+		
+		int res = ss.update(namespace + ".typeupdate", allianceDTO);
+		
 		return res;
 	}
 

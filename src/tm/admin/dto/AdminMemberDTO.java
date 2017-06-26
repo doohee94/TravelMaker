@@ -11,7 +11,8 @@ CREATE TABLE member (
   user_addr     VARCHAR2(100)   NOT NULL, -- 주소
   user_tel      VARCHAR2(50)    NOT NULL, -- 전화번호
   user_type     NUMBER          NOT NULL, -- 회원타입
-  user_date     DATE            NOT NULL  -- 가입날짜
+  user_date     DATE            NOT NULL, -- 가입날짜
+  user_email	VARCHAR2(50)	NOT NULL  -- 이메일
 );
 	 */
 	private String userId;
@@ -22,6 +23,7 @@ CREATE TABLE member (
 	private String userTel;
 	private String userType;
 	private String userDate;
+	private String userEmail;
 	
 	public String getUserName() {
 		return userName;
@@ -71,5 +73,10 @@ CREATE TABLE member (
 	public void setUserDate(String userDate) {
 		this.userDate = userDate.split(" ")[0];
 	}
-	
+	public String getUserEmail() {
+		return userEmail;
+	}
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
 }

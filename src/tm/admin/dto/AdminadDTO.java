@@ -54,8 +54,8 @@ CREATE TABLE advertisement (
 			String genId = UUID.randomUUID().toString();
 			this.adPhotofake = genId + adPhoto;
 			//파일 저장 경로
-//			File f = new File("C:\\TravelMaker\\TravelMaker\\WebContent\\upload\\alliance\\"+partnerPhotofake);
-			File f = new File("C:\\TravelMaker\\Test\\WebContent\\upload\\alliance\\"+adPhotofake);
+//			File f = new File("C:\\TravelMaker\\TravelMaker\\WebContent\\upload\\admin\\"+adPhotofake);
+			File f = new File("C:\\TravelMaker\\Test\\WebContent\\upload\\admin\\"+adPhotofake);
 			try {
 				file.transferTo(f);
 			} catch (IllegalStateException | IOException e) {
