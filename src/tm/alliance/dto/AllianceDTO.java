@@ -57,8 +57,7 @@ CREATE TABLE partner (
 			String genId = UUID.randomUUID().toString();
 			this.partnerPhotofake = genId + partnerPhoto;
 			//파일 저장 경로
-//			File f = new File("C:\\TravelMaker\\TravelMaker\\WebContent\\upload\\alliance\\"+partnerPhotofake);
-			File f = new File("C:\\TravelMaker\\Test\\WebContent\\upload\\alliance\\"+partnerPhotofake);
+			File f = new File("C:\\TravelMaker\\TravelMaker\\WebContent\\upload\\alliance\\"+partnerPhotofake);
 			try {
 				file.transferTo(f);
 			} catch (IllegalStateException | IOException e) {
