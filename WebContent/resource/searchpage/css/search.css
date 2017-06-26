@@ -1,0 +1,44 @@
+/*타이틀 스타일*/
+	.title{
+		height: 60px;
+		border-bottom: solid 3px;
+		margin-left: 100px;
+		margin-right: 100px;
+		font-size: 40px;
+		
+	}
+	/*날씨/사진 스타일*/
+	.imageANDweather{
+		margin-left: 300px;
+		
+	}
+	.container { 
+		max-width:960px;
+	}
+	.DSlider-item{
+		margin : 0;
+		padding: 0;
+	}
+	.Slider2{
+		margin : 0;
+		padding: 0;
+		float: left;
+	}
+	.titleImg{
+		margin-right:0px;
+		padding: 0px;
+		width:1000px;
+		height:400px;
+	}
+	.weather{
+		float: right;
+	}
+	.cityList{
+		list-style-type : none;
+ 	padding-left:0px;
+		
+	}
+	.img-responsive{
+		width: 250px;
+		height: 250px;
+	}
