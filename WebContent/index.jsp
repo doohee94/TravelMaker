@@ -54,6 +54,14 @@
 <a href="member/memberModify.tm">내정보수정</a> <br/>
 <a href="member/memberDelete.tm">탈퇴하기</a>
 
+<br/>
+<a href="tmmain/main.tm">메인메인</a>
+<br/>
+<a href="tmtour/detailtour.tm">여행지 상세</a>
+<br/>
+<a href="tmmoblie/mstemp.tm">모바일 보기</a>
+<br/>
+<a href="tmheader/header.tm">헤더</a>
 
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

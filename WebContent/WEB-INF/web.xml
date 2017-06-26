@@ -24,6 +24,12 @@
   		/WEB-INF/springconfig/travelReview-servlet.xml
   		/WEB-INF/springconfig/member-servlet.xml
   		/WEB-INF/springconfig/mylist-servlet.xml
+  		/WEB-INF/springconfig/header-servlet.xml
+  		/WEB-INF/springconfig/login-servlet.xml
+  		/WEB-INF/springconfig/mobile-servlet.xml
+  		/WEB-INF/springconfig/tour-servlet.xml
+  		/WEB-INF/springconfig/mypage-servlet.xml
+  		/WEB-INF/springconfig/main-servlet.xml
   		</param-value>
   	</init-param>
   </servlet>
