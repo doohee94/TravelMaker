@@ -16,10 +16,10 @@ $(function() {
   		
   		//좋아요 버튼 눌렀을 때 이미지 변경
   		$("#heartBtn").click(function(){
-  			if($("#heartBtn").attr("src") == "heart1.png"){
-  				$("#heartBtn").attr("src","heart2.png");
+  			if($("#heartBtn").attr("src") == "/resource/travelReview/images/heart1.png"){
+  				$("#heartBtn").attr("src","/resource/travelReview/images/heart2.png");
   			}else{
-  				$("#heartBtn").attr("src","heart1.png");
+  				$("#heartBtn").attr("src","/resource/travelReview/images/heart1.png");
   			}
   		});
   		

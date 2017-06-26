@@ -82,7 +82,7 @@
 			<div class="page-header">
 				<h3>여행리뷰 제목</h3>
 				<input type="button" id="shareBtn" value="페이스북공유하기"/>
-				<input type="image" id="heartBtn" src="heart1.png">
+				<input type="image" id="heartBtn" src="/resource/travelReview/images/heart1.png">
 			</div>
 			<div class="well">
 				<p>여기는 리뷰 내용입니다</p>

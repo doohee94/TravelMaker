@@ -3,7 +3,7 @@
 	
 	<!-- 여행지 지역 선택하는 메뉴 페이지-->
 	
-<link rel="stylesheet" href="travelregion.css">
+<link rel="stylesheet" href="/resource/travelReview/css/travelregion.css">
 
 <div class="wrap">
 	<div class="city0">
