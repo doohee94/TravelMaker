@@ -17,14 +17,14 @@
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="../step3/css/alopex-ui-default.css" />
+<link rel="stylesheet" type="text/css" href="/resource/step3/css/alopex-ui-default.css" />
 
 <!-- css파일 -->
 <link rel="stylesheet" href="/resource/mypage_checklist/css/schedulePopup.css">
 
 <!-- 팝업관련 파일 -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="../step3/script/alopex-ui.min.js"></script>
+<script type="text/javascript" src="/resource/step3/script/alopex-ui.min.js"></script>
 
 <!-- js 파일 -->
 <script type="text/javascript" src="/resource/mypage_checklist/js/schedulePopup.js"></script>

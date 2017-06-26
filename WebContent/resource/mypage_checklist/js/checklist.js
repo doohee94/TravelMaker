@@ -13,7 +13,7 @@
     $(".stemp").click(function(){
     	var stempitem = $(this);
     	$a.popup({
-            url : "schedulePopup.jsp",
+            url : "schedulePopup.tm",
             ifram:true,
             width : 600,
             height : 350,

@@ -27,7 +27,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <!-- 팝업 관련 파일 -->
-<link rel="stylesheet" type="text/css" href="../step3/css/alopex-ui-default.css" />
+<link rel="stylesheet" type="text/css" href="/resource/step3/css/alopex-ui-default.css" />
 
 <!-- 부루마블 css파일 -->
 <link rel="stylesheet" href="/resource/mypage_checklist/css/checklist.css">
@@ -64,5 +64,5 @@
 <%}%>
 </div>
 </body>
-<script type="text/javascript" src="../step3/script/alopex-ui.min.js"></script>
+<script type="text/javascript" src="/resource/step3/script/alopex-ui.min.js"></script>
 </html>

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/mypage_checklist")
 public class Mypage_checklistController {
 
-	private String dir = "checklist/";
+	private String dir = "mypage_checklist/";
 	
 	@RequestMapping("/{url}.tm")
 	   public String checklist(@PathVariable String url){

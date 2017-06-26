@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
- <link rel="stylesheet" type="text/css" href="../step3/css/alopex-ui-default.css" />
+ <link rel="stylesheet" type="text/css" href="/resource/step3/css/alopex-ui-default.css" />
  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <style>
   #beforeList, #afterList{
