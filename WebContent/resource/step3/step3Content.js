@@ -180,6 +180,8 @@ $( function() {
               
             });
             
+           
+            
           //리스트 더블클릭하면 삭제
           $(this).children(".remove").dblclick(function(){
               $(this).remove();
@@ -226,15 +228,15 @@ $( function() {
            map.setBounds(bounds);
           
           // 지도에 선을 표시합니다 
-          polyline.setMap(map);
-          
-          	
+          polyline.setMap(map); 
           
           
           
           
-        }
-      });
+        }//update end
+   
+   
+      });//소터블 end
       
 
    //개인일정 추가 버튼 누르면 팝업 띄우고 결과값 리스트에 저장하는 함수

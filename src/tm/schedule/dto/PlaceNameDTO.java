@@ -8,6 +8,17 @@ public class PlaceNameDTO {
 	private double mapx;
 	private double mapy;
 	
+	public PlaceNameDTO(){}
+	
+	
+	public PlaceNameDTO(String spot, String onelineReview, int check, double mapx, double mapy) {
+		super();
+		this.spot = spot;
+		this.onelineReview = onelineReview;
+		this.check = check;
+		this.mapx = mapx;
+		this.mapy = mapy;
+	}
 	public String getSpot() {
 		return spot;
 	}

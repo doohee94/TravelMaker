@@ -3,16 +3,29 @@ package tm.step3.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.bson.Document;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.mongodb.DBObject;
+import com.mongodb.util.JSON;
+
+import tm.schedule.dto.DateDTO;
+import tm.schedule.dto.PlaceDTO;
+import tm.schedule.dto.PlaceNameDTO;
 
 /**
  * Step3Controller
@@ -22,8 +35,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/step")
 public class Step3Controller {
+	@Autowired
+   private MongoTemplate mongoTemplate;
    
-   private String dir = "step3/";
+	private String dir = "step3/";
+   
    
    @RequestMapping("/{url}.tm")
    public String step3(@PathVariable String url){
@@ -131,6 +147,40 @@ public class Step3Controller {
    }
    
    /**
+    * listSave
+    * step3에서 저장버튼->저장을 눌렀을 때 상태
+    * paramter : list ajax로 받은 타이틀 등의  json 형식
+    * 리턴값 : 성공일 경우에 바로 마이페이지로 갈 수있도록..!
+    * */
+   @RequestMapping("/listSave.tm")
+   @ResponseBody
+   public String listSave(@RequestBody String list){
+
+	   try{
+		   Document doc = Document.parse(list);
+	   
+		  // mongoTemplate.insert(doc,"schedule");
+		   
+		   Criteria critefia  = new Criteria("_id");
+		   critefia.is("1");
+		   
+		   Query query = new Query(critefia);
+		   
+		   Update update = new Update();
+		   update.set("tour.city","인천");
+		   
+		   mongoTemplate.updateFirst(query, update, "schedule");
+		   
+	   }catch(Exception ex){
+		   ex.printStackTrace();
+	   }
+	   
+	   return "성공!@@@";
+   }
+   
+   
+   
+   /**
        * range
        * 두 좌표간 거리 계산
        * 인자값 : x1,y1 과 x2,y2 좌표 2개
@@ -168,5 +218,9 @@ public class Step3Controller {
          }
          return leng;
       }
+      
+      
+      
+      
    
 }
