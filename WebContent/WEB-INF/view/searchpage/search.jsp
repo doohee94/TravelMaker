@@ -7,13 +7,13 @@
 <!--  이미지 슬라이더 css -->
 <meta name="viewport" content="width=device-width,initial-scale=1.0" >
 <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1" >
-<link rel="stylesheet" type="text/css" href="/TravelMaker/resource/search/css/list.css" >
-<link rel="stylesheet" type="text/css" href="/TravelMaker/resource/search/css/DSlider.css" >
+<link rel="stylesheet" type="text/css" href="/resource/search/css/list.css" >
+<link rel="stylesheet" type="text/css" href="/resource/search/css/DSlider.css" >
 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <title>Insert title here</title>
-	<link rel="stylesheet" href="/TravelMaker/resource/search/css/header.css">
+	<link rel="stylesheet" href="/resource/searchpage/css/header.css">
 	<style type="text/css">
 	
 	body{
@@ -115,7 +115,7 @@
 								class="titleImg" src="https://unsplash.it/1200/800/?random"
 								alt="55555" /></li>
 						</ul>
-						<script src="/TravelMaker/resource/search/js/DSlider.js"></script>
+						<script src="/resource/search/js/DSlider.js"></script>
 						<script>
 							$(".Slider2").Slider({
 								mode : 'fade',
@@ -123,7 +123,7 @@
 							});
 						</script>
 					</div><!--  container -->
-					<script type="text/javascript"src="/TravelMaker/resource/search/js/imageSilder.js"></script> 	
+					<script type="text/javascript"src="/resource/search/js/imageSilder.js"></script> 	
 				</td><!--  사진끝끝  -->
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>
@@ -132,25 +132,25 @@
 							<tr>
 								<td>
 								<h2>현재날씨</h2>
-								<img src="/TravelMaker/resource/search/image/people.png" style="width:70px; height: 70px"/>
+								<img src="/resource/search/image/people.png" style="width:70px; height: 70px"/>
 								<p>기온 30º</p>
 								</td>
 								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 								<td>
 								<h2>내일날씨</h2>
-								<img src="/TravelMaker/resource/search/image/people.png" style="width:70px; height: 70px"/>
+								<img src="/resource/search/image/people.png" style="width:70px; height: 70px"/>
 								<p>기온 30º</p></td>
 							</tr>
 							<tr>
 								<td>
 								<h2>5일후</h2>
-								<img src="/TravelMaker/resource/search/image/people.png" style="width:70px; height: 70px"/>
+								<img src="/resource/search/image/people.png" style="width:70px; height: 70px"/>
 								<p>현재기온 30º</p>
 								</td>
 								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 								<td>
 								<h2>10일후</h2>
-								<img src="/TravelMaker/resource/search/image/people.png" style="width:70px; height: 70px"/>
+								<img src="/resource/search/image/people.png" style="width:70px; height: 70px"/>
 								<p>현재기온 30º</p></td>	
 							</tr>
 						</table>
@@ -211,7 +211,7 @@
     
     
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script type="text/javascript" src="/TravelMaker/resource/search/js/list.js"></script>
+    <script type="text/javascript" src="/resource/search/js/list.js"></script>
 </body>
 <!-- API 받아오는 스크립트~~~ -->
 <script type="text/javascript">
