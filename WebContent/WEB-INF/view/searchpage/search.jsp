@@ -7,19 +7,15 @@
 <!--  이미지 슬라이더 css -->
 <meta name="viewport" content="width=device-width,initial-scale=1.0" >
 <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1" >
-<link rel="stylesheet" type="text/css" href="/resource/search/css/list.css" >
-<link rel="stylesheet" type="text/css" href="/resource/search/css/DSlider.css" >
+
+<title>Insert title here</title>
+	<link rel="stylesheet" type="text/css" href="/resource/searchpage/css/list.css" >
+<link rel="stylesheet" type="text/css" href="/resource/searchpage/css/DSlider.css" >
 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<title>Insert title here</title>
 	<link rel="stylesheet" href="/resource/searchpage/css/header.css">
 	<style type="text/css">
-	
-	body{
-		margin: 5px;
-	}
-	
 	/*타이틀 스타일*/
 	.title{
 		height: 60px;
@@ -60,6 +56,10 @@
  	padding-left:0px;
 		
 	}
+	.img-responsive{
+		width: 250px;
+		height: 250px;
+	}
 	</style>
 	
 	
@@ -98,60 +98,30 @@
 			<tr>
 				<td>
 					<div class="imagecontainer">
-						<ul class="Slider Slider2">
-							<li class="DSlider-item" data-title="이거"><img
-								class="titleImg" src="https://unsplash.it/1800/1200/?random"
-								alt="?" /></li>
-							<li class="DSlider-item" data-title="22222"><img
-								class="titleImg" src="https://unsplash.it/1200/300/?random"
-								alt="22222" /></li>
-							<li class="DSlider-item" data-title="33333"><img
-								class="titleImg" src="https://unsplash.it/1000/300/?random"
-								alt="33333" /></li>
-							<li class="DSlider-item" data-title="44444"><img
-								class="titleImg" src="https://unsplash.it/500/300/?random"
-								alt="44444" /></li>
-							<li class="DSlider-item" data-title="55555"><img
-								class="titleImg" src="https://unsplash.it/1200/800/?random"
-								alt="55555" /></li>
+						<ul class="Slider Slider2" id="Slider2">
+							<!--  이미지들어가는 부분 -->
 						</ul>
-						<script src="/resource/search/js/DSlider.js"></script>
-						<script>
-							$(".Slider2").Slider({
-								mode : 'fade',
-								isFlexible : true
-							});
-						</script>
+					
 					</div><!--  container -->
-					<script type="text/javascript"src="/resource/search/js/imageSilder.js"></script> 	
+					
 				</td><!--  사진끝끝  -->
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>
 					<div class="weather" align="center">
 						<table>
 							<tr>
-								<td>
-								<h2>현재날씨</h2>
-								<img src="/resource/search/image/people.png" style="width:70px; height: 70px"/>
-								<p>기온 30º</p>
+								<td id="now">
 								</td>
 								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-								<td>
-								<h2>내일날씨</h2>
-								<img src="/resource/search/image/people.png" style="width:70px; height: 70px"/>
-								<p>기온 30º</p></td>
+								<td id="tomorrow">
 							</tr>
 							<tr>
-								<td>
-								<h2>5일후</h2>
-								<img src="/resource/search/image/people.png" style="width:70px; height: 70px"/>
-								<p>현재기온 30º</p>
+								<td id="5day">
+								
 								</td>
-								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-								<td>
-								<h2>10일후</h2>
-								<img src="/resource/search/image/people.png" style="width:70px; height: 70px"/>
-								<p>현재기온 30º</p></td>	
+								<td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+								<td id="10day">
+								</td>	
 							</tr>
 						</table>
 					</div>
@@ -174,54 +144,42 @@
             <button class="btn btn-default filter-button" data-filter="tour">여행지</button>
             <button class="btn btn-default filter-button" data-filter="food">맛집</button>
             <button class="btn btn-default filter-button" data-filter="festival">축제</button>
+            <button class="btn btn-default filter-button" data-filter="ect">숙박 및 기타</button>
         </div>
         <br/>
 			<div><!--  리스트 목록들 -->
-				<ul class="cityListUL">
-				<li class="cityList">
-		            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter tour">
-		                <img src="http://fakeimg.pl/365x365/" class="img-responsive">
-		                <h3>dd</h3>
-		            </div>
-				</li>
-				<li class="cityList">				
-		            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter food">
-		                <img src="http://fakeimg.pl/365x365/" class="img-responsive">
-		                 <h3>dd</h3>
-		            </div>
-				</li>
-				<li class="cityList">
-		            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter festival">
-		                <img src="http://fakeimg.pl/365x365/" class="img-responsive">
-		                 <h3>dd</h3>
-		            </div>
-		        </li>
-		        <li class="cityList">    
-		            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter festival">
-		                <img src="http://fakeimg.pl/365x365/" class="img-responsive">
-		                 <h3>dd</h3>
-		            </div>
-		         </li>   
+				<ul class="cityListUL" id="cityListUL">
+
+			
 				</ul>
 		    </div><!--  리스트 목록 끝 -->       
         </div>
     </div>
     
     <!--  페이징 -->
+   
     
-    
-   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script type="text/javascript" src="/resource/search/js/list.js"></script>
 </body>
-<!-- API 받아오는 스크립트~~~ -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>"></script>
+<script type="text/javascript" src="/resource/searchpage/js/list.js"></script>
+<script src="/resource/searchpage/js/DSlider.js"></script>
+<script type="text/javascript"src="/resource/searchpage/js/imageSilder.js"></script> 	
+
 <script type="text/javascript">
-//관광지 받아오기
+$(".Slider2").Slider({
+	mode : 'fade',
+	isFlexible : true
+});
+</script>
+<script type="text/javascript">
+$(function(){
 
 var mapx = "";
 var mapy = "";
+var pageNo="1";
+var keyword = $("#cityNmae").text();
 
-var keyword = '${cityName}';
-	$.ajax({
+$.ajax({
 	
 		url : "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?ServiceKey=6eo8W%2BYDwcd6mq99M0oUaSvi0uKT5iYW8SvMUzSnq8iSDXL2tJcbbQlYNqKsq2k6xovjplHXuqBJq1m8ud1hIQ%3D%3D"
 		,dataType:"json"
@@ -230,26 +188,176 @@ var keyword = '${cityName}';
 			"keyword":keyword,
 			"MobileOS":"ETC",
 			"MobileApp":"AppTesting",
-			"numOfRows":"20",
+			"pageNo":pageNo,
 			"arrange":"B",
 			"_type":"json"
 		}
 		,success:function(data){
-			var item
 			
-			mapx = data.reposn
+			var totalCount = data.response.body.totalCount;
+			$.ajax({
+				url : "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?ServiceKey=6eo8W%2BYDwcd6mq99M0oUaSvi0uKT5iYW8SvMUzSnq8iSDXL2tJcbbQlYNqKsq2k6xovjplHXuqBJq1m8ud1hIQ%3D%3D"
+					,dataType:"json"
+					,data : {
+						
+						"keyword":keyword,
+						"MobileOS":"ETC",
+						"MobileApp":"AppTesting",
+						"numOfRows":totalCount,
+						"pageNo":pageNo,
+						"arrange":"B",
+						"_type":"json"
+					}
+					,success:function(data){
+						
+						var item = data.response.body.items.item;
+						for(var i=0; i<5; i++){	
+						$(".Slider2").append('<li class="DSlider-item" data-title="'+item[i].title+'"><img class="titleImg" src="'+item[i].firstimage+'"alt="'+item[i].title+'" /></li>');
+						}//end image for		
+
+						
+						
+						for(var i=0; i<item.length;i++)
+			            {
+			            	 var firstimage = "image/image.png";
+			               if(item[i].firstimage != null){
+			                  firstimage=item[i].firstimage;
+			              
+			               }
+			               
+			               var set;
+							if(item[i].cat2 == "A0101" || item[i].cat2 == "A0102" || item[i].cat2 == "A0201"|| item[i].cat2 == "A0202" || item[i].cat2 == "A0203"
+									|| item[i].cat2 == "A0204" || item[i].cat2 == "A0205" || item[i].cat2 == "A0206"){
+								set = "tour";
+							}else if(item[i].cat2 == "A0207" || item[i].cat2 == "A0208"){
+								set = "festival";
+							}else if(item[i].cat2 == "A0502"){
+								set = "food";
+							}else{
+								set = "ect";
+							}
+							$("#cityListUL").append('<li class="cityList"><div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter '+set+'">'
+													+'  <img src="'+firstimage+'" class="img-responsive"><h3>'+item[i].title+'</h3></div> </li>');
+			               
+			               
+			            }
+						
+						for(var i=0; i<item.length;i++){
+							
+						}//end list for
+						
+						mapx=item[0].mapx;
+						mapy=item[0].mapy;
+						
+						//현재날씨 받아오는 ajax
+						   $.ajax({
+							  	
+							   url :  "http://apis.skplanetx.com/weather/current/minutely"
+							   ,data:{
+								    "version" : "1",
+								    "appKey" : "65e16fa9-7caa-3142-9757-66d0ae8dd0f0",
+									"lat":mapy,
+									"lon":mapx
+							   }
+							   ,dataType : "json",
+							   success:function(data){
+								   var weatherImage = data.weather.minutely[0].sky.code.substring(5,7);
+									var weathetTemp = data.weather.minutely[0].temperature.tc.substring(0,2);
+									
+								   $("#now").append('<h2>현재날씨</h2>'+
+										   '<img src="/resource/searchpage/image/weather_icons/'+weatherImage+'.png" style="width:70px; height: 70px"/>'+
+										   '<p>기온 '+weathetTemp+'</p>');
+								   
+							   }//end date success
+							   
+						   });
+
+						//내일날씨
+						   $.ajax({
+							  	
+							   url :  "http://apis.skplanetx.com/weather/forecast/3days"
+							   ,data:{
+								    "version" : "1",
+								    "appKey" : "65e16fa9-7caa-3142-9757-66d0ae8dd0f0",
+									"lat":mapy,
+									"lon":mapx
+							   }
+							   ,dataType : "json",
+							   success:function(data){
+								   var weatherImage = data.weather.forecast3days[0].fcst3hour.sky.code25hour.substring(5,7);
+									var weathetTemp = data.weather.forecast3days[0].fcst3hour.temperature.temp25hour.substring(0,2);
+									
+								   $("#tomorrow").append('<h2>내일날씨</h2>'+
+										   '<img src="/resource/searchpage/image/weather_icons/'+weatherImage+'.png" style="width:70px; height: 70px"/>'+
+										   '<p>기온 '+weathetTemp+'</p>');
+								   
+							   }//end date success
+							   
+						   });
+				
+						//5일후 날씨
+						 $.ajax({
+							  	
+							   url :  "http://apis.skplanetx.com/weather/forecast/6days"
+							   ,data:{
+								    "version" : "1",
+								    "appKey" : "65e16fa9-7caa-3142-9757-66d0ae8dd0f0",
+									"lat":mapy,
+									"lon":mapx
+							   }
+							   ,dataType : "json",
+							   success:function(data){
+								   var weatherImage = data.weather.forecast6days[0].sky.amCode5day.substring(5,7);
+									var weathetTemp = data.weather.forecast6days[0].temperature.tmin5day;
+									
+								   $("#5day").append('<h2>5일 후</h2>'+
+										   '<img src="/resource/searchpage/image/weather_icons/'+weatherImage+'.png" style="width:70px; height: 70px"/>'+
+										   '<p>기온 '+weathetTemp+'</p>');
+								   
+							   }//end date success
+							   
+						   });
+						//10일 후 날씨
+						 $.ajax({
+							  	
+							   url :  "http://apis.skplanetx.com/weather/forecast/6days"
+							   ,data:{
+								    "version" : "1",
+								    "appKey" : "65e16fa9-7caa-3142-9757-66d0ae8dd0f0",
+									"lat":mapy,
+									"lon":mapx
+							   }
+							   ,dataType : "json",
+							   success:function(data){
+								   var weatherImage = data.weather.forecast6days[0].sky.pmCode10day.substring(5,7);
+									var weathetTemp = data.weather.forecast6days[0].temperature.tmin10day;
+									
+								   $("#10day").append('<h2>10일 후</h2>'+
+										   '<img src="/resource/searchpage/image/weather_icons/'+weatherImage+'.png" style="width:70px; height: 70px"/>'+
+										   '<p>기온 '+weathetTemp+'</p>');
+								   
+							   }//end date success
+							   
+						   });
+						
+						
+					}//end success
+				
+			});
 			
 			
-			
-			
-		}
+		}//end success
 		,error:function(err){
 			alert("실패!"+err.status);
 		}
 	
 	
-	});
+	}); //ajax
+	
 
-
+});
+	
+	
 </script>
+
 </html>

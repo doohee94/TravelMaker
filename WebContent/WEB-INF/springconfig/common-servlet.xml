@@ -36,8 +36,7 @@
 		<property name="prefix" value="/WEB-INF/view/" />
 		<property name="suffix" value=".jsp"/>
 	</bean>
-	
-	
+		
 	<!--  몽고디비 연결 -->
 		<mongo:mongo-client
 		    host="localhost"

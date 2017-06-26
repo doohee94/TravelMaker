@@ -9,7 +9,6 @@
 
 	<!-- @Controller @Service @Repository어노테이션 설정시 자동 빈 생성 -->
 	<context:component-scan base-package="tm.search" />
-	
 	<mvc:annotation-driven>
 		<mvc:message-converters>
 			<!-- @ResponseBody로 String 처리할때 한글처리 -->
