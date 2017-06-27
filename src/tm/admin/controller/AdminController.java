@@ -86,7 +86,7 @@ public class AdminController {
 	 * QNA리스트를 출력
 	 */
 	@RequestMapping("/adminQna.tm")
-	public ModelAndView adminqna(AdminQnaDTO adminQnaDTO, String pageNumber) {
+	public ModelAndView adminqna(String pageNumber) {
 		
 		int pageNum = 1;
 		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
@@ -97,12 +97,6 @@ public class AdminController {
 		 * 1 : 시작 rownum
 		 * 2 : 끝 rownum
 		 */
-		if(adminQnaDTO.getQnaReply() != null){
-			int res = dao.qnareply(adminQnaDTO);
-			if(res > 0){
-				adminQnaDTO.setQnaReply(null);
-			}
-		}
 		List<AdminQnaDTO> list = dao.qnalist(page[1],page[2]);
 		ModelAndView mv = new ModelAndView();
 		
@@ -174,11 +168,22 @@ public class AdminController {
 	 */
 	
 	@RequestMapping("/adminAllianceList.tm")
-	public ModelAndView allianceList() {
-		List<AllianceDTO> list = dao.adallist();
+	public ModelAndView allianceList(String pageNumber) {
+		int pageNum = 1;
+		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
+		
+		int[] page = dao.SettingPageNum(3, 10, pageNum, 1, null);
+		/* 리턴값 : int 배열
+		 * 0 : 총 페이지 수
+		 * 1 : 시작 rownum
+		 * 2 : 끝 rownum
+		 */
+		List<AllianceDTO> list = dao.adallist(page[1],page[2]);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"adminAllianceList");
 		mv.addObject("allist", list);
+		mv.addObject("totalpage", page[0]);
+		mv.addObject("pageNum", pageNum);
 		
 		return mv;
 	}
@@ -188,11 +193,23 @@ public class AdminController {
 	 * 제휴 검색 리스트 (adminAllianceList)
 	 */
 	@RequestMapping("/searchalli.tm")
-	public ModelAndView searchalli(String partnerComname){
+	public ModelAndView searchalli(String partnerComname, String pageNumber){
+		int pageNum = 1;
+		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
+		
+		int[] page = dao.SettingPageNum(3, 10, pageNum, 1, partnerComname);
+		/* 리턴값 : int 배열
+		 * 0 : 총 페이지 수
+		 * 1 : 시작 rownum
+		 * 2 : 끝 rownum
+		 */
+		
 		List<AllianceDTO> list = dao.alsearch(partnerComname);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"adminAllianceList");
 		mv.addObject("allist", list);
+		mv.addObject("totalpage", page[0]);
+		mv.addObject("pageNum", pageNum);
 		return mv;
 	}
 	
@@ -201,25 +218,48 @@ public class AdminController {
 	 * 제휴 리스트
 	 */
 	@RequestMapping("/adminAllianceRec.tm")
-	public ModelAndView adminAllianceRec() {
-		List<AllianceDTO> list = dao.adallist();
+	public ModelAndView adminAllianceRec(String pageNumber) {
+		int pageNum = 1;
+		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
+		
+		int[] page = dao.SettingPageNum(3, 10, pageNum, 2, null);
+		/* 리턴값 : int 배열
+		 * 0 : 총 페이지 수
+		 * 1 : 시작 rownum
+		 * 2 : 끝 rownum
+		 */
+		List<AllianceDTO> list = dao.adallistRec(page[1],page[2]);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"adminAllianceRec");
 		mv.addObject("allist", list);
+		mv.addObject("totalpage", page[0]);
+		mv.addObject("pageNum", pageNum);
 		
 		return mv;
 	}
 	
 	/**
 	 * searchallirec
-	 * 제휴 검색 리스트 (adminAllianceList)
+	 * 제휴 승인 검색 리스트 (adminAllianceList)
 	 */
 	@RequestMapping("/searchallirec.tm")
-	public ModelAndView searchallirec(String partnerComname){
+	public ModelAndView searchallirec(String partnerComname, String pageNumber){
+		int pageNum = 1;
+		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
+		
+		int[] page = dao.SettingPageNum(3, 10, pageNum, 2, partnerComname);
+		/* 리턴값 : int 배열
+		 * 0 : 총 페이지 수
+		 * 1 : 시작 rownum
+		 * 2 : 끝 rownum
+		 */
+		
 		List<AllianceDTO> list = dao.alsearch(partnerComname);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"adminAllianceRec");
 		mv.addObject("allist", list);
+		mv.addObject("totalpage", page[0]);
+		mv.addObject("pageNum", pageNum);
 		return mv;
 	}
 	

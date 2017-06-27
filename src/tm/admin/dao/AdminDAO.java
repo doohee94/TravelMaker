@@ -13,6 +13,7 @@ public interface AdminDAO {
 	
 	/************** 페이징 ******************/
 	public int[] SettingPageNum(int type, int countpage, int pageNum);
+	public int[] SettingPageNum(int type, int countpage, int pageNum, int state, String str);
 	
 	/************** 회원 ******************/
 	
@@ -80,15 +81,19 @@ public interface AdminDAO {
 
 	/**
 	 * alsearch
-	 * 제휴 검색 리스트 출력 =
+	 * 제휴 검색 리스트 출력 
 	 */
 	public List<AllianceDTO> alsearch(String partnercomname);
+	public List<AllianceDTO> alsearch(int startnum, int endnum,String partnercomname);
+	public List<AllianceDTO> alsearchRec(int startnum, int endnum,String partnercomname);
 	
 	/**
 	 * adallist
 	 * 제휴 리스트 출력
 	 */
 	public List<AllianceDTO> adallist();
+	public List<AllianceDTO> adallist(int startnum, int endnum);
+	public List<AllianceDTO> adallistRec(int startnum, int endnum);
 	
 	/**
 	 * allianceDel

@@ -37,6 +37,12 @@
 	rel="stylesheet" />
 <link href="/resource/admin/css/jquery-ui-1.10.4.min.css"
 	rel="stylesheet">
+<style type="text/css">
+	.tableview{
+		height: 610px;
+	}
+</style>	
+
 </head>
 
 <body>
@@ -114,13 +120,14 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-lg-12">
+					<div class="tableview col-lg-12">
 						<section class="panel">
 							<header class="panel-heading" style="padding: 5px;">
 							제휴 회사 리스트
 								<form class="form-inline" id="searchalli" role="form" method="post" action="searchalli.tm" style="float: right;">
 									<div class="form-group">
 										<input type="text" class="form-control" id="partnerComname" name="partnerComname" required="required" placeholder="회사명 입력">
+										<input type="hidden" name="pageNum" value="${pageNum }">
 									</div>
 									<button type="submit" id="searchallibtn" class="btn btn-primary">검색</button>
 								</form>
@@ -137,6 +144,7 @@
 									<c:choose>
 										<c:when test="${!empty allist }">
 											<c:forEach items="${allist }" var="a">
+												<c:if test="${a.partnerType!='0' }">
 												<tr>
 													<td>${a.partnerNum }</td>
 													<td>${a.partnerComname }</td>
@@ -226,6 +234,7 @@
 														</div>
 													</td>
 												</tr>
+												</c:if>
 											</c:forEach>
 										</c:when>
 										<c:otherwise>
@@ -239,6 +248,28 @@
 						</section>
 					</div>
 				</div>
+				<div class="btn-row">
+					<div class="btn-group">
+						<input type="hidden" id="totalpage" value="${totalpage }">
+						<a href="adminAllianceList.tm?pageNumber=1" class="pagebtn btn btn-default" type="button">&#171;</a>
+						<button class="pagebtn btn btn-default" id="prevPage" type="button">&#60;</button>
+						<c:forEach var="i" begin="1" end="${totalpage }">
+							<c:choose>
+								<c:when test="${pageNum == i}">
+									<a class="pagebtn btn btn-primary" type="button">${i }</a>
+								</c:when>
+								<c:otherwise>
+									<a href="adminAllianceList.tm?pageNumber=${i }" class="pagebtn btn btn-default" type="button">${i }</a>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						<button class="pagebtn btn btn-default" id="nextPage" type="button">&#62;</button>
+						<a href="adminAllianceList.tm?pageNumber=${totalpage }" class="pagebtn btn btn-default" type="button">&#187;</a>
+					</div>
+				</div>
+				
+				
+				
 			</section>
 		</section>
 		<!--main content end-->
@@ -273,6 +304,35 @@
 	<script src="/resource/admin/js/scripts.js"></script>
 	
 	<script type="text/javascript">
+		$("#prevPage").click(function(){
+			var pageNumber = $("#pageNumber").val();
+			var nextNumber = 0;
+			if(pageNumber%10-1 <= 0 ){
+				if(parseInt(pageNumber/10) == 0){
+					var temp = parseInt(pageNumber/10);
+					nextNumber = temp*10+1;
+				}
+			}else{
+				nextNumber = pageNumber - 1;
+			}
+			location.href = "/tmadmin/adminAllianceList.tm?pageNumber="+nextNumber;
+		});
+		
+		$("#nextPage").click(function(){
+			var pageNumber = $("#pageNumber").val();
+			var totalpage = $("#totalpage").val();
+			var nextNumber = 0;
+			
+			if(pageNumber+1 > totalpage){
+				nextNumber = totalpage;
+			}else{
+				nextNumber = parseInt(pageNumber) + 1;
+			}
+			
+			location.href = "/tmadmin/adminAllianceList.tm?pageNumber="+nextNumber;
+		});
+		
+		
 		$(".infodiv").click(function(){
 			$(this).next().modal({backdrop: 'static'});
 		});
