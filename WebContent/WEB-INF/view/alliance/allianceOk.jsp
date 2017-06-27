@@ -22,10 +22,16 @@
 
 </head>
 <body>
-<center>
+	<div style="height: 75px; background-color: #103e68;">
+		<br />
+		<div style="color: #fff; font-size: 2em; display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;제휴신청</div>
+		<div style="float: right; margin-right: 50px;">
+		</div>
+	</div>
+	<center>
 <img alt="" src="/resource/alliance/image/finsh.jpg" />
 <br/>
-<a href="allianceMain.tm"><img alt="" class="button" src="/resource/alliance/image/main.png" /></a>
+<a href="/tmmain/main.tm"><img alt="" class="button" src="/resource/alliance/image/main.png" /></a>
 </center>
 
 </body>

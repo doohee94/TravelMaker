@@ -19,10 +19,16 @@
 
 </head>
 <body>
-<br/>
-<br/>
-<br/>
-<br/>
+
+	<div style="height: 75px; background-color: #103e68;">
+		<br />
+		<div style="color: #fff; font-size: 2em; display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;제휴신청</div>
+		<div style="float: right; margin-right: 50px;">
+		</div>
+	</div>
+	<br>
+	<br>
+
 	<div class="container">
 		<form class="form-horizontal" role="form" id="frm" method="post" enctype="multipart/form-data">
 			<fieldset>
