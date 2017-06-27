@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<!--
+	adminadSetting.jsp
+	광고 추가 페이지
+ -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +51,7 @@
 				</div>
 			</div>
 			<!--logo start-->
-			<a href="index.html" class="logo">TM <span class="lite">Admin</span></a>
+			<a href="adminMember.tm" class="logo">TM <span class="lite">Admin</span></a>
 			<!--logo end-->
 		</header>
 		<!--header end-->
@@ -114,26 +118,124 @@
 							<header class="panel-heading"> 광고추가 </header>
 							<div class="panel-body">
 								<div class="form">
-									<form class="form-validate form-horizontal" id="feedback_form" method="post" action="">
+									<form class="form-validate form-horizontal" action="adadinsert.tm" id="feedback_form" method="post" enctype="multipart/form-data">
 										<div class="form-group ">
-											<label for="cname" class="control-label col-lg-2">
+											<label for="partnername" class="control-label col-lg-2">
 												회사명
 											</label>
 											<div class="col-lg-3">
-												<input class="form-control" id="cname" name="fullname" minlength="5" type="text" readonly="readonly" />
+												<input class="form-control" id="partnername" name="partnername" minlength="5" type="text" readonly="readonly" />
+												<input type="hidden" name="partnerNum" id="partnerNum"/>
 											</div>
-											<a class="btn btn-info" href="adminadInsert.tm" title="Bootstrap 3 themes generator">제휴 회사 리스트</a> 
+											<a class="btn btn-info" href="#allist" data-toggle="modal" title="Bootstrap 3 themes generator">리스트 보기</a>
+											<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="allist" class="modal fade">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+															<h4 class="modal-title">제휴리스트</h4>
+														</div>
+
+														<div class="modal-body">
+															<div class="col-sm-12">
+																<section class="panel">
+																	<table class="table table-hover">
+																		<thead>
+																			<tr>
+																				<td colspan="3">
+																					<div class="row" >
+																						<div class="col-lg-10">
+																							<input type="text" class="form-control" id="partner_comname" placeholder="회사이름 입력">
+																						</div>
+																						<button type="button" id="alsearchbtn" class="btn btn-primary">찾기</button>
+																					</div>
+																				</td>
+																			</tr>
+																			<tr class="headerth">
+																				<th>제휴번호</th>
+																				<th>회사명</th>
+																				<th>사업자번호</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																		</tbody>
+																	</table>
+																</section>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
 										<div class="form-group ">
-											<label for="cemail" class="control-label col-lg-2">설명</label>
+											<label for="adTitle" class="control-label col-lg-2">TITLE</label>
 											<div class="col-lg-6">
-												<input class="form-control " id="cemail" type="text" name="email" required />
+												<input class="form-control " id="adTitle" type="text" name="adTitle" required />
+											</div>
+										</div>
+										
+										<div class="form-group ">
+											<label for="adTitle" class="control-label col-lg-2">시작 날짜</label>
+											<div class="select">
+												<div class="col-lg-1">
+													<select class="form-control m-bot15" id="startyear" name="startyear">
+													</select>
+												</div>
+												<div class="col-lg-1">
+													<select class="form-control m-bot15" id="startmonth" name="startmonth">
+														<option value="01">1</option>
+														<option value="02">2</option>
+														<option value="03">3</option>
+														<option value="04">4</option>
+														<option value="05">5</option>
+														<option value="06">6</option>
+														<option value="07">7</option>
+														<option value="08">8</option>
+														<option value="09">9</option>
+														<option value="10">10</option>
+														<option value="11">11</option>
+														<option value="12">12</option>
+													</select>
+												</div>
+												<div class="col-lg-1">
+													<select class="form-control m-bot15" id="startday" name="startday">
+													</select>
+												</div>
 											</div>
 										</div>
 										<div class="form-group ">
-											<label for="cemail" class="control-label col-lg-2">File input</label>
+											<label for="adTitle" class="control-label col-lg-2">완료 날짜</label>
+											<div class="select">
+												<div class="col-lg-1">
+													<select class="form-control m-bot15" id="endyear" name="endyear">
+													</select>
+												</div>
+												<div class="col-lg-1">
+													<select class="form-control m-bot15" id="endmonth" name="endmonth">
+														<option value="01">1</option>
+														<option value="02">2</option>
+														<option value="03">3</option>
+														<option value="04">4</option>
+														<option value="05">5</option>
+														<option value="06">6</option>
+														<option value="07">7</option>
+														<option value="08">8</option>
+														<option value="09">9</option>
+														<option value="10">10</option>
+														<option value="11">11</option>
+														<option value="12">12</option>
+													</select>
+												</div>
+												<div class="col-lg-1">
+													<select class="form-control m-bot15" id="endday" name="endday">
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="form-group ">
+											<label for="file" class="control-label col-lg-2">File input</label>
 											<div class="col-lg-10">
-												<input type="file" id="fileupload" required>
+												<input type="file" id="file" name="file" required>
 											</div>
 										</div>
 										<div class="form-group ">
@@ -151,7 +253,6 @@
 										</div>
 									</form>
 								</div>
-
 							</div>
 						</section>
 					</div>
@@ -188,14 +289,88 @@
 	<!--custome script for all page-->
 	<script src="/resource/admin/js/scripts.js"></script>
 	<script type="text/javascript">
+		var now = new Date();
+	
+	    var year= now.getFullYear();
+	    var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
+
+		for (var i = year; i < (year+20); i++) {
+			$("#startyear").append("<option value='"+i+"'>" + i)
+			$("#endyear").append("<option value='"+i+"'>" + i)
+		}
+	
 		$("#submit").click(function(){
-			if($("#cname").val() == "" || $("#cname").val() == null){
+			if($("#partnername").val() == "" || $("#partnername").val() == null){
 				alert("회사를 선택");
 				return false;
 			}
+			
 		});
+		$("#endyear").hide();
+		$("#endmonth").hide();
+		$("#endday").hide();
+		$("#startyear").change(startchangeday);
+		$("#startmonth").change(startchangeday);
+		$("#endyear").change(endchangeday);
+		$("#endmonth").change(endchangeday);
+		$("#endday").change(function(){
+			if($("#startyear").val() == $("#endyear").val() && $("#startmonth").val() == $("#endmonth").val() && $("#startday").val() > $("#endday").val()){
+				alert("설정된 날짜보다 이전 날짜는 적용되지 않습니다");
+				$("#endday").val($("#startday").val());
+			}
+		});
+		
+		function startchangeday(){
+			$("#endyear").show();
+			$("#endmonth").show();
+			$("#endday").show();
+			
+			$("#startday option").remove();
+			var d = new Date();
+			d.setYear($("#startyear").val());
+			d.setMonth($("#startmonth").val());
+			d.setDate(0);
+			var date = d.getDate();
+
+			//1~마지막날까지 옵션 추가
+			for (var i = 1; i <= date; i++) {
+				if(i <10){
+					$("#startday").append("<option value='0" + i + "'>" + i);
+				}else{
+					$("#startday").append("<option value=" + i + ">" + i);
+				}
+			}
+			$("#endyear").val($("#startyear").val());
+			$("#endmonth").val($("#startmonth").val());
+		};
+		
+		function endchangeday(){
+			if($("#startyear").val() > $("#endyear").val()){
+				alert("설정된 날짜보다 이전 날짜는 적용되지 않습니다");
+				$("#endyear").val($("#startyear").val());
+			}else if($("#startyear").val() == $("#endyear").val() && $("#startmonth").val() > $("#endmonth").val()){
+				alert("설정된 날짜보다 이전 날짜는 적용되지 않습니다");
+				$("#endmonth").val($("#startmonth").val());
+			}
+			
+			
+			var d = new Date();
+			d.setYear($("#endyear").val());
+			d.setMonth($("#endmonth").val());
+			d.setDate(0);
+			var date = d.getDate();
+
+			//1~마지막날까지 옵션 추가
+			for (var i = 1; i <= date; i++) {
+				if(i <10){
+					$("#endday").append("<option value='0" + i + "'>" + i);
+				}else{
+					$("#endday").append("<option value=" + i + ">" + i);
+				}
+			}
+		};
 	
-		$("#fileupload").change(function(){
+		$("#file").change(function(){
 			showImg(this);
 		});
 		
@@ -208,6 +383,37 @@
 				reader.readAsDataURL(input.files[0]); 
 			}
 		}
+		
+		$("#alsearchbtn").click(function(){
+			var partnercomname = $("#partner_comname").val();
+			
+			$.ajax({
+				url : "/tmadmin/adadsearch.tm",
+				type : "POST",
+				data : {
+					"partnercomname" : partnercomname,
+				},
+				dataType : "json",
+				success : function(data){
+					$("tbody").empty();
+					for (var i = 0; i < data.length; i++) {
+						$("tbody").append("<tr class='for"+i+" allisttr' data-dismiss='modal'>");
+						$(".for"+i).append("<td>"+data[i].partnerNum);	
+						$(".for"+i).append("<td>"+data[i].partnerComname);	
+						$(".for"+i).append("<td>"+data[i].partnerReginum);	
+					}
+				}
+			});
+		});
+		
+		$(document).on("click",".allisttr",function(){
+			var num = $(this).children().first();
+			var name = num.next().text();
+			
+			$("#partnername").val(name);
+			$("#partnerNum").val(num.text());
+		});
+		
 	</script>
 
 </body>

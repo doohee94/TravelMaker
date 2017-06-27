@@ -63,7 +63,7 @@ input[type=checkbox]
 				</div>
 			</div>
 			<!--logo start-->
-			<a href="index.html" class="logo">TM <span class="lite">Admin</span></a>
+			<a href="adminMember.tm" class="logo">TM <span class="lite">Admin</span></a>
 			<!--logo end-->
 		</header>
 		<!--header end-->
