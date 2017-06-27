@@ -8,7 +8,7 @@ CREATE TABLE partner (
 	partner_email     VARCHAR2(50)   NOT NULL, -- EMAIL
 	partner_tel       VARCHAR2(50)   NOT NULL, -- 연락처
 	partner_content   VARCHAR2(1024) NOT NULL, -- 문의내용
-  partner_date      date           NOT NULL, -- 등록일
+	partner_date      date           NOT NULL, -- 등록일
 	partner_state     NUMBER         NOT NULL, -- 승인/비승인상태
 	partner_type      NUMBER         NOT NULL  -- 제휴종류상태
 );
@@ -16,6 +16,18 @@ CREATE TABLE partner (
 CREATE SEQUENCE seq_partner
 INCREMENT BY 1
 START WITH 1;
+
+partner_state
+10 : 비승인
+20 : 승인
+
+partner_type
+0 :승인대기
+10:제휴만
+20:광고등록
+30:스탬프등록
+40:광고+스탬프
+
 
 CREATE TABLE member (
   user_id       VARCHAR2(50)    NOT NULL CONSTRAINT pk_tm_user_id PRIMARY KEY, -- 회원ID
@@ -32,6 +44,9 @@ CREATE SEQUENCE seq_member
 INCREMENT BY 1
 START WITH 1;
 
+user_type
+회원 : 10
+관리자 : 30
 
 CREATE TABLE QNA (
 	qna_num     VARCHAR2(50)   NOT NULL CONSTRAINT pk_tm_qna_num PRIMARY KEY, -- QnA번호
@@ -44,6 +59,35 @@ CREATE TABLE QNA (
 );
 
 CREATE SEQUENCE seq_qna
+INCREMENT BY 1
+START WITH 1;
+commit;
+
+CREATE TABLE advertisement (
+   ad_num       VARCHAR2(50)  NOT NULL CONSTRAINT pk_tm_ad_num PRIMARY KEY, -- 광고번호
+   partner_num  VARCHAR2(50)  NOT NULL, -- 제휴번호
+   ad_title     VARCHAR2(50)  NULL,     -- 타이틀
+   ad_photo     VARCHAR2(50)  NOT NULL, -- 광고사진이름
+   ad_photofake VARCHAR2(500) NOT NULL, -- 광고사진가짜이름
+   ad_check     NUMBER        NOT NULL, -- 체크
+   ad_stdate    DATE          NOT NULL, -- 시작날짜
+  ad_eddate    DATE          NOT NULL, -- 끝날짜
+  CONSTRAINT fk_tm_partner_num FOREIGN Key (partner_num) REFERENCES partner(partner_num)
+);
+
+CREATE SEQUENCE seq_advertisement
+INCREMENT BY 1
+START WITH 1;
+
+CREATE TABLE likespot (
+  likespot_num    VARCHAR2(50)   NOT NULL CONSTRAINT pk_tm_qna_num PRIMARY KEY, -- 관심여행지번호
+  user_id     VARCHAR2(50)   NOT NULL,       -- 회원ID
+  likespot_name   VARCHAR2(50)   NOT NULL,    -- 지역이름
+  likespot_reason   VARCHAR2(50)   NOT NULL,    -- 이유
+  CONSTRAINT fk_tm_likespot_user_id FOREIGN Key (user_id) REFERENCES member(user_id)
+);
+
+CREATE SEQUENCE seq_likespot
 INCREMENT BY 1
 START WITH 1;
 commit;
