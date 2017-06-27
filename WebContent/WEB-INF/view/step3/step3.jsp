@@ -278,9 +278,7 @@
 
 //DAY change
 
-$("#DaySelectBox").change(function(){
-   $("#myList").empty(); 
-});
+
 </script>
 </body>
 </html>

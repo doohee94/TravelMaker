@@ -14,23 +14,11 @@
 $( function() {
 	
 	//day 별 리스트 저장 
-	//alert($("#DaySelectBoxNum").val());
-	
-	var DayAllArray = [];
-	//day의 수만큼 배열 생성 -> 그 배열 하
-	
-	
-	$("#DaySelect").change(function(){
-		
-		
-		
-		
-		
-		
-	});
-	
-	
-
+	//alert($("#DaySelectBoxNum").val());	
+	var day = []; // 날짜 수 만큼 만들어져서 list를 저장하는 배열 
+	$("#DaySelectBox").change(function(){
+		   $("#myList").empty(); 
+		});
 	//경로 최적화 버튼 눌렀을 경우
 	   $("#distanceCal").click(function(){
 	      
@@ -251,6 +239,9 @@ $( function() {
 	           	    	"mapy":$(item).find(".mapy").attr("value"),  
 	           	      }
               place[i] = list;
+              
+              //만약에 여기서 셀렉트 값이 day1 이면 배열 day[1]에 저장 
+             day[i] = place;
             });
           
           /*리스트 정보를 지도에 경로 표시*/
@@ -302,9 +293,9 @@ $( function() {
           	
           	tour[i] = {
           			
-          			"date" : "day"+i,
+          			"date" : "day"+(i+1),
           			"city" : "",
-          			"place":place
+          			"place":day
           			
           	}
           }
