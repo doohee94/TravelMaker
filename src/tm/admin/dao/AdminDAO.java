@@ -76,7 +76,7 @@ public interface AdminDAO {
 
 	/**
 	 * alsearch
-	 * 제휴 검색 리스트 출력
+	 * 제휴 검색 리스트 출력 =
 	 */
 	public List<AllianceDTO> alsearch(String partnercomname);
 	
@@ -103,6 +103,6 @@ public interface AdminDAO {
 	 * stateupdate 
 	 * 제휴 타입 변경
 	 */
-	public int typeupdate(AllianceDTO allianceDTO); 
+	public int typeupdate(AllianceDTO allianceDTO);
 	
 }

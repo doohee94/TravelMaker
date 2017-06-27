@@ -118,9 +118,9 @@
 						<section class="panel">
 							<header class="panel-heading" style="padding: 5px;">
 							제휴 승인 리스트
-								<form class="form-inline" role="form" style="float: right;">
+								<form class="form-inline" role="form" action="searchallirec.tm" method="post" style="float: right;">
 									<div class="form-group">
-										<input type="text" class="form-control" id="exampleInputEmail2" required="required" placeholder="회사명 입력">
+										<input type="text" class="form-control" id="partnerComname"  name="partnerComname" required="required" placeholder="회사명 입력">
 									</div>
 									<button type="submit" class="btn btn-primary">검색</button>
 								</form>

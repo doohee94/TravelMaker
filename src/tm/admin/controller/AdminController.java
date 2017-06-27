@@ -162,6 +162,18 @@ public class AdminController {
 		return mv;
 	}
 	
+	/**
+	 * searchalli
+	 * 제휴 검색 리스트 (adminAllianceList)
+	 */
+	@RequestMapping("/searchalli.tm")
+	public ModelAndView searchalli(String partnerComname){
+		List<AllianceDTO> list = dao.alsearch(partnerComname);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(dir+"adminAllianceList");
+		mv.addObject("allist", list);
+		return mv;
+	}
 	
 	/**
 	 * adminAllianceRec
@@ -174,6 +186,19 @@ public class AdminController {
 		mv.setViewName(dir+"adminAllianceRec");
 		mv.addObject("allist", list);
 		
+		return mv;
+	}
+	
+	/**
+	 * searchallirec
+	 * 제휴 검색 리스트 (adminAllianceList)
+	 */
+	@RequestMapping("/searchallirec.tm")
+	public ModelAndView searchallirec(String partnerComname){
+		List<AllianceDTO> list = dao.alsearch(partnerComname);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(dir+"adminAllianceRec");
+		mv.addObject("allist", list);
 		return mv;
 	}
 	

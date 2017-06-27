@@ -118,11 +118,11 @@
 						<section class="panel">
 							<header class="panel-heading" style="padding: 5px;">
 							제휴 회사 리스트
-								<form class="form-inline" role="form" style="float: right;">
+								<form class="form-inline" id="searchalli" role="form" method="post" action="searchalli.tm" style="float: right;">
 									<div class="form-group">
-										<input type="text" class="form-control" id="exampleInputEmail2" required="required" placeholder="회사명 입력">
+										<input type="text" class="form-control" id="partnerComname" name="partnerComname" required="required" placeholder="회사명 입력">
 									</div>
-									<button type="submit" class="btn btn-primary">검색</button>
+									<button type="submit" id="searchallibtn" class="btn btn-primary">검색</button>
 								</form>
 							</header>
 							<table class="table table-striped table-advance table-hover">
@@ -213,7 +213,7 @@
 																					<img class="imgshow" id="imgshow" alt="사업자등록증" src="/upload/alliance/${a.partnerPhotofake }" width="50px" height="70px">
 																				</div>
 																				<button type="button" data-dismiss="modal" class="partnerStatech btn btn-info">변경</button>
-																				<button type="button" data-dismiss="modal" class="btn btn-primary">닫기</button>
+																				<button type="button" data-dismiss="modal" class="closebtnf btn btn-primary">닫기</button>
 																			</form>
 																		</div>
 																	</div>
@@ -306,6 +306,13 @@
 	 			};
 	 		});
 	 		
+		});
+		
+		$(".closebtnf").click(function(){
+			$(".partnerType").hide();
+	 		$(".partnerStatech").hide();
+	 		$(".state").show(); 
+	 		$(".partnerch").show();
 		});
 		
 		$(".partnerStatech").click(function(){
