@@ -37,7 +37,18 @@
 	rel="stylesheet" />
 <link href="/resource/admin/css/jquery-ui-1.10.4.min.css"
 	rel="stylesheet">
-	
+<style type="text/css">
+	.table-hover{
+		font-size: 1.5em;
+	}
+	.tableview{
+		height: 610px;
+	}
+	.pagebtn{
+		font-size: 1.5em;
+	}
+</style>
+
 </head>
 
 <body>
@@ -114,9 +125,9 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-lg-12">
+					<div class="tableview col-lg-12">
 						<section class="panel">
-							<header class="panel-heading"> 회원목록 </header>
+							<header class="panel-heading"> QNA목록 </header>
 							<table class="table table-hover">
 								<thead>
 									<tr>
@@ -152,7 +163,7 @@
 																		<h4 class="modal-title">답변달기</h4>
 																	</div>
 																	<div class="modal-body">
-																		<form role="form" class="form-inline" id="qnafrm" method="post">
+																		<form role="form" class="qnafrm form-inline" id="qnafrm" method="post">
 																		<input type="hidden" name="qnaNum" value="${q.qnaNum }"/>
 																			<div class="form-group">
 																				<label class="control-label col-sm-2">문의 내용</label>
@@ -160,11 +171,21 @@
 																					<textarea class="form-control ckeditor" name="qnaContent" rows="6" readonly="readonly">${q.qnaContent }</textarea>
 																				</div>
 																				<label class="control-label col-sm-2" style="margin-top: 4%;">답변 내용</label>
-																				<div class="col-sm-10">
-																					<textarea class="form-control ckeditor" name="qnaReply" rows="6" style="margin-top: 5%;">${q.qnaReply }</textarea>
-																				</div>
+																				<c:choose>
+																					<c:when test="${empty q.qnaReply }">
+																						<div class="col-sm-10">
+																							<textarea class="form-control ckeditor" name="qnaReply" rows="6" style="margin-top: 5%;">${q.qnaReply }</textarea>
+																						</div>
+																					</c:when>
+																					<c:otherwise>
+																						<div class="col-sm-10">
+																							<textarea class="form-control ckeditor" name="qnaReply" rows="6" style="margin-top: 5%;" readonly="readonly">${q.qnaReply }</textarea>
+																						</div>
+																					</c:otherwise>
+																				</c:choose>
 																				<c:if test="${empty q.qnaReply }">
-																					<a class="btn btn-success" data-dismiss="modal" id="replybtn" title="Bootstrap 3 themes generator" style="margin-left: 80%; margin-top: 2%;">답변완료</a>
+																					<a class="replybtn btn btn-success" data-dismiss="modal" id="replybtn" title="Bootstrap 3 themes generator" style="margin-left: 80%; margin-top: 2%;">답변완료</a>
+																					<input type="hidden" id="pageNumber" name="pageNumber" value="${pageNum }"/>
 																				</c:if>
 																			</div>
 																		</form>
@@ -185,6 +206,25 @@
 								</tbody>
 							</table>
 						</section>
+					</div>
+				</div>
+				<div class="btn-row">
+					<div class="btn-group">
+						<input type="hidden" id="totalpage" value="${totalpage }">
+						<a href="adminQna.tm?pageNumber=1" class="pagebtn btn btn-default" type="button">&#171;</a>
+						<button class="pagebtn btn btn-default" id="prevPage" type="button">&#60;</button>
+						<c:forEach var="i" begin="1" end="${totalpage }">
+							<c:choose>
+								<c:when test="${pageNum == i}">
+									<a class="pagebtn btn btn-primary" type="button">${i }</a>
+								</c:when>
+								<c:otherwise>
+									<a href="adminQna.tm?pageNumber=${i }" class="pagebtn btn btn-default" type="button">${i }</a>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						<button class="pagebtn btn btn-default" id="nextPage" type="button">&#62;</button>
+						<a href="adminQna.tm?pageNumber=${totalpage }" class="pagebtn btn btn-default" type="button">&#187;</a>
 					</div>
 				</div>
 			</section>
@@ -221,10 +261,39 @@
 	
 	
 	<script type="text/javascript">
-		$("#replybtn").click(function(){
-			$("#qnafrm").attr("src","adminQna.tm");
-			$("#qnafrm").submit();
+		$(".replybtn").click(function(){
+			$(this).parents().parents().attr("action","adminQnaReply.tm");
+			$(this).parents().parents().submit();
 		});
+		
+		$("#prevPage").click(function(){
+			var pageNumber = $("#pageNumber").val();
+			var nextNumber = 0;
+			if(pageNumber%10-1 <= 0 ){
+				if(parseInt(pageNumber/10) == 0){
+					var temp = parseInt(pageNumber/10);
+					nextNumber = temp*10+1;
+				}
+			}else{
+				nextNumber = pageNumber - 1;
+			}
+			location.href = "/tmadmin/adminQna.tm?pageNumber="+nextNumber;
+		});
+		
+		$("#nextPage").click(function(){
+			var pageNumber = $("#pageNumber").val();
+			var totalpage = $("#totalpage").val();
+			var nextNumber = 0;
+			
+			if(pageNumber+1 > totalpage){
+				nextNumber = totalpage;
+			}else{
+				nextNumber = parseInt(pageNumber) + 1;
+			}
+			
+			location.href = "/tmadmin/adminQna.tm?pageNumber="+nextNumber;
+		});
+		
 	</script>
 	
 	

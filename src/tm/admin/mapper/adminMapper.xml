@@ -2,6 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="admin">
+	<select id="cnt" parameterType="hashMap" resultType="java.lang.Integer">
+		SELECT count(*) as cnt
+		FROM ${table}
+	</select>
+
 	<select id="memberlist" parameterType="hashMap" resultType="adminMemberDTO">
 		SELECT *
 		FROM member
@@ -16,10 +21,13 @@
 		ORDER BY user_type desc
 	</select>
 	
-	<select id="qnalist" resultType="tm.admin.dto.AdminQnaDTO">
+	<select id="qnalist" parameterType="hashMap" resultType="tm.admin.dto.AdminQnaDTO">
 		SELECT *
-		FROM QNA
-		ORDER BY qna_num desc
+		FROM (SELECT rownum as rnum, g.*  
+      		  FROM (SELECT * 
+            		FROM qna  
+            		order by rownum desc) g)
+		WHERE rnum <![CDATA[>=]]>  #{startnum} AND rnum <![CDATA[<=]]> #{endnum}
 	</select>
 	
 	<update id="reply" parameterType="tm.admin.dto.AdminQnaDTO">

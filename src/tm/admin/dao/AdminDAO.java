@@ -11,6 +11,9 @@ import tm.alliance.dto.AllianceDTO;
 public interface AdminDAO {
 	
 	
+	/************** 페이징 ******************/
+	public int[] SettingPageNum(int type, int countpage, int pageNum);
+	
 	/************** 회원 ******************/
 	
 	/**
@@ -41,6 +44,7 @@ public interface AdminDAO {
 	 * QNA 전체 리스트를 출력
 	 */
 	public List<AdminQnaDTO> qnalist();
+	public List<AdminQnaDTO> qnalist(int startnum, int endnum);
 	
 	
 	/**
