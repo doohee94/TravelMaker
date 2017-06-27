@@ -22,7 +22,6 @@ $( function() {
 	      var mapx = [];
 	      var mapy = [];
 	      
-	      var place =[];
 
 	      //리스트의 정보를 ajax로 넘긴다
 	      $('#myList > li').each(function(i,item){
@@ -33,14 +32,6 @@ $( function() {
 	         mapy[i] = $(item).find(".mapy").attr("value"); 
 
 	         //alert(i + '/' + title);
-	         
-	         var list={
-	           	    	"title":$(item).find(".name").text(),
-	           	    	"image":$(item).find("img").attr("src"),
-	           	    	"mapx":$(item).find(".mapx").attr("value"),
-	           	    	"mapy":$(item).find(".mapy").attr("value"),  
-	           	      }
-           place[i] = list;
 	      });
 	      
 	      var listInfo = {
@@ -58,7 +49,7 @@ $( function() {
 	            ,contentType:"application/json "
 	            ,data:JSON.stringify(listInfo)
 	            ,dataType:"JSON"
-	               ,success:function(data){
+	            ,success:function(data){
 	            	  
 	            	  
 	            	  $("#myList").empty();
@@ -75,7 +66,7 @@ $( function() {
 	                              '</div><div class="clearfix"></div></li>');
 
 	            	   }//end for
-	            	   
+//--------------------------------지도에 새로 바뀐경로 찍어주기-----------------------------------------------	            	   
 	            	   var arrayX = [];
 	            	   var arrayY = [];
 	            	 //리스트가 바뀔 때마다 위도, 경도 정보 가져와 배열에 저장하기
@@ -132,11 +123,25 @@ $( function() {
 	                 // 지도에 선을 표시합니다 
 	                 polyline.setMap(map);
 	                 
+	                 
+//--------------------------------디비저장-----------------------------------------------
+	                 //몽고디비에 바뀐 경로로 저장하기
+	                 var place =[];
+	                 
+	                 $("#myList > li").each(function(i,item){
+	                	 var list={
+	     	           	    	"title":$(item).find(".name").text(),
+	     	           	    	"image":$(item).find("img").attr("src"),
+	     	           	    	"mapx":$(item).find(".mapx").attr("value"),
+	     	           	    	"mapy":$(item).find(".mapy").attr("value"),  
+	     	           	      }
+	                	 place[i] = list;
+	                 });
+	                 
 	               
 	                 var city =  $("#hiddenCity").val();
 	           	     var date="2017-05-02";
 	           	     var state="0";
-	           	     alert(city);
 	           	     var id=2;
 	           	     var schedule={
 	           	    		"_id":id++,
