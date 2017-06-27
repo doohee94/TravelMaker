@@ -9,6 +9,7 @@ import tm.alliance.dao.AllianceDAO;
 import tm.alliance.dto.AllianceDTO;
 
 @Controller
+@RequestMapping("/alliance")
 public class AllianceController {
 	
 	@Autowired

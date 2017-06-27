@@ -30,7 +30,7 @@
    <img id="loading-image" alt="로딩중" src="/resource/step2/loding.gif" />
 </div>
 <div id="main">
-<a href="allianceMain.tm">dddd</a>
+<a href="alliance/allianceMain.tm">dddd</a>
 
 <a href="tmadmin/adminMember.tm">관리자</a>
 
