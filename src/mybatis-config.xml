@@ -14,6 +14,7 @@
 		<typeAlias alias="adminMemberDTO" type="tm.admin.dto.AdminMemberDTO" />
 		<typeAlias alias="loginDTO" type="tm.login.dto.LoginDTO" />
 		<typeAlias alias="likespotDTO" type="tm.mypage.dto.LikeSpotDTO"/>	
+		<typeAlias alias="likescDTO" type="tm.mypage.dto.LikeSCDTO"/>
 	</typeAliases>
 
 </configuration>
