@@ -1,5 +1,27 @@
+<%@page import="org.json.simple.JSONArray"%>
+<%@page import="org.json.simple.parser.JSONParser"%>
+<%@page import="org.json.simple.JSONObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%
+ 
+JSONObject obj = (JSONObject)request.getAttribute("obj");
+System.out.println("jsp>>>>>"+obj);
+
+//date배열이랑 place..?
+JSONArray date = (JSONArray)obj.get("tour");
+
+
+JSONArray place[] = new JSONArray[date.size()];
+
+for(int i=0; i<date.size(); i++){
+	System.out.println("jsp>>>>>"+date.get(i));
+	
+}
+
+ %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,37 +54,47 @@
 <!-- 부루마블 css파일 -->
 <link rel="stylesheet" href="/resource/mypage_checklist/css/checklist.css">
 <!-- js파일 -->
+<script type="text/javascript"></script>
+
 <script type="text/javascript" src="/resource/mypage_checklist/js/checklist.js"></script>
+
+
 </head>
 <body>
 <br/>
 <div id="accordion" style="width:80%; margin-left:10%">
-<%-- <%for(int i=0; i<5; i++){ %> --%>
-<%--   <h3>Day <%=i+1 %> <button style="float:right;color:blue;" id="modify">수정</button></h3> --%>
-<!--   <div>  -->
-<!--     <div class="container"> -->
-<!-- 			<div class="row"> -->
-<!-- 				<div class="col-md-12 board"> -->
-<!-- 					<div class="board-inner"> -->
-<!-- 						<ul class="nav nav-tabs" id="myTab"> -->
-<!-- 						<div class="liner"></div> -->
-<%-- 							<%for(int j=0; j<12; j++){ %> --%>
-<!-- 							<li class="active"> -->
-<!-- 							<a aria-controls="home" -->
-<!-- 								role="tab" data-toggle="tab" title="User Experience"> -->
-<!-- 								<span class="round-tabs one stemp"></span> -->
-<!-- 							</a> -->
-<%-- 							<p align="center"><%=j %>안녕ㅎㅎ</p> --%>
-<!-- 							</li> -->
-<%-- 							<%} %> --%>
-<!-- 						</ul> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!--   </div> -->
-<%-- <%}%> --%>
+<%for(int i=0; i<date.size(); i++){ %>
+  <h3>Day <%=i+1 %> <button style="float:right;color:blue;" class="modify">수정</button></h3>
+  <div> 
+    <div class="container">
+			<div class="row">
+				<div class="col-md-12 board">
+					<div class="board-inner">
+						<ul class="nav nav-tabs" id="myTab">
+						<div class="liner"></div>
+							<%for(int j=0; j<12; j++){ %>
+							<li class="active">
+							<a aria-controls="home"
+								role="tab" data-toggle="tab" title="User Experience">
+								<span class="round-tabs one stemp"></span>
+							</a>
+							<p align="center"><%=j %>안녕ㅎㅎ</p>
+							</li>
+							<%} %>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+<%}%>
+
+
+
+
 </div>
+<br/>
 </body>
 <script type="text/javascript" src="/resource/step3/script/alopex-ui.min.js"></script>
+
 </html>
