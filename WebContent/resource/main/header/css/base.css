@@ -26,12 +26,12 @@
 	}
 /* navi CSS */
 	header div.header-navi{
-	float: left; width: 40%;
+	float: left; width: 42%;
 	padding-top : 3%;
 	}
 	header div.header-navi img{
-	max-width : 26%;
-	max-height: 26%;
+	max-width : 12%;
+	max-height: 12%;
 	}
 	header div.header-sub{
 	float: left; width: 46%;
@@ -68,10 +68,15 @@
 	max-width: 40%;
 	max-height: 40%
 	}
-	header label{
-	font-size: 4.2rem;
+	header .label{
+	color : white;
+	font-size: 40px;
+	font-weight: bold;
 	}
-
+	.imagelist{
+	width: 300px;
+	height: 400px;
+	}
    	
    	/*--search tf--*/
    	header input.search-form {
