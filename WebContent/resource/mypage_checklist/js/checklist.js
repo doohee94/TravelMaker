@@ -1,5 +1,22 @@
   $( function() {
 	  
+	  
+	  //정렬 될 때 마다 리스트 순서를 불러와서 ajax로 넘겨 준 후 디비에 저장!
+	     $.ajax({
+     	 url : "/mypage_checklist/showlist.tm"
+ 	     ,type:"post"
+ 	     ,contentType:"application/json "
+ 	     ,data:'2'
+ 	     ,success:function(data){
+ 	    	alert(data);
+ 	     }
+      ,error:function(err,status,error){
+	         alert("실패!"+err.status+error);
+	        
+	      }
+      });
+	  
+	  
 	//아코디언 제목에 화살표 아이콘 표시
     var icons = {
       header: "ui-icon-circle-arrow-e",

@@ -38,7 +38,7 @@
 <br/>
 <div id="accordion" style="width:80%; margin-left:10%">
 <%for(int i=0; i<5; i++){ %>
-  <h3>Day <%=i %> <button style="float:right;color:blue;" id="modify">수정</button></h3>
+  <h3>Day <%=i+1 %> <button style="float:right;color:blue;" id="modify">수정</button></h3>
   <div> 
     <div class="container">
 			<div class="row">

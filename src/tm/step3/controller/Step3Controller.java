@@ -23,10 +23,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.mongodb.DBObject;
 import com.mongodb.util.JSON;
 
-import tm.schedule.dto.DateDTO;
-import tm.schedule.dto.PlaceDTO;
-import tm.schedule.dto.PlaceNameDTO;
-
 /**
  * Step3Controller
  * 여행 일정짜기 스텝3. 전체 저장 및 몽고디비 사용
