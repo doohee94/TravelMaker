@@ -42,6 +42,7 @@
 					<% if (session.getAttribute("userId")!=null){ %>
 					<li><a href="#" id="btn-challenge"><img src="/resource/main/header/images/challenge.png"></a></li>
 					<li><a href="#" id="btn-mypage"><img src="/resource/main/header/images/mypage.png"></a></li>
+					<li><a href="#" id="btn-mypage"><img src="/resource/main/header/images/review.png"></a></li>
 					<%} %>
 				</ul>
 			</div>
