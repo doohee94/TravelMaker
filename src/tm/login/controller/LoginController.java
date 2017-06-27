@@ -42,17 +42,26 @@ public class LoginController {
 	*/
 	@RequestMapping("/loginUser.tm")
 	@ResponseBody
-	public void loginUser(String user_id, String user_pw, HttpSession session){
+	public String loginUser(String user_id, String user_pw, HttpSession session){
 		LoginDTO dto = dao.loginUser(user_id, user_pw);
 		String reid = dto.getUserId();
+		int state = dto.getUserType();
+		String result = "";
 		if(reid !=null){
 			String nick = dto.getUserNick();
 			session.setAttribute("userId", reid);
 			session.setAttribute("userNick", nick);
 			System.out.println("로그인 성공");
+			if(state == 10){
+			result = dir+"/login.tm";
+			}else if(state == 30){
+			result = "redirect:/tmadmin/adminMember.tm";
+			}
 		}else{
 			System.out.println("로그인 실패");
+			result= dir+"/login.tm";
 		}
+		return result;
 	}
 
 }

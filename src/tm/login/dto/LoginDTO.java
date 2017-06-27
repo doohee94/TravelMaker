@@ -20,7 +20,7 @@ public class LoginDTO {
 	private String userName;
 	private String userAddr;
 	private String userTel;
-	private String userType;
+	private int userType;
 	private String userDate;
 	
 	public String getUserId() {
@@ -59,10 +59,10 @@ public class LoginDTO {
 	public void setUserTel(String userTel) {
 		this.userTel = userTel;
 	}
-	public String getUserType() {
+	public int getUserType() {
 		return userType;
 	}
-	public void setUserType(String userType) {
+	public void setUserType(int userType) {
 		this.userType = userType;
 	}
 	public String getUserDate() {
@@ -72,4 +72,5 @@ public class LoginDTO {
 		this.userDate = userDate;
 	}
 
+	
 }
