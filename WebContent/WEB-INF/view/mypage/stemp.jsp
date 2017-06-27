@@ -24,52 +24,59 @@
 	</a>
 
 	<!-- 사이드 메뉴 -->	
+	<!-- 사이드 메뉴 -->	
 	<div id="side_menu_nav" style="display:none">
-	<nav class="nav">
-  	<ul id="menu">
-      <li>
-      <a href="#">
-        <span class="fa-stack fa-lg pull-left">
-          <i class="fa fa-gears fa-stack-1x "></i>
-        </span> 나의 정보
-      </a>
-      <ul>
-        <li><a href="#">내정보 보기</a></li>
-        <li><a href="#">회원 탈퇴</a></li> 
-      </ul>
-      </li>
-
-      <li>
-      <a href="likespot.tm">
-        <span class="fa-stack fa-lg pull-left">
-          <i class="fa fa-server fa-stack-1x "></i>
-        </span> 관심여행지
-      </a>
-      </li>
-      <li>
-      <a href="schedule.tm">
-        <span class="fa-stack fa-lg pull-left">
-          <i class="fa fa-server fa-stack-1x "></i>
-        </span> 관심일정
-      </a>
-      </li>
-      <li>
-      <a href="qna.tm">
-        <span class="fa-stack fa-lg pull-left">
-          <i class="fa fa-server fa-stack-1x "></i>
-        </span> QnA
-      </a>
-      </li>
-      <li>
-      <a href="stemp.tm">
-        <span class="fa-stack fa-lg pull-left">
-          <i class="fa fa-server fa-stack-1x "></i>
-        </span> 스탬프
-      </a>
-      </li>
-      </ul>
-</nav>
-</div>
+		<nav class="nav">
+  			<ul id="menu">
+      			<li>
+      				<a href="#">
+        			<span class="fa-stack fa-lg pull-left">
+          			<i class="fa fa-gears fa-stack-1x "></i>
+        			</span> 나의 정보
+      				</a>
+      				<ul>
+        				<li><a href="#">내정보 보기</a></li>
+        				<li><a href="#">회원 탈퇴</a></li> 
+      				</ul>
+      			</li>
+      			<li>
+      				<a href="/mylist/menubar.tm">
+        				<span class="fa-stack fa-lg pull-left">
+          				<i class="fa fa-server fa-stack-1x "></i>
+        				</span> 내 일정
+      				</a>
+      			</li>
+      			<li>
+      				<a href="likespot.tm">
+        				<span class="fa-stack fa-lg pull-left">
+          				<i class="fa fa-server fa-stack-1x "></i>
+        				</span> 관심여행지
+      				</a>
+      			</li>
+      			<li>
+      				<a href="schedule.tm">
+        				<span class="fa-stack fa-lg pull-left">
+          				<i class="fa fa-server fa-stack-1x "></i>
+        				</span> 관심일정
+      				</a>
+      			</li>
+      			<li>
+      				<a href="qna.tm">
+        				<span class="fa-stack fa-lg pull-left">
+          				<i class="fa fa-server fa-stack-1x "></i>
+        				</span> QnA
+      				</a>
+      			</li>
+      			<li>
+      				<a href="stemp.tm">
+        				<span class="fa-stack fa-lg pull-left">
+          				<i class="fa fa-server fa-stack-1x "></i>
+        				</span> 스탬프
+      				</a>
+      			</li>
+    		</ul>
+		</nav>
+	</div>
 <article>
 	
 	<!-- 지도 부분 -->
