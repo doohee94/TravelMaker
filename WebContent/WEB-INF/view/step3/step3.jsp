@@ -9,7 +9,7 @@
   SimpleDateFormat format = new SimpleDateFormat("yy-MM-dd");
   
   String sDateStr = "17-05-27";
-  String eDateStr = "17-06-06";
+  String eDateStr = "17-05-30";
   
   Date sDate = format.parse(sDateStr);
   Date eDate = format.parse(eDateStr);

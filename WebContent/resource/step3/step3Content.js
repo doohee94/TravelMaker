@@ -4,7 +4,7 @@
 	function openNav() {
 	    $("#mySidenav").css("width","300px");
 	    $("#main").css("margin-right","300px");
-	}
+	}	
 	function closeNav() {
 	    $("#mySidenav").css("width","0px");
 	    $("#main").css("margin-right","0px");
@@ -15,8 +15,9 @@ $( function() {
 	
 	//day 별 리스트 저장 
 	//alert($("#DaySelectBoxNum").val());	
-	var day = []; // 날짜 수 만큼 만들어져서 list를 저장하는 배열 
+	//var day = []; // 날짜 수 만큼 만들어져서 list를 저장하는 배열 
 	$("#DaySelectBox").change(function(){
+		
 		   $("#myList").empty(); 
 		});
 	//경로 최적화 버튼 눌렀을 경우
@@ -212,7 +213,8 @@ $( function() {
       connectWith: "ul",
       dropOnEmpty: false
    });
-   var place =[];
+   
+   var day = [];
    var arrayX = [];
    var arrayY=[];
    var index = 0;
@@ -221,8 +223,7 @@ $( function() {
          item:'#myList > li',
          update:function(event, ui){
         	 
-        	
-        	 
+        	      	 
             //리스트가 바뀔 때마다 위도, 경도 정보 가져와 배열에 저장하기
            $('#myList > li').each(function(i,item){
               var mapx = $(item).find(".mapx").attr("value");
@@ -231,17 +232,6 @@ $( function() {
               arrayX[i] = mapx;
               arrayY[i] = mapy;
               index++;
-              
-              var list={
-	           	    	"title":$(item).find(".name").text(),
-	           	    	"image":$(item).find("img").attr("src"),
-	           	    	"mapx":$(item).find(".mapx").attr("value"),
-	           	    	"mapy":$(item).find(".mapy").attr("value"),  
-	           	      }
-              place[i] = list;
-              
-              //만약에 여기서 셀렉트 값이 day1 이면 배열 day[1]에 저장 
-             day[i] = place;
             });
           
           /*리스트 정보를 지도에 경로 표시*/
@@ -285,17 +275,45 @@ $( function() {
            map.setBounds(bounds);
           
           // 지도에 선을 표시합니다 
-          polyline.setMap(map); 
- 
-          var tour =[];
+          polyline.setMap(map);
           
-          for(var i=0; i<3; i++){
-          	
+       //----------------------------------------------------   
+          
+        var place =[];
+        //select box에서 선택된 값의 인덱스
+          var index = $("#DaySelectBox option").index($("#DaySelectBox option:selected"));
+          
+          for(var j=0; j<$("#DaySelectBoxNum").val(); j++){
+        	  
+        	//만약에 여기서 셀렉트 값이 day1 이면 배열 day[1]에 저장 
+              if(index == j){
+
+        		  $('#myList > li').each(function(i,item){
+                      
+                      var list={
+        	           	    "title":$(item).find(".name").text(),
+        	           	    "image":$(item).find("img").attr("src"),
+        	           	    "mapx":$(item).find(".mapx").attr("value"),
+        	           	    "mapy":$(item).find(".mapy").attr("value"),  
+                      }
+                      
+                      place[i] = list;
+                      
+                   });
+        		  
+        		  day[j] = place;
+        	  }
+          }
+
+          var tour =[$("#DaySelectBoxNum").val()];
+          
+          for(var i=0; i<$("#DaySelectBoxNum").val(); i++){
+
           	tour[i] = {
           			
           			"date" : "day"+(i+1),
           			"city" : "",
-          			"place":day
+          			"place":day[i]
           			
           	}
           }
