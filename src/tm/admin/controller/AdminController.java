@@ -86,20 +86,41 @@ public class AdminController {
 	 * QNA리스트를 출력
 	 */
 	@RequestMapping("/adminQna.tm")
-	public ModelAndView adminqna(AdminQnaDTO adminQnaDTO) {
+	public ModelAndView adminqna(AdminQnaDTO adminQnaDTO, String pageNumber) {
+		
+		int pageNum = 1;
+		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
+		
+		int[] page = dao.SettingPageNum(1, 10, pageNum);
+		/* 리턴값 : int 배열
+		 * 0 : 총 페이지 수
+		 * 1 : 시작 rownum
+		 * 2 : 끝 rownum
+		 */
 		if(adminQnaDTO.getQnaReply() != null){
 			int res = dao.qnareply(adminQnaDTO);
 			if(res > 0){
 				adminQnaDTO.setQnaReply(null);
 			}
 		}
-		List<AdminQnaDTO> list = dao.qnalist();
+		List<AdminQnaDTO> list = dao.qnalist(page[1],page[2]);
 		ModelAndView mv = new ModelAndView();
 		
 		mv.setViewName(dir+"adminQna");
 		mv.addObject("qnalist", list);
+		mv.addObject("totalpage", page[0]);
+		mv.addObject("pageNum", pageNum);
 		
 		return mv;
+	}
+	
+	
+	@RequestMapping("/adminQnaReply.tm")
+	public String reply(AdminQnaDTO adminQnaDTO, String pageNumber){
+		
+		int res = dao.qnareply(adminQnaDTO);
+		
+		return "redirect:/tmadmin/adminQna.tm?pageNumber="+pageNumber;
 	}
 	
 	/**

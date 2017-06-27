@@ -35,47 +35,63 @@ private String dir = "member/";
 /**
 * 회원가입
 */
-	
-	@RequestMapping("signupOk.tm")
+	@RequestMapping("/signupOk.tm")
 	public ModelAndView insert(MemberDTO memberdto){
+		memberdto.setUserAddr(memberdto.getUserCity()+ memberdto.getUserBorough());
+		//memberdto.getUserPw() = ;
 		int res = dao.insert(memberdto);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("signupOk");
+		mv.setViewName(dir+"signupOk");
 		mv.addObject("res", res);
+		
 		return mv;
 	}
 	
 /**
 * 아이디 중복 체크
 */
-		
-		/*@RequestMapping(value="/idCheck.tm")
-		public @ResponseBody void idinsert(@RequestBody String id){
-	    	boolean flag = true;
-	    	new JoinValidator().validate(id);
+	/*@RequestMapping(value="/idCheck.tm")
+	public @ResponseBody void idinsert(@RequestBody String id){
+	    boolean flag = true;
+	    new JoinValidator().validate(id);
 		}*/
+	
 /**
 * 회원정보보기
 */
-	
-	@RequestMapping("/memberUpdate.tm")
-	public void memberupdate(){
-		
-	}
+	/*@RequestMapping("/memberUpdate.tm")
+	public ModelAndView list(){
+		List<MemberDTO> list = dao.list();
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("list", list);
+		mv.setViewName(dir+"list");
+		return mv;
+	}*/
 	
 /**
 * 회원정보수정
 */
 	@RequestMapping("/memberModify.tm")
-	public void membermodify(){
-		
+	public ModelAndView modify(MemberDTO memberdto){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("modify");
+		mv.addObject("memberdto", memberdto);
+		return mv;
+	}
+	@RequestMapping("/memberUpdate.tm")
+	public ModelAndView modifyOk(MemberDTO memberdto){
+		int res = dao.modify(memberdto);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("modifyOk");
+		mv.addObject("res", res);
+		return mv;
 	}
 	
 /**
 * 회원탈퇴
 */
 	@RequestMapping("/memberDelete.tm")
-	public void memberdelete(){
+	public void delete(){
 		
 	}
 	
