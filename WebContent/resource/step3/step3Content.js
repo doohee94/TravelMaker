@@ -280,7 +280,6 @@ $( function() {
          var city =  $("#hiddenCity").val();
    	     var date="2017-05-02";
    	     var state="0";
-   	     alert(city);
    	     var id=2;
    	     var schedule={
    	    		"_id":id++,
