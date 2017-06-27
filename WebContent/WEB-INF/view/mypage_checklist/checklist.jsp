@@ -37,31 +37,31 @@
 <body>
 <br/>
 <div id="accordion" style="width:80%; margin-left:10%">
-<%for(int i=0; i<5; i++){ %>
-  <h3>Day <%=i+1 %> <button style="float:right;color:blue;" id="modify">수정</button></h3>
-  <div> 
-    <div class="container">
-			<div class="row">
-				<div class="col-md-12 board">
-					<div class="board-inner">
-						<ul class="nav nav-tabs" id="myTab">
-						<div class="liner"></div>
-							<%for(int j=0; j<12; j++){ %>
-							<li class="active">
-							<a aria-controls="home"
-								role="tab" data-toggle="tab" title="User Experience">
-								<span class="round-tabs one stemp"></span>
-							</a>
-							<p align="center"><%=j %>안녕ㅎㅎ</p>
-							</li>
-							<%} %>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-  </div>
-<%}%>
+<%-- <%for(int i=0; i<5; i++){ %> --%>
+<%--   <h3>Day <%=i+1 %> <button style="float:right;color:blue;" id="modify">수정</button></h3> --%>
+<!--   <div>  -->
+<!--     <div class="container"> -->
+<!-- 			<div class="row"> -->
+<!-- 				<div class="col-md-12 board"> -->
+<!-- 					<div class="board-inner"> -->
+<!-- 						<ul class="nav nav-tabs" id="myTab"> -->
+<!-- 						<div class="liner"></div> -->
+<%-- 							<%for(int j=0; j<12; j++){ %> --%>
+<!-- 							<li class="active"> -->
+<!-- 							<a aria-controls="home" -->
+<!-- 								role="tab" data-toggle="tab" title="User Experience"> -->
+<!-- 								<span class="round-tabs one stemp"></span> -->
+<!-- 							</a> -->
+<%-- 							<p align="center"><%=j %>안녕ㅎㅎ</p> --%>
+<!-- 							</li> -->
+<%-- 							<%} %> --%>
+<!-- 						</ul> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!--   </div> -->
+<%-- <%}%> --%>
 </div>
 </body>
 <script type="text/javascript" src="/resource/step3/script/alopex-ui.min.js"></script>

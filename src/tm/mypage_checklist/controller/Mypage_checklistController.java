@@ -2,6 +2,10 @@ package tm.mypage_checklist.controller;
 
 import java.util.ArrayList;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -12,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import tm.schedule.dto.placeDTO;
 import tm.schedule.dto.tourDTO;
 
 /**
@@ -36,22 +41,31 @@ public class Mypage_checklistController {
 	}
 	
 	@RequestMapping("/showlist.tm")
-	@ResponseBody
-	public String showlist(@RequestBody String _id){
+	@ResponseBody 
+	public JSONObject showlist(@RequestBody String _id){
 		
 		//불러올 정보의 조건을 지정(_id를 가지고 지정)
 		Criteria criteria = new Criteria("_id");
-		criteria.is(_id);
-		
+		criteria.is(Integer.parseInt(_id));
 		Query query = new Query(criteria);
+
 		
 		//tour정보를 arraylist로 받아온다
-		ArrayList<tourDTO> tourlist = (ArrayList<tourDTO>)mongoTemplate.find(query,tourDTO.class);
-		
+		ArrayList<String> tourlist = (ArrayList<String>)mongoTemplate.find(query,String.class,"schedule");
+		//출력
 		for(int i=0; i<tourlist.size(); i++){
-			System.out.println(tourlist.get(i).toString());
+			System.out.println(tourlist.get(i));
+		}
+		JSONObject jsonobj = null;
+		try {
+			//디비에서 가져온 String을 JSON으로 파싱 후 배열에 저장 
+			JSONParser jsonParser = new JSONParser();
+			jsonobj =  (JSONObject)jsonParser.parse(tourlist.get(0));
+			
+		} catch (ParseException e) {
+			e.printStackTrace();
 		}
 		
-		return String.valueOf(tourlist.size());
+		return jsonobj;
 	}
 }

@@ -7,8 +7,32 @@
  	     ,contentType:"application/json "
  	     ,data:'2'
  	     ,success:function(data){
- 	    	alert(data);
- 	     }
+ 	
+ 	    for(var i=0; i<data.tour.length; i++){	
+ 	    	$("#accordion").append('<h3>'+data.tour[i].date+'  <button style="float:right;color:blue;" class="modify">수정</button></h3>'
+ 	    				+'<div>'
+ 	    				+'<div class="container">'
+ 	    				+'<div class="row">'
+ 	    				+'<div class="col-md-12 board">'
+ 	    				+'<div class="board-inner">'
+ 	    				+'<ul class="nav nav-tabs '+i+' " id="myTab">'
+ 	    				+'<div class="liner"></div></ul> </div> </div> </div> </div></div>');	
+ 	    	
+ 	    	for(var j=0; j<data.tour[i].place.length;j++){
+ 	    		$("."+i).append('<li class="active">'
+ 	    				+'<a aria-controls="home" role="tab" data-toggle="tab" title="User Experience"> <span class="round-tabs one stemp"></span>'
+ 	    				+'</a> <p align="center">'+data.tour[i].place[j].title+'</p> </li>'		
+ 	    		); 	    		
+ 	    	}//end for 
+ 	    	
+ 	    	
+	     }//end for 
+ 	    
+ 	    
+ 	    
+ 	    
+ 	    
+ 	     }//end success
       ,error:function(err,status,error){
 	         alert("실패!"+err.status+error);
 	        
@@ -55,7 +79,7 @@
          });
     	
     });
-    $("#modify").click(function(){
+    $(".modify").click(function(){
     	$a.popup({
             url : "modifyPopup.jsp",
             ifram:true,
