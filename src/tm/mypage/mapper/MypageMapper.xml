@@ -11,7 +11,17 @@
 		DELETE
 		FROM likespot
 		<where>
-		user_id =#{userId} AND likespot_num =#{likespotNum}
+		likespot_num =#{likespotNum}
 		</where>
 	</delete>
+	<select id="listsc" parameterType="hashMap" resultType="likescDTO">
+		SELECT *
+		FROM likesc
+		WHERE user_id =#{userId}
+	</select>
+	<select id="findimg" parameterType="hashMap" resultType="likescDTO">
+		SELECT totalre_photo1fake, totalre_title, totalre_likecount 
+		FROM TOTALRE
+		WHERE sc_num =#{scNum}
+	</select>
 </mapper>

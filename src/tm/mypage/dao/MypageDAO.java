@@ -7,5 +7,7 @@ import tm.mypage.dto.LikeSpotDTO;
 public interface MypageDAO {
 	public List<LikeSpotDTO> listSpot(String userId);
 	
-	public Integer deleteSpot (String userId , String likespotNum );
+	public Integer deleteSpot (String likespotNum );
+
+	public List listSchedule(String userId);
 }

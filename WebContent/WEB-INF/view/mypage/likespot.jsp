@@ -23,7 +23,7 @@
 	<header>
 	<div class="header-main">
 		<div class="header-logo">
-		<a href="main.tm"><img class="logo" src="/resource/main/header/images/samplelogo.png"></a>
+		<a href="/tmmain/main.tm"><img class="logo" src="/resource/main/header/images/samplelogo.png"></a>
 	</div>
 		<div class="header-navi">
 		<!-- 
@@ -33,7 +33,7 @@
 			<ul class="navi-list">
 				<li><a href="#"><img src="/resource/main/header/images/plan.png"></a></li>
 				<li><a href="#"><img src="/resource/main/header/images/destination.png"></a></li>
-				<% if (session.getAttribute("userID")!=null){ %>
+				<% if (session.getAttribute("userId")!=null){ %>
 				<li><a href="#"><img src="/resource/main/header/images/challenge.png"></a></li>
 				<li><a href="#"><img src="/resource/main/header/images/mypage.png"></a></li>
 				<%} %>
@@ -50,8 +50,8 @@
 			<div class="header-login">
 				<ul class="login-list">
 				<!--  회원 로그인시 생성되는 버튼 -->
-					<% if (session.getAttribute("userID")!=null){ %>
-					<li><%=session.getAttribute("nickName")+"님 환영합니다." %></li>
+					<% if (session.getAttribute("userId")!=null){ %>
+					<li><label class="label"><%=session.getAttribute("userNick")%></label></li>
 					<li><a href='' class='button-logout'><img src="/resource/main/header/images/logout.png"></a></li>
 				<!--  비회원 접속시 생성되는 버튼-->
 					<%}else {%>
@@ -133,8 +133,8 @@
 						</c:choose>
 							<h3><a href="#" class="likeName">${i.likespotName}</a>
 							<br/>
-							<a href="#"  class="delete">삭제</a></h3>
-							<input type="hidden" class="likeNum" value="${i.likespotNum}"/> </li>
+							<a href="#"  class="delete">삭제</a>
+							<input type="hidden" class="likeNum" value="${i.likespotNum}"/></h3> </li>
 					</c:forEach>
 				</ul>
 			</section>
