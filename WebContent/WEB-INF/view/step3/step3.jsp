@@ -200,6 +200,8 @@
    <div id="map" style="width: 40%; height: 750px;display:inline-block;"></div>
 </div><!--  지도/리스트들 끝끝 -->
 
+<ul id="trash"><img src="/resource/step3/step3_image/trash.png"></ul>
+<br/>
 <input type="button" value="경로 최적화" id="distanceCal" />
 
 <!-- 채팅 슬라이드 내비 부분@@@@ -->

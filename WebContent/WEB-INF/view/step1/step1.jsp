@@ -380,14 +380,14 @@ $('#btn_popup').click(function() {
 	<!-- 여행 지역 선택 3행 중 1행 -->
 	<div class="city0">
 			<input type="button" value="주요도시" id=majorcitymark>
-			<input type="button" value="서울" id="myButton1" blass="b">
-			<input type="button" value="제주" id="myButton2" blass="b">
-			<input type="button" value="부산" id="myButton3" blass="b">
-			<input type="button" value="경주" id="myButton4" blass="b">
-			<input type="button" value="양평" id="myButton5" blass="b">
-			<input type="button" value="태안" id="myButton6" blass="b">
-			<input type="button" value="진주" id="myButton7" blass="b">
-			<input type="button" value="강릉" id="myButton8" blass="b">
+			<input type="button" value="서울" id="myButton1" class="b">
+			<input type="button" value="제주" id="myButton2" class="b">
+			<input type="button" value="부산" id="myButton3" class="b">
+			<input type="button" value="경주" id="myButton4" class="b">
+			<input type="button" value="양평" id="myButton5" class="b">
+			<input type="button" value="태안" id="myButton6" class="b">
+			<input type="button" value="진주" id="myButton7" class="b">
+			<input type="button" value="강릉" id="myButton8" class="b">
 	</div>
 	
 	<!-- 여행 지역 선택 3행 중 2행 -->
@@ -1011,6 +1011,8 @@ $('#btn_popup').click(function() {
 		<!-- 도착지 출력공간 -->
 		<input type="text" class="listarrival" name="listarrival"  placeholder="도착지" readonly="readonly" />
 		
+		<!-- 경유지비우기 버튼 -->
+		<input type="button" class="reset" value="경유지 비우기" /> 
 		</br> 
 		
 		

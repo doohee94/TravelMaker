@@ -307,56 +307,67 @@ $(function() {
 
 		//여행지 버튼클릭 이벤트
 		//여행지 지역 선택 3행으로 이루어진상태
+		var tempstart;
 		
 		//1행 travelregion
 		$(".wrap .city0 .a").click(function() {
-			// 			$(".container .liststart").val($(this).val());
-			$(".liststart").val($(this).val());
+			tempstart= $(this).val()+"/";
+			$(".liststart").val(tempstart);
 		});
 		
 		//2행 travelregion
 		$(".wrap .city1 .a").click(function() {
-			$(".liststart").val($(this).val());
+			tempstart= $(this).val()+"/";
+			$(".liststart").val(tempstart);
 		});
 		
 		//3행 travelregion
 		$(".wrap .city2 .a").click(function() {
-			$(".liststart").val($(this).val());
+			tempstart= $(this).val()+"/";
+			$(".liststart").val(tempstart);
 		});
 
 		/** 강원도 하위 버튼 (travelregion)*/
 		$(".wrap .Gangwondodiv input").click(function() {
-			$(".liststart").val($(this).val());
+			tempstart= $(this).val()+"/";
+			$(".liststart").val(tempstart);
 		});
 		
 		/** 경기도 하위 버튼 (travelregion)*/
 		$(".wrap .Gyeonggidodiv input").click(function() {
-			$(".liststart").val($(this).val());
+			tempstart= $(this).val()+"/";
+			$(".liststart").val(tempstart);
 		});
 
 		/** 경상남도 하위 버튼 (travelregion)*/
 		$(".wrap .Gyeongsangnamdodiv input").click(function() {
-			$(".liststart").val($(this).val());
+			tempstart= $(this).val()+"/";
+			$(".liststart").val(tempstart);
 		});
 		/** 경상북도 하위 버튼 (travelregion)*/
 		$(".wrap .Gyeongsangbukdodiv input").click(function() {
-			$(".liststart").val($(this).val());
+			tempstart= $(this).val()+"/";
+			$(".liststart").val(tempstart);
 		});
 		/** 전남 하위 버튼 (travelregion)*/
 		$(".wrap .Jeollanamdodiv input").click(function() {
-			$(".liststart").val($(this).val());
+			tempstart= $(this).val()+"/";
+			$(".liststart").val(tempstart);
 		});
 		/** 전북 하위 버튼 (travelregion)*/
 		$(".wrap .Jeollabukdodiv input").click(function() {
-			$(".liststart").val($(this).val());
+			tempstart= $(this).val()+"/";
+			$(".liststart").val(tempstart);
 		});
 		/** 충남 하위 버튼 (travelregion)*/
 		$(".wrap .Chungcheongnamdodiv input").click(function() {
-			$(".liststart").val($(this).val());
+			tempstart= $(this).val()+"/";
+			$(".liststart").val(tempstart);
 		});
 		/** 충북 하위 버튼 (travelregion)*/
 		$(".wrap .Chungcheongbukdodiv input").click(function() {
-			$(".liststart").val($(this).val());
+			tempstart= $(this).val()+"/";
+			$(".liststart").val(tempstart);
 		});
 
 		/** 1행 travelregion2 */
