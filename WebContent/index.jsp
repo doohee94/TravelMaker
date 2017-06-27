@@ -62,6 +62,17 @@
 <a href="tmmoblie/mstemp.tm">모바일 보기</a>
 <br/>
 <a href="tmheader/header.tm">헤더</a>
+<br/>
+<a href="step1/step1.tm">step1 페이지</a>
+<br/>
+<br/>
+<a href="challengeschedule/challengeSchedule.tm">도전일정 페이지</a>
+<br/>
+<br/>
+<a href="challengeschedule/challengeScheduleDetail.tm">도전일정 상세페이지</a>
+<br/>
+<br/>
+<a href="recommandtravelregion/recommandTravelRegion.tm">추천여행지 페이지</a>
 
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
