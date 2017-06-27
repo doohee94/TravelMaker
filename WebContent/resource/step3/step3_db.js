@@ -113,72 +113,142 @@ $(function(){
 	                 //완전저장
 	                 if(state == 1){
 	                	 
-	                  var title = [];
-	           	      var image = [];
-	           	      var mapx = [];
-	           	      var mapy = [];
-	           	      var city =  $("#hiddenCity").val();
-	           	      var date="2017-05-02";
-	           	      
-	           	   var place = [];
-	           	      
-	           	      //리스트의 정보를 ajax로 넘긴다
-	           	      $('#myList > li').each(function(i,item){
-	           	         title[i] = $(item).find(".name").text();
-	           	         image[i] = $(item).find("img").attr("src");
-	           	         mapx[i] = $(item).find(".mapx").attr("value");
-	           	         mapy[i] = $(item).find(".mapy").attr("value"); 
+	                	 var place =[];
+	                     //select box에서 선택된 값의 인덱스
+	                       var index = $("#DaySelectBox option").index($("#DaySelectBox option:selected"));
+	                       
+	                       for(var j=0; j<$("#DaySelectBoxNum").val(); j++){
+	                     	  
+	                     	//만약에 여기서 셀렉트 값이 day1 이면 배열 day[1]에 저장 
+	                           if(index == j){
 
-	           	         //alert(i + '/' + title);
-	           	         
-	           	      var list={
-	  	           	    	"title":$(item).find(".name").text(),
-	  	           	    	"image":$(item).find("img").attr("src"),
-	  	           	    	"mapx":$(item).find(".mapx").attr("value"),
-	  	           	    	"mapy":$(item).find(".mapy").attr("value"),  
-	  	           	      }
-	           	      
-	           	      place[i] = list;
-	           	    	           	      
-	           	      });
-	           	      
-	           	     
-	           	      var id=2;
-	           	     var schedule={
-	           	    		"_id":id++,
-	           	    		"schedule_num":"1",
-	           	    		"member_id":"doohee94",
-	           	    		"friend":"5",
-	           	    		"group_num":"254",
-	           	    		"tour_title":"즐거운 여행~",
-	           	    		 "tour" :[{
-	           	    			"date":date,
-	           	    			"city":city,
-	           	    			"place":place
-	           	    			
-	           	    		}],
-	           	    		"save_state":state
-	           	      }                  
-	           	      
-	           	      
-	           	   
-	                  //정렬 될 때 마다 리스트 순서를 불러와서 ajax로 넘겨 준 후 디비에 저장!
-	                 $.ajax({
-	                	 url : "/step/listSave.tm"
-	            	     ,type:"post"
-	            	     ,contentType:"application/json "
-	            	     ,data:JSON.stringify(schedule)
-	            	     ,success:function(data){
-	            	    	alert(data);
-	            	     }
-	                 ,error:function(err,status,error){
-	        	         alert("실패!"+err.status+error);
-	        	        
-	        	      }
-	                 });
+	                     		  $('#myList > li').each(function(i,item){
+	                                   
+	                                   var list={
+	                     	           	    "title":$(item).find(".name").text(),
+	                     	           	    "image":$(item).find("img").attr("src"),
+	                     	           	    "mapx":$(item).find(".mapx").attr("value"),
+	                     	           	    "mapy":$(item).find(".mapy").attr("value"),  
+	                                   }
+	                                   
+	                                   place[i] = list;
+	                                   
+	                                });
+	                     		  
+	                     		  day[j] = place;
+	                     	  }
+	                       }
+
+	                       var tour =[$("#DaySelectBoxNum").val()];
+	                       
+	                       for(var i=0; i<$("#DaySelectBoxNum").val(); i++){
+
+	                       	tour[i] = {
+	                       			
+	                       			"date" : "day"+(i+1),
+	                       			"city" : "",
+	                       			"place":day[i]
+	                       			
+	                       	}
+	                       }
+	                        
+	                       
+	                      var city =  $("#hiddenCity").val();
+	                	     var id=2;
+	                	     var schedule={
+	                	    		"_id":128,
+	                	    		"schedule_num":"1",
+	                	    		"member_id":"doohee94",
+	                	    		"friend":"5",
+	                	    		"group_num":"254",
+	                	    		"tour_title":"즐거운 여행~",
+	                	    		 "tour":tour,
+	                	    		"save_state":state
+	                	      }                     
+	                       //정렬 될 때 마다 리스트 순서를 불러와서 ajax로 넘겨 준 후 디비에 저장!
+	                	     $.ajax({
+	                     	 url : "/step/listSave.tm"
+	                 	     ,type:"post"
+	                 	     ,contentType:"application/json "
+	                 	     ,data:JSON.stringify(schedule)
+	                 	     ,success:function(data){
+	                 	    	alert(data);
+	                 	     }
+	                      ,error:function(err,status,error){
+	             	         alert("실패!"+err.status+error);
+	             	        
+	             	      }
+	                      });
 	                	 
 	                 }else if(state==0){//임시저장
-	                	 
+	                	 var place =[];
+	                     //select box에서 선택된 값의 인덱스
+	                       var index = $("#DaySelectBox option").index($("#DaySelectBox option:selected"));
+	                       
+	                       for(var j=0; j<$("#DaySelectBoxNum").val(); j++){
+	                     	  
+	                     	//만약에 여기서 셀렉트 값이 day1 이면 배열 day[1]에 저장 
+	                           if(index == j){
+
+	                     		  $('#myList > li').each(function(i,item){
+	                                   
+	                                   var list={
+	                     	           	    "title":$(item).find(".name").text(),
+	                     	           	    "image":$(item).find("img").attr("src"),
+	                     	           	    "mapx":$(item).find(".mapx").attr("value"),
+	                     	           	    "mapy":$(item).find(".mapy").attr("value"),  
+	                                   }
+	                                   
+	                                   place[i] = list;
+	                                   
+	                                });
+	                     		  
+	                     		  day[j] = place;
+	                     	  }
+	                       }
+
+	                       var tour =[$("#DaySelectBoxNum").val()];
+	                       
+	                       for(var i=0; i<$("#DaySelectBoxNum").val(); i++){
+
+	                       	tour[i] = {
+	                       			
+	                       			"date" : "day"+(i+1),
+	                       			"city" : "",
+	                       			"place":day[i]
+	                       			
+	                       	}
+	                       }
+	                        
+	                       
+	                      var city =  $("#hiddenCity").val();
+	                	     var date="2017-05-02";
+	                	     var state="0";
+	                	     var id=2;
+	                	     var schedule={
+	                	    		"_id":128,
+	                	    		"schedule_num":"1",
+	                	    		"member_id":"doohee94",
+	                	    		"friend":"5",
+	                	    		"group_num":"254",
+	                	    		"tour_title":"즐거운 여행~",
+	                	    		 "tour":tour,
+	                	    		"save_state":state
+	                	      }                     
+	                       //정렬 될 때 마다 리스트 순서를 불러와서 ajax로 넘겨 준 후 디비에 저장!
+	                	     $.ajax({
+	                     	 url : "/step/listSave.tm"
+	                 	     ,type:"post"
+	                 	     ,contentType:"application/json "
+	                 	     ,data:JSON.stringify(schedule)
+	                 	     ,success:function(data){
+	                 	    	alert(data);
+	                 	     }
+	                      ,error:function(err,status,error){
+	             	         alert("실패!"+err.status+error);
+	             	        
+	             	      }
+	                      });
 	                 }
 	               
 	              }
