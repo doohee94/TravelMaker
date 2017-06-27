@@ -1,6 +1,5 @@
   $( function() {
 	  
-	  
 	  //정렬 될 때 마다 리스트 순서를 불러와서 ajax로 넘겨 준 후 디비에 저장!
 	     $.ajax({
      	 url : "/mypage_checklist/showlist.tm"
