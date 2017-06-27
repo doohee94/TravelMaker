@@ -1,5 +1,61 @@
 @CHARSET "UTF-8";
+/* 화면이동시 로딩화면  */
+#loading {
+ width: 100%;   
+ height: 100%;   
+ top: 0px;
+ left: 0px;
+ position: fixed;   
+ display: block;   
+ opacity: 0.7;   
+ background-color: #fff;   
+ z-index: 99;   
+ text-align: center; }  
 
+#loading-image {   
+ position: absolute;   
+ top: 40%;   
+ left: 40%;  
+ z-index: 100; } 
+
+/*  달력 주말 색상지정  */
+
+.ui-datepicker-calendar > tbody td:first-child a { 
+    COLOR: #f00; 
+}
+
+.ui-datepicker-calendar > tbody td:last-child a { 
+    COLOR: blue; 
+}
+/* 달력 년월 배경 색상 */
+.ui-datepicker-title{
+	background-color:white;
+}
+/* 달력 이전 다음 버튼 색상 */
+.ui-datepicker-prev{
+background-color:white;
+}
+.ui-datepicker-next{
+ background-color:white;
+}
+
+
+/** four div */
+.container .fourrow{
+	margin-top:10px;
+}
+
+.container .fourrow button{
+	width:120px; height:49px;
+	background-color:#2995F7;
+	font-family: 'Nanum Gothic';
+}
+
+.container .fourrow .fellowpeople{
+	width:1015px; height:50px;
+	font-size:14px; text-align:center;
+	border:2px solid #dedede;
+}
 
 /** threerow div*/
 
@@ -9,16 +65,18 @@
 }
 
 .container .threerow .lbtitle{
-	width:17%; height:45px;
-	font-size:25px;
 	text-align:center;
-	text-color:#2995F7;
+	font-size:25px;
+	color:black;
+	margin-top:5px;
+	margin-bottom:10px;
 }
 
 .container .threerow .traveltitle{
-	width:68%; height:45px;
-	margin-left:5px; margin-right:10px;
-	font-size:18px;
+	width:1140px; height:45px;
+	border:2px solid #dedede;
+	font-size:16px;
+	text-align:center;
 }
 
 .container .threerow button{
@@ -38,19 +96,23 @@
 .container ul #nextbtn{
 	padding-bottom:2px;
 	margin-top:7px;
-	margin-left:66%;
-	width:100px;
+	margin-left:66.2%;
+	width:120px;
 	height:30px;
-	font-size:20px;
+	font-size:15px;
+	font-family: 'Nanum Gothic';
 	color:white;
 	font-weight:600;
 	background-color:#2995F7;
 	border:2px solid #2995F7;
+	border-radius:7px;
 }
 
 
 /** tab font css */
-
+.container{
+	margin-top:5px;
+}
 .container ul li a{
 	font-size:18px;
 	font-weight:600;
@@ -59,23 +121,32 @@
 										/** path list css */
 										
 .container .reset{
-	width:100px;
+	width:120px;
+	height:48px;
+	background-color:#2995F7;
+	border:1px solid #2995F7;
+	border-radius:7px;
+	color:white;
+	font-weight:600;
+	font-size:15px;
+	font-family: 'Nanum Gothic';
+	
 }
 
 .container .liststart{
-	border:1px solid blue;
+	border:2px solid #dedede;
 	width:200px; height:50px;
 	text-align:center;
 }
 
 .container .listthrough{
-	border:1px solid blue;
-	width:570px; height:50px;
+	border:2px solid #dedede;
+	width:608px; height:50px;
 	text-align:center;
 }
 
 .container .listarrival{
-	border:1px solid blue;
+	border:2px solid #dedede;
 	width:200px; height:50px;
 	text-align:center;
 }
@@ -85,6 +156,12 @@
 .container #myModal .modal-dialog .modal-content .modal-body .form-control{
 	width:100%;
 
+}
+
+.container #myModal .modal-dialog .modal-content .modal-body{
+	overflow-x:hidden;
+	overflow-y:scroll;
+	height:300px;
 }
 
 .input-group-addon{
@@ -100,11 +177,11 @@
 
 /** footer (close btn form)*/
 .container #myModal .modal-dialog .modal-content .modal-footer{
-	margin-top:20%; background-color:red;
+	margin-top:5%; background-color: #2995F7;
 }
 
-.container #myModal .modal-dialog .modal-content .modal-footer #ftclosebtn{
-	background-color:white; color:red;
+.container #myModal .modal-dialog .modal-content .modal-footer #ftokbtn{
+	background-color:white; color: #2995F7;
 }
 
 /** id searched form */
