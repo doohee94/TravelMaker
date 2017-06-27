@@ -259,9 +259,8 @@
 	<br /><br /><br /><br />
 	<center>
 		<div class="allbtn">
-			<a href="#" class="btn btn-info"><span class="glyphicon glyphicon-chevron-right"></span> 다음</a>
-			<a href="#" class="btn btn-info"><span class="glyphicon glyphicon-new-window"></span> 스킵</a>
-			<a href="#" class="btn btn-info"><span class="glyphicon glyphicon-chevron-left"></span> 이전</a>
+			<a href="step1/step1.tm" class="btn btn-info"><span class="glyphicon glyphicon-chevron-right"></span> 다음</a>
+			<a href="step/step3.tm" class="btn btn-info"><span class="glyphicon glyphicon-chevron-left"></span> 이전</a>
 		</div>
 		<br /><br /><br />
 		<div class="showlist">

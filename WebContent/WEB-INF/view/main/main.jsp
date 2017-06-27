@@ -37,7 +37,7 @@
 				if문으로 유저아이디 식별하여 메뉴 출력 
 			-->
 				<ul class="navi-list">
-					<li><a href="#"><img src="/resource/main/header/images/plan.png"></a></li>
+					<li><a href="/step1/step1.tm"><img src="/resource/main/header/images/plan.png"></a></li>
 					<li><a href="#"><img src="/resource/main/header/images/destination.png"></a></li>
 					<% if (session.getAttribute("userId")!=null){ %>
 					<li><a href="#" id="btn-challenge"><img src="/resource/main/header/images/challenge.png"></a></li>

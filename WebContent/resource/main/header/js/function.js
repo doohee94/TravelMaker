@@ -22,7 +22,7 @@ $(function(){
 	//회원가입 버튼을 누르면 회원가입 화면으로 이동
 	$("#btn-join").click(function(){
 		alert("회원가입버튼");
-		$(location).attr('href',"/join/join.tm");
+		$(location).attr('href',"/member/signupForm.tm");
 	});
 	//마이페이지 버튼을 누르면 마이페이지 화면으로 이동
 	$("#btn-mypage").click(function(){

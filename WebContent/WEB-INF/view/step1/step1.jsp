@@ -37,14 +37,21 @@
 
 <script>
 //동행자 팝업 js파일에 넣으면 오류발생
-$('#btn_popup').click(function() {
-	$a.popup({
-		title : "동행자 팝업 테스트",
-		url : "fellowtravellers.jsp",
-		iframe : true
-	// default
+$(function(){
+	$('#btn_popup').click(function() {
+		$a.popup({
+			title : "동행자 팝업 테스트",
+			url : "fellowtravellers.jsp",
+			iframe : true
+		// default
+		});
 	});
-});
+	
+	$("#nextbtn").click(function(){
+		location.href = "/step2/step2.tm";
+	});
+	
+});n
 </script>
 </head>
 <body>
