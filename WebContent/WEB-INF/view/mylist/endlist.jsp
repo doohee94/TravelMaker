@@ -99,6 +99,7 @@ text-decoration:none;
     <h3>2017.05.16~2017.06.11</h3>
     <p>서울>부산</p><a href="#" class="read-more">상세일정보기</a><br/><br/>
     			  <a href="#" class="read-more">도전일정등록</a>
+    			  <a href="#" class="read-more">리뷰등록</a>
   </figcaption>
 </figure>
 
@@ -108,6 +109,7 @@ text-decoration:none;
     <h3>2017.05.16~2017.06.11</h3>
     <p>서울>부산</p><a href="#" class="read-more">상세일정보기</a><br/><br/>
     			  <a href="#" class="read-more">도전일정등록</a>
+    			  <a href="#" class="read-more">리뷰등록</a>
   </figcaption>
 </figure>
 
@@ -117,6 +119,7 @@ text-decoration:none;
     <h3>2017.05.16~2017.06.11</h3>
     <p>서울>부산</p><a href="#" class="read-more">상세일정보기</a><br/><br/>
     			  <a href="#" class="read-more">도전일정등록</a>
+    			  <a href="#" class="read-more">리뷰등록</a>
   </figcaption>
 </figure>
 
@@ -126,6 +129,7 @@ text-decoration:none;
     <h3>2017.05.16~2017.06.11</h3>
     <p>서울>부산</p><a href="#" class="read-more">상세일정보기</a><br/><br/>
     			  <a href="#" class="read-more">도전일정등록</a>
+    			  <a href="#" class="read-more">리뷰등록</a>
   </figcaption>
 </figure>
 
