@@ -17,7 +17,7 @@ public class MemberDAOImpl implements MemberDAO{
 	/*회원가입*/
 	@Override
 	public int insert(MemberDTO memberdto){
-		System.out.println("dd");
+		System.out.println("회원가입");
 		return ss.insert("member.insert", memberdto);
 	}
 	/*회원정보보기*/
