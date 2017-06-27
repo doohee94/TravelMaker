@@ -76,4 +76,21 @@
 		WHERE ad_num=#{num}
 	</delete>
 	
+	<delete id="alliancedel" parameterType="hashMap">
+		DELETE FROM partner
+		WHERE partner_num=#{partnernum}
+	</delete>
+	
+	<update id="allianceapproval" parameterType="hashMap">
+		UPDATE partner
+		SET partner_state = '20'
+		WHERE partner_num=#{partnernum}
+	</update>
+	
+	<update id="typeupdate" parameterType="allianceDTO">
+		UPDATE partner
+		SET partner_type = #{partnerType}
+		WHERE partner_num=#{partnerNum}
+	</update>
+	
 </mapper>
