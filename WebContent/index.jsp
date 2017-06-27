@@ -74,7 +74,7 @@
 <br/>
 <a href="recommandtravelregion/recommandTravelRegion.tm">추천여행지 페이지</a>
 
-<% response.sendRedirect("tmmain/main.tm"); %>
+
 
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
