@@ -29,10 +29,10 @@ public class AdminDAOImpl implements AdminDAO {
 	 * 총페이지 수와 시작 rownum값과 끝 rownum값 결과 출력
 	 * 인자값 
 	 * type : 테이블명
-	 *		1 : 회원
-	 * 		2 : QNA
-	 * 		3 : 광고
-	 * 		4 : 제휴 
+	 *		0 : 회원
+	 * 		1 : QNA
+	 * 		2 : 광고
+	 * 		3 : 제휴 
 	 * countpage : 페이지당 출력할 컬럼수
 	 * pageNum : 현재 페이지 번호
 	 *
@@ -50,6 +50,53 @@ public class AdminDAOImpl implements AdminDAO {
 		//테이블의 총 컬럼수를 읽어옴
 		int totalcol = ss.selectOne(namespace+".cnt", map);
 		
+		int startNum = 0; // 시작  숫자
+		int endNum = 0; // 끝  숫자
+		int totalPageNum = 0; // 끝  숫자
+
+		int[] resultPage = new int[3];
+		
+		//총 페이지수를 계산
+		totalPageNum = totalcol/countpage;
+		if(totalcol%countpage > 0){
+			totalPageNum++;
+		}
+		
+		//불러올 컬럼 번호의 시작값과 끝값을 계산
+		endNum = pageNum * countpage;
+		startNum = endNum - (countpage-1);
+		
+		// 0:총 페이지수, 1:시작번호, 2:끝번호
+		resultPage[0] = totalPageNum;
+		resultPage[1] = startNum;
+		resultPage[2] = endNum;
+		
+		return resultPage;
+	}
+	
+	@Override
+	public int[] SettingPageNum(int type, int countpage, int pageNum, int state, String str) {
+		//테이블의 총 컬럼수를 읽어옴
+		int totalcol = 0;
+		
+		if(state == 1){
+			if(str != null){
+				HashMap map = new HashMap();
+				map.put("partnerComname", str);
+				totalcol = ss.selectOne(namespace+".cntparlist",map);
+			}else{
+				totalcol = ss.selectOne(namespace+".cntparlist");
+			}
+			
+		}else{
+			if(str != null){
+				HashMap map = new HashMap();
+				map.put("partnerComname", str);
+				totalcol = ss.selectOne(namespace+".cntparrec",map);
+			}else{
+				totalcol = ss.selectOne(namespace+".cntparrec");
+			}
+		}
 		int startNum = 0; // 시작  숫자
 		int endNum = 0; // 끝  숫자
 		int totalPageNum = 0; // 끝  숫자
@@ -138,6 +185,26 @@ public class AdminDAOImpl implements AdminDAO {
 		List<AllianceDTO> list = ss.selectList(namespace + ".allist", map);
 		return list;
 	}
+	@Override
+	public List<AllianceDTO> alsearch(int startnum, int endnum, String partnercomname) {
+		HashMap map = new HashMap();
+		map.put("partnerComname", partnercomname);
+		map.put("startnum", startnum);
+		map.put("endnum", endnum);
+		
+		List<AllianceDTO> list = ss.selectList(namespace + ".allist", map);
+		return list;
+	}
+	@Override
+	public List<AllianceDTO> alsearchRec(int startnum, int endnum, String partnercomname) {
+		HashMap map = new HashMap();
+		map.put("partnerComname", partnercomname);
+		map.put("startnum", startnum);
+		map.put("endnum", endnum);
+		
+		List<AllianceDTO> list = ss.selectList(namespace + ".allistRec", map);
+		return list;
+	}
 
 	@Override
 	public int adadinsert(AdminadDTO adminadDTO) {
@@ -178,6 +245,30 @@ public class AdminDAOImpl implements AdminDAO {
 	public List<AllianceDTO> adallist() {
 		
 		List<AllianceDTO> list = ss.selectList(namespace + ".allist");
+		
+		return list;
+	}
+	
+	@Override
+	public List<AllianceDTO> adallist(int startnum, int endnum) {
+		
+		HashMap map = new HashMap();
+		map.put("startnum", startnum);
+		map.put("endnum", endnum);
+		
+		List<AllianceDTO> list = ss.selectList(namespace + ".allist", map);
+		
+		return list;
+	}
+	
+	@Override
+	public List<AllianceDTO> adallistRec(int startnum, int endnum) {
+		
+		HashMap map = new HashMap();
+		map.put("startnum", startnum);
+		map.put("endnum", endnum);
+		
+		List<AllianceDTO> list = ss.selectList(namespace + ".allistRec", map);
 		
 		return list;
 	}

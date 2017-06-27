@@ -6,6 +6,24 @@
 		SELECT count(*) as cnt
 		FROM ${table}
 	</select>
+	<select id="cntparlist"  resultType="java.lang.Integer">
+		SELECT count(*) as cnt
+		FROM partner
+		WHERE partner_type != 0
+		<if test="partnerComname != null">
+			AND partner_comname like '%'||#{partnerComname}||'%'
+		</if>
+	</select>
+	<select id="cntparrec"  resultType="java.lang.Integer">
+		SELECT count(*) as cnt
+		FROM partner
+		WHERE partner_type = 0
+		<if test="partnerComname != null">
+			AND partner_comname like '%'||#{partnerComname}||'%'
+		</if>
+	</select>
+	
+	
 
 	<select id="memberlist" parameterType="hashMap" resultType="adminMemberDTO">
 		SELECT *
@@ -42,11 +60,33 @@
 	</select>
 	
 	<select id="allist" parameterType="hashMap" resultType="allianceDTO">
-		SELECT * 
-		FROM partner
+		SELECT *
+		FROM (SELECT rownum as rnum, g.*  
+      		  FROM (SELECT * 
+            		FROM partner  
+            		order by partner_num desc) g)
 		<where>
+			<if test="startnum != null">
+				rnum <![CDATA[>=]]>  #{startnum} AND rnum <![CDATA[<=]]> #{endnum} AND partner_type != 0
+			</if>
 			<if test="partnerComname != null">
-				partner_comname like '%'||#{partnerComname}||'%'
+				AND partner_comname like '%'||#{partnerComname}||'%'
+			</if>
+		</where>
+	</select>
+	
+	<select id="allistRec" parameterType="hashMap" resultType="allianceDTO">
+		SELECT *
+		FROM (SELECT rownum as rnum, g.*  
+      		  FROM (SELECT * 
+            		FROM partner  
+            		order by partner_num desc) g)
+		<where>
+			<if test="startnum != null">
+				rnum <![CDATA[>=]]>  #{startnum} AND rnum <![CDATA[<=]]> #{endnum} AND partner_type = 0
+			</if>
+			<if test="partnerComname != null">
+				AND partner_comname like '%'||#{partnerComname}||'%'
 			</if>
 		</where>
 	</select>
