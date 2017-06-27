@@ -17,7 +17,7 @@ $(function(){
 	제휴 버튼 누르면 제휴페이지 이동
 	*/
 	$("#footer-alliance").click(function(){
-		$("#footer-alliance").attr('href',"alliance/allianceMain.tm")
+		$("#footer-alliance").attr('href',"/alliance/allianceMain.tm")
 	});
 	
 });
