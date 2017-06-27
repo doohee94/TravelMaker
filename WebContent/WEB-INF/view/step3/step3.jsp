@@ -183,7 +183,7 @@
             </ul>
    
        </div><!--  지역 끝 -->
-       
+               
     <!-- 여행지 정보 불러와서 출력할 리스트 -->
      <div style="width:18%; height:700px; display:inline-block; padding:0px;" id="apiList">
            <div style="maring:5px;">여행</div>
