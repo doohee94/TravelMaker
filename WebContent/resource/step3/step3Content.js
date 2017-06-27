@@ -12,6 +12,24 @@
 	}
 	
 $( function() {
+	
+	//day 별 리스트 저장 
+	//alert($("#DaySelectBoxNum").val());
+	
+	var DayAllArray = [];
+	//day의 수만큼 배열 생성 -> 그 배열 하
+	
+	
+	$("#DaySelect").change(function(){
+		
+		
+		
+		
+		
+		
+	});
+	
+	
 
 	//경로 최적화 버튼 눌렀을 경우
 	   $("#distanceCal").click(function(){
@@ -139,6 +157,8 @@ $( function() {
 	                 });
 	                 
 	               
+	                 
+	                 
 	                 var city =  $("#hiddenCity").val();
 	           	     var date="2017-05-02";
 	           	     var state="0";
@@ -276,24 +296,32 @@ $( function() {
           // 지도에 선을 표시합니다 
           polyline.setMap(map); 
  
+          var tour =[];
+          
+          for(var i=0; i<3; i++){
+          	
+          	tour[i] = {
+          			
+          			"date" : "day"+i,
+          			"city" : "",
+          			"place":place
+          			
+          	}
+          }
+           
           
          var city =  $("#hiddenCity").val();
    	     var date="2017-05-02";
    	     var state="0";
    	     var id=2;
    	     var schedule={
-   	    		"_id":id++,
+   	    		"_id":128,
    	    		"schedule_num":"1",
    	    		"member_id":"doohee94",
    	    		"friend":"5",
    	    		"group_num":"254",
    	    		"tour_title":"즐거운 여행~",
-   	    		 "tour" :[{
-   	    			"date":date,
-   	    			"city":city,
-   	    			"place":place
-   	    			
-   	    		}],
+   	    		 "tour":tour,
    	    		"save_state":state
    	      }                     
           //정렬 될 때 마다 리스트 순서를 불러와서 ajax로 넘겨 준 후 디비에 저장!

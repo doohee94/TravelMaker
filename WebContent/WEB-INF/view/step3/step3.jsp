@@ -1,12 +1,31 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+  <%
+  
+  //시작날짜와 종료날짜를 계산해서 일수 구하기
+  
+  SimpleDateFormat format = new SimpleDateFormat("yy-MM-dd");
+  
+  String sDateStr = "17-05-27";
+  String eDateStr = "17-06-06";
+  
+  Date sDate = format.parse(sDateStr);
+  Date eDate = format.parse(eDateStr);
+  
+  long diff = eDate.getTime() - sDate.getTime();
+  int day = (int)diff/(24*60*60*1000)+1;
+  System.out.println("날짜"+day);
+
+  %>
 <!-- 일정짜기 step3 페이지 -->
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
+  
 <!-- 부트스트랩 -->
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet"
@@ -183,10 +202,11 @@
     <div style="height:700px; display:inline-block; width:18%; padding:0px;">
          <div class="select_panel-heading c-list">
                   <!-- 셀렉트박스@@ -->
+                 <input type="hidden" id="DaySelectBoxNum" value="<%=day%>"/>
                 <select id="DaySelectBox" style="width:50%">
-               <option value="2017.05.02">DAY1</option>
-               <option value="2017.05.03">DAY2</option>
-               <option value="2017.05.04">DAY3</option>
+                <%for(int i=1; i<=day;i++){ %>
+                 <option value="DAY<%=i%>">DAY<%=i%></option>
+                <%} %>
               </select>
             <img src="/resource/step3/step3_image/plus.png" style="float: right;"id="chuga"/>
              <br/>
