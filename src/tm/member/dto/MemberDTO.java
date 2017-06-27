@@ -18,6 +18,8 @@ public class MemberDTO {
 	private String userPw;
 	private String userName;
 	private String userNick;
+	private String userCity;
+	private String userBorough;
 	private String userAddr;
 	private String userTel;
 	private String userEmail;
@@ -48,6 +50,18 @@ public class MemberDTO {
 	}
 	public void setUserNick(String userNick) {
 		this.userNick = userNick;
+	}
+	public String getUserCity() {
+		return userCity;
+	}
+	public void setUserCity(String userCity) {
+		this.userCity = userCity;
+	}
+	public String getUserBorough() {
+		return userBorough;
+	}
+	public void setUserBorough(String userBorough) {
+		this.userBorough = userBorough;
 	}
 	public String getUserAddr() {
 		return userAddr;

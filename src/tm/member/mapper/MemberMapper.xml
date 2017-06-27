@@ -4,7 +4,7 @@
 <mapper namespace="member">
 	<!-- 회원가입 insert -->
 	<insert id="insert" parameterType="tm.member.dto.MemberDTO">
-	insert into member values(user_id,user_pw,user_email,user_name,user_nick,user_addr,user_tel,user_type,user_date)
-	(#{userId},#{userPw},#{userEmail},#{userName},#{userNick},#{userAddr},#{userTel},10,sysdata)
+	insert into member (user_id,user_pw,user_email,user_name,user_nick,user_addr,user_tel,user_type,user_date)
+	values (#{userId},#{userPw},#{userEmail},#{userName},#{userNick},#{userAddr},#{userTel},10,sysdate)
 	</insert>
 </mapper>

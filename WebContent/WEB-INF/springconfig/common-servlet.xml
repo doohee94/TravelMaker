@@ -22,6 +22,7 @@
 				<value>classpath:tm/admin/mapper/*.xml</value>
 				<value>classpath:tm/login/mapper/*.xml</value>
 				<value>classpath:tm/mypage/mapper/*.xml</value>		
+				<value>classpath:tm/member/mapper/*.xml</value>	
 			</array>
 		</property>
 	</bean>

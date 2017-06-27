@@ -36,12 +36,14 @@ private String dir = "member/";
 * 회원가입
 */
 	
-	@RequestMapping("signupOk.tm")
+	@RequestMapping("/signupOk.tm")
 	public ModelAndView insert(MemberDTO memberdto){
+		memberdto.setUserAddr(memberdto.getUserCity()+ memberdto.getUserBorough());
 		int res = dao.insert(memberdto);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("signupOk");
+		mv.setViewName(dir+"signupOk");
 		mv.addObject("res", res);
+		
 		return mv;
 	}
 	
@@ -59,15 +61,19 @@ private String dir = "member/";
 */
 	
 	@RequestMapping("/memberUpdate.tm")
-	public void memberupdate(){
-		
+	public ModelAndView list(){
+		List<MemberDTO> list = dao.list();
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("list", list);
+		mv.setViewName("list");
+		return mv;
 	}
 	
 /**
 * 회원정보수정
 */
 	@RequestMapping("/memberModify.tm")
-	public void membermodify(){
+	public void modify(){
 		
 	}
 	
@@ -75,7 +81,7 @@ private String dir = "member/";
 * 회원탈퇴
 */
 	@RequestMapping("/memberDelete.tm")
-	public void memberdelete(){
+	public void delete(){
 		
 	}
 	
