@@ -1,4 +1,27 @@
 $(function() {
+		// 동행자 팝업 창에서 search 버튼 눌렀을때
+		$("#modalsearchbtn").click(function(){
+//			$(".modal-body").append("<div class='col-md-13'>" +
+//					"<input type='textarea' id='idlist' name='idlist' readonly>" +
+//					"<input type='button' value='O' id='okbtn'>" +
+//					"<input type='button' value='X' id='cancelbtn'>" +
+//					"</div>");
+			var id = $("#modalsearchplace").text();
+			$.ajax({
+				type : "POST" ,
+				url :"/step1/step1searchfell.tm" ,
+				data : "user_id="+id ,
+				dataType :"json" ,
+				success: function(data){
+					$("#userId").val(data.userId);
+					$("#userName").val(data.userName);
+				}
+				
+				
+			});
+			
+		});
+	
 		// 제목 입력란 유효성 글자 25자 내로 입력
 		$('.traveltitle').on('keydown', function() {
 			if ($(this).val().length > 15) {
@@ -33,6 +56,7 @@ $(function() {
 			}
 		});
 
+		
 		//여행지 지역 메뉴 탭의 하위 메뉴 펼치기/접기
 		
 		//출발지 탭
@@ -306,6 +330,7 @@ $(function() {
 		});
 
 		//여행지 버튼클릭 이벤트
+		// 출발지 탭
 		//여행지 지역 선택 3행으로 이루어진상태
 		var tempstart;
 		
@@ -371,11 +396,9 @@ $(function() {
 		});
 
 		/** 1행 travelregion2 */
-		
 		var temp=[];
 		
 		$(".wrap .city0 .b").click(function() {
-			// 			$(".container .liststart").val($(this).val());
 			temp += $(this).val()+"/";
 			$(".listthrough").val(temp);
 		});
@@ -481,17 +504,5 @@ $(function() {
 		});
 
 	});
-
-
-
-
-
-
-
-
-
-
-
-
 
 

@@ -37,24 +37,50 @@
 
 <script>
 //동행자 팝업 js파일에 넣으면 오류발생
-$(function(){
-	$('#btn_popup').click(function() {
-		$a.popup({
-			title : "동행자 팝업 테스트",
-			url : "fellowtravellers.jsp",
-			iframe : true
-		// default
-		});
+$('#btn_popup').click(function() {
+	$a.popup({
+		title : "동행자 팝업 테스트",
+// 		url : "fellowtravellers.jsp",
+		iframe : true
+	// default
 	});
-	
-	$("#nextbtn").click(function(){
-		location.href = "/step2/step2.tm";
-	});
-	
-});n
+});
+</script>
+<script type="text/javascript">
+   $(function(){
+      $("#loading").hide();
+      
+      $("#nextbtn").click(function(event){
+         event.preventDefault();
+         $("#main").hide();
+         $("#loading").show();
+         var url = "/step2/step2.tm"; 
+         $(location).attr('href',url);
+
+      });
+   });
 </script>
 </head>
 <body>
+<div id="loading" style="display: none;">
+   <img id="loading-image" alt="로딩중" src="/resource/step2/loding.gif" />
+</div>
+<div id="main">
+
+<!-- 헤더 -->
+<div style="height:75px; background-color: #103e68;">
+   <br/>
+   <div style="color:#fff; font-size: 2em; display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;나의 여행일정</div>
+   <div style="float:right; margin-right: 50px;">
+      <button id="addFriend" style="background-color:white; font-family:'Nanum Gothic'; border:1px solid white; color:black; font-weight:600; border-radius:7px; width:100px;height:30px">친구추가</button>
+      <button id="tempSave" style="background-color:white; font-family:'Nanum Gothic'; border:1px solid white; color:black; font-weight:600; border-radius:7px; width:100px;height:30px">임시저장</button>
+      <button id="save" style="background-color:white; font-family:'Nanum Gothic'; border:1px solid white; color:black; font-weight:600; border-radius:7px; width:60px;height:30px">저장</button> 
+      
+      <button id="chat" onclick="openNav()" style="margin-left:70px; background-color:#FDE0E2; font-family:'Nanum Gothic'; border:1px solid #FFDFE4; color:black; font-weight:600; border-radius:7px; width:60px;height:30px">채팅</button>  
+   </div>
+</div>
+<!-- end 헤더 -->
+
 	<div class="container">
 	<form class="contnsubform" action="" method='get'>
 		<!--   출발지 경유지 도착지 탭	-->
@@ -128,6 +154,7 @@ $(function(){
 		<div id="gangwon3">
 			<input type="button" value="화천" id="myButton24" class="a">
 			<input type="button" value="횡성" id="myButton25" class="a">
+			
 		</div>
 		
 	</div>
@@ -167,6 +194,7 @@ $(function(){
 			<input type="button" value="연천" id="myButton44" class="a">
 			<input type="button" value="오산" id="myButton45" class="a">
 			<input type="button" value="용인" id="myButton46" class="a">
+			
 		</div>
 		
 	</div>
@@ -203,6 +231,7 @@ $(function(){
 			<input type="button" value="함안" id="myButton63" class="a">
 			<input type="button" value="함양" id="myButton64" class="a">
 			<input type="button" value="합천" id="myButton65" class="a">
+			
 		</div>
 		
 	</div>
@@ -242,6 +271,7 @@ $(function(){
 			<input type="button" value="청송" id="myButton85" class="a">
 			<input type="button" value="칠곡" id="myButton86" class="a">
 			<input type="button" value="포항" id="myButton87" class="a">
+			
 		</div>
 		
 	</div>
@@ -294,6 +324,7 @@ $(function(){
 			<input type="button" value="함평" id="myButton109" class="a">
 			<input type="button" value="해남" id="myButton110" class="a">
 			<input type="button" value="화순" id="myButton111" class="a">
+			
 		</div>
 		
 	</div>
@@ -320,6 +351,7 @@ $(function(){
 			<input type="button" value="전주" id="myButton123" class="a">
 			<input type="button" value="정읍" id="myButton124" class="a">
 			<input type="button" value="진안" id="myButton125" class="a">
+			
 		</div>
 	</div>
 
@@ -346,6 +378,7 @@ $(function(){
 			<input type="button" value="태안" id="myButton6" class="a"> 
 			<input type="button" value="홍성" id="myButton138" class="a"> 
 			<input type="button" value="계룡" id="myButton139" class="a"> 
+			
 		</div>
 		
 	</div>
@@ -370,6 +403,7 @@ $(function(){
 				<input type="button" value="청주" id="myButton149" class="a">
 				<input type="button" value="충주" id="myButton150" class="a">
 				<input type="button" value="증평" id="myButton151" class="a">
+				
 			</div>
 			
 	</div>
@@ -440,6 +474,7 @@ $(function(){
 		<div id="gangwon3">
 			<input type="button" value="화천" id="myButton24" class="b">
 			<input type="button" value="횡성" id="myButton25" class="b">
+			
 		</div>
 		
 	</div>
@@ -479,6 +514,7 @@ $(function(){
 			<input type="button" value="연천" id="myButton44" class="b">
 			<input type="button" value="오산" id="myButton45" class="b">
 			<input type="button" value="용인" id="myButton46" class="b">
+			
 		</div>
 		
 	</div>
@@ -515,6 +551,7 @@ $(function(){
 			<input type="button" value="함안" id="myButton63" class="b">
 			<input type="button" value="함양" id="myButton64" class="b">
 			<input type="button" value="합천" id="myButton65" class="b">
+			
 		</div>
 		
 	</div>
@@ -554,6 +591,7 @@ $(function(){
 			<input type="button" value="청송" id="myButton85" class="b">
 			<input type="button" value="칠곡" id="myButton86" class="b">
 			<input type="button" value="포항" id="myButton87" class="b">
+			
 		</div>
 		
 	</div>
@@ -605,6 +643,7 @@ $(function(){
 			<input type="button" value="함평" id="myButton109" class="b">
 			<input type="button" value="해남" id="myButton110" class="b">
 			<input type="button" value="화순" id="myButton111" class="b">
+			
 		</div>
 		
 	</div>
@@ -631,6 +670,7 @@ $(function(){
 			<input type="button" value="전주" id="myButton123" class="b">
 			<input type="button" value="정읍" id="myButton124" class="b">
 			<input type="button" value="진안" id="myButton125" class="b">
+			
 		</div>
 	</div>
 	
@@ -657,6 +697,7 @@ $(function(){
 			<input type="button" value="태안" id="myButton6" class="b"> 
 			<input type="button" value="홍성" id="myButton138" class="b"> 
 			<input type="button" value="계룡" id="myButton139" class="b"> 
+			
 		</div>
 		
 	</div>
@@ -681,6 +722,7 @@ $(function(){
 				<input type="button" value="청주" id="myButton149" class="b">
 				<input type="button" value="충주" id="myButton150" class="b">
 				<input type="button" value="증평" id="myButton151" class="b">
+				
 			</div>
 			
 	</div>
@@ -750,6 +792,7 @@ $(function(){
 		<div id="gangwon3">
 			<input type="button" value="화천" id="myButton24" class="c">
 			<input type="button" value="횡성" id="myButton25" class="c">
+			
 		</div>
 		
 	</div>
@@ -790,6 +833,7 @@ $(function(){
 			<input type="button" value="연천" id="myButton44" class="c">
 			<input type="button" value="오산" id="myButton45" class="c">
 			<input type="button" value="용인" id="myButton46" class="c">
+			
 		</div>
 		
 	</div>
@@ -827,6 +871,7 @@ $(function(){
 			<input type="button" value="함안" id="myButton63" class="c">
 			<input type="button" value="함양" id="myButton64" class="c">
 			<input type="button" value="합천" id="myButton65" class="c">
+			
 		</div>
 		
 	</div>
@@ -867,6 +912,7 @@ $(function(){
 			<input type="button" value="청송" id="myButton85" class="c">
 			<input type="button" value="칠곡" id="myButton86" class="c">
 			<input type="button" value="포항" id="myButton87" class="c">
+			
 		</div>
 		
 	</div>
@@ -920,6 +966,7 @@ $(function(){
 			<input type="button" value="함평" id="myButton109" class="c">
 			<input type="button" value="해남" id="myButton110" class="c">
 			<input type="button" value="화순" id="myButton111" class="c">
+			
 		</div>
 		
 	</div>
@@ -947,6 +994,7 @@ $(function(){
 			<input type="button" value="전주" id="myButton123" class="c">
 			<input type="button" value="정읍" id="myButton124" class="c">
 			<input type="button" value="진안" id="myButton125" class="c">
+			
 		</div>
 	</div>
 	
@@ -974,6 +1022,7 @@ $(function(){
 			<input type="button" value="태안" id="myButton6" class="c"> 
 			<input type="button" value="홍성" id="myButton138" class="c"> 
 			<input type="button" value="계룡" id="myButton139" class="c"> 
+			
 		</div>
 		
 	</div>
@@ -999,6 +1048,7 @@ $(function(){
 				<input type="button" value="청주" id="myButton149" class="c">
 				<input type="button" value="충주" id="myButton150" class="c">
 				<input type="button" value="증평" id="myButton151" class="c">
+				
 			</div>
 			
 	</div>
@@ -1026,18 +1076,21 @@ $(function(){
 		<!-- 일정제목 및 동행자 버튼 공간  -->
 		
 		<div class="threerow">
-		
 			<!-- 일정제목 라벨 -->
-			<label class="lbtitle">일정제목</label>
+			<div class="lbtitle">일정제목</div>
 			<!-- 일정제목 입력란 -->
 			<input type="text" class="traveltitle" name="traveltitle" placeholder="15자내로 입력해주세요.">
-
-			<!-- 동행자 팝업 -->
+			<br/>
+		</div><!-- threerow -->
+		
+		<!-- 동행자 팝업 -->
 			
-			<!-- 동행자 팝업버튼 -->
+		<!-- 동행자 팝업버튼 -->
+		<div class="fourrow">	
+			<input type="text" class="fellowpeople" id="fellowpeople" readonly="readonly" placeholder="동행자를 선택해주세요.">
 			<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">동행자</button>
 			
-		</div><!-- threerow -->
+		</div>	
 		
 			<!-- Modal -->
 			<!-- 동행자 버튼 클릭시 나오는 화면 -->
@@ -1078,7 +1131,7 @@ $(function(){
 						<!-- 동행자 팝업 푸터 (클로즈버튼) -->
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal"
-								id="ftclosebtn">Close</button>
+								id="ftokbtn">완료</button>
 						</div>
 						
 					</div><!-- end modal-content class -->
@@ -1095,6 +1148,6 @@ $(function(){
 		
 	</form><!-- end contnsubform -->
 	</div><!-- end container class -->
-
+</div><!-- end main div -->
 </body>
 </html>
