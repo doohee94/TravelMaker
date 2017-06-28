@@ -7,13 +7,6 @@
 		FROM likespot 
 		WHERE user_id = #{userId}
 	</select>
-	<delete id="deletespot" parameterType="hashMap">
-		DELETE
-		FROM likespot
-		<where>
-		likespot_num =#{likespotNum}
-		</where>
-	</delete>
 	<select id="listsc" parameterType="hashMap" resultType="likescDTO">
 		SELECT *
 		FROM likesc
@@ -24,4 +17,24 @@
 		FROM TOTALRE
 		WHERE sc_num =#{scNum}
 	</select>
+	<select id="listqna" parameterType="hashMap" resultType="qnaDTO">
+		SELECT *
+		FROM qna
+		WHERE user_id =#{userId} 
+	</select>
+	<insert id="inputqna" parameterType="hashMap">
+		INSERT 
+		INTO QNA (QNA_NUM, USER_ID, QNA_DATE, QNA_TYPE, QNA_CONTENT) 
+		VALUES (seq_qna.nextval, #{userId}, SYSDATE, #{qnaType}, #{qnaContent})
+	</insert>
+	<delete id="deletespot" parameterType="hashMap">
+		DELETE
+		FROM likespot
+		WHERE likespot_num =#{likespotNum}
+	</delete>
+	<delete id="deleteschedule" parameterType="hashMap">
+		DELETE
+		FROM likesc	
+		WHERE likesc_num =#{likescNum}
+	</delete>
 </mapper>

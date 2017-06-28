@@ -20,9 +20,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.w3c.dom.NodeList;
 
+
 import tm.mypage.dao.MypageDAO;
 import tm.mypage.dto.LikeSCDTO;
 import tm.mypage.dto.LikeSpotDTO;
+import tm.mypage.dto.QnaDTO;
 
 /*
  MypageController
@@ -99,6 +101,37 @@ public class MypageController {
 		//세션을 유지시기키위해...?
 		session.setAttribute("userId", userId);
 		return mv;
+	}
+	
+	@RequestMapping("/deleteschedule.tm")
+	public ModelAndView deleteSchedule(String likescNum){
+		System.out.println(likescNum);
+		int result = dao.deleteSchedule(likescNum);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(dir+"/likespot");
+		mv.addObject("result",result);
+		return mv;
+	}
+	/*
+	 qna리스트를 불러오는 함수
+	 db에서 list를 담아와서 list를 리턴시킴
+	 */
+	@RequestMapping("/qna.tm")
+	public ModelAndView qnalist(String userId, HttpSession session){
+		userId = (String)session.getAttribute("userId");
+		List<QnaDTO> list = dao.listQnA(userId);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(dir+"/qna");
+		mv.addObject("qnalist",list);
+		return mv;
+	}
+	@RequestMapping("/inputqna.tm")
+	public String inputQna(String userId, String qnaType, String qnaContent, HttpSession session){
+		userId = (String)session.getAttribute("userId");
+		System.out.println("타입"+qnaType);
+		System.out.println("컨탠츠"+qnaContent);
+		dao.inputQna(userId,qnaType,qnaContent); 
+		return dir+"/qna";
 	}
 	
 	/*

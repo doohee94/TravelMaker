@@ -7,8 +7,10 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import tm.mypage.dto.LikeSCDTO;
 import tm.mypage.dto.LikeSpotDTO;
+import tm.mypage.dto.QnaDTO;
 
 @Service
 public class MypageDAOImpl implements MypageDAO{
@@ -64,12 +66,9 @@ public class MypageDAOImpl implements MypageDAO{
 			HashMap scMap = new HashMap();
 			scMap.put("scNum", scNum);
 			//임시 list에 scnum을 통한 좋아요수, 제목, 이미지주소 받아오기
-			temp = ss.selectList(namespace+".findimg",scMap);
-			
+			temp = ss.selectList(namespace+".findimg",scMap);		
 			for(int j = 0 ; j < temp.size(); j++){
-			//임시 로 담을 이미지주소, 제목, 좋아요수
-
-			
+			//임시 로 담을 이미지주소, 제목, 좋아요수	
 				tempimg = temp.get(j).getTotalrePhoto1fake();
 				templike = temp.get(j).getTotalreLikecount();
 				temptitle = temp.get(j).getTotalreTitle();	
@@ -80,6 +79,32 @@ public class MypageDAOImpl implements MypageDAO{
 			}//end of for (temp)
 		}//end of for(scNum)
 		return sclist;
+	}
+	@Override
+	public int deleteSchedule(String likescNum) {
+		HashMap map = new HashMap();
+		map.put("likescNum",likescNum);
+		System.out.println("번호"+likescNum);
+		int result = ss.delete(namespace+".deleteschedule",map);
+		System.out.println(result);
+		return result;
+	}
+	@Override
+	public List<QnaDTO> listQnA(String userId) {
+		HashMap map = new HashMap();
+		map.put("userId", userId);
+		System.out.println("유저아이디 "+userId);
+		List<QnaDTO> list = ss.selectList(namespace+".listqna",map);
+		return	list;
+	}
+	@Override
+	public int inputQna(String userId,String qnaType,String qnaContent) {
+		HashMap map = new HashMap();
+		map.put("userId", userId);
+		map.put("qnaType", qnaType);
+		map.put("qnaContent", qnaContent);
+		int result = ss.insert(namespace+".inputqna",map);
+		return result;
 	}
 
 }

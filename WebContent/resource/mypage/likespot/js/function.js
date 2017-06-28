@@ -10,7 +10,6 @@ $(document).ready(function() {
 		var likenum = $(this).next().val();
 		alert("삭제버튼 눌림" + likenum);
 		//db타고 와서 해당 여행지 삭제 시기기
-//		$(location).attr('href',"/tmmypage/deletespot.tm&likeNum="+likenum);
 		$.ajax({
 			type : "POST",
 			url : "/tmmypage/deletespot.tm",
@@ -24,7 +23,7 @@ $(document).ready(function() {
 				}
 			},
 			error : function(err){
-				alert("삭제실패"+err.status)
+				alert("삭제실패"+err.status);
 			}
 		});
 });
