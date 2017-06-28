@@ -107,4 +107,27 @@
 
 </body>
   <script type="text/javascript" src="/resource/step3/script/alopex-ui.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+	$("#beforeDay").change(function(){
+		$.ajax({
+			
+			url :"/mypage_checklist/modifyPopup.tm",
+			type:"post",
+			//data:"128",
+			contentType:"application/json ",
+			success:function(data){
+				alert(data.member_id);
+			},
+			error:function(err,status,error){
+		        alert("실패!"+err.status+error);
+		       
+		     }		
+		});//end ajax
+	});//end before change
+	
+});
+</script>
+
 </html>
