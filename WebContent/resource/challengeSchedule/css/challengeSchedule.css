@@ -3,9 +3,8 @@
  							/* trytravel label */
 /* first label dojeoniljeong*/
 body .tryhead{
-	border:1px solid blue;
 	text-align:center;
-	background-color:blue;
+	background-color:#2995F7;
 	color:white;
 	font-size:30px;
 	height:auto;
@@ -14,22 +13,23 @@ body .tryhead{
 /* second label best3*/
 body .bestthree{
 	margin-bottom:7px;
-	border: 5px solid yellow;
 	text-align:center;
-	font-size:30px;
+	border: 2px solid #2995F7;
 	heigth:auto;
+	color:#2995F7;
+	font-size:30px;
 }
 
 /* */
 body .dojeonlist{
 	margin-top:7px;
 	margin-bottom:7px;
-	border: 1px solid #ff0080;
 	text-align:center;
-	background-color: #ff0080;
-	color:white;
+	border: 2px solid #2995F7;
+	color:#2995F7;
 	font-size:30px;
 }
+
 
 
 .thumbnail {
