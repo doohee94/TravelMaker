@@ -71,6 +71,35 @@ public class Mypage_checklistController {
 		return mv;
 	}
 	
+	@RequestMapping("/modifyPopup")
+	public JSONObject modifyPopup(){
+		String _id="128"; //dla
+		//불러올 정보의 조건을 지정(_id를 가지고 지정)
+		Criteria criteria = new Criteria("_id");
+		criteria.is(Integer.parseInt(_id));
+		Query query = new Query(criteria);
+		
+		//tour정보를 arraylist로 받아온다
+				ArrayList<String> tourlist = (ArrayList<String>)mongoTemplate.find(query,String.class,"schedule");
+				//출력
+				for(int i=0; i<tourlist.size(); i++){
+					System.out.println(tourlist.get(i));
+				}
+				JSONObject jsonobj = null;
+				try {
+					//디비에서 가져온 String을 JSON으로 파싱 후 배열에 저장 
+					JSONParser jsonParser = new JSONParser();
+					jsonobj =  (JSONObject)jsonParser.parse(tourlist.get(0));
+				
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+				
+				
+				return jsonobj;
+		
+	}
+	
 
 	
 }
