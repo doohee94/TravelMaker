@@ -29,6 +29,13 @@
 <!--게시글(네모창)에 마우스오버 했을때 사용되는 부트스트랩 스크립트-->
 <script>
 $(document).ready(function() {
+	// 이미지 클릭시 상세페이지로 이동.
+	$(".titles").click(function(){
+		//상세페이지로 보낸다
+		location.href="challengeScheduleDetail.tm";
+	});		
+	
+	
     $("[rel='tooltip']").tooltip();    
  	
     //게시글(네모창)에 마우스 오버시 기능 
@@ -65,7 +72,7 @@ $(document).ready(function() {
               <a href="#" class="">
                 <div class="caption">
                 	 <!-- best1 제목 -->
-                     <h4 class="">Thumbnail Headline</h4>
+                     <h4 class="titles">Thumbnail Headline</h4>
 					<!-- best1 내용 -->
                     <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
 					</p>
@@ -82,7 +89,7 @@ $(document).ready(function() {
               <a href="#" class="">
                 <div class="caption">
                 	 <!-- best2 제목 -->
-                     <h4 class="">Thumbnail Headline</h4>
+                     <h4 class="titles">Thumbnail Headline</h4>
 					<!-- best2 내용 -->
                     <p class="">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
 					</p>
@@ -99,7 +106,7 @@ $(document).ready(function() {
               <a href="#" class="">
                 <div class="caption">
                 	 <!-- best3 제목 -->
-                     <h4 class="">Thumbnail Headline</h4>
+                     <h4 class="titles">Thumbnail Headline</h4>
 					<!-- best3 내용 -->
                     <p class="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
     				</p>
@@ -127,7 +134,7 @@ $(document).ready(function() {
               <a href="#" class="">
                 <div class="caption">
                 	 <!-- 도전 게시글 제목 -->
-                     <h4 class="">Thumbnail Headline</h4>
+                     <h4 class="titles">Thumbnail Headline</h4>
 					<!-- 도전 게시글 내용 -->
                     <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
 					</p>
@@ -143,6 +150,78 @@ $(document).ready(function() {
         <div class="col-sm-4">
             <div class="thumbnail">
               <a href="#" class="">
+                <div class="caption">
+                	 <!-- 도전 게시글 제목 -->
+                     <h4 class="titles">Thumbnail Headline</h4>
+					<!-- 도전 게시글 내용 -->
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+					</p>
+                </div>
+                <!-- 도전 게시글 이미지 -->
+                <img src="http://placehold.it/350x250" alt="..." class="">
+               </a>
+            </div>
+        </div>
+		<!-- 도전 게시글 중 하나 -->
+		
+		<!-- 도전 게시글 하나-->
+        <div class="col-sm-4">
+            <div class="thumbnail">
+              <a href="#" class="">
+                <div class="caption">
+                	 <!-- 도전 게시글 제목 -->
+                     <h4 class="titles">Thumbnail Headline</h4>
+					<!-- 도전 게시글 내용 -->
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+					</p>
+                </div>
+                <!-- 도전 게시글 이미지 -->
+                <img src="http://placehold.it/350x250" alt="..." class="">
+               </a>
+            </div>
+        </div>
+		<!-- 도전 게시글 중 하나 -->
+		
+		<!-- 도전 게시글 하나-->
+        <div class="col-sm-4">
+            <div class="thumbnail">
+              <a href="#" class="">
+                <div class="caption">
+                	 <!-- 도전 게시글 제목 -->
+                     <h4 class="titles">Thumbnail Headline</h4>
+					<!-- 도전 게시글 내용 -->
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+					</p>
+                </div>
+                <!-- 도전 게시글 이미지 -->
+                <img src="http://placehold.it/350x250" alt="..." class="">
+               </a>
+            </div>
+        </div>
+		<!-- 도전 게시글 중 하나 -->
+		
+		<!-- 도전 게시글 하나-->
+        <div class="col-sm-4">
+            <div class="thumbnail">
+              <a href="#" class="">
+                <div class="caption">
+                	 <!-- 도전 게시글 제목 -->
+                     <h4 class="titles">Thumbnail Headline</h4>
+					<!-- 도전 게시글 내용 -->
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+					</p>
+                </div>
+                <!-- 도전 게시글 이미지 -->
+                <img src="http://placehold.it/350x250" alt="..." class="">
+               </a>
+            </div>
+        </div>
+		<!-- 도전 게시글 중 하나 -->
+		
+		<!-- 도전 게시글 하나-->
+        <div class="col-sm-4">
+            <div class="thumbnail">
+              <a href="#" class="titlestitles">
                 <div class="caption">
                 	 <!-- 도전 게시글 제목 -->
                      <h4 class="">Thumbnail Headline</h4>
@@ -163,7 +242,7 @@ $(document).ready(function() {
               <a href="#" class="">
                 <div class="caption">
                 	 <!-- 도전 게시글 제목 -->
-                     <h4 class="">Thumbnail Headline</h4>
+                     <h4 class="titles">Thumbnail Headline</h4>
 					<!-- 도전 게시글 내용 -->
                     <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
 					</p>
@@ -181,7 +260,7 @@ $(document).ready(function() {
               <a href="#" class="">
                 <div class="caption">
                 	 <!-- 도전 게시글 제목 -->
-                     <h4 class="">Thumbnail Headline</h4>
+                     <h4 class="titles">Thumbnail Headline</h4>
 					<!-- 도전 게시글 내용 -->
                     <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
 					</p>
@@ -199,79 +278,7 @@ $(document).ready(function() {
               <a href="#" class="">
                 <div class="caption">
                 	 <!-- 도전 게시글 제목 -->
-                     <h4 class="">Thumbnail Headline</h4>
-					<!-- 도전 게시글 내용 -->
-                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-					</p>
-                </div>
-                <!-- 도전 게시글 이미지 -->
-                <img src="http://placehold.it/350x250" alt="..." class="">
-               </a>
-            </div>
-        </div>
-		<!-- 도전 게시글 중 하나 -->
-		
-		<!-- 도전 게시글 하나-->
-        <div class="col-sm-4">
-            <div class="thumbnail">
-              <a href="#" class="">
-                <div class="caption">
-                	 <!-- 도전 게시글 제목 -->
-                     <h4 class="">Thumbnail Headline</h4>
-					<!-- 도전 게시글 내용 -->
-                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-					</p>
-                </div>
-                <!-- 도전 게시글 이미지 -->
-                <img src="http://placehold.it/350x250" alt="..." class="">
-               </a>
-            </div>
-        </div>
-		<!-- 도전 게시글 중 하나 -->
-		
-		<!-- 도전 게시글 하나-->
-        <div class="col-sm-4">
-            <div class="thumbnail">
-              <a href="#" class="">
-                <div class="caption">
-                	 <!-- 도전 게시글 제목 -->
-                     <h4 class="">Thumbnail Headline</h4>
-					<!-- 도전 게시글 내용 -->
-                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-					</p>
-                </div>
-                <!-- 도전 게시글 이미지 -->
-                <img src="http://placehold.it/350x250" alt="..." class="">
-               </a>
-            </div>
-        </div>
-		<!-- 도전 게시글 중 하나 -->
-		
-		<!-- 도전 게시글 하나-->
-        <div class="col-sm-4">
-            <div class="thumbnail">
-              <a href="#" class="">
-                <div class="caption">
-                	 <!-- 도전 게시글 제목 -->
-                     <h4 class="">Thumbnail Headline</h4>
-					<!-- 도전 게시글 내용 -->
-                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-					</p>
-                </div>
-                <!-- 도전 게시글 이미지 -->
-                <img src="http://placehold.it/350x250" alt="..." class="">
-               </a>
-            </div>
-        </div>
-		<!-- 도전 게시글 중 하나 -->
-		
-		<!-- 도전 게시글 하나-->
-        <div class="col-sm-4">
-            <div class="thumbnail">
-              <a href="#" class="">
-                <div class="caption">
-                	 <!-- 도전 게시글 제목 -->
-                     <h4 class="">Thumbnail Headline</h4>
+                     <h4 class="titles">Thumbnail Headline</h4>
 					<!-- 도전 게시글 내용 -->
                     <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
 					</p>
