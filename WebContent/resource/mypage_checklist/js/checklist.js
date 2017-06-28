@@ -44,14 +44,17 @@
     });
     $(".modify").click(function(){
     	$a.popup({
-            url : "modifyPopup.jsp",
+            url : "modifyPopup.tm",
             ifram:true,
             width : 600,
             height : 500,
             callback:function(data){ // $a.close(data) API 사용 시 동작하는 콜백
                if(data !== null){ // 팝업 우측 상단 x 버튼으로 닫을 경우, $a.close(data); 와 같이 data를 넘겨주지 않으므로 data === null이다.
                   if(data == "1"){//성공이 들어올 경우          
-                	  $(location).attr('href', "checkListFinal.jsp"); //수정된 화면으로 화면 재시작 
+                	 //$(location).attr('href', "checkListFinal.jsp"); //수정된 화면으로 화면 재시작 
+                	  alert(data);
+                  
+                  
                   }
                }             
             },

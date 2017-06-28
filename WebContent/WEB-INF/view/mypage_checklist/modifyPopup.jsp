@@ -28,6 +28,7 @@
   
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
   <script>
   $( function() {
     $( "#beforeList, #afterList" ).sortable({
@@ -82,10 +83,6 @@
 <br/>
 <ul id="beforeList" class="connectedSortable">
 	
-	<%for(int i=0; i<5;i++){ %>
-		<li class="ui-state-default">바뀌기저<%=i %>번</li>
-	
-	<%} %>
 </ul>
 
 </div><!-- 바꾸기 전 끝 -->
@@ -99,10 +96,7 @@
 </select>
 <br/>
 <ul id="afterList" class="connectedSortable">
-  <%for(int i=0; i<5;i++){ %>
-		<li class="ui-state-default">바뀐후<%=i %>번</li>
-	
-	<%} %>
+  
 </ul>
 
 </div><!--  바꾼후 끝 -->
@@ -112,5 +106,5 @@
 </div>
 
 </body>
-<script type="text/javascript" src="../step3/script/alopex-ui.min.js"></script>
+  <script type="text/javascript" src="/resource/step3/script/alopex-ui.min.js"></script>
 </html>
