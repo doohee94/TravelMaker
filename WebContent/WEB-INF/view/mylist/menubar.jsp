@@ -57,15 +57,15 @@ text-decoration:none;
 		<h1>마이페이지</h1>
 		<div class="subtitle"><a href="#">내정보</a></div>
 			<ul class="sub" style="display:none;">
-				<li><a href="http://localhost:8080/member/memberUpdate.tm">정보보기</a></li>
-				<li><a href="http://localhost:8080/member/memberDelete.tm">회원탈퇴</a></li>
+				<li><a href="/member/memberUpdate.tm">정보보기</a></li>
+				<li><a href="/member/memberDelete.tm">회원탈퇴</a></li>
 			</ul>
-		<div class="subtitle"><a href="http://http://localhost:8080/mylist/menubar.tm">나의일정</a></div>
-		<div class="subtitle"><a href="">관심일정</a></div>
-		<div class="subtitle"><a href="">관심여행지</a></div>
-		<div class="subtitle"><a href="">QnA</a></div>
-		<div class="subtitle sub_end"><a href="">스탬프</a></div>
-	</div>
+		<div class="subtitle"><a href="/mylist/menubar.tm">나의일정</a></div>
+		<div class="subtitle"><a href="/tmmypage/likespot.tm">관심여행지</a></div>
+		<div class="subtitle"><a href="/tmmypage/schedule.tm">관심일정</a></div>
+		<div class="subtitle"><a href="/tmmypage/qna.tm">QnA</a></div>
+		<div class="subtitle sub_end"><a href="/tmmypage/stemp.tm">스탬프</a></div>
+</div>
 <!--/메뉴네비게이션-->
  
 <!--  달성률 보는 곳 -->
