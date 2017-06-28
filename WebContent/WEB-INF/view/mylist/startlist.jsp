@@ -95,8 +95,6 @@ text-decoration:none;
 
     <p>서울>부산</p><a href="/mypage_checklist/checklist.tm" class="read-more">일정체크</a><br/><br/>
 
-    <p>서울>부산</p><a href="mypage_checklist/checklist.tm" class="read-more">일정체크</a><br/><br/>
-
   </figcaption>
 </figure>
 
@@ -106,8 +104,6 @@ text-decoration:none;
     <h3>2017.05.16~2017.06.11</h3>
 
     <p>서울>부산</p><a href="/mypage_checklist/checklist.tm" class="read-more">일정체크</a><br/><br/>
-
-    <p>서울>부산</p><a href="mypage_checklist/checklist.tm" class="read-more">일정체크</a><br/><br/>
 
   </figcaption>
 </figure>
@@ -119,8 +115,6 @@ text-decoration:none;
 
     <p>서울>부산</p><a href="/mypage_checklist/checklist.tm" class="read-more">일정체크</a><br/><br/>
 
-    <p>서울>부산</p><a href="mypage_checklist/checklist.tm" class="read-more">일정체크</a><br/><br/>
-
   </figcaption>
 </figure>
 
@@ -130,8 +124,6 @@ text-decoration:none;
     <h3>2017.05.16~2017.06.11</h3>
 
     <p>서울>부산</p><a href="/mypage_checklist/checklist.tm" class="read-more">일정체크</a><br/><br/>
-
-    <p>서울>부산</p><a href="mypage_checklist/checklist.tm" class="read-more">일정체크</a><br/><br/>
 
   </figcaption>
 </figure>
