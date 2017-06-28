@@ -81,7 +81,7 @@
 //     ,data:'128'
 //     ,success:function(data){
 //
-//    for(var i=0; i<data.tour.length; i++){	
+//    for(var i=0; i<data.tour.length ; i++){	
 //    	$("#accordion").append('<h3>'+data.tour[i].date+' <button style="float:right;color:blue;" class="modify">수정</button></h3>'
 //    				+'<div>'
 //    				+'<div class="container">'
