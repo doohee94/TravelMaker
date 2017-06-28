@@ -1,4 +1,6 @@
 $(function() {
+	
+		
 		// 페이스북 공유 버튼
 		$("#shareBtn").click(function(){
 	        window.open('http://www.facebook.com/sharer/sharer.php?u=http://localhost:8080/ProjectUIPractice/TravelSpotReview/reviewDetail.jsp')
