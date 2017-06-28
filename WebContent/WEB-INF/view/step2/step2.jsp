@@ -261,17 +261,17 @@
 		<div style="color: #fff; font-size: 2em; display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;나의
 			여행일정</div>
 		<div style="float: right; margin-right: 50px;">
-
-			<button id="chat" onclick="openNav()" style="margin-left: 70px">채팅</button>
+			<a href="/step1/step1.tm" class="btn btn-info"><span class="glyphicon glyphicon-chevron-left"></span> 이전</a>
+			<a href="/step/step3.tm" class="btn btn-info">다음 <span class="glyphicon glyphicon-chevron-right"></span></a>
 		</div>
 	</div>
 	<br>
 	<br>
 	<center>
-		<div class="allbtn">
-			<a href="/step1/step1.tm" class="btn btn-info"><span class="glyphicon glyphicon-chevron-right"></span> 다음</a>
-			<a href="/step/step3.tm" class="btn btn-info"><span class="glyphicon glyphicon-chevron-left"></span> 이전</a>
-		</div>
+<!-- 		<div class="allbtn"> -->
+<!-- 			<a href="/step/step3.tm" class="btn btn-info"><span class="glyphicon glyphicon-chevron-left"></span> 다음</a> -->
+<!-- 			<a href="/step1/step1.tm" class="btn btn-info"><span class="glyphicon glyphicon-chevron-right"></span> 이전</a> -->
+<!-- 		</div> -->
 		<br /><br /><br />
 		<div class="showlist">
 			<div class="stepwizard">
