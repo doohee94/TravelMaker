@@ -12,7 +12,7 @@
 	/* total reviewinput div */
 .reviewinputdiv{
 	width:100%; height:300px;
-	border: 3px solid black;
+	border: 2px solid #dedede;
 	overflow: auto;
 	padding-top:10px;padding-bottom:5px;padding-left:8%;
 	margin-bottom:10px;
@@ -22,7 +22,7 @@
 .reviewinputdiv .reviewinput{
 	overflow: auto;
 	width:90%; height:80%;
-	border:2px solid yellow;
+	border:2px solid #dedede;
 	margin-top:5px; margin-bottom:10px;
 }
 
@@ -34,22 +34,22 @@
 	resize:none;
 	
 }
-.reviewinputdiv .reviewinput .reviewinputform button{
+.reviewinputdiv .reviewinput .reviewinputform .inputbtn{
 	margin-left:10px;
 }
 	
 	/* review .reviewregisted */
 .reviewregisted{
 	overflow: auto;
-	width:80%; height:35%;
-	border:2px solid red;
+	width:91%; height:35%;
+	border:2px solid #dedede;
 	margin-top:5px; margin-bottom:10px;
 }
 
 	/* review registed */
 .reviewform{
 	width:100%; height:200px;
-	border:3px solid black;
+	border:2px solid #dedede;
 	margin-bottom:10px;
 	overflow: auto;
 	padding-top:10px;padding-bottom:5px;padding-left:8%;
@@ -61,7 +61,6 @@
 
 /* starscore, like, sharebutton */
 .container .reviewinputdiv .reviewinput .reviewinputform #starscore #NOW_TIME{
-	float:right;
 	margin-top:10px; margin-right:10px;
 }
 
@@ -76,12 +75,12 @@
 
 	/* heart img location */
 .container .btngroup .likelocation{
-	border:1px solid red;
+	border:1px solid #dedede;
 }
 
 	/* share button location */
 .container .btngroup .sharebtn{
-	border:1px solid blue;
+	border:1px solid #dedede;
 }	
 
 /* slide */
@@ -95,7 +94,7 @@
 
 .container .detailtextarea{
 	width:100%; height:200px; 
-	border: 3px solid black;
+	border: 2px solid #dedede;
 	margin-top:10px; margin-bottom: 10px;
 	overflow:auto;
 }
@@ -161,14 +160,14 @@
 .container .btngroup{
 	width:100%;
 	height:200px;
-	border:3px solid black;
+	border:2px solid #dedede;
 	margin-bottom:10px;
 }
 
 .container .travelpath{
 	width:100%;
 	height:200px;
-	border:3px solid black;
+	border:2px solid #dedede;
 	margin-bottom:10px;
 }
 
