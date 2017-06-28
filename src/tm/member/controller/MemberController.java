@@ -59,14 +59,14 @@ private String dir = "member/";
 /**
 * 회원정보보기
 */
-	@RequestMapping("/memberUpdate.tm")
+	/*@RequestMapping("/memberUpdate.tm")
 	public ModelAndView list(){
 		List<MemberDTO> list = dao.list();
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("list", list);
 		mv.setViewName(dir+"list");
 		return mv;
-	}
+	}*/
 	
 /**
 * 회원정보수정
@@ -81,7 +81,7 @@ private String dir = "member/";
 		memberdto.getUserEmail();
 		memberdto.setUserAddr(memberdto.getUserCity()+ memberdto.getUserBorough());
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("memberUpdate");
+		mv.setViewName(dir+"memberUpdate");
 		mv.addObject("memberdto", memberdto);
 		return mv;
 	}
@@ -89,7 +89,7 @@ private String dir = "member/";
 	public ModelAndView modifyOk(MemberDTO memberdto){
 		int res = dao.modify(memberdto);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("modifyOk");
+		mv.setViewName(dir+"modifyOk");
 		mv.addObject("res", res);
 		return mv;
 	}*/

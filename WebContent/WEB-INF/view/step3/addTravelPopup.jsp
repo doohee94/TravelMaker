@@ -15,12 +15,23 @@
 <script type="text/javascript" src="/resource/step3/step3Content.js"></script>
 <!-- 팝업 관련 파일 -->
 <script type="text/javascript"  src="/resource/step3/script/alopex-ui.min.js"></script>
+
+<style type="text/css">
+.btn{
+
+	margin-top:5px;
+	background-color: #ffffff;
+	border : 3x solid  #9ec3ff;
+	width: 50px;
+	height: 25px;
+}
+</style>
 </head>
 <body>
 <div align="center">
 <h3>추가하고싶은 일정을 적어주세요</h3>
 제목 : <input type="text" width="50px" id="addText"><br>
-<input type="button" value="확인" id="ok"/>
+<input type="button" value="확인" id="ok" class="btn"/>
 </div>
 </body>
 </html>

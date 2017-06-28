@@ -35,7 +35,7 @@
 
 	/* review btngroup */
 .reviewinputdiv .reviewinput{
-	overflow: auto;
+	overflow-x:hidden; over-flow-y:auto;
 	width:90%; height:80%;
 	border:2px solid #dedede;
 	margin-top:5px; margin-bottom:10px;
@@ -43,7 +43,7 @@
 
 	/* review input */
 .reviewinputdiv .reviewinput .reviewinputform .reviewinputtextarea{
-	width:95%; 
+	width:95%; height:100px;
 	margin-left:10px; 
 	overflow: auto;
 	resize:none;
@@ -52,24 +52,43 @@
 .reviewinputdiv .reviewinput .reviewinputform .inputbtn{
 	margin-left:10px;
 }
-	
-	/* review .reviewregisted */
-.reviewregisted{
-	overflow: auto;
-	width:91%; height:35%;
-	border:2px solid #dedede;
-	margin-top:5px; margin-bottom:10px;
-}
-
 	/* review registed */
 .reviewform{
-	width:100%; height:200px;
+	width:100%; height:600px;
 	border:2px solid #dedede;
 	margin-bottom:10px;
 	overflow: auto;
 	padding-top:10px;padding-bottom:5px;padding-left:8%;
 }
+	
+	/* review .reviewregisted */
+.reviewform .reviewregisted{
+	overflow-x:hidden; overflow-y:auto;
+	width:940px; height:180px;
+	border:2px solid #dedede;
+	margin-top:5px; margin-bottom:10px;
+}
 
+.reviewform .reviewregisted #starscore{
+	margin-left:10px;
+}
+
+.reviewform .reviewregisted #reviewinputtextarea{
+	width:95%; height:100px;
+	margin-left:10px; 
+	overflow-x:hidden; overflow-y:auto;
+	resize:none;
+}
+
+.container .reviewform .reviewregisted #starscore #hearts-existing-reg{
+	float:left;
+	margin-top:10px; margin-right:10px;
+
+}
+
+.container .reviewform .reviewregisted #starscore #THEN_TIME{
+	margin-top:10px; margin-right:10px;
+}
 
 
 

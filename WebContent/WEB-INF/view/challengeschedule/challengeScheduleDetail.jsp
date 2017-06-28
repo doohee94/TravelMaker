@@ -203,18 +203,90 @@
 		<div class="reviewform">
 		
 			<div class="reviewregisted">
-				<div>별점공간,글쓴날짜,글쓴이</div>
-				
-				
-				
-				<div>내용</div>
+			
+					<!-- 별점 -->
+					<div class="row lead" id="starscore">
+					
+						<div id="hearts-existing-reg" class="starrr-reg" ></div>
+						
+				        <input type="text" id="count-existing-reg" value="" readonly="readonly"/>
+				        
+					 	 <!-- 입력시간 -->
+						<input type="text" id="THEN_TIME" value="" readonly="readonly" />
+						
+			   		</div>
+			   		 
+					<!-- 입력된 리뷰 공간 -->				
+					
+					<textarea class="reviewinputtextarea" id="reviewinputtextarea"
+					placeholder="" name=rvtext></textarea>
+			
 			</div>
 			
-			<div class="reviewregisted">별점공간,글쓴날짜,글쓴이</div>
+			<div class="reviewregisted">
 			
-			<div class="reviewregisted">별점공간,글쓴날짜,글쓴이</div>
+					<!-- 별점 -->
+					<div class="row lead" id="starscore">
+					
+						<div id="hearts-existing-reg" class="starrr-reg" ></div>
+						
+				        <input type="text" id="count-existing-reg" value="" readonly="readonly"/>
+				        
+					 	 <!-- 입력시간 -->
+						<input type="text" id="THEN_TIME" value="" readonly="readonly" />
+						
+			   		</div>
+			   		 
+					<!-- 입력된 리뷰 공간 -->				
+					
+					<textarea class="reviewinputtextarea" id="reviewinputtextarea"
+					placeholder="" name=rvtext></textarea>
 			
-			<div class="reviewregisted">별점공간,글쓴날짜,글쓴이</div>
+			</div>
+			
+			
+			<div class="reviewregisted">
+			
+					<!-- 별점 -->
+					<div class="row lead" id="starscore">
+					
+						<div id="hearts-existing-reg" class="starrr-reg" ></div>
+						
+				        <input type="text" id="count-existing-reg" value="" readonly="readonly"/>
+				        
+					 	 <!-- 입력시간 -->
+						<input type="text" id="THEN_TIME" value="" readonly="readonly" />
+						
+			   		</div>
+			   		 
+					<!-- 입력된 리뷰 공간 -->				
+					
+					<textarea class="reviewinputtextarea" id="reviewinputtextarea"
+					placeholder="" name=rvtext></textarea>
+			
+			</div>
+			
+			
+			<div class="reviewregisted">
+			
+					<!-- 별점 -->
+					<div class="row lead" id="starscore">
+					
+						<div id="hearts-existing-reg" class="starrr-reg" ></div>
+						
+				        <input type="text" id="count-existing-reg" value="" readonly="readonly"/>
+				        
+					 	 <!-- 입력시간 -->
+						<input type="text" id="THEN_TIME" value="" readonly="readonly" />
+						
+			   		</div>
+			   		 
+					<!-- 입력된 리뷰 공간 -->				
+					
+					<textarea class="reviewinputtextarea" id="reviewinputtextarea"
+					placeholder="" name=rvtext></textarea>
+			
+			</div>
 			
 		</div>
 		

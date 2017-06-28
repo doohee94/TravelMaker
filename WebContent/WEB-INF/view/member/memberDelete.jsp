@@ -7,8 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<!--  프로그레스 -->
-<link rel="stylesheet" href="/resource/member/css/jquery.lineProgressbar.css">
 
 <!--  메뉴바 -->
 <link rel="stylesheet" type="text/css" href="/resource/member/css/base.css" />
@@ -25,20 +23,13 @@
 				<li><a href="memberUpdate.tm">정보보기</a></li>
 				<li><a href="memberDelete.tm">회원탈퇴</a></li>
 			</ul>
-		<div class="subtitle"><a href="http://http://localhost:8080/mylist/menubar.tm">나의일정</a></div>
+		<div class="subtitle"><a href="http://localhost:8080/mylist/menubar.tm">나의일정</a></div>
 		<div class="subtitle"><a href="">관심일정</a></div>
 		<div class="subtitle"><a href="">관심여행지</a></div>
 		<div class="subtitle"><a href="">QnA</a></div>
 		<div class="subtitle sub_end"><a href="">스탬프</a></div>
 	</div>
 
-<!--  달성률 보는 곳 -->
-<!-- <article   style="margin-left:100px; background-image:url('/resource/mylist/images/test3.png'); height: 250px">
-	
-	<img src="/resource/member/css/images/flag.png" style="display: inline-block; margin-left:1500px"/>
-	<div id="rate" style="margin-left:35%;display:inline-block;"></div>
-
-</article> -->
 
 <!-- 헤더넣기 -->
 

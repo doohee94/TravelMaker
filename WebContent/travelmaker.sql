@@ -10,7 +10,8 @@ CREATE TABLE partner (
 	partner_content   VARCHAR2(1024) NOT NULL, -- 문의내용
 	partner_date      date           NOT NULL, -- 등록일
 	partner_state     NUMBER         NOT NULL, -- 승인/비승인상태
-	partner_type      NUMBER         NOT NULL  -- 제휴종류상태
+	partner_type      NUMBER         NOT NULL,  -- 제휴종류상태
+	partner_addr	  varchar(100)				-- 회사 주소
 );
 
 CREATE SEQUENCE seq_partner

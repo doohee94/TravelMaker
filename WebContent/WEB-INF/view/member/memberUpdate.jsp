@@ -19,12 +19,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<!--  프로그레스 -->
-<link rel="stylesheet" href="/resource/member/css/jquery.lineProgressbar.css">
 
 <!-- 팝업 -->
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
  <link rel="stylesheet" type="text/css" href="/resource/member/css/alopex-ui-default.css" />
 
   
@@ -55,7 +51,7 @@
 <div class="registerInner">
         <div class="col-md-6 signUp">
             <h3 class="headerSign">회원정보보기</h3>
-            <form action="memberModify.tm" method="post" id="frm">
+            <form method="post" id="frm">
 <br/>
 <br/>
 <br/>
@@ -64,35 +60,35 @@
 				<br/>
 				<!-- ****중복확인하기**** -->
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userId" id="userId" value="hong90" placeholder="아이디" required="required" disabled>
+                    <input class="form-control" type="text" name="userId" id="userId" value="hong90" placeholder="아이디" required="required" readonly="readonly">
                 	
                 </div>
                 
 				<div class="form-group ">
-                    <input class="form-control" type="password" name="userPw" id="userPw" value="1111" placeholder="비밀번호" required="required" disabled>
+                    <input class="form-control" type="password" name="userPw" id="userPw" value="1111" placeholder="비밀번호" required="required" readonly="readonly">
                     <!-- <p class="help-block">숫자 또는 특수문자 포함 6자 이상</p> -->
                 </div>
                 
                 <div class="form-group ">
-                    <input class="form-control" type="password" name="passwordcheck" id="passwordcheck" value="1111" placeholder="비밀번호확인" required="required" disabled>
+                    <input class="form-control" type="password" name="userPasswordcheck" id="userPasswordcheck" value="1111" placeholder="비밀번호확인" required="required" readonly="readonly">
                 	<!-- <p class="help-block">비밀번호를 한번 더 입력해주세요.</p> -->
                 </div>
                 
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userName" id="userName" value="홍길동" placeholder="이름" required="required" disabled>
+                    <input class="form-control" type="text" name="userName" id="userName" value="홍길동" placeholder="이름" required="required" readonly="readonly">
                 </div>
                 
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userNick" id="userNick" value="홍홍홍" placeholder="닉네임" required="required" disabled>
+                    <input class="form-control" type="text" name="userNick" id="userNick" value="홍홍홍" placeholder="닉네임" required="required" readonly="readonly">
                 </div>
                 
                 <!-- ****전화번호 하나하나 나누기**** -->
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userTel" id="userTel" value="010-7254-4218" placeholder="전화번호" required="required" disabled>
+                    <input class="form-control" type="text" name="userTel" id="userTel" value="010-7254-4218" placeholder="전화번호" required="required" readonly="readonly">
                 </div>
                 
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userEmail" id="userEmail" value="hong90@naver.com" placeholder="이메일" required="required" disabled>
+                    <input class="form-control" type="text" name="userEmail" id="userEmail" value="hong90@naver.com" placeholder="이메일" required="required" readonly="readonly">
                 </div>
                 <!-- ****플러스누르면 추가되게**** -->
                 <script type="text/javascript">
@@ -296,9 +292,10 @@
                 </script>
                 
 				<div class="form-group">
-                    <select name="userCity" id="userCity" onchange="doChange(this, 'userBorough')">
-		            <option value="시,도">시,도</option>
+                    <select name="userCity" id="userCity" onchange="doChange(this, 'userBorough')" disabled>
+		            
 		            <option value="서울특별시">서울특별시</option>
+		            <option value="시,도">시,도</option>
 		            <option value="부산광역시">부산광역시</option>
 		            <option value="대구광역시">대구광역시</option>
 		            <option value="인천광역시">인천광역시</option>
@@ -317,16 +314,17 @@
 		            <option value="제주특별자치도">제주특별자치도</option>
 		          </select>
 		          
-		          <select name="userBorough" id="userBorough">
+		          <select name="userBorough" id="userBorough" disabled>
 		          	<option value="default">시, 군, 구</option>
 		          </select>
                 </div>
                 
 				<div class="form-group">
-                    <select name="selOne" id="selOne" onchange="doChange(this, 'selTwo')">
+                    <select name="selOne" id="selOne" onchange="doChange(this, 'selTwo')" disabled>
+		            
+		            <option value="부산광역시">부산광역시</option>
 		            <option value="시,도">시,도</option>
 		            <option value="서울특별시">서울특별시</option>
-		            <option value="부산광역시">부산광역시</option>
 		            <option value="대구광역시">대구광역시</option>
 		            <option value="인천광역시">인천광역시</option>
 		            <option value="광주광역시">광주광역시</option>
@@ -344,19 +342,20 @@
 		            <option value="제주특별자치도">제주특별자치도</option>
 		          </select>
 		          
-		          <select name="selTwo" id="selTwo">
+		          <select name="selTwo" id="selTwo" disabled>
 		          	<option value="default">시, 군, 구</option>
 		          </select>
                 </div>
                 
-                <center><button type="submit" class=" update btn btn-primary" id="update" name="update">수정하기</a></button></center>
+                <center><button type="button" class="signbuttons btn btn-primary" id="update" name="update">수정하기</a></button>
+                <button type="button" class="signbuttons btn btn-primary" id="insert" name="insert">완료</a></button></center>
                 <br/><br/><br/><br/>
-                
+            </form>    
         </div>
-        
+      </div>  
         
 </div>
-</form>
+
 </body>
 
 <!--  메뉴바 -->
@@ -374,6 +373,30 @@ $(function() {
         }
         $(this).next(".sub").slideToggle('fast');
     });
+});
+</script>
+<!-- 수정버튼 눌림시 완료버튼 뜨게 -->
+<script type="text/javascript">
+$(function(){
+		$("#insert").hide();
+	$("#update").click(function(){
+		$("#insert").show();
+		$("#update").hide();
+		
+	});
+	/* 수정버튼 누르면 readonly 해제 */
+	$("#update").click(function(){
+		$("#userPw").removeAttr("readonly");
+		$("#userPasswordcheck").removeAttr("readonly");
+		$("#userName").removeAttr("readonly");
+		$("#userNick").removeAttr("readonly");
+		$("#userTel").removeAttr("readonly");
+		$("#userEmail").removeAttr("readonly");
+		$("#userCity").removeAttr("disabled");
+		$("#userBorough").removeAttr("disabled");
+		$("#selOne").removeAttr("disabled");
+		$("#selTwo").removeAttr("disabled");
+	});
 });
 </script>
 

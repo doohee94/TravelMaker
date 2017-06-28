@@ -92,7 +92,7 @@
    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 <!-- 지도 api 키 -->
-<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=c21ea65fd6483d2f798f52cf4afd8beb&libraries=services"></script>
+<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=1464ab905ce0a7acbcb1f9933dbd5961&libraries=services"></script>
 
 <!-- jquery, jquery mobile 관련 cdn -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -126,11 +126,11 @@
    <br/>
    <div style="color:#fff; font-size: 2em; display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;나의 여행일정</div>
    <div style="float:right; margin-right: 50px;">
-      <button id="addFriend">친구추가</button>
-      <button id="tempSave">임시저장</button>
-      <button id="save">저장</button> 
+      <button id="addFriend" class="headbtn">친구추가</button>
+      <button id="tempSave" class="headbtn">임시저장</button>
+      <button id="save" class="headbtn">저장</button> 
       
-      <button id="chat" onclick="openNav()" style="margin-left:70px">채팅</button>  
+      <button class="headbtn" id="chat" onclick="openNav()" style="margin-left:70px">채팅</button>  
    </div>
 </div>
 <br/>
@@ -141,7 +141,7 @@
              
              <div style="display: none; width: 150px; border-bottom:solid 1px;" id="reSearchDiv">
                 <input type="text" id="reSearchInput" style="border-style: none; width:100px;"/>
-                <button id="reSearchBtn">검색</button>
+                <button class="headbtn" id="reSearchBtn">검색</button>
              </div>
              <div style="display: inline-block;" >지역</div> 
              <img src="/resource/step3/step3_image/Q.png" style="float: right;" id="reSearch"/>
@@ -188,13 +188,13 @@
      <div style="width:18%; height:700px; display:inline-block; padding:0px;" id="apiList">
            <div style="maring:5px;">여행</div>
            <div id="category">
-              <button class="categoryBtn" id="api_All">전체</button>
-              <button class="categoryBtn" id="api_tour">여행지</button>
-              <button class="categoryBtn" id="api_food">맛집</button>
-              <button class="categoryBtn" id="api_ect">축제</button>
+              <button class="categoryBtn btn" id="api_All">전체</button>
+              <button class="categoryBtn btn" id="api_tour">여행지</button>
+              <button class="categoryBtn btn" id="api_food">맛집</button>
+              <button class="categoryBtn btn" id="api_ect">축제</button>
            </div>
             <ul class="droptrue  list-group" id="contact-list"
-               style="overflow-y: scroll; height:100%; width:100%;display:inline-block;">
+               style="overflow-y: scroll; height:100%; width:100%;display:inline-block; border:2px solid  #8C8C8C;">
             </ul>
       <input type="hidden" id="hiddenCity"/>
    </div><!-- 여행지정보 끝 -->
@@ -209,20 +209,19 @@
                 <%} %>
               </select>
             <img src="/resource/step3/step3_image/plus.png" style="float: right;"id="chuga"/>
+            <img src="/resource/step3/step3_image/opt.png" style="float: right;" id="distanceCal"/>
              <br/>
          </div>
-         <ul class="list-group droptrue" id="myList" style="color:#fff; height:100%; width:100%; padding:0px; overflow-y:scroll;display:inline-block;">hi
+         <ul class="list-group droptrue" id="myList" style="color:#fff; height:100%; width:100%; padding:0px; overflow-y:scroll;display:inline-block; border:2px solid  #8C8C8C;">hi
          </ul>
       </div>
    &nbsp;
 
    <!-- 지도 구성 부분-->
-   <div id="map" style="width: 40%; height: 750px;display:inline-block;"></div>
+   <div id="map" style="width: 40%; height: 750px;display:inline-block; border:2px solid  #8C8C8C;"></div>
 </div><!--  지도/리스트들 끝끝 -->
 
 <ul id="trash"><img src="/resource/step3/step3_image/trash.png"></ul>
-<br/>
-<input type="button" value="경로 최적화" id="distanceCal" />
 
 <!-- 채팅 슬라이드 내비 부분@@@@ -->
 <div id="mySidenav" class="sidenav">
@@ -274,9 +273,6 @@
 <!--  채팅용 js -->
 <script type="text/javascript" src="/resource/step3/step3_db.js"></script>
 <script type="text/javascript" src="/resource/step3/ws.js">
-<script type="text/javascript">
-
-//DAY change
 
 
 </script>
