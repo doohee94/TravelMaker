@@ -64,4 +64,7 @@ jQuery(function($) {
     	  controls:	false,
     	  pager	: false
     	});
+    $('#more').click(function(){
+    	$(location).attr("href","/challengeschedule/challengeSchedule.tm")
+    });
 });
