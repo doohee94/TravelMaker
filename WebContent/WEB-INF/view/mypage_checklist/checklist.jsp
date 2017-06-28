@@ -16,9 +16,16 @@ JSONArray date = (JSONArray)obj.get("tour");
 JSONArray place[] = new JSONArray[date.size()];
 
 for(int i=0; i<date.size(); i++){
-	System.out.println("jsp>>>>>"+date.get(i));
+	
+	JSONObject temp = new JSONObject();
+	temp = (JSONObject)date.get(i);
+	place[i] = (JSONArray)temp.get("place");
+	System.out.println(i+">>>>place>>>>>"+place[i]);
+	
 	
 }
+
+
 
  %>
 
@@ -63,7 +70,7 @@ for(int i=0; i<date.size(); i++){
 <body>
 <br/>
 <div id="accordion" style="width:80%; margin-left:10%">
-<%for(int i=0; i<date.size(); i++){ %>
+<%for(int i=0; i<date.size() && place[i] != null; i++){ %>
   <h3>Day <%=i+1 %> <button style="float:right;color:blue;" class="modify">수정</button></h3>
   <div> 
     <div class="container">
@@ -72,13 +79,18 @@ for(int i=0; i<date.size(); i++){
 					<div class="board-inner">
 						<ul class="nav nav-tabs" id="myTab">
 						<div class="liner"></div>
-							<%for(int j=0; j<12; j++){ %>
+							<%for(int j=0; j<place[i].size(); j++){
+								
+								JSONObject temp = new JSONObject();
+								temp  = (JSONObject)place[i].get(j);
+								String title = temp.get("title").toString();
+							%>
 							<li class="active">
 							<a aria-controls="home"
 								role="tab" data-toggle="tab" title="User Experience">
 								<span class="round-tabs one stemp"></span>
 							</a>
-							<p align="center"><%=j %>안녕ㅎㅎ</p>
+							<p align="center"><%=title %></p>
 							</li>
 							<%} %>
 						</ul>
