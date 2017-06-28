@@ -24,20 +24,21 @@
           <h1 class="text-center ">로그인 </h1>
         </div>
     <div class="main-content">
-            
+          <form action="/tmlogin/loginUser.tm" method="post" > 
           <div class="input-group ">
             <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
-            <input id="id" type="text" class="form-control" name="id" placeholder="ID">
+            <input id="id" type="text" class="form-control" name="user_id" placeholder="ID">
           </div>
           <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
-            <input id="password" type="password" class="form-control" name="password" placeholder="PASSWORD">
+            <input id="password" type="password" class="form-control" name="user_pw" placeholder="PASSWORD">
           </div>
         
           
           <div class="form-group">
-              <a href="#" type="button"  class="btn btn-danger btn-lg btn-block login-button">로그인</a>
+              <button type="submit"  class="btn btn-danger btn-lg btn-block login-button">로그인</button>
           </div>
+          </form>
           
           <div class="form-group">
           <center>

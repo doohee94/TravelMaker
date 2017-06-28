@@ -41,25 +41,22 @@ public class LoginController {
 	 * session에 userId와 userNick를 저장하고 메인페이지로 이동 
 	*/
 	@RequestMapping("/loginUser.tm")
-	@ResponseBody
 	public String loginUser(String user_id, String user_pw, HttpSession session){
 		LoginDTO dto = dao.loginUser(user_id, user_pw);
-		String reid = dto.getUserId();
-		int state = dto.getUserType();
 		String result = "";
-		if(reid !=null){
+		if(dto !=null){
 			String nick = dto.getUserNick();
-			session.setAttribute("userId", reid);
-			session.setAttribute("userNick", nick);
+			session.setAttribute("userId", dto.getUserId());
+			session.setAttribute("userNick", dto.getUserNick());
 			System.out.println("로그인 성공");
-			if(state == 10){
-			result = dir+"/login.tm";
-			}else if(state == 30){
-			result = "redirect:/tmadmin/adminMember.tm";
+			if(dto.getUserType() == 10){
+				return "redirect:/tmmain/main.tm";
+			}else if(dto.getUserType() == 30){
+				return "redirect:/tmadmin/adminMember.tm";
 			}
 		}else{
 			System.out.println("로그인 실패");
-			result= dir+"/login.tm";
+			result= "member"+"/loginForm";
 		}
 		return result;
 	}
