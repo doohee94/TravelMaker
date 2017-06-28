@@ -8,7 +8,7 @@ $(function(){
 		var id = sessionStorage.getItem("userId");
 		if(id== null){
 			alert("로그인을 하셔야 이용 가능합니다.");
-			$(location).attr('href',"login.tm");
+			$(location).attr('href',"/tmlogin/login.tm");
 		}else if(id!=null){
 			$(location).attr('href',"qna.tm");
 		}		
