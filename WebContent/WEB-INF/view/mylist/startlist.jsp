@@ -92,7 +92,9 @@ text-decoration:none;
   <img src="/resource/mylist/images/image_1.JPG" />
   <figcaption>
     <h3>2017.05.16~2017.06.11</h3>
-    <p>서울>부산</p><a href="mypage_checklist/checklist.tm" class="read-more">일정체크</a><br/><br/>
+
+    <p>서울>부산</p><a href="/mypage_checklist/checklist.tm" class="read-more">일정체크</a><br/><br/>
+
   </figcaption>
 </figure>
 
@@ -100,7 +102,9 @@ text-decoration:none;
   <img src="/resource/mylist/images/image_2.JPG" />
   <figcaption>
     <h3>2017.05.16~2017.06.11</h3>
-    <p>서울>부산</p><a href="mypage_checklist/checklist.tm" class="read-more">일정체크</a><br/><br/>
+
+    <p>서울>부산</p><a href="/mypage_checklist/checklist.tm" class="read-more">일정체크</a><br/><br/>
+
   </figcaption>
 </figure>
 
@@ -108,7 +112,9 @@ text-decoration:none;
   <img src="/resource/mylist/images/image_3.JPG" />
   <figcaption>
     <h3>2017.05.16~2017.06.11</h3>
-    <p>서울>부산</p><a href="mypage_checklist/checklist.tm" class="read-more">일정체크</a><br/><br/>
+
+    <p>서울>부산</p><a href="/mypage_checklist/checklist.tm" class="read-more">일정체크</a><br/><br/>
+
   </figcaption>
 </figure>
 
@@ -116,7 +122,9 @@ text-decoration:none;
   <img src="/resource/mylist/images/image_4.JPG" />
   <figcaption>
     <h3>2017.05.16~2017.06.11</h3>
-    <p>서울>부산</p><a href="mypage_checklist/checklist.tm" class="read-more">일정체크</a><br/><br/>
+
+    <p>서울>부산</p><a href="/mypage_checklist/checklist.tm" class="read-more">일정체크</a><br/><br/>
+
   </figcaption>
 </figure>
 

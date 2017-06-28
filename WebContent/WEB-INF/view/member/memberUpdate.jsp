@@ -47,7 +47,7 @@
 		<div class="subtitle sub_end"><a href="">스탬프</a></div>
 	</div>
 
-<form id="frm">
+
  <!--this was made my Agil Asadi. You are free to delete this comment line and use it as you wish-->   
 
 <div class="row col-md-8 col-md-offset-2 registeration">
@@ -55,7 +55,7 @@
 <div class="registerInner">
         <div class="col-md-6 signUp">
             <h3 class="headerSign">회원정보보기</h3>
-            <form action="" method="post">
+            <form action="memberModify.tm" method="post" id="frm">
 <br/>
 <br/>
 <br/>
@@ -64,12 +64,12 @@
 				<br/>
 				<!-- ****중복확인하기**** -->
                 <div class="form-group">
-                    <input class="form-control" type="text" name="id" id="id" value="hong90" placeholder="아이디" required="required" disabled>
+                    <input class="form-control" type="text" name="userId" id="userId" value="hong90" placeholder="아이디" required="required" disabled>
                 	
                 </div>
                 
 				<div class="form-group ">
-                    <input class="form-control" type="password" name="pass" id="pass" value="1111" placeholder="비밀번호" required="required" disabled>
+                    <input class="form-control" type="password" name="userPw" id="userPw" value="1111" placeholder="비밀번호" required="required" disabled>
                     <!-- <p class="help-block">숫자 또는 특수문자 포함 6자 이상</p> -->
                 </div>
                 
@@ -79,20 +79,20 @@
                 </div>
                 
                 <div class="form-group">
-                    <input class="form-control" type="text" name="name" id="name" value="홍길동" placeholder="이름" required="required" disabled>
+                    <input class="form-control" type="text" name="userName" id="userName" value="홍길동" placeholder="이름" required="required" disabled>
                 </div>
                 
                 <div class="form-group">
-                    <input class="form-control" type="text" name="nick" id="nick" value="홍홍홍" placeholder="닉네임" required="required" disabled>
+                    <input class="form-control" type="text" name="userNick" id="userNick" value="홍홍홍" placeholder="닉네임" required="required" disabled>
                 </div>
                 
                 <!-- ****전화번호 하나하나 나누기**** -->
                 <div class="form-group">
-                    <input class="form-control" type="text" name="tel" id="tel" value="010-7254-4218" placeholder="전화번호" required="required" disabled>
+                    <input class="form-control" type="text" name="userTel" id="userTel" value="010-7254-4218" placeholder="전화번호" required="required" disabled>
                 </div>
                 
                 <div class="form-group">
-                    <input class="form-control" type="text" name="email" id="email" value="hong90@naver.com" placeholder="이메일" required="required" disabled>
+                    <input class="form-control" type="text" name="userEmail" id="userEmail" value="hong90@naver.com" placeholder="이메일" required="required" disabled>
                 </div>
                 <!-- ****플러스누르면 추가되게**** -->
                 <script type="text/javascript">
@@ -103,7 +103,7 @@
                        
                     removeAll(targetE);
             
-                    if(val == 'seoul'){
+                    if(val == '서울특별시'){
                        addOption('강남구', targetE);
                        addOption('강독구', targetE);
                        addOption('강북구', targetE);
@@ -131,7 +131,7 @@
                        addOption('중랑구', targetE); 
                       }
 
-                       else if(val == 'busan'){
+                       else if(val == '부산광역시'){
                        addOption('동구', targetE);
                        addOption('영동구', targetE);
                        addOption('부산진구', targetE);
@@ -150,7 +150,7 @@
                        addOption('사하구', targetE);
                        }
 
-                       else if(val == 'daegu'){
+                       else if(val == '대구광역시'){
                           addOption('중구', targetE);
                            addOption('동구', targetE);
                            addOption('서구', targetE);
@@ -161,28 +161,28 @@
                            addOption('달성군', targetE);
                           
                        }
-                       else if(val == 'incheon'){
+                       else if(val == '인천광역시'){
                            addOption('중구', targetE);                 addOption('동구', targetE);                 addOption('남구', targetE);
                             addOption('연수구', targetE);                 addOption('남동구', targetE);                 addOption('부평구', targetE);
                             addOption('계양구', targetE);                 addOption('서구', targetE);
                         }
                     
 
-                       else if(val == 'gzn'){
+                       else if(val == '광주광역시'){
                            addOption('동구', targetE);                 addOption('서구', targetE);                 addOption('남구', targetE);
                             addOption('북구', targetE);                 addOption('광산구', targetE);
                         }
                     
-                       else if(val == 'daezn'){
+                       else if(val == '대전광역시'){
                            addOption('동구', targetE);                 addOption('중구', targetE);                 addOption('서구', targetE);
                            addOption('유성구', targetE);                 addOption('대덕구', targetE);
                        }
                     
-                       else if(val == 'woolsan'){
+                       else if(val == '울산광역시'){
                            addOption('중구', targetE);                addOption('남구', targetE);                addOption('동구', targetE);
                            addOption('북구', targetE);                addOption('울주군', targetE);
                        }
-                       else if(val == 'saejong'){
+                       else if(val == '세종특별자치시'){
                       	 addOption('조치원읍', targetE);                 addOption('연기면', targetE);                 addOption('연동면', targetE);
                            addOption('부강면', targetE);                 addOption('금남면', targetE);                 addOption('장군면', targetE);                 addOption('연서면', targetE);
                            addOption('전의면', targetE);                 addOption('전동면', targetE);                 addOption('소정면', targetE);
@@ -190,7 +190,7 @@
                            addOption('종촌동', targetE);                 addOption('고운동', targetE);                 addOption('보람동', targetE);
                       }
                     
-                       else if(val == 'ggdo'){
+                       else if(val == '경기도'){
                            addOption('장안구', targetE);                addOption('권선구', targetE);                addOption('팔달구', targetE);
                            addOption('영통구', targetE);                addOption('수정구', targetE);                addOption('중원구', targetE);
                            addOption('분당구', targetE);                addOption('만안구', targetE);                addOption('동안구', targetE);
@@ -207,7 +207,7 @@
                            addOption('포천시', targetE);                addOption('연천군', targetE);                addOption('가평군', targetE);
                        }
                     
-                       else if(val == 'gangwondo'){
+                       else if(val == '강원도'){
                            addOption('춘천시', targetE);                addOption('원주시', targetE);                addOption('강릉시', targetE);
                            addOption('동해시', targetE);                addOption('태백시', targetE);                addOption('속초시', targetE);
                            addOption('삼척시', targetE);                addOption('홍천군', targetE);                addOption('횡성군', targetE);
@@ -216,7 +216,7 @@
                            addOption('인제군', targetE);                addOption('고성군', targetE);                addOption('양양군', targetE);
                        }
                     
-                       else if(val == 'ccnort'){
+                       else if(val == '충청북도'){
                            addOption('상당구', targetE);                addOption('서원구', targetE);                addOption('흥덕구', targetE);
                            addOption('청원구', targetE);                addOption('충주시', targetE);                addOption('제천시', targetE);
                            addOption('보은군', targetE);                addOption('옥천군', targetE);                addOption('영동군', targetE);
@@ -224,7 +224,7 @@
                            addOption('단양군', targetE);                addOption('증평군', targetE);
                            }
                     
-                       else if(val == 'ccsouth'){
+                       else if(val == '충청남도'){
                            addOption('동남구', targetE);                addOption('서북구', targetE);                addOption('공주시', targetE);
                            addOption('보령시', targetE);                addOption('아산시', targetE);                addOption('서산시', targetE);
                            addOption('논산시', targetE);                addOption('계롱시', targetE);                addOption('당진시', targetE);
@@ -232,7 +232,7 @@
                            addOption('청양군', targetE);                addOption('홍성군', targetE);                addOption('예산군', targetE);
                            addOption('태안군', targetE);
                            }
-                       else if(val == 'zrnorth'){
+                       else if(val == '전라북도'){
                            addOption('완산구', targetE);                addOption('덕진구', targetE);                addOption('군산시', targetE);
                            addOption('익산시', targetE);                addOption('정읍시', targetE);                addOption('남원시', targetE);
                            addOption('김제시', targetE);                addOption('완주군', targetE);                addOption('진안군', targetE);
@@ -240,7 +240,7 @@
                            addOption('순창군', targetE);                addOption('고창군', targetE);                addOption('부안군', targetE);
                        }
                     
-                       else if(val == 'zrsouth'){
+                       else if(val == '전라남도'){
                            addOption('목포시', targetE);                addOption('여수시', targetE);                addOption('순천시', targetE);
                            addOption('나주시', targetE);                addOption('광양시', targetE);                addOption('담양군', targetE);
                            addOption('곡성군', targetE);                addOption('구례군', targetE);                addOption('고흥군', targetE);
@@ -251,7 +251,7 @@
                            addOption('신안군', targetE);
                        }
                     
-                       else if(val == 'ksnorth'){
+                       else if(val == '경상북도'){
                            addOption('포항시 남구', targetE);                addOption('포항시 북구', targetE);                addOption('경주시', targetE);
                            addOption('김천시', targetE);                addOption('안동시', targetE);                addOption('구미시', targetE);
                            addOption('영주시', targetE);                addOption('영천시', targetE);                addOption('상주시', targetE);                
@@ -262,7 +262,7 @@
                            addOption('울진군', targetE);                addOption('울릉군', targetE);
                        }
                     
-                       else if(val == 'kssouth'){
+                       else if(val == '경상남도'){
                            addOption('의창구', targetE);                addOption('성산구', targetE);                addOption('마산합포구', targetE);
                            addOption('마산회원구', targetE);                addOption('진해구', targetE);                addOption('진주시', targetE);
                            addOption('통영시', targetE);                addOption('사천시', targetE);                addOption('김해시', targetE);
@@ -273,7 +273,7 @@
                            addOption('합천군', targetE);
                        }
                     
-                       else if(val == 'jeju'){
+                       else if(val == '제주특별자치도'){
                            addOption('제주시', targetE);                addOption('서귀포시', targetE);
                        }
                     
@@ -296,25 +296,52 @@
                 </script>
                 
 				<div class="form-group">
+                    <select name="userCity" id="userCity" onchange="doChange(this, 'userBorough')">
+		            <option value="시,도">시,도</option>
+		            <option value="서울특별시">서울특별시</option>
+		            <option value="부산광역시">부산광역시</option>
+		            <option value="대구광역시">대구광역시</option>
+		            <option value="인천광역시">인천광역시</option>
+		            <option value="광주광역시">광주광역시</option>
+		            <option value="대전광역시">대전광역시</option>
+		            <option value="울산광역시">울산광역시</option>
+		            <option value="세종특별자치시">세종특별자치시</option>
+		            <option value="경기도">경기도</option>
+		            <option value="강원도">강원도</option>
+		            <option value="충청북도">충청북도</option>
+		            <option value="충청남도">충청남도</option>
+		            <option value="전라북도">전라북도</option>
+		            <option value="전라남도">전라남도</option>
+		            <option value="경상북도">경상북도</option>
+		            <option value="경상남도">경상남도</option>
+		            <option value="제주특별자치도">제주특별자치도</option>
+		          </select>
+		          
+		          <select name="userBorough" id="userBorough">
+		          	<option value="default">시, 군, 구</option>
+		          </select>
+                </div>
+                
+				<div class="form-group">
                     <select name="selOne" id="selOne" onchange="doChange(this, 'selTwo')">
-		            <option value="default">시,도</option>
-		            <option value="seoul">서울특별시</option>
-		            <option value="busan">부산광역시</option>
-		            <option value="daegu">대구광역시</option>
-		            <option value="incheon">인천광역시</option>
-		            <option value="gzn">광주광역시</option>
-		            <option value="daezn">대전광역시</option>
-		            <option value="woolsan">울산광역시</option>
-		            <option value="saejong">세종특별자치시</option>
-		            <option value="ggdo">경기도</option>
-		            <option value="gangwondo">강원도</option>
-		            <option value="ccnorth">충청북도</option>
-		            <option value="ccsouth">충청남도</option>
-		            <option value="zrnorth">전라북도</option>
-		            <option value="zrsouth">전라남도</option>
-		            <option value="ksnorth">경상북도</option>
-		            <option value="kssouth">경상남도</option>
-		            <option value="jeju">제주특별자치도</option>
+		            <option value="시,도">시,도</option>
+		            <option value="서울특별시">서울특별시</option>
+		            <option value="부산광역시">부산광역시</option>
+		            <option value="대구광역시">대구광역시</option>
+		            <option value="인천광역시">인천광역시</option>
+		            <option value="광주광역시">광주광역시</option>
+		            <option value="대전광역시">대전광역시</option>
+		            <option value="울산광역시">울산광역시</option>
+		            <option value="세종특별자치시">세종특별자치시</option>
+		            <option value="경기도">경기도</option>
+		            <option value="강원도">강원도</option>
+		            <option value="충청북도">충청북도</option>
+		            <option value="충청남도">충청남도</option>
+		            <option value="전라북도">전라북도</option>
+		            <option value="전라남도">전라남도</option>
+		            <option value="경상북도">경상북도</option>
+		            <option value="경상남도">경상남도</option>
+		            <option value="제주특별자치도">제주특별자치도</option>
 		          </select>
 		          
 		          <select name="selTwo" id="selTwo">
@@ -322,36 +349,9 @@
 		          </select>
                 </div>
                 
-				<div class="form-group">
-                    <select name="selOne" id="selOne" onchange="doChange(this, 'selThree')">
-		            <option value="default">시,도</option>
-		            <option value="seoul">서울특별시</option>
-		            <option value="busan">부산광역시</option>
-		            <option value="daegu">대구광역시</option>
-		            <option value="incheon">인천광역시</option>
-		            <option value="gzn">광주광역시</option>
-		            <option value="daezn">대전광역시</option>
-		            <option value="woolsan">울산광역시</option>
-		            <option value="saejong">세종특별자치시</option>
-		            <option value="ggdo">경기도</option>
-		            <option value="gangwondo">강원도</option>
-		            <option value="ccnorth">충청북도</option>
-		            <option value="ccsouth">충청남도</option>
-		            <option value="zrnorth">전라북도</option>
-		            <option value="zrsouth">전라남도</option>
-		            <option value="ksnorth">경상북도</option>
-		            <option value="kssouth">경상남도</option>
-		            <option value="jeju">제주특별자치도</option>
-		          </select>
-		          
-		          <select name="selThree" id="selThree">
-		          	<option value="default">시, 군, 구</option>
-		          </select>
-                </div>
-                
-                <center><button type="submit" class=" update btn btn-primary" id="update" name="update"><a href="memberModify.tm">수정하기</a></button></center>
+                <center><button type="submit" class=" update btn btn-primary" id="update" name="update">수정하기</a></button></center>
                 <br/><br/><br/><br/>
-                </form>
+                
         </div>
         
         

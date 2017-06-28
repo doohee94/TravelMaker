@@ -33,12 +33,14 @@
 	</div>
 
 <!--  달성률 보는 곳 -->
-<article   style="margin-left:100px; background-image:url('/resource/mylist/images/test3.png'); height: 250px">
+<!-- <article   style="margin-left:100px; background-image:url('/resource/mylist/images/test3.png'); height: 250px">
 	
 	<img src="/resource/member/css/images/flag.png" style="display: inline-block; margin-left:1500px"/>
 	<div id="rate" style="margin-left:35%;display:inline-block;"></div>
 
-</article>
+</article> -->
+
+<!-- 헤더넣기 -->
 
 <center><article><br/>
 <img alt="" src="/resource/member/css/images/dropout.png" width="100" height="90" align=center><br/><br/>
@@ -57,19 +59,7 @@
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/resource/member/js/jquery.lineProgressbar.js"></script>
-<script type="text/javascript">
-/* 계산에서 넘어온 rate 값을 넣어준다.  */
-	var rate=80;
-	$('#rate').LineProgressbar({
-		
-		percentage:rate,
-		fillBackgroundColor:'#b989c4',
-		height:'65px',
-		radius:'50px',
-		width:'900px'
-	});	
-</script>
+
 
 <!--  메뉴바 -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
