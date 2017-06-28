@@ -29,7 +29,9 @@
           </div>       
           
           <div class="form-group">
-          <center><input type="button" class="insert-button" value=비밀번호찾기 style="background-color:#489CFF" onclick="location.href='serchPwForm.tm'">&nbsp;&nbsp;
+          <center>
+          		<input type="button" class="insert-button" value="로그인" style="background-color:#489CFF" onclick="location.href='loginForm.tm'">&nbsp;&nbsp;
+          		<input type="button" class="insert-button" value=비밀번호찾기 style="background-color:#489CFF" onclick="location.href='serchPwForm.tm'">&nbsp;&nbsp;
           		<input type="button" class="insert-button" value="취소" style="background-color:#d6564f" onClick="history.back()"></center>
           </div>
   

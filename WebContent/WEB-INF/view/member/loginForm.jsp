@@ -36,14 +36,15 @@
         
           
           <div class="form-group">
-              <button type="submit"  class="btn btn-danger btn-lg btn-block login-button">로그인</button>
+              <button type="submit"  class="btn btn-danger btn-lg btn-block login-button" >로그인</button>
           </div>
           </form>
           
           <div class="form-group">
           <center>
-          	<input type="button" class="insert-button" value="ID/PW 찾기" style="background-color:#489CFF" onclick="location.href='serchIdForm.tm'">&nbsp;&nbsp;
-          	<input type="button" class="insert-button" value="회원가입" style="background-color:#489CFF" onclick="location.href='signupForm.tm'"></center>
+          	<input type="button" class="insert-button" value="ID 찾기" style="background-color:#489CFF;" onclick="location.href='serchIdForm.tm'">&nbsp;&nbsp;
+          	<input type="button" class="insert-button" value="PW 찾기" style="background-color:#489CFF;" onclick="location.href='serchPwForm.tm'">&nbsp;&nbsp;
+          	<input type="button" class="insert-button" value="회원가입" style="background-color:#489CFF;" onclick="location.href='signupForm.tm'"></center>
           </div>
 
           
