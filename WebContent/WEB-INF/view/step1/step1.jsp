@@ -66,20 +66,17 @@ $('#btn_popup').click(function() {
    <img id="loading-image" alt="로딩중" src="/resource/step2/loding.gif" />
 </div>
 <div id="main">
-
-<!-- 헤더 -->
 <div style="height:75px; background-color: #103e68;">
    <br/>
    <div style="color:#fff; font-size: 2em; display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;나의 여행일정</div>
    <div style="float:right; margin-right: 50px;">
-      <button id="addFriend" style="background-color:white; font-family:'Nanum Gothic'; border:1px solid white; color:black; font-weight:600; border-radius:7px; width:100px;height:30px">친구추가</button>
-      <button id="tempSave" style="background-color:white; font-family:'Nanum Gothic'; border:1px solid white; color:black; font-weight:600; border-radius:7px; width:100px;height:30px">임시저장</button>
-      <button id="save" style="background-color:white; font-family:'Nanum Gothic'; border:1px solid white; color:black; font-weight:600; border-radius:7px; width:60px;height:30px">저장</button> 
+      <button id="addFriend" style="background-color:#103e68; font-family:'Nanum Gothic'; border:0px solid white; color:white; font-weight:600; border-radius:7px; width:100px;height:30px">친구추가</button>
+      <button id="tempSave" style="background-color:#103e68; font-family:'Nanum Gothic'; border:0px solid white; color:white; font-weight:600; border-radius:7px; width:100px;height:30px">임시저장</button>
+      <button id="save" style="background-color:#103e68; font-family:'Nanum Gothic'; border:0px solid white; color:white; font-weight:600; border-radius:7px; width:60px;height:30px">저장</button> 
       
-      <button id="chat" onclick="openNav()" style="margin-left:70px; background-color:#FDE0E2; font-family:'Nanum Gothic'; border:1px solid #FFDFE4; color:black; font-weight:600; border-radius:7px; width:60px;height:30px">채팅</button>  
+      <button id="chat" onclick="openNav()" style="margin-left:70px; background-color:#FDE0E2; font-family:'Nanum Gothic'; border:0px solid #FFDFE4; color:#103e68; font-weight:600; border-radius:7px; width:60px;height:30px">채팅</button>  
    </div>
 </div>
-<!-- end 헤더 -->
 
 	<div class="container">
 	<form class="contnsubform" action="" method='get'>
