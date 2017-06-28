@@ -22,7 +22,7 @@
 	<header>		
 		<div class="header-main">
 			<div class="header-logo">
-				<a href="main.tm"><img class="logo" src="/resource/main/header/images/samplelogo.png"></a>
+				<a href="/tmmain/main.tm"><img class="logo" src="/resource/main/header/images/samplelogo.png"></a>
 			</div>
 			<div class="header-navi">
 			<!-- 
@@ -30,12 +30,12 @@
 				if문으로 유저아이디 식별하여 메뉴 출력 
 			-->
 				<ul class="navi-list">
-					<li><a href="#"><img src="/resource/main/header/images/plan.png"></a></li>
-					<li><a href="#"><img src="/resource/main/header/images/destination.png"></a></li>
+					<li><a href="/step1/step1.tm"><img src="/resource/main/header/images/plan.png"></a></li>
+					<li><a href="/recommandtravelregion/recommandTravelRegion.tm"><img src="/resource/main/header/images/destination.png"></a></li>
 					<% if (session.getAttribute("userId")!=null){ %>
-					<li><a href="#" id="btn-challenge"><img src="/resource/main/header/images/challenge.png"></a></li>
+					<li><a href="/challengeschedule/challengeSchedule.tm" id="btn-challenge"><img src="/resource/main/header/images/challenge.png"></a></li>
 					<li><a href="#" id="btn-mypage"><img src="/resource/main/header/images/mypage.png"></a></li>
-					<li><a href="#" id="btn-mypage"><img src="/resource/main/header/images/review.png"></a></li>
+					<li><a href="/travelReview/reviewlist.tm" id="btn-mypage"><img src="/resource/main/header/images/review.png"></a></li>
 					<%} %>
 				</ul>
 			</div>

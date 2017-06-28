@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
 <!DOCTYPE html>
 <html lang="UTF-8">
 	<head>
@@ -12,12 +14,14 @@
 		<!-- 합쳐지고 최소화된 최신 CSS -->
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="/resource/mypage/stemp/css/simplemenu.css" />	
+		<!-- header css -->
+		<link rel="stylesheet" href="/resource/main/header/css/base.css">
 	</head>
 	<!-- 헤더 부분 -->
-	<header>
-	<div class="header-main">
+	<header>		
+		<div class="header-main">
 			<div class="header-logo">
-				<a href="main.tm"><img class="logo" src="/resource/main/header/images/samplelogo.png"></a>
+				<a href="/tmmain/main.tm"><img class="logo" src="/resource/main/header/images/samplelogo.png"></a>
 			</div>
 			<div class="header-navi">
 			<!-- 
@@ -25,12 +29,12 @@
 				if문으로 유저아이디 식별하여 메뉴 출력 
 			-->
 				<ul class="navi-list">
-					<li><a href="#"><img src="/resource/main/header/images/plan.png"></a></li>
-					<li><a href="#"><img src="/resource/main/header/images/destination.png"></a></li>
+					<li><a href="/step1/step1.tm"><img src="/resource/main/header/images/plan.png"></a></li>
+					<li><a href="/recommandtravelregion/recommandTravelRegion.tm"><img src="/resource/main/header/images/destination.png"></a></li>
 					<% if (session.getAttribute("userId")!=null){ %>
-					<li><a href="#" id="btn-challenge"><img src="/resource/main/header/images/challenge.png"></a></li>
+					<li><a href="/challengeschedule/challengeSchedule.tm" id="btn-challenge"><img src="/resource/main/header/images/challenge.png"></a></li>
 					<li><a href="#" id="btn-mypage"><img src="/resource/main/header/images/mypage.png"></a></li>
-					<li><a href="#" id="btn-mypage"><img src="/resource/main/header/images/review.png"></a></li>
+					<li><a href="/travelReview/reviewlist.tm" id="btn-mypage"><img src="/resource/main/header/images/review.png"></a></li>
 					<%} %>
 				</ul>
 			</div>
@@ -132,50 +136,22 @@
 
         <div align="center">
             <button class="btn btn-default filter-button" data-filter="all">모두 보기</button>
-            <button class="btn btn-default filter-button" data-filter="hdpe">달성한 스탬프</button>
-            <button class="btn btn-default filter-button" data-filter="sprinkle">달성하지 못한 스탬프</button>
+            <button class="btn btn-default filter-button" data-filter="done">달성한 스탬프</button>
+            <button class="btn btn-default filter-button" data-filter="missing">달성하지 못한 스탬프</button>
         </div>
         <br/>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive"><p>광명시 XX</p>
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive"><p>인천광역시 연수구 XX</p>
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive"><p>서울시 강서구 XX</p>
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive"><p>안양시 XX</p>
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive"><p>부천시 XX</p>
-            </div>
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive"><p>광명시 XX</p>
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive"><p>인천광역시 연수구 XX</p>
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive"><p>서울시 강서구 XX</p>
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive"><p>안양시 XX</p>
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive"><p>부천시 XX</p>
-            </div>
-            
+        <c:choose>
+        	<c:when test="">
+        	    <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done">
+                	<img src="http://fakeimg.pl/365x365/" class="img-responsive"><p>광명시 XX</p>
+           		</div>
+        	</c:when>
+        	<c:when test="">
+        	    <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter missing">
+                	<img src="http://fakeimg.pl/365x365/" class="img-responsive"><p>인천광역시 연수구 XX</p>
+            	</div>
+        	</c:when>        
+        </c:choose>          
         </div>
     </div>
 
