@@ -30,13 +30,26 @@
 
 </head>
 <body>
+<div style="height:75px; background-color: #103e68;">
+   <br/>
+   <div style="color:#fff; font-size: 2em; display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;추천 여행지</div>
+   <div style="float:right; margin-right: 50px;">
+   <input type="submit" value="다음 >" id="nextbtn">
+<!--       <button id="addFriend" style="background-color:#103e68; font-family:'Nanum Gothic'; border:0px solid white; color:white; font-weight:600; border-radius:7px; width:100px;height:30px">친구추가</button> -->
+<!--       <button id="tempSave" style="background-color:#103e68; font-family:'Nanum Gothic'; border:0px solid white; color:white; font-weight:600; border-radius:7px; width:100px;height:30px">임시저장</button> -->
+<!--       <button id="save" style="background-color:#103e68; font-family:'Nanum Gothic'; border:0px solid white; color:white; font-weight:600; border-radius:7px; width:60px;height:30px">저장</button>  -->
+      
+<!--       <button id="chat" onclick="openNav()" style="margin-left:70px; background-color:#FDE0E2; font-family:'Nanum Gothic'; border:0px solid #FFDFE4; color:#103e68; font-weight:600; border-radius:7px; width:60px;height:30px">채팅</button>   -->
+   </div>
+</div>
+
 	<div class="container">
 	<!--  인기순 내관심순 탭	-->
 	
 		  <ul class="nav nav-tabs">
 		    <li class="active"><a data-toggle="tab" href="#menu1" >인기순</a></li>
 		    <li><a data-toggle="tab" href="#menu2">내관심순</a></li>
-		    <input type="button" value="다음" id="nextbtn">
+<!-- 		    <input type="button" value="다음" id="nextbtn"> -->
 		  </ul>
 
  		<div class="tab-content">
