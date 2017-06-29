@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.StringTokenizer;
 
+import javax.servlet.http.HttpSession;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -20,6 +22,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import tm.step1.dto.StepDTO;
 
 /**
  * Step2Controller
@@ -43,17 +47,29 @@ public class Step2Controller {
 	
 	
 	@RequestMapping("/step2.tm")
-	public ModelAndView listview(String changelist){
+	public ModelAndView listview(String changelist, HttpSession session){
 		//세션에 아이디+travellist를 받아옴
 		//초기값
 		ArrayList<String> list = new ArrayList<String>();
+//		String userId = (String)session.getAttribute("userId");
+//		StepDTO dto = (StepDTO) session.getAttribute(userId+"dto");
 		
 		if(changelist != null){
+			//변경된 리스트를 다시 저장
 			StringTokenizer stt = new StringTokenizer(changelist);
 			while (stt.hasMoreTokens()) {
 				list.add(stt.nextToken());
 			}
+			//값 변경이 일어나면 dto를 수정하여 다시 세션에 저장
+//			dto.setSchedule(list);
+//			session.setAttribute(userId+"dto", dto);
 		}else{
+			//세션에 저장된 값으로 list를 구성
+			list = new ArrayList<String>();
+			
+			//세션에서 가져온 
+//			list = dto.getSchedule();
+			
 			list.add("서울");
 			list.add("청주");
 			list.add("상주");
@@ -126,8 +142,9 @@ public class Step2Controller {
 		
 		
 		start = System.currentTimeMillis();
+		//hashset을 사용해 중복되는 값을 배제
 		HashSet hs = new HashSet(addcoordinatelist);
-		
+		//중복 배제된 값들을 newaddList에 저장
 		ArrayList<String> newaddList = new ArrayList<String>(hs);
 		finsh = System.currentTimeMillis();
 		System.out.println("3번 시간 (중복제거): " + (finsh - start));
@@ -135,6 +152,7 @@ public class Step2Controller {
 		//추가된 위도 경도로 도시명을 끌고온다
 		start = System.currentTimeMillis();
 		for (int i = 0; i < newaddList.size(); i++) {
+			//좌표로된 리스트를 도시명으로 전환 후 addlist에 저장
 			addlist.add(ReGeocoding(newaddList.get(i)));
 		}
 		finsh = System.currentTimeMillis();
@@ -142,12 +160,15 @@ public class Step2Controller {
 		
 		//중복제거
 		start = System.currentTimeMillis();
+		//다른좌표지만 같은 도시명 배제를 위해 중복 제거
 		HashSet hs2 = new HashSet(addlist);
+		//중복 제거된  값들을 newaddList2에 저장
 		ArrayList<String> newaddList2 = new ArrayList<String>(hs2);
 		//이미 선택된 위치 제거
 		for (int i = 0; i < newaddList2.size(); i++) {
 			for (String s : list) {
 				if(newaddList2.get(i).equals(s)){
+					//이미 선택된 도시들을 찾아서 제거
 					newaddList2.remove(i);
 					i=0;
 				}
@@ -180,7 +201,6 @@ public class Step2Controller {
 			url = new URL("https://maps.googleapis.com/maps/api/geocode/json?address="+sigun+"&key="+key);
 			// 한글 처리를 위해 InputStreamReader를 UTF-8 인코딩으로 감싼다.
 			InputStreamReader isr = new InputStreamReader(url.openConnection().getInputStream(), "UTF-8");
-			//response.results[0].geometry.location.lat+","+response.results[0].geometry.location.lng);
 			// JSON을 Parsing 한다. 문법오류가 날 경우 Exception 발생, without Exception -> parse 메소드
 			JSONObject response = (JSONObject)JSONValue.parseWithException(isr);
 			JSONArray results = (JSONArray)response.get("results");
@@ -224,7 +244,6 @@ public class Step2Controller {
 					+ "&language=ko");
 			// 한글 처리를 위해 InputStreamReader를 UTF-8 인코딩으로 감싼다.
 			InputStreamReader isr = new InputStreamReader(url.openConnection().getInputStream(), "UTF-8");
-			// JSON을 Parsing 한다.// 문법오류가 날 경우 Exception 발생, without Exception ->
 			// parse 메소드
 			JSONObject response = (JSONObject) JSONValue.parseWithException(isr);
 			JSONArray results = (JSONArray) response.get("results");
@@ -236,19 +255,17 @@ public class Step2Controller {
 			StringTokenizer st = new StringTokenizer(formatted_address);
 			while (st.hasMoreTokens()) {
 				String addr = st.nextToken();
+				//주소명에서 도시이름만 리턴
 				if (addr.contains("특별시")) {
 					res = addr.replace("특별시", "");
 					break;
 				} else if (addr.contains("광역시")) {
 					res = addr.replace("광역시", "");
 					break;
-				} else if (addr.contains("시")) {
-					res = addr.replace("시", "");
+				} else if (addr.contains("시") || addr.contains("군") ){
+					res = addr.substring(0, addr.length()-1);
 					break;
-				} else if (addr.contains("군")) {
-					res = addr.replace("군", "");
-					break;
-				}
+				} 
 			}
 			
 			
@@ -272,10 +289,8 @@ public class Step2Controller {
 //				res = name1.split(" ")[0].replace("특별시", "");
 //			}else if(name1.contains("광역시")){
 //				res = name1.split(" ")[0].replace("광역시", "");
-//			}else if (name2.contains("시")){
-//				res = name2.split(" ")[0].replace("시", "");
-//			}else if (name2.contains("군")){
-//				res = name2.split(" ")[0].replace("군", "");
+//			}else if (addr.contains("시") || addr.contains("군") ){
+//				res = addr.substring(0, addr.length()-1);
 //			}
 		} catch (Exception e) {
 			System.out.println("에러발생 : " + e.getMessage());
@@ -298,14 +313,17 @@ public class Step2Controller {
 	 * 결과값 : res (거리 : 단위 km)
 	 */
 	public static double range(String a1, String a2) {
+		//문자열을 double로 바꿈
 		double[] result1 = splitMet(a1);
 		double[] result2 = splitMet(a2);
 		
 		double res = 0;
+		//두 좌표 사이 직선 거리를 구함
 		res = Math.acos(Math.cos(Math.toRadians(90 - result1[0])) * Math.cos(Math.toRadians(90 - result2[0]))
 				+ Math.sin(Math.toRadians(90 - result1[0])) * Math.sin(Math.toRadians(90 - result2[0]))
 						* Math.cos(Math.toRadians(result1[1] - result2[1])))
 				* 6371;
+		//결과를 리턴
 		return res;
 	}
 	
@@ -317,10 +335,12 @@ public class Step2Controller {
 	 * 리턴값 : double배열
 	 */
 	public static double[] splitMet(String arr) {
+		//문자열로된 좌표를 [,]를 구분으로 자름
 		StringTokenizer st = new StringTokenizer(arr,",");
 		
 		double[] res = new double[2];
 		int i = 0;
+		//결과값을 double[] 에 저장
 		while(st.hasMoreTokens()){
 			res[i] = Double.parseDouble(st.nextToken());
 			i++;
@@ -335,9 +355,11 @@ public class Step2Controller {
 	 * 결과값 : 중간 좌표
 	 */
 	public static String centralpoint(String a1, String a2) {
+		//문자열을 double로 바꿈
 		double[] result1 = splitMet(a1);
 		double[] result2 = splitMet(a2);
 		
+		//두 좌표 사이의 중간좌표를 구함
 		String res = "";
 		DecimalFormat df = new DecimalFormat(".000000");
 		res = df.format((result1[0] + result2[0]) / 2);
@@ -347,24 +369,4 @@ public class Step2Controller {
 		return res;
 	}
 
-	/**
-	 * centralpointArray
-	 * 중간값 뽑아내는 갯수
-	 * 인자값 : 숫자
-	 * 결과값 : 반복횟수
-	 */
-	public static int centralpointArray(int a) {
-		int[] res = new int[a];
-		int start = 0;
-		int addcount = 1;
-		res[0] = 2;
-		for (int i = 1; i < res.length; i++) {
-			start = res[i - 1];
-			res[i] = start + addcount;
-			addcount = addcount * 2;
-		}
-		return res[a-1];
-	}
-	
-	
 }
