@@ -5,7 +5,13 @@
 	<select id="cnt" parameterType="hashMap" resultType="java.lang.Integer">
 		SELECT count(*) as cnt
 		FROM ${table}
+		<where>
+			<if test="sel != null">
+				${sel} like '%'||#{con}||'%'
+			</if>
+		</where>
 	</select>
+	
 	<select id="cntparlist"  resultType="java.lang.Integer">
 		SELECT count(*) as cnt
 		FROM partner
@@ -14,6 +20,7 @@
 			AND partner_comname like '%'||#{partnerComname}||'%'
 		</if>
 	</select>
+	
 	<select id="cntparrec"  resultType="java.lang.Integer">
 		SELECT count(*) as cnt
 		FROM partner
@@ -23,20 +30,23 @@
 		</if>
 	</select>
 	
-	
-
 	<select id="memberlist" parameterType="hashMap" resultType="adminMemberDTO">
 		SELECT *
-		FROM member
+		FROM (SELECT rownum as rnum, g.*  
+      		  FROM (SELECT * 
+            		FROM member  
+            		order by user_id desc) g)
 		<where>
 			<if test="id != null">
 				user_id = #{id}
 			</if>
+			<if test="startnum != null">
+				rnum <![CDATA[>=]]>  #{startnum} AND rnum <![CDATA[<=]]> #{endnum}
+			</if>
 			<if test="sel != null">
-				${sel} like '%'||#{con}||'%'
+				AND ${sel} like '%'||#{con}||'%'
 			</if>
 		</where>
-		ORDER BY user_type desc
 	</select>
 	
 	<select id="qnalist" parameterType="hashMap" resultType="tm.admin.dto.AdminQnaDTO">

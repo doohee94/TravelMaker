@@ -115,10 +115,12 @@
 				</div>
 				<!-- 검색 start -->
 				<div class="row">
-					<form class="form-inline" role="form" >
+					<form id="frmsearch" class="form-inline" role="form" method="post" action="adminsearchmem.tm">
+						<input type="hidden" name="pageNumber" value="${pageNum }">
+						<input type="hidden" name="url" id="url" value="${url }">
 						<div class="select">
 							<div class="col-lg-1">
-								<select class="form-control m-bot15" id="searchsel">
+								<select class="form-control m-bot15" id="searchsel" name="sel">
 									<option value="user_id">ID</option>
 									<option value="user_name">이름</option>
 									<option value="user_nick">닉네임</option>
@@ -126,9 +128,48 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" id="searchcon" placeholder="검색어 입력">
+							<input type="text" class="form-control" id="searchcon" name="con" placeholder="검색어 입력">
 						</div>
 						<button type="button" id="searchmember" class="btn btn-primary">검색</button>
+						<div class="btn-group" style="margin-left: 100px;">
+							<input type="hidden" id="totalpage" value="${totalpage }">
+							<c:choose>
+								<c:when test="${url eq 'adminsearchmem.tm'}">
+									<a href="${url }?pageNumber=1&sel=${sel}&con=${con}" class="pagebtn btn btn-default" type="button">&#171;</a>
+								</c:when>
+								<c:otherwise>
+									<a href="${url }?pageNumber=1" class="pagebtn btn btn-default" type="button">&#171;</a>
+								</c:otherwise>
+							</c:choose>
+							
+							<button class="pagebtn btn btn-default" id="prevPage" type="button">&#60;</button>
+								<c:forEach var="i" begin="1" end="${totalpage }">
+									<c:choose>
+										<c:when test="${pageNum == i}">
+											<a class="pagebtn btn btn-primary" type="button">${i }</a>
+										</c:when>
+										<c:otherwise>
+											<c:choose>
+												<c:when test="${url eq 'adminsearchmem.tm'}">
+													<a href="${url }?pageNumber=1&sel=${sel}&con=${con}" class="pagebtn btn btn-default" type="button">${i }</a>
+												</c:when>
+												<c:otherwise>
+													<a href="${url }?pageNumber=${i }" class="pagebtn btn btn-default" type="button">${i }</a>
+												</c:otherwise>
+											</c:choose>
+										</c:otherwise>
+									</c:choose>
+								</c:forEach>
+							<button class="pagebtn btn btn-default" id="nextPage" type="button">&#62;</button>
+							<c:choose>
+								<c:when test="${url eq 'adminsearchmem.tm'}">
+									<a href="${url }?pageNumber=${totalpage }&sel=${sel}&con=${con}" class="pagebtn btn btn-default" type="button">&#171;</a>
+								</c:when>
+								<c:otherwise>
+									<a href="${url }?pageNumber=${totalpage }" class="pagebtn btn btn-default" type="button">&#187;</a>
+								</c:otherwise>
+							</c:choose>
+						</div>
 					</form>
 				</div>
 				<!-- end -->
@@ -264,32 +305,34 @@
 		});
 		
 		$("#searchmember").click(function(){
-			//선택한 옵션과 내용값을 가져옴
-			var con = $("#searchcon").val();
-			var sel = $("#searchsel").val();
-			$.ajax({
-				url : "/tmadmin/adminsearchmem.tm",
-				type : "POST",
-				data : {
-					"con" : con,
-					"sel" : sel
-				},
-				dataType : "json",
-				success : function(data){
-					//내용값을 지우고
-					$(".listview").empty();
-					//결과 리스트를 읽어와서 추가
-					for (var i = 0; i < data.length; i++) {
-						$(".listview").append("<tr class='se"+ i +" selectid'>");
-						$(".se"+ i).append("<td>"+data[i].userId);
-						$(".se"+ i).append("<td>"+data[i].userNick);
-						$(".se"+ i).append("<td>"+data[i].userName);
-						$(".se"+ i).append("<td>"+data[i].userDate);
-					}
+			$("#frmsearch").submit();
+// 			//선택한 옵션과 내용값을 가져옴
+// 			var con = $("#searchcon").val();
+// 			var sel = $("#searchsel").val();
+// 			$.ajax({
+// 				url : "/tmadmin/adminsearchmem.tm",
+// 				type : "POST",
+// 				data : {
+// 					"con" : con,
+// 					"sel" : sel
+// 				},
+// 				dataType : "json",
+// 				success : function(data){
+// 					//내용값을 지우고
+// 					$(".listview").empty();
+// 					//결과 리스트를 읽어와서 추가
+// 					for (var i = 0; i < data.length; i++) {
+// 						$(".listview").append("<tr class='se"+ i +" selectid'>");
+// 						$(".se"+ i).append("<td>"+data[i].userId);
+// 						$(".se"+ i).append("<td>"+data[i].userNick);
+// 						$(".se"+ i).append("<td>"+data[i].userName);
+// 						$(".se"+ i).append("<td>"+data[i].userDate);
+// 					}
 					
-				}
-			});
-			$("#searchcon").val("");
+// 				}
+// 			});
+// 			$("#searchcon").val("");
+			
 		});
 		
 	</script>

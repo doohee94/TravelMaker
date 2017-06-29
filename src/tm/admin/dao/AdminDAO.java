@@ -12,7 +12,9 @@ public interface AdminDAO {
 	
 	
 	/************** 페이징 ******************/
-	public int[] SettingPageNum(int type, int countpage, int pageNum);
+	//회원 / 광고 / QNA
+	public int[] SettingPageNum(String table, int countpage, int pageNum, String sel, String con);
+	//제휴
 	public int[] SettingPageNum(int type, int countpage, int pageNum, int state, String str);
 	
 	/************** 회원 ******************/
@@ -22,6 +24,7 @@ public interface AdminDAO {
 	 * 회원 목록을 가져옴
 	 */
 	public List<AdminMemberDTO> MemberList();
+	public List<AdminMemberDTO> MemberList(int startnum, int endnum);
 	
 	/**
 	 * Membershow
@@ -35,7 +38,7 @@ public interface AdminDAO {
 	 * Membersearch
 	 * 회원 검색 결과 리스트를 출력
 	 */
-	public List<AdminMemberDTO> Membersearch(String sel, String con);
+	public List<AdminMemberDTO> Membersearch(String sel, String con, int startnum, int endnum);
 	
 	
 	/************** QNA ******************/

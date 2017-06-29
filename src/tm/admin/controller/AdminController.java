@@ -45,13 +45,24 @@ public class AdminController {
 	 * 관리자 멤버 리스트 출력
 	 */
 	@RequestMapping("/adminMember.tm")
-	public ModelAndView adMemberList() {
-		List<AdminMemberDTO> list =  dao.MemberList();
+	public ModelAndView adMemberList(String pageNumber) {
+		int pageNum = 1;
+		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
 		
+		int[] page = dao.SettingPageNum("member", 15, pageNum, null, null);
+		/* 리턴값 : int 배열
+		 * 0 : 총 페이지 수
+		 * 1 : 시작 rownum
+		 * 2 : 끝 rownum
+		 */
+		
+		List<AdminMemberDTO> list =  dao.MemberList(page[1],page[2]);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"/adminMember");
 		mv.addObject("memlist",list);
-		
+		mv.addObject("totalpage",page[0]);
+		mv.addObject("pageNum", pageNum);
+		mv.addObject("url", "adminMember.tm");
 		return mv;
 		
 	}
@@ -70,15 +81,31 @@ public class AdminController {
 	
 	/**
 	 * searchmem
-	 * 검색한 결과를 출력(ajax)
+	 * 검색한 결과를 출력
 	 * @param sel,con
 	 */
 	@RequestMapping("/adminsearchmem.tm")
-	public @ResponseBody List<AdminMemberDTO> searchmem(@RequestParam String sel, String con) {
+	public ModelAndView searchmem(String sel, String con, String pageNumber) {
+		int pageNum = 1;
+		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
 		
-		List<AdminMemberDTO> list = dao.Membersearch(sel, con);
+		int[] page = dao.SettingPageNum("member", 15, pageNum, sel, con);
+		/* 리턴값 : int 배열
+		 * 0 : 총 페이지 수
+		 * 1 : 시작 rownum
+		 * 2 : 끝 rownum
+		 */
 		
-		return list;
+		List<AdminMemberDTO> list = dao.Membersearch(sel, con, page[1], page[2]);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(dir+"/adminMember");
+		mv.addObject("memlist",list);
+		mv.addObject("totalpage",page[0]);
+		mv.addObject("pageNum", pageNum);
+		mv.addObject("url", "adminsearchmem.tm");
+		mv.addObject("sel", sel);
+		mv.addObject("con", con);
+		return mv;
 	}
 	
 	/**
@@ -91,7 +118,7 @@ public class AdminController {
 		int pageNum = 1;
 		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
 		
-		int[] page = dao.SettingPageNum(1, 10, pageNum);
+		int[] page = dao.SettingPageNum("qna", 10, pageNum, null, null);
 		/* 리턴값 : int 배열
 		 * 0 : 총 페이지 수
 		 * 1 : 시작 rownum
