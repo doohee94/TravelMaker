@@ -1,8 +1,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="org.json.simple.JSONArray"%>
 <%@page import="org.json.simple.JSONObject"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <% 
 	JSONArray tourarray = (JSONArray)request.getAttribute("obj");
 
@@ -103,12 +103,12 @@
 		<!-- PAGE CONTENT -->
 		<div class="container">
 			<div class="page-header">
-				<h3>여행리뷰 제목</h3>
+				<h3>${totalre.totalreTitle}</h3>
 				<input type="button" id="shareBtn" value="페이스북공유하기"/>
 				<input type="image" id="heartBtn" src="/resource/travelReview/images/heart1.png">
 			</div>
 			<div class="well">
-				<p>여기는 리뷰 내용입니다</p>
+				<p>${totalre.totalreContent}</p>
 			</div>
 			<!-- End Well -->
 		</div>
