@@ -2,7 +2,14 @@ package tm.member.controller;
 
 import java.util.List;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +33,11 @@ private String dir = "member/";
 	
 	@Autowired
 	MemberDAO dao;
+	
+	@Autowired
+	protected JavaMailSender mailSender;
+
+
 
 	@RequestMapping("/{url}.tm")
 	public String member(@PathVariable String url) {
@@ -120,5 +132,40 @@ private String dir = "member/";
 		
 		return mv;
 	}
+	
+	@RequestMapping("/serchPwOkForm.tm")
+	public String mail(String userId, String userEmail) {
+		System.out.println("userId : " + userId);
+		System.out.println("userEmail : " + userEmail);
+		MemberDTO resultdto = dao.searchPw(userId, userEmail);
+		if(resultdto != null){
+			MimeMessage msg = mailSender.createMimeMessage();
+	        String e_mail=userEmail;
+	        String content = "비밀번호는 ["+resultdto.getUserPw()+"] 입니다.";
+	       	String title = userId+"님 비밀번호 찾기 메일입니다.";
+	       	
+	        try {
+	        	//메일 제목
+	        	msg.setSubject(title);
+	        	//메일 내용
+				msg.setText(content);
+				//보내는 메일
+				msg.setRecipients(MimeMessage.RecipientType.TO , InternetAddress.parse(e_mail));
+				
+			} catch (MessagingException e) {
+				System.out.println("이메일 작성 실패 : " + e.getMessage());
+			}
+	        //메일 전송
+	        try {
+	        	mailSender.send(msg);
+	        }catch(Exception e){
+	        	System.out.println("전송 실패 : " + e.getMessage());
+	        }
+	        return dir + "serchPwOkForm";
+		}else{
+			return "redirect:/member/serchPwOkForm.tm";
+		}
+	}
+	
 	
 }

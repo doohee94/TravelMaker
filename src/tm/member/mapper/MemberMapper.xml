@@ -21,4 +21,14 @@
 		</if>
 	</where>
 	</select>
+	
+	<select id="searchpw" parameterType="hashMap" resultType="tm.member.dto.MemberDTO">
+		select *
+		from member
+		<where>
+			<if test="userEmail != null">
+				user_id=#{userId} AND user_email=#{userEmail}
+			</if>
+		</where>
+	</select>
 </mapper>

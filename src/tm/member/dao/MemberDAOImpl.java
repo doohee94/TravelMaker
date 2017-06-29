@@ -44,4 +44,12 @@ public class MemberDAOImpl implements MemberDAO{
 		map.put("userEmail", userEmail);
 		return ss.selectOne("member.list",map);
 	}
+	/*PW 찾기*/
+	@Override
+	public MemberDTO searchPw(String userId, String userEmail) {
+		HashMap map = new HashMap<>();
+		map.put("userId", userId);
+		map.put("userEmail", userEmail);
+		return ss.selectOne("member.searchpw",map);
+	}
 }

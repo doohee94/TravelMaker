@@ -30,4 +30,11 @@ public interface MemberDAO {
 	 * ID찾기
 	 */
 	public MemberDTO searchId(String userName, String userEmail);
+	
+	/**
+	 * PW찾기
+	 */
+	public MemberDTO searchPw(String userId, String userEmail);
+	
+	
 }
