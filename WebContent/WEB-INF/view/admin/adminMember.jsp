@@ -116,8 +116,7 @@
 				<!-- 검색 start -->
 				<div class="row">
 					<form id="frmsearch" class="form-inline" role="form" method="post" action="adminsearchmem.tm">
-						<input type="hidden" name="pageNumber" value="${pageNum }">
-						<input type="hidden" name="url" id="url" value="${url }">
+						<input type="hidden" name="pageNumber" id="pageNumber" value="${pageNum }">
 						<div class="select">
 							<div class="col-lg-1">
 								<select class="form-control m-bot15" id="searchsel" name="sel">
@@ -128,11 +127,15 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" id="searchcon" name="con" placeholder="검색어 입력">
+							<input type="text" class="form-control" id="searchcon" name="con" placeholder="검색어 입력" required="required">
 						</div>
 						<button type="button" id="searchmember" class="btn btn-primary">검색</button>
+						<button type="button" class="btn btn-primary" onclick="location.href='adminMember.tm'" >검색초기화</button>
 						<div class="btn-group" style="margin-left: 100px;">
 							<input type="hidden" id="totalpage" value="${totalpage }">
+							<input type="hidden" id="url" value="${url }">
+							<input type="hidden" id="sel" value="${sel }">
+							<input type="hidden" id="con" value="${con }">
 							<c:choose>
 								<c:when test="${url eq 'adminsearchmem.tm'}">
 									<a href="${url }?pageNumber=1&sel=${sel}&con=${con}" class="pagebtn btn btn-default" type="button">&#171;</a>
@@ -151,7 +154,7 @@
 										<c:otherwise>
 											<c:choose>
 												<c:when test="${url eq 'adminsearchmem.tm'}">
-													<a href="${url }?pageNumber=1&sel=${sel}&con=${con}" class="pagebtn btn btn-default" type="button">${i }</a>
+													<a href="${url }?pageNumber=${i }&sel=${sel}&con=${con}" class="pagebtn btn btn-default" type="button">${i }</a>
 												</c:when>
 												<c:otherwise>
 													<a href="${url }?pageNumber=${i }" class="pagebtn btn btn-default" type="button">${i }</a>
@@ -163,7 +166,7 @@
 							<button class="pagebtn btn btn-default" id="nextPage" type="button">&#62;</button>
 							<c:choose>
 								<c:when test="${url eq 'adminsearchmem.tm'}">
-									<a href="${url }?pageNumber=${totalpage }&sel=${sel}&con=${con}" class="pagebtn btn btn-default" type="button">&#171;</a>
+									<a href="${url }?pageNumber=${totalpage }&sel=${sel}&con=${con}" class="pagebtn btn btn-default" type="button">&#187;</a>
 								</c:when>
 								<c:otherwise>
 									<a href="${url }?pageNumber=${totalpage }" class="pagebtn btn btn-default" type="button">&#187;</a>
@@ -306,33 +309,42 @@
 		
 		$("#searchmember").click(function(){
 			$("#frmsearch").submit();
-// 			//선택한 옵션과 내용값을 가져옴
-// 			var con = $("#searchcon").val();
-// 			var sel = $("#searchsel").val();
-// 			$.ajax({
-// 				url : "/tmadmin/adminsearchmem.tm",
-// 				type : "POST",
-// 				data : {
-// 					"con" : con,
-// 					"sel" : sel
-// 				},
-// 				dataType : "json",
-// 				success : function(data){
-// 					//내용값을 지우고
-// 					$(".listview").empty();
-// 					//결과 리스트를 읽어와서 추가
-// 					for (var i = 0; i < data.length; i++) {
-// 						$(".listview").append("<tr class='se"+ i +" selectid'>");
-// 						$(".se"+ i).append("<td>"+data[i].userId);
-// 						$(".se"+ i).append("<td>"+data[i].userNick);
-// 						$(".se"+ i).append("<td>"+data[i].userName);
-// 						$(".se"+ i).append("<td>"+data[i].userDate);
-// 					}
-					
-// 				}
-// 			});
-// 			$("#searchcon").val("");
-			
+		});
+		
+		$("#prevPage").click(function(){
+			var pageNumber = $("#pageNumber").val();
+			var nextNumber = 0;
+			if(pageNumber%10-1 <= 0 ){
+				if(parseInt(pageNumber/10) == 0){
+					var temp = parseInt(pageNumber/10);
+					nextNumber = temp*10+1;
+				}
+			}else{
+				nextNumber = pageNumber - 1;
+			}
+			var url = $("#url").val();
+			if(url == "adminsearchmem.tm"){
+				location.href = "/tmadmin/"+$("#url").val()+"?pageNumber="+nextNumber+"&sel="+$("#sel").val()+"&con="+$("#con").val();
+			}else{
+				location.href = "/tmadmin/"+$("#url").val()+"?pageNumber="+nextNumber;
+			}
+		});
+		
+		$("#nextPage").click(function(){
+			var pageNumber = $("#pageNumber").val();
+			var totalpage = $("#totalpage").val();
+			var nextNumber = 0;
+			if(parseInt(pageNumber)+1 > totalpage){
+				nextNumber = totalpage;
+			}else{
+				nextNumber = parseInt(pageNumber) + 1;
+			}
+			var url = $("#url").val();
+			if(url == "adminsearchmem.tm"){
+				location.href = "/tmadmin/"+$("#url").val()+"?pageNumber="+nextNumber+"&sel="+$("#sel").val()+"&con="+$("#con").val();
+			}else{
+				location.href = "/tmadmin/"+$("#url").val()+"?pageNumber="+nextNumber;
+			}
 		});
 		
 	</script>

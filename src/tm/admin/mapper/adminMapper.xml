@@ -34,7 +34,12 @@
 		SELECT *
 		FROM (SELECT rownum as rnum, g.*  
       		  FROM (SELECT * 
-            		FROM member  
+            		FROM member
+            		<where>
+            			<if test="sel != null">
+							${sel} like '%'||#{con}||'%'
+						</if>
+            		</where>
             		order by user_id desc) g)
 		<where>
 			<if test="id != null">
@@ -42,9 +47,6 @@
 			</if>
 			<if test="startnum != null">
 				rnum <![CDATA[>=]]>  #{startnum} AND rnum <![CDATA[<=]]> #{endnum}
-			</if>
-			<if test="sel != null">
-				AND ${sel} like '%'||#{con}||'%'
 			</if>
 		</where>
 	</select>
