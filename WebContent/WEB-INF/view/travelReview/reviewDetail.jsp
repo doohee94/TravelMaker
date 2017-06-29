@@ -1,5 +1,28 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="org.json.simple.JSONArray"%>
+<%@page import="org.json.simple.JSONObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<% 
+	JSONArray tourarray = (JSONArray)request.getAttribute("obj");
+
+	//각 day에 해당하는 place배열을 담을 리스트
+	JSONArray placeArray[] = new JSONArray[tourarray.size()];
+
+	for(int i=0; i<tourarray.size(); i++){
+		//System.out.println( tourarray.get(i).toString());
+		
+		//각각의 tour리스트에서 place정보 빼오기
+		JSONObject tour = (JSONObject)tourarray.get(i);
+		
+		JSONObject temp = new JSONObject();
+		temp = (JSONObject)tourarray.get(i);
+		placeArray[i] = (JSONArray)temp.get("place");
+			
+	}
+	
+	
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -100,9 +123,9 @@
 						<ul class="nav nav-tabs">
 							<!-- 탭 갯수 만들기 -->
 							<%
-								for (int i = 0; i < 5; i++) {
+								for (int i = 0; i < tourarray.size(); i++) {
 							%>
-							<li id="tab<%=i + 1%>" class="tab active"><a href="#tab_default_<%=i + 1%>"data-toggle="tab"> Tab <%=i + 1%>
+							<li id="tab<%=i + 1%>" class="tab active"><a href="#tab_default_<%=i + 1%>"data-toggle="tab">DAY<%=i+1 %>
 							</a></li>
 							<%
 								}
@@ -110,14 +133,17 @@
 						</ul>
 						<!-- 각각의 탭에 해당하는 내용들 -->
 						<%
-							for (int i = 0; i < 5; i++) {
+							for (int i = 0; i < tourarray.size() && placeArray[i] != null; i++) {
 						%>
 							<div class="tab-pane" id="tab_default_<%=i + 1%>">
 								<%
-									for (int j = 0; j < 10; j++) {
+									for (int j = 0; j < placeArray[i].size(); j++) {
+										JSONObject temp = new JSONObject();
+										temp  = (JSONObject)placeArray[i].get(j);
+										String title = temp.get("title").toString();
 								%>
 								<ul>
-									<li><%=i + 1%>번째 탭의 <%=j + 1%>번 리스트</li>
+									<li><%= title%></li>
 								</ul>
 								<%
 									}

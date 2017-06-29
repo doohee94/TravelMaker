@@ -26,7 +26,7 @@ $(function(){
 	//이미지 버튼 클릭하면 실행할 함수
 	$(".images").click(function(){
 		//상세페이지로 보낸다
-		location.href="reviewDetail.tm";
+		location.href="reviewDetail.tm?id=128";
 	});
 });
 

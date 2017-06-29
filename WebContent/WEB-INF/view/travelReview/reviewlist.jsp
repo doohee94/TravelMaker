@@ -47,11 +47,9 @@
 			<%for(int i=0; i<4; i++) {%>
 			<div class="col-md-5 no-padding lib-item" data-category="view" id="divContent">
 				<div class="lib-panel">
-					<div class="row box-shadow">
+					<div class="row box-shadow images">
 						<div class="col-md-6">
-							<button id="<%=i+1%>" class="images">
-								<img class="lib-img-show" src="http://lorempixel.com/850/850/?random=123">
-							</button>
+							<img id="<%=i+1%>" class="lib-img-show" src="http://lorempixel.com/850/850/?random=123">
 						</div>
 						<div class="col-md-6">
 							<div class="lib-row lib-header">

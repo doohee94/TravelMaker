@@ -94,7 +94,8 @@ public class Step3Controller {
 
          double min = 1000;
 
-         END:for(int i=1; i<title.size(); i++){
+         END:
+        	for(int i=1; i<title.size(); i++){
             if(distance[rowindex][i] == 0){
                continue;
             }
