@@ -33,6 +33,7 @@
   		/WEB-INF/springconfig/main-servlet.xml
   		/WEB-INF/springconfig/challengeSchedule-servlet.xml
   		/WEB-INF/springconfig/recommandTravelRegion-servlet.xml
+  		/WEB-INF/springconfig/totalre-servlet.xml
   		</param-value>
   	</init-param>
   </servlet>
