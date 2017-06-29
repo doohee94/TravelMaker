@@ -56,7 +56,7 @@ public class TravelReviewController {
 		
 		TotalreDTO dto = dao.showReview(_id);
 		
-		
+		mv.addObject("totalre", dto);
 		
 
 	//몽고디비에서 일정 불러오기
