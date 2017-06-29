@@ -17,6 +17,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import tm.totalre.dao.TotalreDAO;
+import tm.totalre.dto.TotalreDTO;
+
+
 /**
  * TravelReviewController
  * 여행리뷰리스트, 상세페이지
@@ -38,6 +42,9 @@ public class TravelReviewController {
 	      
 	}
 	
+	@Autowired
+	TotalreDAO dao;
+	
 	@RequestMapping(value="/reviewDetail.tm")
 	//public ModelAndView showReviewDetail(@RequestParam("id") String _id){
 	public ModelAndView showReviewDetail(){
@@ -47,7 +54,7 @@ public class TravelReviewController {
 		
 		ModelAndView mv = new ModelAndView();
 		
-		
+		TotalreDTO dto = dao.showReview(_id);
 		
 		
 		
