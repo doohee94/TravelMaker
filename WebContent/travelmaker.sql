@@ -146,4 +146,29 @@ CREATE SEQUENCE seq_likesc
 INCREMENT BY 1
 START WITH 1;
 
+CREATE TABLE stemp (
+	stemp_num     VARCHAR2(50)   NOT NULL CONSTRAINT pk_tm_stemp_num PRIMARY KEY, -- 스템프 번호
+	parstemp_num   VARCHAR2(50)   NOT NULL, -- 제휴 스템프 번호
+	user_id       VARCHAR2(50)   NOT NULL, -- 회원ID
+	stemp_date    DATE,                    -- 찍은 날짜
+	CONSTRAINT fk_tm_stemp_user_id FOREIGN Key (user_id) REFERENCES member(user_id),
+    CONSTRAINT fk_tm_stemp_parstemp_num FOREIGN Key (parstemp_num) REFERENCES parstemp(parstemp_num)
+);
+
+CREATE SEQUENCE seq_stemp
+INCREMENT BY 1
+START WITH 1;
+
+CREATE TABLE parstemp (
+	parstemp_num     VARCHAR2(50)   NOT NULL CONSTRAINT pk_tm_parstemp_num PRIMARY KEY, --제휴 스템프 번호
+	partner_num      VARCHAR2(50)   NOT NULL, -- 제휴ID
+	partner_name     VARCHAR2(50)   NOT NULL, -- 제휴스템프 지점명
+	partner_addr     VARCHAR2(50)   NOT NULL, -- 지점 주소
+    CONSTRAINT fk_tm_stemp_partner_num FOREIGN Key (partner_num) REFERENCES partner(partner_num)
+);
+CREATE SEQUENCE seq_parstemp
+INCREMENT BY 1
+START WITH 1;
+
+
 commit;
