@@ -43,7 +43,7 @@ $(function(){
 <title>Insert title here</title>
 </head>
 <body>
-<form id="frm">
+<form id="frm" method="post" action="serchIdOkForm.tm">
 <section class="login-info">
 <div class="container">
   <div class="row main">
@@ -54,16 +54,17 @@ $(function(){
             
           <div class="input-group ">
             <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
-            <input id="name" type="text" class="form-control" name="name" placeholder="NAME" required="required">
+            <input id="name" type="text" class="form-control" name="userName" placeholder="NAME" required="required">
           </div>
           <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
-            <input id="email" type="text" class="form-control" name="email" placeholder="EMAIL" required="required">
+            <input id="email" type="text" class="form-control" name="userEmail" placeholder="EMAIL" required="required">
           </div>
         
           
           <div class="form-group">
-          		<center><input type="button" class="insert-button" value="확인" style="background-color:#489CFF" onclick="location.href='serchIdOkForm.tm'">&nbsp;&nbsp;
+          		<center>
+          		<input type="submit" class="insert-button" value="확인" style="background-color:#489CFF" >&nbsp;&nbsp;
           		<input type="button" class="insert-button" value="취소" style="background-color:#d6564f" onClick="history.back()"></center>
           </div>
   
@@ -73,5 +74,8 @@ $(function(){
 </div>
 </section>
 </form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+</script>
 </body>
 </html>

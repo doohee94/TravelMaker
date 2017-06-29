@@ -25,13 +25,14 @@
     <div class="main-content">
             
           <div class="input-insert ">
-            <input id="id" type="text" class="form-control" name="id" disabled><br/>
+            <input id="id" type="text" class="form-control" name="id" value="${dto.userId }" disabled><br/>
           </div>       
           
           <div class="form-group">
           <center>
           		<input type="button" class="insert-button" value="로그인" style="background-color:#489CFF" onclick="location.href='loginForm.tm'">&nbsp;&nbsp;
-          		<input type="button" class="insert-button" value=비밀번호찾기 style="background-color:#489CFF" onclick="location.href='serchPwForm.tm'">&nbsp;&nbsp;
+          		<input id="btnid" type="button" class="insert-button" value="ID찾기" style="background-color:#489CFF" onclick="location.href='serchIdForm.tm'">
+          		<input id="btnpw" type="button" class="insert-button" value="PW찾기" style="background-color:#489CFF" onclick="location.href='serchPwForm.tm'">&nbsp;&nbsp;
           		<input type="button" class="insert-button" value="취소" style="background-color:#d6564f" onClick="history.back()"></center>
           </div>
   
@@ -40,6 +41,16 @@
     </div>
 </div>
 </section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
+<script type="text/javascript">
+	$("#btnid").hide();
+	$("#btnpw").show();
+	if($("#id").val() == "결과가 없습니다"){
+		$("#btnid").show();	
+		$("#btnpw").hide();	
+	}
+</script>
 
 </body>
 </html>

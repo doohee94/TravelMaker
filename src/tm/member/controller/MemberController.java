@@ -102,4 +102,23 @@ private String dir = "member/";
 		
 	}
 	
+	/**
+	 * ID 찾기
+	 */
+	
+	@RequestMapping("/serchIdOkForm.tm")
+	public ModelAndView searchID(String userName, String userEmail) {
+		MemberDTO resultdto = dao.searchId(userName,userEmail);
+		if(resultdto == null){
+			resultdto =  new MemberDTO();
+			resultdto.setUserId("결과가 없습니다");
+		}
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName(dir+"serchIdOkForm");
+		mv.addObject("dto", resultdto);
+		
+		return mv;
+	}
+	
 }

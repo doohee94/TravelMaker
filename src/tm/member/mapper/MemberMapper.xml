@@ -9,12 +9,15 @@
 	</insert>
 	
 	<!-- 회원정보 보기 -->
-	<select id="list" parameterType="tm.member.dto.MemberDTO" resultType="tm.member.dto.MemberDTO">
+	<select id="list" parameterType="hashMap" resultType="tm.member.dto.MemberDTO">
 	select *
 	from member
 	<where>
-		<if test="id != null">
-			user_id = #{id}
+		<if test="userId != null">
+			user_id = #{userId}
+		</if>
+		<if test="userName != null">
+			user_name=#{userName} AND user_email=#{userEmail}
 		</if>
 	</where>
 	</select>

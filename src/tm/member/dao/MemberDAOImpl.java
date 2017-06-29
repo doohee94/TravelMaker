@@ -1,5 +1,6 @@
 package tm.member.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -34,5 +35,13 @@ public class MemberDAOImpl implements MemberDAO{
 	@Override
 	public int delete(MemberDTO memberdto){
 		return ss.delete("member.delete", memberdto);
+	}
+	/*ID 찾기*/
+	@Override
+	public MemberDTO searchId(String userName, String userEmail) {
+		HashMap map = new HashMap<>();
+		map.put("userName", userName);
+		map.put("userEmail", userEmail);
+		return ss.selectOne("member.list",map);
 	}
 }

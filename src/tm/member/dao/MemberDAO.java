@@ -25,4 +25,9 @@ public interface MemberDAO {
 	 * 회원탈퇴
 	 */
 	public int delete(MemberDTO memberdto);
+	
+	/**
+	 * ID찾기
+	 */
+	public MemberDTO searchId(String userName, String userEmail);
 }
