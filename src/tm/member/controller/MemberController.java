@@ -135,8 +135,6 @@ private String dir = "member/";
 	
 	@RequestMapping("/serchPwOkForm.tm")
 	public String mail(String userId, String userEmail) {
-		System.out.println("userId : " + userId);
-		System.out.println("userEmail : " + userEmail);
 		MemberDTO resultdto = dao.searchPw(userId, userEmail);
 		if(resultdto != null){
 			MimeMessage msg = mailSender.createMimeMessage();
