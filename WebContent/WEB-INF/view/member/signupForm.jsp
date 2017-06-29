@@ -107,11 +107,10 @@ function nochk(){
 					"userId":$('#userId').val()
 				},
 				success:function(data){
-					if($.trim(data)=="YES"){
+					if(data.trim()=="YES"){
 						$('#idchk').html('<b style="font.size:18px;color:blue">사용가능</b>');
 					}else{
-						$('#idchk').html('<b style="font.size:18px;color:blue">사용가능</b>');
-						/*$('#idchk').html('<b style="font.size:18px;color:red">사용불가</b>'); */
+						$('#idchk').html('<b style="font.size:18px;color:red">사용불가</b>');
 					}
 				}
 			});
@@ -126,11 +125,10 @@ function nochk(){
 					"userNick":$('#userNick').val()
 				},
 				success:function(data){
-					if($.trim(data)=="YES"){
+					if(data.trim()=="YES"){
 						$('#nickchk').html('<b style="font.size:18px;color:blue">사용가능</b>');
 					}else{
-						$('#nickchk').html('<b style="font.size:18px;color:blue">사용가능</b>');
-						/*$('#nickchk').html('<b style="font.size:18px;color:red">사용불가</b>'); */
+						$('#nickchk').html('<b style="font.size:18px;color:red">사용불가</b>'); 
 					}
 				}
 			});
@@ -178,13 +176,11 @@ function nochk(){
                 
 				<div class="form-group ">
                     <input class="form-control" type="password" name="userPw" id="userPw" placeholder="비밀번호" required="required">
-                    <!-- <p class="help-block">숫자 또는 특수문자 포함 6자 이상</p> -->
                 </div>
                 
                 <div class="form-group ">
                     <input class="form-control" type="password" name="passwordcheck" id="passwordcheck" placeholder="비밀번호확인" required="required">
-                	<!-- <p class="help-block">비밀번호를 한번 더 입력해주세요.</p> -->
-                </div>
+               </div>
                 
                 <div class="form-group">
                     <input class="form-control" type="text" name="userName" id="userName" placeholder="이름" required="required">
@@ -480,7 +476,6 @@ function nochk(){
                 <p class="help-block">숫자 또는 특수문자 포함 6자 이상이여야 합니다</p>
                 <p class="help-block">비밀번호를 한번 더 입력해주세요</p>
                 <span id="nickchk">　　</span>
-                <p class="help-block">- 빼고 입력해주세요</p>
                 </div>
                                 
             
