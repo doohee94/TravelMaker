@@ -43,7 +43,7 @@
 	<!-- container section start -->
 	<section id="container" class="">
 
-		<!-- 로고 -->
+		<!-- header start -->
 		<header class="header dark-bg">
 			<div class="toggle-nav">
 				<div class="icon-reorder tooltips"
@@ -93,7 +93,6 @@
 						</ul>
 					</li>
 				</ul>
-				<!-- sidebar menu end-->
 			</div>
 		</aside>
 		<!--sidebar end-->
@@ -113,8 +112,9 @@
 						</ol>
 					</div>
 				</div>
-				<!-- 검색 start -->
+				
 				<div class="row">
+					<!-- 검색 start -->
 					<form id="frmsearch" class="form-inline" role="form" method="post" action="adminsearchmem.tm">
 						<input type="hidden" name="pageNumber" id="pageNumber" value="${pageNum }">
 						<div class="select">
@@ -129,6 +129,9 @@
 						<div class="form-group">
 							<input type="text" class="form-control" id="searchcon" name="con" placeholder="검색어 입력" required="required">
 						</div>
+						<!-- 검색 END -->
+						
+						<!-- Page Number start -->
 						<button type="button" id="searchmember" class="btn btn-primary">검색</button>
 						<button type="button" class="btn btn-primary" onclick="location.href='adminMember.tm'" >검색초기화</button>
 						<div class="btn-group" style="margin-left: 100px;">
@@ -144,7 +147,6 @@
 									<a href="${url }?pageNumber=1" class="pagebtn btn btn-default" type="button">&#171;</a>
 								</c:otherwise>
 							</c:choose>
-							
 							<button class="pagebtn btn btn-default" id="prevPage" type="button">&#60;</button>
 								<c:forEach var="i" begin="1" end="${totalpage }">
 									<c:choose>
@@ -173,10 +175,11 @@
 								</c:otherwise>
 							</c:choose>
 						</div>
+						<!-- Page Number END -->
 					</form>
 				</div>
-				<!-- end -->
 				<div class="row">
+					<!-- table start -->
 					<div class="col-lg-8">
 						<section class="panel">
 							<header class="panel-heading"> 회원목록 </header>
@@ -211,6 +214,8 @@
 							</table>
 						</section>
 					</div>
+					<!-- table END -->
+					<!-- Member View Start -->
 					<div class="col-lg-3">
                       <section class="panel">
                           <header class="panel-heading">
@@ -252,6 +257,7 @@
                           </div>
                       </section>
                   </div>
+					<!-- Member View END -->
 				</div>
 			</section>
 		</section>
@@ -285,69 +291,9 @@
 	<!--custome script for all page-->
 	<script src="/resource/admin/js/scripts.js"></script>
 	
-	<script type="text/javascript">
-		//리스트 클릭
-		$(document).on("click",".selectid",function(){
-			//현재 클릭된 라인에 id컬럼값만 얻어옴
-			var id = $(this).children().first().text();
-			$.ajax({
-				url : "/tmadmin/adminshowmem.tm",
-				type : "POST",
-				data : "user_id="+id,
-				dataType : "json",
-				success : function(data){
-					$("#userId").val(data.userId);
-					$("#userPw").val(data.userPw);
-					$("#userName").val(data.userName);
-					$("#userNick").val(data.userNick);
-					$("#userAddr").val(data.userAddr);
-					$("#userTel").val(data.userTel);
-					$("#userDate").val(data.userDate);
-				}
-			});
-		});
-		
-		$("#searchmember").click(function(){
-			$("#frmsearch").submit();
-		});
-		
-		$("#prevPage").click(function(){
-			var pageNumber = $("#pageNumber").val();
-			var nextNumber = 0;
-			if(pageNumber%10-1 <= 0 ){
-				if(parseInt(pageNumber/10) == 0){
-					var temp = parseInt(pageNumber/10);
-					nextNumber = temp*10+1;
-				}
-			}else{
-				nextNumber = pageNumber - 1;
-			}
-			var url = $("#url").val();
-			if(url == "adminsearchmem.tm"){
-				location.href = "/tmadmin/"+$("#url").val()+"?pageNumber="+nextNumber+"&sel="+$("#sel").val()+"&con="+$("#con").val();
-			}else{
-				location.href = "/tmadmin/"+$("#url").val()+"?pageNumber="+nextNumber;
-			}
-		});
-		
-		$("#nextPage").click(function(){
-			var pageNumber = $("#pageNumber").val();
-			var totalpage = $("#totalpage").val();
-			var nextNumber = 0;
-			if(parseInt(pageNumber)+1 > totalpage){
-				nextNumber = totalpage;
-			}else{
-				nextNumber = parseInt(pageNumber) + 1;
-			}
-			var url = $("#url").val();
-			if(url == "adminsearchmem.tm"){
-				location.href = "/tmadmin/"+$("#url").val()+"?pageNumber="+nextNumber+"&sel="+$("#sel").val()+"&con="+$("#con").val();
-			}else{
-				location.href = "/tmadmin/"+$("#url").val()+"?pageNumber="+nextNumber;
-			}
-		});
-		
-	</script>
+	<!-- member js -->
+	<script src="/resource/admin/js/member.js"></script>
+	
 
 </body>
 </html>
