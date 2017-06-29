@@ -39,17 +39,17 @@
     //바뀌기 전 리스트 불러오기
      $("#beforeDay").change(function(){
     	$("#beforeList").empty();
-    	for(var i=0; i<5;i++){
-    		$("#beforeList").append('<li class="ui-state-default">'+i+'</li>');
-    	}
+//     	for(var i=0; i<5;i++){
+//     		$("#beforeList").append('<li class="ui-state-default">'+i+'</li>');
+//     	}
      });
     
      //바꾸고 싶은 날짜 리스트 불러오기
      $("#afterDay").change(function(){ 
     	 $("#afterList").empty();
-    	 for(var i=0; i<5;i++){
-     		$("#afterList").append('<li class="ui-state-default">'+$(this).val()+i+'</li>');
-     	}
+//     	 for(var i=0; i<5;i++){
+//      		$("#afterList").append('<li class="ui-state-default">'+$(this).val()+i+'</li>');
+//      	}
       });
     
      //수정버튼을 누르면 상태를 전환해줘준다. 
@@ -76,9 +76,6 @@
 
 <div id="before" align="center" style="margin-left:22%;display: inline-block;">
 <select id="beforeDay">
-	<option>Day1</option>
-	<option>Day2</option>
-	<option>Day3</option>
 </select>
 <br/>
 <ul id="beforeList" class="connectedSortable">
@@ -90,9 +87,6 @@
 <!-- 바꾼 후 리스트 -->
 <div id="after" align="center" style="display: inline-block;">
 <select id="afterDay">
-	<option>Day1</option>
-	<option>Day2</option>
-	<option>Day3</option>
 </select>
 <br/>
 <ul id="afterList" class="connectedSortable">
@@ -110,15 +104,72 @@
 <script type="text/javascript">
 $(function(){
 	
+	//셀렉트 박스 날짜 넣기 -----------------------------------------------------------------------
+	$.ajax({
+		url :"/mypage_checklist/modifyPopupList.tm",
+		type:"get",
+		//data:"128",
+		contentType:"application/json",
+		dataType:"JSON",
+		success:function(data){
+			//데이터에 투어에 플레이스에 타이틀 
+			for(var i=0; i<data.tour.length && data.tour[i].place != null;i++){
+				$("#beforeDay").append("<option>"
+						+data.tour[i].date
+						+"</option>");	
+				
+				$("#afterDay").append("<option>"
+						+data.tour[i].date
+						+"</option>");	
+				
+			}//end i
+			
+			//day1에 리스트 띄워주기
+			for(var j=0; j<data.tour[0].place.length ; j++){
+				$("#beforeList").append("<li  class='ui-state-default'>"
+						+data.tour[0].place[j].title
+						+"</li>");
+				$("#afterList").append("<li  class='ui-state-default'>"
+						+data.tour[0].place[j].title
+						+"</li>");
+
+	}//end j
+			
+		},
+		error:function(err,status,error){
+	        //alert("실패!"+err.status+error);
+	       
+	     }		
+		
+		
+		
+	})//end ajaz
+	
+	//이전날짜 셀렉트 박스를 바꿀 경우 -------------------------------------------------------------
 	$("#beforeDay").change(function(){
+		$("#beforeList").empty();
 		$.ajax({
 			
-			url :"/mypage_checklist/modifyPopup.tm",
-			type:"post",
+			url :"/mypage_checklist/modifyPopupList.tm",
+			type:"get",
 			//data:"128",
-			contentType:"application/json ",
+			contentType:"application/json",
+			dataType:"JSON",
 			success:function(data){
-				alert(data.member_id);
+				//데이터에 투어에 플레이스에 타이틀 
+					for(var i=0; i<data.tour.length && data.tour[i].place != null;i++){
+						
+						
+						for(var j=0; j<data.tour[i].place.length ; j++){
+							if($("#beforeDay option:selected").text() == data.tour[i].date)
+							{
+								$("#beforeList").append("<li  class='ui-state-default'>"
+										+data.tour[i].place[j].title
+										+"</li>");
+							}//end if 
+						
+					}//end j
+				}//end i
 			},
 			error:function(err,status,error){
 		        alert("실패!"+err.status+error);
@@ -126,6 +177,38 @@ $(function(){
 		     }		
 		});//end ajax
 	});//end before change
+	
+	
+	//이후날짜 셀렉트 박스를 바꿀 경우 -------------------------------------------------------------
+	$("#afterDay").change(function(){
+		$("#afterList").empty();
+		$.ajax({
+			
+			url :"/mypage_checklist/modifyPopupList.tm",
+			type:"get",
+			//data:"128",
+			contentType:"application/json",
+			dataType:"JSON",
+			success:function(data){
+				//데이터에 투어에 플레이스에 타이틀 
+					for(var i=0; i<data.tour.length && data.tour[i].place != null;i++){							
+						for(var j=0; j<data.tour[i].place.length ; j++){
+							if($("#afterDay option:selected").text() == data.tour[i].date)
+							{
+								$("#afterList").append("<li  class='ui-state-default'>"
+										+data.tour[i].place[j].title
+										+"</li>");
+							}//end if 
+						
+					}//end j
+				}//end i
+			},
+			error:function(err,status,error){
+		        alert("실패!"+err.status+error);  
+		     }		
+		});//end ajax
+	});//end before change
+	
 	
 });
 </script>
