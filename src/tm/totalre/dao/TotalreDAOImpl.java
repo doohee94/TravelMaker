@@ -4,9 +4,11 @@ import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.stereotype.Service;
 
 import tm.totalre.dto.TotalreDTO;
 
+@Service
 public class TotalreDAOImpl implements TotalreDAO {
 	
 	SqlSessionTemplate ss;
