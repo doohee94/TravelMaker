@@ -403,6 +403,7 @@ function nochk(){
                 </script>
                 
                 <div class="form-group">
+                <label>주소 :　</label>
                     <select name="userCity" id="userCity" onchange="doChange(this, 'userBorough')">
 		            <option value="시,도">시,도</option>
 		            <option value="서울특별시 ">서울특별시</option>
@@ -430,6 +431,7 @@ function nochk(){
                 </div>
                 
 				<div class="form-group">
+                <label>관심지역 :　</label>
                     <select name="selOne" id="selOne" onchange="doChange(this, 'selTwo')">
 		            <option value="시,도">시,도</option>
 		            <option value="서울특별시 ">서울특별시</option>
@@ -475,7 +477,8 @@ function nochk(){
                 <span id="idchk">　　</span><br/>
                 <p class="help-block">숫자 또는 특수문자 포함 6자 이상이여야 합니다</p>
                 <p class="help-block">비밀번호를 한번 더 입력해주세요</p>
-                <span id="nickchk">　　</span>
+                <span id="nickchk">　　</span><br/><br/>
+                <p class="help-block">ID/PW 찾기 시 꼭 필요한 항목이오니 정확히 적어주시기 바랍니다</p>
                 </div>
                                 
             

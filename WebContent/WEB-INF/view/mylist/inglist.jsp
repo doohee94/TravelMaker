@@ -5,26 +5,33 @@
 <html>
 <head>
 
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>MyPageMenubar</title>
 
+
+
+<!-- 탭 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <!--  프로그레스 -->
 <link rel="stylesheet" href="/resource/member/css/jquery.lineProgressbar.css">
-
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+ 
 <!--  메뉴바 -->
 <link rel="stylesheet" type="text/css" href="/resource/member/css/base.css" />
 <link rel="stylesheet" type="text/css" href="/resource/member/css/style.css" />
 
-<!-- mouseover -->
+<!-- 일정들 mouseover -->
 <link rel="stylesheet" type="text/js" href="/resource/mylist/js/listmouse.js" />
 <link rel="stylesheet" type="text/css" href="/resource/mylist/css/listmouse.css" />
 
-<!-- 각 list 틀 -->
-<link rel="stylesheet" href="/resource/mylist/js/mylist.js" />
+<!-- 헤더 -->
+<!-- <link rel="stylesheet" href="/TravelMakerTest/css/base.css"> -->
 
-<!-- 사진들 -->
+<!-- 각 list 틀 -->
+<script type="text/javascript" src="/resource/mylist/js/mylist.js"></script> 
+<!--<link rel="stylesheet" type="text/js" href="/resource/mylist/js/mylist.js" /> -->
 <link rel="stylesheet" href="/resource/mylist/css/mylist.css">
 
 <style type="text/css">
@@ -39,29 +46,31 @@
 text-decoration:none;
 }
 </style>
-
 </head>
+
 <body>
-<section>
- <div class="container">
-        <div class="row">
-        <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        </div>
-<!-- 메뉴바 -->
-	<div class="lnb">
+
+<header>
+<!--  여기에 헤더넣기 -->
+
+</header>
+
+<!--  메뉴네비게이션 -->
+<div class="lnb">
 		<h1>마이페이지</h1>
 		<div class="subtitle"><a href="#">내정보</a></div>
 			<ul class="sub" style="display:none;">
 				<li><a href="http://localhost:8080/member/memberUpdate.tm">정보보기</a></li>
 				<li><a href="http://localhost:8080/member/memberDelete.tm">회원탈퇴</a></li>
 			</ul>
-		<div class="subtitle"><a href="http://localhost:8080/mylist/menubar.tm">나의일정</a></div>
+		<div class="subtitle"><a href="http://http://localhost:8080/mylist/menubar.tm">나의일정</a></div>
 		<div class="subtitle"><a href="">관심일정</a></div>
 		<div class="subtitle"><a href="">관심여행지</a></div>
 		<div class="subtitle"><a href="">QnA</a></div>
 		<div class="subtitle sub_end"><a href="">스탬프</a></div>
 	</div>
-
+<!--/메뉴네비게이션-->
+ 
 <!--  달성률 보는 곳 -->
 <article   style="margin-left:100px; background-image:url('/resource/mylist/images/test3.png'); height: 250px">
 	
@@ -70,32 +79,27 @@ text-decoration:none;
 
 </article>
 
-<!-- 탭 -->
-             <div align="center">
-             <article  style="background-color: #092551; height: 100px" >
-			<div align="center">
-			<br/>
-			<a  class="tab" data-filter="all" id="all" style="cursor:pointer">전체<br/><br/>일정</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<a  class="tab" data-filter="ing" id="ing" style="color:#ffffff" style="cursor:pointer">계획중인<br/><br/>일정</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<a class="tab" data-filter="done" id="done" style="cursor:pointer">완성된<br/><br/>일정</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<a class="tab" data-filter="start" id="start" style="cursor:pointer">시작된<br/><br/>일정</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<a class="tab" data-filter="end" id="end" style="cursor:pointer">여행한<br/><br/>일정</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			</div>
-			</article>
-	
-	</div>
-            
+ <!-- 탭 -->       
+  <div class="container">
+        <div class="row">
+        <article  style="background-color: #092551; height: 100px;" >
+        <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
         </div>
+		
+        <div align="center" ><br/>
+            <a class="tab" data-filter="all" id="all" style="cursor:pointer" style="font-size: 5pt">전체<br/><br/>일정</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="tab" data-filter="ing" id="ing" style="cursor:pointer" style="font-size: 5pt">계획중인<br/><br/>일정</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="tab" data-filter="done" id="done" style="cursor:pointer" style="font-size: 5pt">완성된<br/><br/>일정</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="tab" data-filter="start" id="start" style="cursor:pointer" style="font-size: 5pt">시작된<br/><br/>일정</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="tab" data-filter="end" id="end" style="cursor:pointer" style="font-size: 5pt">여행한<br/><br/>일정</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+        </article>
         <br/>
 
-
-
-            <!-- <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter ing">
-                 <img src="/TravelMakerTest/image/image_1.JPG" class="img-responsive" style="display:block;">  -->
-<!-- 각 일정 보는곳 -->  
-<div>          
+<!-- 각 일정 보여주는 곳 -->
+<div class="schedule-list">          
             
-							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter ing">
+				<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter ing">
 							  <img src="/resource/mylist/images/image_1.JPG" />
 							  <figcaption>
 							    <h3>2017.05.16~2017.06.11</h3>
@@ -126,21 +130,82 @@ text-decoration:none;
 							    <p>부산>서울</p><a href="#" class="read-more">일정편집</a><br/><br/>
 							  </figcaption>
 							</figure>
+							
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter ing">
+							  <img src="/resource/mylist/images/image_5.JPG" />
+							  <figcaption>
+							    <h3>2017.07.16~2017.07.20</h3>
+							    <p>부산>서울</p><a href="#" class="read-more">일정편집</a><br/><br/>
+							  </figcaption>
+							</figure>
+							
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done">
+							  <img src="/resource/mylist/images/image_6.JPG" />
+							  <figcaption>
+							    <h3>2017.07.16~2017.07.20</h3>
+							    <p>부산>서울</p><a href="#" class="read-more">일정편집</a><br/><br/>
+							  </figcaption>
+							</figure>
+							
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter ing">
+							  <img src="/resource/mylist/images/image_7.JPG" />
+							  <figcaption>
+							    <h3>2017.07.16~2017.07.20</h3>
+							    <p>부산>서울</p><a href="#" class="read-more">일정편집</a><br/><br/>
+							  </figcaption>
+							</figure>
+							
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter start">
+							  <img src="/resource/mylist/images/image_8.JPG" />
+							  <figcaption>
+							    <h3>2017.07.16~2017.07.20</h3>
+							    <p>부산>서울</p><a href="#" class="read-more">일정편집</a><br/><br/>
+							  </figcaption>
+							</figure>
+							
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter end">
+							  <img src="/resource/mylist/images/image_9.JPG" />
+							  <figcaption>
+							    <h3>2017.07.16~2017.07.20</h3>
+							    <p>부산>서울</p><a href="#" class="read-more">일정편집</a><br/><br/>
+							  </figcaption>
+							</figure>
 
 
 
-</div>  
+				</div> 
+	
+			</div>
+		</div>
+</body> <!--  바디 끝 -->
+<script type="text/javascript">
+$(document).ready(function(){
 
-        </div>
-        </div>
+    $(".tab").click(function(){
+        var value = $(this).attr('data-filter');
         
-</section>
-        
+        if(value == "all")
+        {
+            //$('.filter').removeClass('hidden');
+            $('.filter').show('1000');
+        }
+        else
+        {
+//            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
+//            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+            $(".filter").not('.'+value).hide('3000');
+            $('.filter').filter('.'+value).show('3000');
+            
+        }
+    });
+    
+    if ($(".tab").removeClass("active")) {
+$(this).removeClass("active");
+}
+$(this).addClass("active");
 
-</body>
-
-<!-- 프로그래스 -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+});
+</script>
 <script src="/resource/member/js/jquery.lineProgressbar.js"></script>
 <script type="text/javascript">
 	var rate=80; // 계산에서 넘어온 rate 값을 넣어준다. 
@@ -153,6 +218,7 @@ text-decoration:none;
 		width:'900px'
 	});	
 </script>
+
 
 <!--  메뉴바 -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -172,35 +238,25 @@ $(function() {
 });
 </script>
 
-<!--  탭관련 js
-	클릭시 해당하는 일정 페이지로 넘어간다.-->
+<!-- 일정 누를때마다 글자 색 바뀌게 -->
 <script type="text/javascript">
 $(function(){
-	//전체 일정을 보여준다
-	$('#all').click(function(){
-		$('#all').attr('href','menubar.tm');//여기 경로만 수정해주세요
+	$("#all").click(function(){
+		$("#all").css("color","white");
 	});
-	//계획중인 일정을 누르면 계획중인 일정 페이지로 넘어간다. 
-	$('#ing').click(function(){
-		$('#ing').attr('href','inglist.tm');//여기 경로만 수정해주세요
+	$("#ing").click(function(){
+		$("#ing").css("color","white");
 	});
-	
-	//완성된 일정을 페이지로 넘어감. 
-	$('#done').click(function(){
-		$('#done').attr('href','donelist.tm'); //여기 경로만 수정해주세요
+	$("#done").click(function(){
+		$("#done").css("color","white");
 	});
-	
-	//시작된 일정 페이지로 넘어감
-	$('#start').click(function(){
-		$('#start').attr('href','startlist.tm');//여기 경로만 수정해주세요
+	$("#start").click(function(){
+		$("#start").css("color","white");
 	});
-	
-	//여행한 일정 페이지로 넘어감.
-	$('#end').click(function(){
-		$('#end').attr('href','endlist.tm');//여기 경로만 수정해주세요
+	$("#end").click(function(){
+		$("#end").css("color","white");
 	});
-	
 });
-
 </script>
+
 </html>

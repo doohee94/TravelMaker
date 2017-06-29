@@ -33,7 +33,7 @@
 
 <!-- 헤더넣기 -->
 
-<center><article><br/>
+<center><article><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <img alt="" src="/resource/member/css/images/dropout.png" width="100" height="90" align=center><br/><br/>
 <font size="5"> 정말 TRAVEL MAKER를 탈퇴하시겠습니까?</font><br/><br/>
 <font size="3">탈퇴시 1주간 회원가입이 불가능합니다</font><br/><br/>
