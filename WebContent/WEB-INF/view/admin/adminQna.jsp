@@ -37,17 +37,8 @@
 	rel="stylesheet" />
 <link href="/resource/admin/css/jquery-ui-1.10.4.min.css"
 	rel="stylesheet">
-<style type="text/css">
-	.table-hover{
-		font-size: 1.5em;
-	}
-	.tableview{
-		height: 610px;
-	}
-	.pagebtn{
-		font-size: 1.5em;
-	}
-</style>
+<link href="/resource/admin/css/qna.css"
+	rel="stylesheet">
 
 </head>
 
@@ -124,6 +115,7 @@
 						</ol>
 					</div>
 				</div>
+				<!-- table start -->
 				<div class="row">
 					<div class="tableview col-lg-12">
 						<section class="panel">
@@ -154,7 +146,7 @@
 																<a class="btn btn-danger" data-toggle="modal" href="#${q.qnaNum }" title="Bootstrap 3 themes generator">답변필요</a>
 															</c:otherwise>
 														</c:choose>
-														
+														<!-- Modal start -->
 														<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="${q.qnaNum }" class="modal fade">
 															<div class="modal-dialog">
 																<div class="modal-content">
@@ -193,6 +185,7 @@
 																</div>
 															</div>
 														</div>
+														<!-- Modal END -->
 													</td>
 												</tr>
 											</c:forEach>
@@ -207,7 +200,9 @@
 							</table>
 						</section>
 					</div>
+				<!-- table END -->
 				</div>
+				<!-- page Number Start -->
 				<div class="btn-row">
 					<div class="btn-group">
 						<input type="hidden" id="totalpage" value="${totalpage }">
@@ -227,6 +222,7 @@
 						<a href="adminQna.tm?pageNumber=${totalpage }" class="pagebtn btn btn-default" type="button">&#187;</a>
 					</div>
 				</div>
+				<!-- page Number End -->
 			</section>
 		</section>
 		<!--main content end-->
@@ -259,42 +255,8 @@
 	<!--custome script for all page-->
 	<script src="/resource/admin/js/scripts.js"></script>
 	
-	
-	<script type="text/javascript">
-		$(".replybtn").click(function(){
-			$(this).parents().parents().attr("action","adminQnaReply.tm");
-			$(this).parents().parents().submit();
-		});
-		
-		$("#prevPage").click(function(){
-			var pageNumber = $("#pageNumber").val();
-			var nextNumber = 0;
-			if(pageNumber%10-1 <= 0 ){
-				if(parseInt(pageNumber/10) == 0){
-					var temp = parseInt(pageNumber/10);
-					nextNumber = temp*10+1;
-				}
-			}else{
-				nextNumber = pageNumber - 1;
-			}
-			location.href = "/tmadmin/adminQna.tm?pageNumber="+nextNumber;
-		});
-		
-		$("#nextPage").click(function(){
-			var pageNumber = $("#pageNumber").val();
-			var totalpage = $("#totalpage").val();
-			var nextNumber = 0;
-			
-			if(pageNumber+1 > totalpage){
-				nextNumber = totalpage;
-			}else{
-				nextNumber = parseInt(pageNumber) + 1;
-			}
-			
-			location.href = "/tmadmin/adminQna.tm?pageNumber="+nextNumber;
-		});
-		
-	</script>
+	<!-- QNA JS -->
+	<script src="/resource/admin/js/qna.js"></script>
 	
 	
 </body>

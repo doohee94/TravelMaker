@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+
+	.table-hover{
+		font-size: 1.5em;
+	}
+	.tableview{
+		height: 610px;
+	}
+	.pagebtn{
+		font-size: 1.5em;
+	}
