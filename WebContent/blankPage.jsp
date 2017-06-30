@@ -65,21 +65,23 @@
 	<div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
+        <!-- submenu start -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Full Width Page
-                    <small>Subheading</small>
+                <h1 class="page-header">Main Title
+                    <small>Sub title</small>
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="index.html">Home</a>
-                    </li>
+                    <li><a href="/tmmain/main.tm">Home</a></li>
                     <li class="active">Full Width Page</li>
                 </ol>
             </div>
         </div>
-        <!-- /.row -->
+         <!-- submenu end -->
         <hr>
-
+		<div class="row">
+			내용 넣는곳
+		</div>
     </div>
     <!-- /.container -->
     
