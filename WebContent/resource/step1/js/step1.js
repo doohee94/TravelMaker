@@ -1,6 +1,19 @@
 
 
 $(function() {
+	// step2 로 페이지 이동시 나오는 로딩화면
+	$(function() {
+		$("#loading").hide();
+
+		$("#nextbtn").click(function(event) {
+			event.preventDefault();
+			$("#main").hide();
+			$("#loading").show();
+			var url = "/step2/step2.tm";
+			$(location).attr('href', url);
+
+		});
+	});
 		// 동행자 팝업 창에서 완료 버튼을 누르면 리스트에 나온 값들을 동행자 버튼 왼쪽 텍스트공간에
 		// 적어 끌고오기
 //		$(".ftokbtn").click(function(){

@@ -31,6 +31,13 @@
 
 </head>
 <body>
+<!-- 로딩페이지 -->
+<div id="loading" style="display: none;">
+
+   <img id="loading-image" alt="로딩중" src="/resource/step2/loding.gif" />
+
+</div>
+
 	<!-- Navigation -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container" >
@@ -65,6 +72,12 @@
 	</nav>
 
 	<div class="container" id="container">
+	
+		<center>
+    		<input type="button" value="< 이전" class="nextbtn" onclick="location.href='/step1/step1.tm'">
+			<input type="button" value="다음 >" class="nextbtn" onclick="location.href='/step2/step2.tm'">
+    	</center>
+    	
 		<form class="contnsubform" action="" method='get'>
 			<!--   출발지 경유지 도착지 탭	-->
 
@@ -1186,19 +1199,6 @@
 			});
 		});
 	</script>
-	<script type="text/javascript">
-		$(function() {
-			$("#loading").hide();
-
-			$("#nextbtn").click(function(event) {
-				event.preventDefault();
-				$("#main").hide();
-				$("#loading").show();
-				var url = "/step2/step2.tm";
-				$(location).attr('href', url);
-
-			});
-		});
-	</script>
+	
 </body>
 </html>
