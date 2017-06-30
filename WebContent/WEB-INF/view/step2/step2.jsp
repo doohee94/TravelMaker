@@ -20,9 +20,6 @@
     <!-- Custom Fonts -->
     <link href="/resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     
-    <!-- Header CSS -->
-    <link href="/resource/bootstrap/css/header.css" rel="stylesheet" type="text/css">
-    
     <!-- step2 CSS -->
     <link href="/resource/step2/css/step2.css" rel="stylesheet" type="text/css">
     
@@ -67,13 +64,18 @@
             <!-- /.navbar-collapse -->
         </div>
     </nav>
+    	<center>
+    		<input type="button" value="< 이전" class="nextbtn" onclick="location.href='/step1/step1.tm'">
+			<input type="button" value="다음 >" class="nextbtn" onclick="location.href='/step/step3.tm'">
+    	</center>
+    
 	<div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
 		<div class="row">
 			<!-- 초기 여행지 start -->
 			
-		<div class="showlist">
+<!-- 		<div class="showlist"> -->
 		<br/>
 		<br/>
 		<br/>
@@ -85,7 +87,7 @@
 							<c:choose>
 								<c:when test="${cnt.index eq '0'}">
 									<div class="stepwizard-step">
-										<button type="button" class="btn btn-circle" disabled="disabled">▶</button>
+										<button type="button" class="btn btn-circle" disabled="disabled">S</button>
 										<p>${s }</p>
 									</div>
 								</c:when>
@@ -138,8 +140,8 @@
 		<br /> <br /><br />
 		<!-- style="border: 1px solid black;" -->
 			<div class="maintop">
-				<div class="maintop1">추천(시,군)</div>
-				<div class="maintop2">여행지</div>
+				<div class="maintop1"><span class="headerlike">추천(시,군)</span></div>
+				<div class="maintop2"><span class="headerlike">여행지</span></div>
 			</div>
 		
 		<!-- 추천 여행지 start -->
@@ -170,7 +172,7 @@
 			</div>
 			<br style="clear: both">
 		<!-- 추천 여행지 end -->
-		</div>
+<!-- 		</div> -->
 		</div>
     </div>
     <!-- /.container -->

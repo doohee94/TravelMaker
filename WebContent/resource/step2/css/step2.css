@@ -9,13 +9,12 @@
 	font-family: 'Nanum Gothic';
 	color:white;
 	font-weight:600;
-	background-color:#2995F7;
-	border:2px solid #2995F7;
+	background-color:#103e68;
+	border:none;
 	border-radius:7px;
 }
 
 .showlist{
-	margin : auto;
 	width : 1400px;
 	height : 900px;
 	box-shadow: 5px 5px 13px grey ; 
@@ -27,16 +26,27 @@
 	float: right;
 }
 
-#selectlist{
- 	list-style-type: none; 
-	padding:0;
-	margin:0;
+#selectlist {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	margin-top: -46px;
+	padding-top: 34px;
+	padding-bottom: 20px;
+	z-index: 0;
+	position: static;
 	width: 160px;
-	border: 1px solid #EAEAEA;
+	border: 3px solid #EAEAEA;
+}
+
+.headerlike{
+	background-color: white;
+	z-index: 100;
+	position: relative;
 }
 
 .sellist{
-	background-color:#2995F7;
+	background-color:#306ca3;
 	color:white;
 	margin:5px;
 	padding:3px;
@@ -62,6 +72,11 @@
 	width: 1200px;
 }
 
+img{
+	position: relative;
+	z-index: 500;
+}
+
 
 #changelist li{
 	margin-left : 10px;
@@ -73,9 +88,13 @@
 	border-radius: 5px;
 	cursor:pointer;
 }
+
+
+
+
 #changelist .changelist{
 	color : white;
-	background-color : #96C8F7;
+	background-color : rgba(16, 62, 104, 0.78);
 	font-size: 1.3em;
 	text-align: center;
 }
