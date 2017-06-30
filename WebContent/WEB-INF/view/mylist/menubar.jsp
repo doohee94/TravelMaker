@@ -109,6 +109,7 @@ text-decoration:none;
         <br/>
 
 <!-- 각 일정 보여주는 곳 -->
+<center>
 <div class="schedule-list">          
             
 				<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter ing">
@@ -186,7 +187,7 @@ text-decoration:none;
 
 
 </div> 
-	
+</center>
 </div>
 </body> <!--  바디 끝 -->
 

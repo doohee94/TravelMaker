@@ -8,7 +8,7 @@
 	values (#{userId},#{userPw},#{userEmail},#{userName},#{userNick},#{userAddr},#{userTel},10,sysdate)
 	</insert>
 	
-	<!-- 회원정보 보기 -->
+	<!-- 회원 ID찾기 -->
 	<select id="list" parameterType="hashMap" resultType="tm.member.dto.MemberDTO">
 	select *
 	from member
@@ -21,7 +21,7 @@
 		</if>
 	</where>
 	</select>
-	
+	<!-- 회원 PW찾기 -->
 	<select id="searchpw" parameterType="hashMap" resultType="tm.member.dto.MemberDTO">
 		select *
 		from member
@@ -30,5 +30,17 @@
 				user_id=#{userId} AND user_email=#{userEmail}
 			</if>
 		</where>
+	</select>
+	
+	<!-- 회원정보보기 -->
+	<!-- select user_id, user_pw from member where user_id='dfsdf3'; -->
+	<select id="update">
+	select user_id, user_pw, user_name, user_nick, user_addr, user_tel, user_email
+	from member
+	<where>
+		<if test="userId != null">
+			user_Id = #{userId}
+		</if>
+	</where>
 	</select>
 </mapper>

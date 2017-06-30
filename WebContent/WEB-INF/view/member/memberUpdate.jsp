@@ -60,12 +60,12 @@
 				<br/>
 				<!-- ****중복확인하기**** -->
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userId" id="userId" value="hong90" placeholder="아이디" required="required" readonly="readonly">
+                    <input class="form-control" type="text" name="userId" id="userId" ${userId } placeholder="아이디" required="required" readonly="readonly">
                 	
                 </div>
                 
 				<div class="form-group ">
-                    <input class="form-control" type="password" name="userPw" id="userPw" value="1111" placeholder="비밀번호" required="required" readonly="readonly">
+                    <input class="form-control" type="password" name="userPw" id="userPw" ${userPw } placeholder="비밀번호" required="required" readonly="readonly">
                     <!-- <p class="help-block">숫자 또는 특수문자 포함 6자 이상</p> -->
                 </div>
                 
@@ -75,20 +75,20 @@
                 </div>
                 
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userName" id="userName" value="홍길동" placeholder="이름" required="required" readonly="readonly">
+                    <input class="form-control" type="text" name="userName" id="userName" ${userName } placeholder="이름" required="required" readonly="readonly">
                 </div>
                 
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userNick" id="userNick" value="홍홍홍" placeholder="닉네임" required="required" readonly="readonly">
+                    <input class="form-control" type="text" name="userNick" id="userNick" ${userNick } placeholder="닉네임" required="required" readonly="readonly">
                 </div>
                 
                 <!-- ****전화번호 하나하나 나누기**** -->
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userTel" id="userTel" value="010-7254-4218" placeholder="전화번호" required="required" readonly="readonly">
+                    <input class="form-control" type="text" name="userTel" id="userTel" ${userTel } placeholder="전화번호" required="required" readonly="readonly">
                 </div>
                 
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userEmail" id="userEmail" value="hong90@naver.com" placeholder="이메일" required="required" readonly="readonly">
+                    <input class="form-control" type="text" name="userEmail" id="userEmail" ${userEmail } placeholder="이메일" required="required" readonly="readonly">
                 </div>
                 <!-- ****플러스누르면 추가되게**** -->
                 <script type="text/javascript">
@@ -348,7 +348,7 @@
                 </div>
                 
                 <center><button type="button" class="signbuttons btn btn-primary" id="update" name="update">수정하기</a></button>
-                <button type="button" class="signbuttons btn btn-primary" id="insert" name="insert">완료</a></button></center>
+                <button type="submit" class="signbuttons btn btn-primary" id="insert" name="insert">완료</a></button></center>
                 <br/><br/><br/><br/>
             </form>    
         </div>
