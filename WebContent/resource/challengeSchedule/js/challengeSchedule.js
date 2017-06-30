@@ -20,17 +20,19 @@ $(document).ready(function() {
 			//     ); 
 
 			//top 버튼 스크립트
-			$(".return-top").hide(); // 탑 버튼 숨김
+			 // 탑 버튼 숨김
+//			$(".return-top").hide();
 			
 			$(function() {
 
-				$(window).scroll(function() {
-					if ($(this).scrollTop() > 100) { // 스크롤 내릴 표시
-						$('.return-top').fadeIn();
-					} else {
-						$('.return-top').fadeOut();
-					}
-				});
+//				$(window).scroll(function() {
+//					if ($(this).scrollTop() > 100) {
+						// 스크롤 내릴 표시
+//						$('.return-top').fadeIn();
+//					} else {
+//						$('.return-top').fadeOut();
+//					}
+//				});
 
 				$('.return-top').click(function() {
 					$('body,html').animate({
@@ -44,11 +46,9 @@ $(document).ready(function() {
 			$(window).scroll(function(){
 				var docH=$(document).height();
 				var scrolH = $(window).height() + $(window).scrollTop();
-				
 				if(scrolH>=docH){
 					addDiv();
 				}
-
 			});
 			
 });
@@ -57,7 +57,7 @@ $(document).ready(function() {
 
 function addDiv(){
 	for(var i=0; i<6; i++){
-		$("#secondrow").append(
+		$("#secondcontainer").append(
 				"<div class='col-md-4 text-center'>"+
 					"<div class='thumbnail'>"+
 						"<img class='img-responsive' src='http://placehold.it/750x450' alt=''>"+

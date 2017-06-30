@@ -74,9 +74,9 @@
 		</div>
 	</nav>
 
-	<!-- 베스트3 -->
-	<div class="container">
-
+	
+	<div class="container" id="secondcontainer" >
+		<!-- 베스트3 -->
 		<div class="row">
 
 			<div class="col-lg-12">
@@ -171,7 +171,7 @@
 	</div>
 	<!-- /.container -->
 
-<!-- top버튼 -->
+			<!-- top버튼 -->
 			<a class="return-top" href="#"
 				style="right: 15px; bottom: 15px; position: fixed; z-index: 9999; width: 40px; height: 30px; font-size: 20px;">TOP</a>
 		
