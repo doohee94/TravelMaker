@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- 
-	allianceMain.jsp
-	제휴 페이지 Main 페이지
- -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,9 +20,10 @@
     
     <!-- Header CSS -->
     <link href="/resource/bootstrap/css/header.css" rel="stylesheet" type="text/css">
+    
 </head>
 <body>
-	    <!-- Navigation -->
+	   <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -63,30 +60,31 @@
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
-         </div>
+        </div>
     </nav>
-    <div class="container">
+	<div class="container">
+
         <!-- Page Heading/Breadcrumbs -->
+        <!-- submenu start -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">제휴
-                    <small>제휴소개</small>
+                <h1 class="page-header">Main Title
+                    <small>Sub title</small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="/tmmain/main.tm">Home</a></li>
-                    <li class="active">제휴 소개</li>
+                    <li class="active">Full Width Page</li>
                 </ol>
             </div>
         </div>
-        <!-- /.row -->
-        <div class="row">
-        	<center>
-				<img alt="손잡고있는 그림" src="/resource/alliance/image/alliance.jpg" />
-				<a href="allianceReq.tm"><img alt="버튼그림" class="button" src="/resource/alliance/image/button.png" style="width: 380px;" /></a>
-			</center>
-        </div>
+         <!-- submenu end -->
+        <hr>
+		<div class="row">
+			내용 넣는곳
+		</div>
     </div>
-	
+    <!-- /.container -->
+    
     <!-- jQuery -->
     <script src="/resource/bootstrap/js/jquery.js"></script>
 
