@@ -177,6 +177,8 @@ text-decoration:none;
 			</div>
 		</div>
 </body> <!--  바디 끝 -->
+
+<!-- 해당되는 탭만 보여주기 -->
 <script type="text/javascript">
 $(document).ready(function(){
 

@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  <!--  
-  마이페이지>내일정>내일정 관련 리스트 보여주는 페이지
-   -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,6 +34,10 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 	
+	<!-- 탭 -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
 	<!--  프로그레스 -->
 	<link rel="stylesheet" href="/resource/member/css/jquery.lineProgressbar.css">
 	
@@ -47,6 +48,9 @@
 	<!-- mouseover -->
 	<link rel="stylesheet" type="text/js" href="/resource/mylist/js/listmouse.js" />
 	<link rel="stylesheet" type="text/css" href="/resource/mylist/css/listmouse.css" />
+	
+	<!-- 헤더 -->
+	<!-- <link rel="stylesheet" href="/TravelMakerTest/css/base.css"> -->
 	
 	<!-- 각 list 틀 -->
 	<link rel="stylesheet" type="text/js" href="/resource/mylist/js/mylist.js" />
@@ -66,7 +70,6 @@ text-decoration:none;
 </style>
 
 </head>
-
 <body>
 
     <div id="wrapper">
@@ -285,8 +288,7 @@ text-decoration:none;
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-in fa-fw" id='loginlogo'></i> Login</a>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw" id='logoutlogo'></i> Logout</a>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -298,32 +300,103 @@ text-decoration:none;
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li>
-                            <a href="index.html"><i class="fa fa-user fa-user"></i> 내정보<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="http://localhost:8080/member/memberUpdate.tm">정보보기</a>
-                                </li>
-                                <li>
-                                    <a href="http://localhost:8080/member/memberDelete.tm">회원탈퇴</a>
-                                </li>
-                            </ul>
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="http://localhost:8080/mylist/menubar.tm"><i class="fa fa-list-alt fa-list-alt "></i>나의일정</a>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="flot.html">Flot Charts</a>
+                                </li>
+                                <li>
+                                    <a href="morris.html">Morris.js Charts</a>
+                                </li>
+                            </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="tables.html"><i class="fa fa-calendar fa-calendar "></i> 관심일정</a>
+                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-heart fa-heart "></i> 관심여행지</a>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-omments fa-comments "></i>QnA</a>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="panels-wells.html">Panels and Wells</a>
+                                </li>
+                                <li>
+                                    <a href="buttons.html">Buttons</a>
+                                </li>
+                                <li>
+                                    <a href="notifications.html">Notifications</a>
+                                </li>
+                                <li>
+                                    <a href="typography.html">Typography</a>
+                                </li>
+                                <li>
+                                    <a href="icons.html"> Icons</a>
+                                </li>
+                                <li>
+                                    <a href="grid.html">Grid</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-flag fa-flag "></i>스탬프</a>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Second Level Item</a>
+                                </li>
+                                <li>
+                                    <a href="#">Second Level Item</a>
+                                </li>
+                                <li>
+                                    <a href="#">Third Level <span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                    </ul>
+                                    <!-- /.nav-third-level -->
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li class="active">
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a class="active" href="blank.html">Blank Page</a>
+                                </li>
+                                <li>
+                                    <a href="login.html">Login Page</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
                         </li>
                     </ul>
                 </div>
@@ -331,116 +404,22 @@ text-decoration:none;
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-	</div>
-	<div id="page-wrapper">
-		<div class="container-fluid">
-        <!--  달성률 보는 곳 -->
-		<article   style="margin-left:100px; background-image:url('/resource/mylist/images/test3.png'); height: 250px">
-			
-			<img src="/resource/mylist/images/flag.png" style="display: inline-block; margin-left:1500px"/>
-			<div id="rate" style="margin-left:35%;display:inline-block;"></div>
-		
-		</article>
 
-
- <!-- 탭 -->       
-        <div class="row">
-        <article  style="background-color: #092551; height: 100px;" >
-        <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Blank</h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
         </div>
-		
-        <div align="center" ><br/>
-            <a class="tab" data-filter="all" id="all" style="cursor:pointer" style="font-size: 5pt">전체<br/><br/>일정</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a class="tab" data-filter="ing" id="ing" style="cursor:pointer" style="font-size: 5pt">계획중인<br/><br/>일정</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a class="tab" data-filter="done" id="done" style="cursor:pointer" style="font-size: 5pt">완성된<br/><br/>일정</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a class="tab" data-filter="start" id="start" style="cursor:pointer" style="font-size: 5pt">시작된<br/><br/>일정</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a class="tab" data-filter="end" id="end" style="cursor:pointer" style="font-size: 5pt">여행한<br/><br/>일정</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </div>
-        </article>
-        <br/>
+        <!-- /#page-wrapper -->
 
-		<!-- 각 일정 보여주는 곳 -->
-		<center>
-		<div class="schedule-list">          
-            
-				<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter ing">
-				  <img src="/resource/mylist/images/image_1.JPG" />
-				  <figcaption>
-				    <h3>2017.05.16~2017.06.11</h3>
-				    <p>서울>부산</p>
-				  </figcaption>
-				</figure>
-				
-				<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done">
-				  <img src="/resource/mylist/images/image_2.JPG" />
-				  <figcaption>
-				    <h3>2017.05.16~2017.06.11</h3>
-				    <p>서울>부산</p>
-				  </figcaption>
-				</figure>
-				
-				<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter start">
-				  <img src="/resource/mylist/images/image_3.JPG" />
-				  <figcaption>
-				    <h3>2017.05.16~2017.06.11</h3>
-				    <p>서울>부산</p>
-				  </figcaption>
-				</figure>
-				
-				<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter end">
-				  <img src="/resource/mylist/images/image_4.JPG" />
-				  <figcaption>
-				    <h3>2017.05.16~2017.06.11</h3>
-				    <p>서울>부산</p>
-				  </figcaption>
-				</figure>
-				
-				<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter ing">
-				  <img src="/resource/mylist/images/image_5.JPG" />
-				  <figcaption>
-				    <h3>2017.05.16~2017.06.11</h3>
-				    <p>서울>부산</p>
-				  </figcaption>
-				</figure>
-				
-				<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done">
-				  <img src="/resource/mylist/images/image_6.JPG" />
-				  <figcaption>
-				    <h3>2017.05.16~2017.06.11</h3>
-				    <p>서울>부산</p>
-				  </figcaption>
-				</figure>
-				
-				<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter ing">
-				  <img src="/resource/mylist/images/image_7.JPG" />
-				  <figcaption>
-				    <h3>2017.05.16~2017.06.11</h3>
-				    <p>서울>부산</p>
-				  </figcaption>
-				</figure>
-				
-				<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter start">
-				  <img src="/resource/mylist/images/image_8.JPG" />
-				  <figcaption>
-				    <h3>2017.05.16~2017.06.11</h3>
-				    <p>서울>부산</p>
-				  </figcaption>
-				</figure>
-				
-				<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter end">
-				  <img src="/resource/mylist/images/image_9.JPG" />
-				  <figcaption>
-				    <h3>2017.05.16~2017.06.11</h3>
-				    <p>서울>부산</p>
-				  </figcaption>
-				</figure>
-
-
-
-		</div> 
-		</center>
-	</div>
-</div>
     </div>
     <!-- /#wrapper -->
 
@@ -457,77 +436,4 @@ text-decoration:none;
     <script src="/resource/bootstrap/js/sb-admin-2.js"></script>
 
 </body>
-
-<script src="/resource/member/js/jquery.lineProgressbar.js"></script>
-<script type="text/javascript">
-	var rate=80; // 계산에서 넘어온 rate 값을 넣어준다. 
-	$('#rate').LineProgressbar({
-		
-		percentage:rate,
-		fillBackgroundColor:'#b989c4',
-		height:'65px',
-		radius:'50px',
-		width:'900px'
-	});	
-</script>
-
-
-<!--  메뉴바 -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script type="text/javascript">
-$(function() {
-    $(".subtitle:not(:first)").attr('class','subtitle sub_on');
-    $(".sub:first").css("display","block");
-    $(".sub:not(:first)").css("display","none");
-    $(".subtitle").click(function() { 
-        if ($(this).next(".sub").css("display") == "none") {
-            $(this).attr('class','subtitle');
-        } else {
-            $(this).attr('class','subtitle sub_on');
-        }
-        $(this).next(".sub").slideToggle('fast');
-    });
-});
-</script>
-
-<!--  탭관련 js
-	클릭시 해당하는 일정 페이지로 넘어간다.-->
-<script type="text/javascript">
-$(function(){
-	//전체 일정을 보여준다
-	$('#all').click(function(){
-		$('#all').attr('href','menubar.tm');//여기 경로만 수정해주세요
-	});
-	//계획중인 일정을 누르면 계획중인 일정 페이지로 넘어간다. 
-	$('#ing').click(function(){
-		$('#ing').attr('href','inglist.tm');//여기 경로만 수정해주세요
-	});
-	
-	//완성된 일정을 페이지로 넘어감. 
-	$('#done').click(function(){
-		$('#done').attr('href','donelist.tm'); //여기 경로만 수정해주세요
-	});
-	
-	//시작된 일정 페이지로 넘어감
-	$('#start').click(function(){
-		$('#start').attr('href','startlist.tm');//여기 경로만 수정해주세요
-	});
-	
-	//여행한 일정 페이지로 넘어감.
-	$('#end').click(function(){
-		$('#end').attr('href','endlist.tm');//여기 경로만 수정해주세요
-	});
-	
-});
-
-</script>
-
-<!-- login/logout 이름과 그림이 바뀌게 -->
-<script type="text/javascript">
-$(function(){
-	$(".divider").click(function(){
-		$("#logoutlogo").hide();
-	});
-});
-</script>
 </html>
