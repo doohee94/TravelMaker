@@ -71,30 +71,32 @@ for(int i=0; i<date.size(); i++){
 <br/>
 <div id="accordion" style="width:80%; margin-left:10%">
 <%for(int i=0; i<date.size() && place[i] != null; i++){ %>
-  <h3>Day <%=i+1 %> <button style="float:right;color:blue;" class="modify">수정</button></h3>
+  <h3 id="day">day<%=i+1 %> <button style="float:right;color:blue;" class="modify">수정</button></h3>
   <div> 
     <div class="container">
 			<div class="row">
 				<div class="col-md-12 board">
 					<div class="board-inner">
 						<ul class="nav nav-tabs" id="myTab">
-						<div class="liner"></div>
-							<%for(int j=0; j<place[i].size(); j++){
-								
-								JSONObject temp = new JSONObject();
-								temp  = (JSONObject)place[i].get(j);
-								String title = temp.get("title").toString();
-							%>
-							<li class="active">
-							<a aria-controls="home"
-								role="tab" data-toggle="tab" title="User Experience">
-								<span class="round-tabs one stemp"></span>
-							</a>
-							<p align="center"><%=title %></p>
-							</li>
-							<%} %>
-						</ul>
-					</div>
+							<div class="liner"></div>
+								<%for(int j=0; j<place[i].size(); j++){
+									
+									JSONObject temp = new JSONObject();
+									temp  = (JSONObject)place[i].get(j);
+									String title = temp.get("title").toString();
+								%>
+									<li class="active">
+									<a aria-controls="home"
+										role="tab" data-toggle="tab" title="User Experience">
+										<span class="round-tabs one stemp">day<%=i+1%>
+											<input type="hidden" class="num" value="<%=j%>"/>
+										</span>
+									</a>
+									<p align="center"><%=title %></p>
+									</li>
+								<%} %>
+							</ul>
+						</div>
 				</div>
 			</div>
 		</div>

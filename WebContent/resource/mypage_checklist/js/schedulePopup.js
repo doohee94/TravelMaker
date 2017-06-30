@@ -23,8 +23,13 @@ $(function(){
 		        $('#submit').click( function(){ // close 버튼을 누르면 
 		  			var state = $("#state").val();
 		  			//한줄평이랑 상태 디비에 저장! 에이작스 써야할둡
-
-		        	$a.close(state); // 데이터를 팝업을 띄운 윈도우의 callback에 전달 
+		  			
+		  			var data = {
+		  					"state":state,
+		  					"one_line":$("#one_line_text").val()
+		  			}
+		  			
+		        	$a.close(data); // 데이터를 팝업을 띄운 윈도우의 callback에 전달 
 		        });
 		    }
 		});
