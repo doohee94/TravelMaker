@@ -7,4 +7,9 @@
 		INSERT INTO reviewlike
 		VALUES(#{user_id},#{sc_num})
 	</insert>
+	
+	<delete id="deleteLike" parameterType="hashMap">
+		DELETE FROM reviewlike
+		WHERE user_id = #{user_id} AND sc_num = #{sc_num}
+	</delete>
 </mapper>

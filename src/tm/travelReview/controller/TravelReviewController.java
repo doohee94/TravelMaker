@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import tm.reviewlike.dao.ReviewLikeDAO;
+import tm.reviewlike.dto.ReviewLikeDTO;
 import tm.totalre.dao.TotalreDAO;
 import tm.totalre.dto.TotalreDTO;
 
@@ -52,12 +53,21 @@ public class TravelReviewController {
 	//public ModelAndView showReviewDetail(@RequestParam("id") String _id){
 	public ModelAndView showReviewDetail(){
 		
+		//임의로 준 유저아이디
+		String user_id = "maro";
 		//임의로 준 번호
 		String _id = "128";
 		
 		ModelAndView mv = new ModelAndView();
 		
 		TotalreDTO dto = dao.showReview(_id);
+		
+		//이미 좋아요를 누른건지 아닌지 확인
+		
+		int reviewlike = 0;
+		reviewlike = dao.checkLike(user_id,_id);
+		
+		mv.addObject("result",reviewlike);
 		
 		mv.addObject("totalre", dto);
 		

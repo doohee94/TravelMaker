@@ -34,7 +34,19 @@ $(function() {
                 });
   				
   			}else{
-  				$("#heartBtn").attr("src","/resource/travelReview/images/heart1.png");
+  				
+  				$.ajax({
+  	               	 url : "/deleteLike.tm"
+  	           	     ,type:"post"
+  	           	     ,contentType:"application/json"
+  	           	     ,data:JSON.stringify(likeinfo)
+  	           	     ,success:function(data){
+  	           	    	 $("#heartBtn").attr("src","/resource/travelReview/images/heart1.png");
+  	           	     }
+  	                ,error:function(err,status,error){
+  	       	         alert("실패!"+err.status+error);
+  	       	      }
+  	                });
   			}
   		});
   		
