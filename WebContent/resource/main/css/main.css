@@ -1,0 +1,13 @@
+/*도전일정 타이틀*/
+.challengeTitle{
+	
+	color:#000000;
+	font-size: 1.7em
+	
+}
+/*도전일정 더보기 버튼*/
+.more{
+	float: right;
+	margin-top:40px;
+}
+
