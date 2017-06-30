@@ -1,31 +1,88 @@
+
+
 $(function() {
+		// 동행자 팝업 창에서 완료 버튼을 누르면 리스트에 나온 값들을 동행자 버튼 왼쪽 텍스트공간에
+		// 적어 끌고오기
+//		$(".ftokbtn").click(function(){
+//			var idgroup= $("#idlist").val();
+//			
+//			$("#fellowpeople").val(idgroup);
+//			
+//		});
+//		
+		
+		$(document).on('click', '.ftokbtn', function(){
+			
+			// step1 동행자 공간 id,class 는 fellowpeople
+			// 선택된 아이디가 있는 곳은 li 의 class mbulli 
+			
+			// 동행자 팝업 창에서 선택된 아이디 값을 모달창에서 step1 페이지 동행자란에 가져오기.
+			var idgroup = $(".modal-body-bottom").find(".mbulli").text();
+			
+			$("#fellowpeople").val(idgroup);
+			
+		});
+		// 아이디를 검색후 o 버튼을 누르면 선택한 아이디가 modal-body 하단에 기입되는 기능.
+		$(document).on('click', '.okbtn', function(){
+			$(".mbbul").append("<li class='mbulli'>"+$(this).prev().prev().prev().val()+" ");
+		});
+	
+		//동행자 팝업 창에서 x 버튼 (close 버튼) 누르면 동행자 목록이 초기화.
+		$(".close").click(function(){
+			// 동행자 목록 초기화
+			$(".modal-body").find(".idlistfrm *").detach();
+			// 동행자 목록에서 선택한 아이디 값들을 초기화
+			$(".modal-body-bottom").find(".mbbul *").detach();
+		});
+
+		$(".ftrsbtn").click(function(){
+			// 동행자 목록 초기화
+//			$(".modal-body").find
+			$(".idlistfrm *").detach();
+			// 동행자 목록에서 선택한 아이디 값들을 초기화
+//			$(".modal-body-bottom").find
+			$(".mbbul *").detach();
+		});
+		
 		// 동행자 팝업 창에서 search 버튼 눌렀을때
 		$("#modalsearchbtn").click(function(){
-//			$(".modal-body").append("<div class='col-md-13'>" +
-//					"<input type='textarea' id='idlist' name='idlist' readonly>" +
-//					"<input type='button' value='O' id='okbtn'>" +
-//					"<input type='button' value='X' id='cancelbtn'>" +
-//					"</div>");
-			var id = $("#modalsearchplace").text();
-			$.ajax({
-				type : "POST" ,
-				url :"/step1/step1searchfell.tm" ,
-				data : "user_id="+id ,
-				dataType :"json" ,
-				success: function(data){
-					$("#userId").val(data.userId);
-					$("#userName").val(data.userName);
-				}
-				
-				
-			});
+			$(".idlistfrm").append( 
+					"<label class='idlb'>ID</label>"+
+					"<input type='textarea' class='idlist' id='idlist' name='idlist'>" +
+					"<label class='nicklb'>닉네임</label>"+
+					"<input type+'textarea' class='nicklist' id='nicklist' name='nicklist'>" +
+					"<input type='button' value='O' id='okbtn' class='okbtn'>"+
+					"<br/>"
+					);
+			
+			//검색창의 내용을 con 이라는 변수에 저장.
+//			var con = $("#modalsearchplace").val() ;
+//			$.ajax({
+//				url :"/step1/setp1searchfellow.tm" ,
+//				type : "POST" ,
+//				data : {"con":con},
+//				dataType :"json" ,
+//				success: function(data){
+//					//내용값을 지우고
+//					$(".idlistfrm *").detach();
+//					//결과 리스트를 읽어와서 추가 
+//					for(var i =0; i < data.length; i++){
+//						$(".idlistfrm").append(
+//							"<input type='textarea' value='"+data[i].userId+"' class='idlist' id='idlist' name='idlist'>"+
+//							"<input type+'textarea' value='"+data[i].userNick+"'class='nicklist' id='nicklist' name='nicklist'>" +
+//							"<input type='button' value='O' id='okbtn' class='okbtn'>"
+//							);
+//					}
+//				}
+//				
+//			});
 			
 		});
 	
 		// 제목 입력란 유효성 글자 25자 내로 입력
 		$('.traveltitle').on('keydown', function() {
-			if ($(this).val().length > 15) {
-				$(this).val($(this).val().substring(0, 15));
+			if ($(this).val().length > 25) {
+				$(this).val($(this).val().substring(0, 25));
 			}
 
 		});
@@ -330,128 +387,128 @@ $(function() {
 		});
 
 		//여행지 버튼클릭 이벤트
+		
 		// 출발지 탭
 		//여행지 지역 선택 3행으로 이루어진상태
 		var tempstart;
 		
 		//1행 travelregion
 		$(".wrap .city0 .a").click(function() {
-			tempstart= $(this).val()+"/";
+			tempstart= $(this).val();
 			$(".liststart").val(tempstart);
 		});
 		
 		//2행 travelregion
 		$(".wrap .city1 .a").click(function() {
-			tempstart= $(this).val()+"/";
+			tempstart= $(this).val();
 			$(".liststart").val(tempstart);
 		});
 		
 		//3행 travelregion
 		$(".wrap .city2 .a").click(function() {
-			tempstart= $(this).val()+"/";
+			tempstart= $(this).val();
 			$(".liststart").val(tempstart);
 		});
 
 		/** 강원도 하위 버튼 (travelregion)*/
 		$(".wrap .Gangwondodiv input").click(function() {
-			tempstart= $(this).val()+"/";
+			tempstart= $(this).val();
 			$(".liststart").val(tempstart);
 		});
 		
 		/** 경기도 하위 버튼 (travelregion)*/
 		$(".wrap .Gyeonggidodiv input").click(function() {
-			tempstart= $(this).val()+"/";
+			tempstart= $(this).val();
 			$(".liststart").val(tempstart);
 		});
 
 		/** 경상남도 하위 버튼 (travelregion)*/
 		$(".wrap .Gyeongsangnamdodiv input").click(function() {
-			tempstart= $(this).val()+"/";
+			tempstart= $(this).val();
 			$(".liststart").val(tempstart);
 		});
 		/** 경상북도 하위 버튼 (travelregion)*/
 		$(".wrap .Gyeongsangbukdodiv input").click(function() {
-			tempstart= $(this).val()+"/";
+			tempstart= $(this).val();
 			$(".liststart").val(tempstart);
 		});
 		/** 전남 하위 버튼 (travelregion)*/
 		$(".wrap .Jeollanamdodiv input").click(function() {
-			tempstart= $(this).val()+"/";
+			tempstart= $(this).val();
 			$(".liststart").val(tempstart);
 		});
 		/** 전북 하위 버튼 (travelregion)*/
 		$(".wrap .Jeollabukdodiv input").click(function() {
-			tempstart= $(this).val()+"/";
+			tempstart= $(this).val();
 			$(".liststart").val(tempstart);
 		});
 		/** 충남 하위 버튼 (travelregion)*/
 		$(".wrap .Chungcheongnamdodiv input").click(function() {
-			tempstart= $(this).val()+"/";
+			tempstart= $(this).val();
 			$(".liststart").val(tempstart);
 		});
 		/** 충북 하위 버튼 (travelregion)*/
 		$(".wrap .Chungcheongbukdodiv input").click(function() {
-			tempstart= $(this).val()+"/";
+			tempstart= $(this).val();
 			$(".liststart").val(tempstart);
 		});
 
 		/** 1행 travelregion2 */
 		var temp=[];
-		
 		$(".wrap .city0 .b").click(function() {
-			temp += $(this).val()+"/";
+			temp += $(this).val()+">";
 			$(".listthrough").val(temp);
 		});
 		/** 2행 travelregion*/
 		$(".wrap .city1 .b").click(function() {
-			temp += $(this).val()+"/";
+			temp += $(this).val()+">";
 			$(".listthrough").val(temp);
 		});
 		/** 3행 travelregion*/
 		$(".wrap .city2 .b").click(function() {
-			temp += $(this).val()+"/";
+			temp += $(this).val()+">";
 			$(".listthrough").val(temp);
 		});
 
 		/** 강원도 하위 버튼 (travelregion2)*/
 		$(".wrap .Gangwondodiv2 input").click(function() {
-			temp += $(this).val()+"/";
+			temp += $(this).val()+">";
 			$(".listthrough").val(temp);
 		});
 		/** 경기도 하위 버튼 (travelregion2)*/
 		$(".wrap .Gyeonggidodiv2 input").click(function() {
-			temp += $(this).val()+"/";
+			temp += $(this).val()+">";
 			$(".listthrough").val(temp);
 		});
 
 		/** 경상남도 하위 버튼 (travelregion2)*/
 		$(".wrap .Gyeongsangnamdodiv2 input").click(function() {
-			temp += $(this).val()+"/";
+			temp += $(this).val()+">";
 			$(".listthrough").val(temp);
 		});
 		/** 경상북도 하위 버튼 (travelregion2)*/
 		$(".wrap .Gyeongsangbukdodiv2 input").click(function() {
-			temp += $(this).val()+"/";
+			temp += $(this).val()+">";
 			$(".listthrough").val(temp);
 		});
 		/** 전남 하위 버튼 (travelregion2)*/
 		$(".wrap .Jeollanamdodiv2 input").click(function() {
-			temp += $(this).val()+"/";
+			temp += $(this).val()+">";
 			$(".listthrough").val(temp);
 		});
 		/** 전북 하위 버튼 (travelregion2)*/
 		$(".wrap .Jeollabukdodiv2 input").click(function() {
-			temp += $(this).val()+"/";
+			temp += $(this).val()+">";
 			$(".listthrough").val(temp);
 		});
 		/** 충남 하위 버튼 (travelregion2)*/
 		$(".wrap .Chungcheongnamdodiv2 input").click(function() {
-			temp += $(this).val()+"/";
+			temp += $(this).val()+">";
 			$(".listthrough").val(temp);
 		});
 		/** 충북 하위 버튼 (travelregion2)*/
 		$(".wrap .Chungcheongbukdodiv2 input").click(function() {
-			temp += $(this).val()+"/";
+			temp += $(this).val()+">";
 			$(".listthrough").val(temp);
 		});
 

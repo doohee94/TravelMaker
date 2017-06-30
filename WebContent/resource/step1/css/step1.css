@@ -67,9 +67,10 @@ background-color:white;
 .container .threerow .lbtitle{
 	text-align:center;
 	font-size:25px;
-	color:black;
+	color:white;
 	margin-top:5px;
-	margin-bottom:20px;
+	margin-bottom:2px;
+	background-color:#222222;
 }
 
 .container .threerow .traveltitle{
@@ -110,10 +111,10 @@ background-color:white;
 
 
 /** tab font css */
-.container{
-	margin-top:5px;
+#container{
+	margin-top:65px;
 }
-.container ul li a{
+.container .contnsubform ul li a{
 	font-size:18px;
 	font-weight:600;
 }
@@ -226,7 +227,7 @@ background-color:white;
 	margin-bottom:3px;
 }
 
-.container #myModal .modal-dialog .modal-content .modal-body .col-md-13 #idlist{
+bcontainer #myModal .modal-dialog .modal-content .modal-body .col-md-13 #idlist{
 	margin-bottom:3px;
 }
 
