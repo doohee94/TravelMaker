@@ -86,14 +86,4 @@ public class TravelReviewController {
 		}
 		return mv;
 	}
-	
-//	@Autowired
-//	ReviewLikeDAO likedao;
-//	
-//	@RequestMapping("/insertLike.tm")
-//	@ResponseBody
-//	public void insertReviewLike(@RequestBody JSONObject content){
-//		
-//		likedao.insertReviewLike(content.get("user_id").toString(), content.get("sc_num").toString());
-//	}
 }

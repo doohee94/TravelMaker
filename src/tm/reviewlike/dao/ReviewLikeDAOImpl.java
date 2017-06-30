@@ -6,11 +6,12 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-//@Service
+@Service
 public class ReviewLikeDAOImpl implements ReviewLikeDAO {
 	
-	
+	@Autowired
 	SqlSessionTemplate ss;
+	
 	private String namespace = "reviewlike";
 
 	@Override
