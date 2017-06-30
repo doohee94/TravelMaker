@@ -83,9 +83,9 @@
         <!-- /.row -->
         <div class="row">
         	<center>
-			<img alt="완료그림" src="/resource/alliance/image/finsh.jpg" />
-			<br/>
-			<a href="/tmmain/main.tm"><img alt="" class="button" src="/resource/alliance/image/main.png"  style="width: 300px;"/></a>
+			<img alt="완료그림" src="/resource/alliance/image/finsh.jpg" style="width: 95%"/>
+			<br/> 
+			<a href="/tmmain/main.tm"><img alt="" class="button" src="/resource/alliance/image/main.png"  style="width: 30%;"/></a>
 			</center>
         </div>
     </div>

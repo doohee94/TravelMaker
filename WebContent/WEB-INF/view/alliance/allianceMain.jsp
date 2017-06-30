@@ -81,8 +81,8 @@
         <!-- /.row -->
         <div class="row">
         	<center>
-				<img alt="손잡고있는 그림" src="/resource/alliance/image/alliance.jpg" />
-				<a href="allianceReq.tm"><img alt="버튼그림" class="button" src="/resource/alliance/image/button.png" style="width: 380px;" /></a>
+				<img alt="손잡고있는 그림" src="/resource/alliance/image/alliance.jpg"  style="width: 90%"/>
+				<a href="allianceReq.tm"><img alt="버튼그림" class="button" src="/resource/alliance/image/button.png" style="width: 30%;" /></a>
 			</center>
         </div>
     </div>
