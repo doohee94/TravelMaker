@@ -1,5 +1,13 @@
 package tm.step1.dao;
 
-public class Step1DAO {
+import java.util.List;
 
+import tm.step1.dto.Step1DTO;
+
+public interface Step1DAO {
+
+	public List<Step1DTO> Step1list();
+	
+	public List<Step1DTO> fellowsearch(String con);
+	
 }
