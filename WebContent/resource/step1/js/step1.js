@@ -5,9 +5,9 @@ $(function() {
 	$(function() {
 		$("#loading").hide();
 
-		$("#nextbtn").click(function(event) {
+		$(".nextbtn").click(function(event) {
 			event.preventDefault();
-			$("#main").hide();
+			$("#container").hide();
 			$("#loading").show();
 			var url = "/step2/step2.tm";
 			$(location).attr('href', url);
