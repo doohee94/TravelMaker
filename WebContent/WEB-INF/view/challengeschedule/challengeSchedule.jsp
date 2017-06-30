@@ -20,11 +20,16 @@
 <link rel="stylesheet" href="/resource/challengeSchedule/css/challengeSchedule.css"/>
 
 
-<!--게시글(네모창)에 마우스오버 했을때 사용되는 부트스트랩 스크립트-->
+<!--게시글(네모창)에 마우스오버 했을때 사용되는 부트스트랩 스크립트, top버튼 script -->
+
+<!--  top버튼 (26번째 스크립트로 인해 25번줄 소스 생략가능)  -->
+<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <!--게시글(네모창)에 마우스오버 했을때 사용되는 부트스트랩 스크립트-->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 
 <!--게시글(네모창)에 마우스오버 했을때 사용되는 부트스트랩 스크립트-->
 <script>
@@ -49,6 +54,27 @@ $(document).ready(function() {
             $(this).find('.caption').slideUp(250); //.fadeOut(205)
         }
     ); 
+    
+    //top 버튼 스크립트
+    $(".return-top").hide(); // 탑 버튼 숨김
+    $(function () {
+                 
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) { // 스크롤 내릴 표시
+                $('.return-top').fadeIn();
+            } else {
+                $('.return-top').fadeOut();
+            }
+        });
+                
+        $('.return-top').click(function () {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 350);  // 탑 이동 스크롤 속도
+            return false;
+        });
+    });
+    
  });
 </script>
 
@@ -302,7 +328,10 @@ $(document).ready(function() {
 		<!-- 도전 게시글 중 하나 -->
 		
     </div><!--/row -->
-
+    
+	<!-- top버튼 -->
+	<a class="return-top" href="#" style="right:15px; bottom:15px; position:fixed; z-index:9999;
+	width:40px;height:30px; font-size:20px;">TOP</a>
 </div> <!-- end 도전 container (바디 : 게시글 공간)  -->
 </body>
 </html>

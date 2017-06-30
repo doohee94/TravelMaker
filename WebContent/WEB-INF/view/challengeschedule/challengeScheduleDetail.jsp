@@ -15,10 +15,9 @@
 <link rel="stylesheet" href="/resource/challengeSchedule/css/challengeScheduleDetail.css"/>
 
 <!-- 슬라이드 script -->
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script
-	src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<!-- 슬라이드 script ( 19번줄,20번줄 ), top버튼 ( 19번줄 ) -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script	src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 <!-- js  -->
 <script src="/resource/challengeSchedule/js/challengeScheduleDetail.js"></script>
@@ -318,7 +317,10 @@
 				
 			</div>
 		</div>
-		
+		<!-- top버튼 -->
+		<a class="return-top" href="#" style="right:15px; bottom:15px; position:fixed; z-index:9999;
+	width:40px;height:30px; font-size:20px;">TOP</a>
+	
 	</div>
 	<!-- end container -->
 	

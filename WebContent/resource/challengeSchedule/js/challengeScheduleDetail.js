@@ -1,6 +1,24 @@
 $(function() {
-	
-		
+	// top버튼 
+	 $(".return-top").hide(); // 탑 버튼 숨김
+	    $(function () {
+	                 
+	        $(window).scroll(function () {
+	            if ($(this).scrollTop() > 100) { // 스크롤 내릴 표시
+	                $('.return-top').fadeIn();
+	            } else {
+	                $('.return-top').fadeOut();
+	            }
+	        });
+	                
+	        $('.return-top').click(function () {
+	            $('body,html').animate({
+	                scrollTop: 0
+	            }, 350);  // 탑 이동 스크롤 속도
+	            return false;
+	        });
+	    });
+	    
 		// 페이스북 공유 버튼
 		$("#shareBtn").click(function(){
 	        window.open('http://www.facebook.com/sharer/sharer.php?u=http://localhost:8080/ProjectUIPractice/TravelSpotReview/reviewDetail.jsp')
@@ -187,17 +205,3 @@ $( document ).ready(function() {
 	  });
   
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
