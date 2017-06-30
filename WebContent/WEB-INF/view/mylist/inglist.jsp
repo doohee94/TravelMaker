@@ -31,7 +31,6 @@
 
 <!-- 각 list 틀 -->
 <script type="text/javascript" src="/resource/mylist/js/mylist.js"></script> 
-<!--<link rel="stylesheet" type="text/js" href="/resource/mylist/js/mylist.js" /> -->
 <link rel="stylesheet" href="/resource/mylist/css/mylist.css">
 
 <style type="text/css">
