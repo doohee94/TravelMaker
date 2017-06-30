@@ -12,4 +12,10 @@
 		</if>
 		</where>
 	</select>
+	
+	<select id="checkLike" parameterType="hashMap" resultType="Integer">
+		SELECT count(*)
+		FROM reviewlike
+		WHERE sc_num = #{sc_num} AND user_id = #{user_id}
+	</select>
 </mapper>

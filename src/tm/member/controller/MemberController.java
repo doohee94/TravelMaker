@@ -1,18 +1,16 @@
 package tm.member.controller;
 
-import java.util.List;
-
 import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import tm.member.dao.MemberDAO;
@@ -79,11 +77,25 @@ private String dir = "member/";
 		mv.setViewName(dir+"list");
 		return mv;
 	}*/
+	@RequestMapping("memberUpdate.tm")
+	public ModelAndView update(MemberDTO memberdto){
+		memberdto.getUserId();
+		memberdto.getUserPw();
+		memberdto.getUserName();
+		memberdto.getUserNick();
+		memberdto.getUserTel();
+		memberdto.getUserEmail();
+		memberdto.setUserAddr(memberdto.getUserCity() + memberdto.getUserBorough());
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(dir + "memberUpdate");
+		mv.addObject("memberdto", memberdto);
+		return mv;
+	}
 	
 /**
 * 회원정보수정
 */
-	@RequestMapping("/memberModify.tm")
+	/*@RequestMapping("/memberUpdate.tm")
 	public ModelAndView modify(MemberDTO memberdto){
 		memberdto.getUserId();
 		memberdto.getUserPw();
@@ -96,15 +108,14 @@ private String dir = "member/";
 		mv.setViewName(dir+"memberUpdate");
 		mv.addObject("memberdto", memberdto);
 		return mv;
-	}
-	/*@RequestMapping("/memberUpdate.tm")
-	public ModelAndView modifyOk(MemberDTO memberdto){
-		int res = dao.modify(memberdto);
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName(dir+"modifyOk");
-		mv.addObject("res", res);
-		return mv;
 	}*/
+	@RequestMapping(value="/memberUpdate.tm",method=RequestMethod.POST)
+	public String modify(MemberDTO memberdto){
+		System.out.println(memberdto.getUserId());
+		System.out.println(memberdto.getUserPw());
+		return "";
+	}
+	
 	
 /**
 * 회원탈퇴
@@ -114,9 +125,9 @@ private String dir = "member/";
 		
 	}
 	
-	/**
-	 * ID 찾기
-	 */
+/**
+* ID 찾기
+*/
 	
 	@RequestMapping("/serchIdOkForm.tm")
 	public ModelAndView searchID(String userName, String userEmail) {
@@ -132,7 +143,9 @@ private String dir = "member/";
 		
 		return mv;
 	}
-	
+/**
+* PW 찾기
+*/
 	@RequestMapping("/serchPwOkForm.tm")
 	public String mail(String userId, String userEmail) {
 		MemberDTO resultdto = dao.searchPw(userId, userEmail);

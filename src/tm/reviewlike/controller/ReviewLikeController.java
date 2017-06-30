@@ -53,4 +53,22 @@ public class ReviewLikeController {
 		likedao.insertReviewLike(jsonObj.get("user_id").toString(), jsonObj.get("sc_num").toString());
 		
 	}
+	
+	@RequestMapping("/deleteLike.tm")
+	@ResponseBody
+	public void deleteReview(@RequestBody String content){
+		
+		JSONParser jsonParser = new JSONParser();
+        JSONObject jsonObj = null;
+		try {
+			jsonObj = (JSONObject) jsonParser.parse(content);
+			
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		likedao.deleteReviewLike(jsonObj.get("user_id").toString(), jsonObj.get("sc_num").toString());
+		
+	}
 }

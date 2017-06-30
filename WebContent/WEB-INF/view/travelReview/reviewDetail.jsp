@@ -3,6 +3,10 @@
 <%@page import="org.json.simple.JSONObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+	int result = (Integer) request.getAttribute("result");
+	System.out.println(result);
+%>
 <% 
 	JSONArray tourarray = (JSONArray)request.getAttribute("obj");
 
@@ -105,7 +109,11 @@
 			<div class="page-header">
 				<h3>${totalre.totalreTitle}</h3>
 				<input type="button" id="shareBtn" value="페이스북공유하기"/>
+				<%if(result == 0) {%>
 				<input type="image" id="heartBtn" src="/resource/travelReview/images/heart1.png">
+				<%}else{%>
+					<input type="image" id="heartBtn" src="/resource/travelReview/images/heart2.png">
+				<%}%>
 			</div>
 			<div class="well">
 				<p>${totalre.totalreContent}</p>

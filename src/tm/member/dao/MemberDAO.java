@@ -14,7 +14,8 @@ public interface MemberDAO {
 	/**
 	 * 회원정보보기
 	 */
-	public List<MemberDTO> list();
+	/*public List<MemberDTO> list();*/
+	public int update(MemberDTO memberdto);
 	
 	/**
 	 * 회원수정
