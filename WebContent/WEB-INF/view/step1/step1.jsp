@@ -1,1150 +1,565 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-
-<!-- ÀÏÁ¤¸¸µé±â step1 ÆäÀÌÁö Ãâ/°æ/µµÂøÁö ¼±ÅÃ°ú µ¿ÇàÀÚ ¼±ÅÃ ±×¸®°í ³¯Â¥ÀÔ·ÂÇÏ´Â ÆäÀÌÁö
-    (È­¸é¼³°è ½½¶óÀÌµå4¹ø)-->
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ÀÏÁ¤¸¸µé±â step1</title>
-
-<!-- Ãâ¹ßÁö °æÀ¯Áö µµÂøÁö È­¸é css -->
-<link href="/resource/step1/css/step1.css" rel="stylesheet"/>
-<link href="/resource/step1/css/travelRegionStart.css" rel="stylesheet" />
-<link href="/resource/step1/css/travelRegionStopover.css" rel="stylesheet" />
-<link href="/resource/step1/css/travelRegionDestination.css" rel="stylesheet" />
-
-<!-- jquery Datepicker css-->
-<link rel="stylesheet"	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
-
-<!-- Ãâ¹ßÁö °æÀ¯Áö µµÂøÁö ÅÇ css -->
-<link rel="stylesheet"	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
 
-<!-- Ãâ¹ßÁö °æÀ¯Áö µµÂøÁö ÅÇ script -->
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+$(function() {
+		// ë™í–‰ì íŒì—… ì°½ì—ì„œ ì™„ë£Œ ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ ë¦¬ìŠ¤íŠ¸ì— ë‚˜ì˜¨ ê°’ë“¤ì„ ë™í–‰ì ë²„íŠ¼ ì™¼ìª½ í…ìŠ¤íŠ¸ê³µê°„ì—
+		// ì ì–´ ëŒê³ ì˜¤ê¸°
+//		$(".ftokbtn").click(function(){
+//			var idgroup= $("#idlist").val();
+//			
+//			$("#fellowpeople").val(idgroup);
+//			
+//		});
+//		
+		
+		$(document).on('click', '.ftokbtn', function(){
+			
+			// step1 ë™í–‰ì ê³µê°„ id,class ëŠ” fellowpeople
+			// ì„ íƒëœ ì•„ì´ë””ê°€ ìˆëŠ” ê³³ì€ li ì˜ class mbulli 
+			
+			// ë™í–‰ì íŒì—… ì°½ì—ì„œ ì„ íƒëœ ì•„ì´ë”” ê°’ì„ ëª¨ë‹¬ì°½ì—ì„œ step1 í˜ì´ì§€ ë™í–‰ìë€ì— ê°€ì ¸ì˜¤ê¸°.
+			var idgroup = $(".modal-body-bottom").find(".mbulli").text();
+			
+			$("#fellowpeople").val(idgroup);
+			
+		});
+		// ì•„ì´ë””ë¥¼ ê²€ìƒ‰í›„ o ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ ì„ íƒí•œ ì•„ì´ë””ê°€ modal-body í•˜ë‹¨ì— ê¸°ì…ë˜ëŠ” ê¸°ëŠ¥.
+		$(document).on('click', '.okbtn', function(){
+			$(".mbbul").append("<li class='mbulli'>"+$(this).prev().prev().prev().val()+" ");
+		});
+	
+		//ë™í–‰ì íŒì—… ì°½ì—ì„œ x ë²„íŠ¼ (close ë²„íŠ¼) ëˆ„ë¥´ë©´ ë™í–‰ì ëª©ë¡ì´ ì´ˆê¸°í™”.
+		$(".close").click(function(){
+			// ë™í–‰ì ëª©ë¡ ì´ˆê¸°í™”
+			$(".modal-body").find(".idlistfrm *").detach();
+			// ë™í–‰ì ëª©ë¡ì—ì„œ ì„ íƒí•œ ì•„ì´ë”” ê°’ë“¤ì„ ì´ˆê¸°í™”
+			$(".modal-body-bottom").find(".mbbul *").detach();
+		});
 
-<!-- jquery Datepicker script -->
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		$(".ftrsbtn").click(function(){
+			// ë™í–‰ì ëª©ë¡ ì´ˆê¸°í™”
+//			$(".modal-body").find
+			$(".idlistfrm *").detach();
+			// ë™í–‰ì ëª©ë¡ì—ì„œ ì„ íƒí•œ ì•„ì´ë”” ê°’ë“¤ì„ ì´ˆê¸°í™”
+//			$(".modal-body-bottom").find
+			$(".mbbul *").detach();
+		});
+		
+		// ë™í–‰ì íŒì—… ì°½ì—ì„œ search ë²„íŠ¼ ëˆŒë €ì„ë•Œ
+		$("#modalsearchbtn").click(function(){
+			$(".idlistfrm").append( 
+					"<label class='idlb'>ID</label>"+
+					"<input type='textarea' class='idlist' id='idlist' name='idlist'>" +
+					"<label class='nicklb'>ë‹‰ë„¤ì„</label>"+
+					"<input type+'textarea' class='nicklist' id='nicklist' name='nicklist'>" +
+					"<input type='button' value='O' id='okbtn' class='okbtn'>"+
+					"<br/>"
+					);
+			
+			//ê²€ìƒ‰ì°½ì˜ ë‚´ìš©ì„ con ì´ë¼ëŠ” ë³€ìˆ˜ì— ì €ì¥.
+//			var con = $("#modalsearchplace").val() ;
+//			$.ajax({
+//				url :"/step1/setp1searchfellow.tm" ,
+//				type : "POST" ,
+//				data : {"con":con},
+//				dataType :"json" ,
+//				success: function(data){
+//					//ë‚´ìš©ê°’ì„ ì§€ìš°ê³ 
+//					$(".idlistfrm *").detach();
+//					//ê²°ê³¼ ë¦¬ìŠ¤íŠ¸ë¥¼ ì½ì–´ì™€ì„œ ì¶”ê°€ 
+//					for(var i =0; i < data.length; i++){
+//						$(".idlistfrm").append(
+//							"<input type='textarea' value='"+data[i].userId+"' class='idlist' id='idlist' name='idlist'>"+
+//							"<input type+'textarea' value='"+data[i].userNick+"'class='nicklist' id='nicklist' name='nicklist'>" +
+//							"<input type='button' value='O' id='okbtn' class='okbtn'>"
+//							);
+//					}
+//				}
+//				
+//			});
+			
+		});
+	
+		// ì œëª© ì…ë ¥ë€ ìœ íš¨ì„± ê¸€ì 25ì ë‚´ë¡œ ì…ë ¥
+		$('.traveltitle').on('keydown', function() {
+			if ($(this).val().length > 25) {
+				$(this).val($(this).val().substring(0, 25));
+			}
 
-<!-- js -->
-<script src="/resource/step1/js/step1.js"></script>
+		});
 
-<script>
-//µ¿ÇàÀÚ ÆË¾÷ jsÆÄÀÏ¿¡ ³ÖÀ¸¸é ¿À·ù¹ß»ı
-$('#btn_popup').click(function() {
-	$a.popup({
-		title : "µ¿ÇàÀÚ ÆË¾÷ Å×½ºÆ®",
-// 		url : "fellowtravellers.jsp",
-		iframe : true
-	// default
+		//ê²½ìœ ì§€ ë¦¬ì…‹ ë²„íŠ¼ ê¸°ëŠ¥
+		$(".reset").click(function() {
+
+			$(".listthrough").val("");
+			temp='';
+
+		});
+		
+		//ì¶œë°œë‚ ì§œ ë„ì°©ë‚ ì§œ 
+		//datepicker1 = ì¶œë°œë‚ ì§œ, datepicker2 = ë„ì°©ë‚ ì§œ
+		$("#startdate").datepicker({
+			minDate : 0,
+			dateFormat : "yy-mm-dd",
+			onSelect : function(selected) {
+				$("#arrivaldate").datepicker("option", "minDate", selected)
+			}
+		});
+		
+		$("#arrivaldate").datepicker({
+			minDate : 0,
+			dateFormat : "yy-mm-dd",
+			onSelect : function(selected) {
+				$("#startdate").datepicker("option", "maxDate", selected)
+			}
+		});
+
+		
+		//ì—¬í–‰ì§€ ì§€ì—­ ë©”ë‰´ íƒ­ì˜ í•˜ìœ„ ë©”ë‰´ í¼ì¹˜ê¸°/ì ‘ê¸°
+		
+		//ì¶œë°œì§€ íƒ­
+		//ì¶œë°œì§€ íƒ­ ê°•ì›ë„ í¼ì¹˜ê¸°/ì ‘ê¸°
+		$(".Gangwondo").click(function() {
+			// í˜„ì¬ í´ë¦­í•œ íƒœê·¸ê°€ a ì´ê¸° ë•Œë¬¸ì—
+			// a ì˜†ì˜ íƒœê·¸ì¤‘ ul íƒœê·¸ì— hide í´ë˜ìŠ¤ íƒœê·¸ë¥¼ ë„£ë˜ì§€ ë¹¼ë˜ì§€ í•œë‹¤.
+			//             $(".Gangwondodiv").show();
+
+			var con = document.getElementById("Gangwondodiv");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+
+			// 		$(".Gangwondodiv").css("display","block");
+		});
+		
+		//ì¶œë°œì§€ íƒ­ ê²½ê¸°ë„ í¼ì¹˜ê¸°/ì ‘ê¸°
+		$(".Gyeonggido").click(function() {
+			var con = document.getElementById("Gyeonggidodiv");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+			//         	  $(".Gyeonggidodiv").slideToggle("fast");
+		});
+
+		//ì¶œë°œì§€ íƒ­ ê²½ìƒë‚¨ë„ í¼ì¹˜ê¸°/ì ‘ê¸°
+		$(".Gyeongsangnamdo").click(function() {
+			var con = document.getElementById("Gyeongsangnamdodiv");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+			//         	$(".Gyeongsangnamdodiv").slideToggle("fast");
+		});
+
+		//ì¶œë°œì§€ íƒ­ ê²½ìƒë¶ë„ í¼ì¹˜ê¸°/ì ‘ê¸°
+		$(".Gyeongsangbukdo").click(function() {
+			var con = document.getElementById("Gyeongsangbukdodiv");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+			//         	 $(".Gyeongsangbukdodiv").slideToggle("fast");
+		});
+
+		//ì¶œë°œì§€ íƒ­ ì „ë¼ë‚¨ë„ í¼ì¹˜ê¸°/ì ‘ê¸°
+		$(".Jeollanamdo").click(function() {
+			var con = document.getElementById("Jeollanamdodiv");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+		});
+
+		//ì¶œë°œì§€ íƒ­ ì „ë¼ë¶ë„ í¼ì¹˜ê¸°/ì ‘ê¸°
+		$(".Jeollabukdo").click(function() {
+			var con = document.getElementById("Jeollabukdodiv");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+		});
+
+		//ì¶œë°œì§€ íƒ­ ì¶©ì²­ë‚¨ë„ í¼ì¹˜ê¸°/ì ‘ê¸°
+		$(".Chungcheongnamdo").click(function() {
+			var con = document.getElementById("Chungcheongnamdodiv");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+		});
+
+		//ì¶œë°œì§€ íƒ­ ì¶©ì²­ë¶ë„ í¼ì¹˜ê¸°/ì ‘ê¸°
+		$(".Chungcheongbukdo").click(function() {
+			var con = document.getElementById("Chungcheongbukdodiv");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+		});
+
+		//ê²½ìœ ì§€ íƒ­
+		//ê²½ìœ ì§€ íƒ­ ê°•ì›ë„ ì ‘ê¸°/í¼ì¹˜ê¸°
+		$(".Gangwondo2").click(function() {
+			// í˜„ì¬ í´ë¦­í•œ íƒœê·¸ê°€ a ì´ê¸° ë•Œë¬¸ì—
+			// a ì˜†ì˜ íƒœê·¸ì¤‘ ul íƒœê·¸ì— hide í´ë˜ìŠ¤ íƒœê·¸ë¥¼ ë„£ë˜ì§€ ë¹¼ë˜ì§€ í•œë‹¤.
+			//            $(".Gangwondodiv").show();
+
+			var con = document.getElementById("Gangwondodiv2");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+
+			//		$(".Gangwondodiv").css("display","block");
+		});
+
+		//ê²½ìœ ì§€ íƒ­ ê²½ê¸°ë„ ì ‘ê¸°/í¼ì¹˜ê¸°
+		$(".Gyeonggido2").click(function() {
+			var con = document.getElementById("Gyeonggidodiv2");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+			//        	  $(".Gyeonggidodiv").slideToggle("fast");
+		});
+
+		////ê²½ìœ ì§€ íƒ­ ê²½ìƒë‚¨ë„ ì ‘ê¸°/í¼ì¹˜ê¸°
+		$(".Gyeongsangnamdo2").click(function() {
+			var con = document.getElementById("Gyeongsangnamdodiv2");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+			//        	$(".Gyeongsangnamdodiv").slideToggle("fast");
+		});
+
+		//ê²½ìœ ì§€ íƒ­ ê²½ìƒë¶ë„ ì ‘ê¸°/í¼ì¹˜ê¸°
+		$(".Gyeongsangbukdo2").click(function() {
+			var con = document.getElementById("Gyeongsangbukdodiv2");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+			//        	 $(".Gyeongsangbukdodiv").slideToggle("fast");
+		});
+
+		//ê²½ìœ ì§€ íƒ­ ì „ë¼ë‚¨ë„ ì ‘ê¸°/í¼ì¹˜ê¸°
+		$(".Jeollanamdo2").click(function() {
+			var con = document.getElementById("Jeollanamdodiv2");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+		});
+
+		//ê²½ìœ ì§€ íƒ­ ì „ë¼ë‚¨ë„ ì ‘ê¸°/í¼ì¹˜ê¸°
+		$(".Jeollabukdo2").click(function() {
+			var con = document.getElementById("Jeollabukdodiv2");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+		});
+		
+		////ê²½ìœ ì§€ íƒ­ ì¶©ì²­ë‚¨ë„ ì ‘ê¸°/í¼ì¹˜ê¸°
+		$(".Chungcheongnamdo2").click(function() {
+			var con = document.getElementById("Chungcheongnamdodiv2");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+		});
+
+		//ê²½ìœ ì§€ íƒ­ ì¶©ì²­ë¶ë„ ì ‘ê¸°/í¼ì¹˜ê¸°
+		$(".Chungcheongbukdo2").click(function() {
+			var con = document.getElementById("Chungcheongbukdodiv2");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+		});
+
+		//ë„ì°©ì§€ íƒ­
+		//ë„ì°©ì§€ íƒ­ ê°•ì›ë„ ì ‘ê¸°/í¼ì¹˜ê¸°
+		$(".Gangwondo3").click(function() {
+			// í˜„ì¬ í´ë¦­í•œ íƒœê·¸ê°€ a ì´ê¸° ë•Œë¬¸ì—
+			// a ì˜†ì˜ íƒœê·¸ì¤‘ ul íƒœê·¸ì— hide í´ë˜ìŠ¤ íƒœê·¸ë¥¼ ë„£ë˜ì§€ ë¹¼ë˜ì§€ í•œë‹¤.
+			//           $(".Gangwondodiv").show();
+
+			var con = document.getElementById("Gangwondodiv3");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+
+			//		$(".Gangwondodiv").css("display","block");
+		});
+
+		//ë„ì°©ì§€ íƒ­ ê²½ê¸°ë„ ì ‘ê¸°/í¼ì¹˜ê¸°
+		$(".Gyeonggido3").click(function() {
+			var con = document.getElementById("Gyeonggidodiv3");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+			//       	  $(".Gyeonggidodiv").slideToggle("fast");
+		});
+
+		//ë„ì°©ì§€ íƒ­ ê²½ìƒë‚¨ë„ ì ‘ê¸°/í¼ì¹˜ê¸°
+		$(".Gyeongsangnamdo3").click(function() {
+			var con = document.getElementById("Gyeongsangnamdodiv3");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+			//       	$(".Gyeongsangnamdodiv").slideToggle("fast");
+		});
+
+		//ë„ì°©ì§€ íƒ­ ê²½ìƒë¶ë„ ì ‘ê¸°/í¼ì¹˜ê¸°
+		$(".Gyeongsangbukdo3").click(function() {
+			var con = document.getElementById("Gyeongsangbukdodiv3");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+			//       	 $(".Gyeongsangbukdodiv").slideToggle("fast");
+		});
+
+		//ë„ì°©ì§€ íƒ­ ì „ë¼ë‚¨ë„ ì ‘ê¸°/í¼ì¹˜ê¸°
+		$(".Jeollanamdo3").click(function() {
+			var con = document.getElementById("Jeollanamdodiv3");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+		});
+
+		//ë„ì°©ì§€ íƒ­ ì „ë¼ë¶ë„ ì ‘ê¸°/í¼ì¹˜ê¸°
+		$(".Jeollabukdo3").click(function() {
+			var con = document.getElementById("Jeollabukdodiv3");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+		});
+
+		//ë„ì°©ì§€ íƒ­ ì¶©ì²­ë‚¨ë„ ì ‘ê¸°/í¼ì¹˜ê¸°
+		$(".Chungcheongnamdo3").click(function() {
+			var con = document.getElementById("Chungcheongnamdodiv3");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+		});
+
+		//ë„ì°©ì§€ íƒ­ ì¶©ì²­ë¶ë„ ì ‘ê¸°/í¼ì¹˜ê¸°
+		$(".Chungcheongbukdo3").click(function() {
+			var con = document.getElementById("Chungcheongbukdodiv3");
+			if (con.style.display == "none") {
+				con.style.display = "block";
+			} else {
+				con.style.display = "none";
+			}
+		});
+
+		//ì—¬í–‰ì§€ ë²„íŠ¼í´ë¦­ ì´ë²¤íŠ¸
+		// ì¶œë°œì§€ íƒ­
+		//ì—¬í–‰ì§€ ì§€ì—­ ì„ íƒ 3í–‰ìœ¼ë¡œ ì´ë£¨ì–´ì§„ìƒíƒœ
+		var tempstart;
+		
+		//1í–‰ travelregion
+		$(".wrap .city0 .a").click(function() {
+			tempstart= $(this).val()+"/";
+			$(".liststart").val(tempstart);
+		});
+		
+		//2í–‰ travelregion
+		$(".wrap .city1 .a").click(function() {
+			tempstart= $(this).val()+"/";
+			$(".liststart").val(tempstart);
+		});
+		
+		//3í–‰ travelregion
+		$(".wrap .city2 .a").click(function() {
+			tempstart= $(this).val()+"/";
+			$(".liststart").val(tempstart);
+		});
+
+		/** ê°•ì›ë„ í•˜ìœ„ ë²„íŠ¼ (travelregion)*/
+		$(".wrap .Gangwondodiv input").click(function() {
+			tempstart= $(this).val()+"/";
+			$(".liststart").val(tempstart);
+		});
+		
+		/** ê²½ê¸°ë„ í•˜ìœ„ ë²„íŠ¼ (travelregion)*/
+		$(".wrap .Gyeonggidodiv input").click(function() {
+			tempstart= $(this).val()+"/";
+			$(".liststart").val(tempstart);
+		});
+
+		/** ê²½ìƒë‚¨ë„ í•˜ìœ„ ë²„íŠ¼ (travelregion)*/
+		$(".wrap .Gyeongsangnamdodiv input").click(function() {
+			tempstart= $(this).val()+"/";
+			$(".liststart").val(tempstart);
+		});
+		/** ê²½ìƒë¶ë„ í•˜ìœ„ ë²„íŠ¼ (travelregion)*/
+		$(".wrap .Gyeongsangbukdodiv input").click(function() {
+			tempstart= $(this).val()+"/";
+			$(".liststart").val(tempstart);
+		});
+		/** ì „ë‚¨ í•˜ìœ„ ë²„íŠ¼ (travelregion)*/
+		$(".wrap .Jeollanamdodiv input").click(function() {
+			tempstart= $(this).val()+"/";
+			$(".liststart").val(tempstart);
+		});
+		/** ì „ë¶ í•˜ìœ„ ë²„íŠ¼ (travelregion)*/
+		$(".wrap .Jeollabukdodiv input").click(function() {
+			tempstart= $(this).val()+"/";
+			$(".liststart").val(tempstart);
+		});
+		/** ì¶©ë‚¨ í•˜ìœ„ ë²„íŠ¼ (travelregion)*/
+		$(".wrap .Chungcheongnamdodiv input").click(function() {
+			tempstart= $(this).val()+"/";
+			$(".liststart").val(tempstart);
+		});
+		/** ì¶©ë¶ í•˜ìœ„ ë²„íŠ¼ (travelregion)*/
+		$(".wrap .Chungcheongbukdodiv input").click(function() {
+			tempstart= $(this).val()+"/";
+			$(".liststart").val(tempstart);
+		});
+
+		/** 1í–‰ travelregion2 */
+		var temp=[];
+		
+		$(".wrap .city0 .b").click(function() {
+			temp += $(this).val()+"/";
+			$(".listthrough").val(temp);
+		});
+		/** 2í–‰ travelregion*/
+		$(".wrap .city1 .b").click(function() {
+			temp += $(this).val()+"/";
+			$(".listthrough").val(temp);
+		});
+		/** 3í–‰ travelregion*/
+		$(".wrap .city2 .b").click(function() {
+			temp += $(this).val()+"/";
+			$(".listthrough").val(temp);
+		});
+
+		/** ê°•ì›ë„ í•˜ìœ„ ë²„íŠ¼ (travelregion2)*/
+		$(".wrap .Gangwondodiv2 input").click(function() {
+			temp += $(this).val()+"/";
+			$(".listthrough").val(temp);
+		});
+		/** ê²½ê¸°ë„ í•˜ìœ„ ë²„íŠ¼ (travelregion2)*/
+		$(".wrap .Gyeonggidodiv2 input").click(function() {
+			temp += $(this).val()+"/";
+			$(".listthrough").val(temp);
+		});
+
+		/** ê²½ìƒë‚¨ë„ í•˜ìœ„ ë²„íŠ¼ (travelregion2)*/
+		$(".wrap .Gyeongsangnamdodiv2 input").click(function() {
+			temp += $(this).val()+"/";
+			$(".listthrough").val(temp);
+		});
+		/** ê²½ìƒë¶ë„ í•˜ìœ„ ë²„íŠ¼ (travelregion2)*/
+		$(".wrap .Gyeongsangbukdodiv2 input").click(function() {
+			temp += $(this).val()+"/";
+			$(".listthrough").val(temp);
+		});
+		/** ì „ë‚¨ í•˜ìœ„ ë²„íŠ¼ (travelregion2)*/
+		$(".wrap .Jeollanamdodiv2 input").click(function() {
+			temp += $(this).val()+"/";
+			$(".listthrough").val(temp);
+		});
+		/** ì „ë¶ í•˜ìœ„ ë²„íŠ¼ (travelregion2)*/
+		$(".wrap .Jeollabukdodiv2 input").click(function() {
+			temp += $(this).val()+"/";
+			$(".listthrough").val(temp);
+		});
+		/** ì¶©ë‚¨ í•˜ìœ„ ë²„íŠ¼ (travelregion2)*/
+		$(".wrap .Chungcheongnamdodiv2 input").click(function() {
+			temp += $(this).val()+"/";
+			$(".listthrough").val(temp);
+		});
+		/** ì¶©ë¶ í•˜ìœ„ ë²„íŠ¼ (travelregion2)*/
+		$(".wrap .Chungcheongbukdodiv2 input").click(function() {
+			temp += $(this).val()+"/";
+			$(".listthrough").val(temp);
+		});
+
+		/** 1í–‰ travelregion3 */
+		$(".wrap .city0 .c").click(function() {
+			// 			$(".container .liststart").val($(this).val());
+			$(".listarrival").val($(this).val());
+		});
+		/** 2í–‰ travelregion*/
+		$(".wrap .city1 .c").click(function() {
+			$(".listarrival").val($(this).val());
+		});
+		/** 3í–‰ travelregion*/
+		$(".wrap .city2 .c").click(function() {
+			$(".listarrival").val($(this).val());
+		});
+
+		/** ê°•ì›ë„ í•˜ìœ„ ë²„íŠ¼ (travelregion3)*/
+		$(".wrap .Gangwondodiv3 input").click(function() {
+			$(".listarrival").val($(this).val());
+		});
+		/** ê²½ê¸°ë„ í•˜ìœ„ ë²„íŠ¼ (travelregion3)*/
+		$(".wrap .Gyeonggidodiv3 input").click(function() {
+			$(".listarrival").val($(this).val());
+		});
+
+		/** ê²½ìƒë‚¨ë„ í•˜ìœ„ ë²„íŠ¼ (travelregion3)*/
+		$(".wrap .Gyeongsangnamdodiv3 input").click(function() {
+			$(".listarrival").val($(this).val());
+		});
+		/** ê²½ìƒë¶ë„ í•˜ìœ„ ë²„íŠ¼ (travelregion3)*/
+		$(".wrap .Gyeongsangbukdodiv3 input").click(function() {
+			$(".listarrival").val($(this).val());
+		});
+		/** ì „ë‚¨ í•˜ìœ„ ë²„íŠ¼ (travelregion3)*/
+		$(".wrap .Jeollanamdodiv3 input").click(function() {
+			$(".listarrival").val($(this).val());
+		});
+		/** ì „ë¶ í•˜ìœ„ ë²„íŠ¼ (travelregion3)*/
+		$(".wrap .Jeollabukdodiv3 input").click(function() {
+			$(".listarrival").val($(this).val());
+		});
+		/** ì¶©ë‚¨ í•˜ìœ„ ë²„íŠ¼ (travelregion3)*/
+		$(".wrap .Chungcheongnamdodiv3 input").click(function() {
+			$(".listarrival").val($(this).val());
+		});
+		/** ì¶©ë¶ í•˜ìœ„ ë²„íŠ¼ (travelregion3)*/
+		$(".wrap .Chungcheongbukdodiv3 input").click(function() {
+			$(".listarrival").val($(this).val());
+		});
+
 	});
-});
-</script>
-<script type="text/javascript">
-   $(function(){
-      $("#loading").hide();
-      
-      $("#nextbtn").click(function(event){
-         event.preventDefault();
-         $("#main").hide();
-         $("#loading").show();
-         var url = "/step2/step2.tm"; 
-         $(location).attr('href',url);
-
-      });
-   });
-</script>
-</head>
-<body>
-<div id="loading" style="display: none;">
-   <img id="loading-image" alt="·ÎµùÁß" src="/resource/step2/loding.gif" />
-</div>
-<div id="main">
-<div style="height:75px; background-color: #103e68;">
-   <br/>
-   <div style="color:#fff; font-size: 2em; display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;³ªÀÇ ¿©ÇàÀÏÁ¤</div>
-   <div style="float:right; margin-right: 50px;">
-   <input type="submit" value="´ÙÀ½ >" id="nextbtn">
-<!--       <button id="addFriend" style="background-color:#103e68; font-family:'Nanum Gothic'; border:0px solid white; color:white; font-weight:600; border-radius:7px; width:100px;height:30px">Ä£±¸Ãß°¡</button> -->
-<!--       <button id="tempSave" style="background-color:#103e68; font-family:'Nanum Gothic'; border:0px solid white; color:white; font-weight:600; border-radius:7px; width:100px;height:30px">ÀÓ½ÃÀúÀå</button> -->
-<!--       <button id="save" style="background-color:#103e68; font-family:'Nanum Gothic'; border:0px solid white; color:white; font-weight:600; border-radius:7px; width:60px;height:30px">ÀúÀå</button>  -->
-      
-<!--       <button id="chat" onclick="openNav()" style="margin-left:70px; background-color:#FDE0E2; font-family:'Nanum Gothic'; border:0px solid #FFDFE4; color:#103e68; font-weight:600; border-radius:7px; width:60px;height:30px">Ã¤ÆÃ</button>   -->
-   </div>
-</div>
-
-	<div class="container">
-	<form class="contnsubform" action="" method='get'>
-		<!--   Ãâ¹ßÁö °æÀ¯Áö µµÂøÁö ÅÇ	-->
-		
-		<ul class="nav nav-tabs">
-			<li class="active"><a data-toggle="tab" href="#menu1">Ãâ¹ßÁö</a></li>
-			<li><a data-toggle="tab" href="#menu2">°æÀ¯Áö</a></li>
-			<li><a data-toggle="tab" href="#menu3">µµÂøÁö</a></li>
-		</ul>
-
-		<div class="tab-content">
-			<!-- Ãâ¹ßÁö ÅÇ -->
-			<div id="menu1" class="tab-pane fade in active">
-				
-				<div class="wrap">
-
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3Çà Áß 1Çà -->
-	<div class="city0">
-			<input type="button" value="ÁÖ¿äµµ½Ã" id=majorcitymark>
-			<input type="button" value="¼­¿ï" id="myButton1" class="a">
-			<input type="button" value="Á¦ÁÖ" id="myButton2" class="a">
-			<input type="button" value="ºÎ»ê" id="myButton3" class="a">
-			<input type="button" value="°æÁÖ" id="myButton4" class="a">
-			<input type="button" value="¾çÆò" id="myButton5" class="a">
-			<input type="button" value="ÅÂ¾È" id="myButton6" class="a">
-			<input type="button" value="ÁøÁÖ" id="myButton7" class="a">
-			<input type="button" value="°­¸ª" id="myButton8" class="a">
-	</div>
-
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3Çà Áß 2Çà -->
-	<div class="city1">
-			<input type="button" value="°­¿øµµ¡ä" class="Gangwondo">
-			<input type="button" value="°æ±âµµ¡ä" class="Gyeonggido">
-			<input type="button" value="°æ»ó³²µµ¡ä" class="Gyeongsangnamdo">
-			<input type="button" value="°æ»óºÏµµ¡ä" class="Gyeongsangbukdo">
-			<input type="button" value="±¤ÁÖ" id="myButton29" class="a">
-			<input type="button" value="´ë±¸" id="myButton152" class="a">
-			<input type="button" value="´ëÀü" id="myButton153" class="a">
-			<input type="button" value="ºÎ»ê" id="myButton3" class="a">
-		
-	</div>
-
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 2Çà °­¿øµµ ¹öÆ° -->
-	<div class="Gangwondodiv" id="Gangwondodiv">
-		<!-- °­¿øµµ ¹öÆ° ÇÏÀ§ 1Çà -->
-		<div id="gangwon1">
-			<input type="button" value="°­¸ª" id="myButton8" class="a">
-			<input type="button" value="°í¼º" id="myButton9" class="a">
-			<input type="button" value="µ¿ÇØ" id="myButton10" class="a">
-			<input type="button" value="»ïÃ´" id="myButton11" class="a">
-			<input type="button" value="¼ÓÃÊ" id="myButton12" class="a">
-			<input type="button" value="¾ç±¸" id="myButton13" class="a">
-			<input type="button" value="¾ç¾ç" id="myButton14" class="a">
-			<input type="button" value="¿µ¿ù" id="myButton15" class="a">
-		</div>
-		
-		<!-- °­¿øµµ ¹öÆ° ÇÏÀ§ 2Çà -->
-		<div id="gangwon2">
-			<input type="button" value="¿øÁÖ" id="myButton16" class="a">
-			<input type="button" value="ÀÎÁ¦" id="myButton17" class="a">
-			<input type="button" value="Á¤¼±" id="myButton18" class="a">
-			<input type="button" value="Ã¶¿ø" id="myButton19" class="a">
-			<input type="button" value="ÃáÃµ" id="myButton20" class="a">
-			<input type="button" value="ÅÂ¹é" id="myButton21" class="a">
-			<input type="button" value="ÆòÃ¢" id="myButton22" class="a">
-			<input type="button" value="È«Ãµ" id="myButton23" class="a">
-		</div>
-		
-		<!-- °­¿øµµ ¹öÆ° ÇÏÀ§ 3Çà -->
-		<div id="gangwon3">
-			<input type="button" value="È­Ãµ" id="myButton24" class="a">
-			<input type="button" value="È¾¼º" id="myButton25" class="a">
-			
-		</div>
-		
-	</div>
-
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 2Çà °æ±âµµ ¹öÆ° -->
-	<div class="Gyeonggidodiv" id="Gyeonggidodiv">
-		<!-- °æ±âµµ ¹öÆ° ÇÏÀ§ 1Çà -->
-		<div id="gyeongi1">
-			<input type="button" value="°¡Æò" id="myButton25" class="a">
-			<input type="button" value="°í¾ç" id="myButton26" class="a">
-			<input type="button" value="°úÃµ" id="myButton27" class="a">
-			<input type="button" value="±¤¸í" id="myButton28" class="a">
-			<input type="button" value="±¤ÁÖ" id="myButton29" class="a">
-			<input type="button" value="±¸¸®" id="myButton30" class="a">
-			<input type="button" value="±ºÆ÷" id="myButton31" class="a">
-			<input type="button" value="±èÆ÷" id="myButton32" class="a">
-		</div>
-		
-		<!-- °æ±âµµ ¹öÆ° ÇÏÀ§ 2Çà -->
-		<div id="gyeongi2">
-			<input type="button" value="³²¾çÁÖ" id="myButton33" class="a">
-			<input type="button" value="µ¿µÎÃµ" id="myButton34" class="a">
-			<input type="button" value="ºÎÃµ" id="myButton35" class="a">
-			<input type="button" value="¼º³²" id="myButton36" class="a">
-			<input type="button" value="¼ö¿ø" id="myButton37" class="a">
-			<input type="button" value="½ÃÈï" id="myButton38" class="a">
-			<input type="button" value="¾È»ê" id="myButton39" class="a">
-			<input type="button" value="¾È¼º" id="myButton40" class="a">
-		</div>
-		
-		<!-- °æ±âµµ ¹öÆ° ÇÏÀ§ 3Çà -->
-		<div id="gyeongi3">
-			<input type="button" value="¾È¾ç" id="myButton41" class="a">
-			<input type="button" value="¾çÁÖ" id="myButton42" class="a">
-			<input type="button" value="¾çÆò" id="myButton5" class="a">
-			<input type="button" value="¿©ÁÖ" id="myButton43" class="a">
-			<input type="button" value="¿¬Ãµ" id="myButton44" class="a">
-			<input type="button" value="¿À»ê" id="myButton45" class="a">
-			<input type="button" value="¿ëÀÎ" id="myButton46" class="a">
-			
-		</div>
-		
-	</div>
-
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 2Çà °æ»ó³²µµ ¹öÆ° -->
-	<div class="Gyeongsangnamdodiv" id="Gyeongsangnamdodiv">
-		<!-- °æ»ó³²µµ ¹öÆ° ÇÏÀ§ 1Çà -->
-		<div id="gyeongnam1">
-			<input type="button" value="°ÅÁ¦" id="myButton47" class="a">
-			<input type="button" value="°ÅÃ¢" id="myButton48" class="a">
-			<input type="button" value="°í¼º" id="myButton49" class="a">
-			<input type="button" value="±èÇØ" id="myButton50" class="a">
-			<input type="button" value="³²ÇØ" id="myButton51" class="a">
-			<input type="button" value="¸¶»ê" id="myButton52" class="a">
-			<input type="button" value="¹Ğ¾ç" id="myButton53" class="a">
-			<input type="button" value="»çÃµ" id="myButton54" class="a">
-		</div>
-		
-		<!-- °æ»ó³²µµ ¹öÆ° ÇÏÀ§ 2Çà -->
-		<div id="gyeongnam2">
-			<input type="button" value="»êÃ»" id="myButton55" class="a">
-			<input type="button" value="¾ç»ê" id="myButton56" class="a">
-			<input type="button" value="ÀÇ·É" id="myButton57" class="a">
-			<input type="button" value="ÁøÁÖ" id="myButton7" class="a">
-			<input type="button" value="ÁøÇØ" id="myButton58" class="a">
-			<input type="button" value="Ã¢³ç" id="myButton59" class="a">
-			<input type="button" value="Ã¢¿ø" id="myButton60" class="a">
-			<input type="button" value="Åë¿µ" id="myButton61" class="a">
-		</div>
-		
-		<!-- °æ»ó³²µµ ¹öÆ° ÇÏÀ§ 3Çà -->
-		<div id="gyeongnam3">
-			<input type="button" value="ÇÏµ¿" id="myButton62" class="a">
-			<input type="button" value="ÇÔ¾È" id="myButton63" class="a">
-			<input type="button" value="ÇÔ¾ç" id="myButton64" class="a">
-			<input type="button" value="ÇÕÃµ" id="myButton65" class="a">
-			
-		</div>
-		
-	</div>
-
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 2Çà °æ»óºÏµµ ¹öÆ° -->
-	<div class="Gyeongsangbukdodiv" id="Gyeongsangbukdodiv">
-		<!-- °æ»óºÏµµ ¹öÆ° ÇÏÀ§ 1Çà -->
-		<div id="gyeongbuk1">
-			<input type="button" value="°æ»ê" id="myButton66" class="a">
-			<input type="button" value="°æÁÖ" id="myButton4" class="a">
-			<input type="button" value="°í·É" id="myButton67" class="a">
-			<input type="button" value="±¸¹Ì" id="myButton68" class="a">
-			<input type="button" value="±ºÀ§" id="myButton69" class="a">
-			<input type="button" value="±èÃµ" id="myButton70" class="a">
-			<input type="button" value="¹®°æ" id="myButton71" class="a">
-			<input type="button" value="ºÀÈ­" id="myButton72" class="a">
-		</div>
-		
-		<!-- °æ»óºÏµµ ¹öÆ° ÇÏÀ§ 2Çà -->
-		<div id="gyeongbuk2">
-			<input type="button" value="»óÁÖ" id="myButton73" class="a">
-			<input type="button" value="¼ºÁÖ" id="myButton74" class="a">
-			<input type="button" value="¾Èµ¿" id="myButton75" class="a">
-			<input type="button" value="¿µ´ö" id="myButton76" class="a">
-			<input type="button" value="¿µ¾ç" id="myButton77" class="a">
-			<input type="button" value="¿µÁÖ" id="myButton78" class="a">
-			<input type="button" value="¿µÃµ" id="myButton79" class="a">
-			<input type="button" value="¿¹Ãµ" id="myButton80" class="a">
-		</div>
-		
-		<!-- °æ»óºÏµµ ¹öÆ° ÇÏÀ§ 3Çà -->
-		<div id="gyeongbuk3">
-			<input type="button" value="¿ï¸ª" id="myButton81" class="a">
-			<input type="button" value="¿ïÁø" id="myButton82" class="a">
-			<input type="button" value="ÀÇ¼º" id="myButton83" class="a">
-			<input type="button" value="Ã»µµ" id="myButton84" class="a">
-			<input type="button" value="Ã»¼Û" id="myButton85" class="a">
-			<input type="button" value="Ä¥°î" id="myButton86" class="a">
-			<input type="button" value="Æ÷Ç×" id="myButton87" class="a">
-			
-		</div>
-		
-	</div>
-
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3Çà Áß 3Çà -->
-	<div class="city2">
-	
-			<input type="button" value="¼­¿ï" id="myButton1" class="a">
-			<input type="button" value="¿ï»ê" id="myButton88" class="a">
-			<input type="button" value="ÀÎÃµ" id="myButton89" class="a">
-			<input type="button" value="Àü¶ó³²µµ¡ä" class="Jeollanamdo">
-			<input type="button" value="Àü¶óºÏµµ¡ä" class="Jeollabukdo">
-			<input type="button" value="Á¦ÁÖ" id="myButton2" class="a">
-			<input type="button" value="ÃæÃ»³²µµ¡ä" class="Chungcheongnamdo">
-			<input type="button" value="ÃæÃ»ºÏµµ¡ä" class="Chungcheongbukdo">
-	
-	</div>
-	
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 3Çà Àü¶ó³²µµ ¹öÆ° -->
-	<div class="Jeollanamdodiv" id="Jeollanamdodiv">
-		<!-- Àü¶ó³²µµ ¹öÆ° ÇÏÀ§ 1Çà -->
-		<div id="jeollanam1">
-			<input type="button" value="°­Áø" id="myButton90" class="a">
-			<input type="button" value="°íÈï" id="myButton91" class="a">
-			<input type="button" value="°î¼º" id="myButton92" class="a">
-			<input type="button" value="±¤¾ç" id="myButton93" class="a">
-			<input type="button" value="±¸·Ê" id="myButton94" class="a">
-			<input type="button" value="³ªÁÖ" id="myButton95" class="a">
-			<input type="button" value="´ã¾ç" id="myButton96" class="a">
-			<input type="button" value="¸ñÆ÷" id="myButton97" class="a">
-		</div>
-		
-		<!-- Àü¶ó³²µµ ¹öÆ° ÇÏÀ§ 2Çà -->
-		<div id="jeollanam2">
-			<input type="button" value="¹«¾È" id="myButton98" class="a">
-			<input type="button" value="º¸¼º" id="myButton99" class="a">
-			<input type="button" value="¼øÃµ" id="myButton100" class="a">
-			<input type="button" value="½Å¾È" id="myButton101" class="a">
-			<input type="button" value="¿©¼ö" id="myButton102" class="a">
-			<input type="button" value="¿µ±¤" id="myButton103" class="a">
-			<input type="button" value="¿µ¾Ï" id="myButton104" class="a">
-			<input type="button" value="¿Ïµµ" id="myButton105" class="a">
-		</div>
-		
-		<!-- Àü¶ó³²µµ ¹öÆ° ÇÏÀ§ 3Çà -->
-		<div id="jeollanam3">
-			<input type="button" value="Àå¼º" id="myButton106" class="a">
-			<input type="button" value="ÀåÈï" id="myButton107" class="a">
-			<input type="button" value="Áøµµ" id="myButton108" class="a">
-			<input type="button" value="ÇÔÆò" id="myButton109" class="a">
-			<input type="button" value="ÇØ³²" id="myButton110" class="a">
-			<input type="button" value="È­¼ø" id="myButton111" class="a">
-			
-		</div>
-		
-	</div>
-
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 3Çà Àü¶óºÏµµ ¹öÆ° -->
-	<div class="Jeollabukdodiv" id="Jeollabukdodiv">
-		<!-- Àü¶óºÏµµ ¹öÆ° ÇÏÀ§ 1Çà -->
-		<div id="jeollabuk1">
-			<input type="button" value="°íÃ¢" id="myButton112" class="a">
-			<input type="button" value="±º»ê" id="myButton113" class="a">
-			<input type="button" value="±èÁ¦" id="myButton114" class="a">
-			<input type="button" value="³²¿ø" id="myButton115" class="a">
-			<input type="button" value="¹«ÁÖ" id="myButton116" class="a">
-			<input type="button" value="ºÎ¾È" id="myButton117" class="a">
-			<input type="button" value="¼øÃ¢" id="myButton118" class="a">
-			<input type="button" value="¿ÏÁÖ" id="myButton119" class="a">
-		</div>
-		
-		<!-- Àü¶óºÏµµ ¹öÆ° ÇÏÀ§ 2Çà -->
-		<div id="jeollabuk2">
-			<input type="button" value="ÀÍ»ê" id="myButton120" class="a">
-			<input type="button" value="ÀÓ½Ç" id="myButton121" class="a">
-			<input type="button" value="Àå¼ö" id="myButton122" class="a">
-			<input type="button" value="ÀüÁÖ" id="myButton123" class="a">
-			<input type="button" value="Á¤À¾" id="myButton124" class="a">
-			<input type="button" value="Áø¾È" id="myButton125" class="a">
-			
-		</div>
-	</div>
-
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 3Çà ÃæÃ»³²µµ ¹öÆ° -->
-	<div class="Chungcheongnamdodiv" id="Chungcheongnamdodiv">
-		<!-- ÃæÃ»³²µµ ¹öÆ° ÇÏÀ§ 1Çà -->
-		<div id="chungnam1">
-			<input type="button" value="°øÁÖ" id="myButton126" class="a"> 
-			<input type="button" value="±İ»ê" id="myButton127" class="a"> 
-			<input type="button" value="³í»ê" id="myButton128" class="a"> 
-			<input type="button" value="´çÁø" id="myButton129" class="a"> 
-			<input type="button" value="º¸·É" id="myButton130" class="a"> 
-			<input type="button" value="ºÎ¿©" id="myButton131" class="a"> 
-			<input type="button" value="¼­»ê" id="myButton132" class="a"> 
-			<input type="button" value="¼­Ãµ" id="myButton133" class="a"> 
-		</div>
-		
-		<!-- ÃæÃ»³²µµ ¹öÆ° ÇÏÀ§ 2Çà -->
-		<div id="chungnam2">
-			<input type="button" value="¾Æ»ê" id="myButton134" class="a"> 
-			<input type="button" value="¿¹»ê" id="myButton135" class="a"> 
-			<input type="button" value="Ãµ¾È" id="myButton136" class="a"> 
-			<input type="button" value="Ã»¾ç" id="myButton137" class="a"> 
-			<input type="button" value="ÅÂ¾È" id="myButton6" class="a"> 
-			<input type="button" value="È«¼º" id="myButton138" class="a"> 
-			<input type="button" value="°è·æ" id="myButton139" class="a"> 
-			
-		</div>
-		
-	</div>
-
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 3Çà ÃæÃ»ºÏµµ ¹öÆ° -->
-	<div class="Chungcheongbukdodiv" id="Chungcheongbukdodiv">
-			<!-- ÃæÃ»ºÏµµ ¹öÆ° ÇÏÀ§ 1Çà -->
-			<div id="chungbuk1">
-				<input type="button" value="±«»ê" id="myButton140" class="a">
-				<input type="button" value="´Ü¾ç" id="myButton141" class="a">
-				<input type="button" value="º¸Àº" id="myButton142" class="a">
-				<input type="button" value="¿µµ¿" id="myButton143" class="a">
-				<input type="button" value="¿ÁÃµ" id="myButton144" class="a">
-				<input type="button" value="À½¼º" id="myButton145" class="a">
-				<input type="button" value="Á¦Ãµ" id="myButton146" class="a">
-				<input type="button" value="ÁøÃµ" id="myButton147" class="a">
-			</div>
-			
-			<!-- ÃæÃ»ºÏµµ ¹öÆ° ÇÏÀ§ 2Çà -->
-			<div id="chungbuk2">
-				<input type="button" value="Ã»¿ø" id="myButton148" class="a">
-				<input type="button" value="Ã»ÁÖ" id="myButton149" class="a">
-				<input type="button" value="ÃæÁÖ" id="myButton150" class="a">
-				<input type="button" value="ÁõÆò" id="myButton151" class="a">
-				
-			</div>
-			
-	</div>
-	
-</div><!-- end wrap class Ãâ¹ßÁö ÅÇ-->
-				
-				
-			</div>
-
-			<!-- °æÀ¯Áö ÅÇ -->
-			<div id="menu2" class="tab-pane fade">
-				
-				<div class="wrap">
-
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3Çà Áß 1Çà -->
-	<div class="city0">
-			<input type="button" value="ÁÖ¿äµµ½Ã" id=majorcitymark>
-			<input type="button" value="¼­¿ï" id="myButton1" class="b">
-			<input type="button" value="Á¦ÁÖ" id="myButton2" class="b">
-			<input type="button" value="ºÎ»ê" id="myButton3" class="b">
-			<input type="button" value="°æÁÖ" id="myButton4" class="b">
-			<input type="button" value="¾çÆò" id="myButton5" class="b">
-			<input type="button" value="ÅÂ¾È" id="myButton6" class="b">
-			<input type="button" value="ÁøÁÖ" id="myButton7" class="b">
-			<input type="button" value="°­¸ª" id="myButton8" class="b">
-	</div>
-	
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3Çà Áß 2Çà -->
-	<div class="city1">
-			<input type="button" value="°­¿øµµ¡ä" class="Gangwondo2">
-			<input type="button" value="°æ±âµµ¡ä" class="Gyeonggido2">
-			<input type="button" value="°æ»ó³²µµ¡ä" class="Gyeongsangnamdo2">
-			<input type="button" value="°æ»óºÏµµ¡ä" class="Gyeongsangbukdo2">
-			<input type="button" value="±¤ÁÖ" id="myButton29" class="b">
-			<input type="button" value="´ë±¸" id="myButton152" class="b">
-			<input type="button" value="´ëÀü" id="myButton153" class="b">
-			<input type="button" value="ºÎ»ê" id="myButton3" class="b">
-		
-	</div>
-	
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 2Çà °­¿øµµ ¹öÆ° -->
-	<div class="Gangwondodiv2" id="Gangwondodiv2">
-		<!-- °­¿øµµ ¹öÆ° ÇÏÀ§ 1Çà -->
-		<div id="gangwon1">
-			<input type="button" value="°­¸ª" id="myButton8" class="b">
-			<input type="button" value="°í¼º" id="myButton9" class="b">
-			<input type="button" value="µ¿ÇØ" id="myButton10" class="b">
-			<input type="button" value="»ïÃ´" id="myButton11" class="b">
-			<input type="button" value="¼ÓÃÊ" id="myButton12" class="b">
-			<input type="button" value="¾ç±¸" id="myButton13" class="b">
-			<input type="button" value="¾ç¾ç" id="myButton14" class="b">
-			<input type="button" value="¿µ¿ù" id="myButton15" class="b">
-		</div>
-		
-		<!-- °­¿øµµ ¹öÆ° ÇÏÀ§ 2Çà -->
-		<div id="gangwon2">
-			<input type="button" value="¿øÁÖ" id="myButton16" class="b">
-			<input type="button" value="ÀÎÁ¦" id="myButton17" class="b">
-			<input type="button" value="Á¤¼±" id="myButton18" class="b">
-			<input type="button" value="Ã¶¿ø" id="myButton19" class="b">
-			<input type="button" value="ÃáÃµ" id="myButton20" class="b">
-			<input type="button" value="ÅÂ¹é" id="myButton21" class="b">
-			<input type="button" value="ÆòÃ¢" id="myButton22" class="b">
-			<input type="button" value="È«Ãµ" id="myButton23" class="b">
-		</div>
-		
-		<!-- °­¿øµµ ¹öÆ° ÇÏÀ§ 3Çà -->
-		<div id="gangwon3">
-			<input type="button" value="È­Ãµ" id="myButton24" class="b">
-			<input type="button" value="È¾¼º" id="myButton25" class="b">
-			
-		</div>
-		
-	</div>
-	
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 2Çà °æ±âµµ ¹öÆ° -->
-	<div class="Gyeonggidodiv2" id="Gyeonggidodiv2">
-		<!-- °æ±âµµ ¹öÆ° ÇÏÀ§ 1Çà -->
-		<div id="gyeongi1">
-			<input type="button" value="°¡Æò" id="myButton25" class="b">
-			<input type="button" value="°í¾ç" id="myButton26" class="b">
-			<input type="button" value="°úÃµ" id="myButton27" class="b">
-			<input type="button" value="±¤¸í" id="myButton28" class="b">
-			<input type="button" value="±¤ÁÖ" id="myButton29" class="b">
-			<input type="button" value="±¸¸®" id="myButton30" class="b">
-			<input type="button" value="±ºÆ÷" id="myButton31" class="b">
-			<input type="button" value="±èÆ÷" id="myButton32" class="b">
-		</div>
-		
-		<!-- °æ±âµµ ¹öÆ° ÇÏÀ§ 2Çà -->
-		<div id="gyeongi2">
-			<input type="button" value="³²¾çÁÖ" id="myButton33" class="b">
-			<input type="button" value="µ¿µÎÃµ" id="myButton34" class="b">
-			<input type="button" value="ºÎÃµ" id="myButton35" class="b">
-			<input type="button" value="¼º³²" id="myButton36" class="b">
-			<input type="button" value="¼ö¿ø" id="myButton37" class="b">
-			<input type="button" value="½ÃÈï" id="myButton38" class="b">
-			<input type="button" value="¾È»ê" id="myButton39" class="b">
-			<input type="button" value="¾È¼º" id="myButton40" class="b">
-		</div>
-		
-		<!-- °æ±âµµ ¹öÆ° ÇÏÀ§ 3Çà -->
-		<div id="gyeongi3">
-			<input type="button" value="¾È¾ç" id="myButton41" class="b">
-			<input type="button" value="¾çÁÖ" id="myButton42" class="b">
-			<input type="button" value="¾çÆò" id="myButton5" class="b">
-			<input type="button" value="¿©ÁÖ" id="myButton43" class="b">
-			<input type="button" value="¿¬Ãµ" id="myButton44" class="b">
-			<input type="button" value="¿À»ê" id="myButton45" class="b">
-			<input type="button" value="¿ëÀÎ" id="myButton46" class="b">
-			
-		</div>
-		
-	</div>
-	
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 2Çà °æ»ó³²µµ ¹öÆ° -->
-	<div class="Gyeongsangnamdodiv2" id="Gyeongsangnamdodiv2">
-		<!-- °æ»ó³²µµ ¹öÆ° ÇÏÀ§ 1Çà -->
-		<div id="gyeongnam1">
-			<input type="button" value="°ÅÁ¦" id="myButton47" class="b">
-			<input type="button" value="°ÅÃ¢" id="myButton48" class="b">
-			<input type="button" value="°í¼º" id="myButton49" class="b">
-			<input type="button" value="±èÇØ" id="myButton50" class="b">
-			<input type="button" value="³²ÇØ" id="myButton51" class="b">
-			<input type="button" value="¸¶»ê" id="myButton52" class="b">
-			<input type="button" value="¹Ğ¾ç" id="myButton53" class="b">
-			<input type="button" value="»çÃµ" id="myButton54" class="b">
-		</div>
-		
-		<!-- °æ»ó³²µµ ¹öÆ° ÇÏÀ§ 2Çà -->
-		<div id="gyeongnam2">
-			<input type="button" value="»êÃ»" id="myButton55" class="b">
-			<input type="button" value="¾ç»ê" id="myButton56" class="b">
-			<input type="button" value="ÀÇ·É" id="myButton57" class="b">
-			<input type="button" value="ÁøÁÖ" id="myButton7" class="b">
-			<input type="button" value="ÁøÇØ" id="myButton58" class="b">
-			<input type="button" value="Ã¢³ç" id="myButton59" class="b">
-			<input type="button" value="Ã¢¿ø" id="myButton60" class="b">
-			<input type="button" value="Åë¿µ" id="myButton61" class="b">
-		</div>
-		
-		<!-- °æ»ó³²µµ ¹öÆ° ÇÏÀ§ 3Çà -->
-		<div id="gyeongnam3">
-			<input type="button" value="ÇÏµ¿" id="myButton62" class="b">
-			<input type="button" value="ÇÔ¾È" id="myButton63" class="b">
-			<input type="button" value="ÇÔ¾ç" id="myButton64" class="b">
-			<input type="button" value="ÇÕÃµ" id="myButton65" class="b">
-			
-		</div>
-		
-	</div>
-	
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 2Çà °æ»óºÏµµ ¹öÆ° -->
-	<div class="Gyeongsangbukdodiv2" id="Gyeongsangbukdodiv2">
-		<!-- °æ»óºÏµµ ¹öÆ° ÇÏÀ§ 1Çà -->
-		<div id="gyeongbuk1">
-			<input type="button" value="°æ»ê" id="myButton66" class="b">
-			<input type="button" value="°æÁÖ" id="myButton4" class="b">
-			<input type="button" value="°í·É" id="myButton67" class="b">
-			<input type="button" value="±¸¹Ì" id="myButton68" class="b">
-			<input type="button" value="±ºÀ§" id="myButton69" class="b">
-			<input type="button" value="±èÃµ" id="myButton70" class="b">
-			<input type="button" value="¹®°æ" id="myButton71" class="b">
-			<input type="button" value="ºÀÈ­" id="myButton72" class="b">
-		</div>
-		
-		<!-- °æ»óºÏµµ ¹öÆ° ÇÏÀ§ 2Çà -->
-		<div id="gyeongbuk2">
-			<input type="button" value="»óÁÖ" id="myButton73" class="b">
-			<input type="button" value="¼ºÁÖ" id="myButton74" class="b">
-			<input type="button" value="¾Èµ¿" id="myButton75" class="b">
-			<input type="button" value="¿µ´ö" id="myButton76" class="b">
-			<input type="button" value="¿µ¾ç" id="myButton77" class="b">
-			<input type="button" value="¿µÁÖ" id="myButton78" class="b">
-			<input type="button" value="¿µÃµ" id="myButton79" class="b">
-			<input type="button" value="¿¹Ãµ" id="myButton80" class="b">
-		</div>
-		
-		<!-- °æ»óºÏµµ ¹öÆ° ÇÏÀ§ 3Çà -->
-		<div id="gyeongbuk3">
-			<input type="button" value="¿ï¸ª" id="myButton81" class="b">
-			<input type="button" value="¿ïÁø" id="myButton82" class="b">
-			<input type="button" value="ÀÇ¼º" id="myButton83" class="b">
-			<input type="button" value="Ã»µµ" id="myButton84" class="b">
-			<input type="button" value="Ã»¼Û" id="myButton85" class="b">
-			<input type="button" value="Ä¥°î" id="myButton86" class="b">
-			<input type="button" value="Æ÷Ç×" id="myButton87" class="b">
-			
-		</div>
-		
-	</div>
-
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3Çà Áß 3Çà -->
-	<div class="city2">
-			<input type="button" value="¼­¿ï" id="myButton1" class="b">
-			<input type="button" value="¿ï»ê" id="myButton88" class="b">
-			<input type="button" value="ÀÎÃµ" id="myButton89" class="b">
-			<input type="button" value="Àü¶ó³²µµ¡ä" class="Jeollanamdo2">
-			<input type="button" value="Àü¶óºÏµµ¡ä" class="Jeollabukdo2">
-			<input type="button" value="Á¦ÁÖ" id="myButton2" class="b">
-			<input type="button" value="ÃæÃ»³²µµ¡ä" class="Chungcheongnamdo2">
-			<input type="button" value="ÃæÃ»ºÏµµ¡ä" class="Chungcheongbukdo2">
-	
-	</div>
-	
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 3Çà Àü¶ó³²µµ ¹öÆ° -->
-	<div class="Jeollanamdodiv2" id="Jeollanamdodiv2">
-		<!-- Àü¶ó³²µµ ¹öÆ° ÇÏÀ§ 1Çà -->
-		<div id="jeollanam1">
-			<input type="button" value="°­Áø" id="myButton90" class="b">
-			<input type="button" value="°íÈï" id="myButton91" class="b">
-			<input type="button" value="°î¼º" id="myButton92" class="b">
-			<input type="button" value="±¤¾ç" id="myButton93" class="b">
-			<input type="button" value="±¸·Ê" id="myButton94" class="b">
-			<input type="button" value="³ªÁÖ" id="myButton95" class="b">
-			<input type="button" value="´ã¾ç" id="myButton96" class="b">
-			<input type="button" value="¸ñÆ÷" id="myButton97" class="b">
-		</div>
-		
-		<!-- Àü¶ó³²µµ ¹öÆ° ÇÏÀ§ 1Çà -->
-		<div id="jeollanam2">
-			<input type="button" value="¹«¾È" id="myButton98" class="b">
-			<input type="button" value="º¸¼º" id="myButton99" class="b">
-			<input type="button" value="¼øÃµ" id="myButton100" class="b">
-			<input type="button" value="½Å¾È" id="myButton101" class="b">
-			<input type="button" value="¿©¼ö" id="myButton102" class="b">
-			<input type="button" value="¿µ±¤" id="myButton103" class="b">
-			<input type="button" value="¿µ¾Ï" id="myButton104" class="b">
-			<input type="button" value="¿Ïµµ" id="myButton105" class="b">
-		</div>
-		
-		<!-- Àü¶ó³²µµ ¹öÆ° ÇÏÀ§ 3Çà -->
-		<div id="jeollanam3">
-			<input type="button" value="Àå¼º" id="myButton106" class="b">
-			<input type="button" value="ÀåÈï" id="myButton107" class="b">
-			<input type="button" value="Áøµµ" id="myButton108" class="b">
-			<input type="button" value="ÇÔÆò" id="myButton109" class="b">
-			<input type="button" value="ÇØ³²" id="myButton110" class="b">
-			<input type="button" value="È­¼ø" id="myButton111" class="b">
-			
-		</div>
-		
-	</div>
-	
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 3Çà Àü¶óºÏµµ ¹öÆ° -->
-	<div class="Jeollabukdodiv2" id="Jeollabukdodiv2">
-		<!-- Àü¶óºÏµµ ¹öÆ° ÇÏÀ§ 1Çà -->
-		<div id="jeollabuk1">
-			<input type="button" value="°íÃ¢" id="myButton112" class="b">
-			<input type="button" value="±º»ê" id="myButton113" class="b">
-			<input type="button" value="±èÁ¦" id="myButton114" class="b">
-			<input type="button" value="³²¿ø" id="myButton115" class="b">
-			<input type="button" value="¹«ÁÖ" id="myButton116" class="b">
-			<input type="button" value="ºÎ¾È" id="myButton117" class="b">
-			<input type="button" value="¼øÃ¢" id="myButton118" class="b">
-			<input type="button" value="¿ÏÁÖ" id="myButton119" class="b">
-		</div>
-		
-		<!-- Àü¶óºÏµµ ¹öÆ° ÇÏÀ§ 2Çà -->
-		<div id="jeollabuk2">
-			<input type="button" value="ÀÍ»ê" id="myButton120" class="b">
-			<input type="button" value="ÀÓ½Ç" id="myButton121" class="b">
-			<input type="button" value="Àå¼ö" id="myButton122" class="b">
-			<input type="button" value="ÀüÁÖ" id="myButton123" class="b">
-			<input type="button" value="Á¤À¾" id="myButton124" class="b">
-			<input type="button" value="Áø¾È" id="myButton125" class="b">
-			
-		</div>
-	</div>
-	
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 3Çà ÃæÃ»³²µµ ¹öÆ° -->
-	<div class="Chungcheongnamdodiv2" id="Chungcheongnamdodiv2">
-		<!-- ÃæÃ»³²µµ ¹öÆ° ÇÏÀ§ 1Çà -->
-		<div id="chungnam1">
-			<input type="button" value="°øÁÖ" id="myButton126" class="b"> 
-			<input type="button" value="±İ»ê" id="myButton127" class="b"> 
-			<input type="button" value="³í»ê" id="myButton128" class="b"> 
-			<input type="button" value="´çÁø" id="myButton129" class="b"> 
-			<input type="button" value="º¸·É" id="myButton130" class="b"> 
-			<input type="button" value="ºÎ¿©" id="myButton131" class="b"> 
-			<input type="button" value="¼­»ê" id="myButton132" class="b"> 
-			<input type="button" value="¼­Ãµ" id="myButton133" class="b"> 
-		</div>
-		
-		<!-- ÃæÃ»³²µµ ¹öÆ° ÇÏÀ§ 2Çà -->
-		<div id="chungnam2">
-			<input type="button" value="¾Æ»ê" id="myButton134" class="b"> 
-			<input type="button" value="¿¹»ê" id="myButton135" class="b"> 
-			<input type="button" value="Ãµ¾È" id="myButton136" class="b"> 
-			<input type="button" value="Ã»¾ç" id="myButton137" class="b"> 
-			<input type="button" value="ÅÂ¾È" id="myButton6" class="b"> 
-			<input type="button" value="È«¼º" id="myButton138" class="b"> 
-			<input type="button" value="°è·æ" id="myButton139" class="b"> 
-			
-		</div>
-		
-	</div>
-	
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 3Çà ÃæÃ»ºÏµµ ¹öÆ° -->
-	<div class="Chungcheongbukdodiv2" id="Chungcheongbukdodiv2">
-			<!-- ÃæÃ»ºÏµµ ¹öÆ° ÇÏÀ§ 1Çà -->
-			<div id="chungbuk1">
-				<input type="button" value="±«»ê" id="myButton140" class="b">
-				<input type="button" value="´Ü¾ç" id="myButton141" class="b">
-				<input type="button" value="º¸Àº" id="myButton142" class="b">
-				<input type="button" value="¿µµ¿" id="myButton143" class="b">
-				<input type="button" value="¿ÁÃµ" id="myButton144" class="b">
-				<input type="button" value="À½¼º" id="myButton145" class="b">
-				<input type="button" value="Á¦Ãµ" id="myButton146" class="b">
-				<input type="button" value="ÁøÃµ" id="myButton147" class="b">
-			</div>
-			
-			<!-- ÃæÃ»ºÏµµ ¹öÆ° ÇÏÀ§ 2Çà -->
-			<div id="chungbuk2">
-				<input type="button" value="Ã»¿ø" id="myButton148" class="b">
-				<input type="button" value="Ã»ÁÖ" id="myButton149" class="b">
-				<input type="button" value="ÃæÁÖ" id="myButton150" class="b">
-				<input type="button" value="ÁõÆò" id="myButton151" class="b">
-				
-			</div>
-			
-	</div>
-	
-</div><!-- end wrap class °æÀ¯Áö ÅÇ -->
-				
-			</div>
-
-			<!-- µµÂøÁö ÅÇ -->
-			<div id="menu3" class="tab-pane fade ">
-				<div class="wrap">
-	
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3Çà Áß 1Çà -->
-	<div class="city0">
-			<input type="button" value="ÁÖ¿äµµ½Ã" id=majorcitymark>
-			<input type="button" value="¼­¿ï" id="myButton1" class="c">
-			<input type="button" value="Á¦ÁÖ" id="myButton2" class="c">
-			<input type="button" value="ºÎ»ê" id="myButton3" class="c">
-			<input type="button" value="°æÁÖ" id="myButton4" class="c">
-			<input type="button" value="¾çÆò" id="myButton5" class="c">
-			<input type="button" value="ÅÂ¾È" id="myButton6" class="c">
-			<input type="button" value="ÁøÁÖ" id="myButton7" class="c">
-			<input type="button" value="°­¸ª" id="myButton8" class="c">
-	</div>
-
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3Çà Áß 2Çà -->
-	<div class="city1">
-			<input type="button" value="°­¿øµµ¡ä" class="Gangwondo3">
-			<input type="button" value="°æ±âµµ¡ä" class="Gyeonggido3">
-			<input type="button" value="°æ»ó³²µµ¡ä" class="Gyeongsangnamdo3">
-			<input type="button" value="°æ»óºÏµµ¡ä" class="Gyeongsangbukdo3">
-			<input type="button" value="±¤ÁÖ" id="myButton29" class="c">
-			<input type="button" value="´ë±¸" id="myButton152" class="c">
-			<input type="button" value="´ëÀü" id="myButton153" class="c">
-			<input type="button" value="ºÎ»ê" id="myButton3" class="c">
-		
-	</div>
-	
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 2Çà °­¿øµµ ¹öÆ° -->
-	<div class="Gangwondodiv3" id="Gangwondodiv3">
-		
-		<!-- °­¿øµµ ¹öÆ° ÇÏÀ§ 1Çà -->
-		<div id="gangwon1">
-			<input type="button" value="°­¸ª" id="myButton8" class="c">
-			<input type="button" value="°í¼º" id="myButton9" class="c">
-			<input type="button" value="µ¿ÇØ" id="myButton10" class="c">
-			<input type="button" value="»ïÃ´" id="myButton11" class="c">
-			<input type="button" value="¼ÓÃÊ" id="myButton12" class="c">
-			<input type="button" value="¾ç±¸" id="myButton13" class="c">
-			<input type="button" value="¾ç¾ç" id="myButton14" class="c">
-			<input type="button" value="¿µ¿ù" id="myButton15" class="c">
-		</div>
-		
-		<!-- °­¿øµµ ¹öÆ° ÇÏÀ§ 2Çà -->
-		<div id="gangwon2">
-			<input type="button" value="¿øÁÖ" id="myButton16" class="c">
-			<input type="button" value="ÀÎÁ¦" id="myButton17" class="c">
-			<input type="button" value="Á¤¼±" id="myButton18" class="c">
-			<input type="button" value="Ã¶¿ø" id="myButton19" class="c">
-			<input type="button" value="ÃáÃµ" id="myButton20" class="c">
-			<input type="button" value="ÅÂ¹é" id="myButton21" class="c">
-			<input type="button" value="ÆòÃ¢" id="myButton22" class="c">
-			<input type="button" value="È«Ãµ" id="myButton23" class="c">
-		</div>
-		
-		<!-- °­¿øµµ ¹öÆ° ÇÏÀ§ 3Çà -->
-		<div id="gangwon3">
-			<input type="button" value="È­Ãµ" id="myButton24" class="c">
-			<input type="button" value="È¾¼º" id="myButton25" class="c">
-			
-		</div>
-		
-	</div>
-	
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 2Çà °æ±âµµ ¹öÆ° -->
-	<div class="Gyeonggidodiv3" id="Gyeonggidodiv3">
-		
-		<!-- °æ±âµµ ¹öÆ° ÇÏÀ§ 1Çà -->
-		<div id="gyeongi1">
-			<input type="button" value="°¡Æò" id="myButton25" class="c">
-			<input type="button" value="°í¾ç" id="myButton26" class="c">
-			<input type="button" value="°úÃµ" id="myButton27" class="c">
-			<input type="button" value="±¤¸í" id="myButton28" class="c">
-			<input type="button" value="±¤ÁÖ" id="myButton29" class="c">
-			<input type="button" value="±¸¸®" id="myButton30" class="c">
-			<input type="button" value="±ºÆ÷" id="myButton31" class="c">
-			<input type="button" value="±èÆ÷" id="myButton32" class="c">
-		</div>
-		
-		<!-- °æ±âµµ ¹öÆ° ÇÏÀ§ 2Çà -->
-		<div id="gyeongi2">
-			<input type="button" value="³²¾çÁÖ" id="myButton33" class="c">
-			<input type="button" value="µ¿µÎÃµ" id="myButton34" class="c">
-			<input type="button" value="ºÎÃµ" id="myButton35" class="c">
-			<input type="button" value="¼º³²" id="myButton36" class="c">
-			<input type="button" value="¼ö¿ø" id="myButton37" class="c">
-			<input type="button" value="½ÃÈï" id="myButton38" class="c">
-			<input type="button" value="¾È»ê" id="myButton39" class="c">
-			<input type="button" value="¾È¼º" id="myButton40" class="c">
-		</div>
-		
-		<!-- °æ±âµµ ¹öÆ° ÇÏÀ§ 3Çà -->
-		<div id="gyeongi3">
-			<input type="button" value="¾È¾ç" id="myButton41" class="c">
-			<input type="button" value="¾çÁÖ" id="myButton42" class="c">
-			<input type="button" value="¾çÆò" id="myButton5" class="c">
-			<input type="button" value="¿©ÁÖ" id="myButton43" class="c">
-			<input type="button" value="¿¬Ãµ" id="myButton44" class="c">
-			<input type="button" value="¿À»ê" id="myButton45" class="c">
-			<input type="button" value="¿ëÀÎ" id="myButton46" class="c">
-			
-		</div>
-		
-	</div>
-	
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 2Çà °æ»ó³²µµ ¹öÆ° -->
-	<div class="Gyeongsangnamdodiv3" id="Gyeongsangnamdodiv3">
-		
-		<!-- °æ»ó³²µµ ¹öÆ° ÇÏÀ§ 1Çà -->
-		<div id="gyeongnam1">
-			<input type="button" value="°ÅÁ¦" id="myButton47" class="c">
-			<input type="button" value="°ÅÃ¢" id="myButton48" class="c">
-			<input type="button" value="°í¼º" id="myButton49" class="c">
-			<input type="button" value="±èÇØ" id="myButton50" class="c">
-			<input type="button" value="³²ÇØ" id="myButton51" class="c">
-			<input type="button" value="¸¶»ê" id="myButton52" class="c">
-			<input type="button" value="¹Ğ¾ç" id="myButton53" class="c">
-			<input type="button" value="»çÃµ" id="myButton54" class="c">
-		</div>
-		
-		<!-- °æ»ó³²µµ ¹öÆ° ÇÏÀ§ 2Çà -->
-		<div id="gyeongnam2">
-			<input type="button" value="»êÃ»" id="myButton55" class="c">
-			<input type="button" value="¾ç»ê" id="myButton56" class="c">
-			<input type="button" value="ÀÇ·É" id="myButton57" class="c">
-			<input type="button" value="ÁøÁÖ" id="myButton7" class="c">
-			<input type="button" value="ÁøÇØ" id="myButton58" class="c">
-			<input type="button" value="Ã¢³ç" id="myButton59" class="c">
-			<input type="button" value="Ã¢¿ø" id="myButton60" class="c">
-			<input type="button" value="Åë¿µ" id="myButton61" class="c">
-		</div>
-		
-		<!-- °æ»ó³²µµ ¹öÆ° ÇÏÀ§ 3Çà -->
-		<div id="gyeongnam3">
-			<input type="button" value="ÇÏµ¿" id="myButton62" class="c">
-			<input type="button" value="ÇÔ¾È" id="myButton63" class="c">
-			<input type="button" value="ÇÔ¾ç" id="myButton64" class="c">
-			<input type="button" value="ÇÕÃµ" id="myButton65" class="c">
-			
-		</div>
-		
-	</div>
-
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 2Çà °æ»óºÏµµ ¹öÆ° -->
-	<div class="Gyeongsangbukdodiv3" id="Gyeongsangbukdodiv3">
-		
-		<!-- °æ»óºÏµµ ¹öÆ° ÇÏÀ§ 1Çà -->
-		<div id="gyeongbuk1">
-			<input type="button" value="°æ»ê" id="myButton66" class="c">
-			<input type="button" value="°æÁÖ" id="myButton4" class="c">
-			<input type="button" value="°í·É" id="myButton67" class="c">
-			<input type="button" value="±¸¹Ì" id="myButton68" class="c">
-			<input type="button" value="±ºÀ§" id="myButton69" class="c">
-			<input type="button" value="±èÃµ" id="myButton70" class="c">
-			<input type="button" value="¹®°æ" id="myButton71" class="c">
-			<input type="button" value="ºÀÈ­" id="myButton72" class="c">
-		</div>
-		
-		<!-- °æ»óºÏµµ ¹öÆ° ÇÏÀ§ 2Çà -->
-		<div id="gyeongbuk2">
-			<input type="button" value="»óÁÖ" id="myButton73" class="c">
-			<input type="button" value="¼ºÁÖ" id="myButton74" class="c">
-			<input type="button" value="¾Èµ¿" id="myButton75" class="c">
-			<input type="button" value="¿µ´ö" id="myButton76" class="c">
-			<input type="button" value="¿µ¾ç" id="myButton77" class="c">
-			<input type="button" value="¿µÁÖ" id="myButton78" class="c">
-			<input type="button" value="¿µÃµ" id="myButton79" class="c">
-			<input type="button" value="¿¹Ãµ" id="myButton80" class="c">
-		</div>
-		
-		<!-- °æ»óºÏµµ ¹öÆ° ÇÏÀ§ 3Çà -->
-		<div id="gyeongbuk3">
-			<input type="button" value="¿ï¸ª" id="myButton81" class="c">
-			<input type="button" value="¿ïÁø" id="myButton82" class="c">
-			<input type="button" value="ÀÇ¼º" id="myButton83" class="c">
-			<input type="button" value="Ã»µµ" id="myButton84" class="c">
-			<input type="button" value="Ã»¼Û" id="myButton85" class="c">
-			<input type="button" value="Ä¥°î" id="myButton86" class="c">
-			<input type="button" value="Æ÷Ç×" id="myButton87" class="c">
-			
-		</div>
-		
-	</div>
-
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3Çà Áß 3Çà -->
-	<div class="city2">
-	
-			<input type="button" value="¼­¿ï" id="myButton1" class="c">
-			<input type="button" value="¿ï»ê" id="myButton88" class="c">
-			<input type="button" value="ÀÎÃµ" id="myButton89" class="c">
-			<input type="button" value="Àü¶ó³²µµ¡ä" class="Jeollanamdo3">
-			<input type="button" value="Àü¶óºÏµµ¡ä" class="Jeollabukdo3">
-			<input type="button" value="Á¦ÁÖ" id="myButton2" class="c">
-			<input type="button" value="ÃæÃ»³²µµ¡ä" class="Chungcheongnamdo3">
-			<input type="button" value="ÃæÃ»ºÏµµ¡ä" class="Chungcheongbukdo3">
-	
-	</div>
-	
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 3Çà Àü¶ó³²µµ ¹öÆ° -->
-	<div class="Jeollanamdodiv3" id="Jeollanamdodiv3">
-		
-		<!-- Àü¶ó³²µµ ¹öÆ° ÇÏÀ§ 1Çà -->
-		<div id="jeollanam1">
-			<input type="button" value="°­Áø" id="myButton90" class="c">
-			<input type="button" value="°íÈï" id="myButton91" class="c">
-			<input type="button" value="°î¼º" id="myButton92" class="c">
-			<input type="button" value="±¤¾ç" id="myButton93" class="c">
-			<input type="button" value="±¸·Ê" id="myButton94" class="c">
-			<input type="button" value="³ªÁÖ" id="myButton95" class="c">
-			<input type="button" value="´ã¾ç" id="myButton96" class="c">
-			<input type="button" value="¸ñÆ÷" id="myButton97" class="c">
-		</div>
-		
-		<!-- Àü¶ó³²µµ ¹öÆ° ÇÏÀ§ 2Çà -->
-		<div id="jeollanam2">
-			<input type="button" value="¹«¾È" id="myButton98" class="c">
-			<input type="button" value="º¸¼º" id="myButton99" class="c">
-			<input type="button" value="¼øÃµ" id="myButton100" class="c">
-			<input type="button" value="½Å¾È" id="myButton101" class="c">
-			<input type="button" value="¿©¼ö" id="myButton102" class="c">
-			<input type="button" value="¿µ±¤" id="myButton103" class="c">
-			<input type="button" value="¿µ¾Ï" id="myButton104" class="c">
-			<input type="button" value="¿Ïµµ" id="myButton105" class="c">
-		</div>
-		
-		<!-- Àü¶ó³²µµ ¹öÆ° ÇÏÀ§ 3Çà -->
-		<div id="jeollanam3">
-			<input type="button" value="Àå¼º" id="myButton106" class="c">
-			<input type="button" value="ÀåÈï" id="myButton107" class="c">
-			<input type="button" value="Áøµµ" id="myButton108" class="c">
-			<input type="button" value="ÇÔÆò" id="myButton109" class="c">
-			<input type="button" value="ÇØ³²" id="myButton110" class="c">
-			<input type="button" value="È­¼ø" id="myButton111" class="c">
-			
-		</div>
-		
-	</div>
-	
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 3Çà Àü¶óºÏµµ ¹öÆ° -->
-	<div class="Jeollabukdodiv3" id="Jeollabukdodiv3">
-		
-		<!-- Àü¶óºÏµµ ¹öÆ° ÇÏÀ§ 1Çà -->
-		<div id="jeollabuk1">
-			<input type="button" value="°íÃ¢" id="myButton112" class="c">
-			<input type="button" value="±º»ê" id="myButton113" class="c">
-			<input type="button" value="±èÁ¦" id="myButton114" class="c">
-			<input type="button" value="³²¿ø" id="myButton115" class="c">
-			<input type="button" value="¹«ÁÖ" id="myButton116" class="c">
-			<input type="button" value="ºÎ¾È" id="myButton117" class="c">
-			<input type="button" value="¼øÃ¢" id="myButton118" class="c">
-			<input type="button" value="¿ÏÁÖ" id="myButton119" class="c">
-		</div>
-		
-		<!-- Àü¶óºÏµµ ¹öÆ° ÇÏÀ§ 2Çà -->
-		<div id="jeollabuk2">
-			<input type="button" value="ÀÍ»ê" id="myButton120" class="c">
-			<input type="button" value="ÀÓ½Ç" id="myButton121" class="c">
-			<input type="button" value="Àå¼ö" id="myButton122" class="c">
-			<input type="button" value="ÀüÁÖ" id="myButton123" class="c">
-			<input type="button" value="Á¤À¾" id="myButton124" class="c">
-			<input type="button" value="Áø¾È" id="myButton125" class="c">
-			
-		</div>
-	</div>
-	
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 3Çà ÃæÃ»³²µµ ¹öÆ° -->
-	<div class="Chungcheongnamdodiv3" id="Chungcheongnamdodiv3">
-		
-		<!-- ÃæÃ»³²µµ ¹öÆ° ÇÏÀ§ 1Çà -->
-		<div id="chungnam1">
-			<input type="button" value="°øÁÖ" id="myButton126" class="c"> 
-			<input type="button" value="±İ»ê" id="myButton127" class="c"> 
-			<input type="button" value="³í»ê" id="myButton128" class="c"> 
-			<input type="button" value="´çÁø" id="myButton129" class="c"> 
-			<input type="button" value="º¸·É" id="myButton130" class="c"> 
-			<input type="button" value="ºÎ¿©" id="myButton131" class="c"> 
-			<input type="button" value="¼­»ê" id="myButton132" class="c"> 
-			<input type="button" value="¼­Ãµ" id="myButton133" class="c"> 
-		</div>
-		
-		<!-- ÃæÃ»³²µµ ¹öÆ° ÇÏÀ§ 2Çà -->
-		<div id="chungnam2">
-			<input type="button" value="¾Æ»ê" id="myButton134" class="c"> 
-			<input type="button" value="¿¹»ê" id="myButton135" class="c"> 
-			<input type="button" value="Ãµ¾È" id="myButton136" class="c"> 
-			<input type="button" value="Ã»¾ç" id="myButton137" class="c"> 
-			<input type="button" value="ÅÂ¾È" id="myButton6" class="c"> 
-			<input type="button" value="È«¼º" id="myButton138" class="c"> 
-			<input type="button" value="°è·æ" id="myButton139" class="c"> 
-			
-		</div>
-		
-	</div>
-	
-	<!-- ¿©Çà Áö¿ª ¼±ÅÃ 3ÇàÁß 3Çà ÃæÃ»ºÏµµ ¹öÆ° -->
-	<div class="Chungcheongbukdodiv3" id="Chungcheongbukdodiv3">
-			
-			<!-- ÃæÃ»ºÏµµ ¹öÆ° ÇÏÀ§ 1Çà -->
-			<div id="chungbuk1">
-				<input type="button" value="±«»ê" id="myButton140" class="c">
-				<input type="button" value="´Ü¾ç" id="myButton141" class="c">
-				<input type="button" value="º¸Àº" id="myButton142" class="c">
-				<input type="button" value="¿µµ¿" id="myButton143" class="c">
-				<input type="button" value="¿ÁÃµ" id="myButton144" class="c">
-				<input type="button" value="À½¼º" id="myButton145" class="c">
-				<input type="button" value="Á¦Ãµ" id="myButton146" class="c">
-				<input type="button" value="ÁøÃµ" id="myButton147" class="c">
-			</div>
-			
-			<!-- ÃæÃ»ºÏµµ ¹öÆ° ÇÏÀ§ 2Çà -->
-			<div id="chungbuk2">
-				<input type="button" value="Ã»¿ø" id="myButton148" class="c">
-				<input type="button" value="Ã»ÁÖ" id="myButton149" class="c">
-				<input type="button" value="ÃæÁÖ" id="myButton150" class="c">
-				<input type="button" value="ÁõÆò" id="myButton151" class="c">
-				
-			</div>
-			
-	</div>
-	
-</div><!-- end wrap class µµÂøÁö ÅÇ-->
-			</div>
-		</div>
 
 
-		<!-- 	Ãâ¹ßÁö °æÀ¯Áö µµÂøÁö¸¦ ¼±ÅÃÇÏ¸é Ãâ·ÂÇØÁÖ´Â °÷ 	-->
-		<!-- Ãâ¹ßÁö Ãâ·Â°ø°£ -->
-		<input type="text" class="liststart" name="liststart" placeholder="Ãâ¹ßÁö" readonly="readonly" />
-
-		<!-- °æÀ¯Áö Ãâ·Â°ø°£ -->
-		<input type="text" class="listthrough" name="listthrough"  placeholder="°æÀ¯Áö" readonly="readonly"> 
-		
-		<!-- µµÂøÁö Ãâ·Â°ø°£ -->
-		<input type="text" class="listarrival" name="listarrival"  placeholder="µµÂøÁö" readonly="readonly" />
-		
-		<!-- °æÀ¯Áöºñ¿ì±â ¹öÆ° -->
-		<input type="button" class="reset" value="°æÀ¯Áö ºñ¿ì±â" /> 
-		</br> 
-		
-		
-		<!-- ÀÏÁ¤Á¦¸ñ ¹× µ¿ÇàÀÚ ¹öÆ° °ø°£  -->
-		
-		<div class="threerow">
-			<!-- ÀÏÁ¤Á¦¸ñ ¶óº§ -->
-			<div class="lbtitle">ÀÏÁ¤Á¦¸ñ</div>
-			<!-- ÀÏÁ¤Á¦¸ñ ÀÔ·Â¶õ -->
-			<input type="text" class="traveltitle" name="traveltitle" placeholder="15ÀÚ³»·Î ÀÔ·ÂÇØÁÖ¼¼¿ä.">
-			<br/>
-		</div><!-- threerow -->
-		
-		<!-- µ¿ÇàÀÚ ÆË¾÷ -->
-			
-		<!-- µ¿ÇàÀÚ ÆË¾÷¹öÆ° -->
-		<div class="fourrow">	
-			<input type="text" class="fellowpeople" id="fellowpeople" readonly="readonly" placeholder="µ¿ÇàÀÚ¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä.">
-			<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">µ¿ÇàÀÚ</button>
-			
-		</div>	
-		
-			<!-- Modal -->
-			<!-- µ¿ÇàÀÚ ¹öÆ° Å¬¸¯½Ã ³ª¿À´Â È­¸é -->
-			<div class="modal fade" id="myModal" role="dialog">
-				<div class="modal-dialog">
-	
-					<!-- Modal content-->
-					<div class="modal-content">
-						
-						<!-- µ¿ÇàÀÚ ÆË¾÷ Çì´õ -->
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h3 class="modal-title">µ¿ÇàÀÚ °Ë»ö</h3>
-						</div>
-						
-						<!-- µ¿ÇàÀÚ ÆË¾÷ ¹Ùµğ(µ¿ÇàÀÚ ¾ÆÀÌµğ °Ë»ö ¹× Ãâ·Â°ø°£) -->
-						<div class="modal-body">
-							
-							<!-- µ¿ÇàÀÚ ¾ÆÀÌµğ °Ë»ö °ø°£ -->
-							<div class="input-group">
-								<input id="modalsearchplace" type="text" class="form-control"placeholder="Search ID..">
-								<span class="input-group-btn">
-									<button id="modalsearchbtn" class="btn btn-default"
-										type="button">Search</button>
-								</span>
-							</div>
-							
-							<!--/input-group  -->
-							<!-- 	 ÆË¾÷Ã¢¿¡¼­ °Ë»öÇÑ ¾ÆÀÌµğ Ãâ·ÂÇØÁÖ´Â Àå¼Ò    -->
-							<div class="col-md-13">
-								<input type="textarea" id="idlist" name="idlist" readonly>
-								<input type="button" value="O" id="okbtn">
-								<input type="button" value="X" id="cancelbtn">
-							</div>
-	
-						</div><!-- end input-group class -->
-	
-						<!-- µ¿ÇàÀÚ ÆË¾÷ ÇªÅÍ (Å¬·ÎÁî¹öÆ°) -->
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal"
-								id="ftokbtn">¿Ï·á</button>
-						</div>
-						
-					</div><!-- end modal-content class -->
-				</div><!-- end modal-dialog class -->
-			</div><!-- end myModal id -->
-			
-		<!--	Ãâ¹ß³¯Â¥ µµÂø³¯Â¥ °ø°£	-->
-		<div class="input-group input-group-lg" id="datediv">
-			<span class="input-group-addon" id="sizing-addon1">Ãâ¹ß³¯Â¥</span>
-			<input type="text" id="startdate" name="startdate" class="form-control" placeholder="¼±ÅÃ" aria-describedby="sizing-addon1">
-			<span class="input-group-addon" id="sizing-addon1">µµÂø³¯Â¥</span>
-			<input type="text" id="arrivaldate" name="arrivaldate" class="form-control" placeholder="¼±ÅÃ" aria-describedby="sizing-addon1">
-		</div>
-		
-	</form><!-- end contnsubform -->
-	</div><!-- end container class -->
-</div><!-- end main div -->
-</body>
-</html>
