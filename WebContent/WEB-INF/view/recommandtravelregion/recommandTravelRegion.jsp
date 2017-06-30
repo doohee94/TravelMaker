@@ -1,590 +1,207 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-    
-    <!-- ©╘гЮаЖ цъц╣ фДюлаЖ -->
-    
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<!-- Л≈╛М√┴Л╖─ Л╤■Л╡° М▌≤Л²╢Л╖─ -->
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>©╘гЮаЖ цъц╣ фДюлаЖ</title>
+<title>Л≈╛М√┴Л╖─ Л╤■Л╡° М▌≤Л²╢Л╖─</title>
 
-<!-- ег ╧в фШ css -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	
+<!-- М┐╜ К╟▐ М▐╪ css -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <!-- css  -->
-<link rel="stylesheet" href="/resource/recommandTravelRegion/css/recommandTravelRegion.css"/>
-<link rel="stylesheet" href="/resource/recommandTravelRegion/css/myInterestOrder.css"/>
-<link rel="stylesheet" href="/resource/recommandTravelRegion/css/popularOrder.css"/>
-	
-<!-- ег ╧в фШ script -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="/resource/recommandTravelRegion/css/recommandTravelRegion.css" />
+<link rel="stylesheet"
+	href="/resource/recommandTravelRegion/css/myInterestOrder.css" />
+<link rel="stylesheet"
+	href="/resource/recommandTravelRegion/css/popularOrder.css" />
 
-<!-- top ╧Жф╟ script -->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="/resource/recommandTravelRegion/js/recommandTravelRegion.js"></script>
+<!-- М┐╜ К╟▐ М▐╪ script -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- top К╡└М┼╪ script -->
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script
+	src="/resource/recommandTravelRegion/js/recommandTravelRegion.js"></script>
 
 </head>
 <body>
-<div style="height:75px; background-color: #103e68;">
-   <br/>
-   <div style="color:#fff; font-size: 2em; display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;цъц╣ ©╘гЮаЖ</div>
-   <div style="float:right; margin-right: 50px;">
-   <input type="submit" value="╢ыю╫ >" id="nextbtn">
-   </div>
-</div>
+	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="tmmain/main.tm">Travel Maker</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/step1/step1.tm">Л²╪Л═∙К╖▄К⌠╓Й╦╟</a></li>
+					<li><a href="/recommandtravelregion/recommandTravelRegion.tm">Л≈╛М√┴Л╖─Л╤■Л╡°</a>
+					</li>
+					<li><a href="/recommandtravelregion/recommandTravelRegion.tm">Л≈╛М√┴К╕╛К╥╟</a>
+					</li>
+					<li><a href="/challengeschedule/challengeSchedule.tm">К▐└Л═└Л²╪Л═∙</a>
+					</li>
+					<li style="padding: 10px"><input type="text" />
+						<button>Й╡─Л┐┴</button></li>
+					<li><a href="member/loginForm.tm">К║°Й╥╦Л²╦</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+	</nav>
 
-	<div class="container" id="container">
-	
-	<!-- top3 ╟Ь╟ё -->
-		<div class="topthreelb" id="topthreelb"><h2>TOP 3</h2></div>
-		<div class="topthreediv">
-			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-		        <div class="hovereffect">
-		        	
-		            <img class="topoth" src="http://placehold.it/350x200" alt="">
-		            <div class="overlay">
-		               <img class="img-responsive" src="/resource/recommandTravelRegion/img/fullheart.jpg" alt="">
-		               <h2>top1</h2>
-		               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-		               <a href="#">read more</a></p>
-		              
-		            </div>
-		        </div>
-	   		</div>
-		    
-		    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-		        <div class="hovereffect">
-		            <img class="topoth" src="http://placehold.it/350x200" alt="">
-		            <div class="overlay">
-		               <img class="img-responsive" src="/resource/recommandTravelRegion/img/fullheart.jpg" alt="">
-		               <h2>top2</h2>
-		               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝
-		               <a href="#">read more</a></p>
-		               
-		            </div>
-		        </div>
-		    </div>
-		    
-		    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-		        <div class="hovereffect">
-		            <img class="topoth" src="http://placehold.it/350x200" alt="">
-		            <div class="overlay">
-		               <img class="img-responsive" src="/resource/recommandTravelRegion/img/fullheart.jpg" alt="">
-		               <h2>top3</h2>
-		               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-		               <a href="#">read more</a></p>
-		               
-		            </div>
-		        </div>
-		    </div>
-		</div><!-- end top3 div  -->
+
+<div class="container" id="secondcontainer">
+
+		<!-- top3 ЙЁ╣Й╟└ -->
+		<div class="topthreeloc">
+			<div class="topthreelb" id="topthreelb">
+				<h2>TOP 3</h2>
+			</div>
+
+			<!-- Л╡╚К╡┬Л╖╦ -->
+			<div class="topthreediv">
+
+				<div class="col-md-4 text-center">
+				<div class="thumbnail">
+					<img class="img-responsive" src="http://placehold.it/750x450"
+						alt="">
+					<div class="caption">
+						<h3>
+							Л╡╚К╡┬Л╖╦ К▄─Л═°К╙╘ ЙЁ╣Й╟└<br> <small>Л├▄Л═°К╙╘ ЙЁ╣Й╟└</small>
+						</h3>
+						<p>К┌╢Л ╘ ЙЁ╣Й╟└</p>
+					</div>
+				</div>
+			</div>
+
+				<!-- К▒░К╡┬Л╖╦ -->
+				<div class="col-md-4 text-center">
+				<div class="thumbnail">
+					<img class="img-responsive" src="http://placehold.it/750x450"
+						alt="">
+					<div class="caption">
+						<h3>
+							К▒░К╡┬Л╖╦ К▄─Л═°К╙╘ ЙЁ╣Й╟└<br> <small>Л├▄Л═°К╙╘ ЙЁ╣Й╟└</small>
+						</h3>
+						<p>К┌╢Л ╘ ЙЁ╣Й╟└</p>
+					</div>
+				</div>
+			</div>
+
+				<!-- Л└╦К╡┬Л╖╦ -->
+				<div class="col-md-4 text-center">
+				<div class="thumbnail">
+					<img class="img-responsive" src="http://placehold.it/750x450"
+						alt="">
+					<div class="caption">
+						<h3>
+							Л└╦К╡┬Л╖╦ К▄─Л═°К╙╘ ЙЁ╣Й╟└<br> <small>Л├▄Л═°К╙╘ ЙЁ╣Й╟└</small>
+						</h3>
+						<p>К┌╢Л ╘ ЙЁ╣Й╟└</p>
+					</div>
+				</div>
+			</div>
+				
+			</div>
+			<!-- end top3 div (topthreediv)  -->
+		</div>
+		<!-- end top3 Л═°К╙╘ К╟▐ div  -->
+</div><!-- К▒░К╡┬Л╖╦ container (top3 Л═°К╙╘ К╟▐ Й╦─ ) -->
+
+		<!--  Л²╦Й╦╟Л┬° К┌╢Й╢─Л▀╛Л┬° М┐╜	-->
+<div class="container" id="thirdcontainer">
 		
-		<div class="hiddenbr"><h2>╨С╟Ь╟ё</h2></div>
-	
-	
-	
-	
-	<!--  юн╠Б╪Ь Ё╩╟Э╫и╪Ь ег	-->
-		  <ul class="nav nav-tabs">
-		    <li class="active"><a data-toggle="tab" href="#menu1" >юн╠Б╪Ь</a></li>
-		    <li><a data-toggle="tab" href="#menu2">Ё╩╟Э╫и╪Ь</a></li>
-<!-- 		    <input type="button" value="╢ыю╫" id="nextbtn"> -->
-		  </ul>
+			<ul class="nav nav-tabs">
+				<li class="active"><a data-toggle="tab" href="#populartab">Л²╦Й╦╟Л┬°</a></li>
+				<li><a data-toggle="tab" href="#myinteresttab">К┌╢Й╢─Л▀╛Л┬°</a></li>
+				<!-- 		    <input type="button" value="К▀╓Л²▄" id="nextbtn"> -->
+			</ul>
+			
+		
+		
+		<div class="tab-content">
+			<!-- Л²╦Й╦╟Л┬° М┐╜ -->
+			<div id="populartab" class="tab-pane fade in active">
 
- 		<div class="tab-content">
- 			<!-- юн╠Б╪Ь ег -->
-    		<div id="menu1" class="tab-pane fade in active">
-     		 	<p>
-     		 	<!-- ©╘гЮаЖ цъц╣ фДюлаЖ - юн╠Б╪Ь фДюлаЖ -->
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div><div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div><div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div><div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div><div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div><div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div><div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div><div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div><div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-<!-- end ©╘гЮаЖ цъц╣ фДюлаЖ - юн╠Б╪Ь фДюлаЖ -->
-     		 	</p>	 
-   			</div>
-   			
-   			<!-- Ё╩ ╟Э╫и╪Ь ег -->
-   			<div id="menu2" class="tab-pane fade">
-			    <p>
-				<!--©╘гЮаЖцъц╣фДюлаЖ - юн╠Б╪Ь фДюлаЖ -->
+				<!-- Л≈╛М√┴Л╖─ Л╤■Л╡° М▌≤Л²╢Л╖─ - Л²╦Й╦╟Л┬° М▌≤Л²╢Л╖─ -->
+				<%
+					for (int i = 0; i < 6; i++) {
+				%>
+				<div class="col-md-4 text-center">
+					<div class="thumbnail">
+						<img class="img-responsive" src="http://placehold.it/750x450"
+							alt="">
+						<div class="caption">
+							<h3>
+								К▄─Л═°К╙╘ ЙЁ╣Й╟└<br> <small>Л├▄Л═°К╙╘ ЙЁ╣Й╟└</small>
+							</h3>
+							<p>К┌╢Л ╘ ЙЁ╣Й╟└</p>
+						</div>
+					</div>
+				</div>
+				<%
+					}
+				%>
 
-	<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>Ё╩╟Э╫и╪Ь</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div><div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div><div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div><div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div><div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div><div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div><div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div><div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div><div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="hovereffect">
-            <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-            <div class="overlay">
-               <h2>а╕╦Я</h2>
-               <p class="info">ев╫╨ф╝ ев╫╨ф╝ ев╫╨ф╝ ев╫╨ев╫╨ф╝ 
-               <a href="#">read more</a></p>
-            </div>
-        </div>
-    </div>
 
-<!-- end ©╘гЮаЖцъц╣фДюлаЖ - юн╠Б╪Ь фДюлаЖ -->			   
-			    </p>
-  		  	</div>
-  		  	
-  		</div>
+				<!-- end Л≈╛М√┴Л╖─ Л╤■Л╡° М▌≤Л²╢Л╖─ - Л²╦Й╦╟Л┬° М▌≤Л²╢Л╖─ -->
+				
+			</div>
 
-	<!-- top ╧Жф╟ е╛╦╞╫ц ╦гю╖╥н ©ц╤С╟ё╢ы. -->
-<!-- 	<a href="#topthreelb" class="topbtn">TOP</a> -->
-	<a class="return-top" href="#" style="right:15px; bottom:15px; position:fixed; z-index:9999;
-	width:40px;height:30px; font-size:20px;">TOP</a>
-	
-	</div><!-- end class container -->
-	
+			<!-- К┌╢ Й╢─Л▀╛Л┬° М┐╜ -->
+			<div id="myinteresttab" class="tab-pane fade">
+
+				<!--Л≈╛М√┴Л╖─Л╤■Л╡°М▌≤Л²╢Л╖─ - Й╢─Л▀╛Л┬° М▌≤Л²╢Л╖─ -->
+				<%
+					for (int i = 0; i < 6; i++) {
+				%>
+				<div class="col-md-4 text-center">
+					<div class="thumbnail">
+						<img class="img-responsive" src="http://placehold.it/750x450"
+							alt="">
+						<div class="caption">
+							<h3>
+								К▄─Л═°К╙╘ ЙЁ╣Й╟└<br> <small>Л├▄Л═°К╙╘ ЙЁ╣Й╟└</small>
+							</h3>
+							<p>К┌╢Л ╘ ЙЁ╣Й╟└</p>
+						</div>
+					</div>
+				</div>
+				<%
+					}
+				%>
+				<!-- end Л≈╛М√┴Л╖─Л╤■Л╡°М▌≤Л²╢Л╖─ - Л²╦Й╦╟Л┬° М▌≤Л²╢Л╖─ -->
+			</div>
+
+		</div><!-- end tab-content -->
+
+
+</div>	<!-- end class container -->
+
+	<!-- top К╡└М┼╪ М│╢К╕╜Л▀° К╖╗Л°└К║° Л≤╛К²╪Й╟└К▀╓. -->
+	<!-- 	<a href="#topthreelb" class="topbtn">TOP</a> -->
+	<a class="return-top" href="#"
+		style="right: 15px; bottom: 15px; position: fixed; z-index: 9999; width: 40px; height: 30px; font-size: 20px;">TOP</a>
+
 </body>
-</html> 
+</html>
