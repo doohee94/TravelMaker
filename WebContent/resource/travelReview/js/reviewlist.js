@@ -34,29 +34,20 @@ $(function(){
 function getDiv(){
 	for(var i=0; i<4; i++){
 		$("#divCon").append(
-				'<div class="row row-margin-bottom" id="divCon">'+
-				'<div class="col-md-5 no-padding lib-item" data-category="view" id="divContent">'+
-				'<div class="lib-panel">'+
-				'<div class="row box-shadow">'+
-				'<div class="col-md-6">'+
-				'<button id="" class="images">'+
-				'<img class="lib-img-show" src="http://lorempixel.com/850/850/?random=123">'+
-				'</button>'+
+				'<div class="row">'+
+				'<div class="col-md-7">'+
+				'<a href="portfolio-item.html">'+
+				'<img class="img-responsive img-hover" src="http://placehold.it/700x300" alt="">'+
+				'</a>'+
 				'</div>'+
-				'<div class="col-md-6">'+
-				'<div class="lib-row lib-header">'+
-				'여행리뷰'+
-				'<div class="lib-header-seperator"></div>'+
-				'</div>'+
-				'<div class="lib-row lib-desc">'+
-				'여행리뷰 내용들입니다 하하하하하하하하하하하하핳'+
+				'<div class="col-md-5">'+
+				'<h3>Project One</h3>'+
+				'<h4>Subheading</h4>'+
+				'<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>'+
+				'<a class="btn btn-primary" href="portfolio-item.html">View Project</i></a>'+
 				'</div>'+
 				'</div>'+
-				'</div>'+
-				'</div>'+
-				'</div>'+
-				'<div class="col-md-1"></div>'+
-				'</div>'
+				'<hr>'
 				
 		);
 	}

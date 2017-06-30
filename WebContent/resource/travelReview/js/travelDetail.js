@@ -1,5 +1,4 @@
 $(function() {
-  		$("#myTab").tabs();
 
   		//슬라이더에 있는 사진들 클릭했을 때 이벤트
   		$(".carousel-indicators li").click(function(){
