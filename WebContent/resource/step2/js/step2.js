@@ -40,7 +40,7 @@ $( function() {
 						$(".for2"+[i]).append("<img class='hover' src='"+data.response.body.items.item[i].firstimage+"' style='width:100%;height:200px;border:1px solid transparent;transition:1s;'>");
 					}
 					$(".for2"+[i]).append("<div class='for3"+[i]+" cours3'>");
-					$(".for3"+[i]).append("<h2 style='text-align:center;margin-top:-6px;color:rgb(237,78,110);'>"+data.response.body.items.item[i].title+"</h2>");
+					$(".for3"+[i]).append("<h3 style='text-align:center;margin-top:-6px;color:rgb(237,78,110);'>"+data.response.body.items.item[i].title+"</h3>");
 					$(".for3"+[i]).append("<h5 style='text-align:center;'>"+data.response.body.items.item[i].addr1+data.response.body.items.item[i].addr2+"</h5>");
 					$(".for2"+[i]).hide().delay().fadeIn(1000);
 				}
