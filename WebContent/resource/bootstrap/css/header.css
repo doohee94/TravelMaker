@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+/* 헤더 색 */
+.navbar-inverse {
+	background-color: #3dc0a2;
+	border-color: #3dc0a2;
+}
+
+/* TravelMaker 색 */
+.navbar-inverse .navbar-brand {
+	color: #562323;
+}
+
+/* TravelMaker 색(마우스 오버) */
+.navbar-inverse .navbar-brand:hover {
+	color: #fff;
+	background-color: transparent;
+}
+
+/* 메뉴 글씨 색 */
+.navbar-inverse .navbar-nav>li>a {
+	color: white;
+}
+
+/* 메뉴 글씨 색(마우스오버) */
+.navbar-inverse .navbar-nav>li>a:hover {
+	text-decoration: none;
+	background-color: #3dc0a2;
+	color: black;
+}
