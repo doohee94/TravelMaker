@@ -17,6 +17,7 @@
 		<typeAlias alias="likescDTO" type="tm.mypage.dto.LikeSCDTO"/>	
 		<typeAlias alias="qnaDTO" type="tm.mypage.dto.QnaDTO"/>	
 		<typeAlias alias="TotalreDTO" type="tm.totalre.dto.TotalreDTO"/>
+		<typeAlias alias="ReviewLikeDTO" type="tm.reviewlike.dto.ReviewLikeDTO"/>
 	</typeAliases>
 
 </configuration>

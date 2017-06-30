@@ -28,10 +28,10 @@ $( function() {
 	      var addr = [];
 	      var mapx = [];
 	      var mapy = [];
-	      
+	      var num = [];
 
 	      //리스트의 정보를 ajax로 넘긴다
-	      $('#myList > li').each(function(i,item){
+	      $('#myList > li').each(function(i,item){	
 	         title[i] = $(item).find(".name").text();
 	         image[i] = $(item).find("img").attr("src");
 	         addr[i] = $(item).find(".addr").text();
@@ -137,10 +137,13 @@ $( function() {
 	                 
 	                 $("#myList > li").each(function(i,item){
 	                	 var list={
+	                			 "num":i,
 	     	           	    	"title":$(item).find(".name").text(),
 	     	           	    	"image":$(item).find("img").attr("src"),
 	     	           	    	"mapx":$(item).find(".mapx").attr("value"),
 	     	           	    	"mapy":$(item).find(".mapy").attr("value"),  
+	     	           	    	"check":"0",
+	     	           	    	"oneline_review":""	
 	     	           	      }
 	                	 place[i] = list;
 	                 });
@@ -279,10 +282,13 @@ $( function() {
         		  $('#myList > li').each(function(i,item){
                       
                       var list={
+                    		  "num":i,
         	           	    "title":$(item).find(".name").text(),
         	           	    "image":$(item).find("img").attr("src"),
         	           	    "mapx":$(item).find(".mapx").attr("value"),
         	           	    "mapy":$(item).find(".mapy").attr("value"),  
+        	           	    "check":"0",
+        	           	 "oneline_review":""
                       }
                       
                       place[i] = list;

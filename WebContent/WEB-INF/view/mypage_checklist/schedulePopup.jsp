@@ -45,7 +45,7 @@
     </div>
     <input type="hidden" id="state"/>
     <div id="one-line">
-    	한줄평 : <input type="text" id="one-line-text" style="width:300px; border-right:0; border-left:0; border-top:0"/>
+    	한줄평 : <input type="text" id="one_line_text" style="width:300px; border-right:0; border-left:0; border-top:0"/>
     </div>
     <br/>
     <button id="submit">확인</button>

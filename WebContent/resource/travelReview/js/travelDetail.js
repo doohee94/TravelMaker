@@ -14,25 +14,39 @@ $(function() {
   			window.open('http://www.facebook.com/sharer/sharer.php?u=http://localhost:8080/ProjectUIPractice/TravelSpotReview/reviewDetail.jsp')
   		});
   		
+  		var likeinfo = {"user_id":"maro", "sc_num":"128"};
+  		
   		//좋아요 버튼 눌렀을 때 이미지 변경
   		$("#heartBtn").click(function(){
   			if($("#heartBtn").attr("src") == "/resource/travelReview/images/heart1.png"){
   				
-//  				$.ajax({
-//               	 url : "/travelReview/insertLike.tm"
-//           	     ,type:"post"
-//           	     ,contentType:"JSON"
-//           	     ,data:{"user_id":"maro", "sc_num":"128"}
-//           	     ,success:function(data){
-//           	    	$("#heartBtn").attr("src","/resource/travelReview/images/heart2.png");
-//           	     }
-//                ,error:function(err,status,error){
-//       	         alert("실패!"+err.status+error);
-//       	      }
-//                });
+  				$.ajax({
+               	 url : "/insertLike.tm"
+           	     ,type:"post"
+           	     ,contentType:"application/json"
+           	     ,data:JSON.stringify(likeinfo)
+           	     ,success:function(data){
+           	    	$("#heartBtn").attr("src","/resource/travelReview/images/heart2.png");
+           	     }
+                ,error:function(err,status,error){
+       	         alert("실패!"+err.status+error);
+       	      }
+                });
   				
   			}else{
-  				$("#heartBtn").attr("src","/resource/travelReview/images/heart1.png");
+  				
+  				$.ajax({
+  	               	 url : "/deleteLike.tm"
+  	           	     ,type:"post"
+  	           	     ,contentType:"application/json"
+  	           	     ,data:JSON.stringify(likeinfo)
+  	           	     ,success:function(data){
+  	           	    	 $("#heartBtn").attr("src","/resource/travelReview/images/heart1.png");
+  	           	     }
+  	                ,error:function(err,status,error){
+  	       	         alert("실패!"+err.status+error);
+  	       	      }
+  	                });
   			}
   		});
   		

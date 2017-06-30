@@ -171,4 +171,11 @@ INCREMENT BY 1
 START WITH 1;
 
 
+create table reviewlike(
+  user_id varchar2(50) not null,	-- 유저 ID
+  sc_num varchar2(50) not null,		-- 좋아요 누른 리뷰 번호
+  CONSTRAINT fk_tm_reviewlike_user_id FOREIGN Key (user_id) REFERENCES member(user_id)
+);
+
+
 commit;

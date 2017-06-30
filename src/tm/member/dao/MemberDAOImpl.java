@@ -22,9 +22,12 @@ public class MemberDAOImpl implements MemberDAO{
 		return ss.insert("member.insert", memberdto);
 	}
 	/*회원정보보기*/
-	@Override
+	/*@Override
 	public List<MemberDTO> list(){
 		return ss.selectList("member.list");
+	}*/
+	public int update(MemberDTO memberdto){
+		return ss.update("member.update", memberdto);
 	}
 	/*회원수정*/
 	@Override
