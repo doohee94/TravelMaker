@@ -12,11 +12,14 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import tm.reviewlike.dao.ReviewLikeDAO;
 import tm.totalre.dao.TotalreDAO;
 import tm.totalre.dto.TotalreDTO;
 
@@ -83,4 +86,14 @@ public class TravelReviewController {
 		}
 		return mv;
 	}
+	
+//	@Autowired
+//	ReviewLikeDAO likedao;
+//	
+//	@RequestMapping("/insertLike.tm")
+//	@ResponseBody
+//	public void insertReviewLike(@RequestBody JSONObject content){
+//		
+//		likedao.insertReviewLike(content.get("user_id").toString(), content.get("sc_num").toString());
+//	}
 }

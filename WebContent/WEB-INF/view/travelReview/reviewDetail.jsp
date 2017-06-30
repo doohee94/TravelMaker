@@ -74,7 +74,7 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner cont-slider" style="width:">
 				<div class="item active" style="width:80%; height:300px;">
-					<img alt="" title="" src="http://lorempixel.com/850/850/?random=123"
+					<img alt="" title="" src="/resource/travelReview/images/${totalre.totalrePhoto1fake}"
 						class="img-responsive">
 				</div>
 			</div>
@@ -82,16 +82,16 @@
 			<ol class="carousel-indicators">
 				<li class="active" data-slide-to="0"
 					data-target="#article-photo-carousel"><img alt=""
-					src="http://lorempixel.com/850/850/?random=123"
+					src="/resource/travelReview/images/${totalre.totalrePhoto1fake}"
 					class="img-responsive"></li>
 				<li class="" data-slide-to="1" data-target="#article-photo-carousel">
-					<img alt="" src="http://lorempixel.com/850/850/?random=123">
+					<img alt="" src="/resource/travelReview/images/${totalre.totalrePhoto2fake}">
 				</li>
 				<li class="" data-slide-to="2" data-target="#article-photo-carousel">
-					<img alt="" src="http://lorempixel.com/850/850/?random=123">
+					<img alt="" src="/resource/travelReview/images/${totalre.totalrePhoto3fake}">
 				</li>
 				<li class="" data-slide-to="3" data-target="#article-photo-carousel">
-					<img alt="" src="http://lorempixel.com/850/850/?random=123">
+					<img alt="" src="/resource/travelReview/images/${totalre.totalrePhoto4fake}">
 				</li>
 			</ol>
 		</div>

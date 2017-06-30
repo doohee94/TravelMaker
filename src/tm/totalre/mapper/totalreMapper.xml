@@ -7,9 +7,9 @@
 		SELECT *
 		FROM totalre
 		<where>
-			<if test="sc_num != null">
-				sc_num = #{sc_num}
-			</if>
+		<if test="scnum != null">
+		sc_num = #{scnum}
+		</if>
 		</where>
 	</select>
 </mapper>
