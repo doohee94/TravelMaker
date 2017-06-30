@@ -131,71 +131,27 @@
         <!-- /.row -->
 		<hr>
 
-
-<!--         Marketing Icons Section -->
-<!--         <div class="row"> -->
-<!--             <div class="col-lg-12"> -->
-<!--                 <h1 class="page-header"> -->
-<!--                     Welcome to Modern Business -->
-<!--                 </h1> -->
-<!--             </div> -->
-<!--             <div class="col-md-4"> -->
-<!--                 <div class="panel panel-default"> -->
-<!--                     <div class="panel-heading"> -->
-<!--                         <h4><i class="fa fa-fw fa-check"></i> Bootstrap v3.3.7</h4> -->
-<!--                     </div> -->
-<!--                     <div class="panel-body"> -->
-<!--                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p> -->
-<!--                         <a href="#" class="btn btn-default">Learn More</a> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-<!--             <div class="col-md-4"> -->
-<!--                 <div class="panel panel-default"> -->
-<!--                     <div class="panel-heading"> -->
-<!--                         <h4><i class="fa fa-fw fa-gift"></i> Free &amp; Open Source</h4> -->
-<!--                     </div> -->
-<!--                     <div class="panel-body"> -->
-<!--                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p> -->
-<!--                         <a href="#" class="btn btn-default">Learn More</a> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-<!--             <div class="col-md-4"> -->
-<!--                 <div class="panel panel-default"> -->
-<!--                     <div class="panel-heading"> -->
-<!--                         <h4><i class="fa fa-fw fa-compass"></i> Easy to Use</h4> -->
-<!--                     </div> -->
-<!--                     <div class="panel-body"> -->
-<!--                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p> -->
-<!--                         <a href="#" class="btn btn-default">Learn More</a> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-<!--         </div> -->
-<!--         /.row -->
-
-        <!-- Portfolio Section  도전일정-->
+     <!-- Portfolio Section  도전일정-->
         <div class="row">
             <div class="col-lg-12"><!--  제목 -->
                 <h2 class="page-header" style="display: inline-block;">도전일정 TOP3</h2>
                 <a href="#" class="btn btn-default more">더보기</a>
             </div>
             <div class="col-md-4 col-sm-6" align="center">
-                <a href="portfolio-item.html">
+                <a href="#">
                     <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
                 	<span  class="challengeTitle">덤벼봐라 너의 도전일정</span>
                 	
                 </a>
             </div>
             <div class="col-md-4 col-sm-6" align="center">
-                <a href="portfolio-item.html">
+                <a href="#">
                     <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
                 	<span class="challengeTitle">덤벼봐라 너의 도전일정</span>
                 </a>
             </div>
             <div class="col-md-4 col-sm-6" align="center">
-                <a href="portfolio-item.html">
+                <a href="#">
                     <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
                 	<span class="challengeTitle">덤벼봐라 너의 도전일정</span>
                 </a>
@@ -203,36 +159,59 @@
         </div>
         <!-- /.row -->
 
-       
         <hr>
-
-        <!-- Call to Action Section -->
-        <div class="well">
-            <div class="row">
-                <div class="col-md-8">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
-                </div>
-                <div class="col-md-4">
-                    <a class="btn btn-lg btn-default btn-block" href="#">Call to Action</a>
-                </div>
+        <!-- Portfolio Section  여행지 top3-->
+        <div class="row">
+            <div class="col-lg-12"><!--  제목 -->
+                <h2 class="page-header" style="display: inline-block;">여행지 TOP3</h2>
+                <a href="#" class="btn btn-default more">더보기</a>
+            </div>
+            <div class="col-md-4 col-sm-6" align="center">
+                <a href="#">
+                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+                	<span  class="tourTop3">여행지 1순위~~</span>
+                	
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6" align="center">
+                <a href="#">
+                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+                	<span class="tourTop3">2순위~~~</span>
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6" align="center">
+                <a href="#">
+                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+                	<span class="tourTop3">3순위~~~</span>
+                </a>
             </div>
         </div>
-
-        <hr>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </footer>
-
+        <!-- /.row -->
+        <hr/>
     </div>
     <!-- /.container -->
-
-    <!-- jQuery -->
+	<hr>
+	  <!-- Footer -->
+	<footer >
+	
+		<div class="footer" align="center">
+			<br/>
+			<div class="foot_content" align="center">
+			<span class="footer_content_span">고객센터</span><br/>
+			<a class="footer_content_a">QnA</a><br/>
+			<a class="footer_content_a">제휴문의</a><br/>
+			<a class="footer_content_a">회사소개</a><br/>
+			</div>
+			
+			<div class="foot_logo">
+				<img class="logo" src="/resource/main/header/images/samplelogo.png">
+			</div>
+		</div>
+	</footer>
+	
+	
+	
+	<!-- jQuery -->
     <script src="/resource/bootstrap/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
