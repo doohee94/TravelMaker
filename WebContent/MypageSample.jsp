@@ -138,7 +138,7 @@
         
     	</div>
     	<!-- /#wrapper -->
-
+	</div>
     <!-- jQuery -->
     <script src="/resource/bootstrap/js/jquery.js"></script>
 
