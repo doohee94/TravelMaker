@@ -70,10 +70,16 @@
 	</nav>
 
 
-<div class="container" id="secondcontainer">
+	<div class="container" id="secondcontainer">
 
+		<div class="col-lg-12">
+			<h2 class="page-header">
+				여행지 추천
+			</h2>
+		</div>
 		<!-- top3 공간 -->
 		<div class="topthreeloc">
+		
 			<div class="topthreelb" id="topthreelb">
 				<h2>TOP 3</h2>
 			</div>
@@ -82,63 +88,70 @@
 			<div class="topthreediv">
 
 				<div class="col-md-4 text-center">
-				<div class="thumbnail">
-					<img class="img-responsive" src="http://placehold.it/750x450"
-						alt="">
-					<div class="caption">
-						<h3>
-							첫번째 대제목 공간<br> <small>소제목 공간</small>
-						</h3>
-						<p>내용 공간</p>
+					<div class="thumbnail">
+						<a href="#">
+							<img class="img-responsive" src="http://placehold.it/750x450"
+								alt="">
+							<div class="caption">
+								<h3>
+									첫번째 대제목 공간<br> <small>소제목 공간</small>
+								</h3>
+								<p>내용 공간</p>
+							</div>
+						</a>
 					</div>
 				</div>
-			</div>
 
 				<!-- 두번째 -->
 				<div class="col-md-4 text-center">
-				<div class="thumbnail">
-					<img class="img-responsive" src="http://placehold.it/750x450"
-						alt="">
-					<div class="caption">
-						<h3>
-							두번째 대제목 공간<br> <small>소제목 공간</small>
-						</h3>
-						<p>내용 공간</p>
+					<div class="thumbnail">
+						<a href="#">
+							<img class="img-responsive" src="http://placehold.it/750x450"
+								alt="">
+							<div class="caption">
+								<h3>
+									두번째 대제목 공간<br> <small>소제목 공간</small>
+								</h3>
+								<p>내용 공간</p>
+							</div>
+						</a>	
 					</div>
 				</div>
-			</div>
 
 				<!-- 세번째 -->
 				<div class="col-md-4 text-center">
-				<div class="thumbnail">
-					<img class="img-responsive" src="http://placehold.it/750x450"
-						alt="">
-					<div class="caption">
-						<h3>
-							세번째 대제목 공간<br> <small>소제목 공간</small>
-						</h3>
-						<p>내용 공간</p>
+					<div class="thumbnail">
+						<a href="#">
+							<img class="img-responsive" src="http://placehold.it/750x450"
+								alt="">
+							<div class="caption">
+								<h3>
+									세번째 대제목 공간<br> <small>소제목 공간</small>
+								</h3>
+								<p>내용 공간</p>
+							</div>
+						</a>
 					</div>
 				</div>
-			</div>
-				
+
 			</div>
 			<!-- end top3 div (topthreediv)  -->
 		</div>
 		<!-- end top3 제목 및 div  -->
-</div><!-- 두번째 container (top3 제목 및 글 ) -->
+	</div>
+	<!-- 두번째 container (top3 제목 및 글 ) -->
 
-		<!--  인기순 내관심순 탭	-->
-<div class="container" id="thirdcontainer">
-		
-			<ul class="nav nav-tabs">
-				<li class="active"><a data-toggle="tab" href="#populartab">인기순</a></li>
-				<li><a data-toggle="tab" href="#myinteresttab">내관심순</a></li>
-				<!-- 		    <input type="button" value="다음" id="nextbtn"> -->
-			</ul>
-			
-		
-		
+	<!--  인기순 내관심순 탭	-->
+	<div class="container" id="thirdcontainer">
+
+		<ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" href="#populartab">인기순</a></li>
+			<li><a data-toggle="tab" href="#myinteresttab">내관심순</a></li>
+			<!-- 		    <input type="button" value="다음" id="nextbtn"> -->
+		</ul>
+
+
+
 		<div class="tab-content">
 			<!-- 인기순 탭 -->
 			<div id="populartab" class="tab-pane fade in active">
@@ -149,14 +162,16 @@
 				%>
 				<div class="col-md-4 text-center">
 					<div class="thumbnail">
-						<img class="img-responsive" src="http://placehold.it/750x450"
-							alt="">
-						<div class="caption">
-							<h3>
-								대제목 공간<br> <small>소제목 공간</small>
-							</h3>
-							<p>내용 공간</p>
-						</div>
+						<a href="#">
+							<img class="img-responsive" src="http://placehold.it/750x450"
+								alt="">
+							<div class="caption">
+								<h3>
+									대제목 공간<br> <small>소제목 공간</small>
+								</h3>
+								<p>내용 공간</p>
+							</div>
+						</a>
 					</div>
 				</div>
 				<%
@@ -165,7 +180,7 @@
 
 
 				<!-- end 여행지 추천 페이지 - 인기순 페이지 -->
-				
+
 			</div>
 
 			<!-- 내 관심순 탭 -->
@@ -177,14 +192,16 @@
 				%>
 				<div class="col-md-4 text-center">
 					<div class="thumbnail">
-						<img class="img-responsive" src="http://placehold.it/750x450"
-							alt="">
-						<div class="caption">
-							<h3>
-								대제목 공간<br> <small>소제목 공간</small>
-							</h3>
-							<p>내용 공간</p>
-						</div>
+						<a href="#">
+							<img class="img-responsive" src="http://placehold.it/750x450"
+								alt="">
+							<div class="caption">
+								<h3>
+									대제목 공간<br> <small>소제목 공간</small>
+								</h3>
+								<p>내용 공간</p>
+							</div>
+						</a>
 					</div>
 				</div>
 				<%
@@ -193,10 +210,12 @@
 				<!-- end 여행지추천페이지 - 인기순 페이지 -->
 			</div>
 
-		</div><!-- end tab-content -->
+		</div>
+		<!-- end tab-content -->
 
 
-</div>	<!-- end class container -->
+	</div>
+	<!-- end class container -->
 
 	<!-- top 버튼 클릭시 맨위로 올라간다. -->
 	<!-- 	<a href="#topthreelb" class="topbtn">TOP</a> -->

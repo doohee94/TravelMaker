@@ -8,6 +8,8 @@ body #secondcontainer{
 #secondcontainer .topthreeloc .topthreelb{
 	text-align:center;
 	margin-letf:10px;
+	margin-top:10px;
+	margin-bottom:20px;
 }
 
 /* top3 공간*/
@@ -28,4 +30,19 @@ body #secondcontainer{
 	margin-bottom:20px;
 }
 
+/* 헤더에 있는 다음 버튼 */
+/* #nextbtn{ */
+/* 	padding-bottom:2px; */
+/* 	margin-top:7px; */
+/* 	margin-left:10%; */
+/* 	width:70px; */
+/* 	height:30px; */
+/* 	font-size:15px; */
+/* 	font-family: 'Nanum Gothic'; */
+/* 	color:white; */
+/* 	font-weight:600; */
+/* 	background-color:#2995F7; */
+/* 	border:2px solid #2995F7; */
+/* 	border-radius:7px; */
+/* } */
 
