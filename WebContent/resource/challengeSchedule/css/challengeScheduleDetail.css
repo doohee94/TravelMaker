@@ -120,8 +120,8 @@
 /* 2 row */
 
 #secondcontainer .detailtextarea{
-	width:100%; height:200px; 
-	border: 2px solid #dedede;
+	width:100%; height:250px; 
+	border: 1px solid white;
 	margin-top:10px; margin-bottom: 10px;
 	overflow:auto;
 }
@@ -135,49 +135,52 @@
 #secondcontainer .detailtextarea .ptarow1{
 	padding: 10px 5% 10px 5%;
 	margin-bottom:5px;
+	font-family:'nanum barun gothic';
 }
 
 #secondcontainer .detailtextarea .ptarow2{
 	padding: 10px 5% 10px 5%;
 	margin-bottom:5px;
+	font-family:'nanum barun gothic';
 }
 
 #secondcontainer .detailtextarea .ptarow3{
 	padding: 10px 5% 10px 5%;
 	margin-bottom:5%;
+	font-family:'nanum barun gothic';
 }
 
 /* start row 1col 2col 3col */
 #secondcontainer .detailtextarea .ptarow1 .startrow1c{
-	float:left; width:10%; 
+	float:left; width:10%; text-align:center;
 }
 #secondcontainer .detailtextarea .ptarow1 .startrow2c{
-	float:left; width:20%; 
+	float:left; width:20%; text-align:center;
 }
 #secondcontainer .detailtextarea .ptarow1 .startrow3c{
-	float:left; width:70%;
+	float:left; width:70%; text-align:center;
 }
 
 /* stopover row 1col 2col 3col */
 #secondcontainer .detailtextarea .ptarow2 .ptarowstopover1c{
-	float:left; width:10%; 
+	float:left; width:10%; text-align:center;
 }
 #secondcontainer .detailtextarea .ptarow2 .ptarowstopover2c{
-	float:left; width:20%; 
+	float:left; width:20%; text-align:center;
 }
 #secondcontainer .detailtextarea .ptarow2 .ptarowstopover3c{
-	float:left; width:70%; 
+	float:left; width:70%; text-align:center;
 } 
 
 /* last row 1col 2col 3col */
 #secondcontainer .detailtextarea .ptarow3 .lastrow1c{
-	float:left; width:10%;
+	float:left; width:10%; text-align:center;
 }
 #secondcontainer .detailtextarea .ptarow3 .lastrow2c{
-	float:left; width:20%;
+	float:left; width:20%; text-align:center;
 }
 #secondcontainer .detailtextarea .ptarow3 .lastrow3c{
-	float:left; width:70%;
+	float:left; width:70%; text-align:center;
 }
 	
 /* end 1 */

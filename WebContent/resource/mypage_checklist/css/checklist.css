@@ -2,6 +2,12 @@
 	background: #f5f5fa;
 	padding-bottom: 30px;
 }
+/*아코디언 헤더*/
+.day{
+	
+	background-color: #162f59;
+	
+}
 
 .board {
 	/*width: 75%;
@@ -165,4 +171,5 @@ span.round-tabs.five {
 	.btn-outline-rounded {
 		padding: 12px 20px;
 	}
+
 }

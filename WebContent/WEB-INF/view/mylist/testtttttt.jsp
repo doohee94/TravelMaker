@@ -18,6 +18,18 @@
 	<meta http-equiv="Content-Style-Type" content="text/css" />
 	<meta http-equiv="X-UA-Compatible" content="IE=10" />
 	
+	<!-- jQuery -->
+    <script src="/resource/bootstrap/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/resource/bootstrap//js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/resource/bootstrap//js/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/resource/bootstrap/js/sb-admin-2.js"></script>
+	
     <!-- Bootstrap Core CSS -->
     <link href="/resource/bootstrap//css/bootstrap.min.css" rel="stylesheet">
 
@@ -444,17 +456,7 @@ text-decoration:none;
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="/resource/bootstrap/js/jquery.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/resource/bootstrap//js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="/resource/bootstrap//js/metisMenu.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="/resource/bootstrap/js/sb-admin-2.js"></script>
 
 </body>
 

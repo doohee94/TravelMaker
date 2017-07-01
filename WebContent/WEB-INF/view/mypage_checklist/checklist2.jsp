@@ -6,7 +6,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <%
  
- //데이터베이스에서 해당 아이디에 맞는 데이터를 가져와서 파싱
 JSONObject obj = (JSONObject)request.getAttribute("obj");
 System.out.println("jsp>>>>>"+obj);
 
@@ -14,7 +13,7 @@ System.out.println("jsp>>>>>"+obj);
 JSONArray date = (JSONArray)obj.get("tour");
 
 
-JSONArray place[] = new JSONArray[date.size()]; //여행지에 대한 배열
+JSONArray place[] = new JSONArray[date.size()];
 
 for(int i=0; i<date.size(); i++){
 	
@@ -104,12 +103,15 @@ for(int i=0; i<date.size(); i++){
          <!-- submenu end -->
         <hr>
 		<div class="row">
-						
-<div id="accordion" style="">
-<%for(int i=0; i<date.size() && place[i] != null; i++){ %>
-  <h3 class="day">day<%=i+1 %> <button style="float:right;color:blue;" class="modify">수정</button></h3>
-  <div> 
 			
+			
+			
+<div id="accordion" style="width:80%; margin-left:10%">
+<%for(int i=0; i<date.size() && place[i] != null; i++){ %>
+  <h3 id="day">day<%=i+1 %> <button style="float:right;color:blue;" class="modify">수정</button></h3>
+  <div> 
+    <div class="container">
+			<div class="row">
 				<div class="col-md-12 board">
 					<div class="board-inner">
 						<ul class="nav nav-tabs" id="myTab">
@@ -127,25 +129,24 @@ for(int i=0; i<date.size(); i++){
 											<input type="hidden" class="num" value="<%=j%>"/>
 										</span>
 									</a>
-									<p class="tabTitle" align="center"><%=title %></p>
+									<p align="center"><%=title %></p>
 									</li>
 								<%} %>
 							</ul>
 						</div>
 				</div>
-			</div> 
+			</div>
+		</div>
+  </div>
 <%}%>
+
+
 </div>
 			
-	
-			
-	
 		</div>
     </div>
 	<!-- /.container -->
 	
-	
-
 	
 	
 	<!-- jQuery -->

@@ -34,6 +34,13 @@
 <!-- 부가적인 테마 -->
 <link rel="stylesheet"
    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+   
+   <!-- Custom CSS -->
+    <link href="/resource/bootstrap/css/modern-business.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">   
+    
 
 <style type="text/css">
 
@@ -108,45 +115,74 @@
    href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resource/step3/step3.css">
 
-<!-- <!-- header CSS파일 -->
-<!-- <link rel="stylesheet" href="../header/css/header.css"> -->
-
 </head>
 
-<header>
-   <!-- 헤더 추가 -->
-<%--    <jsp:include page="../header/header.jsp"></jsp:include> --%>
-</header>
-
-
-
 <body>
-<!-- 친구등록/임시저장/저장 -->
-<div style="height:75px; background-color: #103e68;">
-   <br/>
-   <div style="color:#fff; font-size: 2em; display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;나의 여행일정</div>
-   <div style="float:right; margin-right: 50px;">
+
+<!-- 헤더 -->
+   <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="tmmain/main.tm">Travel Maker</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/step1/step1.tm">일정만들기</a>
+                    </li>
+                    <li>
+                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행지추천</a>
+                    </li>
+                    <li>
+                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
+                    </li>
+                    <li>
+                        <a href="/challengeschedule/challengeSchedule.tm">도전일정</a>
+                    </li>
+                     <li style="padding:10px">
+                       <input type="text"/> <button>검색</button>
+                    </li>                      
+                     <li>
+                        <a href="member/loginForm.tm">로그인</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
+    <!-- 헤더 아래 버튼 -->
+   <div id="main" style="padding: 0px;"> 
+	<div style="height:50px; background-color: #222;">
+		<div style="float:right; margin-right: 50px; margin-top:10px">
       <button id="addFriend" class="headbtn">친구추가</button>
-      <button id="tempSave" class="headbtn">임시저장</button>
-      <button id="save" class="headbtn">저장</button> 
-      
-      <button class="headbtn" id="chat" onclick="openNav()" style="margin-left:70px">채팅</button>  
+      <button id="save" class="headbtn">저장</button>   
    </div>
 </div>
+
 <br/>
+
 <!-- 지역리스트/관광리스트/지도 -->
-<div align="center"  id="main">
+<div  style="width:100%; padding:0px" align="center">
    <!-- 지역, 여행지 리스트 부분 -->     
-       <div style="height:700px;display:inline-block; padding:0px;">
+       <div style="height:650px;margin-left: 50px;margin-top: 13px;float: left;padding:0px;width: 150px;">
              
-             <div style="display: none; width: 150px; border-bottom:solid 1px;" id="reSearchDiv">
-                <input type="text" id="reSearchInput" style="border-style: none; width:100px;"/>
-                <button class="headbtn" id="reSearchBtn">검색</button>
+             <div width: 150px; border-bottom:solid 1px;" id="reSearchDiv">
+                <input type="text" placeholder="지역검색" id="reSearchInput" style="border-top:none; border-left:none; border-right:none; width:100px; border-bottom:true"/>
+                <button class="nextbtn" id="reSearchBtn">검색</button>
              </div>
-             <div style="display: inline-block;" >지역</div> 
-             <img src="/resource/step3/step3_image/Q.png" style="float: right;" id="reSearch"/>
+<!--              <div style="display: inline-block;" >지역</div>  -->
+<!--              <img src="/resource/step3/step3_image/Q.png" style="float: right;" id="reSearch"/> -->
              <br/>
-            <ul style="padding:0px;width:100%; height:100%; display:inline-block;" id="cityList"><!--  앞에서  선택된 지역 리스트 -->
+            <ul style="padding:0px;width:100%; height:550px; overflow-x:hidden; overflow-y:scroll;  display:inline-block;" id="cityList"><!--  앞에서  선택된 지역 리스트 -->
                  <li class="list-group-item cityName" style=" width:150px;"><!--  앞에서 선택된 지역 리스트 -->
                         <div class="col-xs-12 col-sm-9" align = "center">
                             <span class="cityName">서울</span><br/>
@@ -179,19 +215,22 @@
                             <span class="cityName">부산</span><br/>
                         </div>
                         <div class="clearfix"></div>
-                    </li>
+                    </li> 
+                    
+                    
             </ul>
-   
+            
+            <ul id="trash"><img src="/resource/step3/step3_image/trash.png"></ul>
+  		 
        </div><!--  지역 끝 -->
                
     <!-- 여행지 정보 불러와서 출력할 리스트 -->
-     <div style="width:18%; height:700px; display:inline-block; padding:0px;" id="apiList">
-           <div style="maring:5px;">여행</div>
-           <div id="category">
-              <button class="categoryBtn btn" id="api_All">전체</button>
-              <button class="categoryBtn btn" id="api_tour">여행지</button>
-              <button class="categoryBtn btn" id="api_food">맛집</button>
-              <button class="categoryBtn btn" id="api_ect">축제</button>
+     <div style="width:18%; height:650px; display:inline-block; padding:0px;" id="apiList">
+           <div id="category" style="margin-bottom:10px;">
+              <button class="categoryBtn nextbtn" id="api_All">전체</button>
+              <button class="categoryBtn nextbtn" id="api_tour">여행지</button>
+              <button class="categoryBtn nextbtn" id="api_food">맛집</button>
+              <button class="categoryBtn nextbtn" id="api_ect">축제</button>
            </div>
             <ul class="droptrue  list-group" id="contact-list"
                style="overflow-y: scroll; height:100%; width:100%;display:inline-block; border:2px solid  #8C8C8C;">
@@ -199,16 +238,16 @@
       <input type="hidden" id="hiddenCity"/>
    </div><!-- 여행지정보 끝 -->
    <!--  일정추가 -->
-    <div style="height:700px; display:inline-block; width:18%; padding:0px;">
+    <div style="height:650px; display:inline-block; width:18%; padding:0px;">
          <div class="select_panel-heading c-list">
                   <!-- 셀렉트박스@@ -->
                  <input type="hidden" id="DaySelectBoxNum" value="<%=day%>"/>
-                <select id="DaySelectBox" style="width:50%">
+                <select id="DaySelectBox" class="DaySelectBox" style="width:50%">
                 <%for(int i=1; i<=day;i++){ %>
                  <option value="DAY<%=i%>">DAY<%=i%></option>
                 <%} %>
               </select>
-            <img src="/resource/step3/step3_image/plus.png" style="float: right;"id="chuga"/>
+            <img src="/resource/step3/step3_image/plus.png" style="float:right;"id="chuga"/>
             <img src="/resource/step3/step3_image/opt.png" style="float: right;" id="distanceCal"/>
              <br/>
          </div>
@@ -218,63 +257,9 @@
    &nbsp;
 
    <!-- 지도 구성 부분-->
-   <div id="map" style="width: 40%; height: 750px;display:inline-block; border:2px solid  #8C8C8C;"></div>
+   <div id="map" style="float:right; width: 50%; height: 700px;display:inline-block; border:2px solid  #8C8C8C; margin-right:5px"></div>
 </div><!--  지도/리스트들 끝끝 -->
-
-<ul id="trash"><img src="/resource/step3/step3_image/trash.png"></ul>
-
-<!-- 채팅 슬라이드 내비 부분@@@@ -->
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
- <div class="panel panel-default" style="width: 280px; margin-top: 150px">
-          <div class="panel-heading">Panel heading without title</div>
-          <div class="panel-body" align="left">
-            <div class="chat_container"  id="chat_body" style="height:350px;overflow-y: scroll;" >
-                <div class="row message-bubble">
-                <p class="text-muted">Matt Townsen</p>
-                    <span>Why is yo shit so broke?</span>
-                </div>
-                <div class="row message-bubble">
-                    <p class="text-muted">Matt Townsen</p>
-                    <p>It Isn't'</p>
-                </div>
-                <div class="row message-bubble">
-                <p class="text-muted" >Matt Townsen</p>
-                    <p>Umm yes it is</p>
-                </div>
-                <div class="row message-bubble">
-                <p class="text-muted">Matt Townsen</p>
-                    <p>Test message</p>
-                </div>
-                <div class="row message-bubble">
-                <p class="text-muted">Matt Townsen</p>
-                    <p>Test message</p>
-                </div>
-                <div class="row message-bubble">
-                <p class="text-muted">Matt Townsen</p>
-                    <p>Test message</p>
-                </div>
-                <div class="row message-bubble">
-                <p class="text-muted">Matt Townsen</p>
-                    <p>Test message</p>
-                </div>
-	        </div>
-            <div class="panel-footer">
-                 <div class="input-group">
-                  <input type="text" id="chat_text" class="form-control">
-                  <span class="input-group-btn">
-                    <button class="btn btn-default" id="send" type="button">Send</button>
-                  </span>
-                </div>
-            </div>
-          </div>
-        </div>    
 </div>
-<!--  채팅용 js -->
-<script type="text/javascript" src="/resource/step3/step3_db.js"></script>
-<script type="text/javascript" src="/resource/step3/ws.js">
 
-
-</script>
 </body>
 </html>

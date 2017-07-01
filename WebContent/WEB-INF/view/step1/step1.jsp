@@ -88,10 +88,10 @@
     </div>	
     
     <div class="col-lg-12">
-		<h2 class="page-header">경로 <small> 경로를 선택해 주세요.</small></h2>
+		<h2 class="page-header" id="titlediv">경로 <small> 경로를 선택해 주세요.</small></h2>
 	</div>
     
-		<form class="contnsubform" action="" method='get'>
+		<form class="contnsubform" action="" method='get' id="infofrm">
 			<!--   출발지 경유지 도착지 탭	-->
 
 			<ul class="nav nav-tabs">
@@ -1194,12 +1194,11 @@
 
 			<!--	출발날짜 도착날짜 공간	-->
 			<div class="input-group input-group-lg" id="datediv">
-				<span class="input-group-addon" id="sizing-addon1">출발날짜</span> <input
-					type="text" id="startdate" name="startdate" class="form-control"
-					placeholder="선택" aria-describedby="sizing-addon1"> <span
-					class="input-group-addon" id="sizing-addon1">도착날짜</span> <input
-					type="text" id="arrivaldate" name="arrivaldate"
-					class="form-control" placeholder="선택"
+				<span class="input-group-addon" id="sizing-addon1">출발날짜</span>
+				<input type="text" id="startdate" name="startdate" class="form-control"
+					placeholder="선택" aria-describedby="sizing-addon1"> 
+				<span class="input-group-addon" id="sizing-addon1">도착날짜</span>
+				<input type="text" id="arrivaldate" name="arrivaldate" class="form-control" placeholder="선택"
 					aria-describedby="sizing-addon1">
 			</div>
 

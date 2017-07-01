@@ -1,20 +1,43 @@
 /*지도와 여행지 리스트 float 속성 적용 하기*/
 .inline{display:inline-block;}
 
+/*셀렉트박스 css*/
+.DaySelectBox{
+	height:25px;
+	font-size:15px;
+	margin-top:7px;
+	border-radius:5px;
+	background-color:#103e68;
+	color:white;
+}
+
+.nextbtn{
+	font-size:15px;
+	font-family: 'Nanum Gothic';
+	color:white;
+	font-weight:600;
+	background-color:#103e68;
+	border:none;
+	border-radius:7px;
+}
+
+.headbtn{
+	font-size:15px;
+	font-family: 'Nanum Gothic';
+	color:#103e68;
+	font-weight:600;
+	background-color:#fff;
+	border:none;
+	border-radius:7px;
+}
+
+
 /*버튼 css*/
 .btn{
 
 	background-color: #ffffff;
 	border : 3px solid  #9ec3ff;
 	width: 70px;
-	height: 30px;
-}
-
-.headbtn{
-
-	background-color: #ffffff;
-	border : 3px solid  #9ec3ff;
-
 	height: 30px;
 }
   

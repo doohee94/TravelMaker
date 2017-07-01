@@ -1,43 +1,85 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- 계획중인일정 페이지 -->
 <!DOCTYPE html>
 <html>
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>MyPageMenubar</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    <title>내일정</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10" />
+	
+	<!-- jQuery -->
+    <script src="/resource/bootstrap/js/jquery.min.js"></script>
 
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/resource/bootstrap//js/bootstrap.min.js"></script>
 
-<!-- 탭 -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/resource/bootstrap//js/metisMenu.min.js"></script>
 
-<!--  프로그레스 -->
-<link rel="stylesheet" href="/resource/member/css/jquery.lineProgressbar.css">
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
- 
-<!--  메뉴바 -->
-<link rel="stylesheet" type="text/css" href="/resource/member/css/base.css" />
-<link rel="stylesheet" type="text/css" href="/resource/member/css/style.css" />
+    <!-- Custom Theme JavaScript -->
+    <script src="/resource/bootstrap/js/sb-admin-2.js"></script>
+	
+    <!-- Bootstrap Core CSS -->
+    <link href="/resource/bootstrap//css/bootstrap.min.css" rel="stylesheet">
 
-<!-- 일정들 mouseover -->
-<link rel="stylesheet" type="text/js" href="/resource/mylist/js/listmouse.js" />
-<link rel="stylesheet" type="text/css" href="/resource/mylist/css/listmouse.css" />
+    <!-- MetisMenu CSS -->
+    <link href="/resource/bootstrap/css/metisMenu.min.css" rel="stylesheet">
 
-<!-- 헤더 -->
-<!-- <link rel="stylesheet" href="/TravelMakerTest/css/base.css"> -->
+    <!-- Custom CSS -->
+    <link href="/resource/bootstrap/css/sb-admin-2.css" rel="stylesheet">
 
-<!-- 각 list 틀 -->
-<script type="text/javascript" src="/resource/mylist/js/mylist.js"></script> 
-<link rel="stylesheet" href="/resource/mylist/css/mylist.css">
+    <!-- Custom Fonts -->
+    <link href="/resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <!-- list CSS -->
+	<link rel="stylesheet" type="text/css" href="/resource/mypage/likespot/css/component.css" />
+    
+    
+    <!-- 지정 css -->
+    <link href="/resource/mypage/likespot/css/likespot.css" rel="stylesheet" type="text/css">
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	
+	<!-- 탭 -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<!--  프로그레스 -->
+	<link rel="stylesheet" href="/resource/member/css/jquery.lineProgressbar.css">
+	
+	<!--  메뉴바 -->
+	<link rel="stylesheet" type="text/css" href="/resource/member/css/base.css" />
+	<link rel="stylesheet" type="text/css" href="/resource/member/css/style.css" />
+	
+	<!-- mouseover -->
+	<link rel="stylesheet" type="text/js" href="/resource/mylist/js/listmouse.js" />
+	<link rel="stylesheet" type="text/css" href="/resource/mylist/css/listmouse.css" />
+	
+	<!-- 헤더 -->
+	<!-- <link rel="stylesheet" href="/TravelMakerTest/css/base.css"> -->
+	
+	<!-- 각 list 틀 -->
+	<link rel="stylesheet" type="text/js" href="/resource/mylist/js/mylist.js" />
+	<link rel="stylesheet" href="/resource/mylist/css/mylist.css">
 
 <style type="text/css">
 
 /*탭부분 스타일지정*/
 .tab{
-	font-size: 30px;
+	font-size: 20px;
 	display: inline-block;	
 	font-weight: bold;
 }
@@ -45,43 +87,102 @@
 text-decoration:none;
 }
 </style>
-</head>
 
+</head>
 <body>
 
-<header>
-<!--  여기에 헤더넣기 -->
+    <div id="wrapper" class="wrapper">
 
-</header>
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+            <!--  모바일 버전때 생성되는 버튼 -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            <!-- /모바일 버전때 생성되는 버튼 -->   
+            <!-- 로고 --> 
+                <a class="navbar-brand" href="tmmain/main.tm" style="padding-left: 381px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">Travel Maker</a>
+            <!-- /로고 -->
+            </div>
+            <!-- 네비 헤더  메뉴 부분 -->
+         <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/step1/step1.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">일정만들기</a>
+                    </li>
+                    <li>
+                        <a href="/recommandtravelregion/recommandTravelRegion.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">여행지추천</a>
+                    </li>
+                    <li>
+                        <a href="/recommandtravelregion/recommandTravelRegion.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">여행리뷰</a>
+                    </li>
+                    <li>
+                        <a href="/challengeschedule/challengeSchedule.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">도전일정</a>
+                    </li>
+                     <li style="padding:10px;">
+                       <input type="text" style="width: 170px; height: 26px; "/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px; width: 77px; font-size: 15px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; color:#2e2e2e"><span class="glyphicon glyphicon-search"></span> search</button>
+                    </li>                      
+                     <li>
+                        <a href="member/loginForm.tm" style="padding-right: 381px; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">로그인　</a>
+                    </li>
+                </ul>
+            <!-- /네비 헤더  메뉴 부분 -->
 
-<!--  메뉴네비게이션 -->
-<div class="lnb">
-		<h1>마이페이지</h1>
-		<div class="subtitle"><a href="#">내정보</a></div>
-			<ul class="sub" style="display:none;">
-				<li><a href="http://localhost:8080/member/memberUpdate.tm">정보보기</a></li>
-				<li><a href="http://localhost:8080/member/memberDelete.tm">회원탈퇴</a></li>
-			</ul>
-		<div class="subtitle"><a href="http://http://localhost:8080/mylist/menubar.tm">나의일정</a></div>
-		<div class="subtitle"><a href="">관심일정</a></div>
-		<div class="subtitle"><a href="">관심여행지</a></div>
-		<div class="subtitle"><a href="">QnA</a></div>
-		<div class="subtitle sub_end"><a href="">스탬프</a></div>
-	</div>
-<!--/메뉴네비게이션-->
- 
-<!--  달성률 보는 곳 -->
-<article   style="margin-left:100px; background-image:url('/resource/mylist/images/test3.png'); height: 250px">
-	
-	<img src="/resource/mylist/images/flag.png" style="display: inline-block; margin-left:1500px"/>
-	<div id="rate" style="margin-left:35%;display:inline-block;"></div>
+			<!-- 사이드 메뉴바 -->
+            <div class="navbar-inverse sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-user"></i>  내 정보<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="http://localhost:8080/member/memberUpdate.tm">  정보수정</a>
+                                </li>
+                                <li>
+                                    <a href="http://localhost:8080/member/memberDelete.tm">  회원탈퇴</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="http://localhost:8080/mylist/menubar.tm" ><i class="fa fa-edit fa-fw"></i>  내 일정</a>
+                        </li>
+                        <li>
+                            <a href="tables.html"><i class="fa fa-check-square-o fa-fw"></i>  관심 여행지</a>
+                        </li>
+                        <li>
+                            <a href="forms.html"><i class="fa fa-check-square-o fa-fw"></i>  관심 일정</a>
+                        </li>
+                        <li>
+                            <a href="forms.html"><i class="fa fa-comments fa-fw"></i>  QnA</a>
+                        </li>
+                        <li>
+                            <a href="forms.html"><i class="fa fa-map-marker fa-fw"></i>  스템프</a>
+                        </li>                        
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
 
-</article>
+        <!-- Page Content -->
+        <div id="page-wrapper" style="padding-right: 0px;">
+        <!--  달성률 보는 곳 -->
+		<article   style="margin-left:-30px;  background-image:url('/resource/mylist/images/test101.png'); height: 250px;">
+			
+			<img src="/resource/mylist/images/flag.png" style="display: inline-block; margin-left:1500px"/>
+			<div id="rate" style="margin-left:35%;display:inline-block;"></div>
+		
+		</article>
+
 
  <!-- 탭 -->       
-  <div class="container">
         <div class="row">
-        <article  style="background-color: #092551; height: 100px;" >
+        <article  style="background-color: #EDEDED; height: 80px; margin-left: -15px; margin-right: 15px;" >
         <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
         </div>
 		
@@ -95,10 +196,11 @@ text-decoration:none;
         </article>
         <br/>
 
-<!-- 각 일정 보여주는 곳 -->
-<div class="schedule-list">          
+		<!-- 각 일정 보여주는 곳 -->
+		<center>
+		<div class="schedule-list">          
             
-				<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter ing">
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter ing">
 							  <img src="/resource/mylist/images/image_1.JPG" />
 							  <figcaption>
 							    <h3>2017.05.16~2017.06.11</h3>
@@ -173,47 +275,25 @@ text-decoration:none;
 
 
 				</div> 
-	
+			</center>
 			</div>
-		</div>
-</body> <!--  바디 끝 -->
+			<!-- /#row -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
 
-<!-- 해당되는 탭만 보여주기 -->
-<script type="text/javascript">
-$(document).ready(function(){
 
-    $(".tab").click(function(){
-        var value = $(this).attr('data-filter');
-        
-        if(value == "all")
-        {
-            //$('.filter').removeClass('hidden');
-            $('.filter').show('1000');
-        }
-        else
-        {
-//            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
-//            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
-            $(".filter").not('.'+value).hide('3000');
-            $('.filter').filter('.'+value).show('3000');
-            
-        }
-    });
-    
-    if ($(".tab").removeClass("active")) {
-$(this).removeClass("active");
-}
-$(this).addClass("active");
 
-});
-</script>
+</body>
+
 <script src="/resource/member/js/jquery.lineProgressbar.js"></script>
 <script type="text/javascript">
 	var rate=80; // 계산에서 넘어온 rate 값을 넣어준다. 
 	$('#rate').LineProgressbar({
 		
 		percentage:rate,
-		fillBackgroundColor:'#b989c4',
+		fillBackgroundColor:'#BFBFBF',
 		height:'65px',
 		radius:'50px',
 		width:'900px'
@@ -239,25 +319,36 @@ $(function() {
 });
 </script>
 
-<!-- 일정 누를때마다 글자 색 바뀌게 -->
+<!--  탭관련 js
+	클릭시 해당하는 일정 페이지로 넘어간다.-->
 <script type="text/javascript">
 $(function(){
-	$("#all").click(function(){
-		$("#all").css("color","white");
+	//전체 일정을 보여준다
+	$('#all').click(function(){
+		$('#all').attr('href','menubar.tm');//여기 경로만 수정해주세요
 	});
-	$("#ing").click(function(){
-		$("#ing").css("color","white");
+	//계획중인 일정을 누르면 계획중인 일정 페이지로 넘어간다. 
+	$('#ing').click(function(){
+		$('#ing').attr('href','inglist.tm');//여기 경로만 수정해주세요
 	});
-	$("#done").click(function(){
-		$("#done").css("color","white");
+	
+	//완성된 일정을 페이지로 넘어감. 
+	$('#done').click(function(){
+		$('#done').attr('href','donelist.tm'); //여기 경로만 수정해주세요
 	});
-	$("#start").click(function(){
-		$("#start").css("color","white");
+	
+	//시작된 일정 페이지로 넘어감
+	$('#start').click(function(){
+		$('#start').attr('href','startlist.tm');//여기 경로만 수정해주세요
 	});
-	$("#end").click(function(){
-		$("#end").css("color","white");
+	
+	//여행한 일정 페이지로 넘어감.
+	$('#end').click(function(){
+		$('#end').attr('href','endlist.tm');//여기 경로만 수정해주세요
 	});
+	
 });
+
 </script>
 
 </html>
