@@ -17,6 +17,8 @@ $(function() {
   		
   		//좋아요 버튼 눌렀을 때 이미지 변경
   		$("#heartBtn").click(function(){
+  			
+  			//좋아요를 누른경우 디비에 좋아요 저장하고 하트이미지 변경하기
   			if($("#heartBtn").attr("src") == "/resource/travelReview/images/heart1.png"){
   				
   				$.ajax({
@@ -33,7 +35,7 @@ $(function() {
                 });
   				
   			}else{
-  				
+  				//좋아요 취소할 경우 디비에 좋아요 삭제하고 하트 이미지 변경하기
   				$.ajax({
   	               	 url : "/deleteLike.tm"
   	           	     ,type:"post"

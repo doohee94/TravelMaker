@@ -18,18 +18,18 @@
 	JSONArray mapxArray[] = new JSONArray[tourarray.size()];
 	//각 day에 해당하는 mapy배열을 담을 리스트
 	JSONArray mapyArray[] = new JSONArray[tourarray.size()];
-
+	
 	for(int i=0; i<tourarray.size(); i++){
 		//System.out.println( tourarray.get(i).toString());
 		
 		//각각의 tour리스트에서 place정보 빼오기
 		JSONObject tour = (JSONObject)tourarray.get(i);
 		
+		//place배열 저장
 		JSONObject temp = new JSONObject();
 		temp = (JSONObject)tourarray.get(i);
 		placeArray[i] = (JSONArray)temp.get("place");
-		mapxArray[i] = (JSONArray)temp.get("mapx");
-		mapyArray[i] = (JSONArray)temp.get("mapy");
+	
 	}
 	
 	
@@ -87,6 +87,47 @@
 	
 <script type="text/javascript" src="/resource/bootstrap/js/bootstrap.js"></script>
 
+<script type="text/javascript">
+	$(function(){
+		
+		$('#myTab > li').click(function(){
+			var arrayX=[];
+			var arrayY=[];
+			
+			$(this).find(".mapx").each(function(i,item){
+				arrayX[i] = $(this).val();
+			});
+			
+			$(this).find(".mapy").each(function(i,item){
+				arrayY[i] = $(this).val();
+			});
+			
+			/*불러온 정보에서 위도, 경도 정보를 받아 지도 위에 마커찍기*/
+            var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = { 
+               center: new daum.maps.LatLng(arrayX[0], arrayY[0]), // 지도의 중심좌표
+               level: 3 // 지도의 확대 레벨
+            };
+
+            var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+            for(var i=0; i<arrayX.length; i++){
+            	
+            	alert(arrayX[i]);
+
+               //마커가 표시될 위치입니다 
+               var markerPosition  = new daum.maps.LatLng(arrayX[i], arrayY[i]); 
+
+               // 마커를 생성합니다
+               var marker = new daum.maps.Marker({
+                  position: markerPosition
+               });
+            	// 마커가 지도 위에 표시되도록 설정합니다
+               marker.setMap(map);
+            }
+		});
+	});
+</script>
 
 </head>
 
@@ -137,7 +178,22 @@
 		<!-- Page Heading/Breadcrumbs -->
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">리뷰페이지</h1>
+				<h1 class="page-header">리뷰페이지
+					<small>
+						<a class="btn btn-social-icon btn-facebook" id="shareBtn">
+    						<span class="fa fa-facebook"></span>
+  						</a>
+				<%if(result == 0) {%>
+				<input type="image" id="heartBtn" src="/resource/travelReview/images/heart1.png"/>
+				<%}else{%>
+				<input type="image" id="heartBtn" src="/resource/travelReview/images/heart2.png"/>
+				<%}%>
+					</small>
+				</h1>
+				<ol class="breadcrumb">
+					<li>리뷰 </li>
+					<li>리뷰상세</li>
+				</ol>
 			</div>
 		</div>
 		<!-- /.row -->
@@ -173,6 +229,7 @@
 				</li>
 			</ol>
 		</div>
+		
 	</div>
 
 	<div class="container map" style="width: 40%; margin-left:15%">
@@ -184,12 +241,27 @@
 			<div class="col-lg-12">
 
 				<ul id="myTab" class="nav nav-tabs nav-justified">
-					<!-- 탭 갯수 만들기 -->
+					<!-- 일정 수만큼 탭 갯수 만들기 -->
 					<%
 						for (int i = 0; i < tourarray.size() && placeArray[i] != null; i++) {
 					%>
-					<li class=""><a href="#service-<%=i %>"
-						data-toggle="tab"><i class="fa fa-tree"></i>DAY<%=i+1 %></a></li>
+					<li class="mapInfo"><a href="#service-<%=i %>"
+						data-toggle="tab"><i class="fa fa-tree"></i>DAY<%=i+1 %></a>
+					<%
+						//위에서 만든 place배열에서 title, mapx, mapy 정보 가져오기
+							for (int j = 0; j < placeArray[i].size(); j++) {
+								JSONObject temp = new JSONObject();
+								temp  = (JSONObject)placeArray[i].get(j);
+								
+								String mapx = temp.get("mapx").toString();
+								String mapy = temp.get("mapy").toString();
+						%>
+						<input type="hidden" class="mapx" value=<%=mapx %>>
+						<input type="hidden" class="mapy" value=<%=mapy %>>	
+						<%
+							}
+						%>
+					</li>
 					<%
 						}
 					%>
@@ -201,6 +273,7 @@
 					%>
 					<div class="tab-pane fade in" id="service-<%=i %>">
 						<%
+						//위에서 만든 place배열에서 title, mapx, mapy 정보 가져오기
 							for (int j = 0; j < placeArray[i].size(); j++) {
 								JSONObject temp = new JSONObject();
 								temp  = (JSONObject)placeArray[i].get(j);

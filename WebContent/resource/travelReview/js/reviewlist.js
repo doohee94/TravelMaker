@@ -7,12 +7,7 @@ $(function(){
 			getDiv();
 		}
 		
-		//스크롤이 내려왔을 때 TOP버튼 보이게하는 함수
-		if($(this).scrollTop() > 500){
-			$("#move_top_btn").fadeIn();
-		}else{
-			$("#move_top_btn").fadeOut();
-		}
+
 	});
 	
 	//탑버튼 누르면 화면 맨 위로 올라가는 함수

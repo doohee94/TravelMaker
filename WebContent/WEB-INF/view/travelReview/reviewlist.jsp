@@ -96,6 +96,7 @@
 				</h1>
 
 				<ol class="breadcrumb">
+					<li>리뷰 > </li>
 					<li><a href="">최신순</a></li>
 					<li class="active"><a href="">인기순</a></li>
 				</ol>
@@ -134,6 +135,6 @@
         <%} %>
    </div>
 		
-		<a class="btn btn-primary" id="move_top_btn" style="margin-left:100%; margin-bottom:10%;">TOP</i></a>
+	<a class="btn btn-primary" id="move_top_btn" style="position:fixed; bottom:5px; right:5px">TOP</i></a>
 </body>
 </html>
