@@ -1,123 +1,214 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!--  이미지 슬라이더 css -->
-<meta name="viewport" content="width=device-width,initial-scale=1.0" >
-<meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1" >
 
-<title>Insert title here</title>
-	<link rel="stylesheet" type="text/css" href="/resource/searchpage/css/list.css" >
-<link rel="stylesheet" type="text/css" href="/resource/searchpage/css/DSlider.css" >
-<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="/resource/searchpage/css/header.css">
-<link rel="stylesheet" href="/resource/searchpage/css/search.css">
-	
-<!-- js -->
-<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
-	
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Modern Business - Start Bootstrap Template</title>
+
+   <!-- Bootstrap Core CSS -->
+    <link href="/resource/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/resource/bootstrap/css/modern-business.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <!-- 내가 준 css -->
+        <link href="/resource/searchpage/css/search.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
+
 <body>
-	<!--  헤더  -->
-	<div class="header">
-		<div class="MainName">Travel<br/>Maker</div>
-		<div class="subMenu">
-			<ul >            
-                			<li><a href="#">일정만들기</a></li>
-                			<li><a href="#">추천여행지</a></li>
-                			<li><a href="#">마이 페이지</a></li>
-			</ul>
 
-		</div>
-		<div class="Menu">
-			<ul>  	
-	      		 <li><input type="text"><button>검색</button></li>
-	          	 <li><a href="#">로그인</a></li>
-	             <li><a href="#">회원가입</a></li>	
-			</ul>
-		</div>
-		
-	</div><!--  헤더끝 -->
-	<!-- 타이틀부분 -->
-	<div class="title">
-		<div id="cityNmae">${cityName}</div>
-	</div>
-	<!--  이미지랑 날씨 정보 -->
-	<div class="imageANDweather">
-		<table border="0">
-			<tr>
-				<td>
-					<div class="imagecontainer">
-						<ul class="Slider Slider2" id="Slider2">
-							<!--  이미지들어가는 부분 -->
-						</ul>
-					
-					</div><!--  container -->
-					
-				</td><!--  사진끝끝  -->
-				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td>
-					<div class="weather" align="center">
-						<table>
-							<tr>
-								<td id="now">
-								</td>
-								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-								<td id="tomorrow">
-							</tr>
-							<tr>
-								<td id="5day">
-								
-								</td>
-								<td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-								<td id="10day">
-								</td>	
-							</tr>
-						</table>
-					</div>
-				</td>
-			</tr>
-		</table>
-	</div>
-	
-	<br/><br/><br/>
-	
-	<!--  탭 -->
-	 <div class="TabContainer" align="center">
+ <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="tmmain/main.tm">Travel Maker</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/step1/step1.tm">일정만들기</a>
+                    </li>
+                    <li>
+                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행지추천</a>
+                    </li>
+                    <li>
+                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
+                    </li>
+                    <li>
+                        <a href="/challengeschedule/challengeSchedule.tm">도전일정</a>
+                    </li>
+                     <li style="padding:10px">
+                       <input type="text"/> <button>검색</button>
+                    </li>                      
+                     <li>
+                        <a href="member/loginForm.tm">로그인</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
         <div class="row">
-        <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h1 class="gallery-title">지역 정보</h1>
+            <div class="col-lg-12">
+                <h1 class="page-header" id="cityName"><strong id="cityName">${cityName}</strong>
+<!--                     <small>Subheading</small> -->
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li class="active">Portfolio Item</li>
+                </ol>
+            </div>
         </div>
+        <!-- /.row -->
 
-        <div align="center">
-            <button class="btn btn-default filter-button" data-filter="all">All</button>
-            <button class="btn btn-default filter-button" data-filter="tour">여행지</button>
-            <button class="btn btn-default filter-button" data-filter="food">맛집</button>
-            <button class="btn btn-default filter-button" data-filter="festival">축제</button>
-            <button class="btn btn-default filter-button" data-filter="ect">숙박 및 기타</button>
-        </div>
-        <br/>
-			<div><!--  리스트 목록들 -->
-				<ul class="cityListUL" id="cityListUL">
-
+        <!-- Portfolio Item Row -->
+        <div class="row" style="height: 400px; width:155%;">
 			
-				</ul>
-		    </div><!--  리스트 목록 끝 -->       
+            <div class="col-md-8" style="height:100%">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="height:100%">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides 슬라이더 -->
+                    <div class="carousel-inner" style="height:100%">
+
+                    </div>
+
+                    <!-- Controls  슬라이더 컨트롤 -->
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div>
         </div>
+        <!-- /.row -->
+		<br/>
+		<hr/>
+		
+		<!-- 날씨정보 가져오기 -->
+		 <!-- Related Projects Row -->
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h3 class="page-header">Related Projects</h3>
+            </div>
+			<!--  현재날씨 -->
+            <div class="col-sm-3 col-xs-6" id="now" align="center">
+               
+            </div>
+			<!--  내일날씨 -->
+            <div class="col-sm-3 col-xs-6" id="tomorrow" align="center">
+               
+            </div>
+			<!--  5일후 날씨 -->
+            <div class="col-sm-3 col-xs-6" id="5day" align="center">
+                
+            </div>
+			<!--  10일후 날씨 -->
+            <div class="col-sm-3 col-xs-6" id="10day" align="center">
+                
+            </div>
+
+        </div>
+        <!-- /.row -->
+		<br/>
+		<hr/>
+		<!--  버튼부분 -->
+		<div class= "row" align="center">
+			<button class="category"><span class="glyphicon glyphicon-th-large"></span>전체</button>
+			<button class="category"><span class="glyphicon glyphicon-th-large"></span>축제</button>
+			<button class="category"><span class="glyphicon glyphicon-camera"></span>관광지</button>
+			<button class="category"><span class="glyphicon glyphicon-cutlery"></span>맛집</button>
+</div>
+		<!-- /.row -->
+		<br/>
+        <!-- Related Projects Row  리스트 띄우는 부분-->
+        <div class="row List">
+<!-- 			 <div class="col-md-4 img-portfolio"> -->
+<!--                 <a href="portfolio-item.html"> -->
+<!--                     <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt=""> -->
+<!--                 </a> -->
+<!--                 <h3> -->
+<!--                     <a href="portfolio-item.html">Project Name</a> -->
+<!--                 </h3> -->
+<!--                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p> -->
+<!--             </div> -->
+            
+            
+            <!--  관광지 리스트 뜨는 곳 -->
+            
+            
+            
+        </div>
+        <!-- /.row -->
+
+        <hr>
+	 <!-- Pagination 리스트 -->
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <ul class="pagination">
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.row -->
+	
+    
+
     </div>
-    
-    <!--  페이징 -->
-   
-    
+    <!-- /.container -->
+	
+	
+   <!-- jQuery -->
+    <script src="/resource/bootstrap/js/jquery.js"></script>
+	<!--  search js -->
+	<script src="/resource/searchpage/js/search.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/resource/bootstrap/js/bootstrap.min.js"></script>
+
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>"></script>
-<script type="text/javascript" src="/resource/searchpage/js/list.js"></script>
-<script src="/resource/searchpage/js/DSlider.js"></script>
-<script type="text/javascript"src="/resource/searchpage/js/imageSilder.js"></script>
-<script type="text/javascript" src="/resource/searchpage/js/search.js"></script>
 
 </html>

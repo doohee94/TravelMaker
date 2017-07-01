@@ -1,44 +1,50 @@
-/*타이틀 스타일*/
-	.title{
-		height: 60px;
-		border-bottom: solid 3px;
-		margin-left: 100px;
-		margin-right: 100px;
-		font-size: 40px;
-		
-	}
-	/*날씨/사진 스타일*/
-	.imageANDweather{
-		margin-left: 300px;
-		
-	}
-	.container { 
-		max-width:960px;
-	}
-	.DSlider-item{
-		margin : 0;
-		padding: 0;
-	}
-	.Slider2{
-		margin : 0;
-		padding: 0;
-		float: left;
-	}
-	.titleImg{
-		margin-right:0px;
-		padding: 0px;
-		width:1000px;
-		height:400px;
-	}
-	.weather{
-		float: right;
-	}
-	.cityList{
-		list-style-type : none;
- 	padding-left:0px;
-		
-	}
-	.img-responsive{
-		width: 250px;
-		height: 250px;
-	}
+/*카테고리 버튼*/
+.category{
+	
+	background-color: #fcfcfc;
+	
+	
+}
+
+.slider{
+	
+	height: 100%;
+	width: 100%;
+	
+}
+
+
+.img-responsive{
+	width: 100%;
+}
+.list-image{
+	
+	width: 750px;
+	height: 500px;
+}
+
+.sTitle{
+	
+	font-size:1em;
+	font:bold;
+}
+
+.bTitle{
+	
+	font-size:0.7em;
+	font:bold;
+}
+
+.weather_text{
+	
+	font-size: 1.5em;
+	color : #000;
+	
+}
+
+.weather_text{
+	
+	font-size: 1.2em;
+	color : #000;
+	
+}
