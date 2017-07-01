@@ -35,7 +35,7 @@ $(function(){
 </script>
 
 <!-- CSS -->
-<link rel="stylesheet" type="text/css" href="/resource/member/css/login.css">
+<link rel="stylesheet" type="text/css" href="/resource/member/css/loginSeach.css">
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
@@ -49,22 +49,24 @@ $(function(){
           <h1 class="text-center ">PW 찾기</h1>
         </div>
     <div class="main-content">
-            
+          <form action="serchPwOkForm.tm" method="post">
           <div class="input-group ">
             <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
-            <input id="id" type="text" class="form-control" name="id" placeholder="ID" required="required">
+            <input id="id" type="text" class="form-control" name="userId" placeholder="ID" required="required">
           </div>
           <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
-            <input id="email" type="text" class="form-control" name="email" placeholder="EMAIL" required="required">
+            <input id="email" type="text" class="form-control" name="userEmail" placeholder="EMAIL" required="required">
           </div>
         
           
           <div class="form-group">
-          	<center><input type="button" class="insert-button" value="확인" style="background-color:#489CFF" onclick="location.href='serchPwOkForm.tm'">&nbsp;&nbsp;
-          		<input type="button" class="insert-button" value="취소" style="background-color:#d6564f" onClick="history.back()"></center>
+          	<center>
+          		<input type="submit" class="insert-check-button" value="확인"  >&nbsp;&nbsp;
+          		<input type="button" class="insert-cancel-button" value="취소" onClick="history.back()">
+          	</center>
           </div>
-  
+  			</form>
       
       </div>
     </div>

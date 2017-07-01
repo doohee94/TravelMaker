@@ -9,7 +9,7 @@
 <head>
 
 <!-- CSS -->
-<link rel="stylesheet" type="text/css" href="/resource/member/css/login.css">
+<link rel="stylesheet" type="text/css" href="/resource/member/css/loginSeach.css">
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
@@ -30,10 +30,10 @@
           
           <div class="form-group">
           <center>
-          		<input type="button" class="insert-button" value="로그인" style="background-color:#489CFF" onclick="location.href='loginForm.tm'">&nbsp;&nbsp;
-          		<input id="btnid" type="button" class="insert-button" value="ID찾기" style="background-color:#489CFF" onclick="location.href='serchIdForm.tm'">
-          		<input id="btnpw" type="button" class="insert-button" value="PW찾기" style="background-color:#489CFF" onclick="location.href='serchPwForm.tm'">&nbsp;&nbsp;
-          		<input type="button" class="insert-button" value="취소" style="background-color:#d6564f" onClick="history.back()"></center>
+          		<input type="button" class="insert-check-button" value="로그인"  onclick="location.href='loginForm.tm'">&nbsp;&nbsp;
+          		<input id="btnid" type="button" class="insert-check-button" value="ID찾기"  onclick="location.href='serchIdForm.tm'">
+          		<input id="btnpw" type="button" class="insert-check-button" value="PW찾기"  onclick="location.href='serchPwForm.tm'">&nbsp;&nbsp;
+          		<input type="button" class="insert-cancel-button" value="취소" onClick="history.back()"></center>
           </div>
   
       

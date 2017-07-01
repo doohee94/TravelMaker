@@ -19,7 +19,7 @@
 
 <section class="login-info">
 <div class="container">
-  <div class="row main">
+  	<div class="row main">
        <div class="form-header">
           <h1 class="text-center ">로그인 </h1>
         </div>
@@ -42,14 +42,11 @@
           
           <div class="form-group">
           <center>
-          	<input type="button" class="insert-button" value="ID 찾기" style="background-color:#489CFF;" onclick="location.href='serchIdForm.tm'">&nbsp;&nbsp;
-          	<input type="button" class="insert-button" value="PW 찾기" style="background-color:#489CFF;" onclick="location.href='serchPwForm.tm'">&nbsp;&nbsp;
-          	<input type="button" class="insert-button" value="회원가입" style="background-color:#489CFF;" onclick="location.href='signupForm.tm'"></center>
+          	<input type="button" class="insert-button" value="ID 찾기" onclick="location.href='serchIdForm.tm'">&nbsp;&nbsp;
+          	<input type="button" class="insert-button" value="PW 찾기" onclick="location.href='serchPwForm.tm'">&nbsp;&nbsp;
+          	<input type="button" class="insert-button" value="회원가입" onclick="location.href='signupForm.tm'">
+          	</center>
           </div>
-
-          
-
-      
       </div>
     </div>
 </div>
