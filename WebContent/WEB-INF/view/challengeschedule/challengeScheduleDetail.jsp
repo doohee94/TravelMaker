@@ -156,57 +156,30 @@
 		<!-- 텍스트 공간 -->
 		<div class="detailtextarea">
 
-			<p class="ptextarea">여행경로 및 한줄평(체크리스트)</p>
-
 			<div class="ptarow1">
-				<div class="startrow1c">출발</div>
-				<div class="startrow2c">출발지</div>
-				<div class="startrow3c">공란</div>
+				<div class="startrow1c"><p>출발</p></div>
+				<div class="startrow2c"><p>출발지명</p></div>
+				<div class="startrow3c"><p>공란</p></div>
 			</div>
+			
+			<%for(int i=0; i<5; i++) {%>
 			<div class="ptarow2">
-				<div class="ptarowstopover1c">경유</div>
-				<div class="ptarowstopover2c">경유지1</div>
-				<div class="ptarowstopover3c">경유지1 체크리스트</div>
+				<div class="ptarowstopover1c"><p>경유</p></div>
+				<div class="ptarowstopover2c"><p>경유지<%= i+1 %></p></div>
+				<div class="ptarowstopover3c"><p>경유지 체크리스트</p></div>
 			</div>
-
-			<div class="ptarow2">
-				<div class="ptarowstopover1c">경유</div>
-				<div class="ptarowstopover2c">경유지2</div>
-				<div class="ptarowstopover3c">경유지2 체크리스트</div>
-			</div>
-
-			<div class="ptarow2">
-				<div class="ptarowstopover1c">경유</div>
-				<div class="ptarowstopover2c">경유지3</div>
-				<div class="ptarowstopover3c">경유지3 체크리스트</div>
-			</div>
-
-			<div class="ptarow2">
-				<div class="ptarowstopover1c">경유</div>
-				<div class="ptarowstopover2c">경유지4</div>
-				<div class="ptarowstopover3c">경유지4 체크리스트</div>
-			</div>
-
-			<div class="ptarow2">
-				<div class="ptarowstopover1c">경유</div>
-				<div class="ptarowstopover2c">경유지5</div>
-				<div class="ptarowstopover3c">경유지5 체크리스트</div>
-			</div>
-
-			<div class="ptarow2">
-				<div class="ptarowstopover1c">경유</div>
-				<div class="ptarowstopover2c">경유지6</div>
-				<div class="ptarowstopover3c">경유지6 체크리스트</div>
-			</div>
+			<%} %>
+			
 			<div class="ptarow3">
-				<div class="lastrow1c">도착</div>
-				<div class="lastrow2c">도착지</div>
-				<div class="lastrow3c">체크리스트</div>
+				<div class="lastrow1c"><p>도착</p></div>
+				<div class="lastrow2c"><p>도착지명</p></div>
+				<div class="lastrow3c"><p>도착지 체크리스트</p></div>
 			</div>
+			
 
 		</div>
 		<!-- end detailtextarea  -->
-		<!-- end 텍스트 공간 -->
+		
 
 		<!-- 별점, 공유하기, 좋아요 버튼 그룹 -->
 		<div class="btngroup">
