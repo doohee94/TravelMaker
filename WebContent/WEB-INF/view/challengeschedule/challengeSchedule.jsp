@@ -90,14 +90,16 @@
 			<!-- best1 -->
 			<div class="col-md-4 text-center">
 				<div class="thumbnail">
-					<img class="img-responsive" src="http://placehold.it/750x450"
-						alt="">
-					<div class="caption">
-						<h3>
-							대제목 공간<br> <small>소제목 공간</small>
-						</h3>
-						<p>내용 공간</p>
-					</div>
+					<a href="/challengeschedule/challengeScheduleDetail.tm">
+						<img class="img-responsive" src="http://placehold.it/750x450"
+							alt="">
+						<div class="caption">
+							<h3>
+								대제목 공간<br> <small>소제목 공간</small>
+							</h3>
+							<p>내용 공간</p>
+						</div>
+					</a>
 				</div>
 			</div>
 
@@ -106,14 +108,16 @@
 			<!-- best2 -->
 			<div class="col-md-4 text-center">
 				<div class="thumbnail">
-					<img class="img-responsive" src="http://placehold.it/750x450"
-						alt="">
-					<div class="caption">
-						<h3>
-							대제목 공간<br> <small>소제목 공간</small>
-						</h3>
-						<p>내용 공간</p>
-					</div>
+					<a href="/challengeschedule/challengeScheduleDetail.tm">
+						<img class="img-responsive" src="http://placehold.it/750x450"
+							alt="">
+						<div class="caption">
+							<h3>
+								대제목 공간<br> <small>소제목 공간</small>
+							</h3>
+							<p>내용 공간</p>
+						</div>
+					</a>
 				</div>
 			</div>
 
@@ -122,14 +126,16 @@
 			<!-- best3 -->
 			<div class="col-md-4 text-center">
 				<div class="thumbnail">
-					<img class="img-responsive" src="http://placehold.it/750x450"
-						alt="">
-					<div class="caption">
-						<h3>
-							대제목 공간<br> <small>소제목 공간</small>
-						</h3>
-						<p>내용 공간</p>
-					</div>
+					<a href="/challengeschedule/challengeScheduleDetail.tm">
+						<img class="img-responsive" src="http://placehold.it/750x450"
+							alt="">
+						<div class="caption">
+							<h3>
+								대제목 공간<br> <small>소제목 공간</small>
+							</h3>
+							<p>내용 공간</p>
+						</div>
+					</a>
 				</div>
 			</div>
 
@@ -151,14 +157,16 @@
 			<%for(int i=0; i<6; i++){ %>
 			<div class="col-md-4 text-center">
 				<div class="thumbnail">
-					<img class="img-responsive" src="http://placehold.it/750x450"
-						alt="">
-					<div class="caption">
-						<h3>
-							대제목 공간<br> <small>소제목 공간</small>
-						</h3>
-						<p>내용 공간</p>
-					</div>
+					<a href="/challengeschedule/challengeScheduleDetail.tm">
+						<img class="img-responsive" src="http://placehold.it/750x450"
+							alt="">
+						<div class="caption">
+							<h3>
+								대제목 공간<br> <small>소제목 공간</small>
+							</h3>
+							<p>내용 공간</p>
+						</div>
+					</a>	
 				</div>
 			</div>
  			<%} %>
