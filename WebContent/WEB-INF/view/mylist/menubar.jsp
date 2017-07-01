@@ -15,6 +15,18 @@
 	<meta http-equiv="Content-Style-Type" content="text/css" />
 	<meta http-equiv="X-UA-Compatible" content="IE=10" />
 	
+	<!-- jQuery -->
+    <script src="/resource/bootstrap/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/resource/bootstrap//js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/resource/bootstrap//js/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/resource/bootstrap/js/sb-admin-2.js"></script>
+	
     <!-- Bootstrap Core CSS -->
     <link href="/resource/bootstrap//css/bootstrap.min.css" rel="stylesheet">
 
@@ -26,7 +38,7 @@
 
     <!-- Custom Fonts -->
     <link href="/resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+    
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -74,8 +86,8 @@ text-decoration:none;
 
     <div id="wrapper" class="wrapper">
 
-                <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
             <!--  모바일 버전때 생성되는 버튼 -->
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -86,33 +98,33 @@ text-decoration:none;
                 </button>
             <!-- /모바일 버전때 생성되는 버튼 -->   
             <!-- 로고 --> 
-                <a class="navbar-brand" href="index.html">TravelMaker</a>
+                <a class="navbar-brand" href="tmmain/main.tm" style="padding-left: 381px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">Travel Maker</a>
             <!-- /로고 -->
             </div>
             <!-- 네비 헤더  메뉴 부분 -->
          <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/step1/step1.tm">일정만들기</a>
+                        <a href="/step1/step1.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">일정만들기</a>
                     </li>
                     <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행지추천</a>
+                        <a href="/recommandtravelregion/recommandTravelRegion.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">여행지추천</a>
                     </li>
                     <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
+                        <a href="/recommandtravelregion/recommandTravelRegion.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">여행리뷰</a>
                     </li>
                     <li>
-                        <a href="/challengeschedule/challengeSchedule.tm">도전일정</a>
+                        <a href="/challengeschedule/challengeSchedule.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">도전일정</a>
                     </li>
-                     <li style="padding:10px">
-                       <input type="text"/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px;"><span class="glyphicon glyphicon-search"></span> search</button>
+                     <li style="padding:10px;">
+                       <input type="text" style="width: 170px; height: 26px"/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px; width: 77px; font-size: 15px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; color:#2e2e2e"><span class="glyphicon glyphicon-search"></span> search</button>
                     </li>                      
                      <li>
-                        <a href="member/loginForm.tm">로그인　</a>
+                        <a href="member/loginForm.tm" style="padding-right: 381px; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">로그인　</a>
                     </li>
                 </ul>
             <!-- /네비 헤더  메뉴 부분 -->
 
-            <div class="navbar-default sidebar" role="navigation">
+            <div class="navbar-inverse sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
@@ -254,26 +266,15 @@ text-decoration:none;
 
 
 
-		</div> 
-		</center>
-	</div>
+				</div> 
+			</center>
+			</div>
         </div>
         <!-- /#page-wrapper -->
-
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="/resource/bootstrap/js/jquery.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/resource/bootstrap//js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="/resource/bootstrap//js/metisMenu.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="/resource/bootstrap/js/sb-admin-2.js"></script>
 
 </body>
 
