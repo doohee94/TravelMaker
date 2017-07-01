@@ -54,7 +54,7 @@
                         <a href="/challengeschedule/challengeSchedule.tm">도전일정</a>
                     </li>
                      <li style="padding:10px">
-                       <input type="text"/> <button>검색</button>
+                       <input type="text"/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px;"><span class="glyphicon glyphicon-search"></span> search</button>
                     </li>                      
                      <li>
                         <a href="member/loginForm.tm">로그인</a>
@@ -68,7 +68,6 @@
     		<input type="button" value="< 이전" class="nextbtn" onclick="location.href='/step1/step1.tm'">
 			<input type="button" value="다음 >" class="nextbtn" onclick="location.href='/step/step3.tm'">
     	</center>
-    
 	<div class="container">
 
         <!-- Page Heading/Breadcrumbs -->

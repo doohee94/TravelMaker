@@ -55,7 +55,7 @@
                         <a href="/challengeschedule/challengeSchedule.tm">도전일정</a>
                     </li>
                      <li style="padding:10px">
-                       <input type="text"/> <button>검색</button>
+                        <input type="text"/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px;"><span class="glyphicon glyphicon-search"></span> search</button>
                     </li>                      
                      <li>
                         <a href="member/loginForm.tm">로그인</a>
