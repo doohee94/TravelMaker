@@ -1,0 +1,13 @@
+*, html, body
+	{
+	margin: 0;
+	padding: 0;
+	}
+p{
+	font-size: 25px;
+	
+}	
+.delete{
+	font-size: 18px;
+}
+
