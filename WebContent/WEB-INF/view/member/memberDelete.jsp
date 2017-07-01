@@ -4,8 +4,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10" />
+	
+	<!-- jQuery -->
+    <script src="/resource/bootstrap/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/resource/bootstrap//js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/resource/bootstrap//js/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/resource/bootstrap/js/sb-admin-2.js"></script>
+	
+    <!-- Bootstrap Core CSS -->
+    <link href="/resource/bootstrap//css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="/resource/bootstrap/css/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/resource/bootstrap/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 
 <!--  메뉴바 -->
@@ -14,21 +54,80 @@
 </head>
 
 <body>
-<!--  메뉴네비게이션 -->
-<div id="wrap" > 
-	<div class="lnb">
-		<h1>마이페이지</h1>
-		<div class="subtitle"><a href="#">내정보</a></div>
-			<ul class="sub" style="display:none;">
-				<li><a href="memberUpdate.tm">정보보기</a></li>
-				<li><a href="memberDelete.tm">회원탈퇴</a></li>
-			</ul>
-		<div class="subtitle"><a href="http://localhost:8080/mylist/menubar.tm">나의일정</a></div>
-		<div class="subtitle"><a href="">관심일정</a></div>
-		<div class="subtitle"><a href="">관심여행지</a></div>
-		<div class="subtitle"><a href="">QnA</a></div>
-		<div class="subtitle sub_end"><a href="">스탬프</a></div>
-	</div>
+<!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+            <!--  모바일 버전때 생성되는 버튼 -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            <!-- /모바일 버전때 생성되는 버튼 -->   
+            <!-- 로고 --> 
+                <a class="navbar-brand" href="tmmain/main.tm" style="padding-left: 381px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">Travel Maker</a>
+            <!-- /로고 -->
+            </div>
+            <!-- 네비 헤더  메뉴 부분 -->
+         <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/step1/step1.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">일정만들기</a>
+                    </li>
+                    <li>
+                        <a href="/recommandtravelregion/recommandTravelRegion.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">여행지추천</a>
+                    </li>
+                    <li>
+                        <a href="/recommandtravelregion/recommandTravelRegion.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">여행리뷰</a>
+                    </li>
+                    <li>
+                        <a href="/challengeschedule/challengeSchedule.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">도전일정</a>
+                    </li>
+                     <li style="padding:10px;">
+                       <input type="text" style="width: 170px; height: 26px"/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px; width: 77px; font-size: 15px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; color:#2e2e2e"><span class="glyphicon glyphicon-search"></span> search</button>
+                    </li>                      
+                     <li>
+                        <a href="member/loginForm.tm" style="padding-right: 398px; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">로그인　</a>
+                    </li>
+                </ul>
+            <!-- /네비 헤더  메뉴 부분 -->
+
+            <div class="navbar-inverse sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-user"></i>  내 정보<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="http://localhost:8080/member/memberUpdate.tm">  정보수정</a>
+                                </li>
+                                <li>
+                                    <a href="http://localhost:8080/member/memberDelete.tm">  회원탈퇴</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="http://localhost:8080/mylist/menubar.tm" style="background-color: #212121;"><i class="fa fa-list-alt fa-list-alt"></i>  내 일정</a>
+                        </li>
+                        <li>
+                            <a href="tables.html"><i class="fa fa-heart fa-heart"></i>  관심 여행지</a>
+                        </li>
+                        <li>
+                            <a href="forms.html"><i class="fa fa-calendar fa-calendar"></i>  관심 일정</a>
+                        </li>
+                        <li>
+                            <a href="forms.html"><i class="fa fa-omments fa-comments"></i>  QnA</a>
+                        </li>
+                        <li>
+                            <a href="forms.html"><i class="fa fa-flag fa-flag"></i>  스템프</a>
+                        </li>                        
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
 
 
 <!-- 헤더넣기 -->

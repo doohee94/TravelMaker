@@ -1,16 +1,3 @@
-
-//채팅창
-
-	function openNav() {
-	    $("#mySidenav").css("width","300px");
-	    $("#main").css("margin-right","300px");
-	}	
-	function closeNav() {
-	    $("#mySidenav").css("width","0px");
-	    $("#main").css("margin-right","0px");
-	    
-	}
-	
 $( function() {
 	
 	//day 별 리스트 저장 
@@ -637,21 +624,6 @@ $( function() {
       });
       });//end tempsavaBtn
 
-     
-   
-   
-   
-   
-   //Q모양 검색을 눌렀을 때
-   $("#reSearch").click(function(){
-    
-      if($("#reSearchDiv").css("display")=="none"){
-         $("#reSearchDiv").show();  
-      }else{
-         $("#reSearchDiv").hide();  
-      }
-
-   });//end click
    
    
    //재검색 버튼 눌럿을 때
@@ -759,19 +731,7 @@ $( function() {
    
    
    
-   //채팅 입력화면!!!!!!
-   $("#send").click(function(){
-      
-      var chat = $("#chat_text").val();
-     
-      $("#chat_body").append(' <div class="row message-bubble">'+
-                        '<p class="text-muted">'+'내아이디'+'</p>'+
-                        '<p>'+chat+'</p></div>');
-      
-      
-      $("#chat_text").val("");
-      $("#chat_body").scrollTop($("#chat_body")[0].scrollHeight); //스트롤바 하단유지
-   });
+
   
    
    
