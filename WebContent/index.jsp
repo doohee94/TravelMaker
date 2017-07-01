@@ -76,9 +76,6 @@
 <br/><br/>
 <a href="mylist/test.tm">테스트</a>
 
-
-
-
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
