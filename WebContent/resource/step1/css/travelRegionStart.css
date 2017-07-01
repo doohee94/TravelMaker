@@ -1,11 +1,4 @@
 @CHARSET "UTF-8";
-							/* mouseover cursor */					
-.wrap .city1 ul li a{
-	cursor:pointer;
-}
-.wrap .city2 ul li a{
-	cursor:pointer;
-}
 							/* menu tab fold/unfold  */
 							/* travelregion1 */
 .wrap .Gangwondodiv{
@@ -35,12 +28,10 @@
 							/**Major region choice's first row  */
 							/** common css ( travelregion1,2,3 ) */
 .wrap .city0{
-	padding-top:10px;
-	padding-bottom:10px;
 	padding-left:10%;
 	overflow: auto;
 	list-style:none;
-	border: 2px solid #dedede;
+	border: 2px solid white;
 	font-size:18px;
 	font-weight:600;
 	margin-top:10px;
@@ -56,29 +47,31 @@
 	width:100px;
 	height:35px;
 	background-color:white; 
-	border:2px solid #dedede;
+	border:2px solid white;
 }
 
 							/**Major region choice's second row  */
 							/** common css ( travelregion1,2,3 ) */
  .wrap .city1{
-	padding-top:10px;
-	padding-bottom:10px;
 	padding-left:19.2%;
 	overflow: auto;
 	list-style:none;
-	border: 2px solid #dedede;
+	border: 2px solid white;
 	font-size:18px;
 	font-weight:600;
 	margin-top:10px;
 	margin-bottom:10px;
 }
+
+
+
+
 						/** button css second row */
 .wrap .city1 input{
 	width:100px;
 	height:35px;
 	background-color:white; 
-	border:2px solid #dedede;
+	border:2px solid white;
 	padding-bottom:10px;
 	
 }
@@ -87,12 +80,10 @@
 						/**Major region choice's third row  */
 						/** common css ( travelregion1,2,3 ) */
  .wrap .city2{
-	padding-top:10px;
-	padding-bottom:10px;
 	padding-left:19.2%;
 	overflow: auto;
 	list-style:none;
-	border: 2px solid #dedede;
+	border: 2px solid white;
 	font-size:18px;
 	font-weight:600;
 	margin-top:10px;
@@ -103,7 +94,7 @@
 	width:100px;
 	height:35px;
 	background-color:white; 
-	border:2px solid #dedede;
+	border:2px solid white;
 	padding-bottom:10px;
 	
 }
@@ -140,7 +131,7 @@
 	width:100px;
 	height:35px;
 	background-color:white; 
-	border:2px solid #dedede;
+	border:2px solid white;
 }
 
 
@@ -175,7 +166,7 @@
 	width:100px;
 	height:35px;
 	background-color:white; 
-	border:2px solid #dedede;
+	border:2px solid white;
 }
 
 							/**Gyeongsangnamdo choiced*/
@@ -212,7 +203,7 @@
 	width:100px;
 	height:35px;
 	background-color:white; 
-	border:2px solid #dedede;
+	border:2px solid white;
 }
 
 							/**Gyeongsangbukdo choiced*/
@@ -248,7 +239,7 @@
 	width:100px;
 	height:35px;
 	background-color:white; 
-	border:2px solid #dedede;
+	border:2px solid white;
 	}
 								
 							/**Jeollanamdo choiced*/
@@ -282,7 +273,7 @@
 	width:100px;
 	height:35px;
 	background-color:white; 
-	border:2px solid #dedede;
+	border:2px solid white;
 	}
 							/**Jeollabukdo choiced*/
 								/**travelregion1*/
@@ -309,7 +300,7 @@
 	width:100px;
 	height:35px;
 	background-color:white; 
-	border:2px solid #dedede;
+	border:2px solid white;
 	}
 							/**Chungcheongnamdo choiced*/
 								/**travelregion1*/
@@ -337,7 +328,7 @@
 	width:100px;
 	height:35px;
 	background-color:white; 
-	border:2px solid #dedede;
+	border:2px solid white;
 	}
 
 
@@ -365,5 +356,5 @@
 	width:100px;
 	height:35px;
 	background-color:white; 
-	border:2px solid #dedede;
+	border:2px solid white;
 	}

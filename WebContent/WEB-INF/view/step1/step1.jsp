@@ -71,13 +71,19 @@
 		</div>
 	</nav>
 
-	<div class="container" id="container">
+<div class="container" id="container">
 	
+	<div class="prevnextbtn">
 		<center>
-    		<input type="button" value="< 이전" class="nextbtn" onclick="location.href='/step1/step1.tm'">
-			<input type="button" value="다음 >" class="nextbtn" onclick="location.href='/step2/step2.tm'">
+    		<input type="button" value="< 메인" class="nextbtnmain" onclick="location.href='/tmmain/main.tm'">
+			<input type="button" value="다음 >" class="nextbtnstep2" onclick="location.href='/step2/step2.tm'">
     	</center>
-    	
+    </div>	
+    
+    <div class="col-lg-12">
+		<h2 class="page-header">경로 <small> 경로를 선택해 주세요.</small></h2>
+	</div>
+    
 		<form class="contnsubform" action="" method='get'>
 			<!--   출발지 경유지 도착지 탭	-->
 
@@ -106,6 +112,8 @@
 								type="button" value="강릉" id="myButton8" class="a">
 						</div>
 
+						<hr>
+						
 						<!-- 여행 지역 선택 3행 중 2행 -->
 						<div class="city1">
 							<input type="button" value="강원도▽" class="Gangwondo"> <input
@@ -118,6 +126,8 @@
 								type="button" value="부산" id="myButton3" class="a">
 
 						</div>
+
+						<hr>
 
 						<!-- 여행 지역 선택 3행중 2행 강원도 버튼 -->
 						<div class="Gangwondodiv" id="Gangwondodiv">
@@ -426,7 +436,9 @@
 								type="button" value="진주" id="myButton7" class="b"> <input
 								type="button" value="강릉" id="myButton8" class="b">
 						</div>
-
+						
+						<hr>
+						
 						<!-- 여행 지역 선택 3행 중 2행 -->
 						<div class="city1">
 							<input type="button" value="강원도▽" class="Gangwondo2"> <input
@@ -439,6 +451,8 @@
 								type="button" value="부산" id="myButton3" class="b">
 
 						</div>
+
+						<hr>
 
 						<!-- 여행 지역 선택 3행중 2행 강원도 버튼 -->
 						<div class="Gangwondodiv2" id="Gangwondodiv2">
@@ -745,6 +759,8 @@
 								type="button" value="강릉" id="myButton8" class="c">
 						</div>
 
+						<hr>
+
 						<!-- 여행 지역 선택 3행 중 2행 -->
 						<div class="city1">
 							<input type="button" value="강원도▽" class="Gangwondo3"> <input
@@ -757,6 +773,8 @@
 								type="button" value="부산" id="myButton3" class="c">
 
 						</div>
+
+						<hr>
 
 						<!-- 여행 지역 선택 3행중 2행 강원도 버튼 -->
 						<div class="Gangwondodiv3" id="Gangwondodiv3">
@@ -928,6 +946,7 @@
 
 						</div>
 
+
 						<!-- 여행 지역 선택 3행중 3행 전라남도 버튼 -->
 						<div class="Jeollanamdodiv3" id="Jeollanamdodiv3">
 
@@ -1055,7 +1074,8 @@
 				</div>
 			</div>
 
-
+			<hr>
+			
 			<!-- 	출발지 경유지 도착지를 선택하면 출력해주는 곳 	-->
 			<div class="pathoutput">
 				<!-- 출발지 출력공간 -->
@@ -1073,14 +1093,18 @@
 				<!-- 경유지비우기 버튼 -->
 				<input type="button" class="reset" value="경유지 비우기" />
 			</div>
-
-
+		</form><!-- end contnsubform class  -->
+</div> <!--end id container div  -->
+<div class=container id="secondcontainer">
 			<!-- 일정제목 및 동행자 버튼 공간  -->
 
 			<div class="threerow">
-				<!-- 일정제목 라벨 -->
-				<div class="lbtitle">일정제목</div>
-				<!-- 일정제목 입력란 -->
+			
+				<div class="col-lg-12">
+					<h2 class="page-header">일정 제목</h2>
+				</div>
+					
+				
 				<input type="text" class="traveltitle" name="traveltitle"
 					placeholder="25자내로 입력해주세요."> <br />
 			</div>
@@ -1156,6 +1180,10 @@
 				<!-- end modal-dialog class -->
 			</div>
 			<!-- end myModal id -->
+
+	<div class="col-lg-12">
+		<h2 class="page-header">날짜</h2>
+	</div>
 
 			<!--	출발날짜 도착날짜 공간	-->
 			<div class="input-group input-group-lg" id="datediv">
