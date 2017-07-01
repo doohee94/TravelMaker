@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+#titlediv{
+	margin-top:50px;
+}
+
 body hr{
 	margin-top:5px;
 	margin-bottom:5px;
@@ -63,8 +67,10 @@ background-color:white;
 
 .container .fourrow .fellowpeople{
 	width:1015px; height:50px;
-	font-size:14px; text-align:center;
+	font-size:14px; font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+	text-align:center;
 	border:2px solid #dedede;
+	
 }
 
 /** threerow div*/
@@ -86,8 +92,9 @@ background-color:white;
 .container .threerow .traveltitle{
 	width:1140px; height:45px;
 	border:2px solid #dedede;
-	font-size:16px;
+	font-size:16px; font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
 	text-align:center;
+	
 }
 
 .container .threerow button{
@@ -146,6 +153,7 @@ background-color:white;
 .container .pathoutput{
 	margin-top:20px;
 	margin-bottom:20px;
+	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 										
 .container .reset{
@@ -163,13 +171,13 @@ background-color:white;
 
 .container .liststart{
 	border:2px solid #dedede;
-	width:200px; height:50px;
+	width:180px; height:50px;
 	text-align:center;
 }
 
 .container .listthrough{
 	border:2px solid #dedede;
-	width:608px; height:50px;
+	width:628px; height:50px;
 	text-align:center;
 }
 
