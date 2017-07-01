@@ -1,20 +1,17 @@
 @CHARSET "UTF-8";
-/* 헤더 다음 버튼*/
-#nextbtn{
-	padding-bottom:2px;
-	margin-top:7px;
-	margin-left:10%;
-	width:70px;
-	height:30px;
-	font-size:15px;
-	font-family: 'Nanum Gothic';
-	color:white;
-	font-weight:600;
-	background-color:#2995F7;
-	border:2px solid #2995F7;
-	border-radius:7px;
+/* 헤더와 슬라이드 사이 간격*/
+#secondcontainer{
+	margin-top:15px;
 }
 
+/* 도전 일정 상세페이지 글씨 공간*/
+#titlecontainer{
+	margin-top:30px;
+}
+
+#titlecontainer .page-header{
+	margin-bottom:0px;
+}
 
 /* /* review */ */
 /* 	/* star icon*/ */
@@ -80,13 +77,13 @@
 	resize:none;
 }
 
-.container .reviewform .reviewregisted #starscore #hearts-existing-reg{
+#secondcontainer .reviewform .reviewregisted #starscore #hearts-existing-reg{
 	float:left;
 	margin-top:10px; margin-right:10px;
 
 }
 
-.container .reviewform .reviewregisted #starscore #THEN_TIME{
+#secondcontainer .reviewform .reviewregisted #starscore #THEN_TIME{
 	margin-top:10px; margin-right:10px;
 }
 
@@ -94,11 +91,11 @@
 
 
 /* starscore, like, sharebutton */
-.container .reviewinputdiv .reviewinput .reviewinputform #starscore #NOW_TIME{
+#secondcontainer .reviewinputdiv .reviewinput .reviewinputform #starscore #NOW_TIME{
 	margin-top:10px; margin-right:10px;
 }
 
-.container .reviewinputdiv .reviewinput .reviewinputform #starscore #hearts-existing{
+#secondcontainer .reviewinputdiv .reviewinput .reviewinputform #starscore #hearts-existing{
 	float:left;
 	margin-top:10px; margin-right:10px;
 }
@@ -108,82 +105,78 @@
 }
 
 	/* heart img location */
-.container .btngroup .likelocation{
+#secondcontainer .btngroup .likelocation{
 	border:1px solid #dedede;
 }
 
 	/* share button location */
-.container .btngroup .sharebtn{
+#secondcontainer .btngroup .sharebtn{
 	border:1px solid #dedede;
 }	
 
-/* slide */
-.container #myCarousel{
-	margin-top:10px;
-}
-/* end slide */
+
 
 
 /* 2 row */
 
-.container .detailtextarea{
+#secondcontainer .detailtextarea{
 	width:100%; height:200px; 
 	border: 2px solid #dedede;
 	margin-top:10px; margin-bottom: 10px;
 	overflow:auto;
 }
 
-.container .detailtextarea .ptextarea{
+#secondcontainer .detailtextarea .ptextarea{
 	 text-align:center;
 	 margin-top:5px; margin-bottom:5px;
 /* 	vertical-align:middle; */
 }
 
-.container .detailtextarea .ptarow1{
+#secondcontainer .detailtextarea .ptarow1{
 	padding: 10px 5% 10px 5%;
 	margin-bottom:5px;
 }
 
-.container .detailtextarea .ptarow2{
+#secondcontainer .detailtextarea .ptarow2{
 	padding: 10px 5% 10px 5%;
 	margin-bottom:5px;
 }
 
-.container .detailtextarea .ptarow3{
+#secondcontainer .detailtextarea .ptarow3{
 	padding: 10px 5% 10px 5%;
 	margin-bottom:5%;
 }
 
 /* start row 1col 2col 3col */
-.container .detailtextarea .ptarow1 .startrow1c{
+#secondcontainer .detailtextarea .ptarow1 .startrow1c{
 	float:left; width:10%; 
 }
-.container .detailtextarea .ptarow1 .startrow2c{
+#secondcontainer .detailtextarea .ptarow1 .startrow2c{
 	float:left; width:20%; 
 }
-.container .detailtextarea .ptarow1 .startrow3c{
+#secondcontainer .detailtextarea .ptarow1 .startrow3c{
 	float:left; width:70%;
 }
 
 /* stopover row 1col 2col 3col */
-.container .detailtextarea .ptarow2 .ptarowstopover1c{
+#secondcontainer .detailtextarea .ptarow2 .ptarowstopover1c{
 	float:left; width:10%; 
 }
-.container .detailtextarea .ptarow2 .ptarowstopover2c{
+#secondcontainer .detailtextarea .ptarow2 .ptarowstopover2c{
 	float:left; width:20%; 
 }
-.container .detailtextarea .ptarow2 .ptarowstopover3c{
+#secondcontainer .detailtextarea .ptarow2 .ptarowstopover3c{
 	float:left; width:70%; 
 } 
 
 /* last row 1col 2col 3col */
-.container .detailtextarea .ptarow3 .lastrow1c{
+#secondcontainer .detailtextarea .ptarow3 .lastrow1c{
 	float:left; width:10%;
 }
-.container .detailtextarea .ptarow3 .lastrow2c{
+#secondcontainer .detailtextarea .ptarow3 .lastrow2c{
 	float:left; width:20%;
 }
-.container .detailtextarea .ptarow3 .lastrow3c{
+#secondcontainer .detailtextarea .ptarow3 .lastrow3c{
 	float:left; width:70%;
 }
 	
@@ -191,14 +184,14 @@
 
 /* 3 row */
 
-.container .btngroup{
+#secondcontainer .btngroup{
 	width:100%;
 	height:200px;
 	border:2px solid #dedede;
 	margin-bottom:10px;
 }
 
-.container .travelpath{
+#secondcontainer .travelpath{
 	width:100%;
 	height:200px;
 	border:2px solid #dedede;

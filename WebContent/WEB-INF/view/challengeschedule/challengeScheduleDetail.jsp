@@ -9,36 +9,66 @@
 <meta charset="utf-8">
 <title>도전일정 상세페이지</title>
 <!-- 슬라이드 link -->
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
+<link
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
+	rel="stylesheet" />
 
 <!-- css -->
-<link rel="stylesheet" href="/resource/challengeSchedule/css/challengeScheduleDetail.css"/>
+<link rel="stylesheet"
+	href="/resource/challengeSchedule/css/challengeScheduleDetail.css" />
 
 <!-- 슬라이드 script -->
 <!-- 슬라이드 script ( 19번줄,20번줄 ), top버튼 ( 19번줄 ) -->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script	src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script
+	src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 <!-- js  -->
 <script src="/resource/challengeSchedule/js/challengeScheduleDetail.js"></script>
 
 </head>
 <body>
-<div style="height:75px; background-color: #103e68;">
-   <br/>
-   <div style="color:#fff; font-size: 2em; display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;도전 일정</div>
-   <div style="float:right; margin-right: 50px;">
-   <input type="submit" value="다음 >" id="nextbtn">
-<!--       <button id="addFriend" style="background-color:#103e68; font-family:'Nanum Gothic'; border:0px solid white; color:white; font-weight:600; border-radius:7px; width:100px;height:30px">친구추가</button> -->
-<!--       <button id="tempSave" style="background-color:#103e68; font-family:'Nanum Gothic'; border:0px solid white; color:white; font-weight:600; border-radius:7px; width:100px;height:30px">임시저장</button> -->
-<!--       <button id="save" style="background-color:#103e68; font-family:'Nanum Gothic'; border:0px solid white; color:white; font-weight:600; border-radius:7px; width:60px;height:30px">저장</button>  -->
-      
-<!--       <button id="chat" onclick="openNav()" style="margin-left:70px; background-color:#FDE0E2; font-family:'Nanum Gothic'; border:0px solid #FFDFE4; color:#103e68; font-weight:600; border-radius:7px; width:60px;height:30px">채팅</button>   -->
-   </div>
-</div>	
-
-	<div class="container">
-
+	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container" id="firstcontainer">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="tmmain/main.tm">Travel Maker</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/step1/step1.tm">일정만들기</a></li>
+					<li><a href="/recommandtravelregion/recommandTravelRegion.tm">여행지추천</a>
+					</li>
+					<li><a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
+					</li>
+					<li><a href="/challengeschedule/challengeSchedule.tm">도전일정</a>
+					</li>
+					<li style="padding: 10px"><input type="text" />
+						<button>검색</button></li>
+					<li><a href="member/loginForm.tm">로그인</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+	</nav>
+	
+	<div class="container" id="titlecontainer">
+		<div class="col-lg-12">
+			<h2 class="page-header">도전 여행 상세페이지</h2>
+		</div>
+	</div>
+	
+	<div class="container" id="secondcontainer">
 		<!-- ### 슬라이드 #### -->
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 
@@ -118,55 +148,55 @@
 
 		<!-- 텍스트 공간 -->
 		<div class="detailtextarea">
-		
+
 			<p class="ptextarea">여행경로 및 한줄평(체크리스트)</p>
-			
+
 			<div class="ptarow1">
 				<div class="startrow1c">출발</div>
 				<div class="startrow2c">출발지</div>
 				<div class="startrow3c">공란</div>
 			</div>
 			<div class="ptarow2">
-				<div  class="ptarowstopover1c">경유</div>
-				<div  class="ptarowstopover2c">경유지1</div>
-				<div  class="ptarowstopover3c">경유지1 체크리스트</div>
+				<div class="ptarowstopover1c">경유</div>
+				<div class="ptarowstopover2c">경유지1</div>
+				<div class="ptarowstopover3c">경유지1 체크리스트</div>
 			</div>
-			
+
 			<div class="ptarow2">
-				<div  class="ptarowstopover1c">경유</div>
-				<div  class="ptarowstopover2c">경유지2</div>
-				<div  class="ptarowstopover3c">경유지2 체크리스트</div>
+				<div class="ptarowstopover1c">경유</div>
+				<div class="ptarowstopover2c">경유지2</div>
+				<div class="ptarowstopover3c">경유지2 체크리스트</div>
 			</div>
-			
+
 			<div class="ptarow2">
-				<div  class="ptarowstopover1c">경유</div>
-				<div  class="ptarowstopover2c">경유지3</div>
-				<div  class="ptarowstopover3c">경유지3 체크리스트</div>
+				<div class="ptarowstopover1c">경유</div>
+				<div class="ptarowstopover2c">경유지3</div>
+				<div class="ptarowstopover3c">경유지3 체크리스트</div>
 			</div>
-			
+
 			<div class="ptarow2">
-				<div  class="ptarowstopover1c">경유</div>
-				<div  class="ptarowstopover2c">경유지4</div>
-				<div  class="ptarowstopover3c">경유지4 체크리스트</div>
+				<div class="ptarowstopover1c">경유</div>
+				<div class="ptarowstopover2c">경유지4</div>
+				<div class="ptarowstopover3c">경유지4 체크리스트</div>
 			</div>
-			
+
 			<div class="ptarow2">
-				<div  class="ptarowstopover1c">경유</div>
-				<div  class="ptarowstopover2c">경유지5</div>
-				<div  class="ptarowstopover3c">경유지5 체크리스트</div>
+				<div class="ptarowstopover1c">경유</div>
+				<div class="ptarowstopover2c">경유지5</div>
+				<div class="ptarowstopover3c">경유지5 체크리스트</div>
 			</div>
-			
+
 			<div class="ptarow2">
-				<div  class="ptarowstopover1c">경유</div>
-				<div  class="ptarowstopover2c">경유지6</div>
-				<div  class="ptarowstopover3c">경유지6 체크리스트</div>
+				<div class="ptarowstopover1c">경유</div>
+				<div class="ptarowstopover2c">경유지6</div>
+				<div class="ptarowstopover3c">경유지6 체크리스트</div>
 			</div>
 			<div class="ptarow3">
-				<div class="lastrow1c" >도착</div>
+				<div class="lastrow1c">도착</div>
 				<div class="lastrow2c">도착지</div>
 				<div class="lastrow3c">체크리스트</div>
 			</div>
-			
+
 		</div>
 		<!-- end detailtextarea  -->
 		<!-- end 텍스트 공간 -->
@@ -175,12 +205,16 @@
 		<div class="btngroup">
 
 			<div class="likelocation">
-				<img src='/resource/challengeSchedule/img/emptyheart.jpg' class="emptyheart"> 
-				<img src='/resource/challengeSchedule/img/fullheart.jpg' class="fullheart" style="display: none;">
+				<img src='/resource/challengeSchedule/img/emptyheart.jpg'
+					class="emptyheart"> <img
+					src='/resource/challengeSchedule/img/fullheart.jpg'
+					class="fullheart" style="display: none;">
 			</div>
 
-			<div class="sharebtn"><input type="button" id="shareBtn" value="페이스북공유하기"/></div>
-			
+			<div class="sharebtn">
+				<input type="button" id="shareBtn" value="페이스북공유하기" />
+			</div>
+
 
 		</div>
 		<!-- end btngroup  -->
@@ -194,142 +228,141 @@
 		</div>
 		<!-- end travelpath  -->
 		<!-- end 여행경로 및 후기 -->
-		
-		
+
+
 		<!-- 리뷰 -->
-		
-			<!-- 등록된 리뷰 -->
+
+		<!-- 등록된 리뷰 -->
 		<div class="reviewform">
-		
+
 			<div class="reviewregisted">
-			
-					<!-- 별점 -->
-					<div class="row lead" id="starscore">
-					
-						<div id="hearts-existing-reg" class="starrr-reg" ></div>
-						
-				        <input type="text" id="count-existing-reg" value="" readonly="readonly"/>
-				        
-					 	 <!-- 입력시간 -->
-						<input type="text" id="THEN_TIME" value="" readonly="readonly" />
-						
-			   		</div>
-			   		 
-					<!-- 입력된 리뷰 공간 -->				
-					
-					<textarea class="reviewinputtextarea" id="reviewinputtextarea"
+
+				<!-- 별점 -->
+				<div class="row lead" id="starscore">
+
+					<div id="hearts-existing-reg" class="starrr-reg"></div>
+
+					<input type="text" id="count-existing-reg" value=""
+						readonly="readonly" />
+
+					<!-- 입력시간 -->
+					<input type="text" id="THEN_TIME" value="" readonly="readonly" />
+
+				</div>
+
+				<!-- 입력된 리뷰 공간 -->
+
+				<textarea class="reviewinputtextarea" id="reviewinputtextarea"
 					placeholder="" name=rvtext></textarea>
-			
+
 			</div>
-			
+
 			<div class="reviewregisted">
-			
-					<!-- 별점 -->
-					<div class="row lead" id="starscore">
-					
-						<div id="hearts-existing-reg" class="starrr-reg" ></div>
-						
-				        <input type="text" id="count-existing-reg" value="" readonly="readonly"/>
-				        
-					 	 <!-- 입력시간 -->
-						<input type="text" id="THEN_TIME" value="" readonly="readonly" />
-						
-			   		</div>
-			   		 
-					<!-- 입력된 리뷰 공간 -->				
-					
-					<textarea class="reviewinputtextarea" id="reviewinputtextarea"
+
+				<!-- 별점 -->
+				<div class="row lead" id="starscore">
+
+					<div id="hearts-existing-reg" class="starrr-reg"></div>
+
+					<input type="text" id="count-existing-reg" value=""
+						readonly="readonly" />
+
+					<!-- 입력시간 -->
+					<input type="text" id="THEN_TIME" value="" readonly="readonly" />
+
+				</div>
+
+				<!-- 입력된 리뷰 공간 -->
+
+				<textarea class="reviewinputtextarea" id="reviewinputtextarea"
 					placeholder="" name=rvtext></textarea>
-			
+
 			</div>
-			
-			
+
+
 			<div class="reviewregisted">
-			
-					<!-- 별점 -->
-					<div class="row lead" id="starscore">
-					
-						<div id="hearts-existing-reg" class="starrr-reg" ></div>
-						
-				        <input type="text" id="count-existing-reg" value="" readonly="readonly"/>
-				        
-					 	 <!-- 입력시간 -->
-						<input type="text" id="THEN_TIME" value="" readonly="readonly" />
-						
-			   		</div>
-			   		 
-					<!-- 입력된 리뷰 공간 -->				
-					
-					<textarea class="reviewinputtextarea" id="reviewinputtextarea"
+
+				<!-- 별점 -->
+				<div class="row lead" id="starscore">
+
+					<div id="hearts-existing-reg" class="starrr-reg"></div>
+
+					<input type="text" id="count-existing-reg" value=""
+						readonly="readonly" />
+
+					<!-- 입력시간 -->
+					<input type="text" id="THEN_TIME" value="" readonly="readonly" />
+
+				</div>
+
+				<!-- 입력된 리뷰 공간 -->
+
+				<textarea class="reviewinputtextarea" id="reviewinputtextarea"
 					placeholder="" name=rvtext></textarea>
-			
+
 			</div>
-			
-			
+
+
 			<div class="reviewregisted">
-			
-					<!-- 별점 -->
-					<div class="row lead" id="starscore">
-					
-						<div id="hearts-existing-reg" class="starrr-reg" ></div>
-						
-				        <input type="text" id="count-existing-reg" value="" readonly="readonly"/>
-				        
-					 	 <!-- 입력시간 -->
-						<input type="text" id="THEN_TIME" value="" readonly="readonly" />
-						
-			   		</div>
-			   		 
-					<!-- 입력된 리뷰 공간 -->				
-					
-					<textarea class="reviewinputtextarea" id="reviewinputtextarea"
+
+				<!-- 별점 -->
+				<div class="row lead" id="starscore">
+
+					<div id="hearts-existing-reg" class="starrr-reg"></div>
+
+					<input type="text" id="count-existing-reg" value=""
+						readonly="readonly" />
+
+					<!-- 입력시간 -->
+					<input type="text" id="THEN_TIME" value="" readonly="readonly" />
+
+				</div>
+
+				<!-- 입력된 리뷰 공간 -->
+
+				<textarea class="reviewinputtextarea" id="reviewinputtextarea"
 					placeholder="" name=rvtext></textarea>
-			
+
 			</div>
-			
+
 		</div>
-		
-		
-			<!-- 리뷰 입력 -->
+
+
+		<!-- 리뷰 입력 -->
 		<div class="reviewinputdiv">
 			<div class="reviewinput">
 				<form class="reviewinputform" name=reviewfrm action="" method='get'>
-				
+
 					<!-- 별점 -->
 					<div class="row lead" id="starscore">
-					
+
 						<div id="hearts-existing" class="starrr"></div>
-				        <!-- type="hidden" 으로 바꾸기 -->
-				        <input type="text" id="count-existing" value="" readonly="readonly"/>
-				        
-					 	 <!-- 현재시간 -->
+						<!-- type="hidden" 으로 바꾸기 -->
+						<input type="text" id="count-existing" value=""
+							readonly="readonly" />
+
+						<!-- 현재시간 -->
 						<input type="text" id="NOW_TIME" value="" readonly="readonly" />
-						
-			   		</div>
-			   		 
-					<!-- 리뷰입력창 -->				
-					
+
+					</div>
+
+					<!-- 리뷰입력창 -->
+
 					<textarea class="reviewinputtextarea" id="reviewinputtextarea"
-					placeholder=" 300자 내로 입력해주세요." name=rvtext></textarea>
-					
-					<input class="inputbtn" type=button value="입력" onclick="check_onclick()">
+						placeholder=" 300자 내로 입력해주세요." name=rvtext></textarea>
+
+					<input class="inputbtn" type=button value="입력"
+						onclick="check_onclick()">
 				</form>
-				
+
 			</div>
 		</div>
 		<!-- top버튼 -->
-		<a class="return-top" href="#" style="right:15px; bottom:15px; position:fixed; z-index:9999;
-	width:40px;height:30px; font-size:20px;">TOP</a>
-	
+		<a class="return-top" href="#"
+			style="right: 15px; bottom: 15px; position: fixed; z-index: 9999; width: 40px; height: 30px; font-size: 20px;">TOP</a>
+
 	</div>
 	<!-- end container -->
-	
-	
-		
-		
-		
-		
-		<!-- end 리뷰 -->
-	
+
 </body>
 </html>
