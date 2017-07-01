@@ -140,7 +140,7 @@ text-decoration:none;
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="http://localhost:8080/mylist/menubar.tm"><i class="fa fa-list-alt fa-list-alt"></i>  내 일정</a>
+                            <a href="http://localhost:8080/mylist/menubar.tm" ><i class="fa fa-list-alt fa-list-alt"></i>  내 일정</a>
                         </li>
                         <li>
                             <a href="tables.html"><i class="fa fa-heart fa-heart"></i>  관심 여행지</a>
