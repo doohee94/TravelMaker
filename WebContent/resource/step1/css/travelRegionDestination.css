@@ -1,11 +1,4 @@
 @CHARSET "UTF-8";
-							/* mouseover cursor */					
-.wrap .city1 ul li a{
-	cursor:pointer;
-}
-.wrap .city2 ul li a{
-	cursor:pointer;
-}
 							/* menu tab fold/unfold  */
 							/* travelregion3 */
 .wrap .Gangwondodiv3{
@@ -56,7 +49,7 @@
 	width:100px;
 	height:35px;
 	background-color:white; 
-	border:2px solid #dedede;
+	border:2px solid white;
 }
 
 							/**Major region choice's second row  */
@@ -140,7 +133,7 @@
 	width:100px;
 	height:35px;
 	background-color:white; 
-	border:2px solid #dedede;
+	border:2px solid white;
 }
 
 
@@ -172,7 +165,7 @@
 	width:100px;
 	height:35px;
 	background-color:white; 
-	border:2px solid #dedede;
+	border:2px solid white;
 }
 
 							/**Gyeongsangnamdo choiced*/
@@ -207,7 +200,7 @@
 	width:100px;
 	height:35px;
 	background-color:white; 
-	border:2px solid #dedede;
+	border:2px solid white;
 }
 
 							/**Gyeongsangbukdo choiced*/
@@ -242,7 +235,7 @@
 	width:100px;
 	height:35px;
 	background-color:white; 
-	border:2px solid #dedede;
+	border:2px solid white;
 	}
 								
 							/**Jeollanamdo choiced*/
@@ -276,7 +269,7 @@
 	width:100px;
 	height:35px;
 	background-color:white; 
-	border:2px solid #dedede;
+	border:2px solid white;
 	}
 							/**Jeollabukdo choiced*/
 								/**travelregion1*/
@@ -303,7 +296,7 @@
 	width:100px;
 	height:35px;
 	background-color:white; 
-	border:2px solid #dedede;
+	border:2px solid white;
 	}
 							/**Chungcheongnamdo choiced*/
 								/**travelregion1*/
@@ -331,7 +324,7 @@
 	width:100px;
 	height:35px;
 	background-color:white; 
-	border:2px solid #dedede;
+	border:2px solid white;
 	}
 
 
@@ -359,5 +352,5 @@
 	width:100px;
 	height:35px;
 	background-color:white; 
-	border:2px solid #dedede;
+	border:2px solid white;
 	}
