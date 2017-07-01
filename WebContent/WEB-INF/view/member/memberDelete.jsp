@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>회원탈퇴</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="Content-Script-Type" content="text/javascript" />
 	<meta http-equiv="Content-Style-Type" content="text/css" />
@@ -54,7 +54,7 @@
 </head>
 
 <body>
-<!-- Navigation -->
+		<!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
             <!--  모바일 버전때 생성되는 버튼 -->
@@ -108,19 +108,19 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="http://localhost:8080/mylist/menubar.tm" style="background-color: #212121;"><i class="fa fa-list-alt fa-list-alt"></i>  내 일정</a>
+                            <a href="http://localhost:8080/mylist/menubar.tm" style="background-color: #212121;"><i class="fa fa-edit fa-fw"></i>  내 일정</a>
                         </li>
                         <li>
-                            <a href="tables.html"><i class="fa fa-heart fa-heart"></i>  관심 여행지</a>
+                            <a href="tables.html"><i class="fa fa-check-square-o fa-fw"></i>  관심 여행지</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-calendar fa-calendar"></i>  관심 일정</a>
+                            <a href="forms.html"><i class="fa fa-check-square-o fa-fw"></i>  관심 일정</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-omments fa-comments"></i>  QnA</a>
+                            <a href="forms.html"><i class="fa fa-comments fa-fw"></i>  QnA</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-flag fa-flag"></i>  스템프</a>
+                            <a href="forms.html"><i class="fa fa-map-marker fa-fw"></i>  스템프</a>
                         </li>                        
                     </ul>
                 </div>

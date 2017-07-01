@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>내일정</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="Content-Script-Type" content="text/javascript" />
 	<meta http-equiv="Content-Style-Type" content="text/css" />
@@ -38,6 +38,13 @@
 
     <!-- Custom Fonts -->
     <link href="/resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <!-- list CSS -->
+	<link rel="stylesheet" type="text/css" href="/resource/mypage/likespot/css/component.css" />
+    
+    
+    <!-- 지정 css -->
+    <link href="/resource/mypage/likespot/css/likespot.css" rel="stylesheet" type="text/css">
     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -72,7 +79,7 @@
 
 /*탭부분 스타일지정*/
 .tab{
-	font-size: 30px;
+	font-size: 20px;
 	display: inline-block;	
 	font-weight: bold;
 }
@@ -116,7 +123,7 @@ text-decoration:none;
                         <a href="/challengeschedule/challengeSchedule.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">도전일정</a>
                     </li>
                      <li style="padding:10px;">
-                       <input type="text" style="width: 170px; height: 26px"/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px; width: 77px; font-size: 15px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; color:#2e2e2e"><span class="glyphicon glyphicon-search"></span> search</button>
+                       <input type="text" style="width: 170px; height: 26px; "/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px; width: 77px; font-size: 15px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; color:#2e2e2e"><span class="glyphicon glyphicon-search"></span> search</button>
                     </li>                      
                      <li>
                         <a href="member/loginForm.tm" style="padding-right: 381px; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">로그인　</a>
@@ -124,6 +131,7 @@ text-decoration:none;
                 </ul>
             <!-- /네비 헤더  메뉴 부분 -->
 
+			<!-- 사이드 메뉴바 -->
             <div class="navbar-inverse sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
@@ -140,19 +148,19 @@ text-decoration:none;
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="http://localhost:8080/mylist/menubar.tm" ><i class="fa fa-list-alt fa-list-alt"></i>  내 일정</a>
+                            <a href="http://localhost:8080/mylist/menubar.tm" ><i class="fa fa-edit fa-fw"></i>  내 일정</a>
                         </li>
                         <li>
-                            <a href="tables.html"><i class="fa fa-heart fa-heart"></i>  관심 여행지</a>
+                            <a href="tables.html"><i class="fa fa-check-square-o fa-fw"></i>  관심 여행지</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-calendar fa-calendar"></i>  관심 일정</a>
+                            <a href="forms.html"><i class="fa fa-check-square-o fa-fw"></i>  관심 일정</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-omments fa-comments"></i>  QnA</a>
+                            <a href="forms.html"><i class="fa fa-comments fa-fw"></i>  QnA</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-flag fa-flag"></i>  스템프</a>
+                            <a href="forms.html"><i class="fa fa-map-marker fa-fw"></i>  스템프</a>
                         </li>                        
                     </ul>
                 </div>
@@ -174,7 +182,7 @@ text-decoration:none;
 
  <!-- 탭 -->       
         <div class="row">
-        <article  style="background-color: #F2F2F2; height: 100px; margin-left: -15px; margin-right: 15px;" >
+        <article  style="background-color: #EDEDED; height: 80px; margin-left: -15px; margin-right: 15px;" >
         <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
         </div>
 		
@@ -192,83 +200,84 @@ text-decoration:none;
 		<center>
 		<div class="schedule-list">          
             
-				<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter ing">
-				  <img src="/resource/mylist/images/image_1.JPG" />
-				  <figcaption>
-				    <h3>2017.05.16~2017.06.11</h3>
-				    <p>서울>부산</p>
-				  </figcaption>
-				</figure>
-				
-				<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done">
-				  <img src="/resource/mylist/images/image_2.JPG" />
-				  <figcaption>
-				    <h3>2017.05.16~2017.06.11</h3>
-				    <p>서울>부산</p>
-				  </figcaption>
-				</figure>
-				
-				<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter start">
-				  <img src="/resource/mylist/images/image_3.JPG" />
-				  <figcaption>
-				    <h3>2017.05.16~2017.06.11</h3>
-				    <p>서울>부산</p>
-				  </figcaption>
-				</figure>
-				
-				<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter end">
-				  <img src="/resource/mylist/images/image_4.JPG" />
-				  <figcaption>
-				    <h3>2017.05.16~2017.06.11</h3>
-				    <p>서울>부산</p>
-				  </figcaption>
-				</figure>
-				
-				<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter ing">
-				  <img src="/resource/mylist/images/image_5.JPG" />
-				  <figcaption>
-				    <h3>2017.05.16~2017.06.11</h3>
-				    <p>서울>부산</p>
-				  </figcaption>
-				</figure>
-				
-				<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done">
-				  <img src="/resource/mylist/images/image_6.JPG" />
-				  <figcaption>
-				    <h3>2017.05.16~2017.06.11</h3>
-				    <p>서울>부산</p>
-				  </figcaption>
-				</figure>
-				
-				<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter ing">
-				  <img src="/resource/mylist/images/image_7.JPG" />
-				  <figcaption>
-				    <h3>2017.05.16~2017.06.11</h3>
-				    <p>서울>부산</p>
-				  </figcaption>
-				</figure>
-				
-				<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter start">
-				  <img src="/resource/mylist/images/image_8.JPG" />
-				  <figcaption>
-				    <h3>2017.05.16~2017.06.11</h3>
-				    <p>서울>부산</p>
-				  </figcaption>
-				</figure>
-				
-				<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter end">
-				  <img src="/resource/mylist/images/image_9.JPG" />
-				  <figcaption>
-				    <h3>2017.05.16~2017.06.11</h3>
-				    <p>서울>부산</p>
-				  </figcaption>
-				</figure>
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter ing">
+							  <img src="/resource/mylist/images/image_1.JPG" />
+							  <figcaption>
+							    <h3>2017.05.16~2017.06.11</h3>
+							    <p>서울>부산</p><a href="#" class="read-more">일정편집</a><br/><br/>
+							  </figcaption>
+							</figure>
+							
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done">
+							  <img src="/resource/mylist/images/image_2.JPG" />
+							  <figcaption>
+							    <h3>2017.08.16~2017.10.11</h3>
+							    <p>서울>제주도</p><a href="#" class="read-more">일정편집</a><br/><br/>
+							  </figcaption>
+							</figure>
+							
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter start">
+							  <img src="/resource/mylist/images/image_3.JPG" />
+							  <figcaption>
+							    <h3>2017.05.16~2017.06.11</h3>
+							    <p>서울>전주</p><a href="#" class="read-more">일정편집</a><br/><br/>
+							  </figcaption>
+							</figure>
+							
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter end">
+							  <img src="/resource/mylist/images/image_4.JPG" />
+							  <figcaption>
+							    <h3>2017.07.16~2017.07.20</h3>
+							    <p>부산>서울</p><a href="#" class="read-more">일정편집</a><br/><br/>
+							  </figcaption>
+							</figure>
+							
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter ing">
+							  <img src="/resource/mylist/images/image_5.JPG" />
+							  <figcaption>
+							    <h3>2017.07.16~2017.07.20</h3>
+							    <p>부산>서울</p><a href="#" class="read-more">일정편집</a><br/><br/>
+							  </figcaption>
+							</figure>
+							
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done">
+							  <img src="/resource/mylist/images/image_6.JPG" />
+							  <figcaption>
+							    <h3>2017.07.16~2017.07.20</h3>
+							    <p>부산>서울</p><a href="#" class="read-more">일정편집</a><br/><br/>
+							  </figcaption>
+							</figure>
+							
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter ing">
+							  <img src="/resource/mylist/images/image_7.JPG" />
+							  <figcaption>
+							    <h3>2017.07.16~2017.07.20</h3>
+							    <p>부산>서울</p><a href="#" class="read-more">일정편집</a><br/><br/>
+							  </figcaption>
+							</figure>
+							
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter start">
+							  <img src="/resource/mylist/images/image_8.JPG" />
+							  <figcaption>
+							    <h3>2017.07.16~2017.07.20</h3>
+							    <p>부산>서울</p><a href="#" class="read-more">일정편집</a><br/><br/>
+							  </figcaption>
+							</figure>
+							
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter end">
+							  <img src="/resource/mylist/images/image_9.JPG" />
+							  <figcaption>
+							    <h3>2017.07.16~2017.07.20</h3>
+							    <p>부산>서울</p><a href="#" class="read-more">일정편집</a><br/><br/>
+							  </figcaption>
+							</figure>
 
 
 
 				</div> 
 			</center>
 			</div>
+			<!-- /#row -->
         </div>
         <!-- /#page-wrapper -->
     </div>
@@ -284,7 +293,7 @@ text-decoration:none;
 	$('#rate').LineProgressbar({
 		
 		percentage:rate,
-		fillBackgroundColor:'#C6DAD9',
+		fillBackgroundColor:'#BFBFBF',
 		height:'65px',
 		radius:'50px',
 		width:'900px'
