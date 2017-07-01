@@ -1,11 +1,13 @@
 @CHARSET "UTF-8";
-
+	/*테이블 font*/
 	.table-hover{
 		font-size: 1.5em;
 	}
+	/* 테이블 높이 */
 	.tableview{
 		height: 610px;
 	}
+	/* 버튼 font */
 	.pagebtn{
 		font-size: 1.5em;
 	}
