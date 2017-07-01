@@ -73,6 +73,8 @@
 <br/>
 <br/>
 <a href="recommandtravelregion/recommandTravelRegion.tm">추천여행지 페이지</a>
+<br/><br/>
+<a href="mylist/test.tm">테스트</a>
 
 
 

@@ -94,18 +94,18 @@ background-color:white;
 
 
 /** top next button */
-#nextbtn{
+.nextbtn{
 	padding-bottom:2px;
 	margin-top:7px;
-	margin-left:10%;
+	margin-left:2%;
 	width:70px;
 	height:30px;
 	font-size:15px;
 	font-family: 'Nanum Gothic';
 	color:white;
 	font-weight:600;
-	background-color:#2995F7;
-	border:2px solid #2995F7;
+	background-color:#103e68;
+	border:none;
 	border-radius:7px;
 }
 

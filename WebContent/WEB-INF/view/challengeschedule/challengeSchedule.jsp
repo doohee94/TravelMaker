@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
+	pageEncoding="UTF-8"%>
+
 <!-- 도전일정 페이지  -->
-    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,327 +11,178 @@
 
 
 <!--게시글(네모창)에 마우스오버 했을때 사용되는 부트스트랩 link -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 
 <!--게시글(네모창)에 마우스오버 했을때 사용되는 부트스트랩 link-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"> -->
 
 <!-- 베스트 3 css -->
-<link rel="stylesheet" href="/resource/challengeSchedule/css/challengeSchedule.css"/>
+<!-- <link rel="stylesheet" href="/resource/challengeSchedule/css/challengeSchedule.css"/> -->
 
+<!-- Bootstrap Core CSS -->
+<link href="/resource/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="/resource/bootstrap/css/modern-business.css"
+	rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="/resource/bootstrap/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
 
 <!--게시글(네모창)에 마우스오버 했을때 사용되는 부트스트랩 스크립트, top버튼 script -->
 
 <!--  top버튼 (26번째 스크립트로 인해 25번줄 소스 생략가능)  -->
 <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 
 <!--게시글(네모창)에 마우스오버 했을때 사용되는 부트스트랩 스크립트-->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-
-<!--게시글(네모창)에 마우스오버 했을때 사용되는 부트스트랩 스크립트-->
-<script>
-$(document).ready(function() {
-	// 이미지 클릭시 상세페이지로 이동.
-	$(".titles").click(function(){
-		//상세페이지로 보낸다
-		location.href="challengeScheduleDetail.tm";
-	});		
-	
-	
-    $("[rel='tooltip']").tooltip();    
- 	
-    //게시글(네모창)에 마우스 오버시 기능 
-    $('.thumbnail').hover(
-        function(){
-        	//슬라이드 내려오는 속도
-            $(this).find('.caption').slideDown(250); //.fadeIn(250)
-        },
-        function(){
-        	//슬라이드 다시 올라가는 속도
-            $(this).find('.caption').slideUp(250); //.fadeOut(205)
-        }
-    ); 
-    
-    //top 버튼 스크립트
-    $(".return-top").hide(); // 탑 버튼 숨김
-    $(function () {
-                 
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 100) { // 스크롤 내릴 표시
-                $('.return-top').fadeIn();
-            } else {
-                $('.return-top').fadeOut();
-            }
-        });
-                
-        $('.return-top').click(function () {
-            $('body,html').animate({
-                scrollTop: 0
-            }, 350);  // 탑 이동 스크롤 속도
-            return false;
-        });
-    });
-    
- });
-</script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
 </head>
 <body>
-<div style="height:75px; background-color: #103e68;">
-   <br/>
-   <div style="color:#fff; font-size: 2em; display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;도전 일정</div>
-   <div style="float:right; margin-right: 50px;">
-   <input type="submit" value="다음 >" id="nextbtn">
-<!--       <button id="addFriend" style="background-color:#103e68; font-family:'Nanum Gothic'; border:0px solid white; color:white; font-weight:600; border-radius:7px; width:100px;height:30px">친구추가</button> -->
-<!--       <button id="tempSave" style="background-color:#103e68; font-family:'Nanum Gothic'; border:0px solid white; color:white; font-weight:600; border-radius:7px; width:100px;height:30px">임시저장</button> -->
-<!--       <button id="save" style="background-color:#103e68; font-family:'Nanum Gothic'; border:0px solid white; color:white; font-weight:600; border-radius:7px; width:60px;height:30px">저장</button>  -->
-      
-<!--       <button id="chat" onclick="openNav()" style="margin-left:70px; background-color:#FDE0E2; font-family:'Nanum Gothic'; border:0px solid #FFDFE4; color:#103e68; font-weight:600; border-radius:7px; width:60px;height:30px">채팅</button>   -->
-   </div>
-</div>		
-<!-- 도전일정 라벨  -->
-<!-- <div class="tryhead">도전일정</div> -->
+	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="tmmain/main.tm">Travel Maker</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/step1/step1.tm">일정만들기</a></li>
+					<li><a href="/recommandtravelregion/recommandTravelRegion.tm">여행지추천</a>
+					</li>
+					<li><a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
+					</li>
+					<li><a href="/challengeschedule/challengeSchedule.tm">도전일정</a>
+					</li>
+					<li style="padding: 10px"><input type="text" />
+						<button>검색</button></li>
+					<li><a href="member/loginForm.tm">로그인</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+	</nav>
 
-<!-- 베스트3 라벨 -->
-<div class="bestthree">BEST 3</div>
-
-<!-- 베스트3 container (바디 : 게시글 공간) -->
-<div class="container">
-		
-	 <div class="row">
-	 
-   		<!-- best1 -->
-        <div class="col-sm-4">
-            <div class="thumbnail">
-              <a href="#" class="">
-                <div class="caption">
-                	 <!-- best1 제목 -->
-                     <h4 class="titles">Thumbnail Headline</h4>
-					<!-- best1 내용 -->
-                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-					</p>
-                </div>
-                <!-- best1 이미지 -->
-                <img src="http://placehold.it/350x250" alt="..." class="">
-               </a>
-            </div>
-        </div><!-- end best1 -->
-
-        <!-- best2 -->
-        <div class="col-sm-4">
-            <div class="thumbnail">
-              <a href="#" class="">
-                <div class="caption">
-                	 <!-- best2 제목 -->
-                     <h4 class="titles">Thumbnail Headline</h4>
-					<!-- best2 내용 -->
-                    <p class="">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-					</p>
-                </div>
-                <!-- best2 이미지 -->
-                <img src="http://placehold.it/350x250" alt="..." class="">
-                </a>
-            </div>
-        </div><!-- end best2 -->
-
-        <!-- best3 -->
-        <div class="col-sm-4">
-            <div class="thumbnail">
-              <a href="#" class="">
-                <div class="caption">
-                	 <!-- best3 제목 -->
-                     <h4 class="titles">Thumbnail Headline</h4>
-					<!-- best3 내용 -->
-                    <p class="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-    				</p>
-                </div>
-                <!-- best3 이미지 -->
-                <img src="http://placehold.it/350x250" alt="..." class="">
-			</a>
-            </div>
-        </div><!-- end best3 -->
-
-    </div><!--/row -->
 	
-</div> <!-- end of 첫번째 container -->
+	<div class="container" id="secondcontainer" >
+		<!-- 베스트3 -->
+		<div class="row">
 
-<!-- 도전 라벨 -->
-<div class="dojeonlist">도전</div>
+			<div class="col-lg-12">
+				<h2 class="page-header">도전 여행</h2>
+			</div>
 
-<!-- 도전 container (바디 : 게시글 공간) -->
-<div class="container">
-    <div class="row">
+			<div class="col-lg-12">
+				<h2 class="page-header">Best 3</h2>
+			</div>
 
-		<!-- 도전 게시글 하나-->
-        <div class="col-sm-4">
-            <div class="thumbnail">
-              <a href="#" class="">
-                <div class="caption">
-                	 <!-- 도전 게시글 제목 -->
-                     <h4 class="titles">Thumbnail Headline</h4>
-					<!-- 도전 게시글 내용 -->
-                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-					</p>
-                </div>
-                <!-- 도전 게시글 이미지 -->
-                <img src="http://placehold.it/350x250" alt="..." class="">
-               </a>
-            </div>
-        </div>
-		<!-- 도전 게시글 중 하나 -->
+			<!-- best1 -->
+			<div class="col-md-4 text-center">
+				<div class="thumbnail">
+					<img class="img-responsive" src="http://placehold.it/750x450"
+						alt="">
+					<div class="caption">
+						<h3>
+							대제목 공간<br> <small>소제목 공간</small>
+						</h3>
+						<p>내용 공간</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- end best1 -->
+
+			<!-- best2 -->
+			<div class="col-md-4 text-center">
+				<div class="thumbnail">
+					<img class="img-responsive" src="http://placehold.it/750x450"
+						alt="">
+					<div class="caption">
+						<h3>
+							대제목 공간<br> <small>소제목 공간</small>
+						</h3>
+						<p>내용 공간</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- end best2 -->
+
+			<!-- best3 -->
+			<div class="col-md-4 text-center">
+				<div class="thumbnail">
+					<img class="img-responsive" src="http://placehold.it/750x450"
+						alt="">
+					<div class="caption">
+						<h3>
+							대제목 공간<br> <small>소제목 공간</small>
+						</h3>
+						<p>내용 공간</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- end best3 -->
+
+
+
+		</div>
+		<!--  /.row -->
+
+		<!-- 도전 공간 -->
+
+		<div class="row" id="secondrow">
+
+			<div class="col-lg-12">
+				<h2 class="page-header">도전</h2>
+			</div>
+			
+			<%for(int i=0; i<6; i++){ %>
+			<div class="col-md-4 text-center">
+				<div class="thumbnail">
+					<img class="img-responsive" src="http://placehold.it/750x450"
+						alt="">
+					<div class="caption">
+						<h3>
+							대제목 공간<br> <small>소제목 공간</small>
+						</h3>
+						<p>내용 공간</p>
+					</div>
+				</div>
+			</div>
+ 			<%} %>
+
+			
+		</div>
+		<!-- /.row -->
+	
 		
-		<!-- 도전 게시글 하나-->
-        <div class="col-sm-4">
-            <div class="thumbnail">
-              <a href="#" class="">
-                <div class="caption">
-                	 <!-- 도전 게시글 제목 -->
-                     <h4 class="titles">Thumbnail Headline</h4>
-					<!-- 도전 게시글 내용 -->
-                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-					</p>
-                </div>
-                <!-- 도전 게시글 이미지 -->
-                <img src="http://placehold.it/350x250" alt="..." class="">
-               </a>
-            </div>
-        </div>
-		<!-- 도전 게시글 중 하나 -->
+	</div>
+	<!-- /.container -->
+
+			<!-- top버튼 -->
+			<a class="return-top" href="#"
+				style="right: 15px; bottom: 15px; position: fixed; z-index: 9999; width: 40px; height: 30px; font-size: 20px;">TOP</a>
 		
-		<!-- 도전 게시글 하나-->
-        <div class="col-sm-4">
-            <div class="thumbnail">
-              <a href="#" class="">
-                <div class="caption">
-                	 <!-- 도전 게시글 제목 -->
-                     <h4 class="titles">Thumbnail Headline</h4>
-					<!-- 도전 게시글 내용 -->
-                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-					</p>
-                </div>
-                <!-- 도전 게시글 이미지 -->
-                <img src="http://placehold.it/350x250" alt="..." class="">
-               </a>
-            </div>
-        </div>
-		<!-- 도전 게시글 중 하나 -->
-		
-		<!-- 도전 게시글 하나-->
-        <div class="col-sm-4">
-            <div class="thumbnail">
-              <a href="#" class="">
-                <div class="caption">
-                	 <!-- 도전 게시글 제목 -->
-                     <h4 class="titles">Thumbnail Headline</h4>
-					<!-- 도전 게시글 내용 -->
-                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-					</p>
-                </div>
-                <!-- 도전 게시글 이미지 -->
-                <img src="http://placehold.it/350x250" alt="..." class="">
-               </a>
-            </div>
-        </div>
-		<!-- 도전 게시글 중 하나 -->
-		
-		<!-- 도전 게시글 하나-->
-        <div class="col-sm-4">
-            <div class="thumbnail">
-              <a href="#" class="">
-                <div class="caption">
-                	 <!-- 도전 게시글 제목 -->
-                     <h4 class="titles">Thumbnail Headline</h4>
-					<!-- 도전 게시글 내용 -->
-                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-					</p>
-                </div>
-                <!-- 도전 게시글 이미지 -->
-                <img src="http://placehold.it/350x250" alt="..." class="">
-               </a>
-            </div>
-        </div>
-		<!-- 도전 게시글 중 하나 -->
-		
-		<!-- 도전 게시글 하나-->
-        <div class="col-sm-4">
-            <div class="thumbnail">
-              <a href="#" class="titlestitles">
-                <div class="caption">
-                	 <!-- 도전 게시글 제목 -->
-                     <h4 class="">Thumbnail Headline</h4>
-					<!-- 도전 게시글 내용 -->
-                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-					</p>
-                </div>
-                <!-- 도전 게시글 이미지 -->
-                <img src="http://placehold.it/350x250" alt="..." class="">
-               </a>
-            </div>
-        </div>
-		<!-- 도전 게시글 중 하나 -->
-		
-		<!-- 도전 게시글 하나-->
-        <div class="col-sm-4">
-            <div class="thumbnail">
-              <a href="#" class="">
-                <div class="caption">
-                	 <!-- 도전 게시글 제목 -->
-                     <h4 class="titles">Thumbnail Headline</h4>
-					<!-- 도전 게시글 내용 -->
-                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-					</p>
-                </div>
-                <!-- 도전 게시글 이미지 -->
-                <img src="http://placehold.it/350x250" alt="..." class="">
-               </a>
-            </div>
-        </div>
-		<!-- 도전 게시글 중 하나 -->
-		
-		<!-- 도전 게시글 하나-->
-        <div class="col-sm-4">
-            <div class="thumbnail">
-              <a href="#" class="">
-                <div class="caption">
-                	 <!-- 도전 게시글 제목 -->
-                     <h4 class="titles">Thumbnail Headline</h4>
-					<!-- 도전 게시글 내용 -->
-                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-					</p>
-                </div>
-                <!-- 도전 게시글 이미지 -->
-                <img src="http://placehold.it/350x250" alt="..." class="">
-               </a>
-            </div>
-        </div>
-		<!-- 도전 게시글 중 하나 -->
-		
-		<!-- 도전 게시글 하나-->
-        <div class="col-sm-4">
-            <div class="thumbnail">
-              <a href="#" class="">
-                <div class="caption">
-                	 <!-- 도전 게시글 제목 -->
-                     <h4 class="titles">Thumbnail Headline</h4>
-					<!-- 도전 게시글 내용 -->
-                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-					</p>
-                </div>
-                <!-- 도전 게시글 이미지 -->
-                <img src="http://placehold.it/350x250" alt="..." class="">
-               </a>
-            </div>
-        </div>
-		<!-- 도전 게시글 중 하나 -->
-		
-    </div><!--/row -->
-    
-	<!-- top버튼 -->
-	<a class="return-top" href="#" style="right:15px; bottom:15px; position:fixed; z-index:9999;
-	width:40px;height:30px; font-size:20px;">TOP</a>
-</div> <!-- end 도전 container (바디 : 게시글 공간)  -->
+
+	<!-- jQuery -->
+	<script src="/resource/bootstrap/js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="/resource/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- js -->
+	<script src="/resource/challengeSchedule/js/challengeSchedule.js"></script>
 </body>
 </html>

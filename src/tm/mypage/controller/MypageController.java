@@ -63,7 +63,7 @@ public class MypageController {
 			list.get(i).setImagePath(path);
 		}
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName(dir+"/likespot");
+		mv.setViewName(dir+"/likespot/likespot");
 		mv.addObject("likelist",list);
 		//세션을 유지시기키위해...?
 		session.setAttribute("userId", userId);
