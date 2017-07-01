@@ -24,11 +24,14 @@
         </div>
     <div class="main-content">
             
-          <center><label style="color: black;">입력하신 이메일로 임시비밀번호를 보냈습니다.</label></center><br/><br/>
+          <center><label style="color: black;">정보를 잘못 입력하셨습니다</label></center><br/><br/>
           
           <div class="form-group">
-          		<center><input type="button" class="insert-check-button" value="로그인하기" onclick="location.href='loginForm.tm'">&nbsp;&nbsp;
-          		<input type="button" class="insert-cancel-button" value="취소"  onClick="history.back()"></center>
+          		<center>
+          		<input type="button" class="insert-check-button" value="로그인하기" onclick="location.href='loginForm.tm'">&nbsp;&nbsp;
+          		<input type="button" class="insert-check-button" value="PW찾기"  onclick="location.href='serchPwForm.tm'">&nbsp;&nbsp;
+          		<input type="button" class="insert-cancel-button" value="취소" onClick="history.back()">
+          		</center>
           </div>
   
       

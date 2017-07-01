@@ -36,7 +36,7 @@ $(function(){
 </script>
 
 <!-- CSS -->
-<link rel="stylesheet" type="text/css" href="/resource/member/css/login.css">
+<link rel="stylesheet" type="text/css" href="/resource/member/css/loginSeach.css">
 
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -64,8 +64,8 @@ $(function(){
           
           <div class="form-group">
           		<center>
-          		<input type="submit" class="insert-button" value="확인" style="background-color:#489CFF" >&nbsp;&nbsp;
-          		<input type="button" class="insert-button" value="취소" style="background-color:#d6564f" onClick="history.back()"></center>
+          		<input type="submit" class="insert-check-button" value="확인"  >&nbsp;&nbsp;
+          		<input type="button" class="insert-cancel-button" value="취소" onClick="history.back()"></center>
           </div>
   
       
