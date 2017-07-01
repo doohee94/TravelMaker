@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  <!--  
-  마이페이지>내일정>내일정 관련 리스트 보여주는 페이지
-   -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,6 +34,10 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 	
+	<!-- 탭 -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
 	<!--  프로그레스 -->
 	<link rel="stylesheet" href="/resource/member/css/jquery.lineProgressbar.css">
 	
@@ -47,6 +48,9 @@
 	<!-- mouseover -->
 	<link rel="stylesheet" type="text/js" href="/resource/mylist/js/listmouse.js" />
 	<link rel="stylesheet" type="text/css" href="/resource/mylist/css/listmouse.css" />
+	
+	<!-- 헤더 -->
+	<!-- <link rel="stylesheet" href="/TravelMakerTest/css/base.css"> -->
 	
 	<!-- 각 list 틀 -->
 	<link rel="stylesheet" type="text/js" href="/resource/mylist/js/mylist.js" />
@@ -66,276 +70,89 @@ text-decoration:none;
 </style>
 
 </head>
-
 <body>
 
-    <div id="wrapper">
+    <div id="wrapper" class="wrapper">
 
-        <!-- Navigation -->
+                <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
+            <!--  모바일 버전때 생성되는 버튼 -->
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+            <!-- /모바일 버전때 생성되는 버튼 -->   
+            <!-- 로고 --> 
+                <a class="navbar-brand" href="index.html">TravelMaker</a>
+            <!-- /로고 -->
             </div>
-            <!-- /.navbar-header -->
-
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-messages">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>Read All Messages</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-messages -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-tasks">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Task 1</strong>
-                                        <span class="pull-right text-muted">40% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                            <span class="sr-only">40% Complete (success)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Task 2</strong>
-                                        <span class="pull-right text-muted">20% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                                            <span class="sr-only">20% Complete</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Task 3</strong>
-                                        <span class="pull-right text-muted">60% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                            <span class="sr-only">60% Complete (warning)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Task 4</strong>
-                                        <span class="pull-right text-muted">80% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                            <span class="sr-only">80% Complete (danger)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>See All Tasks</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-tasks -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-comment fa-fw"></i> New Comment
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-tasks fa-fw"></i> New Task
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>See All Alerts</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-alerts -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-in fa-fw" id='loginlogo'></i> Login</a>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw" id='logoutlogo'></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
-            <!-- /.navbar-top-links -->
+            <!-- 네비 헤더  메뉴 부분 -->
+         <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/step1/step1.tm">일정만들기</a>
+                    </li>
+                    <li>
+                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행지추천</a>
+                    </li>
+                    <li>
+                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
+                    </li>
+                    <li>
+                        <a href="/challengeschedule/challengeSchedule.tm">도전일정</a>
+                    </li>
+                     <li style="padding:10px">
+                       <input type="text"/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px;"><span class="glyphicon glyphicon-search"></span> search</button>
+                    </li>                      
+                     <li>
+                        <a href="member/loginForm.tm">로그인　</a>
+                    </li>
+                </ul>
+            <!-- /네비 헤더  메뉴 부분 -->
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="index.html"><i class="fa fa-user fa-user"></i> 내정보<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-user fa-user"></i>  내 정보<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="http://localhost:8080/member/memberUpdate.tm">정보보기</a>
+                                    <a href="http://localhost:8080/member/memberUpdate.tm">  정보수정</a>
                                 </li>
                                 <li>
-                                    <a href="http://localhost:8080/member/memberDelete.tm">회원탈퇴</a>
+                                    <a href="http://localhost:8080/member/memberDelete.tm">  회원탈퇴</a>
                                 </li>
                             </ul>
-                        </li>
-                        <li>
-                            <a href="http://localhost:8080/mylist/menubar.tm"><i class="fa fa-list-alt fa-list-alt "></i>나의일정</a>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="tables.html"><i class="fa fa-calendar fa-calendar "></i> 관심일정</a>
+                            <a href="http://localhost:8080/mylist/menubar.tm"><i class="fa fa-list-alt fa-list-alt"></i>  내 일정</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-heart fa-heart "></i> 관심여행지</a>
+                            <a href="tables.html"><i class="fa fa-heart fa-heart"></i>  관심 여행지</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-omments fa-comments "></i>QnA</a>
+                            <a href="forms.html"><i class="fa fa-calendar fa-calendar"></i>  관심 일정</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-flag fa-flag "></i>스탬프</a>
+                            <a href="forms.html"><i class="fa fa-omments fa-comments"></i>  QnA</a>
                         </li>
+                        <li>
+                            <a href="forms.html"><i class="fa fa-flag fa-flag"></i>  스템프</a>
+                        </li>                        
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-	</div>
-	<div id="page-wrapper">
-		<div class="container-fluid">
+
+        <!-- Page Content -->
+        <div id="page-wrapper" style="padding-right: 0px;">
         <!--  달성률 보는 곳 -->
-		<article   style="margin-left:100px; background-image:url('/resource/mylist/images/test3.png'); height: 250px">
+		<article   style="margin-left:-30px;  background-image:url('/resource/mylist/images/test101.png'); height: 250px;">
 			
 			<img src="/resource/mylist/images/flag.png" style="display: inline-block; margin-left:1500px"/>
 			<div id="rate" style="margin-left:35%;display:inline-block;"></div>
@@ -345,7 +162,7 @@ text-decoration:none;
 
  <!-- 탭 -->       
         <div class="row">
-        <article  style="background-color: #092551; height: 100px;" >
+        <article  style="background-color: #F2F2F2; height: 100px; margin-left: -15px; margin-right: 15px;" >
         <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
         </div>
 		
@@ -440,7 +257,9 @@ text-decoration:none;
 		</div> 
 		</center>
 	</div>
-</div>
+        </div>
+        <!-- /#page-wrapper -->
+
     </div>
     <!-- /#wrapper -->
 
@@ -464,7 +283,7 @@ text-decoration:none;
 	$('#rate').LineProgressbar({
 		
 		percentage:rate,
-		fillBackgroundColor:'#b989c4',
+		fillBackgroundColor:'#C6DAD9',
 		height:'65px',
 		radius:'50px',
 		width:'900px'
@@ -522,12 +341,4 @@ $(function(){
 
 </script>
 
-<!-- login/logout 이름과 그림이 바뀌게 -->
-<script type="text/javascript">
-$(function(){
-	$(".divider").click(function(){
-		$("#logoutlogo").hide();
-	});
-});
-</script>
 </html>
