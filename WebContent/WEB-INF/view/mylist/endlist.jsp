@@ -245,7 +245,9 @@ $(function(){
 							  <img src="/resource/mylist/images/image_4.JPG" />
 							  <figcaption>
 							    <h3>2017.07.16~2017.07.20</h3>
-							    <p>부산>서울</p>
+							    <p>부산>서울</p><a href="#" class="read-more">상세일정보기</a><br/><br/>
+							    			  <a href="#" class="read-more">도전일정등록</a><br/><br/>
+							    			  <a href="#" class="read-more">리뷰등록</a>
 							  </figcaption>
 							</figure>
 							
@@ -253,7 +255,9 @@ $(function(){
 							  <img src="/resource/mylist/images/image_9.JPG" />
 							  <figcaption>
 							    <h3>2017.07.16~2017.07.20</h3>
-							    <p>부산>서울</p>
+							    <p>부산>서울</p><a href="#" class="read-more">상세일정보기</a><br/><br/>
+							    			  <a href="#" class="read-more">도전일정등록</a><br/><br/>
+							    			  <a href="#" class="read-more">리뷰등록</a>
 							  </figcaption>
 							</figure>
 

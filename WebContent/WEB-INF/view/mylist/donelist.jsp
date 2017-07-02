@@ -245,7 +245,7 @@ $(function(){
 							  <img src="/resource/mylist/images/image_2.JPG" />
 							  <figcaption>
 							    <h3>2017.08.16~2017.10.11</h3>
-							    <p>서울>제주도</p>
+							    <p>서울>제주도</p><a href="#" class="read-more">상세일정보기</a><br/><br/>
 							  </figcaption>
 							</figure>
 							
@@ -253,7 +253,7 @@ $(function(){
 							  <img src="/resource/mylist/images/image_6.JPG" />
 							  <figcaption>
 							    <h3>2017.07.16~2017.07.20</h3>
-							    <p>부산>서울</p>
+							    <p>부산>서울</p><a href="#" class="read-more">상세일정보기</a><br/><br/>
 							  </figcaption>
 							</figure>
 
