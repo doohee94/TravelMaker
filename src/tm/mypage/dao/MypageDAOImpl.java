@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import tm.mypage.dto.LikeSCDTO;
 import tm.mypage.dto.LikeSpotDTO;
 import tm.mypage.dto.QnaDTO;
+import tm.mypage.dto.StempDTO;
 
 @Service
 public class MypageDAOImpl implements MypageDAO{
@@ -80,6 +81,9 @@ public class MypageDAOImpl implements MypageDAO{
 		}//end of for(scNum)
 		return sclist;
 	}
+	/**
+	 * 
+	 */
 	@Override
 	public int deleteSchedule(String likescNum) {
 		HashMap map = new HashMap();
@@ -89,6 +93,9 @@ public class MypageDAOImpl implements MypageDAO{
 		System.out.println(result);
 		return result;
 	}
+	/**
+	 * 
+	 */
 	@Override
 	public List<QnaDTO> listQnA(String userId) {
 		HashMap map = new HashMap();
@@ -97,6 +104,9 @@ public class MypageDAOImpl implements MypageDAO{
 		List<QnaDTO> list = ss.selectList(namespace+".listqna",map);
 		return	list;
 	}
+	/**
+	 * 
+	 */
 	@Override
 	public int inputQna(String userId,String qnaType,String qnaContent) {
 		HashMap map = new HashMap();
@@ -105,6 +115,25 @@ public class MypageDAOImpl implements MypageDAO{
 		map.put("qnaContent", qnaContent);
 		int result = ss.insert(namespace+".inputqna",map);
 		return result;
+	}
+	/**
+	 * 
+	 */
+	@Override
+	public List<StempDTO> ListStemp(String userId) {
+		HashMap map = new HashMap();
+		map.put("userId", userId);
+		System.out.println("완성한 스템프 받아오기");
+		List<StempDTO> list = ss.selectList(namespace+".liststemp",map);	
+		return list;
+	}
+	@Override
+	public List<StempDTO> listNotStemp(String userId) {
+		HashMap map = new HashMap();
+		map.put("userId", userId);
+		System.out.println("미완성한 스템프 받아오기");
+		List<StempDTO> list = ss.selectList(namespace+".tempstemp",map);
+		return list;
 	}
 
 }

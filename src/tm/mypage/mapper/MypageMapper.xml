@@ -22,6 +22,18 @@
 		FROM qna
 		WHERE user_id =#{userId} 
 	</select>
+	<select id="liststemp" parameterType="hashMap" resultType="tm.mypage.dto.StempDTO">
+		SELECT partner_name,partner_addr, parstemp_num
+		FROM parstemp 
+		where parstemp_num IN(SELECT parstemp_num FROM stemp WHERE user_id =#{userId})
+		ORDER BY parstemp_num
+	</select>
+	<select id="tempstemp" parameterType="hashMap" resultType="tm.mypage.dto.StempDTO">
+		SELECT partner_name, partner_addr, parstemp_num
+		FROM parstemp 
+		where parstemp_num NOT IN(SELECT parstemp_num FROM stemp WHERE user_id =#{userId})
+		ORDER BY parstemp_num
+	</select>
 	<insert id="inputqna" parameterType="hashMap">
 		INSERT 
 		INTO QNA (QNA_NUM, USER_ID, QNA_DATE, QNA_TYPE, QNA_CONTENT) 

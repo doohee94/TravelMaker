@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -25,8 +26,9 @@ import tm.mypage.dao.MypageDAO;
 import tm.mypage.dto.LikeSCDTO;
 import tm.mypage.dto.LikeSpotDTO;
 import tm.mypage.dto.QnaDTO;
+import tm.mypage.dto.StempDTO;
 
-/*
+/**
  MypageController
  마이페이지화면 매핑 처리
  dir : 폴더 경로
@@ -45,12 +47,15 @@ public class MypageController {
 		System.out.println("마이페이지컨트롤러");
 			return dir+url;
 	}
-	/*
-	 spotListShow
-	 마이페이지 관심지역을 누르면 들어오는 함수
-	 session의 userId를 받아
-	 db의 해당 userId와 일치하는 관심일정 내용들을 받아온다
-	 이미지 주소는 관심지역 이름으로 getImgPath를 통해 받아온다.
+
+	/**
+	 * spotListShow
+	 * 마이페이지 관심지역을 누르면 들어오는 함수
+	 * @param userId 세션의 id값을 받음
+	 * db의 해당 userId와 일치하는 관심일정 내용들을 받아온다
+	 * 이미지 주소는 관심지역 이름으로 getImgPath를 통해 받아온다.
+	 * 받은 이미지 주소를 list에 담는다 담은 list를 리턴
+	 * @return 관심지 지역list
 	 */
 	@RequestMapping("/likespot.tm")
 	public ModelAndView spotListShow(String userId, HttpSession session){
@@ -63,16 +68,17 @@ public class MypageController {
 			list.get(i).setImagePath(path);
 		}
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName(dir+"/likespot/likespot");
+		mv.setViewName(dir+"/likespot");
 		mv.addObject("likelist",list);
 		//세션을 유지시기키위해...?
 		session.setAttribute("userId", userId);
 		return mv;
 	}
-	/*
+	/**
 	 * deleteSpot
-	 * likespotNum를 받아와서
-	 * db에 해당 받아온 likespotNum와 일치하는 내용 삭제 
+	 * @param likespotNum 관심지역 번호 를 받아옴
+	 * db에 해당 받아온 likespotNum와 일치하는 내용 삭제하고 결과값을 받아온다. 
+	 * @return 결과값
 	 */
 	@RequestMapping("/deletespot.tm")
 	public ModelAndView deleteSpot(String likespotNum){
@@ -83,11 +89,13 @@ public class MypageController {
 		mv.addObject("result",result);
 		return mv;
 	}
-	/*
-	 schedulelistShow
-	 마이페이지 관심여행지를 누르면 들어오는 함수
-	 session의 userId를 받아
-	 db의 해당 userId와 일치하는 관심여행지 내용들을 받아온다
+
+	/**
+	 * schedulelistShow
+	 * @param userId 세션의 id값을 받음
+	 * db의 해당 userId와 일치하는 관심여행지 내용들을 받아온다
+	 * 담아온 list를 리턴
+	 * @return list
 	 */
 	@RequestMapping("/schedule.tm")
 	public ModelAndView scheduleListShow(String userId, HttpSession session){
@@ -102,7 +110,12 @@ public class MypageController {
 		session.setAttribute("userId", userId);
 		return mv;
 	}
-	
+	/**
+	 * deleteSchedule
+	 * @param likescNum 관심지역 번호 를 받아옴
+	 * db에 해당 받아온 likescNum와 일치하는 내용 삭제하고 결과값을 받아온다. 
+	 * @return 결과값
+	 */
 	@RequestMapping("/deleteschedule.tm")
 	public ModelAndView deleteSchedule(String likescNum){
 		System.out.println(likescNum);
@@ -112,9 +125,12 @@ public class MypageController {
 		mv.addObject("result",result);
 		return mv;
 	}
-	/*
-	 qna리스트를 불러오는 함수
-	 db에서 list를 담아와서 list를 리턴시킴
+
+	/**
+	 * qnalist
+	 * @param userId세션의 id값을 받음
+	 * db에서 Qnalist를 담아와서 list를 리턴시킴
+	 * @return list
 	 */
 	@RequestMapping("/qna.tm")
 	public ModelAndView qnalist(String userId, HttpSession session){
@@ -125,6 +141,14 @@ public class MypageController {
 		mv.addObject("qnalist",list);
 		return mv;
 	}
+	/**
+	 * inputQna
+	 * @param userId 세션의 아이디값을 받음
+	 * @param qnaType 세션의 질문 유형은 받음
+	 * @param qnaContent 세션의 질문 내용을 받음
+	 * db에 세션에서 받은 userId qnaType qnaContent를 받아서 입력함
+	 * @return qna
+	 */
 	@RequestMapping("/inputqna.tm")
 	public String inputQna(String userId, String qnaType, String qnaContent, HttpSession session){
 		userId = (String)session.getAttribute("userId");
@@ -133,15 +157,50 @@ public class MypageController {
 		dao.inputQna(userId,qnaType,qnaContent); 
 		return dir+"/qna";
 	}
-	
-	/*
-	getImgPath
-	db에서 keyword값을 가져와서 api에서 파싱을 통해 받은 이미지 주소값을 리턴시김
-	return값 이미지주소값 
+	/**
+	 * 
+	 * @param userId 세션의 아이디값을 받아옴
+	 * 
+	 * @return list 스템프리스트
 	 */
-	public String getImgPath(String spotName) {
-		
-		
+	@RequestMapping("/stemp.tm")
+	public ModelAndView listStemp(String userId,  HttpSession session){
+		System.out.println("탓다탔어 !!");
+		userId = (String)session.getAttribute("userId");
+		List<StempDTO> doneList = dao.ListStemp(userId);
+		ArrayList doneAddr = new ArrayList();
+		ArrayList doneName = new ArrayList();
+		for(int i = 0 ; i < doneList.size(); i++){			
+			doneAddr.add(i,doneList.get(i).getPartnerAddr());							
+			doneName.add(i,doneList.get(i).getPartnerName());							
+		}
+		System.out.println("달성한거 성공");
+		List<StempDTO> noList =dao.listNotStemp(userId);
+		ArrayList nonAddr = new ArrayList();
+		ArrayList nonName = new ArrayList();
+		for(int i = 0 ; i < noList.size(); i++){
+			nonAddr.add(i,noList.get(i).getPartnerAddr());
+			nonName.add(i,noList.get(i).getPartnerName());
+		}
+		System.out.println("미달성 성공!");
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(dir+"/stemp");
+		mv.addObject("doneList",doneList);
+		mv.addObject("temp",noList);
+		mv.addObject("doneAddr",doneAddr);
+		mv.addObject("doneName",doneName);
+		mv.addObject("nonAddr",nonAddr);
+		mv.addObject("nonName",nonName);		
+		return mv;
+	}
+	
+
+	/**
+	 * getImgPath
+	 * @param spotName db에서 가져온 관심지역이름
+	 * @return path 이미지 주소를 리턴
+	 */
+	public String getImgPath(String spotName) {				
 		String key ="GE8ffyGcbc8LhTbkPBlErwmb2Q7JWxA2rhMEQ6iqXszlPFG%2BtFLSmkYyusYF%2FeguXxpATpP9ZiikFJ9%2BzgqGKA%3D%3D";
 		String path ="";
 		try{
