@@ -66,14 +66,19 @@ public class AdminDAOImpl implements AdminDAO {
 	 */
 	public int[] SettingPageNum(String table, int countpage, int pageNum, String sel, String con){
 		//type은 테이블선택자
+		int totalcol = 0;
 		HashMap map = new HashMap();
 		map.put("table", table);
 		if(sel != null){
 			map.put("sel", sel);
 			map.put("con", con);
 		}
-		//테이블의 총 컬럼수를 읽어옴
-		int totalcol = ss.selectOne(namespace+".cnt", map);
+		if(table.equals("parstemp")){
+			totalcol = ss.selectOne(namespace+".stempcnt", map);
+		}else{
+			//테이블의 총 컬럼수를 읽어옴
+			totalcol = ss.selectOne(namespace+".cnt", map);
+		}
 		
 		
 		
@@ -280,8 +285,11 @@ public class AdminDAOImpl implements AdminDAO {
 		
 		HashMap map = new HashMap();
 		map.put("partnernum", partnernum);
+		int cnt = ss.selectOne(namespace + ".cntad", map);
 		
-		int resad = ss.delete(namespace + ".addelete", map);
+		if(cnt > 0 ){
+			int resad = ss.delete(namespace + ".addelete", map);
+		}
 		
 		int resal = ss.delete(namespace + ".alliancedel", map);
 		
@@ -293,7 +301,6 @@ public class AdminDAOImpl implements AdminDAO {
 		
 		HashMap map = new HashMap();
 		map.put("partnernum", num);
-		
 		int res = ss.update(namespace + ".allianceapproval", map);
 		
 		return res;
@@ -312,5 +319,25 @@ public class AdminDAOImpl implements AdminDAO {
 		
 		return ss.selectList(namespace + ".stemplist");
 	}
+	
+	@Override
+	public List<AdminStempDTO> stemp(int startnum, int endnum) {
+		HashMap map = new HashMap();
+		map.put("startnum", startnum);
+		map.put("endnum", endnum);
+		
+		return ss.selectList(namespace + ".stemplist",map);
+	}
+	
+	@Override
+	public List<AdminStempDTO> searchstemp(int startnum, int endnum, String partnerName){
+		HashMap map = new HashMap();
+		map.put("startnum", startnum);
+		map.put("endnum", endnum);
+		map.put("partnerName", partnerName);
+		
+		return ss.selectList(namespace + ".stemplist",map);
+	}
+
 
 }

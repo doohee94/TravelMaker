@@ -1,11 +1,12 @@
 package tm.member.dao;
 
 import java.util.HashMap;
-import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import tm.member.dto.MemberDTO;
 
@@ -18,27 +19,27 @@ public class MemberDAOImpl implements MemberDAO{
 	/*회원가입*/
 	@Override
 	public int insert(MemberDTO memberdto){
-		System.out.println("회원가입");
 		return ss.insert("member.insert", memberdto);
 	}
+	
 	/*회원정보보기*/
-	/*@Override
-	public List<MemberDTO> list(){
-		return ss.selectList("member.list");
-	}*/
-	public int update(MemberDTO memberdto){
-		return ss.update("member.update", memberdto);
+	@Override
+	public MemberDTO update(MemberDTO memberdto){
+		return ss.selectOne("member.update", memberdto);
 	}
+	
 	/*회원수정*/
 	@Override
-	public int modify(MemberDTO memberdto){
-		return ss.update("member.modify", memberdto);
+	public int modify(String userId){
+		return ss.selectOne("member.modify", userId);
 	}
+	
 	/*회원탈퇴*/
 	@Override
 	public int delete(MemberDTO memberdto){
 		return ss.delete("member.delete", memberdto);
 	}
+	
 	/*ID 찾기*/
 	@Override
 	public MemberDTO searchId(String userName, String userEmail) {
@@ -47,6 +48,7 @@ public class MemberDAOImpl implements MemberDAO{
 		map.put("userEmail", userEmail);
 		return ss.selectOne("member.list",map);
 	}
+	
 	/*PW 찾기*/
 	@Override
 	public MemberDTO searchPw(String userId, String userEmail) {

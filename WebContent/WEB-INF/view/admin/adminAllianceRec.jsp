@@ -143,7 +143,6 @@
 									<c:choose>
 										<c:when test="${!empty allist }">
 											<c:forEach items="${allist }" var="a">
-												<c:if test="${a.partnerType == '0'}">
 												<tr>
 													<td>${a.partnerNum }</td>
 													<td>${a.partnerComname }</td>
@@ -205,7 +204,6 @@
 														</div>
 													</td>
 												</tr>
-												</c:if>
 											</c:forEach>
 										</c:when>
 										<c:otherwise>

@@ -169,14 +169,11 @@ $(function(){
                     <li>
                         <a href="/recommandtravelregion/recommandTravelRegion.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">여행리뷰</a>
                     </li>
-                    <li>
-                        <a href="/challengeschedule/challengeSchedule.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">도전일정</a>
-                    </li>
                      <li style="padding:10px;">
                        <input type="text" style="width: 170px; height: 26px; "/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px; width: 77px; font-size: 15px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; color:#2e2e2e"><span class="glyphicon glyphicon-search"></span> search</button>
                     </li>                      
                      <li>
-                        <a href="member/loginForm.tm" style="padding-right: 378px; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">로그인　</a>
+                        <a href="/member/loginForm.tm" style="padding-right: 378px; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">로그인　</a>
                     </li>
                 </ul>
             <!-- /네비 헤더  메뉴 부분 -->
@@ -188,10 +185,10 @@ $(function(){
                             <a href="#"><i class="fa fa-user fa-user"></i>  내 정보<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="http://localhost:8080/member/memberUpdate.tm">  정보수정</a>
+                                    <a href="/member/memberUpdate.tm">  정보수정</a>
                                 </li>
                                 <li>
-                                    <a href="http://localhost:8080/member/memberDelete.tm">  회원탈퇴</a>
+                                    <a href="/member/memberDelete.tm">  회원탈퇴</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -200,16 +197,16 @@ $(function(){
                             <a href="#"><i class="fa fa-edit fa-fw"></i>  내 일정<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="http://localhost:8080/mylist/inglist.tm">  계획중인일정</a>
+                                    <a href="/mylist/inglist.tm">  계획중인일정</a>
                                 </li>
                                 <li>
-                                    <a href="http://localhost:8080/mylist/donelist.tm">  완성된일정</a>
+                                    <a href="/mylist/donelist.tm">  완성된일정</a>
                                 </li>
                                 <li>
-                                    <a href="http://localhost:8080/mylist/startlist.tm">  시작된일정</a>
+                                    <a href="/mylist/startlist.tm">  시작된일정</a>
                                 </li>
                                 <li>
-                                    <a href="http://localhost:8080/mylist/endlist.tm">  여행한일정</a>
+                                    <a href="/mylist/endlist.tm">  여행한일정</a>
                                 </li>
                             </ul>
                         </li>

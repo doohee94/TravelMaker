@@ -81,9 +81,17 @@ public interface AdminDAO {
 	
 	
 	/************** 스탬프 ******************/
-	
+	/**
+	 * stemp
+	 * 스탬프 리스트
+	 */
 	public List<AdminStempDTO> stemp();
+	public List<AdminStempDTO> stemp(int startnum, int endnum);
 	
+	/**
+	 * searchstemp
+	 */
+	public List<AdminStempDTO> searchstemp(int startnum, int endnum, String partnerName);
 	
 	/************** 제휴 ******************/
 	

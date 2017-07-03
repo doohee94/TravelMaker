@@ -71,7 +71,7 @@
                        <input type="text"/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px;"><span class="glyphicon glyphicon-search"></span> search</button>
                     </li>                      
                      <li>
-                        <a href="member/loginForm.tm">로그인</a>
+                        <a href="/member/loginForm.tm">로그인</a>
                     </li>
                 </ul>
             </div>

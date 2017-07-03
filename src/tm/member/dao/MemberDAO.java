@@ -14,13 +14,12 @@ public interface MemberDAO {
 	/**
 	 * 회원정보보기
 	 */
-	/*public List<MemberDTO> list();*/
-	public int update(MemberDTO memberdto);
+	public MemberDTO update(MemberDTO memberdto);
 	
 	/**
 	 * 회원수정
 	 */
-	public int modify(MemberDTO memberdto);
+	public int modify(String userId);
 	
 	/**
 	 * 회원탈퇴

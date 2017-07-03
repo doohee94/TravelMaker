@@ -309,7 +309,8 @@ public class AdminController {
 	 */
 	@RequestMapping("/adminalup.tm")
 	public String adminalup(String num) {
-		dao.adminalup(num);
+		
+		int res = dao.adminalup(num);
 		
 		return "redirect:/tmadmin/adminAllianceRec.tm";
 	}
@@ -320,6 +321,7 @@ public class AdminController {
 	 */
 	@RequestMapping("/adminalde.tm")
 	public String adminalde(String num) {
+		
 		dao.allianceDel(num);
 		
 		return "redirect:/tmadmin/adminAllianceRec.tm";
@@ -342,14 +344,54 @@ public class AdminController {
 	 * adminstemp
 	 * 스탬프 리스트
 	 */
-	@RequestMapping("adminstemp.tm")
-	public ModelAndView adminstemp() {
+	@RequestMapping("/adminstemp.tm")
+	public ModelAndView adminstemp(String pageNumber) {
+		int pageNum = 1;
+		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
 		
-		List<AdminStempDTO> list = dao.stemp();
+		int[] page = dao.SettingPageNum("parstemp", 10, pageNum, null, null);
+		/* 리턴값 : int 배열
+		 * 0 : 총 페이지 수
+		 * 1 : 시작 rownum
+		 * 2 : 끝 rownum
+		 */
+		
+		List<AdminStempDTO> list = dao.stemp(page[1],page[2]);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"adminstemp");
 		mv.addObject("list", list);
+		mv.addObject("totalpage", page[0]);
+		mv.addObject("pageNum", pageNum);
+		mv.addObject("url","adminstemp.tm");
 		
+		return mv;
+	}
+	
+	/**
+	 * searchstemp
+	 * 스탬프 검색
+	 */
+	@RequestMapping("/searchstemp.tm")
+	public ModelAndView searchstemp(String pageNumber, String partnerName) {
+		
+		int pageNum = 1;
+		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
+		
+		int[] page = dao.SettingPageNum("parstemp", 10, pageNum, "partner_name", partnerName);
+		/* 리턴값 : int 배열
+		 * 0 : 총 페이지 수
+		 * 1 : 시작 rownum
+		 * 2 : 끝 rownum
+		 */
+		
+		List<AdminStempDTO> list = dao.searchstemp(page[1],page[2],partnerName);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(dir+"adminstemp");
+		mv.addObject("list", list);
+		mv.addObject("totalpage", page[0]);
+		mv.addObject("pageNum", pageNum);
+		mv.addObject("url","searchstemp.tm");
+		mv.addObject("partnerName",partnerName);
 		return mv;
 	}
 }
