@@ -29,6 +29,6 @@
 		#{partnerCeoname},
 		#{partnerEmail},
 		#{partnerTel},
-		#{partnerContent},sysdate,10,0)
+		#{partnerContent},sysdate,10,10)
 	</insert>
 </mapper>
