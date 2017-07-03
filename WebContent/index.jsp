@@ -76,6 +76,9 @@
 <br/><br/>
 <a href="mylist/backup.tm">test</a>
 
+<br/>
+<a href="registReview/registReview.tm">리뷰등록</a>
+
 
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
