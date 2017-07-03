@@ -1,0 +1,16 @@
+/* 화면 이탈 방지 */
+*, html, body
+	{
+	margin: 0;
+	padding: 0;
+	}
+/* p tag	 */
+p{
+	font-size: 25px;
+	
+}
+/* 버튼 폰트	 */
+.delete{
+	font-size: 18px;
+}
+

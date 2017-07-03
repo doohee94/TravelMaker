@@ -1,0 +1,17 @@
+/* 화면 이탈 방지 */
+*, html, body
+	{
+	margin: 0;
+	padding: 0;
+	}
+/* 메인 타이틀 css */
+#body-title{
+width:75%;
+margin-left: auto;
+margin-right: auto;
+}
+.place{
+font-size: 20px;
+}
+
+
