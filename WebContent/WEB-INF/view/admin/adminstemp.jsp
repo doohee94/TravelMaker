@@ -122,6 +122,9 @@
 								<input type="text" class="form-control sm-input"  name="partnerName" placeholder="회사명 검색" value="${partnerName }">
 							</div>
 							<button type="submit" class="btn btn-success">검색</button>
+							<div class="form-group">
+								<a class="btn btn-primary" href="adminstempadd.tm">스탬프 등록</a>
+							</div>
 						</form>
 					</div>
 				</div>
