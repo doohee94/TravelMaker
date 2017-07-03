@@ -309,7 +309,9 @@ public class AdminController {
 	 */
 	@RequestMapping("/adminalup.tm")
 	public String adminalup(String num) {
-		dao.adminalup(num);
+		
+		int res = dao.adminalup(num);
+		System.out.println("결과  : " + res);
 		
 		return "redirect:/tmadmin/adminAllianceRec.tm";
 	}

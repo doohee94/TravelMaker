@@ -15,7 +15,7 @@
 	<select id="cntparlist"  resultType="java.lang.Integer">
 		SELECT count(*) as cnt
 		FROM partner
-		WHERE partner_type != 0
+		WHERE partner_state = 20
 		<if test="partnerComname != null">
 			AND partner_comname like '%'||#{partnerComname}||'%'
 		</if>
@@ -24,7 +24,7 @@
 	<select id="cntparrec"  resultType="java.lang.Integer">
 		SELECT count(*) as cnt
 		FROM partner
-		WHERE partner_type = 0
+		WHERE partner_state = 10
 		<if test="partnerComname != null">
 			AND partner_comname like '%'||#{partnerComname}||'%'
 		</if>
@@ -75,11 +75,12 @@
 		SELECT *
 		FROM (SELECT rownum as rnum, g.*  
       		  FROM (SELECT * 
-            		FROM partner  
+            		FROM partner
+            		WHERE partner_state = 20   
             		order by partner_num desc) g)
 		<where>
 			<if test="startnum != null">
-				rnum <![CDATA[>=]]>  #{startnum} AND rnum <![CDATA[<=]]> #{endnum} AND partner_type != 0
+				rnum <![CDATA[>=]]>  #{startnum} AND rnum <![CDATA[<=]]> #{endnum}
 			</if>
 			<if test="partnerComname != null">
 				AND partner_comname like '%'||#{partnerComname}||'%'
@@ -91,11 +92,12 @@
 		SELECT *
 		FROM (SELECT rownum as rnum, g.*  
       		  FROM (SELECT * 
-            		FROM partner  
+            		FROM partner
+            		WHERE partner_state = 10 
             		order by partner_num desc) g)
 		<where>
 			<if test="startnum != null">
-				rnum <![CDATA[>=]]>  #{startnum} AND rnum <![CDATA[<=]]> #{endnum} AND partner_type = 0
+				rnum <![CDATA[>=]]>  #{startnum} AND rnum <![CDATA[<=]]> #{endnum}
 			</if>
 			<if test="partnerComname != null">
 				AND partner_comname like '%'||#{partnerComname}||'%'
@@ -143,7 +145,8 @@
 	
 	<update id="allianceapproval" parameterType="hashMap">
 		UPDATE partner
-		SET partner_state = '20'
+		SET partner_state = 20,
+		partner_type = 10
 		WHERE partner_num=#{partnernum}
 	</update>
 	

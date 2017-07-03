@@ -293,7 +293,6 @@ public class AdminDAOImpl implements AdminDAO {
 		
 		HashMap map = new HashMap();
 		map.put("partnernum", num);
-		
 		int res = ss.update(namespace + ".allianceapproval", map);
 		
 		return res;
