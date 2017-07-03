@@ -7,7 +7,7 @@ html,body{
 }
 
 .registeration{
-    border-top: 5px solid #2196f3;
+    border-top: 5px solid #5d6062;
     -webkit-box-shadow: 0px 5px 21px -2px rgba(0,0,0,0.47);
     -moz-box-shadow: 0px 5px 21px -2px rgba(0,0,0,0.47);
     box-shadow: 0px 5px 21px -2px rgba(0,0,0,0.47);
@@ -29,7 +29,7 @@ html,body{
 
 .signbuttons{
     margin-bottom: 35px;
-    background: #2995F7;
+    background: #5d6062;
     border: none;
 }
 
@@ -46,13 +46,13 @@ input{
 }
 
 .headerSign{
-    color: #2995F7;
+    color: #5d6062;
     margin-bottom: 20px;
     text-align: center;
 }
 
 .darktext{
-    color: #2995F7;
+    color: #5d6062;
 }
 
 
