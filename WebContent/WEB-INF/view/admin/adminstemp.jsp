@@ -36,7 +36,11 @@
 <link href="/resource/admin/css/qna.css"
 	rel="stylesheet">
 </head>
-
+<style type="text/css">
+	.tableview{
+		height: 610px;
+	}
+</style>	
 <body>
 	<!-- container section start -->
 	<section id="container" class="">
@@ -106,12 +110,23 @@
 						</h3>
 						<ol class="breadcrumb">
 							<li><i class="fa fa-home"></i><a href="adminMember.tm">Home</a></li>
+							<li><i class="icon_genius"></i>부가서비스</li>
 							<li><i class="fa fa-desktop"></i>스탬프</li>
 						</ol>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm-10">
+					<div class="modal-body">
+						<form class="form-inline" method="post" role="form" action="searchstemp.tm">
+							<div class="form-group">
+								<input type="text" class="form-control sm-input"  name="partnerName" placeholder="회사명 검색" value="${partnerName }">
+							</div>
+							<button type="submit" class="btn btn-success">검색</button>
+						</form>
+					</div>
+				</div>
+				<div class="row">
+					<div class="tableview col-sm-10">
 						<section class="panel">
 							<header class="panel-heading"> 스탬프 </header>
 							<table class="table table-hover">
@@ -181,6 +196,52 @@
 						</section>
 					</div>
 				</div>
+				<!-- page Number Start -->
+				<input type="hidden" id="pageNumber" name="pageNumber" value="${pageNum }"/>
+				<input type="hidden" id="totalpage" name="totalpage" value="${totalpage }"/>
+				<input type="hidden" id="url" name="url" value="${url }"/>
+				<input type="hidden" id="partnerName"  value="${partnerName }"/>
+				<div class="btn-row">
+					<div class="btn-group">
+						<input type="hidden" id="totalpage" value="${totalpage }">
+						<c:choose>
+							<c:when test="${url  eq 'searchstemp.tm' }">
+								<a href="${url }?pageNumber=1&partnerName=${partnerName }" class="pagebtn btn btn-default" type="button">&#171;</a>
+							</c:when>
+							<c:otherwise>
+								<a href="${url }?pageNumber=1" class="pagebtn btn btn-default" type="button">&#171;</a>
+							</c:otherwise>
+						</c:choose>
+						<button class="pagebtn btn btn-default" id="prevPage" type="button">&#60;</button>
+						<c:forEach var="i" begin="1" end="${totalpage }">
+							<c:choose>
+								<c:when test="${pageNum == i}">
+									<a class="pagebtn btn btn-primary" type="button">${i }</a>
+								</c:when>
+								<c:otherwise>
+									<c:choose>
+										<c:when test="${url  eq 'searchstemp.tm' }">
+											<a href="${url }?pageNumber=${i }&partnerName=${partnerName }" class="pagebtn btn btn-default" type="button">${i }</a>
+										</c:when>
+										<c:otherwise>
+											<a href="${url }?pageNumber=${i }" class="pagebtn btn btn-default" type="button">${i }</a>
+										</c:otherwise>
+									</c:choose>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						<button class="pagebtn btn btn-default" id="nextPage" type="button">&#62;</button>
+						<c:choose>
+							<c:when test="${url  eq 'searchstemp.tm' }">
+								<a href="${url }?pageNumber=${totalpage }&partnerName=${partnerName }" class="pagebtn btn btn-default" type="button">&#187;</a>
+							</c:when>
+							<c:otherwise>
+								<a href="${url }?pageNumber=${totalpage }" class="pagebtn btn btn-default" type="button">&#187;</a>
+							</c:otherwise>
+						</c:choose>
+					</div>
+				</div>
+				<!-- page Number End -->
 			</section>
 		</section>
 		<!--main content end-->
@@ -212,7 +273,57 @@
 
 	<!--custome script for all page-->
 	<script src="/resource/admin/js/scripts.js"></script>
+	
+	<script type="text/javascript">
+	$("#prevPage").click(function() {
+		//현재 페이지 넘버를 얻어옴
+		var pageNumber = $("#pageNumber").val();
+		var url = $("#url").val();
+		var partnerName = $("#partnerName").val();
+		//다음 페이지 넘버가 저장될 변수
+		var nextNumber = 0;
+		//만약 10으로 나눈 나머지에 1을 뺄때 0보다 작거나 같다면 그 페이지에서 멈추게
+		if (pageNumber % 10 - 1 <= 0) {
+			if (parseInt(pageNumber / 10) == 0) {
+				var temp = parseInt(pageNumber / 10);
+				nextNumber = temp * 10 + 1;
+			}
+		} else {
+			//위에 조건이 안걸리면 전페이지로 이동
+			nextNumber = pageNumber - 1;
+		}
+		
+		if(url == "searchstemp.tm"){
+			location.href = "/tmadmin/"+url+"?pageNumber=" + nextNumber + "&partnerName=" + partnerName;
+		}else{
+			location.href = "/tmadmin/"+url+"?pageNumber=" + nextNumber;
+		}
+	});
 
+	$("#nextPage").click(function() {
+		var partnerName = $("#partnerName").val();
+		//현재 페이지 넘버를 얻어옴
+		var pageNumber = $("#pageNumber").val();
+		//총 페이지 수를 얻어옴
+		var totalpage = $("#totalpage").val();
+		var url = $("#url").val();
+		//다음 페이지 넘버가 저장될 변수
+		var nextNumber = 0;
+		//다음 페이지가 총페이지 이상일때는 그페이지에 멈춤
+		if (pageNumber + 1 > totalpage) {
+			nextNumber = totalpage;
+		} else {
+			//아니라면 다음페이지로 이동
+			nextNumber = parseInt(pageNumber) + 1;
+		}
+
+		if(url == "searchstemp.tm"){
+			location.href = "/tmadmin/"+url+"?pageNumber=" + nextNumber + "&partnerName=" + partnerName;
+		}else{
+			location.href = "/tmadmin/"+url+"?pageNumber=" + nextNumber;
+		}
+	});
+	</script>
 
 </body>
 </html>

@@ -126,7 +126,7 @@ input[type=checkbox]
 						</h3>
 						<ol class="breadcrumb">
 							<li><i class="fa fa-home"></i><a href="adminMember.tm">Home</a></li>
-							<li><i class="icon_genius"></i>광고</li>
+							<li><i class="icon_genius"></i>부가서비스</li>
 							<li><i class="fa fa-th-list"></i>광고 리스트</li>
 						</ol>
 					</div>
@@ -140,10 +140,10 @@ input[type=checkbox]
 							<a class="btn btn-success" href="" title="Bootstrap 3 themes generator" style="margin-left:10px; float: right;">설정완료</a>
 							<a class="btn btn-info" href="adminadSetting.tm" title="Bootstrap 3 themes generator" style="margin-left:10px; float: right;">광고추가</a>
 							<form class="form-inline" role="form" style="float: right;">
-									<div class="form-group">
-										<input type="text" class="form-control" id="exampleInputEmail2" required="required" placeholder="회사명 입력">
-									</div>
-									<button type="submit" class="btn btn-primary">검색</button>
+								<div class="form-group">
+									<input type="text" class="form-control" id="exampleInputEmail2" required="required" placeholder="회사명 입력">
+								</div>
+								<button type="submit" class="btn btn-primary">검색</button>
 							</form>
 							</header>
 							<table class="table table-striped table-advance table-hover">

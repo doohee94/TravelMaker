@@ -12,6 +12,27 @@
 		</where>
 	</select>
 	
+	<select id="stempcnt" parameterType="hashMap" resultType="java.lang.Integer">
+		SELECT count(*)
+		FROM (SELECT rownum as rnum, g.*  
+      		  FROM (SELECT s.parstemp_num, 
+      		  				p.partner_num, 
+      		  				s.partner_name, 
+      		  				s.partner_addr, 
+      		  				p.partner_ceoname,
+      		  				p.partner_reginum, 
+      		  				p.partner_comname, 
+      		  				p.partner_tel
+                  FROM parstemp s, partner p
+                  WHERE s.partner_num = p.partner_num
+                  ORDER BY s.parstemp_num desc) g)
+        <where>
+         <if test="partnerName != null">
+         	partner_name like '%'||#{partnerName}||'%'
+         </if>
+        </where>
+	</select>
+	
 	<select id="cntparlist"  resultType="java.lang.Integer">
 		SELECT count(*) as cnt
 		FROM partner
@@ -68,7 +89,10 @@
 	
 	<select id="adlist" resultType="tm.admin.dto.AdminadDTO">
 		SELECT *
-		FROM advertisement
+		FROM (SELECT rownum as rnum, g.*  
+      		  FROM (SELECT * 
+            		FROM advertisement  
+            		order by ad_num desc) g)
 	</select>
 	
 	<select id="allist" parameterType="hashMap" resultType="allianceDTO">
@@ -168,8 +192,16 @@
       		  				p.partner_comname, 
       		  				p.partner_tel
                   FROM parstemp s, partner p
-                  WHERE s.partner_num = p.partner_num 
+                  WHERE s.partner_num = p.partner_num
                   ORDER BY s.parstemp_num desc) g)
+        <where>
+			<if test="startnum != null">
+				rnum <![CDATA[>=]]>  #{startnum} AND rnum <![CDATA[<=]]> #{endnum}
+			</if>
+			<if test="partnerName != null">
+                  	AND partner_name like '%'||#{partnerName}||'%'
+            </if>
+        </where>
 	</select>
 	
 	<select id="cntad" parameterType="hashMap" resultType="java.lang.Integer">
