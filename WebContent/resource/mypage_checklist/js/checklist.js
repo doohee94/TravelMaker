@@ -72,6 +72,8 @@
          });
     	
     });
+    
+    //일정을 바로 변경하는 팝업
     $(".modify").click(function(){
     	$a.popup({
             url : "modifyPopup.tm",
