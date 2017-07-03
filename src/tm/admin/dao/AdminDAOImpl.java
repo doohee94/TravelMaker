@@ -339,5 +339,29 @@ public class AdminDAOImpl implements AdminDAO {
 		return ss.selectList(namespace + ".stemplist",map);
 	}
 
+	@Override
+	public int insertstemp(AdminStempDTO adminStempDTO){
+		// 시퀀스 값을 가져옴
+		String num = ss.selectOne(namespace + ".stempnumber");
 
+		// 글번호 생성 부분
+		// 글번호 앞에 붙일 이름을 설정 후
+		String str = "st";
+
+		// 번호의 길이를 비교후 빈공간에 0을 채우고
+		for (int i = 0; i < 8 - num.length(); i++) {
+			str += "0";
+		}
+
+		// 생성된 번호를 뒤에 붙임
+		str += num;
+
+		// 그리고 글번호 부분에 값을 넣어줌
+		adminStempDTO.setParstempNum(str);
+		
+		int res = ss.insert(namespace + ".insertstemp", adminStempDTO);
+		
+		return res;
+	}
+	
 }

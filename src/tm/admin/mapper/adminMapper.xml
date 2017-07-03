@@ -134,6 +134,10 @@
 		FROM dual 
 	</select>
 	
+	<select id="stempnumber" resultType="String">
+		SELECT seq_parstemp.nextval as num
+		FROM dual 
+	</select>
 	
 	<insert id="adinsert" parameterType="tm.admin.dto.AdminadDTO">
 		INSERT INTO advertisement
@@ -209,5 +213,15 @@
 		FROM advertisement
 		WHERE partner_num = #{partnernum}
 	</select>
+	
+	<insert id="insertstemp" parameterType="tm.admin.dto.AdminStempDTO">
+		INSERT INTO parstemp
+		VALUES(
+		#{parstempNum},
+		#{partnerNum},
+		#{partnerName},
+		#{partnerAddr}
+		)
+	</insert>
 	
 </mapper>

@@ -89,6 +89,11 @@ public interface AdminDAO {
 	public List<AdminStempDTO> stemp(int startnum, int endnum);
 	
 	/**
+	 * 
+	 */
+	public int insertstemp(AdminStempDTO adminStempDTO);
+	
+	/**
 	 * searchstemp
 	 */
 	public List<AdminStempDTO> searchstemp(int startnum, int endnum, String partnerName);

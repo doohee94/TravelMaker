@@ -1,6 +1,5 @@
 package tm.admin.controller;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +31,7 @@ public class AdminController {
 	@Autowired
 	AdminDAO dao;
 	
+	
 	/**
 	 * admin
 	 * 인자값 전달이 필요없는 부분 담당
@@ -40,6 +40,10 @@ public class AdminController {
 	public String admin(@PathVariable String url) {
 		return dir + url;
 	}
+
+	
+	
+	/***********************   member(회원)     **************************/
 	
 	/**
 	 * adMemberList
@@ -109,6 +113,10 @@ public class AdminController {
 		return mv;
 	}
 	
+	
+	
+	/***********************   Qna(질문답변)     **************************/
+	
 	/**
 	 * adminqna
 	 * QNA리스트를 출력
@@ -145,15 +153,18 @@ public class AdminController {
 		return "redirect:/tmadmin/adminQna.tm?pageNumber="+pageNumber;
 	}
 	
+	
+	
+	/***********************   advertisement(광고)     **************************/
+	
+	
+	
 	/**
 	 * adminadlist
 	 * 광고 리스트 출력
 	 */
 	@RequestMapping("/adminadList.tm")
 	public ModelAndView adminadlist(String num) {
-		if(num != null){
-			int res = dao.addelete(num);
-		}
 		List<AdminadDTO> list = dao.adlist();
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"adminadList");
@@ -189,6 +200,23 @@ public class AdminController {
 		mv.addObject("adlist", list);
 		return mv;
 	}
+	
+	/**
+	 * 광고 삭제
+	 */
+	@RequestMapping("/deletead.tm")
+	public String deletead(String num) {
+		
+		int res = dao.addelete(num);
+		
+		return "redirect:/tmadmin/adminadList.tm";
+	}
+	
+	
+	
+	/***********************   Alliance(제휴)     **************************/
+	
+	
 	
 	/**
 	 * allianceList
@@ -242,6 +270,35 @@ public class AdminController {
 	}
 	
 	/**
+	 * deleteAlliance
+	 * 제휴 리스트 삭제
+	 */
+	@RequestMapping("/adminalliancedel.tm")
+	public String deleteAlliance(String num) {
+		
+		int res = dao.allianceDel(num);
+		
+		return "redirect:/tmadmin/adminAllianceList.tm";
+	}
+	
+	/**
+	 * stateupdate
+	 * 제휴형태 변경
+	 */
+	@RequestMapping("/stateupdate.tm")
+	public String stateupdate(AllianceDTO allianceDTO) {
+		
+		dao.typeupdate(allianceDTO);
+		
+		return "redirect:/tmadmin/adminAllianceList.tm";
+	}
+	
+	
+	/***********************   Alliance Rec(승인)     **************************/
+	
+	
+	
+	/**
 	 * adminAllianceRec
 	 * 제휴 리스트
 	 */
@@ -292,18 +349,6 @@ public class AdminController {
 	}
 	
 	/**
-	 * deleteAlliance
-	 * 제휴 리스트 삭제
-	 */
-	@RequestMapping("/adminalliancedel.tm")
-	public String deleteAlliance(String num) {
-		
-		int res = dao.allianceDel(num);
-		
-		return "redirect:/tmadmin/adminAllianceList.tm";
-	}
-	
-	/**
 	 * adminalup
 	 * 제휴 승인
 	 */
@@ -327,17 +372,10 @@ public class AdminController {
 		return "redirect:/tmadmin/adminAllianceRec.tm";
 	}
 	
-	/**
-	 * stateupdate
-	 * 제휴형태 변경
-	 */
-	@RequestMapping("/stateupdate.tm")
-	public String stateupdate(AllianceDTO allianceDTO) {
-		
-		dao.typeupdate(allianceDTO);
-		
-		return "redirect:/tmadmin/adminAllianceList.tm";
-	}
+	
+	
+	/***********************   Stemp(스탬프)     **************************/
+	
 	
 	
 	/**
@@ -393,5 +431,13 @@ public class AdminController {
 		mv.addObject("url","searchstemp.tm");
 		mv.addObject("partnerName",partnerName);
 		return mv;
+	}
+	
+	/**
+	 * 스탬프 등록
+	 */
+	@RequestMapping("/insertstemp.tm")
+	public void insertStemp(AdminStempDTO adminStempDTO) {
+		
 	}
 }

@@ -119,7 +119,7 @@
 							<header class="panel-heading"> 광고추가 </header>
 							<div class="panel-body">
 								<div class="form">
-									<form class="form-validate form-horizontal" action="" id="feedback_form" method="post" enctype="multipart/form-data">
+									<form class="form-validate form-horizontal" action="insertstemp.tm" id="feedback_form" method="post">
 										<div class="form-group ">
 											<label for="partnername" class="control-label col-lg-2">
 												회사명
