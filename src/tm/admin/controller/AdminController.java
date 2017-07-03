@@ -311,7 +311,6 @@ public class AdminController {
 	public String adminalup(String num) {
 		
 		int res = dao.adminalup(num);
-		System.out.println("결과  : " + res);
 		
 		return "redirect:/tmadmin/adminAllianceRec.tm";
 	}
@@ -322,6 +321,7 @@ public class AdminController {
 	 */
 	@RequestMapping("/adminalde.tm")
 	public String adminalde(String num) {
+		
 		dao.allianceDel(num);
 		
 		return "redirect:/tmadmin/adminAllianceRec.tm";

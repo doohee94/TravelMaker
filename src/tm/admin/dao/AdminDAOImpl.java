@@ -280,8 +280,11 @@ public class AdminDAOImpl implements AdminDAO {
 		
 		HashMap map = new HashMap();
 		map.put("partnernum", partnernum);
+		int cnt = ss.selectOne(namespace + ".cntad", map);
 		
-		int resad = ss.delete(namespace + ".addelete", map);
+		if(cnt > 0 ){
+			int resad = ss.delete(namespace + ".addelete", map);
+		}
 		
 		int resal = ss.delete(namespace + ".alliancedel", map);
 		

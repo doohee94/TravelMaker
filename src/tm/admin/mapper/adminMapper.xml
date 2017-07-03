@@ -135,7 +135,7 @@
 	
 	<delete id="addelete" parameterType="hashMap">
 		DELETE FROM advertisement
-		WHERE ad_num=#{num}
+		WHERE ad_num=#{adnum}
 	</delete>
 	
 	<delete id="alliancedel" parameterType="hashMap">
@@ -170,6 +170,12 @@
                   FROM parstemp s, partner p
                   WHERE s.partner_num = p.partner_num 
                   ORDER BY s.parstemp_num desc) g)
+	</select>
+	
+	<select id="cntad" parameterType="hashMap" resultType="java.lang.Integer">
+		SELECT count(*) as cnt
+		FROM advertisement
+		WHERE partner_num = #{partnernum}
 	</select>
 	
 </mapper>
