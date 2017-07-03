@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import tm.admin.dao.AdminDAO;
 import tm.admin.dto.AdminMemberDTO;
 import tm.admin.dto.AdminQnaDTO;
+import tm.admin.dto.AdminStempDTO;
 import tm.admin.dto.AdminadDTO;
 import tm.alliance.dto.AllianceDTO;
 
@@ -334,5 +335,21 @@ public class AdminController {
 		dao.typeupdate(allianceDTO);
 		
 		return "redirect:/tmadmin/adminAllianceList.tm";
+	}
+	
+	
+	/**
+	 * adminstemp
+	 * 스탬프 리스트
+	 */
+	@RequestMapping("adminstemp.tm")
+	public ModelAndView adminstemp() {
+		
+		List<AdminStempDTO> list = dao.stemp();
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(dir+"adminstemp");
+		mv.addObject("list", list);
+		
+		return mv;
 	}
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import tm.admin.dto.AdminMemberDTO;
 import tm.admin.dto.AdminQnaDTO;
+import tm.admin.dto.AdminStempDTO;
 import tm.admin.dto.AdminadDTO;
 import tm.alliance.dto.AllianceDTO;
 
@@ -77,6 +78,11 @@ public interface AdminDAO {
 	 * 광고 삭제
 	 */
 	public int addelete(String num);
+	
+	
+	/************** 스탬프 ******************/
+	
+	public List<AdminStempDTO> stemp();
 	
 	
 	/************** 제휴 ******************/

@@ -80,12 +80,12 @@
 					</li>
 					<li class="sub-menu">
 						<a href="javascript:;" class="">
-							<i class="icon_genius"></i> <span>광고</span>
+							<i class="icon_genius"></i> <span>부가서비스</span>
 							<span class="menu-arrow arrow_carrot-right"></span>
 						</a>
 						<ul class="sub">
-							<li><a class="" href="adminadList.tm">리스트</a></li>
-							<li><a class="" href="adminadSetting.tm">등록</a></li>
+							<li><a class="" href="adminadList.tm">광고</a></li>
+							<li><a class="" href="adminstemp.tm">스탬프</a></li>
 						</ul>
 					</li>
 					<li class="sub-menu active">
@@ -155,13 +155,11 @@
 															<a class="infodiv btn btn-primary" href="#${a.partnerNum }" data-toggle="modal">
 																<i class="icon_plus_alt2"> 상세보기</i>
 															</a>
-															<div aria-hidden="true" aria-labelledby="myModalLabel"
-																role="dialog" tabindex="-1" id="${a.partnerNum }" class="modal fade">
+															<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="${a.partnerNum }" class="modal fade">
 																<div class="modal-dialog">
 																	<div class="modal-content">
 																		<div class="modal-header">
-																			<button aria-hidden="true" data-dismiss="modal"
-																				class="close" type="button">×</button>
+																			<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
 																			<h4 class="modal-title">상세보기</h4>
 																		</div>
 																		<div class="modal-body">

@@ -73,12 +73,12 @@
 					</li>
 					<li class="sub-menu active">
 						<a href="javascript:;" class="">
-							<i class="icon_genius"></i> <span>광고</span>
+							<i class="icon_genius"></i> <span>부가서비스</span>
 							<span class="menu-arrow arrow_carrot-right"></span>
 						</a>
 						<ul class="sub">
-							<li><a class="" href="adminadList.tm">리스트</a></li>
-							<li class="active"><a class="" href="adminadSetting.tm">등록</a></li>
+							<li class="active"><a class="" href="adminadList.tm">광고</a></li>
+							<li><a class="" href="adminstemp.tm">스탬프</a></li>
 						</ul>
 					</li>
 					<li class="sub-menu">

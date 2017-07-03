@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
-<!-- 
-	adminQna.jsp
-	관리자 QNA 페이지 
--->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +35,6 @@
 	rel="stylesheet">
 <link href="/resource/admin/css/qna.css"
 	rel="stylesheet">
-
 </head>
 
 <body>
@@ -70,19 +65,19 @@
 							<i class="icon_house_alt"></i> <span>회원관리</span>
 						</a>
 					</li>
-					<li class="active">
+					<li>
 						<a class="" href="adminQna.tm">
 							<i class="icon_desktop"></i> <span>QnA</span>
 						</a>
 					</li>
-					<li class="sub-menu">
+					<li class="sub-menu active">
 						<a href="javascript:;" class="">
 							<i class="icon_genius"></i> <span>부가서비스</span>
 							<span class="menu-arrow arrow_carrot-right"></span>
 						</a>
 						<ul class="sub">
 							<li><a class="" href="adminadList.tm">광고</a></li>
-							<li><a class="" href="adminstemp.tm">스탬프</a></li>
+							<li class="active"><a class="" href="adminstemp.tm">스탬프</a></li>
 						</ul>
 					</li>
 					<li class="sub-menu">
@@ -107,122 +102,85 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h3 class="page-header">
-							<i class="fa fa-laptop"></i> Qna
+							<i class="fa fa-laptop"></i> 스탬프
 						</h3>
 						<ol class="breadcrumb">
 							<li><i class="fa fa-home"></i><a href="adminMember.tm">Home</a></li>
-							<li><i class="fa fa-desktop"></i>Qna</li>
+							<li><i class="fa fa-desktop"></i>스탬프</li>
 						</ol>
 					</div>
 				</div>
-				<!-- table start -->
 				<div class="row">
-					<div class="tableview col-lg-12">
+					<div class="col-sm-10">
 						<section class="panel">
-							<header class="panel-heading"> QNA목록 </header>
+							<header class="panel-heading"> 스탬프 </header>
 							<table class="table table-hover">
 								<thead>
 									<tr>
-										<th>문의 번호</th>
-										<th>문의 유형</th>
-										<th>작성자</th>
-										<th>답변여부</th>
+										<th>번호</th>
+										<th>회사명</th>
+										<th>지점명</th>
+										<th>상세보기</th>
 									</tr>
 								</thead>
 								<tbody>
+									<tr>
 									<c:choose>
-										<c:when test="${!empty qnalist }">
-											<c:forEach items="${qnalist}" var="q">
-												<tr>
-													<td>${q.qnaNum }</td>
-													<td>${q.qnaType }</td>
-													<td>${q.userId }</td>
-													<td>
-														<c:choose>
-															<c:when test="${!empty q.qnaReply }">
-																<a class="btn btn-success" data-toggle="modal" href="#${q.qnaNum }" title="Bootstrap 3 themes generator">답변완료</a>
-															</c:when>
-															<c:otherwise>
-																<a class="btn btn-danger" data-toggle="modal" href="#${q.qnaNum }" title="Bootstrap 3 themes generator">답변필요</a>
-															</c:otherwise>
-														</c:choose>
-														<!-- Modal start -->
-														<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="${q.qnaNum }" class="modal fade">
-															<div class="modal-dialog">
-																<div class="modal-content">
-																	<div class="modal-header">
-																		<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-																		<h4 class="modal-title">답변달기</h4>
-																	</div>
-																	<div class="modal-body">
-																		<form role="form" class="qnafrm form-inline" id="qnafrm" method="post">
-																		<input type="hidden" name="qnaNum" value="${q.qnaNum }"/>
-																			<div class="form-group">
-																				<label class="control-label col-sm-2">문의 내용</label>
-																				<div class="col-sm-10">
-																					<textarea class="form-control ckeditor" name="qnaContent" rows="6" readonly="readonly">${q.qnaContent }</textarea>
-																				</div>
-																				<label class="control-label col-sm-2" style="margin-top: 4%;">답변 내용</label>
-																				<c:choose>
-																					<c:when test="${empty q.qnaReply }">
-																						<div class="col-sm-10">
-																							<textarea class="form-control ckeditor" name="qnaReply" rows="6" style="margin-top: 5%;">${q.qnaReply }</textarea>
-																						</div>
-																					</c:when>
-																					<c:otherwise>
-																						<div class="col-sm-10">
-																							<textarea class="form-control ckeditor" name="qnaReply" rows="6" style="margin-top: 5%;" readonly="readonly">${q.qnaReply }</textarea>
-																						</div>
-																					</c:otherwise>
-																				</c:choose>
-																				<c:if test="${empty q.qnaReply }">
-																					<a class="replybtn btn btn-success" data-dismiss="modal" id="replybtn" title="Bootstrap 3 themes generator" style="margin-left: 80%; margin-top: 2%;">답변완료</a>
-																					<input type="hidden" id="pageNumber" name="pageNumber" value="${pageNum }"/>
-																				</c:if>
-																			</div>
-																		</form>
-																	</div>
+										<c:when test="${!empty list }">
+											<c:forEach var="a" items="${list }">
+												<td>${a.parstempNum }</td>
+												<td>${a.partnerCeoname }</td>
+												<td>${a.partnerName }</td>
+												<td>
+													<a class="infodiv btn btn-primary" href="#${a.parstempNum }" data-toggle="modal">
+														<i class="icon_plus_alt2"> 상세보기</i>
+													</a>
+													<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="${a.parstempNum }" class="modal fade">
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+																	<h4 class="modal-title">상세보기</h4>
+																</div>
+																<div class="modal-body">
+																	<form role="form" method="post" class="submitform">
+																		<div class="form-group">
+																			<label for="partnerNum">스탬프번호</label>
+																			<input type="text" class="form-control" name="parstempNum"  readonly="readonly" value="${a.parstempNum }">
+																		</div>
+																		<div class="form-group">
+																			<label for="infoCom">회사명/대표명/사업자번호</label>
+																			<input type="text" class="form-control" name="infoCom" id="infoCom" readonly="readonly" 
+																			value="${a.partnerComname }/${a.partnerCeoname }/${a.partnerReginum }">
+																		</div>
+																		<div class="form-group">
+																			<label for="partnerNum">주소</label>
+																			<input type="text" class="form-control" name="partnerAddr" id="partnerAddr" readonly="readonly" value="${a.partnerAddr }">
+																		</div>
+																		<button type="button" data-dismiss="modal" class="closebtnf btn btn-primary">닫기</button>
+																	</form>
 																</div>
 															</div>
 														</div>
-														<!-- Modal END -->
-													</td>
-												</tr>
+													</div>
+													<a class="btn btn-danger" href="#">
+														<i class="delete icon_close_alt2" id="deletebtn"> 삭제</i>
+													</a>
+												</td>
 											</c:forEach>
 										</c:when>
 										<c:otherwise>
-											<tr>
-												<td colspan="4">검색 결과가 없습니다</td>
-											</tr>
+											<td colspan="4">
+												값이 없습니다
+											</td>
 										</c:otherwise>
 									</c:choose>
+									</tr>
 								</tbody>
 							</table>
 						</section>
 					</div>
-				<!-- table END -->
 				</div>
-				<!-- page Number Start -->
-				<div class="btn-row">
-					<div class="btn-group">
-						<input type="hidden" id="totalpage" value="${totalpage }">
-						<a href="adminQna.tm?pageNumber=1" class="pagebtn btn btn-default" type="button">&#171;</a>
-						<button class="pagebtn btn btn-default" id="prevPage" type="button">&#60;</button>
-						<c:forEach var="i" begin="1" end="${totalpage }">
-							<c:choose>
-								<c:when test="${pageNum == i}">
-									<a class="pagebtn btn btn-primary" type="button">${i }</a>
-								</c:when>
-								<c:otherwise>
-									<a href="adminQna.tm?pageNumber=${i }" class="pagebtn btn btn-default" type="button">${i }</a>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>
-						<button class="pagebtn btn btn-default" id="nextPage" type="button">&#62;</button>
-						<a href="adminQna.tm?pageNumber=${totalpage }" class="pagebtn btn btn-default" type="button">&#187;</a>
-					</div>
-				</div>
-				<!-- page Number End -->
 			</section>
 		</section>
 		<!--main content end-->
@@ -254,10 +212,7 @@
 
 	<!--custome script for all page-->
 	<script src="/resource/admin/js/scripts.js"></script>
-	
-	<!-- QNA JS -->
-	<script src="/resource/admin/js/qna.js"></script>
-	
-	
+
+
 </body>
 </html>

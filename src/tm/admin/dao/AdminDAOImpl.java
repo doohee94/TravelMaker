@@ -1,6 +1,5 @@
 package tm.admin.dao;
 
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import tm.admin.dto.AdminMemberDTO;
 import tm.admin.dto.AdminQnaDTO;
+import tm.admin.dto.AdminStempDTO;
 import tm.admin.dto.AdminadDTO;
 import tm.alliance.dto.AllianceDTO;
 
@@ -305,6 +305,12 @@ public class AdminDAOImpl implements AdminDAO {
 		int res = ss.update(namespace + ".typeupdate", allianceDTO);
 		
 		return res;
+	}
+	
+	@Override
+	public List<AdminStempDTO> stemp() {
+		
+		return ss.selectList(namespace + ".stemplist");
 	}
 
 }

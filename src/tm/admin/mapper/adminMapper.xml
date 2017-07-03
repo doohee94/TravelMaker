@@ -153,4 +153,20 @@
 		WHERE partner_num=#{partnerNum}
 	</update>
 	
+	<select id="stemplist" resultType="tm.admin.dto.AdminStempDTO">
+		SELECT *
+		FROM (SELECT rownum as rnum, g.*  
+      		  FROM (SELECT s.parstemp_num, 
+      		  				p.partner_num, 
+      		  				s.partner_name, 
+      		  				s.partner_addr, 
+      		  				p.partner_ceoname,
+      		  				p.partner_reginum, 
+      		  				p.partner_comname, 
+      		  				p.partner_tel
+                  FROM parstemp s, partner p
+                  WHERE s.partner_num = p.partner_num 
+                  ORDER BY s.parstemp_num desc) g)
+	</select>
+	
 </mapper>

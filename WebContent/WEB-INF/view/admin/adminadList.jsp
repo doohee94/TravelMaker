@@ -47,6 +47,13 @@ input[type=checkbox]
   -o-transform: scale(2); /* Opera */
   padding: 10px;
 }
+
+.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+        float: none;
+        margin-left: -20px;
+}
+
+
 </style>
 </head>
 
@@ -85,12 +92,12 @@ input[type=checkbox]
 					</li>
 					<li class="sub-menu active">
 						<a href="javascript:;" class="">
-							<i class="icon_genius"></i> <span>광고</span>
+							<i class="icon_genius"></i> <span>부가서비스</span>
 							<span class="menu-arrow arrow_carrot-right"></span>
 						</a>
 						<ul class="sub">
-							<li class="active"><a class="" href="adminadList.tm">리스트</a></li>
-							<li><a class="" href="adminadSetting.tm">등록</a></li>
+							<li class="active"><a class="" href="adminadList.tm">광고</a></li>
+							<li><a class="" href="adminstemp.tm">스탬프</a></li>
 						</ul>
 					</li>
 					<li class="sub-menu">
@@ -139,24 +146,17 @@ input[type=checkbox]
 									<button type="submit" class="btn btn-primary">검색</button>
 							</form>
 							</header>
-							<table class="table">
+							<table class="table table-striped table-advance table-hover">
 								<tbody>
-									<tr>
-										<td>
-											<c:choose>
-												<c:when test="${!empty adlist}">
-													<c:forEach items="${adlist }" var="a" varStatus="i">
-														<c:choose>
-															<c:when test="${(i.index)%2 eq '0' }">
-																<table class="${i.index }cccc" style="float:left; margin-left: 50px; margin-right: 50px;">
-															</c:when>
-															<c:otherwise>
-																<table class="${i.index }cccc" style="margin-left: 50px; margin-right: 50px;">
-															</c:otherwise>
-														</c:choose>
-															<tr>
-																<td rowspan="2" style="border-top: none;">
-																	<div class="checkbox">
+									<c:choose>
+										<c:when test="${!empty adlist}">
+											<c:forEach items="${adlist }" var="a" varStatus="i">
+												<tr>
+													<td>
+														<table style="margin-left:40px; border: 1px solid #e2e2e2;">
+															<tr align="center" >
+																<td style="width : 100px;">
+																	<div class="checkbox" >
 																		<c:choose>
 																			<c:when test="${a.adCheck eq '1' }">
 																				<label><input type="checkbox" checked="checked"/></label>
@@ -167,28 +167,28 @@ input[type=checkbox]
 																		</c:choose>
 																	</div>	
 																</td>
-																<td style="border-top: none;">
-																	<img alt="" src="/upload/alliance/${a.adPhotofake }" style="width: 450px; height: 200px;" >
+																<td style="width:1200px; font-size: 1.5em;">
+																	${a.adTitle }<a class="btn btn-danger" href="#" title="Bootstrap 3 themes generator" style="float: right;">삭제</a>
+																	<form method="post"><input type="hidden" name="num" value="${a.adNum }"></form>
 																</td>
 															</tr>
 															<tr>
-																<td align="center">
-																	${a.adTitle }
-																	<a class="btn btn-danger" href="#" title="Bootstrap 3 themes generator" style="float: right;">삭제</a>
-																	<form method="get">
-																		<input type="hidden" name="num" value="${a.adNum }">
-																	</form>
+																<td style="text-align: center;">
+																	img
+																</td>
+																<td class="imgclick" style="text-align: center;">
+																	<img alt="" class="clickimg" src="/upload/alliance/${a.adPhotofake }" style="width: 120px; height: 15px;" >
 																</td>
 															</tr>
 														</table>
-													</c:forEach>
-												</c:when>
-												<c:otherwise>
-													값이없습니다
-												</c:otherwise>
-											</c:choose>
-										</td>
-									</tr>
+													</td>
+												</tr>
+											</c:forEach>
+										</c:when>
+										<c:otherwise>
+											값이없습니다
+										</c:otherwise>
+									</c:choose>
 								</tbody>
 							</table>
 						</section>
@@ -230,7 +230,14 @@ input[type=checkbox]
 		$(".btn-danger").click(function(){
 			$(this).next().attr("action","adminadList.tm");
 			$(this).next().submit();
+		})
+		
+		$(".clickimg").toggle(function(){
+			$(this).animate({"width":"1200px","height":"150px"},"slow","easeOutBack");
+		},function(){
+			$(this).animate({"width":"120px","height":"15px"},"slow","easeOutBack");
 		});
+		
 	</script>
 </body>
 </html>
