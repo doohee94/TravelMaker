@@ -159,7 +159,7 @@ function nochk(){
     
 <div class="registerInner">
         <div class="col-md-6 signUp">
-            <h3 class="headerSign" style="color: #000000;">회원가입</h3>
+            <h3 class="headerSign">회원가입</h3>
             <form id="frm" action="signupOk.tm" method="post">
 <br/>
 <br/>

@@ -145,11 +145,11 @@
 
  <!--this was made my Agil Asadi. You are free to delete this comment line and use it as you wish-->   
 
-<div class="row col-md-8 col-md-offset-2 registeration">
+<div class="row col-md-8 col-md-offset-2 registeration" style="border-top: 5px solid #5d6062;" >
     
 <div class="registerInner">
         <div class="col-md-6 signUp">
-            <label class="headerSign">회원정보보기</label>
+            <h1 class="headerSign">회원정보수정</h1>
             <form method="post" id="frm">
 <br/>
 <br/>
@@ -446,8 +446,8 @@
 		          </select>
                 </div>
                 
-                <center><button type="button" class="signbuttons btn btn-primary" id="update" name="update">수정하기</a></button>
-                <button type="submit" class="signbuttons btn btn-primary" id="insert" name="insert">완료</a></button></center>
+                <center><button type="button" class="signbuttons btn btn-primary" id="update" name="update" style="background: #5d6062; border-color:#5d6062">수정하기</a></button>
+                <button type="submit" class="signbuttons btn btn-primary" id="insert" name="insert" style="background: #5d6062; border-color:#5d6062">완료</a></button></center>
                 <br/><br/><br/><br/>
             </form>    
         </div>

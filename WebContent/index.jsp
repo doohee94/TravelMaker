@@ -74,7 +74,7 @@
 <br/>
 <a href="recommandtravelregion/recommandTravelRegion.tm">추천여행지 페이지</a>
 <br/><br/>
-<a href="mylist/backup.tm">test</a>
+<a href="mylist/testt.tm">test</a>
 
 <br/>
 <a href="registReview/registReview.tm">리뷰등록</a>

@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    $(".tab").click(function(){
+    $(".filter-button").click(function(){
         var value = $(this).attr('data-filter');
         
         if(value == "all")
@@ -18,7 +18,7 @@ $(document).ready(function(){
         }
     });
     
-    if ($(".tab").removeClass("active")) {
+    if ($(".filter-button").removeClass("active")) {
 $(this).removeClass("active");
 }
 $(this).addClass("active");

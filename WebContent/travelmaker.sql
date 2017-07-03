@@ -48,7 +48,7 @@ START WITH 1;
 
 user_type
 회원 : 10
-비회원 : 20
+탈퇴한회원 : 20
 관리자 : 30
 
 CREATE TABLE QNA (

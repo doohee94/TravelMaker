@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -109,9 +110,7 @@ private String dir = "member/";
 		return mv;
 	}*/
 	@RequestMapping(value="/memberUpdate.tm",method=RequestMethod.POST)
-	public String modify(MemberDTO memberdto){
-		System.out.println(memberdto.getUserId());
-		System.out.println(memberdto.getUserPw());
+	public String modify(@ModelAttribute MemberDTO memberdto){
 		return "";
 	}
 	

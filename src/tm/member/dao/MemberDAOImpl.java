@@ -25,19 +25,22 @@ public class MemberDAOImpl implements MemberDAO{
 	/*회원정보보기*/
 	@Override
 	public MemberDTO update(MemberDTO memberdto){
+		System.out.println("회원정보보기");
 		return ss.selectOne("member.update", memberdto);
 	}
 	
 	/*회원수정*/
 	@Override
 	public int modify(String userId){
-		return ss.selectOne("member.modify", userId);
+		System.out.println("회원수정");
+		return ss.update("member.modify", userId);
 	}
 	
 	/*회원탈퇴*/
 	@Override
 	public int delete(MemberDTO memberdto){
-		return ss.delete("member.delete", memberdto);
+		System.out.println("회원탈퇴");
+		return ss.update("member.delete", memberdto);
 	}
 	
 	/*ID 찾기*/
