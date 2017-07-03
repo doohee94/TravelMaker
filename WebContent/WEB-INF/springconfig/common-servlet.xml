@@ -25,6 +25,9 @@
 				<value>classpath:tm/member/mapper/*.xml</value>	
 				<value>classpath:tm/totalre/mapper/*.xml</value>
 				<value>classpath:tm/reviewlike/mapper/*.xml</value>
+				<value>classpath:tm/step3/mapper/*.xml</value>
+				<value>classpath:tm/mobile/mapper/*.xml</value>      
+            	<value>classpath:tm/main/mapper/*.xml</value>   
 			</array>
 		</property>
 	</bean>
