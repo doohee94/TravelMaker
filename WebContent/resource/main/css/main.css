@@ -71,15 +71,23 @@
 	width: 40%;
 	
 }	
+#mobile_search{
+	display: none;
+}
 
 @media(max-width: 1280px){
+	.searchBox{
+	display: none;
+	}
 	.m_imageBox{
 	display: block;
 	}
 	.imageBox{
 	display: none;
 	}
-	
+	#mobile_search{
+	display: block;
+	}
 	.foot_content{
 	float: left;
 	margin-left: 10%;
