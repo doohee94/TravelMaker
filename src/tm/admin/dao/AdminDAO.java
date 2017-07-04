@@ -103,7 +103,8 @@ public interface AdminDAO {
 	public List<AdminStempDTO> stemp(int startnum, int endnum);
 	
 	/**
-	 * 
+	 * insertstemp
+	 * 스탬프 추가
 	 */
 	public int insertstemp(AdminStempDTO adminStempDTO);
 	
@@ -111,6 +112,21 @@ public interface AdminDAO {
 	 * searchstemp
 	 */
 	public List<AdminStempDTO> searchstemp(int startnum, int endnum, String partnerName);
+	
+	/**
+	 * showStemp
+	 * 스탬프 하나의 정보
+	 */
+	public AdminStempDTO showStemp(String parstempNum);
+	
+	/**
+	 * stempupdate
+	 * 스탬프 정보 수정
+	 */
+	public int stempupdate(AdminStempDTO adminStempDTO);
+	
+	
+	
 	
 	/************** 제휴 ******************/
 	

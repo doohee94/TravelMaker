@@ -313,6 +313,18 @@ public class AdminDAOImpl implements AdminDAO {
 		return res;
 	}
 	
+	public AdminStempDTO showStemp(String parstempNum){
+		HashMap map = new HashMap();
+		map.put("parstempNum", parstempNum);
+		
+		return ss.selectOne(namespace + ".stemplist", map);
+	}
+	
+	public int stempupdate(AdminStempDTO adminStempDTO){
+		
+		return ss.update(namespace + ".stempupdate" , adminStempDTO);
+	}
+	
 	
 	/****************   제휴 처리  *****************/
 	

@@ -576,4 +576,25 @@ public class AdminController {
 		
 		return "redirect:/tmadmin/searchstemp.tm";
 	}
+	
+	/**
+	 * 스탬프 수정하기 view
+	 */
+	@RequestMapping("/showStemp.tm")
+	public ModelAndView showStemp(String parstempNum) {
+		AdminStempDTO dto = dao.showStemp(parstempNum);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(dir+"adminstempupdate");
+		mv.addObject("dto", dto);
+		return mv;
+	}
+	
+	/**
+	 * 스탬프 수정
+	 */
+	@RequestMapping("/stempupdate.tm")
+	public String stempupdate(AdminStempDTO adminStempDTO){
+		dao.stempupdate(adminStempDTO);
+		return "redirect:/tmadmin/searchstemp.tm";
+	}
 }

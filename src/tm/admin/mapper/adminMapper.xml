@@ -230,6 +230,9 @@
 			<if test="partnerName != null">
                   	AND partner_name like '%'||#{partnerName}||'%'
             </if>
+            <if test="parstempNum != null">
+            	parstemp_num = #{parstempNum}
+            </if>
         </where>
 	</select>
 	
@@ -242,6 +245,18 @@
 		#{partnerAddr}
 		)
 	</insert>
+	
+	<update id="stempupdate" parameterType="tm.admin.dto.AdminStempDTO">
+		UPDATE parstemp
+		SET
+		partner_num = #{partnerNum},
+		partner_name = #{partnerName},
+		partner_addr = #{partnerAddr}
+		WHERE
+		parstemp_num = #{parstempNum}
+	</update>
+	
+	
 	
 	<!-- partner -->
 	

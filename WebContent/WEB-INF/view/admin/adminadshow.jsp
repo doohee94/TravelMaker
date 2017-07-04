@@ -116,7 +116,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<section class="panel">
-							<header class="panel-heading"> 광고추가 </header>
+							<header class="panel-heading"> 광고 상세 정보 </header>
 							<div class="panel-body">
 								<div class="form">
 									<form class="form-validate form-horizontal" action="adupdate.tm" id="feedback_form" method="post" enctype="multipart/form-data">
