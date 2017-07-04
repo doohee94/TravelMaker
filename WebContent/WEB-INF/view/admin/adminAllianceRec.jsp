@@ -126,7 +126,7 @@
 								<form class="form-inline" role="form" action="searchallirec.tm" method="post" style="float: right;">
 									<div class="form-group">
 										<input type="text" class="form-control" id="partnerComname"  name="partnerComname" required="required" placeholder="회사명 입력">
-										<input type="hidden" name="pageNum" value="${pageNum }">
+										<input type="hidden" id="pageNumber" name="pageNum" value="${pageNum }">
 									</div>
 									<button type="submit" class="btn btn-primary">검색</button>
 								</form>

@@ -127,7 +127,7 @@
 								<form class="form-inline" id="searchalli" role="form" method="post" action="searchalli.tm" style="float: right;">
 									<div class="form-group">
 										<input type="text" class="form-control" id="partnerComname" name="partnerComname" required="required" placeholder="회사명 입력">
-										<input type="hidden" name="pageNum" value="${pageNum }">
+										<input type="hidden" id="pageNumber" name="pageNum" value="${pageNum }">
 									</div>
 									<button type="submit" id="searchallibtn" class="btn btn-primary">검색</button>
 								</form>
@@ -302,34 +302,41 @@
 	<script src="/resource/admin/js/scripts.js"></script>
 	
 	<script type="text/javascript">
-		$("#prevPage").click(function(){
+		$("#prevPage").click(function() {
+			//현재 페이지 넘버를 얻어옴
 			var pageNumber = $("#pageNumber").val();
+			//다음 페이지 넘버가 저장될 변수
 			var nextNumber = 0;
-			if(pageNumber%10-1 <= 0 ){
-				if(parseInt(pageNumber/10) == 0){
-					var temp = parseInt(pageNumber/10);
-					nextNumber = temp*10+1;
+			//만약 10으로 나눈 나머지에 1을 뺄때 0보다 작거나 같다면 그 페이지에서 멈추게
+			if (parseInt(pageNumber) % 10 - 1 <= 0) {
+				if (parseInt(pageNumber / 10) == 0) {
+					var temp = parseInt(pageNumber / 10);
+					nextNumber = parseInt(temp) * 10 + 1;
 				}
-			}else{
+			} else {
+				//위에 조건이 안걸리면 전페이지로 이동
 				nextNumber = pageNumber - 1;
 			}
 			location.href = "/tmadmin/adminAllianceList.tm?pageNumber="+nextNumber;
 		});
-		
-		$("#nextPage").click(function(){
+	
+		$("#nextPage").click(function() {
+			//현재 페이지 넘버를 얻어옴
 			var pageNumber = $("#pageNumber").val();
+			//총 페이지 수를 얻어옴
 			var totalpage = $("#totalpage").val();
+			//다음 페이지 넘버가 저장될 변수
 			var nextNumber = 0;
-			
-			if(pageNumber+1 > totalpage){
+			//다음 페이지가 총페이지 이상일때는 그페이지에 멈춤
+			if (parseInt(pageNumber) + 1 > parseInt(totalpage)) {
 				nextNumber = totalpage;
-			}else{
+			} else {
+				//아니라면 다음페이지로 이동
 				nextNumber = parseInt(pageNumber) + 1;
 			}
-			
 			location.href = "/tmadmin/adminAllianceList.tm?pageNumber="+nextNumber;
 		});
-		
+	
 		
 		$(".infodiv").click(function(){
 			$(this).next().modal({backdrop: 'static'});
