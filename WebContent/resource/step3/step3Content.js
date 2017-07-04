@@ -146,16 +146,32 @@ $( function() {
 	      var addr = [];
 	      var mapx = [];
 	      var mapy = [];
-	      var num = [];
+	      
+	      var titleTemp = [];
+	      var imageTemp = [];
+	      var addrTemp = [];
+	      var mapxTemp = [];
+	      var mapyTemp = [];
 
+	      var index1=0;
+	      var index2=0;
 	      //리스트의 정보를 ajax로 넘긴다
 	      $('#myList > li').each(function(i,item){	
-	         title[i] = $(item).find(".name").text();
-	         image[i] = $(item).find("img").attr("src");
-	         addr[i] = $(item).find(".addr").text();
-	         mapx[i] = $(item).find(".mapx").attr("value");
-	         mapy[i] = $(item).find(".mapy").attr("value"); 
-
+	    	  
+	    	if($(item).find(".mapx").attr("value") != 0.0){    	  
+	         title[index1] = $(item).find(".name").text();
+	         image[index1] = $(item).find("img").attr("src");
+	         addr[index1] = $(item).find(".addr").text();
+	         mapx[index1] = $(item).find(".mapx").attr("value");
+	         mapy[index1] = $(item).find(".mapy").attr("value"); 
+	         index1++;
+	    	 }else{
+	    		 titleTemp[index2] = $(item).find(".name").text();
+		         imageTemp[index2] = $(item).find("img").attr("src");
+		         addrTemp[index2] = $(item).find(".addr").attr("value");
+		         mapxTemp[index2] = $(item).find(".mapx").attr("value");
+		         mapyTemp[index2] = $(item).find(".mapy").attr("value");
+	    	 }
 	         //alert(i + '/' + title);
 	      });
 	      
@@ -191,17 +207,32 @@ $( function() {
 	                              '</div><div class="clearfix"></div></li>');
 
 	            	   }//end for
+	            	   
+	            	   for(var i=0; i<titleTemp.length; i++){
+	            		   $("#myList").append(' <li class="list-group-item remove draggable"  style="color:#000;"> <div class="col-xs-12 col-sm-3">'+
+		                              '<img src="'+imageTemp[i]+'" style="width:62px; height:62px" class="img-responsive img-circle"  /></div>'+
+		                              ' <div class="col-xs-12 col-sm-9" align = "center">' +
+		                              '<span class="name" style="color:#000;">'+titleTemp[i]+'</span><br/>'+
+		                              '<input type="hidden" class="addr" value="'+addrTemp[i]+'"/>'+
+		                              '<input type="hidden" class="mapx" value="'+mapxTemp[i]+'"/>'+
+		                              '<input type="hidden" class="mapy" value="'+mapyTemp[i]+'"/>'+
+		                              '</div><div class="clearfix"></div></li>');
+	            	   }
 //--------------------------------지도에 새로 바뀐경로 찍어주기-----------------------------------------------	            	   
 	            	   var arrayX = [];
 	            	   var arrayY = [];
+	            	   var arrayTitle=[];
 	            	 //리스트가 바뀔 때마다 위도, 경도 정보 가져와 배열에 저장하기
 	                   $('#myList > li').each(function(i,item){
 	                     var mapx = $(item).find(".mapx").attr("value");
 	                     var mapy = $(item).find(".mapy").attr("value");
+	                     var title = $(item).find(".name").text();
 	                     
-	                     arrayX[i] = mapx;
-	                     arrayY[i] = mapy;
-	                     index++;
+	                     if(mapx != 0.0){
+	                   	  arrayX[i] = mapx;
+	                   	  arrayY[i] = mapy;
+	                   	  arrayTitle[i] = title;
+	                     }
 	                     
 	                   });	                   
 	                 
@@ -239,6 +270,22 @@ $( function() {
 	                     
 	                     // LatLngBounds 객체에 좌표를 추가합니다
 	                     bounds.extend(linePath[i]);
+	                     
+	                  // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+	                     var iwContent = '<div style="padding:5px;">'+arrayTitle[i]+'</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+	                         iwRemoveable = true, // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+	                     	   iwPosition = new daum.maps.LatLng(arrayY[i], arrayX[i]); //인포윈도우 표시 위치입니다
+
+
+	                     // 인포윈도우를 생성합니다
+	                     var infowindow = new daum.maps.InfoWindow({
+	                  	   position : iwPosition, 
+	                         content : iwContent,
+	                         removable : iwRemoveable
+	                     });
+	                     
+	                  // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+	                     infowindow.open(map, marker); 
 	                 }
 	                 
 	                 // LatLngBounds 객체에 추가된 좌표들을 기준으로 지도의 범위를 재설정합니다
@@ -273,7 +320,7 @@ $( function() {
 
 	        	            	        		  $('#myList > li').each(function(i,item){ 
 	        	            	                      var list={
-	        	            	                    		 "num":i,
+	        	            	                    		"num":i,
 	        	            	        	           	    "title":$(item).find(".name").text(),
 	        	            	        	           	    "addr":$(item).find(".addr").text(),
 	        	            	        	           	    "image":$(item).find("img").attr("src"),
@@ -302,10 +349,7 @@ $( function() {
 	        	            	          			
 	        	            	          	}
 	        	            	          }      
-	        	            	         var city =  $("#hiddenCity").val();
-	        	            	   	     var date="2017-05-02";
 	        	            	   	     var state="0";
-	        	            	   	     var id=2;
 	        	            	   	     var schedule={
 	        	            	   	    		"_id":_IDdata[x]._id,
 	        	            	   	    		"schedule_num":"1",
@@ -364,9 +408,12 @@ $( function() {
    });
    
  
+   
+   //mylist에 변경이 있을 때 디비 저장하고 지도 변경해주기
    var arrayX = [];
    var arrayY=[];
-   var index = 0;
+   var arrayTitle=[];
+
    $( "#myList" ).sortable({
          connectWith: "ul",
          item:'#myList > li',
@@ -377,11 +424,13 @@ $( function() {
            $('#myList > li').each(function(i,item){
               var mapx = $(item).find(".mapx").attr("value");
               var mapy = $(item).find(".mapy").attr("value");
+              var title =$(item).find(".name").text();
+              
               
               if(mapx != 0.0){
             	  arrayX[i] = mapx;
             	  arrayY[i] = mapy;
-            	  index++;
+            	  arrayTitle[i] = title;
               }
             });
           
@@ -419,6 +468,22 @@ $( function() {
               
               // LatLngBounds 객체에 좌표를 추가합니다
               bounds.extend(linePath[i]);
+              
+           // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+              var iwContent = '<div style="padding:5px;">'+arrayTitle[i]+'</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+                  iwRemoveable = true, // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+              	   iwPosition = new daum.maps.LatLng(arrayY[i], arrayX[i]); //인포윈도우 표시 위치입니다
+
+
+              // 인포윈도우를 생성합니다
+              var infowindow = new daum.maps.InfoWindow({
+           	   position : iwPosition, 
+                  content : iwContent,
+                  removable : iwRemoveable
+              });
+              
+           // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+              infowindow.open(map, marker); 
           }
           
           // LatLngBounds 객체에 추가된 좌표들을 기준으로 지도의 범위를 재설정합니다
@@ -428,7 +493,7 @@ $( function() {
           // 지도에 선을 표시합니다 
           polyline.setMap(map);
           
-       //----------------------------------------------------   
+       //----------------------------------------------------   그룹아이디 저장해주기
           
           var group_number={
              	 "group_num":group_num
@@ -542,8 +607,9 @@ $( function() {
                         '<img src="/resource/step3/step3_image/cityscape.png" style="width:62px; height:62px" class="img-responsive img-circle"  /></div>'+
                         ' <div class="col-xs-12 col-sm-9" align = "center">' +
                         '<span class="name" style="color:#000;">'+chugadata+'</span><br/>'+
-                        '<input type="hidden" class="mapx" value=0.0 />'+
-                        '<input type="hidden" class="mapy" value=0.0 />'+
+                        '<input type="hidden" class="addr" value="없음" >'+
+                        '<input type="hidden" class="mapx" value=0.0 >'+
+                        '<input type="hidden" class="mapy" value=0.0 >'+
                         '</div><div class="clearfix"></div></li>'//결과 값 리스트에 붙이기
                   );   //결과 값 리스트에 붙이기
             }
@@ -651,6 +717,23 @@ $( function() {
 
                // 마커가 지도 위에 표시되도록 설정합니다
                marker.setMap(map);
+               
+            // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+               var iwContent = '<div style="padding:5px;">'+item[i].title+'</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+                   iwRemoveable = true, // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+               	   iwPosition = new daum.maps.LatLng(item[i].mapy, item[i].mapx); //인포윈도우 표시 위치입니다
+
+
+               // 인포윈도우를 생성합니다
+               var infowindow = new daum.maps.InfoWindow({
+            	   position : iwPosition, 
+                   content : iwContent,
+                   removable : iwRemoveable
+               });
+               
+            // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+               infowindow.open(map, marker); 
+
             }
          }
 
@@ -811,6 +894,11 @@ $( function() {
    $(".categoryBtn").click(function(){
    
      var keyword =   $("#hiddenCity").val();
+     
+     if(keyword == ""){
+    	 alert("지역을 먼저 선택해주세요");
+     }
+     else{
      var ContentTypeId ="";
      if($(this).text().trim() =="전체"){
         ContentTypeId="";
@@ -898,6 +986,22 @@ $( function() {
 
                   // 마커가 지도 위에 표시되도록 설정합니다
                   marker.setMap(map);
+                  
+               // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+                  var iwContent = '<div style="padding:5px;">'+item[i].title+'</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+                      iwRemoveable = true, // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+                  	   iwPosition = new daum.maps.LatLng(item[i].mapy, item[i].mapx); //인포윈도우 표시 위치입니다
+
+
+                  // 인포윈도우를 생성합니다
+                  var infowindow = new daum.maps.InfoWindow({
+               	   position : iwPosition, 
+                      content : iwContent,
+                      removable : iwRemoveable
+                  });
+                  
+               // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+                  infowindow.open(map, marker); 
                }
             }
             });
@@ -908,8 +1012,9 @@ $( function() {
 
 
          }); //end of ajax
-     
+     }
    });//end click
+   
    
    
    //친구추가버튼 누를 시 팝업 뜨기
@@ -1024,6 +1129,22 @@ $( function() {
 
                   // 마커가 지도 위에 표시되도록 설정합니다
                   marker.setMap(map);
+                  
+               // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+                  var iwContent = '<div style="padding:5px;">'+item[i].title+'</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+                      iwRemoveable = true, // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+                  	   iwPosition = new daum.maps.LatLng(item[i].mapy, item[i].mapx); //인포윈도우 표시 위치입니다
+
+
+                  // 인포윈도우를 생성합니다
+                  var infowindow = new daum.maps.InfoWindow({
+               	   position : iwPosition, 
+                      content : iwContent,
+                      removable : iwRemoveable
+                  });
+                  
+               // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+                  infowindow.open(map, marker); 
                }
             }
 
