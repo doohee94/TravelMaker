@@ -59,15 +59,20 @@ $(function() {
 		});
 		
 		// 동행자 팝업 창에서 search 버튼 눌렀을때
-		$("#modalsearchbtn").click(function(){
-			$(".idlistfrm").append( 
-					"<label class='idlb'>ID</label>"+
-					"<input type='textarea' class='idlist' id='idlist' name='idlist'>" +
-					"<label class='nicklb'>닉네임</label>"+
-					"<input type+'textarea' class='nicklist' id='nicklist' name='nicklist'>" +
-					"<input type='button' value='O' id='okbtn' class='okbtn'>"+
-					"<br/>"
-					);
+//		$("#modalsearchbtn").click(function(){
+//			$(".idlistfrm").append( 
+//					"<c:forEach var='row' items='${map.list}'>"+
+//					
+//					"<label class='idlb'>ID</label>"+
+//					"<input type='textarea' value='' class='idlist' id='idlist' name='idlist'>" +
+//					"<label class='nicklb'>닉네임</label>"+
+//					"<input type+'textarea' value='' class='nicklist' id='nicklist' name='nicklist'>" +
+//					"<input type='button' value='O' id='okbtn' class='okbtn'>"+
+//					"<br/>"+
+//					
+//					"</c:forEach>"
+//					
+//					);
 			
 			//검색창의 내용을 con 이라는 변수에 저장.
 //			var con = $("#modalsearchplace").val() ;
@@ -91,7 +96,7 @@ $(function() {
 //				
 //			});
 			
-		});
+//		});
 	
 		// 제목 입력란 유효성 글자 25자 내로 입력
 		$('.traveltitle').on('keydown', function() {

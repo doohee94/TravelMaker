@@ -6,12 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import tm.step1.dao.Step1DAO;
 import tm.step1.dto.Step1DTO;
 
+/**
+ * Step1Controller
+ * 스탭1 여행일정 만들기 관련 매핑 처리
+ * dir : 폴더 경로 
+ */
 @Controller
 @RequestMapping("/step1")
 public class Step1Controller {
@@ -45,12 +49,18 @@ public class Step1Controller {
 //		session.setAttribute("", G);
 //	return "redirect:/step2/step2.tm";
 //	}
-//	
-	@RequestMapping("/setp1searchfellow.tm")
-	public @ResponseBody List<Step1DTO> searchfellow(@RequestParam String con){
+	
+	//step1 동행자 팝업 검색 목록 ( 아이디 와 닉네임 출력 ) 
+	@RequestMapping("step1fellow.tm")
+	public ModelAndView step1fellow(String modalsearchplace){
 		
-		List<Step1DTO> list = dao.fellowsearch(con);
-				
-		return list;
+		List<Step1DTO> list = dao.fellowsearch(modalsearchplace);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(dir+"/step1");
+		mv.addObject("modalsearchplace", modalsearchplace);
+		
+		return mv;
 	}
+	
+	
 }

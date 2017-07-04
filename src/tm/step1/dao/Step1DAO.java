@@ -7,7 +7,7 @@ import tm.step1.dto.Step1DTO;
 public interface Step1DAO {
 
 	public List<Step1DTO> Step1list();
-	
-	public List<Step1DTO> fellowsearch(String con);
+	/*회원의 기록을 */
+	public List<Step1DTO> fellowsearch(String modalsearchplace);
 	
 }
