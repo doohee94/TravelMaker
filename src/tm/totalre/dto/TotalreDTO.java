@@ -1,5 +1,11 @@
 package tm.totalre.dto;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
+
+import org.springframework.web.multipart.MultipartFile;
+
 public class TotalreDTO {
 
 	private String totalreNum;
@@ -16,7 +22,99 @@ public class TotalreDTO {
 	private String totalrePhoto1;
 	private String totalrePhoto1fake;
 	private String totalreLikecount;
-	
+
+	MultipartFile photo1,photo2,photo3,photo4;
+
+	public MultipartFile getPhoto1() {
+		return photo1;
+	}
+	public void setPhoto1(MultipartFile photo1) {
+		this.photo1 = photo1;
+
+		//파일 저장 부분
+		if( ! photo1.isEmpty() ){
+			//업로드 되는 파일 이름
+			this.totalrePhoto1 = photo1.getOriginalFilename();
+			//중복방지 파일명처리
+			String genId = UUID.randomUUID().toString();
+			this.totalrePhoto1fake = genId + totalrePhoto1;
+			//파일 저장 경로
+			File f = new File("C:\\TravelMaker\\WebContent\\upload\\review\\"+totalrePhoto1fake);
+			try {
+				photo1.transferTo(f);
+			} catch (IllegalStateException | IOException e) {
+				System.out.println("파일 저장 실패 : " + e.getMessage());
+			}
+		}
+	}
+	public MultipartFile getPhoto2() {
+		return photo2;
+	}
+	public void setPhoto2(MultipartFile photo2) {
+		this.photo2 = photo2;
+		
+		//파일 저장 부분
+				if( ! photo2.isEmpty() ){
+					//업로드 되는 파일 이름
+					this.totalrePhoto2 = photo2.getOriginalFilename();
+					//중복방지 파일명처리
+					String genId = UUID.randomUUID().toString();
+					this.totalrePhoto2fake = genId + totalrePhoto2;
+					//파일 저장 경로
+					File f = new File("C:\\TravelMaker\\WebContent\\upload\\review\\"+totalrePhoto2fake);
+					try {
+						photo2.transferTo(f);
+					} catch (IllegalStateException | IOException e) {
+						System.out.println("파일 저장 실패 : " + e.getMessage());
+					}
+				}
+	}
+	public MultipartFile getPhoto3() {
+		return photo3;
+	}
+	public void setPhoto3(MultipartFile photo3) {
+		this.photo3 = photo3;
+		
+		//파일 저장 부분
+				if( ! photo3.isEmpty() ){
+					//업로드 되는 파일 이름
+					this.totalrePhoto3 = photo3.getOriginalFilename();
+					//중복방지 파일명처리
+					String genId = UUID.randomUUID().toString();
+					this.totalrePhoto3fake = genId + totalrePhoto3;
+					//파일 저장 경로
+					File f = new File("C:\\TravelMaker\\WebContent\\upload\\review\\"+totalrePhoto3fake);
+					try {
+						photo3.transferTo(f);
+					} catch (IllegalStateException | IOException e) {
+						System.out.println("파일 저장 실패 : " + e.getMessage());
+					}
+				}
+	}
+	public MultipartFile getPhoto4() {
+		return photo4;
+	}
+	public void setPhoto4(MultipartFile photo4) {
+		this.photo4 = photo4;
+		
+		//파일 저장 부분
+				if( ! photo4.isEmpty() ){
+					//업로드 되는 파일 이름
+					this.totalrePhoto4 = photo4.getOriginalFilename();
+					//중복방지 파일명처리
+					String genId = UUID.randomUUID().toString();
+					this.totalrePhoto4fake = genId + totalrePhoto4;
+					//파일 저장 경로
+					File f = new File("C:\\TravelMaker\\TravelMaker\\WebContent\\upload\\review\\"+totalrePhoto4fake);
+					try {
+						photo4.transferTo(f);
+					} catch (IllegalStateException | IOException e) {
+						System.out.println("파일 저장 실패 : " + e.getMessage());
+					}
+				}
+	}
+
+
 	public String getTotalreNum() {
 		return totalreNum;
 	}
@@ -101,5 +199,5 @@ public class TotalreDTO {
 	public void setTotalreLikecount(String totalreLikecount) {
 		this.totalreLikecount = totalreLikecount;
 	}
-	
+
 }

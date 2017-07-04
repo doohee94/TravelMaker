@@ -68,9 +68,9 @@
 		<!-- /.row -->
 
 		<div class="row">
-			<form id="reviewForm" action="/registReview/insertReview.tm">
+			<form id="reviewForm" action="/registReview/insertReview.tm" enctype="multipart/form-data">
 				
-				<input type="hidden" name="scNum" value="128">
+				<input type="hidden" name="scNum" value="127">
 				<input type="hidden" name="userId" value="maro">
 				<input type="hidden" name="totalreLikecount" value="0">
 			
@@ -83,8 +83,8 @@
 						class="img-responsive img-hover" id="photow<%=i+1 %>" src="http://placehold.it/750x450"
 						alt="">
 					</a>
-					<input type="file" name="totalrePhoto<%=i+1 %>" id="photo<%=i+1 %>">
-					<input type="hidden" name="totalrePhoto<%=i+1 %>fake" value="totalrePhoto<%=i+1 %>">
+					<input type="file" name="photo<%=i+1 %>" id="photo<%=i+1 %>">
+<%-- 					<input type="hidden" name="totalrePhoto<%=i+1 %>fake" value="totalrePhoto<%=i+1 %>"> --%>
 				</div>
 			<%}%>
 			<br/>
