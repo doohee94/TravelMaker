@@ -142,10 +142,10 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
 									<c:choose>
 										<c:when test="${!empty list }">
 											<c:forEach var="a" items="${list }">
+											<tr>
 												<td>${a.parstempNum }</td>
 												<td>${a.partnerCeoname }</td>
 												<td>${a.partnerName }</td>
@@ -185,6 +185,7 @@
 														<i class="delete icon_close_alt2" id="deletebtn"> 삭제</i>
 													</a>
 												</td>
+											</tr>
 											</c:forEach>
 										</c:when>
 										<c:otherwise>
@@ -193,7 +194,6 @@
 											</td>
 										</c:otherwise>
 									</c:choose>
-									</tr>
 								</tbody>
 							</table>
 						</section>

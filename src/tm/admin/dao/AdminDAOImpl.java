@@ -21,6 +21,9 @@ public class AdminDAOImpl implements AdminDAO {
 	
 	private String namespace = "admin";
 	
+	
+	/****************   페이징 처리  *****************/
+	
 	public int[] page(int totalcol,int countpage,int pageNum) {
 		int[] resultPage = new int[3];
 		
@@ -75,20 +78,16 @@ public class AdminDAOImpl implements AdminDAO {
 		}
 		if(table.equals("parstemp")){
 			totalcol = ss.selectOne(namespace+".stempcnt", map);
+		}else if(table.equals("advertisement")){
+			totalcol = ss.selectOne(namespace+".adcnt", map);
 		}else{
 			//테이블의 총 컬럼수를 읽어옴
 			totalcol = ss.selectOne(namespace+".cnt", map);
 		}
 		
-		
-		
 		return page(totalcol,countpage,pageNum);
 	}
 	
-	
-	/**
-	 * 제휴
-	 */
 	@Override
 	public int[] SettingPageNum(int type, int countpage, int pageNum, int state, String str) {
 		//테이블의 총 컬럼수를 읽어옴
@@ -116,6 +115,8 @@ public class AdminDAOImpl implements AdminDAO {
 		return page(totalcol,countpage,pageNum);
 	}
 	
+	/****************   회원 처리  *****************/
+	
 	@Override
 	public List<AdminMemberDTO> MemberList() {
 		
@@ -134,7 +135,7 @@ public class AdminDAOImpl implements AdminDAO {
 		
 		return list;
 	}
-
+	
 	@Override
 	public AdminMemberDTO Membershow(String id) {
 		HashMap map = new HashMap();
@@ -143,7 +144,7 @@ public class AdminDAOImpl implements AdminDAO {
 		AdminMemberDTO dto = ss.selectOne(namespace+".memberlist",map);
 		return dto;
 	}
-
+	
 	@Override
 	public List<AdminMemberDTO> Membersearch(String sel, String con, int startnum, int endnum) {
 		HashMap map = new HashMap();
@@ -155,6 +156,10 @@ public class AdminDAOImpl implements AdminDAO {
 		
 		return list;
 	}
+
+	
+	/****************   QNA 처리  *****************/
+	
 
 	@Override
 	public List<AdminQnaDTO> qnalist() {
@@ -171,48 +176,42 @@ public class AdminDAOImpl implements AdminDAO {
 		List<AdminQnaDTO> list = ss.selectList(namespace+".qnalist", map);
 		return list;
 	}
-
+	
 	@Override
 	public int qnareply(AdminQnaDTO adminQnaDTO) {
 		int res = ss.update(namespace+".reply", adminQnaDTO);
 		return res;
 	}
-
+	
+	/****************   광고 처리  *****************/
+	
 	@Override
 	public List<AdminadDTO> adlist() {
 		List<AdminadDTO> list = ss.selectList(namespace + ".adlist");
 		return list;
 	}
-
+	
 	@Override
-	public List<AllianceDTO> alsearch(String partnercomname) {
+	public List<AdminadDTO> adlist(int startnum, int endnum) {
 		HashMap map = new HashMap();
-		map.put("partnerComname", partnercomname);
-		
-		List<AllianceDTO> list = ss.selectList(namespace + ".allist", map);
-		return list;
-	}
-	@Override
-	public List<AllianceDTO> alsearch(int startnum, int endnum, String partnercomname) {
-		HashMap map = new HashMap();
-		map.put("partnerComname", partnercomname);
 		map.put("startnum", startnum);
 		map.put("endnum", endnum);
 		
-		List<AllianceDTO> list = ss.selectList(namespace + ".allist", map);
+		List<AdminadDTO> list = ss.selectList(namespace + ".adlist", map);
 		return list;
 	}
+	
 	@Override
-	public List<AllianceDTO> alsearchRec(int startnum, int endnum, String partnercomname) {
+	public List<AdminadDTO> adsearch(int startnum, int endnum, String partnerComname){
 		HashMap map = new HashMap();
-		map.put("partnerComname", partnercomname);
 		map.put("startnum", startnum);
 		map.put("endnum", endnum);
+		map.put("partnerComname", partnerComname);
 		
-		List<AllianceDTO> list = ss.selectList(namespace + ".allistRec", map);
+		List<AdminadDTO> list = ss.selectList(namespace + ".adlist", map);
 		return list;
 	}
-
+	
 	@Override
 	public int adadinsert(AdminadDTO adminadDTO) {
 		//글번호 작성 부분
@@ -238,7 +237,7 @@ public class AdminDAOImpl implements AdminDAO {
 		int res = ss.insert(namespace + ".adinsert", adminadDTO);
 		return res;
 	}
-
+	
 	@Override
 	public int addelete(String adnum) {
 		HashMap map = new HashMap();
@@ -247,72 +246,11 @@ public class AdminDAOImpl implements AdminDAO {
 		int res = ss.delete(namespace + ".addelete", map);
 		return res;
 	}
-
-	@Override
-	public List<AllianceDTO> adallist() {
-		
-		List<AllianceDTO> list = ss.selectList(namespace + ".allist");
-		
-		return list;
-	}
 	
-	@Override
-	public List<AllianceDTO> adallist(int startnum, int endnum) {
-		
-		HashMap map = new HashMap();
-		map.put("startnum", startnum);
-		map.put("endnum", endnum);
-		
-		List<AllianceDTO> list = ss.selectList(namespace + ".allist", map);
-		
-		return list;
-	}
+
 	
-	@Override
-	public List<AllianceDTO> adallistRec(int startnum, int endnum) {
-		
-		HashMap map = new HashMap();
-		map.put("startnum", startnum);
-		map.put("endnum", endnum);
-		
-		List<AllianceDTO> list = ss.selectList(namespace + ".allistRec", map);
-		
-		return list;
-	}
-
-	@Override
-	public int allianceDel(String partnernum) {
-		
-		HashMap map = new HashMap();
-		map.put("partnernum", partnernum);
-		int cnt = ss.selectOne(namespace + ".cntad", map);
-		
-		if(cnt > 0 ){
-			int resad = ss.delete(namespace + ".addelete", map);
-		}
-		
-		int resal = ss.delete(namespace + ".alliancedel", map);
-		
-		return resal;
-	}
-
-	@Override
-	public int adminalup(String num) {
-		
-		HashMap map = new HashMap();
-		map.put("partnernum", num);
-		int res = ss.update(namespace + ".allianceapproval", map);
-		
-		return res;
-	}
-
-	@Override
-	public int typeupdate(AllianceDTO allianceDTO) {
-		
-		int res = ss.update(namespace + ".typeupdate", allianceDTO);
-		
-		return res;
-	}
+	
+	/****************   스탬프 처리  *****************/
 	
 	@Override
 	public List<AdminStempDTO> stemp() {
@@ -363,5 +301,114 @@ public class AdminDAOImpl implements AdminDAO {
 		
 		return res;
 	}
+	
+	
+	/****************   제휴 처리  *****************/
+	
+
+	@Override
+	public List<AllianceDTO> adallist() {
+		
+		List<AllianceDTO> list = ss.selectList(namespace + ".allist");
+		
+		return list;
+	}
+	
+	@Override
+	public List<AllianceDTO> alsearch(String partnercomname) {
+		HashMap map = new HashMap();
+		map.put("partnerComname", partnercomname);
+		
+		List<AllianceDTO> list = ss.selectList(namespace + ".allist", map);
+		return list;
+	}
+	
+	
+	@Override
+	public List<AllianceDTO> alsearch(int startnum, int endnum, String partnercomname) {
+		HashMap map = new HashMap();
+		map.put("partnerComname", partnercomname);
+		map.put("startnum", startnum);
+		map.put("endnum", endnum);
+		
+		List<AllianceDTO> list = ss.selectList(namespace + ".allist", map);
+		return list;
+	}
+	
+	@Override
+	public List<AllianceDTO> adallist(int startnum, int endnum) {
+		
+		HashMap map = new HashMap();
+		map.put("startnum", startnum);
+		map.put("endnum", endnum);
+		
+		List<AllianceDTO> list = ss.selectList(namespace + ".allist", map);
+		
+		return list;
+	}
+	
+	@Override
+	public int allianceDel(String partnernum) {
+		
+		HashMap map = new HashMap();
+		map.put("partnernum", partnernum);
+		int cnt = ss.selectOne(namespace + ".cntad", map);
+		
+		if(cnt > 0 ){
+			int resad = ss.delete(namespace + ".addelete", map);
+		}
+		
+		int resal = ss.delete(namespace + ".alliancedel", map);
+		
+		return resal;
+	}
+	
+	@Override
+	public int adminalup(String num) {
+		
+		HashMap map = new HashMap();
+		map.put("partnernum", num);
+		int res = ss.update(namespace + ".allianceapproval", map);
+		
+		return res;
+	}
+	
+	@Override
+	public int typeupdate(AllianceDTO allianceDTO) {
+		
+		int res = ss.update(namespace + ".typeupdate", allianceDTO);
+		
+		return res;
+	}
+	
+	
+	/****************   제휴승인 처리  *****************/
+	
+
+	@Override
+	public List<AllianceDTO> alsearchRec(int startnum, int endnum, String partnercomname) {
+		HashMap map = new HashMap();
+		map.put("partnerComname", partnercomname);
+		map.put("startnum", startnum);
+		map.put("endnum", endnum);
+		
+		List<AllianceDTO> list = ss.selectList(namespace + ".allistRec", map);
+		return list;
+	}
+
+	@Override
+	public List<AllianceDTO> adallistRec(int startnum, int endnum) {
+		
+		HashMap map = new HashMap();
+		map.put("startnum", startnum);
+		map.put("endnum", endnum);
+		
+		List<AllianceDTO> list = ss.selectList(namespace + ".allistRec", map);
+		
+		return list;
+	}
+
+	
+	
 	
 }

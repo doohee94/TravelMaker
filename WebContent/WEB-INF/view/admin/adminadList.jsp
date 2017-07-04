@@ -131,66 +131,290 @@ input[type=checkbox]
 						</ol>
 					</div>
 				</div>
-
+				
+				<div class="row">
+					<div class="modal-body">
+						<form class="form-inline" method="post" role="form" action="adminadsearch.tm">
+							<div class="form-group">
+								<input type="text" class="form-control sm-input"  name="partnerComname" placeholder="회사명 검색" value="${partnerName }">
+							</div>
+							<button type="submit" class="btn btn-success">검색</button>
+							<div class="form-group">
+								<a class="btn btn-info" href="adminadSetting.tm" >광고추가</a>
+								<a class="btn btn-success" href="" >설정완료</a>
+							</div>
+						</form>
+					</div>
+				</div>
+				
 				<div class="row">
 					<div class="col-sm-10">
+						<!--tab nav start-->
 						<section class="panel">
-							<header class="panel-heading" style="padding: 6px;">
-							광고리스트
-							<a class="btn btn-success" href="" title="Bootstrap 3 themes generator" style="margin-left:10px; float: right;">설정완료</a>
-							<a class="btn btn-info" href="adminadSetting.tm" title="Bootstrap 3 themes generator" style="margin-left:10px; float: right;">광고추가</a>
-							<form class="form-inline" role="form" style="float: right;">
-								<div class="form-group">
-									<input type="text" class="form-control" id="exampleInputEmail2" required="required" placeholder="회사명 입력">
-								</div>
-								<button type="submit" class="btn btn-primary">검색</button>
-							</form>
+							<header class="panel-heading tab-bg-primary ">
+								<ul class="nav nav-tabs">
+									<li class="active"><a data-toggle="tab" href="#home">전체</a></li>
+									<li class=""><a data-toggle="tab" href="#about">완료</a></li>
+									<li class=""><a data-toggle="tab" href="#profile">현재</a></li>
+									<li class=""><a data-toggle="tab" href="#contact">예정</a></li>
+								</ul>
 							</header>
-							<table class="table table-striped table-advance table-hover">
-								<tbody>
-									<c:choose>
-										<c:when test="${!empty adlist}">
-											<c:forEach items="${adlist }" var="a" varStatus="i">
-												<tr>
-													<td>
-														<table style="margin-left:40px; border: 1px solid #e2e2e2;">
-															<tr align="center" >
-																<td style="width : 100px;">
-																	<div class="checkbox" >
-																		<c:choose>
-																			<c:when test="${a.adCheck eq '1' }">
-																				<label><input type="checkbox" checked="checked"/></label>
-																			</c:when>
-																			<c:otherwise>
-																				<label><input type="checkbox" /></label>
-																			</c:otherwise>
-																		</c:choose>
-																	</div>	
-																</td>
-																<td style="width:1200px; font-size: 1.5em;">
-																	${a.adTitle }<a class="btn btn-danger" href="#" title="Bootstrap 3 themes generator" style="float: right;">삭제</a>
-																	<form method="post"><input type="hidden" name="num" value="${a.adNum }"></form>
-																</td>
-															</tr>
-															<tr>
-																<td style="text-align: center;">
-																	img
-																</td>
-																<td class="imgclick" style="text-align: center;">
-																	<img alt="" class="clickimg" src="/upload/alliance/${a.adPhotofake }" style="width: 120px; height: 15px;" >
-																</td>
-															</tr>
-														</table>
-													</td>
-												</tr>
-											</c:forEach>
-										</c:when>
-										<c:otherwise>
-											값이없습니다
-										</c:otherwise>
-									</c:choose>
-								</tbody>
-							</table>
+							<div class="panel-body">
+								<div class="tab-content">
+									<div id="home" class="tab-pane active">
+										<!-- page Number Start -->
+										<input type="hidden" id="pageNumber" name="pageNumber" value="${pageNum }"/>
+										<input type="hidden" id="totalpage" name="totalpage" value="${totalpage }"/>
+										<input type="hidden" id="url" name="url" value="${url }"/>
+										<input type="hidden" id="partnerComname"  value="${partnerComname }"/>
+										<div class="btn-row">
+											<div class="btn-group">
+												<input type="hidden" id="totalpage" value="${totalpage }">
+												<c:choose>
+													<c:when test="${url  eq 'adminadsearch.tm' }">
+														<a href="${url }?pageNumber=1&partnerComname=${partnerComname }" class="pagebtn btn btn-default" type="button">&#171;</a>
+													</c:when>
+													<c:otherwise>
+														<a href="${url }?pageNumber=1" class="pagebtn btn btn-default" type="button">&#171;</a>
+													</c:otherwise>
+												</c:choose>
+												<button class="pagebtn btn btn-default" id="prevPage" type="button">&#60;</button>
+												<c:forEach var="i" begin="1" end="${totalpage }">
+													<c:choose>
+														<c:when test="${pageNum == i}">
+															<a class="pagebtn btn btn-primary" type="button">${i }</a>
+														</c:when>
+														<c:otherwise>
+															<c:choose>
+																<c:when test="${url  eq 'adminadsearch.tm' }">
+																	<a href="${url }?pageNumber=${i }&partnerComname=${partnerComname }" class="pagebtn btn btn-default" type="button">${i }</a>
+																</c:when>
+																<c:otherwise>
+																	<a href="${url }?pageNumber=${i }" class="pagebtn btn btn-default" type="button">${i }</a>
+																</c:otherwise>
+															</c:choose>
+														</c:otherwise>
+													</c:choose>
+												</c:forEach>
+												<button class="pagebtn btn btn-default" id="nextPage" type="button">&#62;</button>
+												<c:choose>
+													<c:when test="${url  eq 'adminadsearch.tm' }">
+														<a href="${url }?pageNumber=${totalpage }&partnerComname=${partnerComname }" class="pagebtn btn btn-default" type="button">&#187;</a>
+													</c:when>
+													<c:otherwise>
+														<a href="${url }?pageNumber=${totalpage }" class="pagebtn btn btn-default" type="button">&#187;</a>
+													</c:otherwise>
+												</c:choose>
+											</div>
+										</div>
+										<!-- page Number End -->
+										<section class="panel">
+											<table class="table table-striped table-advance table-hover">
+												<tbody>
+													<c:choose>
+														<c:when test="${!empty adlist}">
+															<c:forEach items="${adlist }" var="a" varStatus="i">
+																<tr>
+																	<td>
+																		<table style="margin-left:40px; border: 1px solid #e2e2e2;">
+																			<tr align="center" >
+																				<td style="width : 100px;">
+																					<div class="checkbox" >
+																						<c:choose>
+																							<c:when test="${a.adCheck eq '1' }">
+																								<label><input type="checkbox" checked="checked"/></label>
+																							</c:when>
+																							<c:otherwise>
+																								<label><input type="checkbox" /></label>
+																							</c:otherwise>
+																						</c:choose>
+																					</div>	
+																				</td>
+																				<td style="width:1200px; font-size: 1.5em;">
+																					[ ${a.partnerComname } ]  ${a.adTitle }
+																					<a class="btn btn-danger" href="#" title="Bootstrap 3 themes generator" style="float: right;">삭제</a>
+																					<form method="post"><input type="hidden" name="num" value="${a.adNum }"></form>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td style="text-align: center;">
+																					img
+																				</td>
+																				<td class="imgclick" style="text-align: center;">
+																					<img alt="" class="clickimg" src="/upload/alliance/${a.adPhotofake }" style="width: 120px; height: 15px;" >
+																				</td>
+																			</tr>
+																		</table>
+																	</td>
+																</tr>
+															</c:forEach>
+														</c:when>
+														<c:otherwise>
+															값이없습니다
+														</c:otherwise>
+													</c:choose>
+												</tbody>
+											</table>
+										</section>
+									</div>
+									<div id="about" class="tab-pane">
+										<section class="panel">
+											<table class="table table-striped table-advance table-hover">
+												<tbody>
+													<c:choose>
+														<c:when test="${!empty adlist}">
+															<c:forEach items="${adlist }" var="a" varStatus="i">
+																<c:if test="${a.state eq '10' }">
+																<tr>
+																	<td>
+																		<table style="margin-left:40px; border: 1px solid #e2e2e2;">
+																			<tr align="center" >
+																				<td style="width : 100px;">
+																					<div class="checkbox" >
+																						<c:choose>
+																							<c:when test="${a.adCheck eq '1' }">
+																								<label><input type="checkbox" checked="checked"/></label>
+																							</c:when>
+																							<c:otherwise>
+																								<label><input type="checkbox" /></label>
+																							</c:otherwise>
+																						</c:choose>
+																					</div>	
+																				</td>
+																				<td style="width:1200px; font-size: 1.5em;">
+																					[ ${a.partnerComname } ]  ${a.adTitle }
+																					<a class="btn btn-danger" href="#" title="Bootstrap 3 themes generator" style="float: right;">삭제</a>
+																					<form method="post"><input type="hidden" name="num" value="${a.adNum }"></form>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td style="text-align: center;">
+																					img
+																				</td>
+																				<td class="imgclick" style="text-align: center;">
+																					<img alt="" class="clickimg" src="/upload/alliance/${a.adPhotofake }" style="width: 120px; height: 15px;" >
+																				</td>
+																			</tr>
+																		</table>
+																	</td>
+																</tr>
+															</c:if>
+															</c:forEach>
+														</c:when>
+														<c:otherwise>
+															값이없습니다
+														</c:otherwise>
+													</c:choose>
+												</tbody>
+											</table>
+										</section>
+									</div>
+									<div id="profile" class="tab-pane">
+										<section class="panel">
+											<table class="table table-striped table-advance table-hover">
+												<tbody>
+													<c:choose>
+														<c:when test="${!empty adlist}">
+															<c:forEach items="${adlist }" var="a" varStatus="i">
+																<c:if test="${a.state eq '20' }">
+																<tr>
+																	<td>
+																		<table style="margin-left:40px; border: 1px solid #e2e2e2;">
+																			<tr align="center" >
+																				<td style="width : 100px;">
+																					<div class="checkbox" >
+																						<c:choose>
+																							<c:when test="${a.adCheck eq '1' }">
+																								<label><input type="checkbox" checked="checked"/></label>
+																							</c:when>
+																							<c:otherwise>
+																								<label><input type="checkbox" /></label>
+																							</c:otherwise>
+																						</c:choose>
+																					</div>	
+																				</td>
+																				<td style="width:1200px; font-size: 1.5em;">
+																					[ ${a.partnerComname } ]  ${a.adTitle }
+																					<a class="btn btn-danger" href="#" title="Bootstrap 3 themes generator" style="float: right;">삭제</a>
+																					<form method="post"><input type="hidden" name="num" value="${a.adNum }"></form>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td style="text-align: center;">
+																					img
+																				</td>
+																				<td class="imgclick" style="text-align: center;">
+																					<img alt="" class="clickimg" src="/upload/alliance/${a.adPhotofake }" style="width: 120px; height: 15px;" >
+																				</td>
+																			</tr>
+																		</table>
+																	</td>
+																</tr>
+															</c:if>
+															</c:forEach>
+														</c:when>
+														<c:otherwise>
+															값이없습니다
+														</c:otherwise>
+													</c:choose>
+												</tbody>
+											</table>
+										</section>
+									</div>
+									<div id="contact" class="tab-pane">
+										<section class="panel">
+											<table class="table table-striped table-advance table-hover">
+												<tbody>
+													<c:choose>
+														<c:when test="${!empty adlist}">
+															<c:forEach items="${adlist }" var="a" varStatus="i">
+																<c:if test="${a.state eq '30' }">
+																<tr>
+																	<td>
+																		<table style="margin-left:40px; border: 1px solid #e2e2e2;">
+																			<tr align="center" >
+																				<td style="width : 100px;">
+																					<div class="checkbox" >
+																						<c:choose>
+																							<c:when test="${a.adCheck eq '1' }">
+																								<label><input type="checkbox" checked="checked"/></label>
+																							</c:when>
+																							<c:otherwise>
+																								<label><input type="checkbox" /></label>
+																							</c:otherwise>
+																						</c:choose>
+																					</div>	
+																				</td>
+																				<td style="width:1200px; font-size: 1.5em;">
+																					[ ${a.partnerComname } ]  ${a.adTitle }
+																					<a class="btn btn-danger" href="#" title="Bootstrap 3 themes generator" style="float: right;">삭제</a>
+																					<form method="post"><input type="hidden" name="num" value="${a.adNum }"></form>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td style="text-align: center;">
+																					img
+																				</td>
+																				<td class="imgclick" style="text-align: center;">
+																					<img alt="" class="clickimg" src="/upload/alliance/${a.adPhotofake }" style="width: 120px; height: 15px;" >
+																				</td>
+																			</tr>
+																		</table>
+																	</td>
+																</tr>
+															</c:if>
+															</c:forEach>
+														</c:when>
+														<c:otherwise>
+															값이없습니다
+														</c:otherwise>
+													</c:choose>
+												</tbody>
+											</table>
+										</section>
+									</div>
+								</div>
+							</div>
 						</section>
 					</div>
 				</div>
@@ -228,7 +452,7 @@ input[type=checkbox]
 
 	<script type="text/javascript">
 		$(".btn-danger").click(function(){
-			$(this).next().attr("action","adminadList.tm");
+			$(this).next().attr("action","deletead.tm");
 			$(this).next().submit();
 		})
 		
@@ -236,6 +460,55 @@ input[type=checkbox]
 			$(this).animate({"width":"1200px","height":"150px"},"slow","easeOutBack");
 		},function(){
 			$(this).animate({"width":"120px","height":"15px"},"slow","easeOutBack");
+		});
+		
+		$("#prevPage").click(function() {
+			//현재 페이지 넘버를 얻어옴
+			var pageNumber = $("#pageNumber").val();
+			var url = $("#url").val();
+			var partnerName = $("#partnerComname").val();
+			//다음 페이지 넘버가 저장될 변수
+			var nextNumber = 0;
+			//만약 10으로 나눈 나머지에 1을 뺄때 0보다 작거나 같다면 그 페이지에서 멈추게
+			if (pageNumber % 10 - 1 <= 0) {
+				if (parseInt(pageNumber / 10) == 0) {
+					var temp = parseInt(pageNumber / 10);
+					nextNumber = temp * 10 + 1;
+				}
+			} else {
+				//위에 조건이 안걸리면 전페이지로 이동
+				nextNumber = pageNumber - 1;
+			}
+			
+			if(url == "adminadsearch.tm"){
+				location.href = "/tmadmin/"+url+"?pageNumber=" + nextNumber + "&partnerComname=" + partnerName;
+			}else{
+				location.href = "/tmadmin/"+url+"?pageNumber=" + nextNumber;
+			}
+		});
+
+		$("#nextPage").click(function() {
+			var partnerName = $("#partnerComname").val();
+			//현재 페이지 넘버를 얻어옴
+			var pageNumber = $("#pageNumber").val();
+			//총 페이지 수를 얻어옴
+			var totalpage = $("#totalpage").val();
+			var url = $("#url").val();
+			//다음 페이지 넘버가 저장될 변수
+			var nextNumber = 0;
+			//다음 페이지가 총페이지 이상일때는 그페이지에 멈춤
+			if (pageNumber + 1 > totalpage) {
+				nextNumber = totalpage;
+			} else {
+				//아니라면 다음페이지로 이동
+				nextNumber = parseInt(pageNumber) + 1;
+			}
+
+			if(url == "adminadsearch.tm"){
+				location.href = "/tmadmin/"+url+"?pageNumber=" + nextNumber + "&partnerComname=" + partnerName;
+			}else{
+				location.href = "/tmadmin/"+url+"?pageNumber=" + nextNumber;
+			}
 		});
 		
 	</script>

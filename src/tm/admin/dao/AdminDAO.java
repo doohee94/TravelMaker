@@ -66,6 +66,9 @@ public interface AdminDAO {
 	 * 광고 리스트 출력
 	 */
 	public List<AdminadDTO> adlist();
+	public List<AdminadDTO> adlist(int startnum, int endnum);
+	public List<AdminadDTO> adsearch(int startnum, int endnum, String partnerComname);
+	
 	
 	/**
 	 * adadinsert
