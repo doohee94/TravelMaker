@@ -56,7 +56,7 @@ public class LoginController {
 			}
 		}else{
 			System.out.println("로그인 실패");
-			result= "member"+"/loginForm";
+			return "redirect:/member/loginForm.tm";
 		}
 		return result;
 	}
