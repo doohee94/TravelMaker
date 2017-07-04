@@ -29,9 +29,6 @@
     <!-- Custom CSS -->
     <link href="/resource/bootstrap/css/sb-admin-2.css" rel="stylesheet">
 
-    <!-- Morris Charts CSS -->
-    <link href="/resource/bootstrap/css/morris.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="/resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -211,16 +208,16 @@ $(function(){
                             </ul>
                         </li>
                         <li>
-                            <a href="tables.html"><i class="fa fa-check-square-o fa-fw"></i>  관심 여행지</a>
+                            <a href="/tmmypage/likespot.tm"><i class="fa fa-check-square-o fa-fw"></i>  관심 여행지</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-check-square-o fa-fw"></i>  관심 일정</a>
+                            <a href="/tmmypage/schedule.tm"><i class="fa fa-check-square-o fa-fw"></i>  관심 일정</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-comments fa-fw"></i>  QnA</a>
+                            <a href="/tmmypage/qna.tm"><i class="fa fa-comments fa-fw"></i>  QnA</a>
                         </li>
                         <li>
-                            <a href="http://localhost:8080/tmmoblie/mstemp.tm"><i class="fa fa-map-marker fa-fw"></i>  스템프</a>
+                            <a href="/tmmypage/stemp.tm"><i class="fa fa-map-marker fa-fw"></i>  스템프</a>
                         </li>                        
                     </ul>
                 </div>

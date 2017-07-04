@@ -159,12 +159,12 @@
 				<br/>
 				<!-- ****중복확인하기**** -->
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userId" id="userId" ${userId } placeholder="아이디" required="required" readonly="readonly">
+                    <input class="form-control" type="text" name="userId" id="userId" value="testid" placeholder="아이디" required="required" readonly="readonly"> 
                 	
                 </div>
                 
 				<div class="form-group ">
-                    <input class="form-control" type="password" name="userPw" id="userPw" ${userPw } placeholder="비밀번호" required="required" readonly="readonly">
+                    <input class="form-control" type="password" name="userPw" id="userPw" value="${userPw}" placeholder="비밀번호" required="required" readonly="readonly"> 
                     <!-- <p class="help-block">숫자 또는 특수문자 포함 6자 이상</p> -->
                 </div>
                 
@@ -174,20 +174,19 @@
                 </div>
                 
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userName" id="userName" ${userName } placeholder="이름" required="required" readonly="readonly">
+                    <input class="form-control" type="text" name="userName" id="userName" value="${userName}" placeholder="이름" required="required" readonly="readonly">
                 </div>
                 
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userNick" id="userNick" ${userNick } placeholder="닉네임" required="required" readonly="readonly">
-                </div>
-                
-                <!-- ****전화번호 하나하나 나누기**** -->
-                <div class="form-group">
-                    <input class="form-control" type="text" name="userTel" id="userTel" ${userTel } placeholder="전화번호" required="required" readonly="readonly">
+                    <input class="form-control" type="text" name="userNick" id="userNick" value="${userNick}" placeholder="닉네임" required="required" readonly="readonly">
                 </div>
                 
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userEmail" id="userEmail" ${userEmail } placeholder="이메일" required="required" readonly="readonly">
+                    <input class="form-control" type="text" name="userTel" id="userTel" value="${userTel}" placeholder="전화번호" required="required" readonly="readonly">
+                </div>
+                
+                <div class="form-group">
+                    <input class="form-control" type="text" name="userEmail" id="userEmail" value="${userEmail}" placeholder="이메일" required="required" readonly="readonly">
                 </div>
                 <!-- ****플러스누르면 추가되게**** -->
                 <script type="text/javascript">
