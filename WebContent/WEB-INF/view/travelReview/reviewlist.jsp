@@ -109,6 +109,7 @@
 	<div class="container">
 		<div id="menu1" class="tab-pane fade in active">
 			<p><%@ include file="travelregion.jsp"%></p>
+		</div>
 	</div>
 	
 	<hr>

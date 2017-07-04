@@ -31,11 +31,13 @@ public class registReviewController {
 	@RequestMapping("/insertReview.tm")
 	public ModelAndView insertReview(TotalreDTO totalreDTO){
 		
-		System.out.println(totalreDTO.getTotalrePhoto4fake());
-		
+		ModelAndView mv = new ModelAndView();
 		
 		int result = dao.insertReview(totalreDTO);
-		System.out.println(result);
+		
+		if(result > 0){
+			mv.setViewName("reviewDetail.tm");
+		}
 		
 		return null;
 	}
