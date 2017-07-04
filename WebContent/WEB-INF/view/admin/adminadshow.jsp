@@ -249,7 +249,7 @@
 										<div class="form-group ">
 											<label for="cemail" class="control-label col-lg-2">미리보기</label>
 											<div class="col-lg-10">
-												<img id="show" src="/upload/alliance/${dto.adPhotofake }">
+												<img id="show" src="/upload/admin/${dto.adPhotofake }">
 											</div>
 										</div>
 										<div class="form-group">
