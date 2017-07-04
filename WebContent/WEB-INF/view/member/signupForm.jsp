@@ -168,8 +168,8 @@ function nochk(){
     
 <div class="registerInner">
         <div class="col-md-6 signUp">
-            <h3 class="headerSign" style="font-size: 15px">회원가입</h3>
-            <form id="frm" name="frm" action="signupOk.tm" method="post" onsubmit="return checkValue()">
+            <h3 class="headerSign">회원가입</h3>
+            <form id="frm" name="frm" action="signupOk.tm" method="post">
 <br/>
 <br/>
 <br/>
