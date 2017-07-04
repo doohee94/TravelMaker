@@ -51,7 +51,6 @@
 <a href="member/signupForm.tm">회원가입</a> <br/>
 <a href="mylist/menubar.tm">내일정</a> <br/>
 <a href="member/memberUpdate.tm">내정보보기</a> <br/>
-<a href="member/memberModify.tm">내정보수정</a> <br/>
 <a href="member/memberDelete.tm">탈퇴하기</a>
 
 <br/>
@@ -73,8 +72,6 @@
 <br/>
 <br/>
 <a href="recommandtravelregion/recommandTravelRegion.tm">추천여행지 페이지</a>
-<br/><br/>
-<a href="mylist/testt.tm">test</a>
 
 <br/>
 <a href="registReview/registReview.tm">리뷰등록</a>

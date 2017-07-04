@@ -3,6 +3,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
   <%
+  //_id 값
+  String _id = request.getAttribute("_id").toString();
   
   //시작날짜와 종료날짜를 계산해서 일수 구하기
   
@@ -41,59 +43,6 @@
     <!-- Custom Fonts -->
     <link href="/resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">   
     
-
-<style type="text/css">
-
-/*사이드 내비*/
-.sidenav {
-   margin-top : 15%;
-    height: 70%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    background-color: #ffffff;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-    
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-    margin-top: 200px;
-    z-index :1;
-}
-
-.sidenav a:hover, .offcanvas a:focus{
-    color: #000000;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-#main {
-    transition: margin-right .5s;
-    padding: 16px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-
-</style>
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script
    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -118,7 +67,7 @@
 </head>
 
 <body>
-
+<input type="hidden" id="scheduleId" value='<%=_id%>'/>
 <!-- 헤더 -->
    <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -244,8 +193,11 @@
                  <input type="hidden" id="DaySelectBoxNum" value="<%=day%>"/>
                 <select id="DaySelectBox" class="DaySelectBox" style="width:50%">
                 <%for(int i=1; i<=day;i++){ %>
-                 <option value="DAY<%=i%>">DAY<%=i%></option>
-                <%} %>
+                <%if(i<10){ %>
+                 <option value="<%=i-1%>">DAY0<%=i%></option>
+                <%}else{ %>
+                 <option value="DAY<%=i-1%>">DAY<%=i%></option>
+                <%}} %>
               </select>
             <img src="/resource/step3/step3_image/plus.png" style="float:right;"id="chuga"/>
             <img src="/resource/step3/step3_image/opt.png" style="float: right;" id="distanceCal"/>
@@ -260,6 +212,5 @@
    <div id="map" style="float:right; width: 50%; height: 700px;display:inline-block; border:2px solid  #8C8C8C; margin-right:5px"></div>
 </div><!--  지도/리스트들 끝끝 -->
 </div>
-
 </body>
 </html>
