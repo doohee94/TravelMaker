@@ -19,9 +19,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.mongodb.DBObject;
+import com.mongodb.WriteResult;
 import com.mongodb.util.JSON;
+
+import tm.step3.dao.Step3DAO;
+import tm.step3.dao.Step3DAOImpl;
 
 /**
  * Step3Controller
@@ -31,9 +36,11 @@ import com.mongodb.util.JSON;
 @Controller
 @RequestMapping("/step")
 public class Step3Controller {
-	@Autowired
+   @Autowired
    private MongoTemplate mongoTemplate;
    
+	
+	
 	private String dir = "step3/";
    
    
@@ -43,6 +50,49 @@ public class Step3Controller {
       
    }
     
+   /**
+    * step3로 가는 리퀘스트. _id가 있으면 해당 아이디로 불러오기 아니면 아이디 생성 
+    * 
+    * */
+   @RequestMapping("/step3.tm")
+   public ModelAndView step3_id(String _id){
+	   ModelAndView mv = new ModelAndView();
+	   
+	   if(_id != null){
+		   mv.addObject("_id", _id);
+	   }else{ 
+		   mv.addObject("_id", "S20170704161911803");
+	   }
+	   mv.setViewName(dir+"/step3");
+	   System.out.println("스템33333333"+_id);
+	   return mv;
+   }
+   /**
+    * findList
+    * 스케쥴 아이디에 해당하는 정보를 불러와서 넘겨준다
+    * 파라메터 findList -> _id값을 넘겨준다.
+    * 리턴값 _id에 해당하는 mongodb 값
+    * */
+   @RequestMapping("/findList.tm")
+   @ResponseBody
+   public JSONObject findList(@RequestBody String findList){
+	   JSONParser parser = new JSONParser();
+	   JSONObject _idObj = null;
+	   String _id = null;
+	   JSONObject listObj = null;
+	   try {
+		 
+		   _idObj = (JSONObject)parser.parse(findList);
+		   _id = _idObj.get("_id").toString();
+		   listObj = (JSONObject)mongoTemplate.findById(_id, JSONObject.class,"schedule");
+	   	} catch (ParseException e) {
+		e.printStackTrace();
+	}
+	      
+	   return listObj;
+   }
+   
+   
    
    @RequestMapping("/distanceCal.tm")
    @ResponseBody
@@ -154,21 +204,17 @@ public class Step3Controller {
    public String listSave(@RequestBody String list){
 
 	   try{
+		   
+		   
+		   
+		   
+		   
+		   
+		   
 		   Document doc = Document.parse(list);
 	   
 		   mongoTemplate.save(doc,"schedule");
 		   
-//		   Criteria critefia  = new Criteria("_id");
-//		   critefia.is("1");
-//		   
-//		   Query query = new Query(critefia);
-//		   
-//		   
-//		   Update update = new Update();
-//		   update.set("tour.city","인천");
-		   
-		  // mongoTemplate.updateFirst(query, update, "schedule");
-		   //mongoTemplate.save(doc,"");
 	   }catch(Exception ex){
 		   ex.printStackTrace();
 	   }
@@ -216,7 +262,136 @@ public class Step3Controller {
          }
          return leng;
       }
+           
       
+      @Autowired
+  	Step3DAO dao;
+      /**
+       * searchFriend
+       * step3 친구추가 ajax 오라클에서 친구를 검색 한 후 친구가 있는지 없는지 리턴
+       * paramter :  ajax로 받은 친구 아이디값
+       * 리턴값 : 있으면 친구 아이디 리턴.. 없으면 "0" 리턴
+       * */
+      @RequestMapping("/searchFriend.tm")
+      @ResponseBody
+      public String searchFriend(@RequestBody String friendId){
+    	  String id = "0";
+    	 
+    	  JSONParser parser = new JSONParser();
+    	  JSONObject data = null;
+		try {
+			data = (JSONObject)parser.parse(friendId);
+			System.out.println(data);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+    	  
+		  String goId = data.get("id").toString();
+    	  String userId = dao.searchUser(goId);
+    	  if(userId != null){
+    		  id=userId;
+    	  }
+    	    
+    	  return id;
+      }
+      
+      
+      /**
+       *addFriendMongo
+       *친구 추가시 해당되는 친구 ID에 해당하는 shcedule디비 생성
+       * 파라메터 : 생성시 필요한 디비값들 _id, title 등
+       * 리턴값 : 없음
+       * */
+      @RequestMapping("/addFriendMongo.tm")
+      @ResponseBody
+      public String addFriendMongo(@RequestBody String addFriend){
+    	
+    	  String data = "";
+    	  
+    	 //파라메터 파싱  
+    	 JSONParser parser = new JSONParser();
+    	 JSONObject friendObj = null;
+		try {
+			friendObj = (JSONObject)parser.parse(addFriend);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+    	 String memeber_id = friendObj.get("member_id").toString(); //추가할 멤버 아이디 
+    	 String group_num = friendObj.get("group_num").toString();//그룹아이디
+    	 
+    	 //find 쿼리
+    	 Criteria c = new Criteria("group_num");
+    	 c.is(group_num);
+    	 
+    	 Query query = new Query(c);
+    	 ArrayList<JSONObject> list = (ArrayList<JSONObject>)mongoTemplate.find(query, JSONObject.class, "schedule");
+    	  
+    	 int overlap = 0;
+    	//아이디 값이 들어온 값과 같으면 친구추가 못하도록
+    	 for(int i=0; i<list.size(); i++){
+    		 System.out.println("친추>>>>"+list.get(i));
+    		 if(memeber_id.equals(list.get(i).get("member_id").toString())){	 
+    			 overlap++;
+    		 } 
+    	 }
+    	 
+    	 //addFriend에 그룹번호를 검색해서 검색값이 5이상이면 친구추가 못하도록 
+    	 if(list.size()>=5){
+    		 
+    		 data = "OVER";
+    		 
+    	 }else if(overlap > 0){
+    		 
+    		 data = "OVERLAP";
+    		 
+    	 }else{
+    		//위의 상황에 걸리지 않으면 sava
+       	  Document doc = Document.parse(addFriend);
+       	  System.out.println("추가>>>>"+doc);
+   		  mongoTemplate.save(doc,"schedule");
+   		  
+   		  data="OK";
+    	 }//end else
+    	
+    	
+    	 return data; 
+      }//end 
+      
+      
+      /**
+       * save에 필요한  _id를 찾기 위해 group_num으로 검색
+       * */
+      @RequestMapping("/find_id.tm")
+      @ResponseBody
+      public ArrayList<JSONObject> find_id(@RequestBody String group_number){
+    	  System.out.println(">>>>>>>>>>>>>>>>>>>>>"+group_number);
+    	 
+    	  JSONParser parser = new JSONParser();
+    	  JSONObject group_number_OBJ =null;
+    	  ArrayList<JSONObject> list = null;
+    	  String group_num = null;
+		try {
+			group_number_OBJ = (JSONObject)parser.parse(group_number);
+			   group_num = group_number_OBJ.get("group_num").toString();
+	    	   System.out.println(">>>>>"+group_num);
+	    	
+	    	  
+			
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		  
+		Criteria criteria = new Criteria("group_num");
+        criteria.is(group_num);
+        Query query = new Query(criteria);
+        System.out.println("쿼리>>>"+query);
+        list = (ArrayList<JSONObject>)mongoTemplate.find(query, JSONObject.class, "schedule");
+        for(int i=0; i<list.size(); i++){
+  		  System.out.println(">>>"+list.get(i));
+  	  }
+    	  return list;
+      }
       
       
       

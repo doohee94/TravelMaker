@@ -2,6 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="admin">
+
+	<!-- count -->
+
 	<select id="cnt" parameterType="hashMap" resultType="java.lang.Integer">
 		SELECT count(*) as cnt
 		FROM ${table}
@@ -11,6 +14,33 @@
 			</if>
 		</where>
 	</select>
+	
+	
+	<select id="adcnt" parameterType="hashMap" resultType="java.lang.Integer">
+		SELECT count(*)
+		FROM (SELECT rownum as rnum, g.*  
+      		  FROM (SELECT  
+                  s.ad_num,
+                  s.partner_num,
+                  s.ad_title,
+                  s.ad_photo,
+                  s.ad_photofake,
+                  s.ad_check,
+                  s.ad_stdate,
+                  s.ad_eddate,
+                  p.partner_reginum,
+                  p.partner_comname,
+                  p.partner_ceoname 
+                  FROM advertisement s, partner p
+                  WHERE s.partner_num = p.partner_num
+                  ORDER BY s.ad_num desc) g)
+        <where>
+         <if test="partnerComname != null">
+         	partner_comname like '%'||#{partnerComname}||'%'
+         </if>
+        </where>
+	</select>
+	
 	
 	<select id="stempcnt" parameterType="hashMap" resultType="java.lang.Integer">
 		SELECT count(*)
@@ -51,6 +81,15 @@
 		</if>
 	</select>
 	
+	<select id="cntad" parameterType="hashMap" resultType="java.lang.Integer">
+		SELECT count(*) as cnt
+		FROM advertisement
+		WHERE partner_num = #{partnernum}
+	</select>
+	
+	
+	<!-- Member -->
+	
 	<select id="memberlist" parameterType="hashMap" resultType="adminMemberDTO">
 		SELECT *
 		FROM (SELECT rownum as rnum, g.*  
@@ -72,6 +111,10 @@
 		</where>
 	</select>
 	
+	
+	<!-- QNA -->
+	
+	
 	<select id="qnalist" parameterType="hashMap" resultType="tm.admin.dto.AdminQnaDTO">
 		SELECT *
 		FROM (SELECT rownum as rnum, g.*  
@@ -87,13 +130,135 @@
 		WHERE qna_num = #{qnaNum}
 	</update>
 	
-	<select id="adlist" resultType="tm.admin.dto.AdminadDTO">
+	
+	<!-- advertisement  -->
+	
+	
+	<select id="adlist" parameterType="hashMap" resultType="tm.admin.dto.AdminadDTO">
 		SELECT *
 		FROM (SELECT rownum as rnum, g.*  
-      		  FROM (SELECT * 
-            		FROM advertisement  
-            		order by ad_num desc) g)
+      		  FROM (SELECT  
+                  s.ad_num,
+                  s.partner_num,
+                  s.ad_title,
+                  s.ad_photo,
+                  s.ad_photofake,
+                  s.ad_check,
+                  s.ad_stdate,
+                  s.ad_eddate,
+                  p.partner_reginum,
+                  p.partner_comname,
+                  p.partner_ceoname 
+                  FROM advertisement s, partner p
+                  WHERE s.partner_num = p.partner_num
+                  ORDER BY s.ad_num desc) g)
+       	<where>
+       		<if test="startnum != null">
+				rnum <![CDATA[>=]]>  #{startnum} AND rnum <![CDATA[<=]]> #{endnum}
+			</if>
+			<if test="partnerComname != null">
+				AND partner_comname like '%'||#{partnerComname}||'%'
+			</if>
+			<if test="adnum != null">
+				ad_num = #{adnum}
+			</if>
+       	</where>
 	</select>
+	
+	<insert id="adinsert" parameterType="tm.admin.dto.AdminadDTO">
+		INSERT INTO advertisement
+		(ad_num,   
+		partner_num,
+		ad_title,
+		ad_photo,
+		ad_photofake,
+		ad_check,
+		ad_stdate,
+		ad_eddate)
+		VALUES (
+		#{adNum},
+		#{partnerNum},
+		#{adTitle},
+		#{adPhoto},
+		#{adPhotofake},
+		0,
+		#{adStdate},
+		#{adEddate}
+		)
+	</insert>
+	
+	<delete id="addelete" parameterType="hashMap">
+		DELETE FROM advertisement
+		WHERE ad_num=#{adnum}
+	</delete>
+	
+	<update id="adupdate" parameterType="tm.admin.dto.AdminadDTO">
+		UPDATE advertisement
+		SET
+		partner_num = #{partnerNum},
+		ad_title = #{adTitle},
+		<if test="adPhoto != null">
+			ad_photo = #{adPhoto},
+			ad_photofake = #{adPhotofake},
+		</if>
+		ad_stdate = #{adStdate},
+		ad_eddate = #{adEddate}
+		WHERE
+		ad_num = #{adNum}		
+	</update>
+	
+	<!-- Stemp -->
+	
+	<select id="stemplist" resultType="tm.admin.dto.AdminStempDTO">
+		SELECT *
+		FROM (SELECT rownum as rnum, g.*  
+      		  FROM (SELECT s.parstemp_num, 
+      		  				p.partner_num, 
+      		  				s.partner_name, 
+      		  				s.partner_addr, 
+      		  				p.partner_ceoname,
+      		  				p.partner_reginum, 
+      		  				p.partner_comname, 
+      		  				p.partner_tel
+                  FROM parstemp s, partner p
+                  WHERE s.partner_num = p.partner_num
+                  ORDER BY s.parstemp_num desc) g)
+        <where>
+			<if test="startnum != null">
+				rnum <![CDATA[>=]]>  #{startnum} AND rnum <![CDATA[<=]]> #{endnum}
+			</if>
+			<if test="partnerName != null">
+                  	AND partner_name like '%'||#{partnerName}||'%'
+            </if>
+            <if test="parstempNum != null">
+            	parstemp_num = #{parstempNum}
+            </if>
+        </where>
+	</select>
+	
+	<insert id="insertstemp" parameterType="tm.admin.dto.AdminStempDTO">
+		INSERT INTO parstemp
+		VALUES(
+		#{parstempNum},
+		#{partnerNum},
+		#{partnerName},
+		#{partnerAddr}
+		)
+	</insert>
+	
+	<update id="stempupdate" parameterType="tm.admin.dto.AdminStempDTO">
+		UPDATE parstemp
+		SET
+		partner_num = #{partnerNum},
+		partner_name = #{partnerName},
+		partner_addr = #{partnerAddr}
+		WHERE
+		parstemp_num = #{parstempNum}
+	</update>
+	
+	
+	
+	<!-- partner -->
 	
 	<select id="allist" parameterType="hashMap" resultType="allianceDTO">
 		SELECT *
@@ -139,33 +304,6 @@
 		FROM dual 
 	</select>
 	
-	<insert id="adinsert" parameterType="tm.admin.dto.AdminadDTO">
-		INSERT INTO advertisement
-		(ad_num,   
-		partner_num,
-		ad_title,
-		ad_photo,
-		ad_photofake,
-		ad_check,
-		ad_stdate,
-		ad_eddate)
-		VALUES (
-		#{adNum},
-		#{partnerNum},
-		#{adTitle},
-		#{adPhoto},
-		#{adPhotofake},
-		0,
-		#{adStdate},
-		#{adEddate}
-		)
-	</insert>
-	
-	<delete id="addelete" parameterType="hashMap">
-		DELETE FROM advertisement
-		WHERE ad_num=#{adnum}
-	</delete>
-	
 	<delete id="alliancedel" parameterType="hashMap">
 		DELETE FROM partner
 		WHERE partner_num=#{partnernum}
@@ -183,45 +321,5 @@
 		SET partner_type = #{partnerType}
 		WHERE partner_num=#{partnerNum}
 	</update>
-	
-	<select id="stemplist" resultType="tm.admin.dto.AdminStempDTO">
-		SELECT *
-		FROM (SELECT rownum as rnum, g.*  
-      		  FROM (SELECT s.parstemp_num, 
-      		  				p.partner_num, 
-      		  				s.partner_name, 
-      		  				s.partner_addr, 
-      		  				p.partner_ceoname,
-      		  				p.partner_reginum, 
-      		  				p.partner_comname, 
-      		  				p.partner_tel
-                  FROM parstemp s, partner p
-                  WHERE s.partner_num = p.partner_num
-                  ORDER BY s.parstemp_num desc) g)
-        <where>
-			<if test="startnum != null">
-				rnum <![CDATA[>=]]>  #{startnum} AND rnum <![CDATA[<=]]> #{endnum}
-			</if>
-			<if test="partnerName != null">
-                  	AND partner_name like '%'||#{partnerName}||'%'
-            </if>
-        </where>
-	</select>
-	
-	<select id="cntad" parameterType="hashMap" resultType="java.lang.Integer">
-		SELECT count(*) as cnt
-		FROM advertisement
-		WHERE partner_num = #{partnernum}
-	</select>
-	
-	<insert id="insertstemp" parameterType="tm.admin.dto.AdminStempDTO">
-		INSERT INTO parstemp
-		VALUES(
-		#{parstempNum},
-		#{partnerNum},
-		#{partnerName},
-		#{partnerAddr}
-		)
-	</insert>
 	
 </mapper>

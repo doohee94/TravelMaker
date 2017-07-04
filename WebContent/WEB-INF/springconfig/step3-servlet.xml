@@ -11,5 +11,5 @@
 
 
 	<context:component-scan base-package="tm.step3.controller"/>
-	
+	<context:component-scan base-package="tm.step3.dao"/>
 </beans>

@@ -1,5 +1,7 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!-- 여행일정 리뷰리스트 페이지입니다. -->
 <!DOCTYPE html>
 <html>
@@ -106,16 +108,22 @@
 	</div>
 	
 		<!--   출발지 경유지 도착지 탭   -->
-	<div class="container">
-		<div id="menu1" class="tab-pane fade in active">
-			<p><%@ include file="travelregion.jsp"%></p>
-	</div>
+<!-- 	<div class="container"> -->
+<!-- 		<div id="menu1" class="tab-pane fade in active"> -->
+<%-- 			<p><%@ include file="travelregion.jsp"%></p> --%>
+<!-- 	</div> -->
 	
+	<!--  검색창 -->
+	<div class="container">
+	
+	
+	</div>
 	<hr>
 	<div class="container" id="divCon">
-		
-		<%for(int i=0; i<4; i++){ %>
-		<!-- Project One -->
+	<c:choose>
+		<c:when test="${! empty list }">
+			<c:forEach items="${list}" var="a">
+				<!-- Project One -->
         <div class="row">
             <div class="col-md-7">
                 <a>
@@ -123,17 +131,43 @@
                 </a>
             </div>
             <div class="col-md-5">
-                <h3>신나는 여행!!</h3>
-                <h4>출발지 - 서울</h4>
-                <p>여행 정말 신났음 완전신나 안녕 디지몬 내꿈을꾸면서 잠이 들래~~ 안녕 디지몬.....</p>
+                <h3>${a.totalreTitle}</h3>
+                <h4></h4>
+                <p>${a.totalreContent}</p>
                 <a class="btn btn-primary images">상세보기</i></a>
             </div>
         </div>
         <!-- /.row -->
 
         <hr>
-        <%} %>
+			</c:forEach>
+		</c:when>
+	</c:choose>	
    </div>
+		
+		
+		<%-- 		<%for(int i=0; i<4; i++){ %> --%>
+<!-- 		<!-- Project One --> -->
+<!--         <div class="row"> -->
+<!--             <div class="col-md-7"> -->
+<!--                 <a> -->
+<!--                     <img class="img-responsive img-hover images" src="http://placehold.it/700x300" alt=""> -->
+<!--                 </a> -->
+<!--             </div> -->
+<!--             <div class="col-md-5"> -->
+<!--                 <h3>신나는 여행!!</h3> -->
+<!--                 <h4>출발지 - 서울</h4> -->
+<!--                 <p>여행 정말 신났음 완전신나 안녕 디지몬 내꿈을꾸면서 잠이 들래~~ 안녕 디지몬.....</p> -->
+<!--                 <a class="btn btn-primary images">상세보기</i></a> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--         /.row -->
+
+<!--         <hr> -->
+<%--         <%} %> --%>
+		
+		
+		
 		
 	<a class="btn btn-primary" id="move_top_btn" style="position:fixed; bottom:5px; right:5px">TOP</i></a>
 </body>

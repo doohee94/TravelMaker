@@ -66,6 +66,9 @@ public interface AdminDAO {
 	 * 광고 리스트 출력
 	 */
 	public List<AdminadDTO> adlist();
+	public List<AdminadDTO> adlist(int startnum, int endnum);
+	public List<AdminadDTO> adsearch(int startnum, int endnum, String partnerComname);
+	
 	
 	/**
 	 * adadinsert
@@ -79,6 +82,17 @@ public interface AdminDAO {
 	 */
 	public int addelete(String num);
 	
+	/**
+	 * adminadshow
+	 * 광고 보기
+	 */
+	public AdminadDTO adminadshow(String num);
+	
+	/**
+	 * adupdate
+	 * 광고 수정
+	 */
+	public int adupdate(AdminadDTO adminadDTO);
 	
 	/************** 스탬프 ******************/
 	/**
@@ -89,7 +103,8 @@ public interface AdminDAO {
 	public List<AdminStempDTO> stemp(int startnum, int endnum);
 	
 	/**
-	 * 
+	 * insertstemp
+	 * 스탬프 추가
 	 */
 	public int insertstemp(AdminStempDTO adminStempDTO);
 	
@@ -97,6 +112,21 @@ public interface AdminDAO {
 	 * searchstemp
 	 */
 	public List<AdminStempDTO> searchstemp(int startnum, int endnum, String partnerName);
+	
+	/**
+	 * showStemp
+	 * 스탬프 하나의 정보
+	 */
+	public AdminStempDTO showStemp(String parstempNum);
+	
+	/**
+	 * stempupdate
+	 * 스탬프 정보 수정
+	 */
+	public int stempupdate(AdminStempDTO adminStempDTO);
+	
+	
+	
 	
 	/************** 제휴 ******************/
 	

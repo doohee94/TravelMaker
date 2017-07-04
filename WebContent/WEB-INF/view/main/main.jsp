@@ -2,11 +2,13 @@
     pageEncoding="UTF-8"%>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
  <% 
- System.out.println("세션의 아이디"+session.getAttribute("userId"));
- System.out.println("세션의 닉네임"+session.getAttribute("userNick")); 
+ String userId = (String)session.getAttribute("userId");
+ String userNick = (String)session.getAttribute("userNick");
+ System.out.println("세션의 아이디"+userId);
+ System.out.println("세션의 닉네임"+userNick); 
  %>   
 <!DOCTYPE html>
-<html lang="en">
+<html lang="UFT-8">
 
 <head>
 
@@ -57,7 +59,7 @@
 
 <body>
 
-    <!-- Navigation -->
+    <!-- 메인 헤더 부분 -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -79,18 +81,38 @@
                     <li>
                         <a href="/recommandtravelregion/recommandTravelRegion.tm">여행지추천</a>
                     </li>
+                    <!-- 로그인 할때 생기는 버튼 -->
+                    <%if(userNick!=null){ %>
                     <li>
                         <a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
                     </li>
                     <li>
-                        <a href="/challengeschedule/challengeSchedule.tm">도전일정</a>
+                        <a href="#">마이페이지</a>
                     </li>
-                     <li style="padding:10px">
-                       <input type="text"/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px;"><span class="glyphicon glyphicon-search"></span> search</button>
+                    <%} //end of if %>
+<!--                     <li> -->
+<!--                         <a href="/challengeschedule/challengeSchedule.tm">도전일정</a> -->
+<!--                     </li> -->
+                    <li style="padding:10px">
+<!--                        <input type="text"/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px;"><span class="glyphicon glyphicon-search"></span> search</button> -->
+                    </li>
+                    <!-- 로그인 할때 생기는 버튼 -->
+                    <%if(userNick!=null){ %>
+                    <li>
+                    	<a href="#"><%=userNick%>&nbsp;&nbsp;님</a>
                     </li>                      
-                     <li>
-                        <a href="member/loginForm.tm">로그인</a>
+                    <li>
+                        <a href="/tmmain/logout.tm">로그아웃</a>
                     </li>
+                    <!-- 로그인 안 할때 생기는 버튼 -->
+                    <%}else{ %>
+                    <li>
+                        <a href="/member/loginForm.tm">로그인</a>
+                    </li>
+                    <li>
+                        <a href="/member/signupForm.tm">회원가입</a>
+                    </li>                    
+                    <%} //end of if %>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -99,9 +121,6 @@
     <!-- Header Carousel -->
     <header id="myCarousel" class="carousel slide">
 		<img class="mainImage" src="/resource/main/images/main3.png">
-<!-- 		<div class="imgtext"> -->
-<!-- 			<h1>라라라라라라라</h1> -->
-<!-- 		</div> -->
     </header>
 
     <!-- Page Content -->

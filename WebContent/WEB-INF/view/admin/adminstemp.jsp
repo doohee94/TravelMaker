@@ -142,12 +142,12 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
 									<c:choose>
 										<c:when test="${!empty list }">
 											<c:forEach var="a" items="${list }">
+											<tr>
 												<td>${a.parstempNum }</td>
-												<td>${a.partnerCeoname }</td>
+												<td>${a.partnerComname }</td>
 												<td>${a.partnerName }</td>
 												<td>
 													<a class="infodiv btn btn-primary" href="#${a.parstempNum }" data-toggle="modal">
@@ -161,7 +161,7 @@
 																	<h4 class="modal-title">상세보기</h4>
 																</div>
 																<div class="modal-body">
-																	<form role="form" method="post" class="submitform">
+																	<form role="form" method="post" class="submitform" action="showStemp.tm">
 																		<div class="form-group">
 																			<label for="partnerNum">스탬프번호</label>
 																			<input type="text" class="form-control" name="parstempNum"  readonly="readonly" value="${a.parstempNum }">
@@ -175,7 +175,10 @@
 																			<label for="partnerNum">주소</label>
 																			<input type="text" class="form-control" name="partnerAddr" id="partnerAddr" readonly="readonly" value="${a.partnerAddr }">
 																		</div>
-																		<button type="button" data-dismiss="modal" class="closebtnf btn btn-primary">닫기</button>
+																		<div class="form-group">
+																			<button type="submit" class="updatebtn btn btn-info">수정</button>
+																			<button type="button" data-dismiss="modal" class="closebtnf btn btn-primary">닫기</button>
+																		</div>
 																	</form>
 																</div>
 															</div>
@@ -185,6 +188,7 @@
 														<i class="delete icon_close_alt2" id="deletebtn"> 삭제</i>
 													</a>
 												</td>
+											</tr>
 											</c:forEach>
 										</c:when>
 										<c:otherwise>
@@ -193,7 +197,6 @@
 											</td>
 										</c:otherwise>
 									</c:choose>
-									</tr>
 								</tbody>
 							</table>
 						</section>
@@ -278,6 +281,12 @@
 	<script src="/resource/admin/js/scripts.js"></script>
 	
 	<script type="text/javascript">
+	
+	$(".updatebtn").click(function(){
+		$(this).next().submit();
+	});
+	
+	
 	$("#prevPage").click(function() {
 		//현재 페이지 넘버를 얻어옴
 		var pageNumber = $("#pageNumber").val();

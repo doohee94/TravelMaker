@@ -1,5 +1,8 @@
 package tm.admin.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -164,13 +167,125 @@ public class AdminController {
 	 * 광고 리스트 출력
 	 */
 	@RequestMapping("/adminadList.tm")
-	public ModelAndView adminadlist(String num) {
-		List<AdminadDTO> list = dao.adlist();
+	public ModelAndView adminadlist(String pageNumber) {
+		int pageNum = 1;
+		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
+		
+		int[] page = dao.SettingPageNum("advertisement", 6, pageNum, null, null);
+		/* 리턴값 : int 배열
+		 * 0 : 총 페이지 수
+		 * 1 : 시작 rownum
+		 * 2 : 끝 rownum
+		 */
+		//날짜 형식 지정
+		SimpleDateFormat format = new SimpleDateFormat( "yyyy-MM-dd" );
+		//현재 날짜를 가져옴
+		Date date = new Date();
+		//시작 날짜가 저장될 변수
+		Date startdate = null;
+		//완료 날짜가 저장될 변수
+		Date enddate = null;
+		//비교값 저장 변수
+		int st = 0;
+		//비교값 저장 변수
+		int ed = 0;
+		
+		List<AdminadDTO> list = dao.adlist(page[1],page[2]);
+		
+		for (AdminadDTO a : list) {
+			try {
+				//광고 시작일과 완료 날짜를 형식에 맞게 저장
+				startdate = format.parse(a.getAdStdate());
+				enddate = format.parse(a.getAdEddate());
+				
+				//현재 날짜를 기준으로 시작날짜와 완료날짜를 비교
+				st = date.compareTo(startdate);
+				ed = date.compareTo(enddate);
+				
+				//완료날짜가 현재날짜보다 이전일때 : 완료
+				if(ed > 0){
+					a.setState("10");
+				//시작날짜가 현재날짜랑 같거나 이후고 완료 날짜가 현재날짜이거나 이전일때 : 현재
+				}else if(st >= 0 && ed <= 0){
+					a.setState("20");
+				//시작 날짜가 현재 날짜 이후 일때 : 예정
+				}else{
+					a.setState("30");
+				}
+			} catch (ParseException e) {
+				System.out.println("날짜 변환 실패 : " + e.getMessage());
+				e.printStackTrace();
+			}
+		}
+		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"adminadList");
 		mv.addObject("adlist", list);
+		mv.addObject("totalpage", page[0]);
+		mv.addObject("pageNum", pageNum);
+		mv.addObject("url", "adminadList.tm");
 		return mv;
 	}
+	
+	@RequestMapping("/adminadsearch.tm")
+	public ModelAndView adminadsearch(String pageNumber, String partnerComname) {
+		int pageNum = 1;
+		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
+		
+		int[] page = dao.SettingPageNum("advertisement", 6, pageNum, "partner_comname", partnerComname);
+		
+		// 날짜 형식 지정
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		// 현재 날짜를 가져옴
+		Date date = new Date();
+		// 시작 날짜가 저장될 변수
+		Date startdate = null;
+		// 완료 날짜가 저장될 변수
+		Date enddate = null;
+		// 비교값 저장 변수
+		int st = 0;
+		// 비교값 저장 변수
+		int ed = 0;
+
+		List<AdminadDTO> list = dao.adsearch(page[1], page[2], partnerComname);
+
+		for (AdminadDTO a : list) {
+			try {
+				// 광고 시작일과 완료 날짜를 형식에 맞게 저장
+				startdate = format.parse(a.getAdStdate());
+				enddate = format.parse(a.getAdEddate());
+
+				// 현재 날짜를 기준으로 시작날짜와 완료날짜를 비교
+				st = date.compareTo(startdate);
+				ed = date.compareTo(enddate);
+
+				// 완료날짜가 현재날짜보다 이전일때 : 완료
+				if (ed > 0) {
+					a.setState("10");
+					// 시작날짜가 현재날짜랑 같거나 이후고 완료 날짜가 현재날짜이거나 이전일때 : 현재
+				} else if (st >= 0 && ed <= 0) {
+					a.setState("20");
+					// 시작 날짜가 현재 날짜 이후 일때 : 예정
+				} else {
+					a.setState("30");
+				}
+			} catch (ParseException e) {
+				System.out.println("날짜 변환 실패 : " + e.getMessage());
+				e.printStackTrace();
+			}
+		}
+
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(dir + "adminadList");
+		mv.addObject("adlist", list);
+		mv.addObject("totalpage", page[0]);
+		mv.addObject("pageNum", pageNum);
+		mv.addObject("url", "adminadsearch.tm");
+		mv.addObject("partnerComname", partnerComname);
+		return mv;
+	}
+	
+	
 	
 	/**
 	 * adadsearch
@@ -212,6 +327,25 @@ public class AdminController {
 		return "redirect:/tmadmin/adminadList.tm";
 	}
 	
+	@RequestMapping("/adminadshow.tm")
+	public ModelAndView adminadshow(String num) {
+		
+		AdminadDTO dto = dao.adminadshow(num);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(dir+"adminadshow");
+		mv.addObject("dto",dto);
+		return mv;
+	}
+	
+	@RequestMapping("adupdate.tm")
+	public String adupdate(AdminadDTO adminadDTO){
+		adminadDTO.setAdStdate(adminadDTO.getStartyear()+"/"+adminadDTO.getStartmonth()+"/"+adminadDTO.getStartday());
+		adminadDTO.setAdEddate(adminadDTO.getEndyear()+"/"+adminadDTO.getEndmonth()+"/"+adminadDTO.getEndday());
+		
+		dao.adupdate(adminadDTO);
+		return "redirect:/tmadmin/adminadList.tm";
+	}
 	
 	
 	/***********************   Alliance(제휴)     **************************/
@@ -437,7 +571,30 @@ public class AdminController {
 	 * 스탬프 등록
 	 */
 	@RequestMapping("/insertstemp.tm")
-	public void insertStemp(AdminStempDTO adminStempDTO) {
+	public String insertStemp(AdminStempDTO adminStempDTO) {
+		dao.insertstemp(adminStempDTO);
 		
+		return "redirect:/tmadmin/searchstemp.tm";
+	}
+	
+	/**
+	 * 스탬프 수정하기 view
+	 */
+	@RequestMapping("/showStemp.tm")
+	public ModelAndView showStemp(String parstempNum) {
+		AdminStempDTO dto = dao.showStemp(parstempNum);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(dir+"adminstempupdate");
+		mv.addObject("dto", dto);
+		return mv;
+	}
+	
+	/**
+	 * 스탬프 수정
+	 */
+	@RequestMapping("/stempupdate.tm")
+	public String stempupdate(AdminStempDTO adminStempDTO){
+		dao.stempupdate(adminStempDTO);
+		return "redirect:/tmadmin/searchstemp.tm";
 	}
 }

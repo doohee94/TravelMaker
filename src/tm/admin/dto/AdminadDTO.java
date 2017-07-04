@@ -2,6 +2,7 @@ package tm.admin.dto;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.StringTokenizer;
 import java.util.UUID;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -37,6 +38,17 @@ CREATE TABLE advertisement (
 	private String endmonth;
 	private String endday;
 	
+	private String partnerReginum;
+	private String partnerComname;
+	private String partnerCeoname;
+	
+	private String state;
+	
+	/*
+	 *	10 : 완료
+	 *  20 : 현재
+	 *  30 : 예정
+	 */
 	
 	MultipartFile file;
 	
@@ -62,7 +74,6 @@ CREATE TABLE advertisement (
 			}
 		}
 	}
-	
 	
 	
 	public String getAdNum() {
@@ -105,13 +116,49 @@ CREATE TABLE advertisement (
 		return adStdate;
 	}
 	public void setAdStdate(String adStdate) {
-		this.adStdate = adStdate;
+		if(adStdate.contains(" ")){
+			StringTokenizer st = new StringTokenizer(adStdate, " ");
+			String adStdatetemp = st.nextToken();
+			this.adStdate = adStdatetemp;
+			
+			StringTokenizer split = new StringTokenizer(adStdatetemp, "-");
+			int cnt = 0;
+			while (split.hasMoreTokens()) {
+				String temp = split.nextToken();
+				switch (cnt) {
+					case 0: this.startyear = temp; break;
+					case 1: this.startmonth = temp; break;
+					case 2: this.startday = temp; break;
+				}
+				cnt++;
+			}
+		}else{
+			this.adStdate = adStdate;
+		}
 	}
 	public String getAdEddate() {
 		return adEddate;
 	}
 	public void setAdEddate(String adEddate) {
-		this.adEddate = adEddate;
+		if(adEddate.contains(" ")){
+			StringTokenizer st = new StringTokenizer(adEddate, " ");
+			String adEddatetemp = st.nextToken();
+			this.adEddate = adEddatetemp;
+			
+			StringTokenizer split = new StringTokenizer(adEddatetemp, "-");
+			int cnt = 0;
+			while (split.hasMoreTokens()) {
+				String temp = split.nextToken();
+				switch (cnt) {
+					case 0: this.endyear = temp; break;
+					case 1: this.endmonth = temp; break;
+					case 2: this.endday = temp; break;
+				}
+				cnt++;
+			}
+		}else{
+			this.adEddate = adEddate;
+		}
 	}
 	public String getStartyear() {
 		return startyear;
@@ -149,5 +196,28 @@ CREATE TABLE advertisement (
 	public void setEndday(String endday) {
 		this.endday = endday;
 	}
-	
+	public String getPartnerReginum() {
+		return partnerReginum;
+	}
+	public void setPartnerReginum(String partnerReginum) {
+		this.partnerReginum = partnerReginum;
+	}
+	public String getPartnerComname() {
+		return partnerComname;
+	}
+	public void setPartnerComname(String partnerComname) {
+		this.partnerComname = partnerComname;
+	}
+	public String getPartnerCeoname() {
+		return partnerCeoname;
+	}
+	public void setPartnerCeoname(String partnerCeoname) {
+		this.partnerCeoname = partnerCeoname;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
 }
