@@ -40,7 +40,7 @@ public class MemberDAOImpl implements MemberDAO{
 	@Override
 	public int delete(MemberDTO memberdto){
 		System.out.println("회원탈퇴");
-		return ss.update("member.delete", memberdto);
+		return ss.delete("member.delete", memberdto);
 	}
 	
 	/*ID 찾기*/

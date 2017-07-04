@@ -3,16 +3,13 @@ package tm.member.controller;
 import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import tm.member.dao.MemberDAO;
@@ -70,57 +67,35 @@ private String dir = "member/";
 /**
 * 회원정보보기
 */
+	@RequestMapping("memberUpdate.tm")
 	public void update(MemberDTO memberdto){
+		System.out.println("나오니");
 		MemberDTO redto = dao.update(memberdto);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"update");
 		mv.addObject("memberdto", redto);
 	}
 	
-/*	@RequestMapping("memberUpdate.tm")
-	public ModelAndView update(MemberDTO memberdto){
-		memberdto.getUserId();
-		memberdto.getUserPw();
-		memberdto.getUserName();
-		memberdto.getUserNick();
-		memberdto.getUserTel();
-		memberdto.getUserEmail();
-		memberdto.setUserAddr(memberdto.getUserCity() + memberdto.getUserBorough());
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName(dir + "memberUpdate");
-		mv.addObject("memberdto", memberdto);
-		return mv;
-	}*/
-	
 /**
-* 회원정보수정
+* 회원수정
 */
-	/*@RequestMapping("/memberUpdate.tm")
-	public ModelAndView modify(MemberDTO memberdto){
-		memberdto.getUserId();
-		memberdto.getUserPw();
-		memberdto.getUserName();
-		memberdto.getUserNick();
-		memberdto.getUserTel();
-		memberdto.getUserEmail();
-		memberdto.setUserAddr(memberdto.getUserCity()+ memberdto.getUserBorough());
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName(dir+"memberUpdate");
-		mv.addObject("memberdto", memberdto);
-		return mv;
-	}*/
-	@RequestMapping(value="/memberUpdate.tm",method=RequestMethod.POST)
+	/*@RequestMapping(value="/memberUpdate.tm")
 	public String modify(@ModelAttribute MemberDTO memberdto){
-		return "";
-	}
+		dao.modify(memberdto);
+		return "memberUpdate.tm";
+	}*/
 	
 	
 /**
 * 회원탈퇴
 */
 	@RequestMapping("/memberDelete.tm")
-	public void delete(){
-		
+	public ModelAndView delete(MemberDTO memberdto){
+		int res = dao.delete(memberdto);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(dir+"delete");
+		mv.addObject("res", res);
+		return mv;
 	}
 	
 /**

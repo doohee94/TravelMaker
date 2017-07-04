@@ -136,6 +136,15 @@ function nochk(){
 	});
 </script>
 
+<!-- <script type="text/javascript">
+/* 비밀번호와 비밀번호 확인이 같아야지 넘어가게 */
+	function checkValue(){
+	if(document.frm.userPw.value != document.passwordcheck.value){
+		alert("비밀번호를 동일하게 입력해주세요");
+	}
+}
+
+</script> -->
 
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="/resource/member/css/signup.css">
@@ -159,8 +168,8 @@ function nochk(){
     
 <div class="registerInner">
         <div class="col-md-6 signUp">
-            <h3 class="headerSign">회원가입</h3>
-            <form id="frm" action="signupOk.tm" method="post">
+            <h3 class="headerSign" style="font-size: 15px">회원가입</h3>
+            <form id="frm" name="frm" action="signupOk.tm" method="post" onsubmit="return checkValue()">
 <br/>
 <br/>
 <br/>
@@ -191,7 +200,6 @@ function nochk(){
                 	
                 </div>
                 
-                <!-- ****전화번호 하나하나 나누기**** -->
                 <div class="form-group">
                     <input class="form-control" type="text" name="userTel" id="userTel" placeholder="전화번호" required="required">
                 </div>
@@ -476,7 +484,7 @@ function nochk(){
                 <div class="form-group">
                 <span id="idchk">　　</span><br/>
                 <p class="help-block">숫자 또는 특수문자 포함 6자 이상이여야 합니다</p>
-                <p class="help-block">비밀번호를 한번 더 입력해주세요</p>
+                <p class="help-block" id="pw-block">비밀번호를 한번 더 입력해주세요</p><span id="passchk">　　</span>
                 <span id="nickchk">　　</span><br/><br/>
                 <p class="help-block">ID/PW 찾기 시 꼭 필요한 항목이오니 정확히 적어주시기 바랍니다</p>
                 </div>
@@ -487,4 +495,15 @@ function nochk(){
 </div>
 </form>
 </body>
+
+<!-- <script type="text/javascript">
+$(function(){
+		$(".passnick").hide();
+	$("#passwordcheck").keydownEvent(function(){
+		$(".passnick").show();
+		$("#pw-block").hide();
+	});
+});
+</script> -->
+
 </html>

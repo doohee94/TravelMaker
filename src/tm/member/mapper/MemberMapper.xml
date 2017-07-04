@@ -21,6 +21,7 @@
 		</if>
 	</where>
 	</select>
+	
 	<!-- 회원 PW찾기 -->
 	<select id="searchpw" parameterType="hashMap" resultType="tm.member.dto.MemberDTO">
 		select *
@@ -33,17 +34,28 @@
 	</select>
 	
 	<!-- 회원정보보기 -->
-	<select id="update" parameterType="tm.member.dto.MemberDTO">
+	<select id="update" parameterType="tm.member.dto.MemberDTO" resultType="tm.member.dto.MemberDTO">
 	select user_id, user_pw, user_name, user_nick, user_addr, user_tel, user_email
 	from member
 	<where>
 		<if test="userId != null">
-			user_Id = #{userId}
+			user_id = #{userId}
 		</if>
 	</where>
 	</select>
 	
+	<!-- 회원수정 -->
+	
 	<!-- 탈퇴하기 -->
 	<!-- ex) UPDATE MEMBER SET user_type='20' WHERE user_id='testid'; -->
+	<update id="delete" parameterType="tm.member.dto.MemberDTO">
+	UPDATE member
+	SET user_type='20'
+	<where>
+		<if test="userPw != null">
+			user_id = #{userId}
+		</if>
+	</where>
+	</update>
 	
 </mapper>
