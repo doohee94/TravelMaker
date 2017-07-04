@@ -13,10 +13,10 @@
 
 .footer{
 	
-	height: 150px;
+	height: 180px;
 	background-color: #101010;
-	padding: 0px;
-	margin-top: -1.9em;
+	padding: -1.9rem;
+ 	margin-top: 50px;
 	bottom: 0px;
 }
 
@@ -50,8 +50,48 @@
 	
 }
 
-@media(max-width:768px){
+/* 검색창 div */
+.searchBox{
+	margin-top : -30%;
+	padding-bottom : 12%;
+	margin-left: 30%;
+	}
+/*검색 창*/	
+#search_bar{
+ 	width: 50%; 
+	}
+.headlogo{
+	margin-left: 20%;
+	width : 100%;
+	height : 100%;
+	padding-bottom: 5%;
+	}
+#simble{
+	color: white;
+	font-size: 3.8rem;
+	}
+#mobile_search{
+	display:none;	
+}
+.m_imageBox{
+	display:none;
+}	
 	
+
+@media(max-width:1280px){
+	.searchBox{
+	display:none;
+	}
+	.imageBox{
+	display:none;
+	}
+	.m_imageBox{
+	display:block;	
+	}		
+	#mobile_search{
+	display:block;	
+	}	
+		
 	.foot_content{
 	float: left;
 	margin-left: 10%;
