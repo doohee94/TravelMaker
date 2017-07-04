@@ -327,6 +327,25 @@ public class AdminController {
 		return "redirect:/tmadmin/adminadList.tm";
 	}
 	
+	@RequestMapping("/adminadshow.tm")
+	public ModelAndView adminadshow(String num) {
+		
+		AdminadDTO dto = dao.adminadshow(num);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(dir+"adminadshow");
+		mv.addObject("dto",dto);
+		return mv;
+	}
+	
+	@RequestMapping("adupdate.tm")
+	public String adupdate(AdminadDTO adminadDTO){
+		adminadDTO.setAdStdate(adminadDTO.getStartyear()+"/"+adminadDTO.getStartmonth()+"/"+adminadDTO.getStartday());
+		adminadDTO.setAdEddate(adminadDTO.getEndyear()+"/"+adminadDTO.getEndmonth()+"/"+adminadDTO.getEndday());
+		
+		dao.adupdate(adminadDTO);
+		return "redirect:/tmadmin/adminadList.tm";
+	}
 	
 	
 	/***********************   Alliance(제휴)     **************************/

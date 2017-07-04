@@ -118,7 +118,20 @@ CREATE TABLE advertisement (
 	public void setAdStdate(String adStdate) {
 		if(adStdate.contains(" ")){
 			StringTokenizer st = new StringTokenizer(adStdate, " ");
-			this.adStdate = st.nextToken();
+			String adStdatetemp = st.nextToken();
+			this.adStdate = adStdatetemp;
+			
+			StringTokenizer split = new StringTokenizer(adStdatetemp, "-");
+			int cnt = 0;
+			while (split.hasMoreTokens()) {
+				String temp = split.nextToken();
+				switch (cnt) {
+					case 0: this.startyear = temp; break;
+					case 1: this.startmonth = temp; break;
+					case 2: this.startday = temp; break;
+				}
+				cnt++;
+			}
 		}else{
 			this.adStdate = adStdate;
 		}
@@ -129,7 +142,20 @@ CREATE TABLE advertisement (
 	public void setAdEddate(String adEddate) {
 		if(adEddate.contains(" ")){
 			StringTokenizer st = new StringTokenizer(adEddate, " ");
-			this.adEddate = st.nextToken();
+			String adEddatetemp = st.nextToken();
+			this.adEddate = adEddatetemp;
+			
+			StringTokenizer split = new StringTokenizer(adEddatetemp, "-");
+			int cnt = 0;
+			while (split.hasMoreTokens()) {
+				String temp = split.nextToken();
+				switch (cnt) {
+					case 0: this.endyear = temp; break;
+					case 1: this.endmonth = temp; break;
+					case 2: this.endday = temp; break;
+				}
+				cnt++;
+			}
 		}else{
 			this.adEddate = adEddate;
 		}

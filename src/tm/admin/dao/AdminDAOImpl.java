@@ -247,8 +247,19 @@ public class AdminDAOImpl implements AdminDAO {
 		return res;
 	}
 	
-
+	@Override
+	public AdminadDTO adminadshow(String num){
+		HashMap map = new HashMap();
+		map.put("adnum",num);
+		
+		return ss.selectOne(namespace + ".adlist", map);
+	}
 	
+	public int adupdate(AdminadDTO adminadDTO){
+		
+		return ss.update(namespace + ".adupdate", adminadDTO);
+	}
+
 	
 	/****************   스탬프 처리  *****************/
 	

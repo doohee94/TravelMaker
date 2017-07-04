@@ -214,7 +214,7 @@ input[type=checkbox]
 													<c:choose>
 														<c:when test="${!empty adlist}">
 															<c:forEach items="${adlist }" var="a" varStatus="i">
-																<tr>
+																<tr class="showadvi">
 																	<td>
 																		<table style="margin-left:40px; border: 1px solid #e2e2e2;">
 																			<tr align="center" >
@@ -232,7 +232,7 @@ input[type=checkbox]
 																				</td>
 																				<td style="width:1200px; font-size: 1.5em;">
 																					[ ${a.partnerComname } ]  ${a.adTitle }
-																					<a class="btn btn-danger" href="#" title="Bootstrap 3 themes generator" style="float: right;">삭제</a>
+																					<a class="btn btn-danger" href="#" style="float: right;">삭제</a>
 																					<form method="post"><input type="hidden" name="num" value="${a.adNum }"></form>
 																				</td>
 																			</tr>
@@ -241,12 +241,13 @@ input[type=checkbox]
 																					img
 																				</td>
 																				<td class="imgclick" style="text-align: center;">
-																					<img alt="" class="clickimg" src="/upload/alliance/${a.adPhotofake }" style="width: 120px; height: 15px;" >
+																					<img alt="" class="clickimg" src="/upload/admin/${a.adPhotofake }" style="width: 120px; height: 15px;" >
 																				</td>
 																			</tr>
 																		</table>
 																	</td>
 																</tr>
+																<form method="post"><input type="hidden" name="num" value="${a.adNum }"></form>
 															</c:forEach>
 														</c:when>
 														<c:otherwise>
@@ -265,7 +266,7 @@ input[type=checkbox]
 														<c:when test="${!empty adlist}">
 															<c:forEach items="${adlist }" var="a" varStatus="i">
 																<c:if test="${a.state eq '10' }">
-																<tr>
+																<tr class="showadvi">
 																	<td>
 																		<table style="margin-left:40px; border: 1px solid #e2e2e2;">
 																			<tr align="center" >
@@ -298,6 +299,7 @@ input[type=checkbox]
 																		</table>
 																	</td>
 																</tr>
+																<form method="post"><input type="hidden" name="num" value="${a.adNum }"></form>
 															</c:if>
 															</c:forEach>
 														</c:when>
@@ -317,7 +319,7 @@ input[type=checkbox]
 														<c:when test="${!empty adlist}">
 															<c:forEach items="${adlist }" var="a" varStatus="i">
 																<c:if test="${a.state eq '20' }">
-																<tr>
+																<tr class="showadvi">
 																	<td>
 																		<table style="margin-left:40px; border: 1px solid #e2e2e2;">
 																			<tr align="center" >
@@ -350,6 +352,7 @@ input[type=checkbox]
 																		</table>
 																	</td>
 																</tr>
+																<form method="post"><input type="hidden" name="num" value="${a.adNum }"></form>
 															</c:if>
 															</c:forEach>
 														</c:when>
@@ -387,7 +390,7 @@ input[type=checkbox]
 																				</td>
 																				<td style="width:1200px; font-size: 1.5em;">
 																					[ ${a.partnerComname } ]  ${a.adTitle }
-																					<a class="btn btn-danger" href="#" title="Bootstrap 3 themes generator" style="float: right;">삭제</a>
+																					<a class="btn btn-danger" href="#" style="float: right;">삭제</a>
 																					<form method="post"><input type="hidden" name="num" value="${a.adNum }"></form>
 																				</td>
 																			</tr>
@@ -402,6 +405,7 @@ input[type=checkbox]
 																		</table>
 																	</td>
 																</tr>
+																<form method="post"><input type="hidden" name="num" value="${a.adNum }"></form>
 															</c:if>
 															</c:forEach>
 														</c:when>
@@ -455,6 +459,11 @@ input[type=checkbox]
 			$(this).next().attr("action","deletead.tm");
 			$(this).next().submit();
 		})
+		
+		$(".showadvi").dblclick(function(){
+			$(this).next().attr("action","adminadshow.tm");
+			$(this).next().submit();
+		});
 		
 		$(".clickimg").toggle(function(){
 			$(this).animate({"width":"1200px","height":"150px"},"slow","easeOutBack");

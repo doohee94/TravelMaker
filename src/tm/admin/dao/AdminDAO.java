@@ -82,6 +82,17 @@ public interface AdminDAO {
 	 */
 	public int addelete(String num);
 	
+	/**
+	 * adminadshow
+	 * 광고 보기
+	 */
+	public AdminadDTO adminadshow(String num);
+	
+	/**
+	 * adupdate
+	 * 광고 수정
+	 */
+	public int adupdate(AdminadDTO adminadDTO);
 	
 	/************** 스탬프 ******************/
 	/**

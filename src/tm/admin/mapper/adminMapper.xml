@@ -159,6 +159,9 @@
 			<if test="partnerComname != null">
 				AND partner_comname like '%'||#{partnerComname}||'%'
 			</if>
+			<if test="adnum != null">
+				ad_num = #{adnum}
+			</if>
        	</where>
 	</select>
 	
@@ -188,6 +191,21 @@
 		DELETE FROM advertisement
 		WHERE ad_num=#{adnum}
 	</delete>
+	
+	<update id="adupdate" parameterType="tm.admin.dto.AdminadDTO">
+		UPDATE advertisement
+		SET
+		partner_num = #{partnerNum},
+		ad_title = #{adTitle},
+		<if test="adPhoto != null">
+			ad_photo = #{adPhoto},
+			ad_photofake = #{adPhotofake},
+		</if>
+		ad_stdate = #{adStdate},
+		ad_eddate = #{adEddate}
+		WHERE
+		ad_num = #{adNum}		
+	</update>
 	
 	<!-- Stemp -->
 	
