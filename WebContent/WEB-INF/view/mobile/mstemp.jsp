@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!-- jQuery Mobile 기본구조 -->
-<% session.setAttribute("parstempNum", "6"); %>
+<% session.setAttribute("parstempNum", "4"); %>
 <% session.setAttribute("userId", "test"); %>
 <!DOCTYPE html>
 <html>
@@ -23,7 +23,7 @@
    <div id="home" data-role="page">
 
        <!-- 4. header -->
-       <div data-role="header" data-position="fixed" data-theme="b">
+       <div data-role="header" data-position="fixed" data-theme="a">
           <img id="logo" src="/resource/mobile/images/samplelogo.png"/>
        </div>
        
