@@ -121,77 +121,34 @@ public class Mypage_checklistController {
 			String date = jsonObj.get("date").toString(); //해당하는 day
 			String num = jsonObj.get("num").toString(); //몇번째인지
 			
-			Criteria criteria = new Criteria();
-			criteria.where("_id").is(Integer.parseInt(_id));
-			//Criteria.where("tour.date").is(date)
-			criteria.where("tour.place.num").is(Integer.parseInt(num));
-			Query query = new Query(criteria);
+			int temp = 0;
 			
-			Update update  =  new Update();
-			update.set("tour.1.place.$.check",state).set("tour.1.place.$.oneline_review",one_line);
+			if(date.length() > 4){
+				temp = Integer.parseInt(date.substring(4,5));
+				System.out.println("1번--------------"+temp);
+			}else if(date.length() == 4){
+				temp = Integer.parseInt(date.substring(3,4));
+				System.out.println("2번--------------"+temp);
+			}
 			
-			System.out.println("쿼리"+query);
-			System.out.println("업데이트묹ㅇ"+update);
+			String condition1="tour."+(temp-1)+".place."+num+".check";
+			String condition2="tour."+(temp-1)+".place."+num+".oneline_review";
+
 			
-			WriteResult ws= mongoTemplate.updateFirst(query,update,"shcedule");
+			
+			Query query = new Query(new Criteria().andOperator(
+					Criteria.where("_id").is(Integer.parseInt(_id)),
+					Criteria.where("tour.date").is(date),
+					Criteria.where("tour.place.num").is(Integer.parseInt(num))			
+			));
+			
+			Update update = new Update();
+			update.set(condition1,state).set(condition2,one_line);
+			
+			WriteResult ws= mongoTemplate.updateFirst(query,update,"schedule");
 			System.out.println("결과"+ws);
+		
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-//			/** _id를 통해 우선 데이터를 find해온 후 파싱해온 데이터로 수정해서 save 해주기 */
-//			// find
-//			Criteria criteria = new Criteria("_id");
-//			criteria.is(Integer.parseInt(_id));
-//			Query query = new Query(criteria);
-//
-//			// tour정보를 String으로 받아온다
-//			String tourlist = mongoTemplate.find(query, String.class, "schedule").toString();
-//			
-//			JSONArray tour = (JSONArray)jsonParser.parse(tourlist);
-//	        JSONArray place[] = new JSONArray[tour.size()];
-//			
-//	        //palce배열에 바싱해온 데이터들 넣기 
-//	        for(int i=0; i<tour.size(); i++){
-//	        	JSONObject temp = new JSONObject();
-//	        	temp = (JSONObject)tour.get(i);
-//	        	place[i] = (JSONArray)temp.get("place");
-//	        	System.out.println(i+">>>>place>>>>>"+place[i]);
-//	        }
-//	        
-//	        
-//			//JSONArray에 있는 데이터 중 들어온 정보랑 맞는 정보를 바꿔준다.
-//	        for(int i=0; i<tour.size() && place[i] != null; i++){
-//	        	
-//	        	JSONObject tourtemp = (JSONObject)tour.get(i);
-//	        	String tourStr = tourtemp.get("date").toString();
-//	        	System.out.println("저장돼 있는 날짜"+tourStr);
-//	        	if(tourStr.equals(date)){ //저장돼 있는 목록과 내가 가져온 date가 같으면
-//	        		
-//	        		for(int j=0; j<place[i].size(); i++){
-//	        			
-//	        			if(j ==Integer.parseInt(num)){
-//	        				
-//	        				JSONObject statetemp = (JSONObject)place[i].get(j);
-//	        				String check = statetemp.get("check").toString();
-//	        				String one_line_text = statetemp.get("one-line").toString();
-//	        				
-//	        				
-//	        				
-//	        			}//end 
-//	        			
-//	        			
-//	        			
-//	        		}//end for j
-//	        	}//end equals
-//	        }//end for i
-//	        
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}
