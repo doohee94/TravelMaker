@@ -18,4 +18,9 @@
 		FROM reviewlike
 		WHERE sc_num = #{sc_num} AND user_id = #{user_id}
 	</select>
+	
+	<select id="reviewList" resultType="TotalreDTO">
+		SELECT *
+		FROM totalre
+	</select>
 </mapper>

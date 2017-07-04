@@ -1,5 +1,6 @@
 package tm.totalre.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
@@ -40,6 +41,14 @@ public class TotalreDAOImpl implements TotalreDAO {
 		int result = ss.selectOne(namespace+".checkLike",map);
 		
 		return result;
+	}
+
+	@Override
+	public ArrayList<TotalreDTO> reviewList() {
+		
+		ArrayList<TotalreDTO> list = (ArrayList)ss.selectList(namespace+".reviewList");
+		
+		return list;
 	}
 
 }

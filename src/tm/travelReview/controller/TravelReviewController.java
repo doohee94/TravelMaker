@@ -49,6 +49,18 @@ public class TravelReviewController {
 	@Autowired
 	TotalreDAO dao;
 	
+	@RequestMapping("/reviewlist.tm")
+	public ModelAndView reviewList(){
+		ModelAndView mv = new ModelAndView();
+		
+		ArrayList<TotalreDTO> list = dao.reviewList();
+		mv.addObject("list",list);
+		mv.setViewName(dir+"reviewlist");
+		return mv;
+	}
+	
+
+	
 	@RequestMapping(value="/reviewDetail.tm")
 	//public ModelAndView showReviewDetail(@RequestParam("id") String _id){
 	public ModelAndView showReviewDetail(){
@@ -96,4 +108,8 @@ public class TravelReviewController {
 		}
 		return mv;
 	}
+	
+	
+	
+	
 }
