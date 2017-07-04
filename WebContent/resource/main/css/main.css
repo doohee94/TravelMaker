@@ -49,8 +49,36 @@
 	color: #ffffff;
 	
 }
+.m_imageBox{
+	display: none;
+	}
+	
+.headlogo{
+	margin-left: 20%;
+	padding-bottom: 4%;
+}
+.searchBox{
+	margin-left: 33%;
+	margin-top: -28%;
+	padding-bottom: 10.5%;
+	}
+#simble{
+	font-size: 3rem;
+	color: white;
+	padding-bottom: 1.4%;
+}	
+#search_bar{
+	width: 40%;
+	
+}	
 
-@media(max-width:768px){
+@media(max-width: 1280px){
+	.m_imageBox{
+	display: block;
+	}
+	.imageBox{
+	display: none;
+	}
 	
 	.foot_content{
 	float: left;
