@@ -18,7 +18,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Modern Business - Start Bootstrap Template</title>
+    <title>TravelMaker</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/resource/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -34,31 +34,16 @@
   	
     <!-- 지정 css -->
     
-     <link href="/resource/main/css/main.css" rel="stylesheet" type="text/css">
+    <link href="/resource/main/css/main.css" rel="stylesheet" type="text/css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style type="text/css">
-    .mainImage{
-	width: 100%;
-    }
-/*     .imgtext{ */
-/*     background-image: url("/resource/main//images/box.png"); */
-/*     margin-left: auto; */
-/*     margin-right: auto; */
-/*     width: 50%; */
-/*     height: 15%; */
-/* 	margin-top: 10%; */
-/*     } */
-    </style>
 
 </head>
-
 <body>
-
     <!-- 메인 헤더 부분 -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -93,8 +78,8 @@
 <!--                     <li> -->
 <!--                         <a href="/challengeschedule/challengeSchedule.tm">도전일정</a> -->
 <!--                     </li> -->
-                    <li style="padding:10px">
-<!--                        <input type="text"/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px;"><span class="glyphicon glyphicon-search"></span> search</button> -->
+                    <li style="padding:10px" id="mobile_search">
+                       <input type="text"/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px;"><span class="glyphicon glyphicon-search"></span> search</button> 
                     </li>
                     <!-- 로그인 할때 생기는 버튼 -->
                     <%if(userNick!=null){ %>
@@ -118,10 +103,29 @@
             <!-- /.navbar-collapse -->
         </div>
     </nav>
+    <!-- 중앙 이미지 및 검색창 -->
     <!-- Header Carousel -->
     <header id="myCarousel" class="carousel slide">
-		<img class="mainImage" src="/resource/main/images/main3.png">
+    <div class="main_search">
+    	<div class="imageBox">
+	   		<img class="img-responsive" src="/resource/main/images/main1.png">
+    	</div>
+    	<div class="m_imageBox">
+    		<img class="img-responsive" src="/resource/main/images/main2.png">
+    	</div>
+    	<div class="searchBox">
+    		<div class="headlogo">
+    			<img class="img-responsive" src="/resource/main/images/logo.png">
+    		</div>
+    		<label id="simble">여행일정을 공유하고 리뷰를 나눕니다.</label>
+    		<form class="form-inline search_menu">
+    			<input class="form-control input-lg" id="search_bar" type="text" placeholder="검색어를 입력하세요">
+    			<a href="#" class="btn btn-lg btn-danger btn-search"><span class="glyphicon glyphicon-search"></span> Search</a>
+    		</form>
+    	</div>
+    </div>
     </header>
+    
 
     <!-- Page Content -->
     <div class="container">
@@ -226,7 +230,7 @@
 			</div>
 			
 			<div class="foot_logo">
-				<img class="logo" src="/resource/main/header/images/samplelogo.png">
+				<img class="logo" src="/resource/main/images/logo.png">
 			</div>
 		</div>
 	</footer>

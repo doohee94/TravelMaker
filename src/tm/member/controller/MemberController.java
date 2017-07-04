@@ -44,12 +44,12 @@ private String dir = "member/";
 /**
 * 회원가입
 */
-	@RequestMapping("/signupOk.tm")
+	@RequestMapping("/loginForm.tm")
 	public ModelAndView insert(MemberDTO memberdto){
 		memberdto.setUserAddr(memberdto.getUserCity()+ memberdto.getUserBorough());
 		int res = dao.insert(memberdto);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName(dir+"signupOk");
+		mv.setViewName(dir+"loginForm");
 		mv.addObject("res", res);
 		
 		return mv;
