@@ -44,15 +44,11 @@ private String dir = "member/";
 /**
 * 회원가입
 */
-	@RequestMapping("/loginForm.tm")
-	public ModelAndView insert(MemberDTO memberdto){
+	@RequestMapping("/insertMember.tm")
+	public String insert(MemberDTO memberdto){
 		memberdto.setUserAddr(memberdto.getUserCity()+ memberdto.getUserBorough());
 		int res = dao.insert(memberdto);
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName(dir+"loginForm");
-		mv.addObject("res", res);
-		
-		return mv;
+		return "redirect:/member/loginForm.tm";
 	}
 	
 /**

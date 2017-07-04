@@ -21,13 +21,13 @@
     <title>TravelMaker</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="/resource/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resource/main/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="/resource/bootstrap/css/modern-business.css" rel="stylesheet">
+    <link href="/resource/main/css/modern-business.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="/resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/resource/main/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
  
  	<!-- Modernizr -->
   	<script src="/resource/tour/js/modernizr.js"></script>
