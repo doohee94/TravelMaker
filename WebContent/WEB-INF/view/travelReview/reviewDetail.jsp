@@ -180,9 +180,7 @@
 			<div class="col-lg-12">
 				<h1 class="page-header">리뷰페이지
 					<small>
-						<a class="btn btn-social-icon btn-facebook" id="shareBtn">
-    						<span class="fa fa-facebook"></span>
-  						</a>
+					<a href="#"><i class="fa fa-facebook-square fa-2x" id="shareBtn"></i></a>
 				<%if(result == 0) {%>
 				<input type="image" id="heartBtn" src="/resource/travelReview/images/heart1.png"/>
 				<%}else{%>
