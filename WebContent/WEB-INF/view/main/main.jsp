@@ -72,7 +72,7 @@
                         <a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
                     </li>
                     <li>
-                        <a href="#">마이페이지</a>
+                        <a href="/mylist/menubar.tm">마이페이지</a>
                     </li>
                     <%} //end of if %>
 <!--                     <li> -->

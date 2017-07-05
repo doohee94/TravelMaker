@@ -50,7 +50,7 @@
 <a href="member/loginForm.tm">로그인</a> <br/>
 <a href="member/signupForm.tm">회원가입</a> <br/>
 <a href="mylist/menubar.tm">내일정</a> <br/>
-<a href="member/memberUpdate.tm">내정보보기</a> <br/>
+<a href="member/memberUpdate.tm">내정보보기</a><br/>
 <a href="member/memberDelete.tm">탈퇴하기</a>
 
 <br/>

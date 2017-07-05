@@ -25,7 +25,6 @@ public class MemberDAOImpl implements MemberDAO{
 	/*회원정보보기*/
 	@Override
 	public MemberDTO update(MemberDTO memberdto){
-		System.out.println("회원정보보기");
 		return ss.selectOne("member.update", memberdto);
 	}
 	

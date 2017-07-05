@@ -51,11 +51,7 @@
 	<update id="delete" parameterType="tm.member.dto.MemberDTO">
 	UPDATE member
 	SET user_type='20'
-	<where>
-		<if test="userPw != null">
-			user_id = #{userId}
-		</if>
-	</where>
+	where user_id = #{userId}
 	</update>
 	
 </mapper>
