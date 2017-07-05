@@ -110,6 +110,13 @@ public class TravelReviewController {
 	}
 	
 	
+	@RequestMapping("/insertReview.tm")
+	   public String insertReview(TotalreDTO totalreDTO){
+	      int result = dao.insertReview(totalreDTO);
+	      
+	      return "travelReview/"+"reviewDetail";
+	   }
+	
 	
 	
 }

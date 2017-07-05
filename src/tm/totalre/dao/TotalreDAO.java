@@ -11,5 +11,8 @@ public interface TotalreDAO {
 	public int checkLike(String user_id, String _id);
 	
 	public ArrayList reviewList(String searchContent);
-
+	
+	public int insertReview(TotalreDTO totalreDTO);
+	
+	
 }

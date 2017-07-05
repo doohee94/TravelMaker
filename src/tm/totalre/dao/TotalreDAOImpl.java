@@ -53,5 +53,13 @@ public class TotalreDAOImpl implements TotalreDAO {
 		
 		return list;
 	}
+	
+	@Override
+	   public int insertReview(TotalreDTO totalreDTO) {
+	      
+	      int result = ss.insert(namespace+".insertReview", totalreDTO);
+	      
+	      return result;
+	   }
 
 }

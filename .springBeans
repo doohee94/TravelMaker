@@ -12,11 +12,25 @@
 		<config>WebContent/WEB-INF/springconfig/schedule-mongo-context.xml</config>
 	</configs>
 	<autoconfigs>
-		<config>WebContent/WEB-INF/springconfig/admin-servlet.xml</config>
-		<config>WebContent/WEB-INF/springconfig/step2-servlet.xml</config>
+		<config>WebContent/WEB-INF/springconfig/main-servlet.xml</config>
+		<config>WebContent/WEB-INF/springconfig/mypage_checklist-servlet.xml</config>
+		<config>WebContent/WEB-INF/springconfig/mypage-servlet.xml</config>
+		<config>WebContent/WEB-INF/springconfig/mylist-servlet.xml</config>
 		<config>WebContent/WEB-INF/springconfig/alloance-servlet.xml</config>
-		<config>WebContent/WEB-INF/springconfig/step3-websocket-config.xml</config>
+		<config>WebContent/WEB-INF/springconfig/challengeSchedule-servlet.xml</config>
 		<config>WebContent/WEB-INF/springconfig/common-servlet.xml</config>
+		<config>WebContent/WEB-INF/springconfig/mobile-servlet.xml</config>
+		<config>WebContent/WEB-INF/springconfig/totalre-servlet.xml</config>
+		<config>WebContent/WEB-INF/springconfig/member-servlet.xml</config>
+		<config>WebContent/WEB-INF/springconfig/admin-servlet.xml</config>
+		<config>WebContent/WEB-INF/springconfig/recommandTravelRegion-servlet.xml</config>
+		<config>WebContent/WEB-INF/springconfig/travelReview-servlet.xml</config>
+		<config>WebContent/WEB-INF/springconfig/step1-servlet.xml</config>
+		<config>WebContent/WEB-INF/springconfig/login-servlet.xml</config>
+		<config>WebContent/WEB-INF/springconfig/step2-servlet.xml</config>
+		<config>WebContent/WEB-INF/springconfig/header-servlet.xml</config>
+		<config>WebContent/WEB-INF/springconfig/reviewlike-servlet.xml</config>
+		<config>WebContent/WEB-INF/springconfig/tour-servlet.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>

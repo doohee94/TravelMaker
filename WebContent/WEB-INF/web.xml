@@ -19,7 +19,6 @@
   		/WEB-INF/springconfig/search-servlet.xml
   		/WEB-INF/springconfig/step1-servlet.xml
   		/WEB-INF/springconfig/step2-servlet.xml
-  		/WEB-INF/springconfig/step3-websocket-config.xml
   		/WEB-INF/springconfig/step3-servlet.xml
   		/WEB-INF/springconfig/mypage_checklist-servlet.xml
   		/WEB-INF/springconfig/travelReview-servlet.xml
@@ -35,7 +34,6 @@
   		/WEB-INF/springconfig/recommandTravelRegion-servlet.xml
   		/WEB-INF/springconfig/totalre-servlet.xml
   		/WEB-INF/springconfig/reviewlike-servlet.xml
-  		/WEB-INF/springconfig/registReview-servlet.xml
   		</param-value>
   	</init-param>
   </servlet>
