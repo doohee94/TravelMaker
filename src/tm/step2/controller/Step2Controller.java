@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import tm.step1.dto.Step1DTO;
+import tm.step1.dto.StepDTO;
 
 /**
  * Step2Controller
@@ -51,8 +51,8 @@ public class Step2Controller {
 		//세션에 아이디+travellist를 받아옴
 		//초기값
 		ArrayList<String> list = new ArrayList<String>();
-//		String userId = (String)session.getAttribute("userId");
-//		StepDTO dto = (StepDTO) session.getAttribute(userId+"dto");
+		String userId = (String)session.getAttribute("userId");
+		StepDTO dto = (StepDTO) session.getAttribute(userId+"dto");
 		
 		if(changelist != null){
 			//변경된 리스트를 다시 저장
@@ -61,19 +61,19 @@ public class Step2Controller {
 				list.add(stt.nextToken());
 			}
 			//값 변경이 일어나면 dto를 수정하여 다시 세션에 저장
-//			dto.setSchedule(list);
-//			session.setAttribute(userId+"dto", dto);
+			dto.setSchedule(list);
+			session.setAttribute(userId+"dto", dto);
 		}else{
 			//세션에 저장된 값으로 list를 구성
-			list = new ArrayList<String>();
+//			list = new ArrayList<String>();
 			
 			//세션에서 가져온 
-//			list = dto.getSchedule();
+			list = dto.getSchedule();
 			
-			list.add("서울");
-			list.add("청주");
-			list.add("상주");
-			list.add("부산");
+//			list.add("서울");
+//			list.add("청주");
+//			list.add("상주");
+//			list.add("부산");
 		}
 		
 		//받은 값에 대한 위도 경도 (초기값)
