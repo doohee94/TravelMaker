@@ -34,7 +34,17 @@
 	<div id="loading" style="display: none;">
 
 		<img id="loading-image" alt="로딩중" src="/resource/step2/loding.gif" />
-
+		
+		<form action="stepinfo.tm" method='post' id="hiddeninfofrm">
+			<input type="hidden" id="sregion" name="liststart" value="">
+			<input type="hidden" id="tregion" name="listthrough" value="">
+			<input type="hidden" id="aregion" name="listarrival" value="">
+			<input type="hidden" id="ttitle" name="title" value="">
+			<input type="hidden" id="ffellow" name="partystr" value="">
+			<input type="hidden" id="stdate" name="startDate" value="">
+			<input type="hidden" id="enddate" name="endDate" value="">
+		</form>
+		
 	</div>
 
 	<!-- Navigation -->
@@ -72,14 +82,14 @@
 			<!-- /.navbar-collapse -->
 	</nav>
 
-	<form class="contnsubform" action="" method='get' id="infofrm">
+	<form class="contnsubform" method='post' id="infofrm">
 
 		<div class="container" id="container">
 
 			<div class="prevnextbtn">
 				<center>
 					<input type="button" value="< 메인" class="nextbtnmain" onclick="location.href='/tmmain/main.tm'">
-					<input type="button" value="다음 >" class="nextbtnstep2" onclick="location.href='/step2/step2.tm'">
+					<input type="button" value="다음 >" class="nextbtnstep2" >
 				</center>
 			</div>
 
@@ -1082,16 +1092,13 @@
 			<!-- 	출발지 경유지 도착지를 선택하면 출력해주는 곳 	-->
 			<div class="pathoutput">
 				<!-- 출발지 출력공간 -->
-				<input type="text" class="liststart" name="liststart"
-					placeholder="출발지" readonly="readonly" />
+				<input type="text" class="liststart" placeholder="출발지" readonly="readonly" />
 
 				<!-- 경유지 출력공간 -->
-				<input type="text" class="listthrough" name="listthrough"
-					placeholder="경유지" readonly="readonly">
+				<input type="text" class="listthrough" placeholder="경유지" readonly="readonly">
 
 				<!-- 도착지 출력공간 -->
-				<input type="text" class="listarrival" name="listarrival"
-					placeholder="도착지" readonly="readonly" />
+				<input type="text" class="listarrival" placeholder="도착지" readonly="readonly" />
 
 				<!-- 경유지비우기 버튼 -->
 				<input type="button" class="reset" value="경유지 비우기" />
@@ -1110,8 +1117,7 @@
 				</div>
 
 
-				<input type="text" class="traveltitle" name="traveltitle"
-					placeholder=" 25자내로 제목을 입력해주세요."> <br />
+				<input type="text" class="traveltitle" placeholder=" 25자내로 제목을 입력해주세요."> <br />
 			</div>
 			<!-- threerow -->
 
@@ -1120,7 +1126,7 @@
 			<!-- 동행자 팝업버튼 -->
 			<div class="fourrow">
 				<input type="text" class="fellowpeople" id="fellowpeople"
-					readonly="readonly" placeholder="동행자를 선택해주세요.">
+					 placeholder="동행자를 선택해주세요.">
 				<button type="button" class="btn btn-info btn-lg"
 					data-toggle="modal" data-target="#myModal">동행자</button>
 
@@ -1146,13 +1152,14 @@
 						
 							<!-- 동행자 아이디 검색 공간 -->
 								<div class="input-group">
-									<form id="modalfrm" method="post" action="setp1searchfellow.tm">
+									<form id="modalfrm" method="post" action="/step1/setp1searchfellow.tm">
 										<input id="modalsearchplace" type="text" class="form-control"
 											placeholder="Search ID.."> <span
 											class="input-group-btn">
-											<button id="modalsearchbtn" class="btn btn-default"
-												type="button">Search</button>
+											
 										</span>
+										<input id="modalsearchbtn" class="btn btn-default"
+												type="submit" value='SEARCH22'>
 									</form>
 								</div>
 							
@@ -1166,7 +1173,7 @@
 										<th>아이디</th>
 										<th>닉네임</th>
 									</tr>
-									<c:forEach var="row" items="${list }">
+									<c:forEach var="row" items="">
 										<tr class="secondtr">
 											<td>${row.bno}</td>
 											<td>${row.id}</td>
@@ -1208,13 +1215,10 @@
 
 			<!--	출발날짜 도착날짜 공간	-->
 			<div class="input-group input-group-lg" id="datediv">
-				<span class="input-group-addon" id="sizing-addon1">출발날짜</span> <input
-					type="text" id="startdate" name="startdate" class="form-control"
-					placeholder="선택" aria-describedby="sizing-addon1"> <span
-					class="input-group-addon" id="sizing-addon1">도착날짜</span> <input
-					type="text" id="arrivaldate" name="arrivaldate"
-					class="form-control" placeholder="선택"
-					aria-describedby="sizing-addon1">
+				<span class="input-group-addon" id="sizing-addon1">출발날짜</span>
+				<input type="text" id="startdate" class="form-control" placeholder="선택" aria-describedby="sizing-addon1">
+				<span class="input-group-addon" id="sizing-addon1">도착날짜</span>
+				<input type="text" id="arrivaldate" class="form-control" placeholder="선택" aria-describedby="sizing-addon1">
 			</div>
 
 
@@ -1222,6 +1226,9 @@
 		</div>
 		<!-- end class container id secondcontainer -->
 	</form>
+	
+
+
 
 	<!-- 출발지 경유지 도착지 탭 script -->
 	<script
