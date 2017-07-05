@@ -116,9 +116,7 @@ public class TravelReviewController {
 		
 	      int result = dao.insertReview(totalreDTO);
 	      int hashtagResult = dao.insertHashtag(totalreDTO);
-	      
-	    //임의로 준 유저아이디
-			String user_id = "maro";
+
 			//임의로 준 번호
 			String _id = "S20170704161911803";
 			

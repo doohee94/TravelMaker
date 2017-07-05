@@ -80,7 +80,7 @@
 
 <!-- 지도부분 api -->
 <script type="text/javascript"
-	src="//apis.daum.net/maps/maps3.js?apikey=1464ab905ce0a7acbcb1f9933dbd5961&libraries=services"></script>
+	src="//apis.daum.net/maps/maps3.js?apikey=d7cd900845b5f9c431bb5325b827e675&libraries=services"></script>
 
 <!-- 페이지 js파일 -->
 <script type="text/javascript" src="/resource/travelReview/js/travelDetail.js"></script>
@@ -90,9 +90,11 @@
 <script type="text/javascript">
 	$(function(){
 		
+		//일정에서 가각의 탭을 눌렀을 때 해당 지역을 지도에 마커로 표시해준다
 		$('#myTab > li').click(function(){
 			var arrayX=[];
 			var arrayY=[];
+			var arrayTitle=[];
 			
 			$(this).find(".mapx").each(function(i,item){
 				arrayX[i] = $(this).val();
@@ -102,28 +104,46 @@
 				arrayY[i] = $(this).val();
 			});
 			
+			$(this).find(".title").each(function(i,item){
+				arrayTitle[i] = $(this).val();
+			});
+			
 			/*불러온 정보에서 위도, 경도 정보를 받아 지도 위에 마커찍기*/
             var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
             mapOption = { 
-               center: new daum.maps.LatLng(arrayX[0], arrayY[0]), // 지도의 중심좌표
-               level: 3 // 지도의 확대 레벨
+               center: new daum.maps.LatLng(arrayY[0], arrayX[0]), // 지도의 중심좌표
+               level: 8 // 지도의 확대 레벨
             };
 
             var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
             for(var i=0; i<arrayX.length; i++){
-            	
-            	alert(arrayX[i]);
 
                //마커가 표시될 위치입니다 
-               var markerPosition  = new daum.maps.LatLng(arrayX[i], arrayY[i]); 
+               var markerPosition  = new daum.maps.LatLng(arrayY[i], arrayX[i]); 
 
                // 마커를 생성합니다
                var marker = new daum.maps.Marker({
                   position: markerPosition
                });
+               
             	// 마커가 지도 위에 표시되도록 설정합니다
                marker.setMap(map);
+            	
+            // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+               var iwContent = '<div style="padding:5px;">'+arrayTitle[i]+'</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+                   iwRemoveable = true, // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+               	   iwPosition = new daum.maps.LatLng(arrayY[i], arrayX[i]); //인포윈도우 표시 위치입니다
+               	   
+            // 인포윈도우를 생성합니다
+               var infowindow = new daum.maps.InfoWindow({
+            	   position : iwPosition, 
+                   content : iwContent,
+                   removable : iwRemoveable
+               });
+               
+            // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+               infowindow.open(map, marker); 
             }
 		});
 	});
@@ -253,9 +273,11 @@
 								
 								String mapx = temp.get("mapx").toString();
 								String mapy = temp.get("mapy").toString();
+								String title = temp.get("title").toString();
 						%>
 						<input type="hidden" class="mapx" value=<%=mapx %>>
-						<input type="hidden" class="mapy" value=<%=mapy %>>	
+						<input type="hidden" class="mapy" value=<%=mapy %>>
+						<input type="hidden" class="title" value=<%=title %>>	
 						<%
 							}
 						%>
