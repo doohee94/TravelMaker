@@ -278,7 +278,7 @@
 																					img
 																				</td>
 																				<td class="imgclick" style="text-align: center;">
-																					<img alt="" class="clickimg" src="/upload/alliance/${a.adPhotofake }" style="width: 120px; height: 15px;" >
+																					<img alt="" class="clickimg" src="/upload/admin/${a.adPhotofake }" style="width: 120px; height: 15px;" >
 																				</td>
 																			</tr>
 																		</table>
@@ -331,7 +331,7 @@
 																					img
 																				</td>
 																				<td class="imgclick" style="text-align: center;">
-																					<img alt="" class="clickimg" src="/upload/alliance/${a.adPhotofake }" style="width: 120px; height: 15px;" >
+																					<img alt="" class="clickimg" src="/upload/admin/${a.adPhotofake }" style="width: 120px; height: 15px;" >
 																				</td>
 																			</tr>
 																		</table>
@@ -384,7 +384,7 @@
 																					img
 																				</td>
 																				<td class="imgclick" style="text-align: center;">
-																					<img alt="" class="clickimg" src="/upload/alliance/${a.adPhotofake }" style="width: 120px; height: 15px;" >
+																					<img alt="" class="clickimg" src="/upload/admin/${a.adPhotofake }" style="width: 120px; height: 15px;" >
 																				</td>
 																			</tr>
 																		</table>
