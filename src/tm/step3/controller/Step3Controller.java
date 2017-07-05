@@ -63,6 +63,7 @@ public class Step3Controller {
 	   }else{ 
 		   mv.addObject("_id", "S20170704161911803");
 	   }
+	   mv.addObject("_id",_id);
 	   mv.setViewName(dir+"/step3");
 	   System.out.println("스템33333333"+_id);
 	   return mv;

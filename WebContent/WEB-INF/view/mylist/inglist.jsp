@@ -273,24 +273,30 @@ $(function(){
 							 +'<h3>'+'시작날짜'+'~'+'끝날짜'+'</h3>'
 		    				 +'<p>'+'출발지'+'>'+'도착지'+'</p>'
 		    				 + '<p>'+data[i].tour_title+'</p>'
-		    				 +'<a href="#" class="read-more">일정편집</a><br/><br/>'
+		    				 +'<a class="read-more">일정편집</a><br/><br/>'
 		    				 +'<input type="hidden" value="'+data[i]._id+'"  class="_id"/>'	
 		    				 +'</figcaption></figure>'		    		
 		    		);// append
 		    	
 		    	}//end for i
-		    	
-		    	
+
 		     }//end success
 			,error:function(err,status,error){
 				alert(" 일정 리스트 가져오기 실패!"+err.status+error);
 			}
-		
-		
-		
-		
 	});//end ajax
 
+	
+	//일정 편집 클릭------------------------------------------------
+	$('.schedule-list').on('click', '.read-more', function(){
+		var _id = $(this).siblings("._id").val().trim();
+		location.href="/step/step3.tm?_id="+_id;
+		
+	});
+
+	
+	
+	
 });//end function
 
 </script>
