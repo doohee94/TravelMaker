@@ -29,6 +29,9 @@
     <!-- Custom CSS -->
     <link href="/resource/bootstrap/css/sb-admin-2.css" rel="stylesheet">
 
+    <!-- Morris Charts CSS -->
+    <link href="/resource/bootstrap/css/morris.css" rel="stylesheet">
+
     <!-- Custom Fonts -->
     <link href="/resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -166,11 +169,14 @@ $(function(){
                     <li>
                         <a href="/recommandtravelregion/recommandTravelRegion.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">여행리뷰</a>
                     </li>
-                    <li style="padding:10px;">
+                    <li>
+                        <a href="/challengeschedule/challengeSchedule.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">도전일정</a>
+                    </li>
+                     <li style="padding:10px;">
                        <input type="text" style="width: 170px; height: 26px; "/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px; width: 77px; font-size: 15px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; color:#2e2e2e"><span class="glyphicon glyphicon-search"></span> search</button>
                     </li>                      
                      <li>
-                        <a href="/member/loginForm.tm" style="padding-right: 378px; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">로그인　</a>
+                        <a href="member/loginForm.tm" style="padding-right: 378px; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">로그인　</a>
                     </li>
                 </ul>
             <!-- /네비 헤더  메뉴 부분 -->
@@ -182,10 +188,10 @@ $(function(){
                             <a href="#"><i class="fa fa-user fa-user"></i>  내 정보<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/member/memberUpdate.tm">  정보수정</a>
+                                    <a href="http://localhost:8080/member/memberUpdate.tm">  정보수정</a>
                                 </li>
                                 <li>
-                                    <a href="/member/memberDelete.tm">  회원탈퇴</a>
+                                    <a href="http://localhost:8080/member/memberDelete.tm">  회원탈퇴</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -194,30 +200,30 @@ $(function(){
                             <a href="#"><i class="fa fa-edit fa-fw"></i>  내 일정<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/mylist/inglist.tm">  계획중인일정</a>
+                                    <a href="http://localhost:8080/mylist/inglist.tm">  계획중인일정</a>
                                 </li>
                                 <li>
-                                    <a href="/mylist/donelist.tm">  완성된일정</a>
+                                    <a href="http://localhost:8080/mylist/donelist.tm">  완성된일정</a>
                                 </li>
                                 <li>
-                                    <a href="/mylist/startlist.tm">  시작된일정</a>
+                                    <a href="http://localhost:8080/mylist/startlist.tm">  시작된일정</a>
                                 </li>
                                 <li>
-                                    <a href="/mylist/endlist.tm">  여행한일정</a>
+                                    <a href="http://localhost:8080/mylist/endlist.tm">  여행한일정</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="/tmmypage/likespot.tm"><i class="fa fa-check-square-o fa-fw"></i>  관심 여행지</a>
+                            <a href="tables.html"><i class="fa fa-check-square-o fa-fw"></i>  관심 여행지</a>
                         </li>
                         <li>
-                            <a href="/tmmypage/schedule.tm"><i class="fa fa-check-square-o fa-fw"></i>  관심 일정</a>
+                            <a href="forms.html"><i class="fa fa-check-square-o fa-fw"></i>  관심 일정</a>
                         </li>
                         <li>
-                            <a href="/tmmypage/qna.tm"><i class="fa fa-comments fa-fw"></i>  QnA</a>
+                            <a href="forms.html"><i class="fa fa-comments fa-fw"></i>  QnA</a>
                         </li>
                         <li>
-                            <a href="/tmmypage/stemp.tm"><i class="fa fa-map-marker fa-fw"></i>  스템프</a>
+                            <a href="http://localhost:8080/tmmoblie/mstemp.tm"><i class="fa fa-map-marker fa-fw"></i>  스템프</a>
                         </li>                        
                     </ul>
                 </div>
@@ -235,7 +241,78 @@ $(function(){
 		<center>
 		<div class="schedule-list">          
             
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter ing">
+							  <img src="/resource/mylist/images/image_1.JPG" />
+							  <figcaption>
+							    <h3>2017.05.16~2017.06.11</h3>
+							    <p>서울>부산</p>
+							  </figcaption>
+							</figure>
 							
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done">
+							  <img src="/resource/mylist/images/image_2.JPG" />
+							  <figcaption>
+							    <h3>2017.08.16~2017.10.11</h3>
+							    <p>서울>제주도</p>
+							  </figcaption>
+							</figure>
+							
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter start">
+							  <img src="/resource/mylist/images/image_3.JPG" />
+							  <figcaption>
+							    <h3>2017.05.16~2017.06.11</h3>
+							    <p>서울>전주</p>
+							  </figcaption>
+							</figure>
+							
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter end">
+							  <img src="/resource/mylist/images/image_4.JPG" />
+							  <figcaption>
+							    <h3>2017.07.16~2017.07.20</h3>
+							    <p>부산>서울</p>
+							  </figcaption>
+							</figure>
+							
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter ing">
+							  <img src="/resource/mylist/images/image_5.JPG" />
+							  <figcaption>
+							    <h3>2017.07.16~2017.07.20</h3>
+							    <p>부산>서울</p>
+							  </figcaption>
+							</figure>
+							
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done">
+							  <img src="/resource/mylist/images/image_6.JPG" />
+							  <figcaption>
+							    <h3>2017.07.16~2017.07.20</h3>
+							    <p>부산>서울</p>
+							  </figcaption>
+							</figure>
+							
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter ing">
+							  <img src="/resource/mylist/images/image_7.JPG" />
+							  <figcaption>
+							    <h3>2017.07.16~2017.07.20</h3>
+							    <p>부산>서울</p>
+							  </figcaption>
+							</figure>
+							
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter start">
+							  <img src="/resource/mylist/images/image_8.JPG" />
+							  <figcaption>
+							    <h3>2017.07.16~2017.07.20</h3>
+							    <p>부산>서울</p>
+							  </figcaption>
+							</figure>
+							
+							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter end">
+							  <img src="/resource/mylist/images/image_9.JPG" />
+							  <figcaption>
+							    <h3>2017.07.16~2017.07.20</h3>
+							    <p>부산>서울</p>
+							  </figcaption>
+							</figure>
+
 
 
 				</div> 
@@ -255,58 +332,5 @@ $(function(){
     <script src="/resource/bootstrap/js/sb-admin-2.js"></script>
 
 </body>
-
-<script type="text/javascript">
-
-$(function(){
-
-	var list_num = {
-			"num":2
-	}
-	
-	$.ajax({
-		url : "/mylist/inglistsearch.tm"
-			,type:"post"
-			,contentType:"application/json "
-			,data:JSON.stringify(list_num)
-		    ,success:function(data){ 
-		    	
-		    	
-		    	for(var i=0; i<data.length; i++){
-		    		$(".schedule-list").append('<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done">'
-							 +'<img src="/resource/mylist/images/image_2.JPG" />'
-							 +'<figcaption>'
-							 +'<h3>'+'시작날짜'+'~'+'끝날짜'+'</h3>'
-		    				 +'<p>'+'출발지'+'>'+'도착지'+'</p>'
-		    				 + '<p>'+data[i].tour_title+'</p>'
-		    				 +'<a href="/mypage_checklist/checklist.tm" class="read-more">일정체크</a>'
-		    				 +'<input type="hidden" value="'+data[i]._id+'"  class="_id"/>'	
-		    				 +'</figcaption></figure>'		    		
-		    		);// append
-		    	
-		    	}//end for i
-		    	
-		    	
-		     }//end success
-			,error:function(err,status,error){
-				alert("일정 리스트 가져오기 실패!"+err.status+error);
-			}
-		
-	});//end ajax
-
-	$('.schedule-list').on('click', '.read-more', function(){
-		var _id = $(this).siblings("._id").val().trim();
-		alert(_id);
-		location.href="/mypage_checklist/checklist.tm?_id="+_id;
-		
-	});
-	
-	
-	
-});//end function
-
-</script>
-
-
 
 </html>

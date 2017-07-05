@@ -4,9 +4,9 @@
    pageEncoding="UTF-8"%>
   <%
   //_id 값
-  
   //시작날짜와 종료날짜를 계산해서 일수 구하기
-  
+  String id=session.getAttribute("userId").toString();
+  System.out.println("stpe3 세션 유져아이디>>>"+id);
   SimpleDateFormat format = new SimpleDateFormat("yy-MM-dd");
   
   String sDateStr = "17-05-27";
@@ -121,7 +121,7 @@
 <div  style="width:100%; padding:0px" align="center">
    <!-- 지역, 여행지 리스트 부분 -->     
        <div style="height:650px;margin-left: 50px;margin-top: 13px;float: left;padding:0px;width: 150px;">
-             
+             <input type="hidden" value="${_id}" id="scheduleId"/>
              <div width: 150px; border-bottom:solid 1px;" id="reSearchDiv">
                 <input type="text" placeholder="지역검색" id="reSearchInput" style="border-top:none; border-left:none; border-right:none; width:100px; border-bottom:true"/>
                 <button class="nextbtn" id="reSearchBtn">검색</button>

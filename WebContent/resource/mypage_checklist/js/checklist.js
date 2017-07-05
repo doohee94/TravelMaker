@@ -16,7 +16,7 @@
     $(".stemp").click(function(){
     	var stempitem = $(this);
     	var stempNum = stempitem.find("input");
-    	alert($("#_id").val());
+ 
     	$a.popup({
             url : "schedulePopup.tm",
             ifram:true,

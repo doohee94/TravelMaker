@@ -125,7 +125,7 @@
 							제휴 승인 리스트
 								<form class="form-inline" role="form" action="searchallirec.tm" method="post" style="float: right;">
 									<div class="form-group">
-										<input type="text" class="form-control" id="partnerComname"  name="partnerComname" required="required" placeholder="회사명 입력">
+										<input type="text" class="form-control"   name="partnerComname" required="required" placeholder="회사명 입력">
 										<input type="hidden" id="pageNumber" name="pageNum" value="${pageNum }">
 									</div>
 									<button type="submit" class="btn btn-primary">검색</button>
@@ -220,7 +220,15 @@
 				<div class="btn-row">
 					<div class="btn-group">
 						<input type="hidden" id="totalpage" value="${totalpage }">
-						<a href="adminAllianceRec.tm?pageNumber=1" class="pagebtn btn btn-default" type="button">&#171;</a>
+						<c:choose>
+							<c:when test="${url eq 'searchallirec.tm' }">
+								<a href="${url }?pageNumber=1&partnerComname=${partnerComname }" class="pagebtn btn btn-default" type="button">&#171;</a>
+							</c:when>
+							<c:otherwise>
+								<a href="${url }?pageNumber=1" class="pagebtn btn btn-default" type="button">&#171;</a>
+							</c:otherwise>
+						</c:choose>
+						
 						<button class="pagebtn btn btn-default" id="prevPage" type="button">&#60;</button>
 						<c:forEach var="i" begin="1" end="${totalpage }">
 							<c:choose>
@@ -228,12 +236,27 @@
 									<a class="pagebtn btn btn-primary" type="button">${i }</a>
 								</c:when>
 								<c:otherwise>
-									<a href="adminAllianceRec.tm?pageNumber=${i }" class="pagebtn btn btn-default" type="button">${i }</a>
+									<c:choose>
+										<c:when test="${url eq 'searchallirec.tm' }">
+											<a href="${url }?pageNumber=${i }&partnerComname=${partnerComname }" class="pagebtn btn btn-default" type="button">${i }</a>
+										</c:when>
+										<c:otherwise>
+											<a href="${url }?pageNumber=${i }" class="pagebtn btn btn-default" type="button">${i }</a>
+										</c:otherwise>
+									</c:choose>
+								
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
 						<button class="pagebtn btn btn-default" id="nextPage" type="button">&#62;</button>
-						<a href="adminAllianceRec.tm?pageNumber=${totalpage }" class="pagebtn btn btn-default" type="button">&#187;</a>
+						<c:choose>
+							<c:when test="${url eq 'searchallirec.tm' }">
+								<a href="${url }?pageNumber=${totalpage }&partnerComname=${partnerComname }" class="pagebtn btn btn-default" type="button">&#187;</a>
+							</c:when>
+							<c:otherwise>
+								<a href="${url }?pageNumber=${totalpage }" class="pagebtn btn btn-default" type="button">&#187;</a>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 			</section>
@@ -241,7 +264,8 @@
 		<!--main content end-->
 	</section>
 	<!-- container section start -->
-
+	<input id="url" value="${url }">
+	<input id="partnerComname" value="${partnerComname }">
 	<!-- javascripts -->
 	<script src="/resource/admin/js/jquery.js"></script>
 	<script src="/resource/admin/js/jquery-ui-1.10.4.min.js"></script>
@@ -280,7 +304,14 @@
 			}else{
 				nextNumber = pageNumber - 1;
 			}
-			location.href = "/tmadmin/adminAllianceRec.tm?pageNumber="+nextNumber;
+			var url = $("#url").val();
+			var partnerComname = $("#partnerComname").val();
+			
+			if(url == 'searchallirec.tm'){
+				location.href = "/tmadmin/"+url+"?pageNumber="+nextNumber+"&partnerComname="+partnerComname;
+			}else{
+				location.href = "/tmadmin/"+url+"?pageNumber="+nextNumber;
+			}
 		});
 		
 		$("#nextPage").click(function(){
@@ -294,7 +325,14 @@
 				nextNumber = parseInt(pageNumber) + 1;
 			}
 			
-			location.href = "/tmadmin/adminAllianceRec.tm?pageNumber="+nextNumber;
+			var url = $("#url").val();
+			var partnerComname = $("#partnerComname").val();
+			
+			if(url == 'searchallirec.tm'){
+				location.href = "/tmadmin/"+url+"?pageNumber="+nextNumber+"&partnerComname="+partnerComname;
+			}else{
+				location.href = "/tmadmin/"+url+"?pageNumber="+nextNumber;
+			}
 		});
 	
 	

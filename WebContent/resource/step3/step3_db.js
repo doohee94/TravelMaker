@@ -69,10 +69,9 @@ $(function(){
 	            	            	          			
 	            	            	          	}
 	            	            	          }      
-	            	            	         var city =  $("#hiddenCity").val();
-	            	            	   	     var date="2017-05-02";
-	            	            	   	     var state="0";
-	            	            	   	     var id=2;
+	            	            	         var city =  $("#hiddenCity").val(); 
+	            	            	   	 
+	            	            	   	    
 	            	            	   	     var schedule={
 	            	            	   	    		"_id":_IDdata[x]._id,
 	            	            	   	    		"schedule_num":"1",

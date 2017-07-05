@@ -53,5 +53,20 @@ public class TotalreDAOImpl implements TotalreDAO {
 		
 		return list;
 	}
+	
+	@Override
+	   public int insertReview(TotalreDTO totalreDTO) {
+	      
+	      int result = ss.insert(namespace+".insertReview", totalreDTO);
+	      
+	      return result;
+	   }
+
+	@Override
+	public int insertHashtag(TotalreDTO totalreDTO) {
+
+		int result = ss.insert(namespace+".insertHashtag",totalreDTO);
+		return result;
+	}
 
 }

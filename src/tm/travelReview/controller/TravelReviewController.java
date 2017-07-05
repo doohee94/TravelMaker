@@ -1,5 +1,6 @@
 package tm.travelReview.controller;
 
+import java.lang.ProcessBuilder.Redirect;
 import java.util.ArrayList;
 
 import org.json.simple.JSONArray;
@@ -68,7 +69,7 @@ public class TravelReviewController {
 		//임의로 준 유저아이디
 		String user_id = "maro";
 		//임의로 준 번호
-		String _id = "128";
+		String _id = "S20170704161911803";
 		
 		ModelAndView mv = new ModelAndView();
 		
@@ -87,7 +88,7 @@ public class TravelReviewController {
 	//몽고디비에서 일정 불러오기
 		//불러올 정보의 조건을 지정(_id를 가지고 지정)
 		Criteria criteria = new Criteria("_id");
-		criteria.is(Integer.parseInt(_id));
+		criteria.is(_id);
 		Query query = new Query(criteria);
 		
 		//tour정보를 arraylist로 받아온다
@@ -109,6 +110,25 @@ public class TravelReviewController {
 		return mv;
 	}
 	
+	
+	@RequestMapping("/insertReview.tm")
+	   public String insertReview(TotalreDTO totalreDTO){
+		
+	      int result = dao.insertReview(totalreDTO);
+	      int hashtagResult = dao.insertHashtag(totalreDTO);
+	      
+	    //임의로 준 유저아이디
+			String user_id = "maro";
+			//임의로 준 번호
+			String _id = "S20170704161911803";
+			
+			ModelAndView mv = new ModelAndView();
+			
+			TotalreDTO dto = dao.showReview(_id);
+			
+			return "redirect:/travelReview/reviewlist.tm";
+
+	   }
 	
 	
 	

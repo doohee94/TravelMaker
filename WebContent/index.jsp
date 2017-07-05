@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head>1
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
@@ -74,7 +74,7 @@
 <a href="recommandtravelregion/recommandTravelRegion.tm">추천여행지 페이지</a>
 
 <br/>
-<a href="registReview/registReview.tm">리뷰등록</a>
+<a href="travelReview/registReview.tm">리뷰등록</a>
 
 
 </div>

@@ -50,16 +50,13 @@ public class MylistController {
 			e.printStackTrace();
 		}
 		String num = obj.get("num").toString();
-		
 		String member_id = (String)session.getAttribute("userId");
-		System.out.println("세션 아이디"+member_id);
 		
 		Criteria c = new Criteria().andOperator(
-				Criteria.where("member_id").is("doohee94"),
+				Criteria.where("member_id").is(member_id),
 				Criteria.where("save_state").is(Integer.parseInt(num))
 				);
 		Query query = new Query(c);
-		
 		ArrayList<JSONObject> list = 
 				(ArrayList<JSONObject>)mongoTemplate.find(query, JSONObject.class, "schedule");
 		

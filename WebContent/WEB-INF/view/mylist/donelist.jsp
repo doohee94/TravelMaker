@@ -298,8 +298,7 @@ $(function(){
 
 $('.schedule-list').on('click', '.read-more', function(){
 	var _id = $(this).siblings("._id").val().trim();
-	alert(_id);
-	location.href="/mypage_checklist/checklist.tm?_id="+_id;
+
 	
 });
 
