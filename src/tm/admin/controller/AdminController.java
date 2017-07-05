@@ -409,6 +409,7 @@ public class AdminController {
 		mv.addObject("allist", list);
 		mv.addObject("totalpage", page[0]);
 		mv.addObject("pageNum", pageNum);
+		mv.addObject("url", "adminAllianceList.tm");
 		
 		return mv;
 	}
@@ -429,12 +430,14 @@ public class AdminController {
 		 * 2 : 끝 rownum
 		 */
 		
-		List<AllianceDTO> list = dao.alsearch(partnerComname);
+		List<AllianceDTO> list = dao.alsearch(page[1],page[2],partnerComname);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"adminAllianceList");
 		mv.addObject("allist", list);
 		mv.addObject("totalpage", page[0]);
 		mv.addObject("pageNum", pageNum);
+		mv.addObject("url", "searchalli.tm");
+		mv.addObject("partnerComname", partnerComname);
 		return mv;
 	}
 	
@@ -488,6 +491,7 @@ public class AdminController {
 		mv.addObject("allist", list);
 		mv.addObject("totalpage", page[0]);
 		mv.addObject("pageNum", pageNum);
+		mv.addObject("url", "adminAllianceRec.tm");
 		
 		return mv;
 	}
@@ -508,12 +512,14 @@ public class AdminController {
 		 * 2 : 끝 rownum
 		 */
 		
-		List<AllianceDTO> list = dao.alsearch(partnerComname);
+		List<AllianceDTO> list = dao.alsearchRec(page[1],page[2],partnerComname);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"adminAllianceRec");
 		mv.addObject("allist", list);
 		mv.addObject("totalpage", page[0]);
 		mv.addObject("pageNum", pageNum);
+		mv.addObject("url", "searchallirec.tm");
+		mv.addObject("partnerComname", partnerComname);
 		return mv;
 	}
 	

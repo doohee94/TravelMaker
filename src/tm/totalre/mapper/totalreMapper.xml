@@ -33,4 +33,9 @@
       INSERT INTO totalre
       VALUES(seq_totalre.nextval,#{userId},#{scNum},#{totalreTitle},#{totalreContent},#{totalrePhoto4},#{totalrePhoto4fake},#{totalrePhoto3},#{totalrePhoto3fake},#{totalrePhoto2},#{totalrePhoto2fake},#{totalrePhoto1},#{totalrePhoto1fake},#{totalreLikecount})
    </insert>
+   
+   <insert id="insertHashtag" parameterType="TotalreDTO">
+      INSERT INTO hashtag
+      VALUES(#{scNum},#{hashtag})
+   </insert>
 </mapper>
