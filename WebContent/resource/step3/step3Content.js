@@ -1198,7 +1198,7 @@ $( function() {
   	      }
 			
 	   });//end ajax;
-   },1000*1);//end setInterval
+   },1000*5);//end setInterval
    
    
   
