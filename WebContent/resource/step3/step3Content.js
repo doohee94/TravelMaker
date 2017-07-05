@@ -37,7 +37,7 @@ $( function() {
 		group_num = "G"+todayDate;
 		tour_title="즐거운 여행~"; //새로 생성할 경우 전 페이지에서 넘겨준 값을 저장
 		friend="4"; //새로 생성할 경우 전 페이지에서 넘겨준 값을 저장. 
-		
+		$("#scheduleId").val(_id); //생성한 아이디를 저장 
 		//디비 기초 틀 생성!
 		
 		var addFriend={
@@ -1198,7 +1198,7 @@ $( function() {
   	      }
 			
 	   });//end ajax;
-   },1000*5);//end setInterval
+   },1000*10);//end setInterval
    
    
   
