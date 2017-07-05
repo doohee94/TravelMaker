@@ -4,7 +4,6 @@
    pageEncoding="UTF-8"%>
   <%
   //_id 값
-  String _id = request.getAttribute("_id").toString();
   
   //시작날짜와 종료날짜를 계산해서 일수 구하기
   
@@ -67,7 +66,6 @@
 </head>
 
 <body>
-<input type="hidden" id="scheduleId" value='<%=_id%>'/>
 <!-- 헤더 -->
    <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
