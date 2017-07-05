@@ -235,22 +235,7 @@ $(function(){
 		<center>
 		<div class="schedule-list">          
             
-							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter start">
-							  <img src="/resource/mylist/images/image_3.JPG" />
-							  <figcaption>
-							    <h3>2017.05.16~2017.06.11</h3>
-							    <p>서울>전주</p><a href="/mypage_checklist/checklist.tm" class="read-more">일정체크</a><br/><br/>
-							  </figcaption>
-							</figure>
 							
-							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter start">
-							  <img src="/resource/mylist/images/image_8.JPG" />
-							  <figcaption>
-							    <h3>2017.07.16~2017.07.20</h3>
-							    <p>부산>서울</p><a href="/mypage_checklist/checklist.tm" class="read-more">일정체크</a><br/><br/>
-							  </figcaption>
-							</figure>
-
 
 
 				</div> 
@@ -270,5 +255,52 @@ $(function(){
     <script src="/resource/bootstrap/js/sb-admin-2.js"></script>
 
 </body>
+
+<script type="text/javascript">
+
+$(function(){
+
+	var list_num = {
+			"num":2
+	}
+	
+	$.ajax({
+		url : "/mylist/inglistsearch.tm"
+			,type:"post"
+			,contentType:"application/json "
+			,data:JSON.stringify(list_num)
+		    ,success:function(data){ 
+		    	
+		    	
+		    	for(var i=0; i<data.length; i++){
+		    		$(".schedule-list").append('<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done">'
+							 +'<img src="/resource/mylist/images/image_2.JPG" />'
+							 +'<figcaption>'
+							 +'<h3>'+'시작날짜'+'~'+'끝날짜'+'</h3>'
+		    				 +'<p>'+'출발지'+'>'+'도착지'+'</p>'
+		    				 + '<p>'+data[i].tour_title+'</p>'
+		    				 +'<a href="/mypage_checklist/checklist.tm" class="read-more">일정체크</a>'
+		    				 +'<input type="hidden" value="'+data[i]._id+'"  class="_id"/>'	
+		    				 +'</figcaption></figure>'		    		
+		    		);// append
+		    	
+		    	}//end for i
+		    	
+		    	
+		     }//end success
+			,error:function(err,status,error){
+				alert("일정 리스트 가져오기 실패!"+err.status+error);
+			}
+		
+		
+		
+		
+	});//end ajax
+
+});//end function
+
+</script>
+
+
 
 </html>
