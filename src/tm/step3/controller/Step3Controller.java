@@ -1,7 +1,8 @@
 package tm.step3.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+
+import javax.servlet.http.HttpSession;
 
 import org.bson.Document;
 import org.json.simple.JSONArray;
@@ -12,21 +13,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mongodb.DBObject;
-import com.mongodb.WriteResult;
-import com.mongodb.util.JSON;
-
+import tm.step1.dto.StepDTO;
 import tm.step3.dao.Step3DAO;
-import tm.step3.dao.Step3DAOImpl;
 
 /**
  * Step3Controller
@@ -55,7 +50,7 @@ public class Step3Controller {
     * 
     * */
    @RequestMapping("/step3.tm")
-   public ModelAndView step3_id(String _id){
+   public ModelAndView step3_id(String _id, HttpSession session){
 	   ModelAndView mv = new ModelAndView();
 	   System.out.println("step3접속>>>>>>_Id"+_id);
 	   if(_id != null){
@@ -63,6 +58,12 @@ public class Step3Controller {
 	   }else{ 
 		   mv.addObject("_id", "2");
 	   }
+	   
+	   //세션
+	   String userId = (String)session.getAttribute("userId");
+	   StepDTO dto = (StepDTO) session.getAttribute(userId+"dto");
+	   System.out.println("우리이제시작되는거니?"+dto.getStartDate());
+	   
 	   mv.setViewName(dir+"/step3");
 	   System.out.println("스템33333333"+_id);
 	   return mv;

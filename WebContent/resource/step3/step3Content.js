@@ -90,6 +90,20 @@ $( function() {
        	    		}
        	    		day[i] = place;
        	    	}   
+       	    	      	    	
+       	    	for(var j=0; j<day[0].length;  j++){ 
+			 		$("#myList").append(' <li class="list-group-item remove draggable"  style="color:#000;"> <div class="col-xs-12 col-sm-3">'+
+                       '<img src="'+day[0][j].image+'" style="width:62px; height:62px" class="img-responsive img-circle"  /></div>'+
+                       ' <div class="col-xs-12 col-sm-9" align = "center">' +
+                       '<span class="name" style="color:#000;">'+day[0][j].title+'</span><br/>'+
+                       '<span style="color:#000;" class="addr" >'+day[0][j].addr+'</span>'+
+                       '<input type="hidden" class="mapx" value="'+day[0][j].mapx+'"/>'+
+                       '<input type="hidden" class="mapy" value="'+day[0][j].mapy+'"/>'+
+                       '</div><div class="clearfix"></div></li>');
+		   }//end for j		
+       	    	
+       	    	
+       	    	
        	    	
        	    }else{//저장된 값이 없을 경우 알림
        	    	alert("저장된 데이터 없음 ");
@@ -1177,7 +1191,7 @@ $( function() {
       	    	tour_title=data.tour_title;
       	    	friend = data.friend;
       	    	save_state = data.save_state;
-      	    	
+      	   //데이터에 투어가 널이 아닐 경우 day배열에 저장
       	    if(data.tour != null){
       	    	for(var i=0; i<data.tour.length && data.tour[i].place != null; i++){	
       	    		var place = [];
@@ -1190,7 +1204,26 @@ $( function() {
       	    }else{//저장된 값이 없을 경우 알림
       	    	alert("저장된 데이터 없음 ");
       	    }	
-      	    	
+      	  
+      	    //현재 선택된 셀렉트 박스에 해당하는 여행 리스트를 myList에 뿌려줌
+      	    $("#myList").empty(); 
+      	  for(var i=0; i<day.length; i++){
+			 			 if(day[i] != null && i==$("#DaySelectBox option:selected").val()){		
+ 				 for(var j=0; j<day[i].length;  j++){ 
+ 					 		$("#myList").append(' <li class="list-group-item remove draggable"  style="color:#000;"> <div class="col-xs-12 col-sm-3">'+
+ 	                           '<img src="'+day[i][j].image+'" style="width:62px; height:62px" class="img-responsive img-circle"  /></div>'+
+ 	                           ' <div class="col-xs-12 col-sm-9" align = "center">' +
+ 	                           '<span class="name" style="color:#000;">'+day[i][j].title+'</span><br/>'+
+ 	                           '<span style="color:#000;" class="addr" >'+day[i][j].addr+'</span>'+
+ 	                           '<input type="hidden" class="mapx" value="'+day[i][j].mapx+'"/>'+
+ 	                           '<input type="hidden" class="mapy" value="'+day[i][j].mapy+'"/>'+
+ 	                           '</div><div class="clearfix"></div></li>');
+ 				   }//end for j		
+ 			 }else{
+ 				 continue;
+ 			 }
+ 			  
+ 		   }//end for i
       	     }//end ajax
            ,error:function(err,status,error){
   	         //alert("일정있을경우 일쩡뿌려오기실패!"+err.status+error);
@@ -1198,7 +1231,7 @@ $( function() {
   	      }
 			
 	   });//end ajax;
-   },1000*5);//end setInterval
+   },1000*3);//end setInterval
    
    
   
