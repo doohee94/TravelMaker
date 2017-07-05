@@ -1162,15 +1162,43 @@ $( function() {
    
    setInterval(function(){
 	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-   },1000*5);//end setInterval
+	   var findList = {
+				"_id":$("#scheduleId").val()
+		}
+		$.ajax({
+			
+			url : "/step/findList.tm"
+      	     ,type:"post"
+      	     ,contentType:"application/json "
+      	     ,data:JSON.stringify(findList)
+      	     ,success:function(data){
+      	    	_id=data._id;
+      	    	group_num = data.group_num;
+      	    	tour_title=data.tour_title;
+      	    	friend = data.friend;
+      	    	save_state = data.save_state;
+      	    	
+      	    if(data.tour != null){
+      	    	for(var i=0; i<data.tour.length && data.tour[i].place != null; i++){	
+      	    		var place = [];
+      	    		for(var j=0; j<data.tour[i].place.length; j++){
+      	    			place[j] = data.tour[i].place[j];
+      	    		}
+      	    		day[i] = place;
+      	    	}   
+      	    	
+      	    }else{//저장된 값이 없을 경우 알림
+      	    	alert("저장된 데이터 없음 ");
+      	    }	
+      	    	
+      	     }//end ajax
+           ,error:function(err,status,error){
+  	         //alert("일정있을경우 일쩡뿌려오기실패!"+err.status+error);
+  	        
+  	      }
+			
+	   });//end ajax;
+   },1000*1);//end setInterval
    
    
   
