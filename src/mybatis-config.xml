@@ -18,6 +18,8 @@
 		<typeAlias alias="qnaDTO" type="tm.mypage.dto.QnaDTO"/>	
 		<typeAlias alias="TotalreDTO" type="tm.totalre.dto.TotalreDTO"/>
 		<typeAlias alias="ReviewLikeDTO" type="tm.reviewlike.dto.ReviewLikeDTO"/>
+		<typeAlias alias="step1DTO" type="tm.step1.dto.StepDTO"/>
+		<typeAlias alias="memberDTO" type="tm.member.dto.MemberDTO"/>
 	</typeAliases>
 
 </configuration>

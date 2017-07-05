@@ -6,12 +6,35 @@ $(function() {
 		$("#loading").hide();
 
 		$(".nextbtnstep2").click(function(event) {
-			event.preventDefault();
-			$(".container").hide();
-			$(".navbar").hide();
-			$("#loading").show();
-			var url = "/step2/step2.tm";
-			$(location).attr('href', url);
+			//form 태그에 있는 정보를 중간 정보 저장공간에 넣어주고 그걸  hidden 에 넣어주기
+			
+			//중간 저장공간에 넣어줌.
+			temptitle = $(".traveltitle").val();
+			templiststart = $(".liststart").val();
+			templistthrough = $(".listthrough").val();
+			templistarrival = $(".listarrival").val();
+			tempfellowpeople = $(".fellowpeople").val();
+			tempstartdate = $("#startdate").val();
+			tempenddate =  $("#arrivaldate").val();
+			
+			// hidden에 넣어줌.
+			$("#ttitle").val(temptitle);
+			$("#sregion").val(templiststart);
+			$("#tregion").val(templistthrough);
+			$("#aregion").val(templistarrival);
+			$("#ffellow").val(tempfellowpeople);
+			$("#stdate").val(tempstartdate);
+			$("#enddate").val(tempenddate);
+			//hidden에 넣어준 값을 넘겨주기.
+			//
+		    
+		    //#("#infofrm").attr('action=');
+		    $("#hiddeninfofrm").submit();
+//		    var url = "/step1/step1.tm";
+//		    $(location).attr('href', url);
+		    $(".container").hide();
+		    $(".navbar").hide();
+		    $("#loading").show();
 
 		});
 	});
@@ -44,7 +67,7 @@ $(function() {
 		//동행자 팝업 창에서 x 버튼 (close 버튼) 누르면 동행자 목록이 초기화.
 		$(".close").click(function(){
 			// 동행자 목록 초기화
-			$(".modal-body").find(".idlistfrm *").detach();
+			$(".modal-body").find(".secondtr *").detach();
 			// 동행자 목록에서 선택한 아이디 값들을 초기화
 			$(".modal-body-bottom").find(".mbbul *").detach();
 		});
@@ -52,14 +75,16 @@ $(function() {
 		$(".ftrsbtn").click(function(){
 			// 동행자 목록 초기화
 //			$(".modal-body").find
-			$(".idlistfrm *").detach();
+			$(".secondtr *").detach();
 			// 동행자 목록에서 선택한 아이디 값들을 초기화
 //			$(".modal-body-bottom").find
 			$(".mbbul *").detach();
 		});
 		
 		// 동행자 팝업 창에서 search 버튼 눌렀을때
-//		$("#modalsearchbtn").click(function(){
+		$("#modalsearchbtn").click(function(){
+			
+			$("#modalfrm").submit();
 //			$(".idlistfrm").append( 
 //					"<c:forEach var='row' items='${map.list}'>"+
 //					
@@ -82,21 +107,22 @@ $(function() {
 //				data : {"con":con},
 //				dataType :"json" ,
 //				success: function(data){
-//					//내용값을 지우고
+//					alert('11');
+					//내용값을 지우고
 //					$(".idlistfrm *").detach();
-//					//결과 리스트를 읽어와서 추가 
+					//결과 리스트를 읽어와서 추가 
 //					for(var i =0; i < data.length; i++){
-//						$(".idlistfrm").append(
+////						$(".idlistfrm").append(
 //							"<input type='textarea' value='"+data[i].userId+"' class='idlist' id='idlist' name='idlist'>"+
 //							"<input type+'textarea' value='"+data[i].userNick+"'class='nicklist' id='nicklist' name='nicklist'>" +
 //							"<input type='button' value='O' id='okbtn' class='okbtn'>"
 //							);
 //					}
 //				}
-//				
-//			});
-			
-//		});
+				
+			});
+		
+		
 	
 		// 제목 입력란 유효성 글자 25자 내로 입력
 		$('.traveltitle').on('keydown', function() {

@@ -12,9 +12,9 @@ public class StepDTO {
 	private String partystr; // 동행자
 	
 	private String id; //몽고 ID
-	private ArrayList<String> schedule; // 일정
+	private ArrayList<String> schedule = new ArrayList<>(); // 일정
 	private String title; // 제목
-	private ArrayList<String> party; // 일행
+	private ArrayList<String> party = new ArrayList<>(); // 일행
 	private String startDate; // 시작날짜
 	private String endDate; // 종료날짜
 	
@@ -83,28 +83,14 @@ public class StepDTO {
 		return listarrival;
 	}
 	public void setListarrival(String listarrival) {
-		this.schedule.add(this.liststart);
-		StringTokenizer st = new StringTokenizer(this.listthrough, ">");
-		while (st.hasMoreTokens()) {
-			String temp = st.nextToken();
-			if( !( temp.equals("") || temp == null )){
-				this.schedule.add(temp);
-			}
-		}
-		this.schedule.add(listarrival);
+
 		this.listarrival = listarrival;
 	}
 	public String getPartystr() {
 		return partystr;
 	}
 	public void setPartystr(String partystr) {
-		StringTokenizer st = new StringTokenizer(partystr, " ");
-		while (st.hasMoreTokens()) {
-			String temp = st.nextToken();
-			if(!(temp.equals(""))){
-				this.party.add(temp);
-			}
-		}
+
 		this.partystr = partystr;
 	}
 }

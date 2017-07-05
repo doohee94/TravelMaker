@@ -4,25 +4,10 @@
 
 
 <mapper namespace="step1">
-	<select id="step1list" parameterType="hashMap" resultType="step1DTO">
-		SELECT *
-		FROM (SELECT rownum as rnum, g.*  
-      		  FROM (SELECT * 
-            		FROM member
-            		<where>
-            			<if test="sel != null">
-							${sel} like '%'||#{con}||'%'
-						</if>
-            		</where>
-            		order by user_id desc) g)
-		<where>
-			<if test="id != null">
-				user_id = #{id}
-			</if>
-			<if test="startnum != null">
-				rnum <![CDATA[>=]]>  #{startnum} AND rnum <![CDATA[<=]]> #{endnum}
-			</if>
-		</where>
+	<select id="step1list" parameterType="hashMap" resultType="memberDTO">
+        SELECT user_id, user_nick
+		from member
+		WHERE user_id =#{userId}
 	</select>
 
 </mapper>
