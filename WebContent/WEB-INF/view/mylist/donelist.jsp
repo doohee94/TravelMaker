@@ -235,21 +235,6 @@ $(function(){
 		<center>
 		<div class="schedule-list">          
             
-							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done">
-							  <img src="/resource/mylist/images/image_2.JPG" />
-							  <figcaption>
-							    <h3>2017.08.16~2017.10.11</h3>
-							    <p>서울>제주도</p><a href="#" class="read-more">상세일정보기</a><br/><br/>
-							  </figcaption>
-							</figure>
-							
-							<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done">
-							  <img src="/resource/mylist/images/image_6.JPG" />
-							  <figcaption>
-							    <h3>2017.07.16~2017.07.20</h3>
-							    <p>부산>서울</p><a href="#" class="read-more">상세일정보기</a><br/><br/>
-							  </figcaption>
-							</figure>
 
 
 				</div> 
@@ -269,5 +254,52 @@ $(function(){
     <script src="/resource/bootstrap/js/sb-admin-2.js"></script>
 
 </body>
+
+<script type="text/javascript">
+
+$(function(){
+
+	var list_num = {
+			"num":1
+	}
+	
+	$.ajax({
+		url : "/mylist/inglistsearch.tm"
+			,type:"post"
+			,contentType:"application/json "
+			,data:JSON.stringify(list_num)
+		    ,success:function(data){ 
+		    	
+		    	
+		    	for(var i=0; i<data.length; i++){
+		    		
+		    		$(".schedule-list").append('<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done">'
+							 +'<img src="/resource/mylist/images/image_2.JPG" />'
+							 +'<figcaption>'
+							 +'<h3>'+'시작날짜'+'~'+'끝날짜'+'</h3>'
+		    				 +'<p>'+'출발지'+'>'+'도착지'+'</p>'
+		    				 + '<h5>'+data[i].tour_title+'</h5></br></br>'
+		    				 +'<a href="#" class="read-more">상세일정보기</a><br/><br/>'
+		    				 +'<input type="hidden" value="'+data[i]._id+'"  class="_id"/>'	
+		    				 +'</figcaption></figure>'
+		    					    		
+		    		);// append
+		    	
+		    	}//end for i
+		    	
+		    	
+		     }//end success
+			,error:function(err,status,error){
+				alert("일정 리스트 가져오기 실패!"+err.status+error);
+			}
+		
+		
+		
+		
+	});//end ajax
+
+});//end function
+
+</script>
 
 </html>
