@@ -17,6 +17,9 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
+<!-- 커스텀 css -->
+<link rel="stylesheet"
+	href="/resource/travelReview/css/reviewlist.css">
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -33,6 +36,8 @@
 
 <!-- Custom Fonts -->
 <link href="/resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
 
 <script type="text/javascript" src="/resource/bootstrap/js/bootstrap.min.js"></script>
 
@@ -84,9 +89,7 @@
         </div>
     </nav>
     
-    
-
-
+   
 	<!-- Page Content -->
 	<div class="container">
 
@@ -94,7 +97,10 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">
-					리뷰페이지 <small>여러분의 후기를 공유해보세요</small>
+					리뷰페이지 <small>여러분의 후기를 공유해보세요</small>	
+					<div id="div_search" class="">
+					<input type="text" placeholder="ex)서울여행, 서울, 함께" id="reviewSearchContent" /><button id="searchBtn">검색</button>
+					</div>
 				</h1>
 
 				<ol class="breadcrumb">
@@ -132,43 +138,21 @@
             </div>
             <div class="col-md-5">
                 <h3>${a.totalreTitle}</h3>
-                <h4></h4>
+                <h4>해시태그자리</h4>
                 <p>${a.totalreContent}</p>
                 <a class="btn btn-primary images">상세보기</i></a>
             </div>
         </div>
         <!-- /.row -->
-
+		
+		<!--  리뷰아이디/몽고디비 일정아이디  -->
+		<input type="hidden" id="totalreNum" value="${a.totalreNum}"/>
+		<input type="hidden" id="scNum" value="${a.scNum}"/>
         <hr>
 			</c:forEach>
 		</c:when>
 	</c:choose>	
    </div>
-		
-		
-		<%-- 		<%for(int i=0; i<4; i++){ %> --%>
-<!-- 		<!-- Project One --> -->
-<!--         <div class="row"> -->
-<!--             <div class="col-md-7"> -->
-<!--                 <a> -->
-<!--                     <img class="img-responsive img-hover images" src="http://placehold.it/700x300" alt=""> -->
-<!--                 </a> -->
-<!--             </div> -->
-<!--             <div class="col-md-5"> -->
-<!--                 <h3>신나는 여행!!</h3> -->
-<!--                 <h4>출발지 - 서울</h4> -->
-<!--                 <p>여행 정말 신났음 완전신나 안녕 디지몬 내꿈을꾸면서 잠이 들래~~ 안녕 디지몬.....</p> -->
-<!--                 <a class="btn btn-primary images">상세보기</i></a> -->
-<!--             </div> -->
-<!--         </div> -->
-<!--         /.row -->
-
-<!--         <hr> -->
-<%--         <%} %> --%>
-		
-		
-		
-		
 	<a class="btn btn-primary" id="move_top_btn" style="position:fixed; bottom:5px; right:5px">TOP</i></a>
 </body>
 </html>

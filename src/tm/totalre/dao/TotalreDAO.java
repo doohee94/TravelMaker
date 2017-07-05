@@ -10,6 +10,6 @@ public interface TotalreDAO {
 	
 	public int checkLike(String user_id, String _id);
 	
-	public ArrayList reviewList();
+	public ArrayList reviewList(String searchContent);
 
 }

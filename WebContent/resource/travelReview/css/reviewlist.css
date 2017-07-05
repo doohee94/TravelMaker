@@ -1,79 +1,25 @@
 
-/* 여행리뷰리스트 css*/
-body {
-    padding: 20px;
-    font-family: 'Open Sans', sans-serif;
-    background-color: #f7f7f7;
-}
 
-.lib-panel {
-    margin-bottom: 20Px;
+#reviewSearchContent{
+	width: 250px;
+	height: 30px;
+	font-size: 0.5em;
 }
-.lib-panel img {
-    width: 100%;
-    background-color: transparent;
+/*검색 div*/
+#div_search{
+display: inline-block;
+float: right;
 }
-
-.lib-panel .row,
-.lib-panel .col-md-6 {
-    padding: 0;
-    background-color: #FFFFFF;
+/*검색버튼*/
+#searchBtn{
+	height: 30px;
+	background-color: #fff;
+	font-size: 0.5em;
 }
-
-
-.lib-panel .lib-row {
-    padding: 0 20px 0 20px;
-}
-
-.lib-panel .lib-row.lib-header {
-    background-color: #FFFFFF;
-    font-size: 20px;
-    padding: 10px 20px 0 20px;
-}
-
-.lib-panel .lib-row.lib-header .lib-header-seperator {
-    height: 2px;
-    width: 26px;
-    background-color: #d9d9d9;
-    margin: 7px 0 7px 0;
-}
-
-.lib-panel .lib-row.lib-desc {
-    position: relative;
-    height: 100%;
-    display: block;
-    font-size: 13px;
-}
-.lib-panel .lib-row.lib-desc a{
-    position: absolute;
-    width: 100%;
-    bottom: 10px;
-    left: 20px;
-}
-
-.row-margin-bottom {
-    margin-bottom: 20px;
-}
-
-.box-shadow {
-    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
-    box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
-}
-
-.no-padding {
-    padding: 0;
-}
-
-/*div 처음에 보이지 않게하기*/
-#divContent{
-display:block;
-}
-
-/*TOP버튼 화면 아래쪽에 고정*/
-#move_top_btn{
-	position : fixed;
-	right : 2%;
-	bottom:50px;
-	display : none;
-	z-index:999;
+/*화면 크기가 줄어들 경우 서치하는 애들 바꾸기*/
+@media(max-width:768px){	
+/*검색 div */
+	.div_search{
+		float: ;	
+	}		
 }
