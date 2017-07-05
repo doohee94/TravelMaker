@@ -5,7 +5,8 @@
   <%
   //_id 값
   //시작날짜와 종료날짜를 계산해서 일수 구하기
-  
+  String id=session.getAttribute("userId").toString();
+  System.out.println("stpe3 세션 유져아이디>>>"+id);
   SimpleDateFormat format = new SimpleDateFormat("yy-MM-dd");
   
   String sDateStr = "17-05-27";

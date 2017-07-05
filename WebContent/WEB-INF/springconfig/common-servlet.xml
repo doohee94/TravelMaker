@@ -47,7 +47,7 @@
 		
 	<!--  몽고디비 연결 -->
 		<mongo:mongo-client
-		    host="localhost"
+		    host="192.168.0.104"
 		    port="27017"
 		    credentials="tm:1234@admin"
 		    >
