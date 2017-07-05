@@ -207,6 +207,14 @@
 		ad_num = #{adNum}		
 	</update>
 	
+	<update id="adcheck" parameterType="hashMap">
+		UPDATE advertisement
+		SET ad_check = 20
+		WHERE ad_num = #{num}
+	</update>
+	
+	
+	
 	<!-- Stemp -->
 	
 	<select id="stemplist" resultType="tm.admin.dto.AdminStempDTO">

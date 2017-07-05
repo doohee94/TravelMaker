@@ -141,7 +141,7 @@ input[type=checkbox]
 							<button type="submit" class="btn btn-success">검색</button>
 							<div class="form-group">
 								<a class="btn btn-info" href="adminadSetting.tm" >광고추가</a>
-								<a class="btn btn-success" href="" >설정완료</a>
+								<a class="btn btn-success" href="#" id="checkend">설정완료</a>
 							</div>
 						</form>
 					</div>
@@ -209,7 +209,7 @@ input[type=checkbox]
 										</div>
 										<!-- page Number End -->
 										<section class="panel">
-											<table class="table table-striped table-advance table-hover">
+											<table id="alllistad" class="table table-striped table-advance table-hover">
 												<tbody>
 													<c:choose>
 														<c:when test="${!empty adlist}">
@@ -221,11 +221,11 @@ input[type=checkbox]
 																				<td style="width : 100px;">
 																					<div class="checkbox" >
 																						<c:choose>
-																							<c:when test="${a.adCheck eq '1' }">
-																								<label><input type="checkbox" checked="checked"/></label>
+																							<c:when test="${a.adCheck eq '20' }">
+																								<label><input name="checkboxin" type="checkbox" value="${a.adNum }"  checked="checked"/></label>
 																							</c:when>
 																							<c:otherwise>
-																								<label><input type="checkbox" /></label>
+																								<label><input name="checkboxin" type="checkbox" value="${a.adNum }"/></label>
 																							</c:otherwise>
 																						</c:choose>
 																					</div>	
@@ -273,7 +273,7 @@ input[type=checkbox]
 																				<td style="width : 100px;">
 																					<div class="checkbox" >
 																						<c:choose>
-																							<c:when test="${a.adCheck eq '1' }">
+																							<c:when test="${a.adCheck eq '20' }">
 																								<label><input type="checkbox" checked="checked"/></label>
 																							</c:when>
 																							<c:otherwise>
@@ -326,7 +326,7 @@ input[type=checkbox]
 																				<td style="width : 100px;">
 																					<div class="checkbox" >
 																						<c:choose>
-																							<c:when test="${a.adCheck eq '1' }">
+																							<c:when test="${a.adCheck eq '20' }">
 																								<label><input type="checkbox" checked="checked"/></label>
 																							</c:when>
 																							<c:otherwise>
@@ -379,7 +379,7 @@ input[type=checkbox]
 																				<td style="width : 100px;">
 																					<div class="checkbox" >
 																						<c:choose>
-																							<c:when test="${a.adCheck eq '1' }">
+																							<c:when test="${a.adCheck eq '20' }">
 																								<label><input type="checkbox" checked="checked"/></label>
 																							</c:when>
 																							<c:otherwise>
@@ -424,6 +424,9 @@ input[type=checkbox]
 				</div>
 			</section>
 		</section>
+		<form action="adcheck.tm" method="post" id="checkfrm">
+			<input type="hidden" id="textcheck" name="textcheck">
+		</form>
 		<!--main content end-->
 	</section>
 	<!-- container section start -->
@@ -520,6 +523,15 @@ input[type=checkbox]
 			}
 		});
 		
+		$("#checkend").click(function(e){
+			e.preventDefault();
+			var str = "start"
+			$("#alllistad").find("input[name=checkboxin]:checked").each(function(){
+				str += "/" + $(this).val();
+			});
+			$("#textcheck").val(str);
+			$("#checkfrm").submit();
+		});
 	</script>
 </body>
 </html>

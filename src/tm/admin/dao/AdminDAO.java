@@ -94,6 +94,13 @@ public interface AdminDAO {
 	 */
 	public int adupdate(AdminadDTO adminadDTO);
 	
+	/**
+	 * adcheck
+	 * 광고 설정
+	 */
+	public int adcheck(String num);
+	
+	
 	/************** 스탬프 ******************/
 	/**
 	 * stemp
