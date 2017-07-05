@@ -2,8 +2,10 @@ package tm.admin.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -327,6 +329,9 @@ public class AdminController {
 		return "redirect:/tmadmin/adminadList.tm";
 	}
 	
+	/**
+	 * 광고 정보보기
+	 */
 	@RequestMapping("/adminadshow.tm")
 	public ModelAndView adminadshow(String num) {
 		
@@ -338,6 +343,9 @@ public class AdminController {
 		return mv;
 	}
 	
+	/**
+	 * 광고 수정
+	 */ 	
 	@RequestMapping("adupdate.tm")
 	public String adupdate(AdminadDTO adminadDTO){
 		adminadDTO.setAdStdate(adminadDTO.getStartyear()+"/"+adminadDTO.getStartmonth()+"/"+adminadDTO.getStartday());
@@ -346,6 +354,33 @@ public class AdminController {
 		dao.adupdate(adminadDTO);
 		return "redirect:/tmadmin/adminadList.tm";
 	}
+	
+	/**
+	 * 광고 설정
+	 */
+	@RequestMapping("adcheck.tm")
+	public String adcheck(String textcheck){
+		System.out.println(textcheck);
+		StringTokenizer st = new StringTokenizer(textcheck, "/");
+		
+		ArrayList<String> num = new ArrayList<String>();
+		
+		while (st.hasMoreTokens()) {
+			String temp = st.nextToken();
+			if(!(temp.equals("start"))){
+				num.add(temp);
+			}
+		}
+		
+		if(num.size() > 0){
+			for (String s : num) {
+				dao.adcheck(s);
+			}
+		}
+		
+		return "redirect:/tmadmin/adminadList.tm";
+	}
+	
 	
 	
 	/***********************   Alliance(제휴)     **************************/

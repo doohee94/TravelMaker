@@ -37,24 +37,9 @@
 	rel="stylesheet" />
 <link href="/resource/admin/css/jquery-ui-1.10.4.min.css"
 	rel="stylesheet">
-<style type="text/css">
-input[type=checkbox]
-{
-  /* Double-sized Checkboxes */
-  -ms-transform: scale(2); /* IE */
-  -moz-transform: scale(2); /* FF */
-  -webkit-transform: scale(2); /* Safari and Chrome */
-  -o-transform: scale(2); /* Opera */
-  padding: 10px;
-}
+<link href="/resource/admin/css/adminadList.css"
+	rel="stylesheet">
 
-.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
-        float: none;
-        margin-left: -20px;
-}
-
-
-</style>
 </head>
 
 <body>
@@ -141,7 +126,7 @@ input[type=checkbox]
 							<button type="submit" class="btn btn-success">검색</button>
 							<div class="form-group">
 								<a class="btn btn-info" href="adminadSetting.tm" >광고추가</a>
-								<a class="btn btn-success" href="" >설정완료</a>
+								<a class="btn btn-success" href="#" id="checkend">설정완료</a>
 							</div>
 						</form>
 					</div>
@@ -209,7 +194,7 @@ input[type=checkbox]
 										</div>
 										<!-- page Number End -->
 										<section class="panel">
-											<table class="table table-striped table-advance table-hover">
+											<table id="alllistad" class="table table-striped table-advance table-hover">
 												<tbody>
 													<c:choose>
 														<c:when test="${!empty adlist}">
@@ -221,11 +206,11 @@ input[type=checkbox]
 																				<td style="width : 100px;">
 																					<div class="checkbox" >
 																						<c:choose>
-																							<c:when test="${a.adCheck eq '1' }">
-																								<label><input type="checkbox" checked="checked"/></label>
+																							<c:when test="${a.adCheck eq '20' }">
+																								<label><input name="checkboxin" type="checkbox" value="${a.adNum }"  checked="checked"/></label>
 																							</c:when>
 																							<c:otherwise>
-																								<label><input type="checkbox" /></label>
+																								<label><input name="checkboxin" type="checkbox" value="${a.adNum }"/></label>
 																							</c:otherwise>
 																						</c:choose>
 																					</div>	
@@ -273,7 +258,7 @@ input[type=checkbox]
 																				<td style="width : 100px;">
 																					<div class="checkbox" >
 																						<c:choose>
-																							<c:when test="${a.adCheck eq '1' }">
+																							<c:when test="${a.adCheck eq '20' }">
 																								<label><input type="checkbox" checked="checked"/></label>
 																							</c:when>
 																							<c:otherwise>
@@ -326,7 +311,7 @@ input[type=checkbox]
 																				<td style="width : 100px;">
 																					<div class="checkbox" >
 																						<c:choose>
-																							<c:when test="${a.adCheck eq '1' }">
+																							<c:when test="${a.adCheck eq '20' }">
 																								<label><input type="checkbox" checked="checked"/></label>
 																							</c:when>
 																							<c:otherwise>
@@ -379,7 +364,7 @@ input[type=checkbox]
 																				<td style="width : 100px;">
 																					<div class="checkbox" >
 																						<c:choose>
-																							<c:when test="${a.adCheck eq '1' }">
+																							<c:when test="${a.adCheck eq '20' }">
 																								<label><input type="checkbox" checked="checked"/></label>
 																							</c:when>
 																							<c:otherwise>
@@ -424,6 +409,9 @@ input[type=checkbox]
 				</div>
 			</section>
 		</section>
+		<form action="adcheck.tm" method="post" id="checkfrm">
+			<input type="hidden" id="textcheck" name="textcheck">
+		</form>
 		<!--main content end-->
 	</section>
 	<!-- container section start -->
@@ -453,73 +441,9 @@ input[type=checkbox]
 
 	<!--custome script for all page-->
 	<script src="/resource/admin/js/scripts.js"></script>
+	
+	<!-- adminadList JS -->
+	<script src="/resource/admin/js/adminadList.js"></script>
 
-	<script type="text/javascript">
-		$(".btn-danger").click(function(){
-			$(this).next().attr("action","deletead.tm");
-			$(this).next().submit();
-		})
-		
-		$(".showadvi").dblclick(function(){
-			$(this).next().attr("action","adminadshow.tm");
-			$(this).next().submit();
-		});
-		
-		$(".clickimg").toggle(function(){
-			$(this).animate({"width":"1200px","height":"150px"},"slow","easeOutBack");
-		},function(){
-			$(this).animate({"width":"120px","height":"15px"},"slow","easeOutBack");
-		});
-		
-		$("#prevPage").click(function() {
-			//현재 페이지 넘버를 얻어옴
-			var pageNumber = $("#pageNumber").val();
-			var url = $("#url").val();
-			var partnerName = $("#partnerComname").val();
-			//다음 페이지 넘버가 저장될 변수
-			var nextNumber = 0;
-			//만약 10으로 나눈 나머지에 1을 뺄때 0보다 작거나 같다면 그 페이지에서 멈추게
-			if (pageNumber % 10 - 1 <= 0) {
-				if (parseInt(pageNumber / 10) == 0) {
-					var temp = parseInt(pageNumber / 10);
-					nextNumber = temp * 10 + 1;
-				}
-			} else {
-				//위에 조건이 안걸리면 전페이지로 이동
-				nextNumber = pageNumber - 1;
-			}
-			
-			if(url == "adminadsearch.tm"){
-				location.href = "/tmadmin/"+url+"?pageNumber=" + nextNumber + "&partnerComname=" + partnerName;
-			}else{
-				location.href = "/tmadmin/"+url+"?pageNumber=" + nextNumber;
-			}
-		});
-
-		$("#nextPage").click(function() {
-			var partnerName = $("#partnerComname").val();
-			//현재 페이지 넘버를 얻어옴
-			var pageNumber = $("#pageNumber").val();
-			//총 페이지 수를 얻어옴
-			var totalpage = $("#totalpage").val();
-			var url = $("#url").val();
-			//다음 페이지 넘버가 저장될 변수
-			var nextNumber = 0;
-			//다음 페이지가 총페이지 이상일때는 그페이지에 멈춤
-			if (pageNumber + 1 > totalpage) {
-				nextNumber = totalpage;
-			} else {
-				//아니라면 다음페이지로 이동
-				nextNumber = parseInt(pageNumber) + 1;
-			}
-
-			if(url == "adminadsearch.tm"){
-				location.href = "/tmadmin/"+url+"?pageNumber=" + nextNumber + "&partnerComname=" + partnerName;
-			}else{
-				location.href = "/tmadmin/"+url+"?pageNumber=" + nextNumber;
-			}
-		});
-		
-	</script>
 </body>
 </html>

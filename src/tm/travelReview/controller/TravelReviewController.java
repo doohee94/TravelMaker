@@ -50,10 +50,10 @@ public class TravelReviewController {
 	TotalreDAO dao;
 	
 	@RequestMapping("/reviewlist.tm")
-	public ModelAndView reviewList(){
+	public ModelAndView reviewList(String searchContent){
 		ModelAndView mv = new ModelAndView();
-		
-		ArrayList<TotalreDTO> list = dao.reviewList();
+
+		ArrayList<TotalreDTO> list = dao.reviewList(searchContent);
 		mv.addObject("list",list);
 		mv.setViewName(dir+"reviewlist");
 		return mv;

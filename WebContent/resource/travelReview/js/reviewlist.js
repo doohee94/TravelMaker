@@ -23,6 +23,26 @@ $(function(){
 		//상세페이지로 보낸다
 		location.href="reviewDetail.tm?id=128";
 	});
+	
+	
+	$("#searchBtn").click(function(){
+	
+		if($("#reviewSearchContent").val() == ""){
+			alert("검색어를 입력해주세요!");
+			return false;
+		}else{
+			
+			alert($("#reviewSearchContent").val());
+			
+			
+			location.href="reviewlist.tm?searchContent="+$("#reviewSearchContent").val();
+			
+			
+		}//end else
+		
+	});//end searchBtn click
+	
+	
 });
 
 //getDiv() : 스크롤이 다 했을 때 불러올 정보 4개씩 가져오는 함수

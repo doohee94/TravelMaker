@@ -65,7 +65,6 @@ private String dir = "member/";
 */
 	@RequestMapping("memberUpdate.tm")
 	public void update(MemberDTO memberdto){
-		System.out.println("나오니");
 		MemberDTO redto = dao.update(memberdto);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"update");

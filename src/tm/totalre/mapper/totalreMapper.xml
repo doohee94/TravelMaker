@@ -19,8 +19,13 @@
 		WHERE sc_num = #{sc_num} AND user_id = #{user_id}
 	</select>
 	
-	<select id="reviewList" resultType="TotalreDTO">
+	<select id="reviewList" parameterType="hashMap" resultType="TotalreDTO">
 		SELECT *
 		FROM totalre
+		<where>
+		<if test="searchContent != null">
+		TOTALRE_TITLE LIKE '%'|| #{searchContent}||'%' OR TOTALRE_CONTENT LIKE '%'|| #{searchContent}||'%'
+		</if>
+		</where>
 	</select>
 </mapper>

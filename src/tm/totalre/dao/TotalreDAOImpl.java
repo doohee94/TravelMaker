@@ -44,9 +44,12 @@ public class TotalreDAOImpl implements TotalreDAO {
 	}
 
 	@Override
-	public ArrayList<TotalreDTO> reviewList() {
+	public ArrayList<TotalreDTO> reviewList(String searchContent) {
 		
-		ArrayList<TotalreDTO> list = (ArrayList)ss.selectList(namespace+".reviewList");
+		HashMap map = new HashMap();
+		map.put("searchContent", searchContent);
+		
+		ArrayList<TotalreDTO> list = (ArrayList)ss.selectList(namespace+".reviewList",map);
 		
 		return list;
 	}

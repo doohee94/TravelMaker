@@ -99,28 +99,28 @@
                             <a href="#"><i class="fa fa-user fa-user"></i>  내 정보<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="http://localhost:8080/member/memberUpdate.tm">  정보수정</a>
+                                    <a href="/member/memberUpdate.tm">  정보수정</a>
                                 </li>
                                 <li>
-                                    <a href="http://localhost:8080/member/memberDelete.tm">  회원탈퇴</a>
+                                    <a href="/member/memberDelete.tm">  회원탈퇴</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="http://localhost:8080/mylist/menubar.tm" style="background-color: #212121;"><i class="fa fa-edit fa-fw"></i>  내 일정</a>
+                            <a href="/mylist/menubar.tm"><i class="fa fa-edit fa-fw"></i>  내 일정</a>
                         </li>
                         <li>
-                            <a href="tables.html"><i class="fa fa-check-square-o fa-fw"></i>  관심 여행지</a>
+                            <a href="/tmmypage/likespot.tm"><i class="fa fa-check-square-o fa-fw"></i>  관심 여행지</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-check-square-o fa-fw"></i>  관심 일정</a>
+                            <a href="/tmmypage/schedule.tm"><i class="fa fa-check-square-o fa-fw"></i>  관심 일정</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-comments fa-fw"></i>  QnA</a>
+                            <a href="/tmmypage/qna.tm"><i class="fa fa-comments fa-fw"></i>  QnA</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-map-marker fa-fw"></i>  스템프</a>
+                            <a href="/tmmypage/stemp.tm"><i class="fa fa-map-marker fa-fw"></i>  스템프</a>
                         </li>                        
                     </ul>
                 </div>
@@ -131,7 +131,7 @@
 
 
 <!-- 헤더넣기 -->
-
+<form method="post" id="frm">
 <center><article><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <img alt="" src="/resource/member/css/images/dropout.png" width="100" height="90" align=center><br/><br/>
 <font size="5"> 정말 TRAVEL MAKER를 탈퇴하시겠습니까?</font><br/><br/>
@@ -145,7 +145,7 @@
 <!-- 취소시 이전페이지로 -->
 </article></center>
 
-
+</form>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

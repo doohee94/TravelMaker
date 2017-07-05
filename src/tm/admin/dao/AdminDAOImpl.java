@@ -45,7 +45,6 @@ public class AdminDAOImpl implements AdminDAO {
 		resultPage[0] = totalPageNum;
 		resultPage[1] = startNum;
 		resultPage[2] = endNum;
-		
 		return resultPage;
 	}
 	/**
@@ -255,9 +254,19 @@ public class AdminDAOImpl implements AdminDAO {
 		return ss.selectOne(namespace + ".adlist", map);
 	}
 	
+	
+	@Override
 	public int adupdate(AdminadDTO adminadDTO){
 		
 		return ss.update(namespace + ".adupdate", adminadDTO);
+	}
+	
+	@Override
+	public int adcheck(String num){
+		HashMap map = new HashMap<>();
+		map.put("num", num);
+		
+		return ss.update(namespace + ".adcheck", map);
 	}
 
 	

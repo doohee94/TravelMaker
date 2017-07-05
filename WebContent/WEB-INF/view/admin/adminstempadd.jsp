@@ -224,39 +224,9 @@
 
 	<!--custome script for all page-->
 	<script src="/resource/admin/js/scripts.js"></script>
-	<script type="text/javascript">
-		
-		$("#alsearchbtn").click(function(){
-			var partnercomname = $("#partner_comname").val();
-			
-			$.ajax({
-				url : "/tmadmin/adadsearch.tm",
-				type : "POST",
-				data : {
-					"partnercomname" : partnercomname,
-				},
-				dataType : "json",
-				success : function(data){
-					$("tbody").empty();
-					for (var i = 0; i < data.length; i++) {
-						$("tbody").append("<tr class='for"+i+" allisttr' data-dismiss='modal'>");
-						$(".for"+i).append("<td>"+data[i].partnerNum);	
-						$(".for"+i).append("<td>"+data[i].partnerComname);	
-						$(".for"+i).append("<td>"+data[i].partnerReginum);	
-					}
-				}
-			});
-		});
-		
-		$(document).on("click",".allisttr",function(){
-			var num = $(this).children().first();
-			var name = num.next().text();
-			
-			$("#partnername").val(name);
-			$("#partnerNum").val(num.text());
-		});
-		
-	</script>
+
+	<!-- adminstempadd JS -->
+	<script src="/resource/admin/js/adminstempadd.js"></script>
 
 </body>
 </html>
