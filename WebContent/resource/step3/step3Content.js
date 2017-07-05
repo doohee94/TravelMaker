@@ -28,7 +28,7 @@ $( function() {
 	var tour_title ="";//
 	var member_id ="doohee94"; //세션에서 불러오기
 	var friend="5";
-	var save_state="0"; //일정을 완전히 저장하지 않는 이상 모두 0
+	var save_state=0; //일정을 완전히 저장하지 않는 이상 모두 0
 	var day = []; //날짜 저장하는 배열 
 	
 	if($("#scheduleId").val() == "2"){ //넘어온 값이 2이면 새로 생성
@@ -349,7 +349,7 @@ $( function() {
 	        	            	          			
 	        	            	          	}
 	        	            	          }      
-	        	            	   	     var state="0";
+	        	            	   	     var state=0;
 	        	            	   	     var schedule={
 	        	            	   	    		"_id":_IDdata[x]._id,
 	        	            	   	    		"schedule_num":"1",
@@ -551,7 +551,7 @@ $( function() {
 	            	          }      
 	            	         var city =  $("#hiddenCity").val();
 	            	   	     var date="2017-05-02";
-	            	   	     var state="0";
+	            	   	     var state=0;
 	            	   	     var id=2;
 	            	   	     var schedule={
 	            	   	    		"_id":_IDdata[x]._id,
@@ -820,10 +820,7 @@ $( function() {
 		            	            	          			
 		            	            	          	}
 		            	            	          }      
-		            	            	         var city =  $("#hiddenCity").val();
-		            	            	   	     var date="2017-05-02";
-		            	            	   	     var state="0";
-		            	            	   	     var id=2;
+		            	            	         var city =  $("#hiddenCity").val();	   	  
 		            	            	   	     var schedule={
 		            	            	   	    		"_id":_IDdata[x]._id,
 		            	            	   	    		"schedule_num":"1",
@@ -840,7 +837,8 @@ $( function() {
 		            	            	    	     ,type:"post"
 		            	            	    	     ,contentType:"application/json "
 		            	            	    	     ,data:JSON.stringify(schedule)
-		            	            	    	     ,success:function(data){    	    
+		            	            	    	     ,success:function(data){  
+		            	            	    	    	
 		            	            	    	     }
 		            	            	         ,error:function(err,status,error){
 		            	            		         alert("리스트저장실패!"+err.status+error);
@@ -850,11 +848,7 @@ $( function() {
 		            	            	          
 		            	            		   
 		            	            	   }//end for 
-		            	            	    	 
-		            	            	     
 		            	            	 
-		            	            	   
-		            	            	   
 		            	            	     }//end success 
 		            	                 ,error:function(err,status,error){
 		            	        	         alert("_id 찾기실패!"+err.status+error);
@@ -862,12 +856,9 @@ $( function() {
 		            	        	      }//end 아이디 찾기 error
 		                         	 
 		                          });//end find _id ajax
-		                	
+		                     location.href = "/mylist/donelist.tm";
 		                 }//end not null if
-		              }//end state if
-		             
-		           
-		              
+		              }//end state if             
 		           }//end calback
 		           ,alias: "flag1"
 		               , xButtonClickCallback : function(el){  // 우측 상단 X 버튼으로 닫을 경우 동작하는 콜백
@@ -881,7 +872,8 @@ $( function() {
 		           }         
 		      });
 		      
-		      location.href="/step2/step2.tm";
+		     
+		      
 		      
 		      });//end savaBtn
 		   

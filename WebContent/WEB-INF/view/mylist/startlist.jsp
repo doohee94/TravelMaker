@@ -292,9 +292,6 @@ $(function(){
 				alert("일정 리스트 가져오기 실패!"+err.status+error);
 			}
 		
-		
-		
-		
 	});//end ajax
 
 	$('.schedule-list').on('click', '.read-more', function(){

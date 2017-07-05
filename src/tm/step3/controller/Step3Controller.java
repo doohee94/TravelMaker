@@ -57,13 +57,12 @@ public class Step3Controller {
    @RequestMapping("/step3.tm")
    public ModelAndView step3_id(String _id){
 	   ModelAndView mv = new ModelAndView();
-	   
+	   System.out.println("step3접속>>>>>>_Id"+_id);
 	   if(_id != null){
 		   mv.addObject("_id", _id);
 	   }else{ 
-		   mv.addObject("_id", "S20170704161911803");
+		   mv.addObject("_id", "2");
 	   }
-	   mv.addObject("_id",_id);
 	   mv.setViewName(dir+"/step3");
 	   System.out.println("스템33333333"+_id);
 	   return mv;
