@@ -51,7 +51,7 @@
 	<update id="delete" parameterType="tm.member.dto.MemberDTO">
 	UPDATE member
 	SET user_type='20'
-	where user_id = #{userId}
+	where user_pw = #{userPw}
 	</update>
 	
 </mapper>

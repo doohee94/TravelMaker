@@ -3,6 +3,7 @@ package tm.member.controller;
 import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -63,22 +64,36 @@ private String dir = "member/";
 /**
 * 회원정보보기
 */
-	@RequestMapping("memberUpdate.tm")
-	public void update(MemberDTO memberdto){
-		MemberDTO redto = dao.update(memberdto);
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName(dir+"update");
-		mv.addObject("memberdto", redto);
-	}
-	
+//	@RequestMapping("memberUpdate.tm")
+//	public void update(MemberDTO memberdto){
+//		MemberDTO redto = dao.update(memberdto);
+//		ModelAnd View mv = new ModelAndView();
+//		mv.setViewName(dir+"update");
+//		mv.addObject("memberdto", redto);
+//	}
+//	
 /**
 * 회원수정
 */
-	/*@RequestMapping(value="/memberUpdate.tm")
-	public String modify(@ModelAttribute MemberDTO memberdto){
-		dao.modify(memberdto);
-		return "memberUpdate.tm";
-	}*/
+	@RequestMapping(value="/memberUpdate.tm")
+	public String modify(HttpSession session){
+		String id = (String)session.getAttribute("userId");
+		String pw = (String)session.getAttribute("userPw");
+		String name = (String)session.getAttribute("userName");
+		String tel = (String)session.getAttribute("userTel");
+		String email = (String)session.getAttribute("userEmail");
+		/*if(id == null || id.equals("")){
+			id="member";
+		}*/
+		MemberDTO dto = new MemberDTO();
+		dto.setUserId(id);
+		dto.setUserPw(pw);
+		dto.setUserName(name);
+		dto.setUserTel(tel);
+		dto.setUserEmail(email);
+		dao.update(dto);
+		return dir+"memberUpdate";
+	}
 	
 	
 /**
