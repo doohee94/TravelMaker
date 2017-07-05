@@ -116,7 +116,7 @@
                <div class="control-group form-group">
                   <div class="example example_multivalue">
                      <h3>해시태그</h3>
-                     <input type="text" value="" data-role="tagsinput" />
+                     <input type="text" name="hashtag" value="" data-role="tagsinput" />
                   </div>
                   <div class="control-group form-group">
                      <div class="controls">

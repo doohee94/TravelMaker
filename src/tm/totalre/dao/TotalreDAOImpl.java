@@ -62,4 +62,11 @@ public class TotalreDAOImpl implements TotalreDAO {
 	      return result;
 	   }
 
+	@Override
+	public int insertHashtag(TotalreDTO totalreDTO) {
+
+		int result = ss.insert(namespace+".insertHashtag",totalreDTO);
+		return result;
+	}
+
 }

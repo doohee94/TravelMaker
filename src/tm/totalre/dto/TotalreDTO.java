@@ -22,8 +22,15 @@ public class TotalreDTO {
    private String totalrePhoto1;
    private String totalrePhoto1fake;
    private String totalreLikecount;
+   private String hashtag;
 
-   MultipartFile photo1,photo2,photo3,photo4;
+   public String getHashtag() {
+	return hashtag;
+}
+public void setHashtag(String hashtag) {
+	this.hashtag = hashtag;
+}
+MultipartFile photo1,photo2,photo3,photo4;
 
    public MultipartFile getPhoto1() {
       return photo1;
