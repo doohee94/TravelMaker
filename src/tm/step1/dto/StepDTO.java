@@ -22,19 +22,20 @@ public class StepDTO {
 		return id;
 	}
 	public void setId(String id) {
-		Calendar cal = Calendar.getInstance();
-		String year = String.valueOf(cal.get(Calendar.YEAR));
-		String month = ((cal.get(Calendar.MONTH)+1) < 10) ? "0"+(cal.get(Calendar.MONTH)+1) : String.valueOf((cal.get(Calendar.MONTH)+1));
-		String date = ((cal.get(Calendar.DATE)) < 10) ? "0"+(cal.get(Calendar.DATE)) : String.valueOf((cal.get(Calendar.DATE)));
-		String hour = ((cal.get(Calendar.HOUR)) < 10) ? "0"+(cal.get(Calendar.HOUR)) : String.valueOf((cal.get(Calendar.HOUR)));
-		String minute = ((cal.get(Calendar.MINUTE)) < 10) ? "0"+(cal.get(Calendar.MINUTE)) : String.valueOf((cal.get(Calendar.MINUTE)));
-		String second = ((cal.get(Calendar.SECOND)) < 10) ? "0"+(cal.get(Calendar.SECOND)) : String.valueOf((cal.get(Calendar.SECOND)));
-		id += year;
-		id += month;
-		id += date;
-		id += hour;
-		id += minute;
-		id += second;
+//		Calendar cal = Calendar.getInstance();
+//		String year = String.valueOf(cal.get(Calendar.YEAR));
+//		String month = ((cal.get(Calendar.MONTH)+1) < 10) ? "0"+(cal.get(Calendar.MONTH)+1) : String.valueOf((cal.get(Calendar.MONTH)+1));
+//		String date = ((cal.get(Calendar.DATE)) < 10) ? "0"+(cal.get(Calendar.DATE)) : String.valueOf((cal.get(Calendar.DATE)));
+//		String hour = ((cal.get(Calendar.HOUR)) < 10) ? "0"+(cal.get(Calendar.HOUR)) : String.valueOf((cal.get(Calendar.HOUR)));
+//		String minute = ((cal.get(Calendar.MINUTE)) < 10) ? "0"+(cal.get(Calendar.MINUTE)) : String.valueOf((cal.get(Calendar.MINUTE)));
+//		String second = ((cal.get(Calendar.SECOND)) < 10) ? "0"+(cal.get(Calendar.SECOND)) : String.valueOf((cal.get(Calendar.SECOND)));
+//		id += year;
+//		id += month;
+//		id += date;
+//		id += hour;
+//		id += minute;
+//		id += second;
+		// 위 코드를 주석처맇나 이유는 step3에서 id 따로 만들었기 때문.
 		this.id = id;
 	}
 	public ArrayList<String> getSchedule() {

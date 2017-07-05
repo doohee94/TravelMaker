@@ -73,8 +73,8 @@ public class Step1Controller {
 		}
 		
 		String userId = (String)session.getAttribute("userId");
-		stepdto.setId(userId);
-		
+//		stepdto.setId(userId);
+		// 위 코드를 주석처맇나 이유는 step3에서 id 따로 만들었기 때문.
 		System.out.println("아마도 시간만 나올껄 : " + stepdto.getId());
 		
 		session.setAttribute(userId+"dto", stepdto);
