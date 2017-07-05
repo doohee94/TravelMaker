@@ -16,7 +16,7 @@
     $(".stemp").click(function(){
     	var stempitem = $(this);
     	var stempNum = stempitem.find("input");
-    	
+    	alert($("#_id").val());
     	$a.popup({
             url : "schedulePopup.tm",
             ifram:true,
@@ -32,7 +32,7 @@
                   }
                   //data에 id, state, 한줄평 날짜, 몇번째인지 이거.. 가져가야해..
                   var goData = {
-            			 "_id":"128",
+            			 "_id":$("#_id").val(),
             			 "state":data.state,
             			 "one_line":data.one_line,
             			 "date":stempitem.text().trim(),

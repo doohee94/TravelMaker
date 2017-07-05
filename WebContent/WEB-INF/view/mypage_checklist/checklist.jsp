@@ -13,6 +13,7 @@ System.out.println("jsp>>>>>"+obj);
 //date배열이랑 place..?
 JSONArray date = (JSONArray)obj.get("tour");
 
+String _id = obj.get("_id").toString();
 
 JSONArray place[] = new JSONArray[date.size()]; //여행지에 대한 배열
 
@@ -102,7 +103,7 @@ for(int i=0; i<date.size(); i++){
 		<!-- submenu end -->
 		<hr>
 		<div class="row">
-
+		<input type="hidden" id="_id" value="<%=_id%>"/>
 			<div id="accordion" style="">
 				<%for(int i=0; i<date.size() && place[i] != null; i++){ %>
 				  <h3 class="day">day<%=i+1 %></h3>

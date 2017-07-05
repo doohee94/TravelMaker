@@ -258,7 +258,7 @@ $(function(){
 <script type="text/javascript">
 
 $(function(){
-
+//리스트 불러오기 ---------------------------------------------------------------------------------------
 	var list_num = {
 			"num":1
 	}
@@ -268,9 +268,7 @@ $(function(){
 			,type:"post"
 			,contentType:"application/json "
 			,data:JSON.stringify(list_num)
-		    ,success:function(data){ 
-		    	
-		    	
+		    ,success:function(data){ 	
 		    	for(var i=0; i<data.length; i++){
 		    		
 		    		$(".schedule-list").append('<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done">'
@@ -279,24 +277,31 @@ $(function(){
 							 +'<h3>'+'시작날짜'+'~'+'끝날짜'+'</h3>'
 		    				 +'<p>'+'출발지'+'>'+'도착지'+'</p>'
 		    				 + '<h5>'+data[i].tour_title+'</h5></br></br>'
-		    				 +'<a href="#" class="read-more">상세일정보기</a><br/><br/>'
+		    				 +'<a class="read-more">상세일정보기</a><br/><br/>'
 		    				 +'<input type="hidden" value="'+data[i]._id+'"  class="_id"/>'	
 		    				 +'</figcaption></figure>'
 		    					    		
 		    		);// append
 		    	
 		    	}//end for i
-		    	
-		    	
+		    
 		     }//end success
 			,error:function(err,status,error){
 				alert("일정 리스트 가져오기 실패!"+err.status+error);
 			}
 		
-		
-		
-		
 	});//end ajax
+
+	
+//일정체크 클릭시 -------------------------------------------------------------------
+
+
+$('.schedule-list').on('click', '.read-more', function(){
+	var _id = $(this).siblings("._id").val().trim();
+	alert(_id);
+	location.href="/mypage_checklist/checklist.tm?_id="+_id;
+	
+});
 
 });//end function
 

@@ -47,13 +47,13 @@ public class Mypage_checklistController {
 	}
 	
 	@RequestMapping("/checklist.tm")
-	public ModelAndView showlist(){
+	public ModelAndView showlist(String _id){
 		ModelAndView mv = new ModelAndView();
 		
-		String _id="128"; //dla
+		System.out.println("체크리스트 아이디"+_id);
 		//불러올 정보의 조건을 지정(_id를 가지고 지정)
 		Criteria criteria = new Criteria("_id");
-		criteria.is(Integer.parseInt(_id));
+		criteria.is(_id);
 		Query query = new Query(criteria);
 
 		
@@ -76,35 +76,6 @@ public class Mypage_checklistController {
 		return mv;
 	}
 	
-	@RequestMapping("/modifyPopupList.tm")
-	@ResponseBody
-	public JSONObject modifyPopup(){
-		String _id="128"; //dla
-		//불러올 정보의 조건을 지정(_id를 가지고 지정)
-		Criteria criteria = new Criteria("_id");
-		criteria.is(Integer.parseInt(_id));
-		Query query = new Query(criteria);
-		
-		//tour정보를 arraylist로 받아온다
-				ArrayList<String> tourlist = (ArrayList<String>)mongoTemplate.find(query,String.class,"schedule");
-				//출력
-				for(int i=0; i<tourlist.size(); i++){
-					System.out.println("수정팝업"+tourlist.get(i));
-				}
-				JSONObject jsonobj = null;
-				try {
-					//디비에서 가져온 String을 JSON으로 파싱 후 배열에 저장 
-					JSONParser jsonParser = new JSONParser();
-					jsonobj =  (JSONObject)jsonParser.parse(tourlist.get(0));
-					System.out.println(jsonobj);
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
-				
-				
-				return jsonobj;
-		
-	}
 	
 	@RequestMapping("/changeCheckState.tm")
 	@ResponseBody
@@ -137,7 +108,7 @@ public class Mypage_checklistController {
 			
 			
 			Query query = new Query(new Criteria().andOperator(
-					Criteria.where("_id").is(Integer.parseInt(_id)),
+					Criteria.where("_id").is(_id),
 					Criteria.where("tour.date").is(date),
 					Criteria.where("tour.place.num").is(Integer.parseInt(num))			
 			));
