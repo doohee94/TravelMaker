@@ -2,8 +2,15 @@ package tm.step1.dto;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.StringTokenizer;
 
 public class StepDTO {
+	
+	private String liststart; // 출발지
+	private String listthrough; // 경유지
+	private String listarrival; // 도착지
+	private String partystr; // 동행자
+	
 	private String id; //몽고 ID
 	private ArrayList<String> schedule; // 일정
 	private String title; // 제목
@@ -59,5 +66,45 @@ public class StepDTO {
 	}
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
+	}
+	public String getListstart() {
+		return liststart;
+	}
+	public void setListstart(String liststart) {
+		this.liststart = liststart;
+	}
+	public String getListthrough() {
+		return listthrough;
+	}
+	public void setListthrough(String listthrough) {
+		this.listthrough = listthrough;
+	}
+	public String getListarrival() {
+		return listarrival;
+	}
+	public void setListarrival(String listarrival) {
+		this.schedule.add(this.liststart);
+		StringTokenizer st = new StringTokenizer(this.listthrough, ">");
+		while (st.hasMoreTokens()) {
+			String temp = st.nextToken();
+			if( !( temp.equals("") || temp == null )){
+				this.schedule.add(temp);
+			}
+		}
+		this.schedule.add(listarrival);
+		this.listarrival = listarrival;
+	}
+	public String getPartystr() {
+		return partystr;
+	}
+	public void setPartystr(String partystr) {
+		StringTokenizer st = new StringTokenizer(partystr, " ");
+		while (st.hasMoreTokens()) {
+			String temp = st.nextToken();
+			if(!(temp.equals(""))){
+				this.party.add(temp);
+			}
+		}
+		this.partystr = partystr;
 	}
 }
