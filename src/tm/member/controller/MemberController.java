@@ -64,48 +64,44 @@ private String dir = "member/";
 /**
 * 회원정보보기
 */
-//	@RequestMapping("memberUpdate.tm")
-//	public void update(MemberDTO memberdto){
-//		MemberDTO redto = dao.update(memberdto);
-//		ModelAnd View mv = new ModelAndView();
-//		mv.setViewName(dir+"update");
-//		mv.addObject("memberdto", redto);
-//	}
-//	
+	@RequestMapping(value="/memberUpdate.tm")
+	public ModelAndView update(HttpSession session){
+		
+		ModelAndView mv = new ModelAndView();
+		String id = (String)session.getAttribute("userId");
+		if(id == null ){
+			mv.setViewName("");
+			return mv;
+		}
+		MemberDTO pdto = new MemberDTO();
+		pdto.setUserId(id);
+		MemberDTO dto = dao.update(pdto);
+		mv.addObject("dto", dto);
+		mv.setViewName(dir+"memberUpdate");
+		return mv;
+	}
+	
 /**
 * 회원수정
 */
-	@RequestMapping(value="/memberUpdate.tm")
-	public String modify(HttpSession session){
+	@RequestMapping("/membermodify.tm")
+	public String modify(HttpSession session, MemberDTO memberdto){
+		memberdto.setUserAddr(memberdto.getUserCity()+ memberdto.getUserBorough());
 		String id = (String)session.getAttribute("userId");
-		String pw = (String)session.getAttribute("userPw");
-		String name = (String)session.getAttribute("userName");
-		String tel = (String)session.getAttribute("userTel");
-		String email = (String)session.getAttribute("userEmail");
-		/*if(id == null || id.equals("")){
-			id="member";
-		}*/
-		MemberDTO dto = new MemberDTO();
-		dto.setUserId(id);
-		dto.setUserPw(pw);
-		dto.setUserName(name);
-		dto.setUserTel(tel);
-		dto.setUserEmail(email);
-		dao.update(dto);
-		return dir+"memberUpdate";
+		memberdto.setUserId(id);
+		dao.modify(memberdto);
+		return "redirect:/member/memberUpdate.tm";
 	}
-	
 	
 /**
 * 회원탈퇴
 */
-	@RequestMapping("/memberDelete.tm")
-	public ModelAndView delete(MemberDTO memberdto){
-		int res = dao.delete(memberdto);
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName(dir+"delete");
-		mv.addObject("res", res);
-		return mv;
+	@RequestMapping(value="/memberDelete.tm")
+	public String delete(HttpSession session, MemberDTO memberdto){
+		String id = (String)session.getAttribute("userId");
+		memberdto.setUserId(id);
+		dao.delete(memberdto);
+		return "redirect:/tmmain/main.tm";
 	}
 	
 /**

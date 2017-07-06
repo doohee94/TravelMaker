@@ -150,7 +150,7 @@
 <div class="registerInner">
         <div class="col-md-6 signUp">
             <h1 class="headerSign">회원정보수정</h1>
-            <form action="memberDelete">
+            <form action="membermodify.tm" method="post">
 <br/>
 <br/>
 <br/>
@@ -159,34 +159,34 @@
 				<br/>
 				<!-- ****중복확인하기**** -->
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userId" id="userId" value="${userId}" placeholder="아이디" required="required" readonly="readonly"> 
+                    <input class="form-control" type="text" name="userId" id="userId" value="${dto.userId}" placeholder="아이디" required="required" readonly="readonly"> 
                 	
                 </div>
                 
 				<div class="form-group ">
-                    <input class="form-control" type="password" name="userPw" id="userPw" value="${userPw}" placeholder="비밀번호" required="required" readonly="readonly"> 
+                    <input class="form-control" type="password" name="userPw" id="userPw" value="${dto.userPw}" placeholder="비밀번호" required="required" readonly="readonly"> 
                     <!-- <p class="help-block">숫자 또는 특수문자 포함 6자 이상</p> -->
                 </div>
                 
                 <div class="form-group ">
-                    <input class="form-control" type="password" name="userPasswordcheck" id="userPasswordcheck" value="1111" placeholder="비밀번호확인" required="required" readonly="readonly">
+                    <input class="form-control" type="password" name="userPasswordcheck" id="userPasswordcheck" placeholder="비밀번호확인" required="required" readonly="readonly">
                 	<!-- <p class="help-block">비밀번호를 한번 더 입력해주세요.</p> -->
                 </div>
                 
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userName" id="userName" value="${userName}" placeholder="이름" required="required" readonly="readonly">
+                    <input class="form-control" type="text" name="userName" id="userName" value="${dto.userName}" placeholder="이름" required="required" readonly="readonly">
                 </div>
                 
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userNick" id="userNick" value="${userNick}" placeholder="닉네임" required="required" readonly="readonly">
+                    <input class="form-control" type="text" name="userNick" id="userNick" value="${dto.userNick}" placeholder="닉네임" required="required" readonly="readonly">
                 </div>
                 
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userTel" id="userTel" value="${userTel}" placeholder="전화번호" required="required" readonly="readonly">
+                    <input class="form-control" type="text" name="userTel" id="userTel" value="${dto.userTel}" placeholder="전화번호" required="required" readonly="readonly">
                 </div>
                 
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userEmail" id="userEmail" value="${userEmail}" placeholder="이메일" required="required" readonly="readonly">
+                    <input class="form-control" type="text" name="userEmail" id="userEmail" value="${dto.userEmail}" placeholder="이메일" required="required" readonly="readonly">
                 </div>
                 <!-- ****플러스누르면 추가되게**** -->
                 <script type="text/javascript">
@@ -390,10 +390,10 @@
                 </script>
                 
 				<div class="form-group">
-                    <select name="userCity" id="userCity" onchange="doChange(this, 'userBorough')" disabled>
-		            
-		            <option value="서울특별시">서울특별시</option>
+				<label>주소 :　</label>
+                    <select name="userCity" id="userCity" onchange="doChange(this, 'userBorough')" value="${dto.userCity }" disabled >
 		            <option value="시,도">시,도</option>
+		            <option value="서울특별시">서울특별시</option>
 		            <option value="부산광역시">부산광역시</option>
 		            <option value="대구광역시">대구광역시</option>
 		            <option value="인천광역시">인천광역시</option>
@@ -412,17 +412,17 @@
 		            <option value="제주특별자치도">제주특별자치도</option>
 		          </select>
 		          
-		          <select name="userBorough" id="userBorough" disabled>
+		          <select name="userBorough" id="userBorough" value="${userBorough }" disabled >
 		          	<option value="default">시, 군, 구</option>
 		          </select>
                 </div>
                 
 				<div class="form-group">
+				<label>관심지역 :　</label>
                     <select name="selOne" id="selOne" onchange="doChange(this, 'selTwo')" disabled>
-		            
-		            <option value="부산광역시">부산광역시</option>
 		            <option value="시,도">시,도</option>
 		            <option value="서울특별시">서울특별시</option>
+		            <option value="부산광역시">부산광역시</option>
 		            <option value="대구광역시">대구광역시</option>
 		            <option value="인천광역시">인천광역시</option>
 		            <option value="광주광역시">광주광역시</option>
@@ -458,6 +458,7 @@
 
 <!--  메뉴바 -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
 <script type="text/javascript">
 $(function() {
     $(".subtitle:not(:first)").attr('class','subtitle sub_on');
@@ -477,8 +478,10 @@ $(function() {
 <script type="text/javascript">
 $(function(){
 		$("#insert").hide();
+		$("#userPasswordcheck").hide();
 	$("#update").click(function(){
 		$("#insert").show();
+		$("#userPasswordcheck").show();
 		$("#update").hide();
 		
 	});

@@ -45,13 +45,22 @@
 	</select>
 	
 	<!-- 회원수정 -->
+	<update id="modify" parameterType="tm.member.dto.MemberDTO">
+	UPDATE member
+	SET user_pw = #{userPw},
+		user_name = #{userName},
+		user_nick = #{userNick},
+		user_addr = #{userAddr},
+		user_tel = #{userTel},
+		user_email = #{userEmail}
+	WHERE user_id = #{userId}
+	</update>
 	
 	<!-- 탈퇴하기 -->
-	<!-- ex) UPDATE MEMBER SET user_type='20' WHERE user_id='testid'; -->
 	<update id="delete" parameterType="tm.member.dto.MemberDTO">
 	UPDATE member
 	SET user_type='20'
-	where user_pw = #{userPw}
+	where user_id = #{userId} AND user_pw = #{userPw}
 	</update>
 	
 </mapper>

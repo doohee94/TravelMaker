@@ -19,7 +19,7 @@ public interface MemberDAO {
 	/**
 	 * 회원수정
 	 */
-	public int modify(String userId);
+	public int modify(MemberDTO memberdto);
 	
 	/**
 	 * 회원탈퇴
