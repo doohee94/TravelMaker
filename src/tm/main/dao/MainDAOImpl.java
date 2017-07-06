@@ -25,12 +25,15 @@ public class MainDAOImpl implements MainDAO{
 	 */
 	@Override
 	public String loadAd() {
-		System.out.println("받아오기 전입니다");
+		//db에서 광고리스트를 받아 adList에 담기
 		List<String> adList = ss.selectList(namespace+".selectad");
+		//임의의 수를 만들기위해 Random 선언
 		Random random = new Random();
+		//adList의 크기 안에서 임의의 수 i를 생성시킴
 		int i = random.nextInt(adList.size());
+		//adList의 i번째 광고 이미지 주소를 받아옴
 		String imgPath = adList.get(i).toString();
-		System.out.println("랜덤이미지는 : "+imgPath);
+		//받아온 이미지주소를 리턴시킴
 		return imgPath;
 	}
 	/**
@@ -40,13 +43,9 @@ public class MainDAOImpl implements MainDAO{
 	 */
 	@Override
 	public List<TotalreDTO> loadReview() {
-		System.out.println("디비타기전");
+		//db에서 컬럼을 받아 list로 담음
 		List<TotalreDTO> list = ss.selectList(namespace+".selectreview");
-		for(int i = 0 ; i<list.size(); i++){
-			System.out.println((i)+"번째 사진주소는 : "+list.get(i).getTotalrePhoto1fake());
-			System.out.println((i)+"번째 리뷰이름 : "+list.get(i).getTotalreTitle());
-			System.out.println((i)+"번째 좋아요수 는  : "+list.get(i).getTotalreLikecount());
-			}
+		//list를 리턴
 		return list;
 	}
 

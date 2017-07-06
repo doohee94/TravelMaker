@@ -91,6 +91,7 @@ public class LoginController {
 				System.out.println(curDate);
 
 			}else if(dto.getUserType() == 30){
+				session.setAttribute("admin", "admin");
 				result = "redirect:/tmadmin/adminMember.tm";
 			}
 
