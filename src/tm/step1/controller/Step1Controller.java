@@ -35,14 +35,18 @@ public class Step1Controller {
 
 
 	// step1 동행자 팝업 검색 목록 ( 아이디 와 닉네임 출력 )
-	@RequestMapping("/setp1searchfellow.tm")
-	public ModelAndView setp1searchfellow(HttpServletRequest request) {
+	@RequestMapping("/step1searchfellow.tm")
+	public ModelAndView setp1searchfellow(MemberDTO memberdto) {
 
-		System.out.println("탄다");
-		System.out.println(request.getParameter("con"));
+		System.out.println("동행자 서치 버튼  컨트롤 탄다");
+//		System.out.println(request.getParameter("userId"));
 		// dao로 데이터 넘겨주고
-		List<MemberDTO> list = dao.fellowsearch(request.getParameter("con"));
-
+		
+		String userId = memberdto.getUserId();
+		System.out.println("검색한아이디 : "+userId);
+		
+		List<MemberDTO> list = dao.fellowsearch(userId);
+	
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir + "/step1");
 		mv.addObject("list", list);

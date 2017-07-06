@@ -45,6 +45,10 @@
 			<input type="hidden" id="enddate" name="endDate" value="">
 		</form>
 		
+		<form id="hiddenmodalfrm" method="post" action="step1searchfellow.tm">
+			<input type="hidden" id="searchid" name="userId">
+		</form>
+		
 	</div>
 
 	<!-- Navigation -->
@@ -1152,37 +1156,31 @@
 						
 							<!-- 동행자 아이디 검색 공간 -->
 								<div class="input-group">
-									<form id="modalfrm" method="post" action="/step1/setp1searchfellow.tm">
-										<input id="modalsearchplace" type="text" class="form-control"
-											placeholder="Search ID.."> <span
-											class="input-group-btn">
-											
+									<form id="modalfrm" method="post">
+										<input id="modalsearchplace" type="text" class="form-control"placeholder="Search ID..">
+									
+										<span class="input-group-btn">
+											<input type="button" id="modalsearchbtn" class="modalsearchbtn btn btn-default" value='SEARCH'>
+<!-- 											<button id="modalsearchbtn" class="btn btn-default" type="button">Search</button> -->
 										</span>
-										<input id="modalsearchbtn" class="btn btn-default"
-												type="submit" value='SEARCH22'>
 									</form>
 								</div>
 							
 							<!--/input-group  -->
 							<!-- 	 팝업창에서 검색한 아이디 출력해주는 장소    -->
 							<div class="idlistfrm col-md-13">
-
-								<table border="1" width="480px">
+								<table border="1" width="467px">
 									<tr>
-										<th>번호</th>
-										<th>아이디</th>
+									 	<th>아이디</th>
 										<th>닉네임</th>
 									</tr>
-									<c:forEach var="row" items="">
+									<c:forEach var="s" items="${list}">
 										<tr class="secondtr">
-											<td>${row.bno}</td>
-											<td>${row.id}</td>
-											<td>${row.nickname}</td>
+											<td>${s.userId}</td>
+											<td>${s.userNick}</td>
 										</tr>
 									</c:forEach>
-
 								</table>
-
 							</div>
 
 						</div>

@@ -23,9 +23,11 @@ public class Step1DAOImpl implements Step1DAO{
 		HashMap map = new HashMap();
 	
 		map.put("id", modalsearchplace);
-		System.out.println(map.toString());
+		System.out.println(map.toString()+"여긴가");
+		
+		
 		List<MemberDTO> list = ss.selectList(namespace+".step1list", map);
-		System.out.println(list.get(0).getUserId());
+		System.out.println(list.get(0).getUserId()+"아니면 여긴가");
 		return list;
 	}
 

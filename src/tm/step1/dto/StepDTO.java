@@ -34,7 +34,7 @@ public class StepDTO {
 //		id += date;
 //		id += hour;
 //		id += minute;
-//		id += second;
+//		id += second;g
 		// 위 코드를 주석처맇나 이유는 step3에서 id 따로 만들었기 때문.
 		this.id = id;
 	}
