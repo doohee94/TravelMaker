@@ -22,7 +22,7 @@ public class MypageDAOImpl implements MypageDAO{
 	private String namespace = "mypage";
 		
 	
-	/*
+	/**
 	listSpot
 	HashMap map에 userId를 넣어 db에서 userId와 일치하는 관심지역 list를 불러오고
 	list를 리턴
@@ -35,7 +35,7 @@ public class MypageDAOImpl implements MypageDAO{
 		List<LikeSpotDTO> list = ss.selectList(namespace+".listspot",map);
 		return list;
 	}
-	/*
+	/**
 	deleteSpot
 	HashMap map에 likespotNum을 넣어 db에서 일치하는 내용 삭제 한후
 	결과값을 리턴
@@ -48,7 +48,7 @@ public class MypageDAOImpl implements MypageDAO{
 		int result = ss.delete(namespace+".deletespot",map);
 		return result;
 	}
-	/*
+	/**
 	 listSchedule
 	 HashMap map에 userId를 넣어 db에서	sclist를 받아와서 넣기
 	 sclist의 scNum을 가져와 db에서 imagePath값을 얻어와서 sclist에 값을 넣기
@@ -109,7 +109,24 @@ public class MypageDAOImpl implements MypageDAO{
 	 */
 	@Override
 	public int inputQna(String userId,String qnaType,String qnaContent) {
+		//글번호 작성 부분
+		// 시퀀스 값을 가져옴
+		String num = ss.selectOne(namespace + ".qnumber");
+
+		// 글번호 생성 부분
+		// 글번호 앞에 붙일 이름을 설정 후
+		String str = "qna";
+
+		// 번호의 길이를 비교후 빈공간에 0을 채우고
+		for (int i = 0; i < 8 - num.length(); i++) {
+			str += "0";
+		}
+
+		// 생성된 번호를 뒤에 붙임
+		str += num;		
+		 
 		HashMap map = new HashMap();
+		map.put("qnaNum", str);
 		map.put("userId", userId);
 		map.put("qnaType", qnaType);
 		map.put("qnaContent", qnaContent);
