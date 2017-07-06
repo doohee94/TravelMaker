@@ -102,7 +102,7 @@
 <!--                         <a href="/challengeschedule/challengeSchedule.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">도전일정</a> -->
 <!--                     </li> -->
                      <li style="padding:10px;">
-                       <input type="text" style="width: 170px; height: 26px"/><button id="searchBtn"><span class="glyphicon glyphicon-search"></span> search</button>
+                       <input type="text" id="tf_search" style="width: 170px; height: 26px"/><button id="searchBtn"><span class="glyphicon glyphicon-search"></span> search</button>
                     </li>                                         
                                       <!-- 로그인 할때 생기는 버튼 -->
                     <%if(userNick!=null){ %>
