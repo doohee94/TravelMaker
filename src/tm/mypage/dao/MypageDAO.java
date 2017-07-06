@@ -2,6 +2,7 @@ package tm.mypage.dao;
 
 import java.util.List;
 
+import tm.mypage.dto.LikeSCDTO;
 import tm.mypage.dto.LikeSpotDTO;
 import tm.mypage.dto.QnaDTO;
 import tm.mypage.dto.StempDTO;
@@ -11,7 +12,7 @@ public interface MypageDAO {
 	
 	public Integer deleteSpot (String likespotNum );
 
-	public List listSchedule(String userId);
+	public List<LikeSCDTO> listSchedule(String userId);
 
 	public int deleteSchedule(String likescNum);
 
