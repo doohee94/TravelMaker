@@ -179,12 +179,9 @@
     							<div class="container-fluid">
 									<div class="row">
 									<div class="col-md-12">
-										<table class="qna_table">
 										<c:choose>
 										<c:when test="${!empty qnalist}">
 											<c:forEach var="i" items="${qnalist}">
-											<tr>
-												<td class="qna_td">
 												<c:choose>
 												<c:when test="${i.qnaType eq '문의'}">
 													<div class="question">
@@ -246,11 +243,8 @@
 													</c:when>
 													<c:otherwise>
 													</c:otherwise>
-												</c:choose>
-												</td>
-												</tr>	
+												</c:choose>	
 											</c:forEach>
-											</table>
 											
 													<!--	페이지 넘기는 버튼	 -->
 <!-- 												<div class="text-center"> -->
