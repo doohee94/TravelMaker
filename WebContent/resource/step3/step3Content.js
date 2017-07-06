@@ -22,7 +22,7 @@ $( function() {
 	todayDate = getFormatDate(todayDate);	
 //	var _id = "S"+todayDate;
 //	var group_num = "G"+todayDate;
-
+	
 	var _id = ""; //여행일정 아이디
 	var group_num ="";//그룹 아이디 
 	var tour_title ="";//
