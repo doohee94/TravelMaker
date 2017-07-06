@@ -21,10 +21,12 @@
 					var type="";
 					if(data.userType == 10){
 						type = "회원";
+						$("#userDate").prev().text("가입일");
 					}else if(data.userType == 30){
 						type = "관리자";
 					}else{
 						type = "탈퇴";
+						$("#userDate").prev().text("탈퇴일");
 					}
 					$("#userState").val(type);
 					$("#userEmail").val(data.userEmail);

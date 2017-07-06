@@ -231,39 +231,39 @@
                           <div class="panel-body">
                               <form role="form">
                                   <div class="form-group">
-                                      <label for="exampleInputEmail1">ID</label>
+                                      <label for="userId">ID</label>
                                       <input type="text" class="form-control" id="userId" disabled="disabled">
                                   </div>
                                   <div class="form-group">
-                                      <label for="exampleInputPassword1">Password</label>
+                                      <label for="userPw">Password</label>
                                       <input type="password" class="form-control" id="userPw" disabled="disabled">
                                   </div>
                                   <div class="form-group">
-                                      <label for="exampleInputEmail1">이름</label>
+                                      <label for="userName">이름</label>
                                       <input type="text" class="form-control" id="userName" disabled="disabled">
                                   </div>
                                   <div class="form-group">
-                                      <label for="exampleInputEmail1">닉네임</label>
+                                      <label for="userNick">닉네임</label>
                                       <input type="text" class="form-control" id="userNick" disabled="disabled">
                                   </div>
                                   <div class="form-group">
-                                      <label for="exampleInputEmail1">주소</label>
+                                      <label for="userAddr">주소</label>
                                       <input type="text" class="form-control" id="userAddr" disabled="disabled">
                                   </div>
                                   <div class="form-group">
-                                      <label for="exampleInputEmail1">전화번호</label>
+                                      <label for="userTel">전화번호</label>
                                       <input type="text" class="form-control" id="userTel" disabled="disabled">
                                   </div>
                                   <div class="form-group">
-                                      <label for="exampleInputEmail1">가입일</label>
+                                      <label for="userDate">가입일</label>
                                       <input type="text" class="form-control" id="userDate" disabled="disabled">
                                   </div>
                                   <div class="form-group">
-                                      <label for="exampleInputEmail1">상태</label>
+                                      <label for="userState">상태</label>
                                       <input type="text" class="form-control" id="userState" disabled="disabled">
                                   </div>
                                   <div class="form-group">
-                                      <label for="exampleInputEmail1">Email</label>
+                                      <label for="userEmail">Email</label>
                                       <input type="text" class="form-control" id="userEmail" disabled="disabled">
                                   </div>
                                   <button type="submit" class="btn btn-primary">Submit</button>
