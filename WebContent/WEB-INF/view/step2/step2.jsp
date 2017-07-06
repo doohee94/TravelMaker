@@ -50,7 +50,7 @@
                     <!-- 로그인 할때 생기는 버튼 -->
                     <c:if test="${not empty sessionScope.userNick }">
                     <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
+                        <a href="/travelReview/reviewlist.tm">여행리뷰</a>
                     </li>
                     <li>
                         <a href="/mylist/menubar.tm">마이페이지</a>
