@@ -191,6 +191,7 @@
 										<th>닉네임</th>
 										<th>이름</th>
 										<th>가입일</th>
+										<th>상태</th>
 									</tr>
 								</thead>
 								<tbody class="listview">
@@ -202,6 +203,11 @@
 													<td>${s.userNick }</td>
 													<td>${s.userName }</td>
 													<td>${s.userDate }</td>
+													<c:choose>
+														<c:when test="${s.userType eq '10'}"><td>회원</td></c:when>
+														<c:when test="${s.userType eq '30'}"><td style="color: blue;">관리자</td></c:when>
+														<c:otherwise><td style="color: red;">탈퇴</td></c:otherwise>
+													</c:choose>
 												</tr>
 											</c:forEach>
 										</c:when>
@@ -251,6 +257,14 @@
                                   <div class="form-group">
                                       <label for="exampleInputEmail1">가입일</label>
                                       <input type="text" class="form-control" id="userDate" disabled="disabled">
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="exampleInputEmail1">상태</label>
+                                      <input type="text" class="form-control" id="userState" disabled="disabled">
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="exampleInputEmail1">Email</label>
+                                      <input type="text" class="form-control" id="userEmail" disabled="disabled">
                                   </div>
                                   <button type="submit" class="btn btn-primary">Submit</button>
                               </form>

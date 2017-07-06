@@ -18,6 +18,16 @@
 					$("#userAddr").val(data.userAddr);
 					$("#userTel").val(data.userTel);
 					$("#userDate").val(data.userDate);
+					var type="";
+					if(data.userType == 10){
+						type = "회원";
+					}else if(data.userType == 30){
+						type = "관리자";
+					}else{
+						type = "탈퇴";
+					}
+					$("#userState").val(type);
+					$("#userEmail").val(data.userEmail);
 				}
 			});
 		});
