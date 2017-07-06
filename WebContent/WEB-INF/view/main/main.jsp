@@ -69,7 +69,7 @@
                     <!-- 로그인 할때 생기는 버튼 -->
                     <%if(userNick!=null){ %>
                     <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
+                        <a href="/travelReview/reviewlist.tm">여행리뷰</a>
                     </li>
                     <li>
                         <a href="/mylist/menubar.tm">마이페이지</a>
@@ -117,7 +117,7 @@
     		<div class="headlogo">
     			<img class="img-responsive" src="/resource/main/images/logo.png">
     		</div>
-    		<label id="simble">여행일정을 공유하고 리뷰를 나눕니다.</label>
+    		<label id="simble" style="font-family: nanum gothic  ">여행일정을 공유하고 리뷰를 나눕니다.</label>
     		<form class="form-inline search_menu">
     			<input class="form-control input-lg" id="search_bar" type="text" placeholder="검색어를 입력하세요">
     			<a href="#" class="btn btn-lg btn-danger btn-search"><span class="glyphicon glyphicon-search"></span> Search</a>
@@ -135,7 +135,7 @@
             <div class="" align="left">
             	<c:choose>
 					<c:when test="${!empty adImgPath}">
-		                <img class="img-responsive" style="width: 100%; height: 175px;" src="${adImgPath}" alt="">
+		                <img class="img-responsive" style="width: 100%; height: 175px;" src="/upload/admin/${adImgPath}" alt="">
 					</c:when>
 					<c:otherwise>
 		                <img class="img-responsive" style="width: 100%; height: 175px;" src="http://placehold.it/700x450" alt="">
@@ -154,7 +154,7 @@
             </div>
             <div class="col-md-4 col-sm-6" align="center">
                 <a href="#" class="review">
-                    <img class="img-responsive img-portfolio img-hover" src="${reviewimg0}" alt="review top 1">
+                    <img class="img-responsive img-portfolio img-hover" src="/upload/review/${reviewimg0}" alt="review top 1">
                 	<span  class="challengeTitle">${reviewtitle0}</span>                	
                 </a>
                 	<input type="hidden" class="reuserId" value="${reuserId0}">
@@ -164,7 +164,7 @@
             </div>
             <div class="col-md-4 col-sm-6" align="center">
                 <a href="#" class="review">
-                    <img class="img-responsive img-portfolio img-hover" src="${reviewimg1}" alt="review top 1">
+                    <img class="img-responsive img-portfolio img-hover" src="/upload/review/${reviewimg1}" alt="review top 1">
                 	<span class="challengeTitle">${reviewtitle1}</span>
                 </a>
                 	<input type="hidden" class="reuserId" value="${reuserId1}">
@@ -174,7 +174,7 @@
             </div>
             <div class="col-md-4 col-sm-6" align="center">
                 <a href="#" class="review">
-                    <img class="img-responsive img-portfolio img-hover" src="${reviewimg2}" alt="review top 1">
+                    <img class="img-responsive img-portfolio img-hover" src="/upload/review/${reviewimg2}" alt="review top 1">
                 	<span class="challengeTitle">${reviewtitle2}</span>
                 </a>
                 	<input type="hidden" class="reuserId" value="${reuserId2}">
@@ -224,8 +224,7 @@
 			<br/>
 			<div class="foot_content" align="center">
 			<span class="footer_content_span">고객센터</span><br/>
-			<a class="footer_content_a">QnA</a><br/>
-			<a class="footer_content_a">제휴문의</a><br/>
+			<a class="footer_content_a" href="/alliance/allianceMain.tm">제휴문의</a><br/>
 			<a class="footer_content_a">회사소개</a><br/>
 			</div>
 			

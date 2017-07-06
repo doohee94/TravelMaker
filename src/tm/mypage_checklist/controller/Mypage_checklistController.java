@@ -55,7 +55,7 @@ public class Mypage_checklistController {
 		Criteria criteria = new Criteria("_id");
 		criteria.is(_id);
 		Query query = new Query(criteria);
-
+		
 		
 		//tour정보를 arraylist로 받아온다
 		ArrayList<String> tourlist = (ArrayList<String>)mongoTemplate.find(query,String.class,"schedule");
