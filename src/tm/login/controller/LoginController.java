@@ -51,6 +51,8 @@ public class LoginController {
 	 * Login시 DB에서 id와 pw값으로 비교후
 	 * 리턴 받은 id와 nick를
 	 * session에 userId와 userNick를 저장하고 메인페이지로 이동 
+	 * 
+	 * userId에 해당하는 일정을 모두 불러와 날짜를 비교 후 일정 저장상태 변경 
 	 */
 	@RequestMapping("/loginUser.tm")
 	public String loginUser(String user_id, String user_pw, HttpSession session){
@@ -88,7 +90,7 @@ public class LoginController {
 							
 							String sDate = jsonobj.get("sDate").toString();
 							String eDate = jsonobj.get("eDate").toString();
-							
+							//날짜 구하는 부분
 							String []sDateArr = new String[3];
 							String []eDateArr = new String[3];
 							

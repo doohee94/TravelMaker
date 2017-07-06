@@ -36,10 +36,7 @@ public class Step3Controller {
    @Autowired
    private MongoTemplate mongoTemplate;
    
-	
-	
 	private String dir = "step3/";
-   
    
    @RequestMapping("/{url}.tm")
    public String step3(@PathVariable String url){
@@ -150,7 +147,13 @@ public class Step3Controller {
    }
    
    
-   
+   /**
+    * 
+    * distanceCal
+    * step3.jsp 파일을 myList 리스트에 있는 값들을 받아서 경로 최적화 알고리즘 적용
+    * 파라메터 step3.jsp 파일을 myList 리스트에 있는 값들
+    * 리턴값 리스트들을 경로 최적화 후 JSONObject로 리턴
+    * */
    @RequestMapping("/distanceCal.tm")
    @ResponseBody
    public JSONObject distanceCal(@RequestBody String listInfo){
@@ -159,24 +162,27 @@ public class Step3Controller {
       
       try {
          JSONParser jsonParser = new JSONParser();
-         JSONObject jsonObj = (JSONObject) jsonParser.parse(listInfo);
+         JSONObject jsonObj = (JSONObject) jsonParser.parse(listInfo); //myList의 리스트 
         
          
-         
+         //리스트들 값 파싱
          JSONArray title = (JSONArray)jsonObj.get("title");
          JSONArray addr = (JSONArray)jsonObj.get("addr");
          JSONArray image = (JSONArray)jsonObj.get("image");
          JSONArray mapx = (JSONArray)jsonObj.get("mapx");
          JSONArray mapy = (JSONArray)jsonObj.get("mapy");
          
+         //파싱한 데이터의 값만큼 배열 잡아주기
          String []titleArr = new String[title.size()];
          String []addrArr = new String[addr.size()];
          String []imageArr = new String[image.size()];
          String []mapxArr = new String[mapx.size()];
          String []mapyArr = new String[mapy.size()];
          
+         //x,y좌표를 이용해 두 점사이의 거리를 구하여 2차원 배열에 저장
          double distance[][] = range((JSONArray)jsonObj.get("mapx") , (JSONArray)jsonObj.get("mapy"));
          
+         //배열 0번째에 각 출발점에 해당하는 값 넣어주기
          int routeIndex=0;
          titleArr[routeIndex] = title.get(routeIndex).toString();
          addrArr[routeIndex] = addr.get(routeIndex).toString();
@@ -184,29 +190,34 @@ public class Step3Controller {
          mapxArr[routeIndex] = mapx.get(routeIndex).toString();
          mapyArr[routeIndex] = mapy.get(routeIndex).toString();
          
+        //임시 저장 리스트 
         ArrayList<Integer> temp = new ArrayList<Integer>();
+        //현재 인덱스
         int curIndex=0;
+     
       temp.add(curIndex);
       
       int rowindex=0;
       
-     
-      
+      //경로 최적화
       for(int k=1; k<title.size(); k++){
 
-         double min = 1000;
+         double min = 1000; //거리의 최소값을 잡아주기 위해 처음 최소값을 1000으로 저장. 대한민국 거리상 1000이상은 없음.
 
          END:
         	for(int i=1; i<title.size(); i++){
+        	//rowindex 지점 -> i번째 지점일시 자기 자신에게 가는 길이므로 0. 넘어감
             if(distance[rowindex][i] == 0){
                continue;
             }
+            //
             for(int j=0; j<temp.size(); j++){
              
                if(i == temp.get(j)){
                   continue END;
                }
             }//end J
+            
             if(distance[rowindex][i] < min){
                min = distance[rowindex][i]; 
                
@@ -254,13 +265,6 @@ public class Step3Controller {
    public String listSave(@RequestBody String list){
 
 	   try{
-		   
-		   
-		   
-		   
-		   
-		   
-		   
 		   Document doc = Document.parse(list);
 	   
 		   mongoTemplate.save(doc,"schedule");
