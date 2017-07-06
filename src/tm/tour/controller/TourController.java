@@ -16,11 +16,10 @@ public class TourController {
 	private String dir = "tour/";
 	/**
 	 * main 
-	 * 컴맨드 요청이 없는 일반 호출 
+	 * 커맨드 요청이 없는 일반 호출 
 	 */	
 	@RequestMapping("/{url}.tm")
 	public String main(@PathVariable String url){
-		System.out.println("여행컨트롤러");
 			return dir+url;
 	}
 	
