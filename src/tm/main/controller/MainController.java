@@ -55,6 +55,7 @@ public class MainController {
 		 */
 		@RequestMapping("/logout.tm")
 		public ModelAndView logOut(HttpSession session){
+			//기존의 세션을 삭제시킴
 			session.invalidate();
 			//ModelAndView mv를 생성 후 getMainItem실행후 결과값을 mv에 담음
 			ModelAndView mv =getMainItem();
