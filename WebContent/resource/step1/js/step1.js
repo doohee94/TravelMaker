@@ -74,10 +74,24 @@
 		 });
 	});
 	
-	// 출력된 아이디,닉네임의 row를 클릭하면 하단에 아이디가 입력되는 기능.
+	
+	var okcount=0;
+	// 출력된 아이디와 닉네임을 확인하여 O버튼을 클릭하면 팝업창 하단에 선택된 아이디 출력.
 	$(document).on('click', '.okbtn', function() {
-		var searchedid = $(this).prev().prev().prev().val();
-		$(".mbbul").append("<li class='mbulli'>" + searchedid + " ");
+		
+		if( okcount< 4 ){
+			
+			var searchedid = $(this).prev().prev().prev().val();
+			$(".mbbul").append("<li class='mbulli'>" + searchedid + " ");
+			
+			++okcount;
+			
+		}else{
+			
+			alert("동행자는 최대 4명까지 선택 가능합니다. 즐거운 여행되세요." );
+			
+		}
+		
 	});
 
 	// 동행자 팝업 창에서 x 버튼 (close 버튼) 누르면 동행자 목록이 초기화.
@@ -86,6 +100,7 @@
 		$(".modal-body").find(".secondtr *").detach();
 		// 동행자 목록에서 선택한 아이디 값들을 초기화
 		$(".modal-body-bottom").find(".mbbul *").detach();
+		
 	});
 
 	//동행자 목록 초기화 버튼 클릭시
@@ -96,6 +111,8 @@
 		// 동행자 목록에서 선택한 아이디 값들을 초기화
 		// $(".modal-body-bottom").find
 		$(".modal-body-bottom").find(".mbbul *").detach();
+		
+		okcount=0;
 	});
 
 	

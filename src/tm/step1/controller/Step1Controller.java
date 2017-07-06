@@ -43,10 +43,13 @@ public class Step1Controller {
 		
 		return list;
 	}
-
+	
+	// step1 일정만들기에서 입력한 정보를 step2 로 넘겨주는데 세션을 이용.
 	@RequestMapping("/stepinfo.tm")
 	public String nextBtn(StepDTO stepdto, HttpSession session){
 		
+		// 출발지 경유지 도착지 를 넘기는데 경유지는 한 곳 이상이 들어오기 때문에 
+		// 스트링토크나이저를 이용하여 값만 전달(">" 구분자 제외)
 		ArrayList<String> schedule = stepdto.getSchedule();
 		schedule.add(stepdto.getListstart());
 		StringTokenizer st = new StringTokenizer(stepdto.getListthrough(), ">");
@@ -57,6 +60,9 @@ public class Step1Controller {
 			}
 		}
 		schedule.add(stepdto.getListarrival());
+		
+		// 동행자는 한 명이상 최대4명(나를제외한) 입력가능하다.
+		// 스트링토크나이저를 이용하여 값만 전달( " " 구분자 제외)
 		ArrayList<String> party = stepdto.getParty();
 		StringTokenizer stp = new StringTokenizer(stepdto.getPartystr(), " ");
 		while (stp.hasMoreTokens()) {
@@ -66,14 +72,14 @@ public class Step1Controller {
 			}
 		}
 		
+		// 아래 stepdto.setId(userId) 코드를 주석처맇나 이유는 step3에서 id 따로 만들었기 때문.
 		String userId = (String)session.getAttribute("userId");
-//		stepdto.setId(userId);
-		// 위 코드를 주석처맇나 이유는 step3에서 id 따로 만들었기 때문.
+		//stepdto.setId(userId);
+		
 		System.out.println("아마도 시간만 나올껄 : " + stepdto.getId());
 		
 		session.setAttribute(userId+"dto", stepdto);
 		
-
 		return "redirect:/step2/step2.tm";
 	}
 	
