@@ -142,8 +142,6 @@
 
              <br/>
             <ul style="padding:0px;width:100%; height:550px; overflow-x:hidden; overflow-y:scroll;  display:inline-block;" id="cityList"><!--  앞에서  선택된 지역 리스트 -->
-                          
-               
                      
             </ul>
             
