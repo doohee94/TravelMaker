@@ -252,7 +252,7 @@ background-color:white;
 
 
 /** id choiced btn o button */
-.contnsubform #secondcontainer #myModal .modal-dialog .modal-content .modal-body .col-md-13 #okbtn{
+.contnsubform #secondcontainer #myModal .modal-dialog .modal-content .modal-body .col-md-13 .okbtn{
 	background-color: #2995F7;	color: white;
 	border:1px solid #2995F7;
 	width:5%;
@@ -270,6 +270,9 @@ background-color:white;
 	list-style:none; margin:0 0 0 10px; padding:0;
 }
 
-.contnsubform #secondcontainer #myModal .modal-dialog .modal-content .modal-body-bottom ul li{
-	margin: 0 0 0 0; padding: 0 0 0 0; border: 0; float:left;
+.contnsubform #secondcontainer #myModal .modal-dialog .modal-content .modal-body-bottom .mbbul .mbulli{
+	margin-right:13px;
+	padding: 0 0 0 0;
+	border: 0; 
+	float:left;
 }
