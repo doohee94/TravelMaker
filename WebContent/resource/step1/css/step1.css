@@ -239,15 +239,18 @@ background-color:white;
 
 /** id searched output list -> textarea */
 .contnsubform #secondcontainer #myModal .modal-dialog .modal-content .modal-body .idlistfrm .idlist{
-	width:30%;
+	width:155.3px; height:28px;
 	border:1px solid #dedede;
-	margin-left:5px; margin-right:5px;
+	text-align:center; font-size:16px;
+	margin-left:10px; margin-right:10px;
+	
 }
 
 .contnsubform #secondcontainer #myModal .modal-dialog .modal-content .modal-body .idlistfrm .nicklist{
-	width:30%;
+	width:155.3px; height:28px;
 	border:1px solid #dedede;
-	margin-left:5px;
+	text-align:center; font-size:16px;
+	margin-left:10px; margin-right:3px;
 }
 
 
@@ -255,7 +258,7 @@ background-color:white;
 .contnsubform #secondcontainer #myModal .modal-dialog .modal-content .modal-body .col-md-13 .okbtn{
 	background-color: #2995F7;	color: white;
 	border:1px solid #2995F7;
-	width:5%;
+	width:27.55px; height:28px;
 	margin-bottom:3px;
 }
 /** id choiced btn x button */
@@ -269,9 +272,6 @@ background-color:white;
 }
 
 
-/* bcontainer #myModal .modal-dialog .modal-content .modal-body .col-md-13 #idlist{ */
-/* 	margin-bottom:3px; */
-/* } */
 
 
 /* 모달 바디 bottom modal bottom */
