@@ -54,7 +54,7 @@ public class Step3Controller {
    @RequestMapping("/step3.tm")
    public ModelAndView step3_id(String _id, HttpSession session){
 	   ModelAndView mv = new ModelAndView();
-	   System.out.println("step3접속>>>>>>_Id"+_id);
+	 
 	   if(_id != null){
 		   mv.addObject("_id", _id);	   
 	   }else{ 
@@ -63,7 +63,7 @@ public class Step3Controller {
 	   }
 	   
 	   mv.setViewName(dir+"/step3");
-	   System.out.println("스템33333333"+_id);
+	  
 	   return mv;
    }
    
@@ -96,7 +96,7 @@ public class Step3Controller {
 		}
 	   long diff = eDate.getTime() - sDate.getTime();
 	   int day = (int)diff/(24*60*60*1000)+1;
-	   System.out.println("날짜"+day);
+	   
 	   
 	   goData.put("sDate", sDateStr);
 	   goData.put("eDate", eDateStr);
@@ -113,9 +113,13 @@ public class Step3Controller {
 	   //제목---------------------------
 	   goData.put("title", dto.getTitle());
 	   
-		
-
-	   
+	   //친구목록----------------------------------------------------
+	   JSONArray friendList = new JSONArray();
+	   for(int i=0; i<dto.getParty().size(); i++){
+		   friendList.add(dto.getParty().get(i));
+	   }
+	   goData.put("friendList", friendList);
+   
 	   return goData;
    }
    
@@ -150,14 +154,13 @@ public class Step3Controller {
    @RequestMapping("/distanceCal.tm")
    @ResponseBody
    public JSONObject distanceCal(@RequestBody String listInfo){
-      System.out.println("스프링@@@@"+listInfo);
+      
       JSONObject responseList  = new JSONObject();
       
       try {
          JSONParser jsonParser = new JSONParser();
          JSONObject jsonObj = (JSONObject) jsonParser.parse(listInfo);
-         System.out.println(jsonObj.get("mapx"));
-         System.out.println(jsonObj.get("mapy"));
+        
          
          
          JSONArray title = (JSONArray)jsonObj.get("title");
@@ -187,11 +190,7 @@ public class Step3Controller {
       
       int rowindex=0;
       
-      for(int i=0; i<title.size();i++){
-         System.out.print("시작전"+i+"번쨰"+title.get(i).toString());
-         System.out.println("\n");
-      }
-      
+     
       
       for(int k=1; k<title.size(); k++){
 
@@ -203,7 +202,7 @@ public class Step3Controller {
                continue;
             }
             for(int j=0; j<temp.size(); j++){
-               //System.out.print("temp#"+temp.get(j).toString() +"\t");
+             
                if(i == temp.get(j)){
                   continue END;
                }
@@ -225,9 +224,7 @@ public class Step3Controller {
          mapyArr[routeIndex] = mapy.get(rowindex).toString();
       }//end K
       
-      for(int i=0; i<title.size();i++){
-         System.out.print("  시작후"+i+"번쨰"+titleArr[i]);
-      }
+     
    
       
       responseList.put("title", titleArr);
@@ -309,9 +306,9 @@ public class Step3Controller {
                  leng[i][j] = res;
                }
                
-               System.out.println(leng[i][j]);
+              
             }
-            System.out.println("------------");
+         
          }
          return leng;
       }
@@ -334,7 +331,7 @@ public class Step3Controller {
     	  JSONObject data = null;
 		try {
 			data = (JSONObject)parser.parse(friendId);
-			System.out.println(data);
+			
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -382,7 +379,6 @@ public class Step3Controller {
     	 int overlap = 0;
     	//아이디 값이 들어온 값과 같으면 친구추가 못하도록
     	 for(int i=0; i<list.size(); i++){
-    		 System.out.println("친추>>>>"+list.get(i));
     		 if(memeber_id.equals(list.get(i).get("member_id").toString())){	 
     			 overlap++;
     		 } 
@@ -400,7 +396,6 @@ public class Step3Controller {
     	 }else{
     		//위의 상황에 걸리지 않으면 sava
        	  Document doc = Document.parse(addFriend);
-       	  System.out.println("추가>>>>"+doc);
    		  mongoTemplate.save(doc,"schedule");
    		  
    		  data="OK";
@@ -417,7 +412,7 @@ public class Step3Controller {
       @RequestMapping("/find_id.tm")
       @ResponseBody
       public ArrayList<JSONObject> find_id(@RequestBody String group_number){
-    	  System.out.println(">>>>>>>>>>>>>>>>>>>>>"+group_number);
+    	 
     	 
     	  JSONParser parser = new JSONParser();
     	  JSONObject group_number_OBJ =null;
@@ -426,7 +421,7 @@ public class Step3Controller {
 		try {
 			group_number_OBJ = (JSONObject)parser.parse(group_number);
 			   group_num = group_number_OBJ.get("group_num").toString();
-	    	   System.out.println(">>>>>"+group_num);
+	    	
 	    	
 	    	  
 			
@@ -438,10 +433,10 @@ public class Step3Controller {
 		Criteria criteria = new Criteria("group_num");
         criteria.is(group_num);
         Query query = new Query(criteria);
-        System.out.println("쿼리>>>"+query);
+      
         list = (ArrayList<JSONObject>)mongoTemplate.find(query, JSONObject.class, "schedule");
         for(int i=0; i<list.size(); i++){
-  		  System.out.println(">>>"+list.get(i));
+  		
   	  }
     	  return list;
       }

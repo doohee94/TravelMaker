@@ -8,9 +8,6 @@
   //시작날짜와 종료날짜를 계산해서 일수 구하기
   String userId=session.getAttribute("userId").toString();
   System.out.println("stpe3 세션 유져아이디>>>"+userId);
- 
-  
-
   %>
 <!-- 일정짜기 step3 페이지 -->
 <!DOCTYPE html>
@@ -121,17 +118,11 @@
                 <input type="text" placeholder="지역검색" id="reSearchInput" style="border-top:none; border-left:none; border-right:none; width:100px; border-bottom:true"/>
                 <button class="nextbtn" id="reSearchBtn">검색</button>
              </div>
-<!--              <div style="display: inline-block;" >지역</div>  -->
-<!--              <img src="/resource/step3/step3_image/Q.png" style="float: right;" id="reSearch"/> -->
+
              <br/>
             <ul style="padding:0px;width:100%; height:550px; overflow-x:hidden; overflow-y:scroll;  display:inline-block;" id="cityList"><!--  앞에서  선택된 지역 리스트 -->
                           
-<!--                  <li class="list-group-item cityName" style=" width:150px;"> 앞에서 선택된 지역 리스트 -->
-<!--                         <div class="col-xs-12 col-sm-9" align = "center"> -->
-<!--                             <span class="cityName">서울</span><br/> -->
-<!--                         </div> -->
-<!--                         <div class="clearfix"></div> -->
-<!--                     </li>                  -->
+               
                      
             </ul>
             
