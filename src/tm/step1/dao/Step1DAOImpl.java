@@ -19,9 +19,10 @@ public class Step1DAOImpl implements Step1DAO{
 	private String namespace ="step1";
 	
 	@Override
-	public List<MemberDTO> fellowsearch(String modalsearchplace){
+	public List<MemberDTO> fellowsearch(String modalsearchplace, String userId){
 		HashMap map = new HashMap();
 		map.put("id", modalsearchplace);
+		map.put("userId", userId);
 		
 		List<MemberDTO> list = ss.selectList(namespace+".step1list", map);
 		

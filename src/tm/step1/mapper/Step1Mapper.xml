@@ -7,7 +7,8 @@
 		from member
 		<where>
 			user_type not in('20', '30')
-			<if test="id != null">
+			AND user_id != #{userId}
+			<if test="id != null" >
 				AND user_id like '%'||#{id}||'%'
 			</if>
 		</where> 

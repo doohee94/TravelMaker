@@ -33,13 +33,18 @@ public class Step1Controller {
 	@Autowired
 	Step1DAO dao;
 
-
-
 	// step1 동행자 팝업 검색 목록 ( 아이디 와 닉네임 출력 )
 	@RequestMapping("/step1searchfellow.tm")
-	public @ResponseBody List<MemberDTO> setp1searchfellow(String step1search) {
+	public @ResponseBody List<MemberDTO> setp1searchfellow(String step1search, HttpSession session) {
 		
-		List<MemberDTO> list = dao.fellowsearch(step1search);
+		String userId = (String)session.getAttribute("userId");
+		if( userId == null ){
+			userId = " ";
+		}
+		
+		List<MemberDTO> list = dao.fellowsearch(step1search,userId);
+		
+	
 		
 		return list;
 	}
@@ -72,7 +77,7 @@ public class Step1Controller {
 			}
 		}
 		
-		// 아래 stepdto.setId(userId) 코드를 주석처맇나 이유는 step3에서 id 따로 만들었기 때문.
+		// 아래 stepdto.setId(userId) 코드를 주석처리를 하는 이유는 step3에서 id 따로 만들었기 때문.
 		String userId = (String)session.getAttribute("userId");
 		//stepdto.setId(userId);
 		

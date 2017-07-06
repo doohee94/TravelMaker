@@ -9,6 +9,6 @@ public interface Step1DAO {
 
 //	public List<Step1DTO> Step1list();
 	/*회원의 기록을 */
-	public List<MemberDTO> fellowsearch(String modalsearchplace);
+	public List<MemberDTO> fellowsearch(String modalsearchplace, String userId);
 	 
 }
