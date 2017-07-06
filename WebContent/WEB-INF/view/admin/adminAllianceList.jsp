@@ -63,7 +63,7 @@
 			<div class="top-nav notification-row">
 				<ul class="nav pull-right top-menu">
 					<li>
-						<a href="/adminlogout.tm">
+						<a href="adminlogout.tm">
 							<i class="icon_close_alt2"></i>  Logout
 	                    </a>
 					</li>
