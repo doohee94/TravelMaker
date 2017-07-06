@@ -258,6 +258,16 @@ background-color:white;
 	width:5%;
 	margin-bottom:3px;
 }
+/** id choiced btn x button */
+.contnsubform #secondcontainer #myModal .modal-dialog .modal-content .modal-body-bottom .mbbul .cancelbtn{
+	background-color: white;	color: red;
+	border:1px solid white;
+	width:22px; height:20px;
+	font-size:12px;
+	font-weight:bold;
+	margin-bottom:3px;
+}
+
 
 /* bcontainer #myModal .modal-dialog .modal-content .modal-body .col-md-13 #idlist{ */
 /* 	margin-bottom:3px; */
@@ -271,6 +281,7 @@ background-color:white;
 }
 
 .contnsubform #secondcontainer #myModal .modal-dialog .modal-content .modal-body-bottom .mbbul .mbulli{
+	margin-top:5px;
 	margin-right:13px;
 	padding: 0 0 0 0;
 	border: 0; 

@@ -74,7 +74,7 @@
 		 });
 	});
 	
-	
+	// 동행자 최대4명만 선택할 수 있도록 카운트를 구하기위해 필요한 변수.
 	var okcount=0;
 	// 출력된 아이디와 닉네임을 확인하여 O버튼을 클릭하면 팝업창 하단에 선택된 아이디 출력.
 	$(document).on('click', '.okbtn', function() {
@@ -82,8 +82,9 @@
 		if( okcount< 4 ){
 			
 			var searchedid = $(this).prev().prev().prev().val();
-			$(".mbbul").append("<li class='mbulli'>" + searchedid + " ");
+			$(".mbbul").append("<li class='mbulli'>" + searchedid +"<input type='button' value='X' class='cancelbtn'/>" +" "+"</li>");
 			
+			//동행자 카운트 1 증가
 			++okcount;
 			
 		}else{
@@ -94,10 +95,21 @@
 		
 	});
 
-	// 동행자 팝업 창에서 x 버튼 (close 버튼) 누르면 동행자 목록이 초기화.
+	// 동행자 검색 창에서 검색한 아이디를 선택하고 선택한 아이디를 다시 삭제.
+	$(document).on('click', '.cancelbtn', function() {
+		
+		$(this).parent().detach();
+		
+		//동행자 카운트 1 감소
+		--okcount;
+		
+	});
+		
+	
+	// 동행자 팝업 창에서  닫기 버튼 (close 버튼) 누르면 동행자 목록이 초기화.
 	$(".close").click(function() {
 		// 동행자 목록 초기화
-		$(".modal-body").find(".secondtr *").detach();
+		$(".modal-body").find(".idlistfrm *").detach();
 		// 동행자 목록에서 선택한 아이디 값들을 초기화
 		$(".modal-body-bottom").find(".mbbul *").detach();
 		
@@ -107,7 +119,7 @@
 	$(".ftrsbtn").click(function() {
 		// 동행자 목록 초기화
 		// $(".modal-body").find
-		$(".modal-body").find(".secondtr *").detach();
+		$(".modal-body").find(".idlistfrm *").detach();
 		// 동행자 목록에서 선택한 아이디 값들을 초기화
 		// $(".modal-body-bottom").find
 		$(".modal-body-bottom").find(".mbbul *").detach();
@@ -125,6 +137,9 @@
 		var idgroup = $(".modal-body-bottom").find(".mbulli").text();
 
 		$("#fellowpeople").val(idgroup);
+		
+		//검색한 아이디 목록 초기화
+		$(".modal-body").find(".idlistfrm *").detach();
 
 	});
 
