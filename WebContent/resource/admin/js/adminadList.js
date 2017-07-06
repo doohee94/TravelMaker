@@ -10,6 +10,13 @@
 			$(this).next().submit();
 		});
 		
+		$(".subtab").click(function(){
+			$("#checkend").hide();
+		});
+		$(".alltab").click(function(){
+			$("#checkend").show();
+		});
+		
 		// 이미지 크기 키우기
 		$(".clickimg").toggle(function(){
 			$(this).animate({"width":"1200px","height":"150px"},"slow","easeOutBack");

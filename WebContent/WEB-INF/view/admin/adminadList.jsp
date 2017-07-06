@@ -138,10 +138,10 @@
 						<section class="panel">
 							<header class="panel-heading tab-bg-primary ">
 								<ul class="nav nav-tabs">
-									<li class="active"><a data-toggle="tab" href="#home">전체</a></li>
-									<li class=""><a data-toggle="tab" href="#about">완료</a></li>
-									<li class=""><a data-toggle="tab" href="#profile">현재</a></li>
-									<li class=""><a data-toggle="tab" href="#contact">예정</a></li>
+									<li class="alltab active"><a data-toggle="tab" href="#home">전체</a></li>
+									<li class="subtab "><a data-toggle="tab" href="#about">완료</a></li>
+									<li class="subtab "><a data-toggle="tab" href="#profile">현재</a></li>
+									<li class="subtab "><a data-toggle="tab" href="#contact">예정</a></li>
 								</ul>
 							</header>
 							<div class="panel-body">
@@ -223,7 +223,17 @@
 																			</tr>
 																			<tr>
 																				<td style="text-align: center;">
-																					img
+																					<c:choose>
+																						<c:when test="${a.state eq '10'}">
+																							<span style="color: red;">기간만료</span>
+																						</c:when>
+																						<c:when test="${a.state eq '20'}">
+																							현재
+																						</c:when>
+																						<c:otherwise>
+																							예정
+																						</c:otherwise>
+																					</c:choose>
 																				</td>
 																				<td class="imgclick" style="text-align: center;">
 																					<img alt="" class="clickimg" src="/upload/admin/${a.adPhotofake }" style="width: 120px; height: 15px;" >
