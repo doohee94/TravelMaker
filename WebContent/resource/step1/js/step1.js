@@ -60,23 +60,18 @@ $(function() {
 		// hidden에 중간 저장공간에 넣은 값을 넣어줌
 		$("#searchid").val(tempid);
 
-		$("#hiddenmodalfrm").submit();
+//		$("#hiddenmodalfrm").submit();
 
-		// $(".idlistfrm").append(
-		// "<c:forEach var='row' items='${map.list}'>"+
-
-		// "<label class='idlb'>ID</label>"+
-		// "<input type='textarea' value='" "' class='idlist' id='idlist'
-		// name='idlist'>" +
-		// "<label class='nicklb'>닉네임</label>"+
-		// "<input type+'textarea' value='' class='nicklist' id='nicklist'
-		// name='nicklist'>" +
-		// "<input type='button' value='O' id='okbtn' class='okbtn'>"+
-		// "<br/>"
-
-		// "</c:forEach>"
-
-		// );
+		 $(".idlistfrm").append(
+//				 "<c:forEach var='row' items='${map.list}'>"+
+				 "<label class='idlb'>ID</label>"+
+				 "<input type='textarea' value='' class='idlist' id='idlist' name='idlist'>" +
+				 "<label class='nicklb'>닉네임</label>"+
+				 "<input type+'textarea' value='' class='nicklist' id='nicklist' name='nicklist'>" +
+				 "<input type='button' value='O' id='okbtn' class='okbtn'>"+
+				 "<br/>"
+//				 "</c:forEach>"
+		 );
 
 		// 검색창의 내용을 con 이라는 변수에 저장.
 		// var con = $("#modalsearchplace").val() ;
