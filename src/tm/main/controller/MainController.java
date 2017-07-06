@@ -71,7 +71,6 @@ public class MainController {
 		public ModelAndView getMainItem(){
 			//광고 이미지 주소 가져오기
 			String adImgPath = dao.loadAd();
-			System.out.println("광고 가져오기 완료");
 			//리뷰 top3 이미지주소, 이름, 좋아요수, 유저아이디, 일정번호, 리뷰번호 가져옴			
 			List<TotalreDTO> reviewList = dao.loadReview();
 			System.out.println("리뷰 top3가져오기 완료");
