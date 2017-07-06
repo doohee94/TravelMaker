@@ -38,7 +38,6 @@ public class AdminController {
 	@Autowired
 	AdminDAO dao;
 	
-	
 	/**
 	 * admin
 	 * 인자값 전달이 필요없는 부분 담당
@@ -61,8 +60,6 @@ public class AdminController {
 		return "redirect:/tmmain/main.tm";
 	}
 	
-	
-	
 	/***********************   member(회원)     **************************/
 	
 	/**
@@ -70,7 +67,13 @@ public class AdminController {
 	 * 관리자 멤버 리스트 출력
 	 */
 	@RequestMapping("/adminMember.tm")
-	public ModelAndView adMemberList(String pageNumber) {
+	public ModelAndView adMemberList(String pageNumber, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		String admin = (String)session.getAttribute("admin");
+		if(admin == null){
+			mv.setViewName("redirect:/tmmain/main.tm");
+			return mv;
+		}
 		int pageNum = 1;
 		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
 		
@@ -82,8 +85,8 @@ public class AdminController {
 		 */
 		
 		List<AdminMemberDTO> list =  dao.MemberList(page[1],page[2]);
-		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"/adminMember");
+		
 		mv.addObject("memlist",list);
 		mv.addObject("totalpage",page[0]);
 		mv.addObject("pageNum", pageNum);
@@ -110,7 +113,14 @@ public class AdminController {
 	 * @param sel,con
 	 */
 	@RequestMapping("/adminsearchmem.tm")
-	public ModelAndView searchmem(String sel, String con, String pageNumber) {
+	public ModelAndView searchmem(String sel, String con, String pageNumber, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		String admin = (String)session.getAttribute("admin");
+		if(admin == null){
+			mv.setViewName("redirect:/tmmain/main.tm");
+			return mv;
+		}
+		
 		int pageNum = 1;
 		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
 		
@@ -122,7 +132,6 @@ public class AdminController {
 		 */
 		
 		List<AdminMemberDTO> list = dao.Membersearch(sel, con, page[1], page[2]);
-		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"/adminMember");
 		mv.addObject("memlist",list);
 		mv.addObject("totalpage",page[0]);
@@ -142,8 +151,13 @@ public class AdminController {
 	 * QNA리스트를 출력
 	 */
 	@RequestMapping("/adminQna.tm")
-	public ModelAndView adminqna(String pageNumber) {
-		
+	public ModelAndView adminqna(String pageNumber, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		String admin = (String)session.getAttribute("admin");
+		if(admin == null){
+			mv.setViewName("redirect:/tmmain/main.tm");
+			return mv;
+		}
 		int pageNum = 1;
 		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
 		
@@ -154,7 +168,6 @@ public class AdminController {
 		 * 2 : 끝 rownum
 		 */
 		List<AdminQnaDTO> list = dao.qnalist(page[1],page[2]);
-		ModelAndView mv = new ModelAndView();
 		
 		mv.setViewName(dir+"adminQna");
 		mv.addObject("qnalist", list);
@@ -184,7 +197,13 @@ public class AdminController {
 	 * 광고 리스트 출력
 	 */
 	@RequestMapping("/adminadList.tm")
-	public ModelAndView adminadlist(String pageNumber) {
+	public ModelAndView adminadlist(String pageNumber, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		String admin = (String)session.getAttribute("admin");
+		if(admin == null){
+			mv.setViewName("redirect:/tmmain/main.tm");
+			return mv;
+		}
 		int pageNum = 1;
 		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
 		
@@ -235,7 +254,6 @@ public class AdminController {
 			}
 		}
 		
-		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"adminadList");
 		mv.addObject("adlist", list);
 		mv.addObject("totalpage", page[0]);
@@ -245,7 +263,14 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/adminadsearch.tm")
-	public ModelAndView adminadsearch(String pageNumber, String partnerComname) {
+	public ModelAndView adminadsearch(String pageNumber, String partnerComname, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		String admin = (String)session.getAttribute("admin");
+		if(admin == null){
+			mv.setViewName("redirect:/tmmain/main.tm");
+			return mv;
+		}
+		
 		int pageNum = 1;
 		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
 		
@@ -292,7 +317,6 @@ public class AdminController {
 			}
 		}
 
-		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir + "adminadList");
 		mv.addObject("adlist", list);
 		mv.addObject("totalpage", page[0]);
@@ -320,14 +344,20 @@ public class AdminController {
 	 * 광고DB등록
 	 */
 	@RequestMapping("/adadinsert.tm")
-	public ModelAndView insertad(AdminadDTO adminadDTO) {
+	public ModelAndView insertad(AdminadDTO adminadDTO, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		String admin = (String)session.getAttribute("admin");
+		if(admin == null){
+			mv.setViewName("redirect:/tmmain/main.tm");
+			return mv;
+		}
+		
 		adminadDTO.setAdStdate(adminadDTO.getStartyear()+"/"+adminadDTO.getStartmonth()+"/"+adminadDTO.getStartday());
 		adminadDTO.setAdEddate(adminadDTO.getEndyear()+"/"+adminadDTO.getEndmonth()+"/"+adminadDTO.getEndday());
 		
 		int res = dao.adadinsert(adminadDTO);
 		
 		List<AdminadDTO> list = dao.adlist();
-		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"adminadList");
 		mv.addObject("adlist", list);
 		return mv;
@@ -348,11 +378,16 @@ public class AdminController {
 	 * 광고 정보보기
 	 */
 	@RequestMapping("/adminadshow.tm")
-	public ModelAndView adminadshow(String num) {
+	public ModelAndView adminadshow(String num, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		String admin = (String)session.getAttribute("admin");
+		if(admin == null){
+			mv.setViewName("redirect:/tmmain/main.tm");
+			return mv;
+		}
 		
 		AdminadDTO dto = dao.adminadshow(num);
 		
-		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"adminadshow");
 		mv.addObject("dto",dto);
 		return mv;
@@ -422,7 +457,13 @@ public class AdminController {
 	 */
 	
 	@RequestMapping("/adminAllianceList.tm")
-	public ModelAndView allianceList(String pageNumber) {
+	public ModelAndView allianceList(String pageNumber, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		String admin = (String)session.getAttribute("admin");
+		if(admin == null){
+			mv.setViewName("redirect:/tmmain/main.tm");
+			return mv;
+		}
 		int pageNum = 1;
 		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
 		
@@ -433,7 +474,6 @@ public class AdminController {
 		 * 2 : 끝 rownum
 		 */
 		List<AllianceDTO> list = dao.adallist(page[1],page[2]);
-		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"adminAllianceList");
 		mv.addObject("allist", list);
 		mv.addObject("totalpage", page[0]);
@@ -448,7 +488,13 @@ public class AdminController {
 	 * 제휴 검색 리스트 (adminAllianceList)
 	 */
 	@RequestMapping("/searchalli.tm")
-	public ModelAndView searchalli(String partnerComname, String pageNumber){
+	public ModelAndView searchalli(String partnerComname, String pageNumber, HttpSession session){
+		ModelAndView mv = new ModelAndView();
+		String admin = (String)session.getAttribute("admin");
+		if(admin == null){
+			mv.setViewName("redirect:/tmmain/main.tm");
+			return mv;
+		}
 		int pageNum = 1;
 		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
 		
@@ -460,7 +506,6 @@ public class AdminController {
 		 */
 		
 		List<AllianceDTO> list = dao.alsearch(page[1],page[2],partnerComname);
-		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"adminAllianceList");
 		mv.addObject("allist", list);
 		mv.addObject("totalpage", page[0]);
@@ -504,7 +549,13 @@ public class AdminController {
 	 * 제휴 리스트
 	 */
 	@RequestMapping("/adminAllianceRec.tm")
-	public ModelAndView adminAllianceRec(String pageNumber) {
+	public ModelAndView adminAllianceRec(String pageNumber, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		String admin = (String)session.getAttribute("admin");
+		if(admin == null){
+			mv.setViewName("redirect:/tmmain/main.tm");
+			return mv;
+		}
 		int pageNum = 1;
 		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
 		
@@ -515,7 +566,6 @@ public class AdminController {
 		 * 2 : 끝 rownum
 		 */
 		List<AllianceDTO> list = dao.adallistRec(page[1],page[2]);
-		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"adminAllianceRec");
 		mv.addObject("allist", list);
 		mv.addObject("totalpage", page[0]);
@@ -530,7 +580,14 @@ public class AdminController {
 	 * 제휴 승인 검색 리스트 (adminAllianceList)
 	 */
 	@RequestMapping("/searchallirec.tm")
-	public ModelAndView searchallirec(String partnerComname, String pageNumber){
+	public ModelAndView searchallirec(String partnerComname, String pageNumber, HttpSession session){
+		ModelAndView mv = new ModelAndView();
+		String admin = (String)session.getAttribute("admin");
+		if(admin == null){
+			mv.setViewName("redirect:/tmmain/main.tm");
+			return mv;
+		}
+		
 		int pageNum = 1;
 		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
 		
@@ -542,7 +599,6 @@ public class AdminController {
 		 */
 		
 		List<AllianceDTO> list = dao.alsearchRec(page[1],page[2],partnerComname);
-		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"adminAllianceRec");
 		mv.addObject("allist", list);
 		mv.addObject("totalpage", page[0]);
@@ -587,7 +643,14 @@ public class AdminController {
 	 * 스탬프 리스트
 	 */
 	@RequestMapping("/adminstemp.tm")
-	public ModelAndView adminstemp(String pageNumber) {
+	public ModelAndView adminstemp(String pageNumber, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		String admin = (String)session.getAttribute("admin");
+		if(admin == null){
+			mv.setViewName("redirect:/tmmain/main.tm");
+			return mv;
+		}
+		
 		int pageNum = 1;
 		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
 		
@@ -599,7 +662,6 @@ public class AdminController {
 		 */
 		
 		List<AdminStempDTO> list = dao.stemp(page[1],page[2]);
-		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"adminstemp");
 		mv.addObject("list", list);
 		mv.addObject("totalpage", page[0]);
@@ -614,8 +676,13 @@ public class AdminController {
 	 * 스탬프 검색
 	 */
 	@RequestMapping("/searchstemp.tm")
-	public ModelAndView searchstemp(String pageNumber, String partnerName) {
-		
+	public ModelAndView searchstemp(String pageNumber, String partnerName, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		String admin = (String)session.getAttribute("admin");
+		if(admin == null){
+			mv.setViewName("redirect:/tmmain/main.tm");
+			return mv;
+		}
 		int pageNum = 1;
 		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
 		
@@ -627,7 +694,6 @@ public class AdminController {
 		 */
 		
 		List<AdminStempDTO> list = dao.searchstemp(page[1],page[2],partnerName);
-		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"adminstemp");
 		mv.addObject("list", list);
 		mv.addObject("totalpage", page[0]);
@@ -651,9 +717,14 @@ public class AdminController {
 	 * 스탬프 수정하기 view
 	 */
 	@RequestMapping("/showStemp.tm")
-	public ModelAndView showStemp(String parstempNum) {
-		AdminStempDTO dto = dao.showStemp(parstempNum);
+	public ModelAndView showStemp(String parstempNum, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		String admin = (String)session.getAttribute("admin");
+		if(admin == null){
+			mv.setViewName("redirect:/tmmain/main.tm");
+			return mv;
+		}
+		AdminStempDTO dto = dao.showStemp(parstempNum);
 		mv.setViewName(dir+"adminstempupdate");
 		mv.addObject("dto", dto);
 		return mv;
