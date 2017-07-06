@@ -84,6 +84,19 @@
 #mobile_search{
 	display: none;
 }
+.navbar-brand{
+	font-family: 맑은고딕;
+	font-weight: bold;
+	font-size: 2em;
+}
+.navbar-right{
+	font-family: 맑은고딕;
+	font-weight: bold;
+	font-size: 1.3em;
+}
+.page-header{
+	font-weight: bold;
+}
 
 @media(max-width: 1280px){
 	.searchBox{
