@@ -1169,18 +1169,14 @@
 							<!--/input-group  -->
 							<!-- 	 팝업창에서 검색한 아이디 출력해주는 장소    -->
 							<div class="idlistfrm col-md-13">
-								<table border="1" width="467px">
-									<tr>
-									 	<th>아이디</th>
-										<th>닉네임</th>
-									</tr>
-									<c:forEach var="s" items="${list}">
-										<tr class="secondtr">
-											<td>${s.userId}</td>
-											<td>${s.userNick}</td>
-										</tr>
-									</c:forEach>
-								</table>
+									<label class='idlb'>ID</label>
+									<input type='textarea' class='idlist' id='idlist' name='idlist'>
+									
+									<label class='nicklb'>닉네임</label>
+									<input type='textarea' class='nicklist' id='nicklist' name='nicklist'>
+									
+									<input type='button' value='O' id='okbtn' class='okbtn'>
+									<br/>
 							</div>
 
 						</div>
