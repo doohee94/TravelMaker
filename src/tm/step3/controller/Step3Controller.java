@@ -424,20 +424,14 @@ public class Step3Controller {
     	  String group_num = null;
 		try {
 			group_number_OBJ = (JSONObject)parser.parse(group_number);
-			   group_num = group_number_OBJ.get("group_num").toString();
-	    	
-	    	
-	    	  
-			
+			   group_num = group_number_OBJ.get("group_num").toString();			
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		
 		  
 		Criteria criteria = new Criteria("group_num");
         criteria.is(group_num);
         Query query = new Query(criteria);
-      
         list = (ArrayList<JSONObject>)mongoTemplate.find(query, JSONObject.class, "schedule");
         for(int i=0; i<list.size(); i++){
   		
