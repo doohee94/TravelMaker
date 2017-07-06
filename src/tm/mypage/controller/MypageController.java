@@ -38,7 +38,10 @@ public class MypageController {
 	
 	@Autowired 
 	MypageDAO dao;
-	
+	/**
+	 * main 
+	 * 커맨드 요청이 없는 일반 호출 
+	 */
 	@RequestMapping("/{url}.tm")
 	public String main(@PathVariable String url){
 			return dir+url;
