@@ -34,81 +34,71 @@
 	<div id="loading" style="display: none;">
 
 		<img id="loading-image" alt="로딩중" src="/resource/step2/loding.gif" />
-		
+
 		<form action="stepinfo.tm" method='post' id="hiddeninfofrm">
 			<input type="hidden" id="sregion" name="liststart" value="">
 			<input type="hidden" id="tregion" name="listthrough" value="">
 			<input type="hidden" id="aregion" name="listarrival" value="">
-			<input type="hidden" id="ttitle" name="title" value="">
-			<input type="hidden" id="ffellow" name="partystr" value="">
-			<input type="hidden" id="stdate" name="startDate" value="">
-			<input type="hidden" id="enddate" name="endDate" value="">
+			<input type="hidden" id="ttitle" name="title" value=""> <input
+				type="hidden" id="ffellow" name="partystr" value=""> <input
+				type="hidden" id="stdate" name="startDate" value=""> <input
+				type="hidden" id="enddate" name="endDate" value="">
 		</form>
-		
+
 		<form id="hiddenmodalfrm" method="post" action="step1searchfellow.tm">
 			<input type="hidden" id="searchid" name="userId">
 		</form>
-		
+
 	</div>
 
 	<!-- 메인 헤더 부분 -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/tmmain/main.tm">Travel Maker</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/step1/step1.tm">일정만들기</a>
-                    </li>
-                    <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행지추천</a>
-                    </li>
-                    <!-- 로그인 할때 생기는 버튼 -->
-                    <c:if test="${not empty sessionScope.userNick }">
-                    <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
-                    </li>
-                    <li>
-                        <a href="/mylist/menubar.tm">마이페이지</a>
-                    </li>
-                    </c:if>
-                    <li style="padding:10px" id="mobile_search">
-                       <input type="text"/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px;"><span class="glyphicon glyphicon-search"></span> search</button> 
-                    </li>
-                    <!-- 로그인 할때 생기는 버튼 -->
-                    <c:choose>
-                       <c:when test="${not empty sessionScope.userNick }">
-                           <li>
-                             <a href="#">${sessionScope.userNick }&nbsp;&nbsp;님</a>
-                          </li>                      
-                          <li>
-                              <a href="/tmmain/logout.tm">로그아웃</a>
-                          </li>
-                       </c:when>
-                       <c:otherwise>
-                           <li>
-                              <a href="/member/loginForm.tm">로그인</a>
-                          </li>
-                          <li>
-                              <a href="/member/signupForm.tm">회원가입</a>
-                          </li>   
-                       </c:otherwise>
-                    </c:choose>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-    </nav>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/tmmain/main.tm">Travel Maker</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/step1/step1.tm">일정만들기</a></li>
+					<li><a href="/recommandtravelregion/recommandTravelRegion.tm">여행지추천</a>
+					</li>
+					<!-- 로그인 할때 생기는 버튼 -->
+					<c:if test="${not empty sessionScope.userNick }">
+						<li><a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
+						</li>
+						<li><a href="/mylist/menubar.tm">마이페이지</a></li>
+					</c:if>
+					<li style="padding: 10px" id="mobile_search"><input
+						type="text" />
+					<button id="#searchBtn"
+							style="background-color: #fafafa; border: 0px; border-style: none; height: 25px;">
+							<span class="glyphicon glyphicon-search"></span> search
+						</button></li>
+					<!-- 로그인 할때 생기는 버튼 -->
+					<c:choose>
+						<c:when test="${not empty sessionScope.userNick }">
+							<li><a href="#">${sessionScope.userNick }&nbsp;&nbsp;님</a></li>
+							<li><a href="/tmmain/logout.tm">로그아웃</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="/member/loginForm.tm">로그인</a></li>
+							<li><a href="/member/signupForm.tm">회원가입</a></li>
+						</c:otherwise>
+					</c:choose>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+	</nav>
 
 	<form class="contnsubform" method='post' id="infofrm">
 
@@ -116,8 +106,9 @@
 
 			<div class="prevnextbtn">
 				<center>
-					<input type="button" value="< 메인" class="nextbtnmain" onclick="location.href='/tmmain/main.tm'">
-					<input type="button" value="다음 >" class="nextbtnstep2" >
+					<input type="button" value="< 메인" class="nextbtnmain"
+						onclick="location.href='/tmmain/main.tm'"> <input
+						type="button" value="다음 >" class="nextbtnstep2">
 				</center>
 			</div>
 
@@ -1120,13 +1111,16 @@
 			<!-- 	출발지 경유지 도착지를 선택하면 출력해주는 곳 	-->
 			<div class="pathoutput">
 				<!-- 출발지 출력공간 -->
-				<input type="text" class="liststart" placeholder="출발지" readonly="readonly" />
+				<input type="text" class="liststart" placeholder="출발지"
+					readonly="readonly" />
 
 				<!-- 경유지 출력공간 -->
-				<input type="text" class="listthrough" placeholder="경유지" readonly="readonly">
+				<input type="text" class="listthrough" placeholder="경유지"
+					readonly="readonly">
 
 				<!-- 도착지 출력공간 -->
-				<input type="text" class="listarrival" placeholder="도착지" readonly="readonly" />
+				<input type="text" class="listarrival" placeholder="도착지"
+					readonly="readonly" />
 
 				<!-- 경유지비우기 버튼 -->
 				<input type="button" class="reset" value="경유지 비우기" />
@@ -1145,7 +1139,8 @@
 				</div>
 
 
-				<input type="text" class="traveltitle" placeholder=" 25자내로 제목을 입력해주세요."> <br />
+				<input type="text" class="traveltitle"
+					placeholder=" 25자내로 제목을 입력해주세요."> <br />
 			</div>
 			<!-- threerow -->
 
@@ -1154,7 +1149,7 @@
 			<!-- 동행자 팝업버튼 -->
 			<div class="fourrow">
 				<input type="text" class="fellowpeople" id="fellowpeople"
-					 placeholder="동행자를 선택해주세요.">
+					placeholder="동행자를 선택해주세요.">
 				<button type="button" class="btn btn-info btn-lg"
 					data-toggle="modal" data-target="#myModal">동행자</button>
 
@@ -1177,24 +1172,22 @@
 
 						<!-- 동행자 팝업 바디(동행자 아이디 검색 및 출력공간) -->
 						<div class="modal-body">
-						
+
 							<!-- 동행자 아이디 검색 공간 -->
-								<div class="input-group">
-									<form id="modalfrm" method="post" action="step1searchfellow.tm">
-										<input id="modalsearchplace" type="text"  class="form-control"placeholder="Search ID..">
-									
-										<span class="input-group-btn">
-											<input type="button" id="modalsearchbtn" class="modalsearchbtn btn btn-default" value='SEARCH' >
-<!-- 											<button id="modalsearchbtn" class="btn btn-default" type="button">Search</button> -->
-										</span>
-									</form>
-								</div>
-							
+							<div class="input-group">
+								<form id="modalfrm" method="post" action="step1searchfellow.tm">
+									<input id="modalsearchplace" type="text" class="form-control"
+										placeholder="Search ID.."> <span
+										class="input-group-btn"> <input type="button"
+										id="modalsearchbtn" class="modalsearchbtn btn btn-default"
+										value='SEARCH'> <!-- 											<button id="modalsearchbtn" class="btn btn-default" type="button">Search</button> -->
+									</span>
+								</form>
+							</div>
+
 							<!--/input-group  -->
 							<!-- 	 팝업창에서 검색한 아이디 출력해주는 장소    -->
-							<div class="idlistfrm col-md-13">
-							
-							</div>
+							<div class="idlistfrm col-md-13"></div>
 
 						</div>
 						<!-- end input-group class -->
@@ -1208,7 +1201,8 @@
 
 						<!-- 동행자 팝업 푸터 (클로즈버튼) -->
 						<div class="modal-footer">
-							<button type="button" class="ftrsbtn btn btn-default ftokbtn" id="ftrsbtn">목록초기화</button>
+							<button type="button" class="ftrsbtn btn btn-default ftokbtn"
+								id="ftrsbtn">목록초기화</button>
 							<button type="button" class="btn btn-default ftokbtn"
 								data-dismiss="modal" id="ftokbtn">완료</button>
 						</div>
@@ -1226,10 +1220,12 @@
 
 			<!--	출발날짜 도착날짜 공간	-->
 			<div class="input-group input-group-lg" id="datediv">
-				<span class="input-group-addon" id="sizing-addon1">출발날짜</span>
-				<input type="text" id="startdate" class="form-control" placeholder="선택" aria-describedby="sizing-addon1">
-				<span class="input-group-addon" id="sizing-addon1">도착날짜</span>
-				<input type="text" id="arrivaldate" class="form-control" placeholder="선택" aria-describedby="sizing-addon1">
+				<span class="input-group-addon" id="sizing-addon1">출발날짜</span> <input
+					type="text" id="startdate" class="form-control" placeholder="선택"
+					aria-describedby="sizing-addon1"> <span
+					class="input-group-addon" id="sizing-addon1">도착날짜</span> <input
+					type="text" id="arrivaldate" class="form-control" placeholder="선택"
+					aria-describedby="sizing-addon1">
 			</div>
 
 
@@ -1237,7 +1233,7 @@
 		</div>
 		<!-- end class container id secondcontainer -->
 	</form>
-	
+
 
 
 

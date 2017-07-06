@@ -59,10 +59,13 @@ background-color:white;
 }
 
 .contnsubform #secondcontainer .fourrow button{
-	width:120px; height:49px;
+	width:120px; height:50px;
 	background-color:#103e68;
 	border:1px solid #103e68;
 	font-family: 'Nanum Gothic';
+	font-size: 20px;
+	padding : 2px 0 7px 0;
+	border-radius:3px;
 }
 
 .contnsubform #secondcontainer .fourrow .fellowpeople{
@@ -159,14 +162,15 @@ background-color:white;
 										
 .contnsubform .container .pathoutput .reset{
 	width:120px;
-	height:48px;
+	height:50px;
 	background-color:#103e68;
 	border:1px solid #103e68;
-	border-radius:7px;
+	border-radius:3px;
 	color:white;
-	font-weight:600;
-	font-size:15px;
 	font-family: 'Nanum Gothic';
+	font-size:15px;
+	
+	
 	
 }
 
@@ -174,18 +178,21 @@ background-color:white;
 	border:2px solid #dedede;
 	width:180px; height:50px;
 	text-align:center;
+	font-size:16px;
 }
 
 .contnsubform .container .pathoutput .listthrough{
 	border:2px solid #dedede;
 	width:628px; height:50px;
 	text-align:center;
+	font-size:16px;
 }
 
 .contnsubform .container .pathoutput .listarrival{
 	border:2px solid #dedede;
 	width:200px; height:50px;
 	text-align:center;
+	font-size:16px;
 }
  
 									/**  modal search width  */
