@@ -25,46 +25,63 @@ public class MainController {
 		
 		@Autowired
 		MainDAO dao;
-		
+		/**
+		 * main 
+		 * 컴맨드 요청이 없는 일반 호출 
+		 */
 		@RequestMapping("/{url}.tm")
 		public String main(@PathVariable String url){
 				return dir+url;
 		}
+		/**
+		 * mainpPage
+		 * 메인페이지로 가는 함수
+		 * db에서 광고목록, 일정top3, 여행지top3을 불러와서 ModelAndView mv에 담음
+		 * @return mv 
+		 */
 		@RequestMapping("/main.tm")
-		public ModelAndView mainpage(){
-			ModelAndView mv =getMainItem();			
-			return mv;
-		}
-		
-		@RequestMapping("/logout.tm")
-		public ModelAndView logout(HttpSession session){
-			session.invalidate();
+		public ModelAndView mainPage(){
+			//ModelAndView mv를 생성 후 getMainItem실행후 결과값을 mv에 담음
 			ModelAndView mv =getMainItem();
-			//디비타서 여행지 추천 top3과 광고 배너 넣기 도전일정 top3개 넣기
+			//mv를 리턴
 			return mv;
 		}
-		
+		/**
+		 * logOut
+		 * 로그아웃시 메인 페이지로 가는 함수
+		 * 세션을 전체 초기화시킨후
+		 * db에서 광고목록, 일정top3, 여행지top3을 불러와서 ModelAndView mv에 담음
+		 * @return mv 
+		 */
+		@RequestMapping("/logout.tm")
+		public ModelAndView logOut(HttpSession session){
+			session.invalidate();
+			//ModelAndView mv를 생성 후 getMainItem실행후 결과값을 mv에 담음
+			ModelAndView mv =getMainItem();
+			//mv를 리턴
+			return mv;
+		}		
 		/**
 		 * getMainItem
 		 * 메인페이지 로딩할때 광고 리스트, 여행지top3, 리뷰top3가져오기
 		 * 각각 DB에서 광고 리스트, 여행지top3, 리뷰top3를 가져와
-		 * Model and view에 담아서 리턴 시킴
+		 * ModelAndview에 담아서 리턴 시킴
 		 */
 		public ModelAndView getMainItem(){
-			System.out.println("아이템을 가져와볼까 ?");
 			//광고 이미지 주소 가져오기
 			String adImgPath = dao.loadAd();
 			System.out.println("광고 가져오기 완료");
 			//리뷰 top3 이미지주소, 이름, 좋아요수, 유저아이디, 일정번호, 리뷰번호 가져옴			
 			List<TotalreDTO> reviewList = dao.loadReview();
 			System.out.println("리뷰 top3가져오기 완료");
-			//여행지 top3 이미지 주소, 이름 가져오기
-			
-			
+		//여행지 top3 이미지 주소, 이름 가져오기
+			//모델엔뷰mv 생성
 			ModelAndView mv = new ModelAndView();
+			//주소 담기
 			mv.setViewName(dir+"main");
-			
+			//mv에 광고 이미지 주소 담기
 			mv.addObject("adImgPath",adImgPath);
+			//mv에 리뷰top3의 정보들을 1순위 2순위 3순위 별로 담기
 			for(int i = 0 ; i < reviewList.size(); i++){
 			mv.addObject("reviewimg"+i,reviewList.get(i).getTotalrePhoto1fake());
 			mv.addObject("reviewtitle"+i,reviewList.get(i).getTotalreTitle());
@@ -74,7 +91,7 @@ public class MainController {
 			mv.addObject("rescNum"+i,reviewList.get(i).getScNum());
 			mv.addObject("retotalNum"+i,reviewList.get(i).getTotalreNum());
 			}
-			System.out.println("모델엔 뷰 다 넘겼음.");
+			//mv를 리턴
 			return mv;		
 		}
 		

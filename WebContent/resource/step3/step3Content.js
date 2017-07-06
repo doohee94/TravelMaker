@@ -22,7 +22,7 @@ $( function() {
 	todayDate = getFormatDate(todayDate);	
 //	var _id = "S"+todayDate;
 //	var group_num = "G"+todayDate;
-	alert($("#userId").val());
+
 	var _id = ""; //여행일정 아이디
 	var group_num ="";//그룹 아이디 
 	var tour_title ="";//
@@ -51,7 +51,7 @@ $( function() {
 			    
 			    	 $("#DaySelectBoxNum").val(dayNum);
 			    	 	    	 
-			    	 //데이 셀렉트 박스 넣기
+			    	 //데이 셀렉트 박스 넣기-----------------------------------------
 			   
 			    	 for(var i=1; i<=dayNum; i++){
 			    		 if(i<10){
@@ -66,7 +66,7 @@ $( function() {
 			    		 
 			    	 }//end for
 			    	 
-			    	 //도시 리스트 넣기
+			    	 //도시 리스트 넣기--------------------------------------------
 			    	 
 			    	 for(var i=0; i<cityList.length; i++){
 			    		 
@@ -79,8 +79,6 @@ $( function() {
 			    		 );
 			    		 
 			    	 }
-			    	 
-			    	 
 			    	//디비 기초 틀 생성!---------------------------------------------------
 			    	 _id= "S"+todayDate;
 			 		group_num = "G"+todayDate;		
@@ -112,10 +110,46 @@ $( function() {
 			 			
 			 			
 			 		});//end ajax
-			    	 
+			 		
+			 		
+			 		//친구추가---------------------------------------------------------
+			 	
+			 	
+			 	var checkFriend = 0;	
+			 	for(var i=0; i<data.friendList.length && data.friendList != null; i++){		 		
+			 		var addDate = new Date();
+			 		
+			 		var AaddFriend={
+				 			"_id":"S"+getFormatDate(addDate),
+				 			"group_num": group_num,
+				 			"tour_title":tour_title,
+				 			"sDate":sDate,
+				 			"dayNum":dayNum,
+				 			"eDate":eDate,
+				 			"cityList":cityList,
+				 			"save_state":save_state,
+				 			"member_id":data.friendList[i]
+				 		}		 		
+			 		
+			 		$.ajax({
+			 			url : "/step/addFriendMongo.tm",
+						type : "post",
+						contentType : "application/json ",
+						data : JSON.stringify(AaddFriend),
+						success : function(data) {
+							checkFriend++;
+						}//end success
+						,
+						error : function(err, status, error) {
+							// alert("실패!"+err.status+error);
+
+						}//end err
+			 			
+			 		});//end ajax addFriend
+			 	}//end for
 			     }//end success
 				,error:function(err,status,error){
-					alert("디비기초틀생성실패!"+err.status+error);
+					alert("처음틀생성실패!"+err.status+error);
 				}
 			
 		});//end findsession ajax
@@ -137,7 +171,6 @@ $( function() {
        	    	 _id=data._id;
        	    	group_num = data.group_num;
        	    	tour_title=data.tour_title;
-       	    	friend = data.friend;
        	    	save_state = data.save_state;
        	    	sDate = data.sDate;
        	    	eDate = data.eDate;
@@ -645,15 +678,11 @@ $( function() {
 	            	          	tour[i] = {
 	            	          			
 	            	          			"date" : "day"+(i+1),
-	            	          			"city" : "",
 	            	          			"place":day[i]
 	            	          			
 	            	          	}
 	            	          }      
-	            	         var city =  $("#hiddenCity").val();
-	            	   	     var date="2017-05-02";
-	            	   	     var state=0;
-	            	   	     var id=2;
+	            	         var city =  $("#hiddenCity").val();	           
 	            	   	     var schedule={
 	            	   	    		"_id":_IDdata[x]._id,	        	            
 	            	   	    		"member_id":_IDdata[x].member_id,
@@ -664,7 +693,7 @@ $( function() {
 	            	   	    		"dayNum":_IDdata[x].dayNum,
 	            	   	    		"tour":tour,
 	            	   	    		"cityList":_IDdata[x].cityList,
-	            	   	    		"save_state":state
+	            	   	    		"save_state":save_state
 	            	   	      }                     
 	            	          //정렬 될 때 마다 리스트 순서를 불러와서 ajax로 넘겨 준 후 디비에 저장!
 	            	   	     $.ajax({
@@ -919,8 +948,7 @@ $( function() {
 		            	            	          for(var i=0; i<$("#DaySelectBoxNum").val(); i++){
 		            	            	          	tour[i] = {
 		            	            	          			
-		            	            	          			"date" : "day"+(i+1),
-		            	            	          			"city" : "",
+		            	            	          			"date" : "day"+(i+1),		            	            	  
 		            	            	          			"place":day[i]
 		            	            	          			
 		            	            	          	}
@@ -1123,9 +1151,12 @@ $( function() {
 	   var popupData={
 		   "group_num" :group_num,
 		   "_id":"S"+getFormatDate(addDate),
-		   "tour_title": tour_title,
-		   "friend" : friend,
-		   "save_state":save_state,
+		   "tour_title":tour_title,
+		   "sDate":sDate,
+			"eDate":eDate,
+			"dayNum":dayNum,
+			"cityList":cityList,
+			"save_state":save_state,
 	   }
 	   
       $a.popup({
@@ -1281,48 +1312,58 @@ $( function() {
       	    	 	_id=data._id;
         	    	group_num = data.group_num;
         	    	tour_title=data.tour_title;
-        	    	friend = data.friend;
         	    	save_state = data.save_state;
         	    	sDate = data.sDate;
         	    	eDate = data.eDate;
         	    	dayNum = data.dayNum;
         	    	cityList = data.cityList;
+        	    	save_state = data.save_state;
+        	    	
+        	  if(save_state == 1){ //저장상태가 1이면 이미 누가 완전저장한 상태이므로 
+        		  
+        		  location.href = "/mylist/donelist.tm";
+        		  
+        	  }else{
+        		  //데이터에 투어가 널이 아닐 경우 day배열에 저장
+            	    if(data.tour != null){
+            	    	for(var i=0; i<data.tour.length && data.tour[i].place != null; i++){	
+            	    		var place = [];
+            	    		for(var j=0; j<data.tour[i].place.length; j++){
+            	    			place[j] = data.tour[i].place[j];
+            	    		}
+            	    		day[i] = place;
+            	    	}   
+            	    	
+            	    }else{//저장된 값이 없을 경우 알림
+            	    	
+            	    }	
+            	  
+            	    //현재 선택된 셀렉트 박스에 해당하는 여행 리스트를 myList에 뿌려줌
+            	    $("#myList").empty(); 
+            	  for(var i=0; i<day.length; i++){
+      			 			 if(day[i] != null && i==$("#DaySelectBox option:selected").val()){		
+       				 for(var j=0; j<day[i].length;  j++){ 
+       					 		$("#myList").append(' <li class="list-group-item remove draggable"  style="color:#000;"> <div class="col-xs-12 col-sm-3">'+
+       	                           '<img src="'+day[i][j].image+'" style="width:62px; height:62px" class="img-responsive img-circle"  /></div>'+
+       	                           ' <div class="col-xs-12 col-sm-9" align = "center">' +
+       	                           '<span class="name" style="color:#000;">'+day[i][j].title+'</span><br/>'+
+       	                           '<span style="color:#000;" class="addr" >'+day[i][j].addr+'</span>'+
+       	                           '<input type="hidden" class="mapx" value="'+day[i][j].mapx+'"/>'+
+       	                           '<input type="hidden" class="mapy" value="'+day[i][j].mapy+'"/>'+
+       	                           '</div><div class="clearfix"></div></li>');
+       				   }//end for j		
+       			 }else{
+       				 continue;
+       			 }
+       			  
+       		   }//end for i
+        		 
+        		  
+        	  }
+        	    	
       	    	
-      	    	
-      	   //데이터에 투어가 널이 아닐 경우 day배열에 저장
-      	    if(data.tour != null){
-      	    	for(var i=0; i<data.tour.length && data.tour[i].place != null; i++){	
-      	    		var place = [];
-      	    		for(var j=0; j<data.tour[i].place.length; j++){
-      	    			place[j] = data.tour[i].place[j];
-      	    		}
-      	    		day[i] = place;
-      	    	}   
-      	    	
-      	    }else{//저장된 값이 없을 경우 알림
-      	    	
-      	    }	
       	  
-      	    //현재 선택된 셀렉트 박스에 해당하는 여행 리스트를 myList에 뿌려줌
-      	    $("#myList").empty(); 
-      	  for(var i=0; i<day.length; i++){
-			 			 if(day[i] != null && i==$("#DaySelectBox option:selected").val()){		
- 				 for(var j=0; j<day[i].length;  j++){ 
- 					 		$("#myList").append(' <li class="list-group-item remove draggable"  style="color:#000;"> <div class="col-xs-12 col-sm-3">'+
- 	                           '<img src="'+day[i][j].image+'" style="width:62px; height:62px" class="img-responsive img-circle"  /></div>'+
- 	                           ' <div class="col-xs-12 col-sm-9" align = "center">' +
- 	                           '<span class="name" style="color:#000;">'+day[i][j].title+'</span><br/>'+
- 	                           '<span style="color:#000;" class="addr" >'+day[i][j].addr+'</span>'+
- 	                           '<input type="hidden" class="mapx" value="'+day[i][j].mapx+'"/>'+
- 	                           '<input type="hidden" class="mapy" value="'+day[i][j].mapy+'"/>'+
- 	                           '</div><div class="clearfix"></div></li>');
- 				   }//end for j		
- 			 }else{
- 				 continue;
- 			 }
- 			  
- 		   }//end for i
-      	     }//end ajax
+      	     }//end ajax success
            ,error:function(err,status,error){
   	         //alert("일정있을경우 일쩡뿌려오기실패!"+err.status+error);
   	        
