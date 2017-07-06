@@ -45,7 +45,7 @@ private String dir = "member/";
 /**
 * 회원가입
 */
-	@RequestMapping("/insertMember.tm")
+	@RequestMapping(value="/signupOk.tm")
 	public String insert(MemberDTO memberdto){
 		memberdto.setUserAddr(memberdto.getUserCity()+ memberdto.getUserBorough());
 		int res = dao.insert(memberdto);

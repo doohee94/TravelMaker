@@ -59,7 +59,7 @@
 	<!-- 탈퇴하기 -->
 	<update id="delete" parameterType="tm.member.dto.MemberDTO">
 	UPDATE member
-	SET user_type='20'
+	SET user_type='20',user_date=sysdate
 	where user_id = #{userId} AND user_pw = #{userPw}
 	</update>
 	
