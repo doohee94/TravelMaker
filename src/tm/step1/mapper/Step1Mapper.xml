@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-
-
 <mapper namespace="step1">
 	<select id="step1list" parameterType="hashMap" resultType="memberDTO">
-        SELECT user_id, user_nick
+        SELECT *
 		from member
-		WHERE user_id =#{userId}
+		<where>
+			user_type not in('20', '30')
+			<if test="id != null">
+				AND user_id like '%'||#{id}||'%'
+			</if>
+		</where> 
 	</select>
 
 </mapper>

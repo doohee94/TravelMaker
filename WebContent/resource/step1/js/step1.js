@@ -1,8 +1,6 @@
 
-$(function() {
 
 	// step2 로 페이지 이동시 나오는 로딩화면
-	$(function() {
 		$("#loading").hide();
 
 		$(".nextbtnstep2").click(function(event) {
@@ -37,7 +35,6 @@ $(function() {
 			$("#loading").show();
 
 		});
-	});
 
 	// 동행자 팝업 창에서 완료 버튼을 누르면 리스트에 나온 값들을 동행자 버튼 왼쪽 텍스트공간에
 	// 적어 끌고오기
@@ -50,58 +47,36 @@ $(function() {
 	//		
 
 	// 동행자 팝업 창에서 search 버튼 눌렀을때
+	
 	$("#modalsearchbtn").click(function() {
 
-		// form 태그에 있는 저보를 중간 정보저장곤간에 넣어주고 그걸 hidden에 넣어줌.
-
-		// 중간 저장공간에 넣어줌.
+		// 입력된 값 저장 변수
 		tempid = $("#modalsearchplace").val();
 
-		// hidden에 중간 저장공간에 넣은 값을 넣어줌
-		$("#searchid").val(tempid);
-
-//		$("#hiddenmodalfrm").submit();
-
-		 $(".idlistfrm").append(
-//				 "<c:forEach var='row' items='${map.list}'>"+
-				 "<label class='idlb'>ID</label>"+
-				 "<input type='textarea' value='' class='idlist' id='idlist' name='idlist'>" +
-				 "<label class='nicklb'>닉네임</label>"+
-				 "<input type+'textarea' value='' class='nicklist' id='nicklist' name='nicklist'>" +
-				 "<input type='button' value='O' id='okbtn' class='okbtn'>"+
-				 "<br/>"
-//				 "</c:forEach>"
-		 );
-
-		// 검색창의 내용을 con 이라는 변수에 저장.
-		// var con = $("#modalsearchplace").val() ;
-		// $.ajax({
-		// url :"/step1/step1searchfellow.tm" ,
-		// type : "POST" ,
-		// data : {"con":con},
-		// dataType :"json" ,
-		// success: function(data){
-		// alert('11');
-		// 내용값을 지우고
-		// $(".idlistfrm *").detach();
-		// 결과 리스트를 읽어와서 추가
-		// for(var i =0; i < data.length; i++){
-		// // $(".idlistfrm").append(
-		// "<input type='textarea' value='"+data[i].userId+"' class='idlist'
-		// id='idlist' name='idlist'>"+
-		// "<input type+'textarea' value='"+data[i].userNick+"'class='nicklist'
-		// id='nicklist' name='nicklist'>" +
-		// "<input type='button' value='O' id='okbtn' class='okbtn'>"
-		// );
-		// }
-		// }
-
+		 $.ajax({
+			 url :"/step1/step1searchfellow.tm" ,
+			 type : "POST" ,
+			 data : {"step1search":tempid},
+			 dataType :"json" ,
+			 success: function(data){
+				 // 내용값을 지우고
+				 $(".idlistfrm").empty();
+				 // 결과 리스트를 읽어와서 추가
+				 for(var i =0; i < data.length; i++){
+				  $(".idlistfrm").append("<label class='idlb'>ID</label>");
+				  $(".idlistfrm").append("<input type='text' class='idlist'name='idlist' value='"+ data[i].userId +"' readonly='readonly'>");
+				  $(".idlistfrm").append("<label class='nicklb'>닉네임</label>");
+				  $(".idlistfrm").append("<input type='text' class='nicklist'name='nicklist' value='"+ data[i].userNick +"' readonly='readonly'>");
+				  $(".idlistfrm").append("<input type='button' value='O' class='okbtn'>");
+				  $(".idlistfrm").append("<br>");
+				 }
+			 }
+		 });
 	});
-
+	
 	// 출력된 아이디,닉네임의 row를 클릭하면 하단에 아이디가 입력되는 기능.
-	$(document).on('click', '.secondtr', function() {
-		var searchedid = $(this).children().first().text();
-
+	$(document).on('click', '.okbtn', function() {
+		var searchedid = $(this).prev().prev().prev().val();
 		$(".mbbul").append("<li class='mbulli'>" + searchedid + " ");
 	});
 
@@ -616,4 +591,3 @@ $(function() {
 		$(".listarrival").val($(this).val());
 	});
 
-});

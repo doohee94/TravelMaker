@@ -1156,11 +1156,11 @@
 						
 							<!-- 동행자 아이디 검색 공간 -->
 								<div class="input-group">
-									<form id="modalfrm" method="post">
-										<input id="modalsearchplace" type="text" class="form-control"placeholder="Search ID..">
+									<form id="modalfrm" method="post" action="step1searchfellow.tm">
+										<input id="modalsearchplace" type="text"  class="form-control"placeholder="Search ID..">
 									
 										<span class="input-group-btn">
-											<input type="button" id="modalsearchbtn" class="modalsearchbtn btn btn-default" value='SEARCH'>
+											<input type="button" id="modalsearchbtn" class="modalsearchbtn btn btn-default" value='SEARCH' >
 <!-- 											<button id="modalsearchbtn" class="btn btn-default" type="button">Search</button> -->
 										</span>
 									</form>
@@ -1169,14 +1169,7 @@
 							<!--/input-group  -->
 							<!-- 	 팝업창에서 검색한 아이디 출력해주는 장소    -->
 							<div class="idlistfrm col-md-13">
-									<label class='idlb'>ID</label>
-									<input type='textarea' class='idlist' id='idlist' name='idlist'>
-									
-									<label class='nicklb'>닉네임</label>
-									<input type='textarea' class='nicklist' id='nicklist' name='nicklist'>
-									
-									<input type='button' value='O' id='okbtn' class='okbtn'>
-									<br/>
+							
 							</div>
 
 						</div>
@@ -1237,17 +1230,6 @@
 	<!-- js -->
 	<script src="/resource/step1/js/step1.js"></script>
 
-	<script>
-		//동행자 팝업 js파일에 넣으면 오류발생
-		$('#btn_popup').click(function() {
-			$a.popup({
-				title : "동행자 팝업 테스트",
-				// 		url : "fellowtravellers.jsp",
-				iframe : true
-			// default
-			});
-		});
-	</script>
 
 </body>
 </html>

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import tm.member.dto.MemberDTO;
@@ -36,22 +37,11 @@ public class Step1Controller {
 
 	// step1 동행자 팝업 검색 목록 ( 아이디 와 닉네임 출력 )
 	@RequestMapping("/step1searchfellow.tm")
-	public ModelAndView setp1searchfellow(MemberDTO memberdto) {
-
-		System.out.println("동행자 서치 버튼  컨트롤 탄다");
-//		System.out.println(request.getParameter("userId"));
-		// dao로 데이터 넘겨주고
+	public @ResponseBody List<MemberDTO> setp1searchfellow(String step1search) {
 		
-		String userId = memberdto.getUserId();
-		System.out.println("검색한아이디 : "+userId);
+		List<MemberDTO> list = dao.fellowsearch(step1search);
 		
-		List<MemberDTO> list = dao.fellowsearch(userId);
-	
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName(dir + "/step1");
-		mv.addObject("list", list);
-
-		return mv;
+		return list;
 	}
 
 	@RequestMapping("/stepinfo.tm")
@@ -93,8 +83,6 @@ public class Step1Controller {
 	 */
 	@RequestMapping("/{url}.tm")
 	public String step1(@PathVariable String url) {
-		System.out.println("컨트롤탔음");
-		System.out.println(dir + url);
 		return dir + url;
 	}
 }
