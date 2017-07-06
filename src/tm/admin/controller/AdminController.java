@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -46,6 +48,19 @@ public class AdminController {
 		return dir + url;
 	}
 
+	/**
+	 * logout
+	 * 로그아웃
+	 */
+	@RequestMapping("/adminlogout.tm")
+	public String logout(HttpSession session) {
+		session.removeAttribute("userId");
+		session.removeAttribute("userNick");
+		session.removeAttribute("admin");
+		
+		return "redirect:/tmadmin/main.tm";
+	}
+	
 	
 	
 	/***********************   member(회원)     **************************/
