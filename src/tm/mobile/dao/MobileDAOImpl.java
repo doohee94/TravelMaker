@@ -21,13 +21,16 @@ public class MobileDAOImpl implements MobileDAO{
 	 * return = result  
 	 */
 	public int inputPlace(String userId, String parstempNum) {
-		//HashMap map객체 생성후 각각 담음
+		//HashMap map객체 생성
 		HashMap map = new HashMap();
+		//map에 userId를 담음
 		map.put("userId", userId);
+		//map에 parstempNum를 담음
 		map.put("parstempNum", parstempNum);
 		int result = 0;
 		//DB에 입력후 result에 결과값을 받음
 		result = ss.insert(namespace+".insert",map);
+		//결과값 리턴
 		return result;
 	}
 

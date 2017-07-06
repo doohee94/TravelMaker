@@ -38,7 +38,9 @@ public class MobileController {
 	 */
 	@RequestMapping("insert.tm")
 	public String insert(String userId, String parstempNum){
+		//db에 userId와 parstempNum를 입력시킴
 		dao.inputPlace(userId, parstempNum);
+		//mstemp페이지를 리턴
 		return dir+"mstemp";
 	}
 }
