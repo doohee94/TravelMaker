@@ -58,7 +58,7 @@ public class AdminController {
 		session.removeAttribute("userNick");
 		session.removeAttribute("admin");
 		
-		return "redirect:/tmadmin/main.tm";
+		return "redirect:/tmmain/main.tm";
 	}
 	
 	
