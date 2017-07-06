@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>   
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+ <% 
+ String userId = (String)session.getAttribute("userId");
+ String userNick = (String)session.getAttribute("userNick");
+ %>    
 <!DOCTYPE html>
 <html lang="UTF-8">
 
@@ -21,30 +25,27 @@
 
     <!-- Custom Fonts -->
     <link href="/resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    
-  
+     
     <!-- MetisMenu CSS -->
     <link href="/resource/bootstrap/css/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="/resource/bootstrap/css/sb-admin-2.css" rel="stylesheet">
 
-    <!-- Morris Charts CSS -->
-    <link href="/resource/bootstrap/css/morris.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="/resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 	<!-- list CSS -->
 	<link rel="stylesheet" type="text/css" href="/resource/mypage/likespot/css/component.css" />
-	
-
-    
+	  
     <!--  메뉴바 -->
 	<link rel="stylesheet" type="text/css" href="/resource/mypage/likespot/css/base.css" />
 	
 	<link rel="stylesheet" type="text/css" href="/resource/mypage/likespot/css/style.css" />
- 
+ 	
+    <!-- 마이페이지 공통 css -->
+    <link href="/resource/mypage/base/css/mypage.css" rel="stylesheet" type="text/css">
+	
     <!-- 지정 css -->
     <link href="/resource/mypage/qna/css/qna.css" rel="stylesheet" type="text/css">
     
@@ -60,7 +61,7 @@
 
 <body>
     <div id="wrapper">
-        <!-- Navigation -->
+       	<!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
             <!--  모바일 버전때 생성되는 버튼 -->
@@ -70,31 +71,54 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <a class="navbar-brand moblie_logo" href="/tmmain/main.tm">Travel Maker</a>
             <!-- /모바일 버전때 생성되는 버튼 -->   
-            <!-- 로고 --> 
-                <a class="navbar-brand" href="/tmmain/main.tm" style="padding-left: 381px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">Travel Maker</a>
-            <!-- /로고 -->
             </div>
+            <!-- 로고 --> 
+            <div class="logobox">
+                <a class="navbar-brand" href="/tmmain/main.tm" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">Travel Maker</a>
+            </div>
+            <!-- /로고 -->
             <!-- 네비 헤더  메뉴 부분 -->
-         <ul class="nav navbar-nav navbar-right">
+         	<ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/step1/step1.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">일정만들기</a>
+                        <a href="/step1/step1.tm" >일정만들기</a>
                     </li>
                     <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">여행지추천</a>
+                        <a href="/recommandtravelregion/recommandTravelRegion.tm" >여행지추천</a>
+                    </li>
+                    <!-- 로그인 할때 생기는 버튼 -->
+                    <%if(userNick!=null){ %>
+                    <li>
+                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
                     </li>
                     <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">여행리뷰</a>
+                        <a href="/member/memberUpdate.tm">마이페이지</a>
                     </li>
-                    <li>
-                        <a href="/challengeschedule/challengeSchedule.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">도전일정</a>
-                    </li>
+                    <%} //end of if %>
+<!--                     <li> -->
+<!--                         <a href="/challengeschedule/challengeSchedule.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">도전일정</a> -->
+<!--                     </li> -->
                      <li style="padding:10px;">
-                       <input type="text" style="width: 170px; height: 26px"/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px; width: 77px; font-size: 15px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; color:#2e2e2e"><span class="glyphicon glyphicon-search"></span> search</button>
+                       <input type="text" style="width: 170px; height: 26px"/><button id="searchBtn"><span class="glyphicon glyphicon-search"></span> search</button>
+                    </li>                                         
+                                      <!-- 로그인 할때 생기는 버튼 -->
+                    <%if(userNick!=null){ %>
+                    <li>
+                    	<a href="#"><%=userNick%>&nbsp;&nbsp;님</a>
                     </li>                      
-                     <li>
-                        <a href="member/loginForm.tm" style="padding-right: 398px; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">로그인　</a>
+                    <li>
+                        <a href="/tmmain/logout.tm">로그아웃</a>
                     </li>
+                    <!-- 로그인 안 할때 생기는 버튼 -->
+                    <%}else{ %>
+                    <li>
+                        <a href="/member/loginForm.tm">로그인</a>
+                    </li>
+                    <li>
+                        <a href="/member/signupForm.tm">회원가입</a>
+                    </li>   
+                     <%} //end of if %>                 
                 </ul>
             <!-- /네비 헤더  메뉴 부분 -->
 
@@ -114,7 +138,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="/mylist/menubar.tm" style="background-color: #212121;"><i class="fa fa-list-alt fa-list-alt"></i>  내 일정</a>
+                            <a href="/mylist/menubar.tm"><i class="fa fa-list-alt fa-list-alt"></i>  내 일정</a>
                         </li>
                         <li>
                             <a href="/tmmypage/likespot.tm"><i class="fa fa-heart fa-heart"></i>  관심 여행지</a>
@@ -150,69 +174,72 @@
             		<br/>
         			</div>
         			<div class="row">
-        				<div class="col-lg-12">
+        			<div class="col-lg-12">
         					<div class="container-box">        				 
     							<div class="container-fluid">
 									<div class="row">
-										<div class="col-md-12">
+									<div class="col-md-12">
+										<table class="qna_table">
 										<c:choose>
-											<c:when test="${!empty qnalist}">
-												<c:forEach var="i" items="${qnalist}">
-													<c:choose>
-														<c:when test="${i.qnaType eq '문의'}">
-															<div class="question">
-																<div class="q_head">
-																	<p id="q_title"><i class="glyphicon glyphicon-question-sign fa-fw"></i>Question</p>
-																</div>
-																<div class="left">
-																	<div class="row">
-																		<div class="col-md-12">	
-																			<div class="qna-content">								
-                                    											<h2><span>${i.qnaContent}</span></h2>
-                                    											<p class="text-right" id="writer">작성자 : ${i.userId }</p>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>	
- 														</c:when>
-	 													<c:when test="${i.qnaType eq '신고'}">
- 															<div class="question">
-																<div class="r_head">																		
- 																	<p id="r_title"><i class="fa fa-exclamation-circle  fa-fw"></i>Report</p>
-																</div>
-																<div class="left">
-																	<div class="row">
-																		<div class="col-md-12">	
-																			<div class="qna-content">								
-                                    											<h2><span>${i.qnaContent}</span></h2>
-                                    											<p class="text-right" id="writer">작성자 : ${i.userId }</p>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>	
- 														</c:when>
-														<c:otherwise>
-														</c:otherwise>
-													</c:choose>		
+										<c:when test="${!empty qnalist}">
+											<c:forEach var="i" items="${qnalist}">
+											<tr>
+												<td class="qna_td">
+												<c:choose>
+												<c:when test="${i.qnaType eq '문의'}">
+													<div class="question">
+														<div class="q_head">
+															<p id="q_title"><i class="glyphicon glyphicon-question-sign fa-fw"></i>Question</p>
+														</div>
+														<div class="left">
+														<div class="row">
+															<div class="col-md-12">	
+															<div class="qna-content">								
+                                    							<h2><span>${i.qnaContent}</span></h2>
+                                    							<p class="text-right" id="writer">작성자 : ${i.userId }</p>
+															</div>
+															</div>
+														</div>
+														</div>
+													</div>	
+ 												</c:when>
+	 											<c:when test="${i.qnaType eq '신고'}">
+ 													<div class="question">
+														<div class="r_head">																		
+ 															<p id="r_title"><i class="fa fa-exclamation-circle  fa-fw"></i>Report</p>
+														</div>
+														<div class="left">
+														<div class="row">
+															<div class="col-md-12">	
+															<div class="qna-content">								
+                                    							<h2><span>${i.qnaContent}</span></h2>
+                                    							<p class="text-right" id="writer">작성자 : ${i.userId }</p>
+															</div>
+															</div>
+														</div>
+														</div>
+													</div>	
+ 												</c:when>
+												<c:otherwise>
+												</c:otherwise>
+												</c:choose>		
 												<br/>				
 												<c:choose>
-													<c:when test="${!empty i.qnaReply}">
+												<c:when test="${!empty i.qnaReply}">
 													<!-- 답변 부분 -->
 													<div class="answer">
 														<div class="a_head">
 															<p id="a_title" class="text-right"><i class="fa fa-info-circle fa-fw"></i>Answer</p>
 														</div>
 														<div class="right">
-															<div class="row">
-																<div class="col-md-12">
-																	<div class="qna-content">
-                                    									<h2 class='text-right'><span>${i.qnaReply}</span></h2>
-																		<p class="text-right" id="writer">TravelMaker</p>
-																	</div>
-																</div>
+														<div class="row">
+															<div class="col-md-12">
+															<div class="qna-content">
+                                    							<h2 class='text-right'><span>${i.qnaReply}</span></h2>
+																<p class="text-right" id="writer">TravelMaker</p>
 															</div>
+															</div>
+														</div>
 														</div>
 													</div>
 													<br/>
@@ -220,33 +247,37 @@
 													<c:otherwise>
 													</c:otherwise>
 												</c:choose>
-												</c:forEach>
-												<!-- 페이지 넘기는 버튼 -->
-												<div class="text-center">
-													<ul class="pagination pagination-lg">
-														<li>
-															<a href="#">Prev</a>
-														</li>
-														<li>
-															<a href="#">1</a>
-														</li>
-														<li>
-															<a href="#">2</a>
-														</li>
-														<li>
-															<a href="#">3</a>
-														</li>
-														<li>
-															<a href="#">4</a>
-														</li>
-														<li>
-															<a href="#">5</a>
-														</li>
-														<li>
-															<a href="#">Next</a>
-														</li>
-													</ul>
-												</div>
+												</td>
+												</tr>	
+											</c:forEach>
+											</table>
+											
+													<!--	페이지 넘기는 버튼	 -->
+<!-- 												<div class="text-center"> -->
+<!-- 													<ul class="pagination pagination-lg"> -->
+<!-- 														<li> -->
+<!-- 															<a href="#">Prev</a> -->
+<!-- 														</li> -->
+<!-- 														<li> -->
+<!-- 															<a href="#">1</a> -->
+<!-- 														</li> -->
+<!-- 														<li> -->
+<!-- 															<a href="#">2</a> -->
+<!-- 														</li> -->
+<!-- 														<li> -->
+<!-- 															<a href="#">3</a> -->
+<!-- 														</li> -->
+<!-- 														<li> -->
+<!-- 															<a href="#">4</a> -->
+<!-- 														</li> -->
+<!-- 														<li> -->
+<!-- 															<a href="#">5</a> -->
+<!-- 														</li> -->
+<!-- 														<li> -->
+<!-- 															<a href="#">Next</a> -->
+<!-- 														</li> -->
+<!-- 													</ul> -->
+<!-- 												</div> -->
 											</c:when>
 											<c:otherwise>
 												<h1>문의하시거나 신고한 내용이 없습니다.</h1>
@@ -305,6 +336,8 @@
     <script src="/resource/bootstrap/js/metisMenu.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="/resource/bootstrap/js/sb-admin-2.js"></script>
+    <!-- 마이페이지 공통 js -->
+    <script src="/resource/mypage/base/js/base.js"></script>
     <!-- 지정 js -->
     <script src="/resource/mypage/qna/js/qna.js"></script>
     

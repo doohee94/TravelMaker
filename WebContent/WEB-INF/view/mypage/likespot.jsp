@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>   
+ <% 
+ String userId = (String)session.getAttribute("userId");
+ String userNick = (String)session.getAttribute("userNick");
+ %>   
 <!DOCTYPE html>
 <html lang="UTF-8">
 
@@ -22,15 +26,11 @@
     <!-- Custom Fonts -->
     <link href="/resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     
-  
     <!-- MetisMenu CSS -->
     <link href="/resource/bootstrap/css/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="/resource/bootstrap/css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-    <link href="/resource/bootstrap/css/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="/resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -44,21 +44,24 @@
     <!--  메뉴바 -->
 	<link rel="stylesheet" type="text/css" href="/resource/mypage/likespot/css/base.css" />
 	
-	<link rel="stylesheet" type="text/css" href="/resource/mypage/likespot/css/style.css" />    
-    <!-- 지정 css -->
+	<link rel="stylesheet" type="text/css" href="/resource/mypage/likespot/css/style.css" />
+	    
+    <!-- 마이페이지 공통 css -->
+    <link href="/resource/mypage/base/css/mypage.css" rel="stylesheet" type="text/css">
+	<!-- 지정 CSS -->	
     <link href="/resource/mypage/likespot/css/likespot.css" rel="stylesheet" type="text/css">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
+<!--     <style type="text/css"> -->
 
+<!--     </style> -->
 </head>
-
 <body>
-
     <div id="wrapper">
        	<!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -70,31 +73,54 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <a class="navbar-brand moblie_logo" href="/tmmain/main.tm">Travel Maker</a>
             <!-- /모바일 버전때 생성되는 버튼 -->   
-            <!-- 로고 --> 
-                <a class="navbar-brand" href="/tmmain/main.tm" style="padding-left: 381px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">Travel Maker</a>
-            <!-- /로고 -->
             </div>
+            <!-- 로고 --> 
+            <div class="logobox">
+                <a class="navbar-brand" href="/tmmain/main.tm" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">Travel Maker</a>
+            </div>
+            <!-- /로고 -->
             <!-- 네비 헤더  메뉴 부분 -->
-         <ul class="nav navbar-nav navbar-right">
+         	<ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/step1/step1.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">일정만들기</a>
+                        <a href="/step1/step1.tm" >일정만들기</a>
                     </li>
                     <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">여행지추천</a>
+                        <a href="/recommandtravelregion/recommandTravelRegion.tm" >여행지추천</a>
+                    </li>
+                    <!-- 로그인 할때 생기는 버튼 -->
+                    <%if(userNick!=null){ %>
+                    <li>
+                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
                     </li>
                     <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">여행리뷰</a>
+                        <a href="/member/memberUpdate.tm">마이페이지</a>
                     </li>
-                    <li>
-                        <a href="/challengeschedule/challengeSchedule.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">도전일정</a>
-                    </li>
+                    <%} //end of if %>
+<!--                     <li> -->
+<!--                         <a href="/challengeschedule/challengeSchedule.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">도전일정</a> -->
+<!--                     </li> -->
                      <li style="padding:10px;">
-                       <input type="text" style="width: 170px; height: 26px"/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px; width: 77px; font-size: 15px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; color:#2e2e2e"><span class="glyphicon glyphicon-search"></span> search</button>
+                       <input type="text" style="width: 170px; height: 26px"/><button id="searchBtn"><span class="glyphicon glyphicon-search"></span> search</button>
+                    </li>                                         
+                                      <!-- 로그인 할때 생기는 버튼 -->
+                    <%if(userNick!=null){ %>
+                    <li>
+                    	<a href="#"><%=userNick%>&nbsp;&nbsp;님</a>
                     </li>                      
-                     <li>
-                        <a href="member/loginForm.tm" style="padding-right: 398px; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">로그인　</a>
+                    <li>
+                        <a href="/tmmain/logout.tm">로그아웃</a>
                     </li>
+                    <!-- 로그인 안 할때 생기는 버튼 -->
+                    <%}else{ %>
+                    <li>
+                        <a href="/member/loginForm.tm">로그인</a>
+                    </li>
+                    <li>
+                        <a href="/member/signupForm.tm">회원가입</a>
+                    </li>   
+                     <%} //end of if %>                 
                 </ul>
             <!-- /네비 헤더  메뉴 부분 -->
 
@@ -114,7 +140,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="/mylist/menubar.tm" style="background-color: #212121;"><i class="fa fa-list-alt fa-list-alt"></i>  내 일정</a>
+                            <a href="/mylist/menubar.tm"><i class="fa fa-list-alt fa-list-alt"></i>  내 일정</a>
                         </li>
                         <li>
                             <a href="/tmmypage/likespot.tm"><i class="fa fa-heart fa-heart"></i>  관심 여행지</a>
@@ -203,6 +229,9 @@
 	<script src="/resource/mypage/likespot/js/classie.js"></script>
 	<script src="/resource/mypage/likespot/js/colorfinder-1.1.js"></script>
 	<script src="/resource/mypage/likespot/js/gridScrollFx.js"></script>
+	
+	<!-- 마이페이지 공통 js -->
+    <script src="/resource/mypage/base/js/base.js"></script>
 	<!--  지정 스크립트  -->
 	<script src="/resource/mypage/likespot/js/likespot.js"></script>
 	<script>
