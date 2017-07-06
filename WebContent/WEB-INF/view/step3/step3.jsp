@@ -1,3 +1,4 @@
+<%@page import="tm.step1.dto.StepDTO"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -5,19 +6,10 @@
   <%
   //_id 값
   //시작날짜와 종료날짜를 계산해서 일수 구하기
-  String id=session.getAttribute("userId").toString();
-  System.out.println("stpe3 세션 유져아이디>>>"+id);
-  SimpleDateFormat format = new SimpleDateFormat("yy-MM-dd");
+  String userId=session.getAttribute("userId").toString();
+  System.out.println("stpe3 세션 유져아이디>>>"+userId);
+ 
   
-  String sDateStr = "17-05-27";
-  String eDateStr = "17-05-30";
-  
-  Date sDate = format.parse(sDateStr);
-  Date eDate = format.parse(eDateStr);
-  
-  long diff = eDate.getTime() - sDate.getTime();
-  int day = (int)diff/(24*60*60*1000)+1;
-  System.out.println("날짜"+day);
 
   %>
 <!-- 일정짜기 step3 페이지 -->
@@ -117,6 +109,9 @@
 
 <br/>
 
+
+<!--  유저 아이디  -->
+<input type="hidden" value="<%=userId%>" id="userId"/>
 <!-- 지역리스트/관광리스트/지도 -->
 <div  style="width:100%; padding:0px" align="center">
    <!-- 지역, 여행지 리스트 부분 -->     
@@ -130,41 +125,14 @@
 <!--              <img src="/resource/step3/step3_image/Q.png" style="float: right;" id="reSearch"/> -->
              <br/>
             <ul style="padding:0px;width:100%; height:550px; overflow-x:hidden; overflow-y:scroll;  display:inline-block;" id="cityList"><!--  앞에서  선택된 지역 리스트 -->
-                 <li class="list-group-item cityName" style=" width:150px;"><!--  앞에서 선택된 지역 리스트 -->
-                        <div class="col-xs-12 col-sm-9" align = "center">
-                            <span class="cityName">서울</span><br/>
-                        </div>
-                        <div class="clearfix"></div>
-                    </li>                 
-                     <li class="list-group-item" style="width:150px;">
-                        <div class="col-xs-12 col-sm-9" align = "center">
-                            <span class="cityName">인천</span><br/>
-                        </div>
-                        <div class="clearfix"></div>
-                    </li>
-                    
-                     <li class="list-group-item" style="width:150px">
-                       
-                        <div class="col-xs-12 col-sm-9" align = "center">
-                            <span class="cityName">전주</span><br/>
-                        </div>
-                        <div class="clearfix"></div>
-                    </li>
-                      <li class="list-group-item" style="width:150px">
-                       
-                        <div class="col-xs-12 col-sm-9" align = "center">
-                            <span class="cityName">창원</span><br/>
-                        </div>
-                        <div class="clearfix"></div>
-                    </li>
-                      <li class="list-group-item" style="width:150px">                      
-                        <div class="col-xs-12 col-sm-9" align = "center">
-                            <span class="cityName">부산</span><br/>
-                        </div>
-                        <div class="clearfix"></div>
-                    </li> 
-                    
-                    
+                          
+<!--                  <li class="list-group-item cityName" style=" width:150px;"> 앞에서 선택된 지역 리스트 -->
+<!--                         <div class="col-xs-12 col-sm-9" align = "center"> -->
+<!--                             <span class="cityName">서울</span><br/> -->
+<!--                         </div> -->
+<!--                         <div class="clearfix"></div> -->
+<!--                     </li>                  -->
+                     
             </ul>
             
             <ul id="trash"><img src="/resource/step3/step3_image/trash.png"></ul>
@@ -188,14 +156,9 @@
     <div style="height:650px; display:inline-block; width:18%; padding:0px;">
          <div class="select_panel-heading c-list">
                   <!-- 셀렉트박스@@ -->
-                 <input type="hidden" id="DaySelectBoxNum" value="<%=day%>"/>
+                 <input type="hidden" id="DaySelectBoxNum"/>
                 <select id="DaySelectBox" class="DaySelectBox" style="width:50%">
-                <%for(int i=1; i<=day;i++){ %>
-                <%if(i<10){ %>
-                 <option value="<%=i-1%>">DAY0<%=i%></option>
-                <%}else{ %>
-                 <option value="DAY<%=i-1%>">DAY<%=i%></option>
-                <%}} %>
+					<!-- 날짜 넣는곳 -->
               </select>
             <img src="/resource/step3/step3_image/plus.png" style="float:right;"id="chuga"/>
             <img src="/resource/step3/step3_image/opt.png" style="float: right;" id="distanceCal"/>

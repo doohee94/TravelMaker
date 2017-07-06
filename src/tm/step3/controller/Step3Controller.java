@@ -1,6 +1,8 @@
 package tm.step3.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.http.HttpSession;
 
@@ -54,20 +56,70 @@ public class Step3Controller {
 	   ModelAndView mv = new ModelAndView();
 	   System.out.println("step3접속>>>>>>_Id"+_id);
 	   if(_id != null){
-		   mv.addObject("_id", _id);
+		   mv.addObject("_id", _id);	   
 	   }else{ 
 		   mv.addObject("_id", "2");
+		   
 	   }
-	   
-	   //세션
-	   String userId = (String)session.getAttribute("userId");
-	   StepDTO dto = (StepDTO) session.getAttribute(userId+"dto");
-	   System.out.println("우리이제시작되는거니?"+dto.getStartDate());
 	   
 	   mv.setViewName(dir+"/step3");
 	   System.out.println("스템33333333"+_id);
 	   return mv;
    }
+   
+   /**
+    * 일정을 새로 생성할 경우 step 1, 2에서 세션으로 넘어온 데이터들을 같이 넘겨주는 작업
+    * 리턴타입 - JSONObject로 변환한 dto
+    * 
+    * */
+   @RequestMapping("/findSession.tm")
+   @ResponseBody
+   public JSONObject findSession(HttpSession session){
+	 //날짜계산해서 보내주고 일정 하나씩 해서 보내주고 시작날짜 종료날짜 다 보내주고 제목보내주고 동행.. 자.. 보내주..고.. 
+	   String userId = (String)session.getAttribute("userId");
+	   StepDTO dto = (StepDTO) session.getAttribute(userId+"dto");   
+	   JSONObject goData = new JSONObject(); 
+	   
+	   
+	   //날짜 계산 and dayNum--------------------
+	   String sDateStr = dto.getStartDate();
+	   String eDateStr = dto.getEndDate();
+	   
+	   SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+	   Date sDate = null;
+	   Date eDate = null;
+		try {
+			sDate = format.parse(sDateStr);
+			eDate = format.parse(eDateStr);
+		} catch (java.text.ParseException e) {
+			e.printStackTrace();
+		}
+	   long diff = eDate.getTime() - sDate.getTime();
+	   int day = (int)diff/(24*60*60*1000)+1;
+	   System.out.println("날짜"+day);
+	   
+	   goData.put("sDate", sDateStr);
+	   goData.put("eDate", eDateStr);
+	   goData.put("dayNum", day);
+	   
+	   
+	   //도시 리스트 ----------------------------------------------
+	   JSONArray  cityList = new JSONArray();
+	   for(int i=0; i<dto.getSchedule().size(); i++){
+		   cityList.add(dto.getSchedule().get(i));
+	   }
+	   goData.put("cityList", cityList);
+	   
+	   //제목---------------------------
+	   goData.put("title", dto.getTitle());
+	   
+		
+
+	   
+	   return goData;
+   }
+   
+   
    /**
     * findList
     * 스케쥴 아이디에 해당하는 정보를 불러와서 넘겨준다
