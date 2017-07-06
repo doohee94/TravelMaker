@@ -1,5 +1,18 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	HashMap map = (HashMap)request.getAttribute("finalSet");
+	String[] top3Title = (String[])map.get("top3Title");
+	String[] top3Image = (String[])map.get("top3Image");
+	String[] top3Addr = (String[])map.get("top3Addr");
+	
+	ArrayList title = (ArrayList)map.get("titleTemp");
+	ArrayList image = (ArrayList)map.get("imageTemp");
+	ArrayList addr = (ArrayList)map.get("addrTemp");
+	
+%>
 
 <!-- 여행지 추천 페이지 -->
 
@@ -91,56 +104,22 @@
 				<h2>TOP 3</h2>
 			</div>
 
-			<!-- 첫번째 -->
 			<div class="topthreediv">
-
+				<%for(int i=0; i<top3Title.length; i++){ %>
 				<div class="col-md-4 text-center">
 					<div class="thumbnail">
 						<a href="#">
-							<img class="img-responsive" src="http://placehold.it/750x450"
-								alt="">
+							<img class="img-responsive" src=<%=top3Image[i]%> style="height:250px" alt="">
 							<div class="caption">
 								<h3>
-									첫번째 대제목 공간<br> <small>소제목 공간</small>
+									<%=top3Title[i]%>
 								</h3>
-								<p>내용 공간</p>
+								<p><%=top3Addr[i]%></p>
 							</div>
 						</a>
 					</div>
 				</div>
-
-				<!-- 두번째 -->
-				<div class="col-md-4 text-center">
-					<div class="thumbnail">
-						<a href="#">
-							<img class="img-responsive" src="http://placehold.it/750x450"
-								alt="">
-							<div class="caption">
-								<h3>
-									두번째 대제목 공간<br> <small>소제목 공간</small>
-								</h3>
-								<p>내용 공간</p>
-							</div>
-						</a>	
-					</div>
-				</div>
-
-				<!-- 세번째 -->
-				<div class="col-md-4 text-center">
-					<div class="thumbnail">
-						<a href="#">
-							<img class="img-responsive" src="http://placehold.it/750x450"
-								alt="">
-							<div class="caption">
-								<h3>
-									세번째 대제목 공간<br> <small>소제목 공간</small>
-								</h3>
-								<p>내용 공간</p>
-							</div>
-						</a>
-					</div>
-				</div>
-
+				<%}%>
 			</div>
 			<!-- end top3 div (topthreediv)  -->
 		</div>
@@ -165,18 +144,19 @@
 
 				<!-- 여행지 추천 페이지 - 인기순 페이지 -->
 				<%
-					for (int i = 0; i < 6; i++) {
+					for (int i = 0; i < 100; i++) {
+						if(image.size() > 100){break;}
+						if(image.size() == i){break;}
 				%>
 				<div class="col-md-4 text-center">
 					<div class="thumbnail">
 						<a href="#">
-							<img class="img-responsive" src="http://placehold.it/750x450"
-								alt="">
+							<img class="img-responsive" src=<%=image.get(i).toString() %> alt="" style="height:250px">
 							<div class="caption">
 								<h3>
-									대제목 공간<br> <small>소제목 공간</small>
+									<%=title.get(i).toString() %><br>
 								</h3>
-								<p>내용 공간</p>
+								<p><%=addr.get(i).toString() %></p>
 							</div>
 						</a>
 					</div>
@@ -201,10 +181,10 @@
 					<div class="thumbnail">
 						<a href="#">
 							<img class="img-responsive" src="http://placehold.it/750x450"
-								alt="">
+							style="height:250px"	alt="">
 							<div class="caption">
 								<h3>
-									대제목 공간<br> <small>소제목 공간</small>
+									대제목 공간<br>
 								</h3>
 								<p>내용 공간</p>
 							</div>
