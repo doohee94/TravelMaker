@@ -1,6 +1,15 @@
 package tm.mypage.dto;
 
 public class LikeSpotDTO {
+/*	
+	CREATE TABLE QNA (
+			likespot_num     	VARCHAR2(50)     NOT NULL CONSTRAINT pk_tm_likespot_num PRIMARY KEY, -- likespot번호
+			user_id     		VARCHAR2(50)   	 NOT NULL, -- 회원ID
+			likespot_name  		VARCHAR2(50)     NOT NULL, -- 관심여행지 이름
+			likespot_reason     VARCHAR2(1024)   NOT NULL, -- 이유
+			image_path 			VARCHAR2(1024) 	 NOT NULL, -- 이미지 주소
+		);	
+*/	
 	private String likespotNum;
 	private String userId;
 	private String likespotName;

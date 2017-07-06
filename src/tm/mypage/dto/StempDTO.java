@@ -3,13 +3,15 @@ package tm.mypage.dto;
 import java.util.Date;
 
 public class StempDTO {
-/**	
+/*
+ 	CREATE TABLE STEPM (
 			stemp_num    	VARCHAR2(50)   NOT NULL, -- 스템프 번호
 			parstemp_num   	VARCHAR2(50)   NOT NULL, -- 제휴 스템프 번호
 			user_id       	VARCHAR2(50)   NOT NULL, -- 회원ID
 			stemp_date    	DATE,                    -- 찍은 날짜
-	추가		partner_name	VARCHAR2(50)			 -- 지점이름
+			partner_name	VARCHAR2(50)			 -- 지점이름
 			partner_addr	VARCHAR2(50)			 --	지점 주소
+	);		
 */	
 	String stempNum;
 	String parstempNum;

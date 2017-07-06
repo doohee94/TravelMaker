@@ -1,7 +1,14 @@
 package tm.mypage.dto;
 
 public class LikeSCDTO {
-	
+/*	
+	CREATE TABLE likesc (
+			likesc_num		VARCHAR2(50)   NOT NULL CONSTRAINT pk_tm_likesc_num PRIMARY KEY, -- 관심일정번호
+			user_id			VARCHAR2(50)   NOT NULL,    -- 회원ID
+			sc_num			VARCHAR2(50)   NOT NULL,    -- 지역이름
+			likesc_reason	VARCHAR2(50)   NOT NULL,    -- 이유
+		);
+*/		
 	private String likescNum;
 	private String userId;
 	private String scNum;
