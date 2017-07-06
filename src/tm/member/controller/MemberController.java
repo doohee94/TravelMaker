@@ -96,11 +96,15 @@ private String dir = "member/";
 /**
 * 회원탈퇴
 */
-	@RequestMapping(value="/memberDelete.tm")
+	@RequestMapping(value="/memberOut.tm")
 	public String delete(HttpSession session, MemberDTO memberdto){
 		String id = (String)session.getAttribute("userId");
 		memberdto.setUserId(id);
-		dao.delete(memberdto);
+		int res = dao.delete(memberdto);
+		if(res > 0){
+			session.removeAttribute("userId");
+			session.removeAttribute("userNick");
+		}
 		return "redirect:/tmmain/main.tm";
 	}
 	

@@ -131,16 +131,16 @@
 
 
 <!-- 헤더넣기 -->
-<form method="post" id="frm">
+<form method="post" id="frm" action="memberOut.tm">
 <center><article><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <img alt="" src="/resource/member/css/images/dropout.png" width="100" height="90" align=center><br/><br/>
 <font size="5"> 정말 TRAVEL MAKER를 탈퇴하시겠습니까?</font><br/><br/>
 <font size="3">탈퇴시 1주간 회원가입이 불가능합니다</font><br/><br/>
 <div> 비밀번호:
-<input id="pass" name="pass" type="password" ></div>
+<input id="userPw" name="userPw" type="password" ></div>
 <br/><br/>
 <!-- *************탈퇴되면 팝업창띄우기 -->
-<button style="WIDTH: 60pt; HEIGHT: 20pt; font-size:9pt;" name="insert" id="insert" ><a href="loginForm.tm">탈퇴하기</a></button>
+<button type="submit" style="WIDTH: 60pt; HEIGHT: 20pt; font-size:9pt;" name="insert" id="insert" >탈퇴하기</a></button>
 <button style="WIDTH: 60pt; HEIGHT: 20pt; font-size:9pt;" name="cancle" id="cancle"><a href="#" onClick="history.back();">취소</a></button>
 <!-- 취소시 이전페이지로 -->
 </article></center>
