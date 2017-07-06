@@ -12,36 +12,41 @@
    <!-- 1. viewport 설정 -->
    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scaleable=no">
 
-   <!-- 2. css, js import -->
+   <!-- jquery mobile -->
    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+   <!-- 지정 css -->
    <link rel="stylesheet" href="/resource/mobile/css/base.css" />
    </head>
    
    <body>
 
-   <!-- 3. page  -->
+   <!-- 2. page  -->
    <div id="home" data-role="page">
 
-       <!-- 4. header -->
+       <!-- 3. header -->
        <div data-role="header" data-position="fixed" data-theme="a">
           <img id="logo" src="/resource/mobile/images/samplelogo.png"/>
        </div>
        
-       <!-- 5. content --> 
+       <!-- 4. content --> 
        <div data-role="content" data-theme="d">
+       		<br/><br/>
        		<div class="images">
-           <img id="stamp" src="/resource/mobile/images/d-stamp.png"/>
-           <input type="hidden" id="userId"value="<%=session.getAttribute("userId")%>">
-           <input type="hidden" id="parstempNum"value="<%=session.getAttribute("parstempNum")%>">
-           <br/><br/><br/><br/><br/><br/><br/><br/>
+           		<img id="stamp" src="/resource/mobile/images/d-stamp.png"/>
+           		<input type="hidden" id="userId"value="<%=session.getAttribute("userId")%>">
+           		<input type="hidden" id="parstempNum"value="<%=session.getAttribute("parstempNum")%>">
+           		<br/><br/><br/><br/><br/><br/><br/><br/>
            </div>
            <button class="ui-btn ui-corner-all" id="btn-ok">스템프 찍기</button>
            <button class="ui-btn ui-corner-all" id="btn-calcel">취소 하기</button>   
        </div>
 
-   </div>   
+   </div> 
+   <!-- jquery  -->  
    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+   <!-- jquery mobile -->
    <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
-   <script type="text/javascript" src="/resource/mobile/js/function.js"></script>
+   <!-- 지정 js -->
+   <script src="/resource/mobile/js/moblieStemp.js"></script>
 </body>
 </html>
