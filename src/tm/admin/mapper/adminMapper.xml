@@ -209,10 +209,9 @@
 	
 	<update id="adcheck" parameterType="hashMap">
 		UPDATE advertisement
-		SET ad_check = 20
+		SET ad_check = #{state}
 		WHERE ad_num = #{num}
 	</update>
-	
 	
 	
 	<!-- Stemp -->

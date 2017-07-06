@@ -73,14 +73,20 @@
 			//a태그를 막음
 			e.preventDefault();
 			//num 저장 문자열
-			var str = "start"
+			var str = "start";
+			var end = "end";
 			//form안에 input태그중에 name이 checkboxin인 것들중에 체크된 부분을 찾음
-			$("#alllistad").find("input[name=checkboxin]:checked").each(function(){
+			$("#alllistad").find("input[name=checkboxin]").each(function(){
+				if($(this).is(":checked")){
+					str += "/" + $(this).val();
+				}else{
+					end += "/" + $(this).val();
+				}
 				//문자열로 광고 번호를 붙여줌
-				str += "/" + $(this).val();
 			});
 			//폼안에 value값으로 지정
 			$("#textcheck").val(str);
+			$("#textnotcheck").val(end);
 			//서브밋
 			$("#checkfrm").submit();
 		});

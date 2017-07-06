@@ -359,11 +359,12 @@ public class AdminController {
 	 * 광고 설정
 	 */
 	@RequestMapping("adcheck.tm")
-	public String adcheck(String textcheck){
-		System.out.println(textcheck);
+	public String adcheck(String textcheck, String textnotcheck){
 		StringTokenizer st = new StringTokenizer(textcheck, "/");
+		StringTokenizer nst = new StringTokenizer(textnotcheck, "/");
 		
 		ArrayList<String> num = new ArrayList<String>();
+		ArrayList<String> notnum = new ArrayList<String>();
 		
 		while (st.hasMoreTokens()) {
 			String temp = st.nextToken();
@@ -372,9 +373,22 @@ public class AdminController {
 			}
 		}
 		
+		while (nst.hasMoreTokens()) {
+			String temp = nst.nextToken();
+			if(!(temp.equals("end"))){
+				notnum.add(temp);
+			}
+		}
+		
 		if(num.size() > 0){
 			for (String s : num) {
-				dao.adcheck(s);
+				dao.adcheck(s , "20");
+			}
+		}
+		
+		if(notnum.size() > 0){
+			for (String s : notnum) {
+				dao.adcheck(s , "10");
 			}
 		}
 		

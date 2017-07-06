@@ -411,6 +411,7 @@
 		</section>
 		<form action="adcheck.tm" method="post" id="checkfrm">
 			<input type="hidden" id="textcheck" name="textcheck">
+			<input type="hidden" id="textnotcheck" name="textnotcheck">
 		</form>
 		<!--main content end-->
 	</section>

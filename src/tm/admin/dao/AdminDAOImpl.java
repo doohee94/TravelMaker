@@ -262,9 +262,10 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 	
 	@Override
-	public int adcheck(String num){
+	public int adcheck(String num, String state){
 		HashMap map = new HashMap<>();
 		map.put("num", num);
+		map.put("state", state);
 		
 		return ss.update(namespace + ".adcheck", map);
 	}

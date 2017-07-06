@@ -98,7 +98,7 @@ public interface AdminDAO {
 	 * adcheck
 	 * 광고 설정
 	 */
-	public int adcheck(String num);
+	public int adcheck(String num, String state);
 	
 	
 	/************** 스탬프 ******************/
