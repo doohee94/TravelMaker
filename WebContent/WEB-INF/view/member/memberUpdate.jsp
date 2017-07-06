@@ -57,12 +57,8 @@
 
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="/resource/member/css/insert.css">
-
-
-
-
-  
-
+<!-- JS -->
+<script src="/resource/member/js/memberUpdate.js"></script>
 </head>
 <body>
 
@@ -150,7 +146,7 @@
 <div class="registerInner">
         <div class="col-md-6 signUp">
             <h1 class="headerSign">회원정보수정</h1>
-            <form action="membermodify.tm" method="post">
+            <form action="membermodify.tm" method="post" id="frm" name="frm">
 <br/>
 <br/>
 <br/>
@@ -445,11 +441,45 @@
 		          </select>
                 </div>
                 
-                <center><button type="button" class="signbuttons btn btn-primary" id="update" name="update" style="background: #5d6062; border-color:#5d6062">수정하기</a></button>
-                <button type="submit" class="signbuttons btn btn-primary" id="insert" name="insert" style="background: #5d6062; border-color:#5d6062">완료</a></button></center>
+                <center><button type="button" class="signbuttons btn btn-primary" id="updatebutton" name="updatebutton" style="background: #5d6062; border-color:#5d6062">수정하기</a></button>
+                <button type="submit" class="signbuttons btn btn-primary" id="insertbutton" name="insertbutton" style="background: #5d6062; border-color:#5d6062">완료</a></button></center>
                 <br/><br/><br/><br/>
             </form>    
         </div>
+        
+        <div class ="col-md-6">
+			<h3 class="headerSign"></h3>
+				<form action="" method="">
+                
+                <br/><br/><br/><br/>
+                <div class="form-group">
+                	<span id="idchk">　　</span>
+                </div>
+                
+                <div class="form-group">
+                	<p class="help-block">숫자 또는 특수문자 포함 6자 이상이여야 합니다</p>
+                </div>
+                
+                <div class="form-group">
+	                <font id="passcheck" name="passcheck" size="2"></font>
+	                <p class="help-block" id="pw-block">비밀번호를 한번 더 입력해주세요</p><span id="passchk"></span>
+                </div>
+                
+                <div class="form-group"></div>
+                
+                <div class="form-group">
+                	<span style="color: blue" id="nickchk">　　</span>
+                </div>
+                
+                <div class="form-group"></div>
+                
+                <div class="form-group">
+                	<p class="help-block">ID/PW 찾기 시 꼭 필요한 항목이오니 정확히 적어주시기 바랍니다</p>
+                </div>
+                                
+            
+</div>
+        
       </div>  
         
 </div>
@@ -459,46 +489,6 @@
 <!--  메뉴바 -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
-<script type="text/javascript">
-$(function() {
-    $(".subtitle:not(:first)").attr('class','subtitle sub_on');
-    $(".sub:first").css("display","block");
-    $(".sub:not(:first)").css("display","none");
-    $(".subtitle").click(function() { 
-        if ($(this).next(".sub").css("display") == "none") {
-            $(this).attr('class','subtitle');
-        } else {
-            $(this).attr('class','subtitle sub_on');
-        }
-        $(this).next(".sub").slideToggle('fast');
-    });
-});
-</script>
-<!-- 수정버튼 눌림시 완료버튼 뜨게 -->
-<script type="text/javascript">
-$(function(){
-		$("#insert").hide();
-		$("#userPasswordcheck").hide();
-	$("#update").click(function(){
-		$("#insert").show();
-		$("#userPasswordcheck").show();
-		$("#update").hide();
-		
-	});
-	/* 수정버튼 누르면 readonly 해제 */
-	$("#update").click(function(){
-		$("#userPw").removeAttr("readonly");
-		$("#userPasswordcheck").removeAttr("readonly");
-		$("#userName").removeAttr("readonly");
-		$("#userNick").removeAttr("readonly");
-		$("#userTel").removeAttr("readonly");
-		$("#userEmail").removeAttr("readonly");
-		$("#userCity").removeAttr("disabled");
-		$("#userBorough").removeAttr("disabled");
-		$("#selOne").removeAttr("disabled");
-		$("#selTwo").removeAttr("disabled");
-	});
-});
-</script>
+
 
 </html>

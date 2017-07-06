@@ -12,139 +12,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript"  src="/resource/member/js/alopex-ui.min.js"></script>  
 
-<script type="text/javascript">
-
-/* 약관동의 */
-  function chk(){ 
- var req = document.form.req.checked;
- var num = 0;
- if(req == true){
-  num = 1;
- }
- if(num==1){
-  document.form.submit();
- }else{
-  alert("약관에 동의하셔야 합니다.");
- }
-}
-function nochk(){
- alert("동의하지 않으면 가입하실 수 없습니다");};  
- 
- 
- /* 약관동의 자세히 보기 팝업 */
- $(function(){
- $('#btn_popup').click( function() {
-     $a.popup({
-    	 title : "약관동의"
-         , url: "popUp.tm" // 팝업에 표시될 HTML
-         , width : 1200 //크기
-         , height : 500
-         , iframe: true // default
-    });
- });
- });
- </script>
-<script type="text/javascript">
- /* 유효성처리 */
- $(function(){
-  $("#signup").click(function(){ 
-		
-		/* 아이디 정규화 */
-	  var reg_id=/^[a-z0-9_]{4,20}$/;
-		if(!(reg_id.test($("#userId").val()))){
-			alert("ID는 5자 이상이여야 합니다");
-			$("#userId").focus();
-			return false;
-		}
-		/* 비밀번호 정규화 */
- 		var reg_pass=/^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/;
-		if(!(reg_pass.test($("#userPw").val()))){
-			alert("비밀번호 형식이 잘못되었습니다");
-			$("#userPw").focus();
-			return false;
-		}
-		/* 이름 정규화 */
-		var reg_name=/^[가-힣]+$/;
-		if(!(reg_name.test($("#userName").val()))){
-			alert("이름 형식이 잘못되었습니다");
-			$("#userName").focus();
-			return false;
-		} 
-		/* 닉네임 정규화 */
- 		/* var reg_nick=/^[가-힣a-zA-Z0-9]+$/;
-		if(!(reg_pass.test($("#userNick").val()))){
-			alert("닉네임 형식이 잘못되었습니다");
-			$("#userNick").focus();
-			return false;
-		} */
-		/* 전화번호 정규화 */
-		var reg_tel=/^\d{2,3}-\d{3,4}-\d{4}$/;;
-		if(!(reg_tel.test($("#userTel").val()))){
-			alert("전화번호 형식이 잘못되었습니다");
-			$("#userTel").focus();
-			return false;
-		}
-		/* 이메일 정규화 */
-		 var reg_email=/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-		if(!(reg_email.test($("#userEmail").val()))){
-			alert("이메일 형식이 잘못되었습니다");
-			$("#userEmail").focus();
-			return false;
-		} 
-		
-		$("#frm").submit();
-	}); 
- });
- 
- /*아이디 중복확인*/
-	$(function(){
-		$('#userId').blur(function(){
-			$.ajax({
-				type:"POST",
-				url:"idCheck.tm",
-				contentType: "application/json;charset=UTF-8",
-				data:{
-					"userId":$('#userId').val()
-				},
-				success:function(data){
-					if(data.trim()=="YES"){
-						$('#idchk').html('<b style="font.size:18px;color:blue">사용가능</b>');
-					}else{
-						$('#idchk').html('<b style="font.size:18px;color:red">사용불가</b>');
-					}
-				}
-			});
-		});
-/*닉네임 중복확인*/
-		$('#userNick').blur(function(){
-			$.ajax({
-				type:"POST",
-				url:"nickcCheck.tm",
-				contentType: "application/json;charset=UTF-8",
-				data:{
-					"userNick":$('#userNick').val()
-				},
-				success:function(data){
-					if(data.trim()=="YES"){
-						$('#nickchk').html('<b style="font.size:18px;color:blue">사용가능</b>');
-					}else{
-						$('#nickchk').html('<b style="font.size:18px;color:red">사용불가</b>'); 
-					}
-				}
-			});
-		});
-	});
-</script>
-
-<!-- <script type="text/javascript">
-/* 비밀번호와 비밀번호 확인이 같아야지 넘어가게 */
-	function checkValue(){
-	if(document.frm.userPw.value != document.passwordcheck.value){
-		alert("비밀번호를 동일하게 입력해주세요");
-	}
-}
-
-</script> -->
 
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="/resource/member/css/signup.css">
@@ -188,7 +55,7 @@ function nochk(){
                 </div>
                 
                 <div class="form-group ">
-                    <input class="form-control" type="password" name="passwordcheck" id="passwordcheck" placeholder="비밀번호확인" required="required">
+                    <input class="form-control" type="password" name="userPasswordcheck" id="userPasswordcheck" placeholder="비밀번호확인" required="required">
                </div>
                 
                 <div class="form-group">
@@ -466,7 +333,7 @@ function nochk(){
 		          </select>
                 </div>
                 
-                <button type="button" class="signbuttons btn btn-primary" id="signup" name="signup" style="background: #5d6062;">회원가입하기</button>
+                <button type="submit" class="signbuttons btn btn-primary" id="signupbutton" name="signupbutton" style="background: #5d6062;">회원가입하기</button>
                 
                 
         </div>
@@ -480,13 +347,31 @@ function nochk(){
             	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" name = "req">내용을 확인하였습니다
 				<input type="button" id="agreeF" name="agreeF" onclick="chk" value="동의함" >
 				<input type="button" id="noagreeF" name="noagreeF" onclick="nochk()" value="동의안함" >
-								
+				
+                
                 <div class="form-group">
-                <span id="idchk">　　</span><br/>
-                <p class="help-block">숫자 또는 특수문자 포함 6자 이상이여야 합니다</p>
-                <p class="help-block" id="pw-block">비밀번호를 한번 더 입력해주세요</p><span id="passchk">　　</span>
-                <span id="nickchk">　　</span><br/><br/>
-                <p class="help-block">ID/PW 찾기 시 꼭 필요한 항목이오니 정확히 적어주시기 바랍니다</p>
+                	<span id="idchk">　　</span>
+                </div>
+                
+                <div class="form-group">
+                	<p class="help-block">숫자 또는 특수문자 포함 6자 이상이여야 합니다</p>
+                </div>
+                
+                <div class="form-group">
+	                <font id="passcheck" name="passcheck" size="2" color="red"></font>
+	                <p class="help-block" id="pw-block">비밀번호를 한번 더 입력해주세요</p><span id="passchk"></span>
+                </div>
+                
+                <div class="form-group"></div>
+                
+                <div class="form-group">
+                	<span id="nickchk">　　</span>
+                </div>
+                
+                <div class="form-group"></div>
+                
+                <div class="form-group">
+                	<p class="help-block">ID/PW 찾기 시 꼭 필요한 항목이오니 정확히 적어주시기 바랍니다</p>
                 </div>
                                 
             
@@ -496,14 +381,5 @@ function nochk(){
 </form>
 </body>
 
-<!-- <script type="text/javascript">
-$(function(){
-		$(".passnick").hide();
-	$("#passwordcheck").keydownEvent(function(){
-		$(".passnick").show();
-		$("#pw-block").hide();
-	});
-});
-</script> -->
 
 </html>
