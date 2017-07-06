@@ -21,6 +21,11 @@
 		SELECT *
 		FROM qna
 		WHERE user_id =#{userId} 
+		ORDER BY qna_date DESC
+	</select>
+	<select id="qnumber" resultType="String">
+		SELECT seq_qna.nextval as num
+		FROM dual
 	</select>
 	<select id="liststemp" parameterType="hashMap" resultType="tm.mypage.dto.StempDTO">
 		SELECT partner_name,partner_addr, parstemp_num
@@ -37,7 +42,7 @@
 	<insert id="inputqna" parameterType="hashMap">
 		INSERT 
 		INTO QNA (QNA_NUM, USER_ID, QNA_DATE, QNA_TYPE, QNA_CONTENT) 
-		VALUES (seq_qna.nextval, #{userId}, SYSDATE, #{qnaType}, #{qnaContent})
+		VALUES (#{qnaNum}, #{userId}, SYSDATE, #{qnaType}, #{qnaContent})
 	</insert>
 	<delete id="deletespot" parameterType="hashMap">
 		DELETE
