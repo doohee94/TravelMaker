@@ -25,7 +25,7 @@ public class QRUtil {
 			//URL등록
 			url = new String(url.getBytes("UTF-8"), "ISO-8859-1");
 			BitMatrix matrix = writer.encode(url, BarcodeFormat.QR_CODE, 300, 300);
-			// QR코드 색상ㄴ
+			// QR코드 색상
 			int qrColor = 0x00000000;
 			MatrixToImageConfig config = new MatrixToImageConfig(qrColor, 0xFFFFFFFF);
 			//크기와 색을 받아 QR img 생성
