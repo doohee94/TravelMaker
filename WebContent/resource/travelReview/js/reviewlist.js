@@ -1,14 +1,14 @@
 $(function(){
-	//스크롤이 화면 맨 아래에 도착했을 때 getDiv()함수 호출
-	$(window).scroll(function(){
-		var docH=$(document).height();
-		var scrolH = $(window).height() + $(window).scrollTop();
-		if(scrolH>=docH){
-			getDiv();
-		}
-		
-
-	});
+//	//스크롤이 화면 맨 아래에 도착했을 때 getDiv()함수 호출
+//	$(window).scroll(function(){
+//		var docH=$(document).height();
+//		var scrolH = $(window).height() + $(window).scrollTop();
+//		if(scrolH>=docH){
+//			//getDiv();
+//		}
+//		
+//
+//	});
 	
 	//탑버튼 누르면 화면 맨 위로 올라가는 함수
 	$("#move_top_btn").click(function() {
@@ -17,12 +17,6 @@ $(function(){
         }, 400);
         return false;
     });
-	
-	//이미지 버튼 클릭하면 실행할 함수
-	$(".images").click(function(){
-		//상세페이지로 보낸다
-		location.href="reviewDetail.tm?id=128";
-	});
 	
 	
 	$("#searchBtn").click(function(){

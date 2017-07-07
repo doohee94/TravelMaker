@@ -120,7 +120,7 @@
     		<label id="simble" style="font-family: nanum gothic  ">여행일정을 공유하고 리뷰를 나눕니다.</label>
     		<form class="form-inline search_menu">
     			<input class="form-control input-lg" id="search_bar" type="text" placeholder="검색어를 입력하세요">
-    			<a href="#" class="btn btn-lg btn-danger btn-search"><span class="glyphicon glyphicon-search"></span> Search</a>
+    			<a href="#" class="btn btn-lg btn-danger btn-search">Search</a>
     		</form>
     	</div>
     </div>

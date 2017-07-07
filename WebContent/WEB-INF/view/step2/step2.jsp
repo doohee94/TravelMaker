@@ -23,6 +23,9 @@
     <!-- step2 CSS -->
     <link href="/resource/step2/css/step2.css" rel="stylesheet" type="text/css">
     
+    <!-- 헤더 css -->
+	<link href="/resource/header/css/header.css" rel="stylesheet" />
+    
 </head>
 <body>
 	<!-- 메인 헤더 부분 -->
@@ -50,7 +53,7 @@
                     <!-- 로그인 할때 생기는 버튼 -->
                     <c:if test="${not empty sessionScope.userNick }">
                     <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
+                        <a href="/travelReview/reviewlist.tm">여행리뷰</a>
                     </li>
                     <li>
                         <a href="/mylist/menubar.tm">마이페이지</a>

@@ -22,6 +22,7 @@ import tm.admin.dto.AdminMemberDTO;
 import tm.admin.dto.AdminQnaDTO;
 import tm.admin.dto.AdminStempDTO;
 import tm.admin.dto.AdminadDTO;
+import tm.admin.dto.QRUtil;
 import tm.alliance.dto.AllianceDTO;
 
 /**
@@ -69,6 +70,7 @@ public class AdminController {
 	@RequestMapping("/adminMember.tm")
 	public ModelAndView adMemberList(String pageNumber, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		//관리자 로그인이 안되었다면 메인페이지로 이동
 		String admin = (String)session.getAttribute("admin");
 		if(admin == null){
 			mv.setViewName("redirect:/tmmain/main.tm");
@@ -115,6 +117,8 @@ public class AdminController {
 	@RequestMapping("/adminsearchmem.tm")
 	public ModelAndView searchmem(String sel, String con, String pageNumber, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		
+		//관리자 로그인이 안되었다면 메인페이지로 이동
 		String admin = (String)session.getAttribute("admin");
 		if(admin == null){
 			mv.setViewName("redirect:/tmmain/main.tm");
@@ -153,6 +157,8 @@ public class AdminController {
 	@RequestMapping("/adminQna.tm")
 	public ModelAndView adminqna(String pageNumber, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		
+		//관리자 로그인이 안되었다면 메인페이지로 이동
 		String admin = (String)session.getAttribute("admin");
 		if(admin == null){
 			mv.setViewName("redirect:/tmmain/main.tm");
@@ -199,6 +205,8 @@ public class AdminController {
 	@RequestMapping("/adminadList.tm")
 	public ModelAndView adminadlist(String pageNumber, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		
+		//관리자 로그인이 안되었다면 메인페이지로 이동
 		String admin = (String)session.getAttribute("admin");
 		if(admin == null){
 			mv.setViewName("redirect:/tmmain/main.tm");
@@ -265,6 +273,8 @@ public class AdminController {
 	@RequestMapping("/adminadsearch.tm")
 	public ModelAndView adminadsearch(String pageNumber, String partnerComname, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		
+		//관리자 로그인이 안되었다면 메인페이지로 이동
 		String admin = (String)session.getAttribute("admin");
 		if(admin == null){
 			mv.setViewName("redirect:/tmmain/main.tm");
@@ -346,6 +356,8 @@ public class AdminController {
 	@RequestMapping("/adadinsert.tm")
 	public ModelAndView insertad(AdminadDTO adminadDTO, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		
+		//관리자 로그인이 안되었다면 메인페이지로 이동
 		String admin = (String)session.getAttribute("admin");
 		if(admin == null){
 			mv.setViewName("redirect:/tmmain/main.tm");
@@ -380,6 +392,8 @@ public class AdminController {
 	@RequestMapping("/adminadshow.tm")
 	public ModelAndView adminadshow(String num, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		
+		//관리자 로그인이 안되었다면 메인페이지로 이동
 		String admin = (String)session.getAttribute("admin");
 		if(admin == null){
 			mv.setViewName("redirect:/tmmain/main.tm");
@@ -410,12 +424,15 @@ public class AdminController {
 	 */
 	@RequestMapping("adcheck.tm")
 	public String adcheck(String textcheck, String textnotcheck){
+		//선택 문자열 분리
 		StringTokenizer st = new StringTokenizer(textcheck, "/");
+		//선택되지 않은 문자열 분리
 		StringTokenizer nst = new StringTokenizer(textnotcheck, "/");
 		
 		ArrayList<String> num = new ArrayList<String>();
 		ArrayList<String> notnum = new ArrayList<String>();
 		
+		//선택된 문자열을 num에 저장
 		while (st.hasMoreTokens()) {
 			String temp = st.nextToken();
 			if(!(temp.equals("start"))){
@@ -423,6 +440,7 @@ public class AdminController {
 			}
 		}
 		
+		//선택되지 않은 문자열을 notnum에 저장
 		while (nst.hasMoreTokens()) {
 			String temp = nst.nextToken();
 			if(!(temp.equals("end"))){
@@ -430,12 +448,14 @@ public class AdminController {
 			}
 		}
 		
+		//디비 설정 변경
 		if(num.size() > 0){
 			for (String s : num) {
 				dao.adcheck(s , "20");
 			}
 		}
 		
+		//디비 설정 변경
 		if(notnum.size() > 0){
 			for (String s : notnum) {
 				dao.adcheck(s , "10");
@@ -459,6 +479,8 @@ public class AdminController {
 	@RequestMapping("/adminAllianceList.tm")
 	public ModelAndView allianceList(String pageNumber, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		
+		//관리자 로그인이 안되었다면 메인페이지로 이동
 		String admin = (String)session.getAttribute("admin");
 		if(admin == null){
 			mv.setViewName("redirect:/tmmain/main.tm");
@@ -490,6 +512,8 @@ public class AdminController {
 	@RequestMapping("/searchalli.tm")
 	public ModelAndView searchalli(String partnerComname, String pageNumber, HttpSession session){
 		ModelAndView mv = new ModelAndView();
+		
+		//관리자 로그인이 안되었다면 메인페이지로 이동
 		String admin = (String)session.getAttribute("admin");
 		if(admin == null){
 			mv.setViewName("redirect:/tmmain/main.tm");
@@ -551,6 +575,8 @@ public class AdminController {
 	@RequestMapping("/adminAllianceRec.tm")
 	public ModelAndView adminAllianceRec(String pageNumber, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		
+		//관리자 로그인이 안되었다면 메인페이지로 이동
 		String admin = (String)session.getAttribute("admin");
 		if(admin == null){
 			mv.setViewName("redirect:/tmmain/main.tm");
@@ -582,6 +608,8 @@ public class AdminController {
 	@RequestMapping("/searchallirec.tm")
 	public ModelAndView searchallirec(String partnerComname, String pageNumber, HttpSession session){
 		ModelAndView mv = new ModelAndView();
+		
+		//관리자 로그인이 안되었다면 메인페이지로 이동
 		String admin = (String)session.getAttribute("admin");
 		if(admin == null){
 			mv.setViewName("redirect:/tmmain/main.tm");
@@ -645,6 +673,8 @@ public class AdminController {
 	@RequestMapping("/adminstemp.tm")
 	public ModelAndView adminstemp(String pageNumber, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		
+		//관리자 로그인이 안되었다면 메인페이지로 이동
 		String admin = (String)session.getAttribute("admin");
 		if(admin == null){
 			mv.setViewName("redirect:/tmmain/main.tm");
@@ -662,6 +692,7 @@ public class AdminController {
 		 */
 		
 		List<AdminStempDTO> list = dao.stemp(page[1],page[2]);
+		
 		mv.setViewName(dir+"adminstemp");
 		mv.addObject("list", list);
 		mv.addObject("totalpage", page[0]);
@@ -678,6 +709,8 @@ public class AdminController {
 	@RequestMapping("/searchstemp.tm")
 	public ModelAndView searchstemp(String pageNumber, String partnerName, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		
+		//관리자 로그인이 안되었다면 메인페이지로 이동
 		String admin = (String)session.getAttribute("admin");
 		if(admin == null){
 			mv.setViewName("redirect:/tmmain/main.tm");
@@ -719,6 +752,8 @@ public class AdminController {
 	@RequestMapping("/showStemp.tm")
 	public ModelAndView showStemp(String parstempNum, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		
+		//관리자 로그인이 안되었다면 메인페이지로 이동
 		String admin = (String)session.getAttribute("admin");
 		if(admin == null){
 			mv.setViewName("redirect:/tmmain/main.tm");
@@ -736,6 +771,18 @@ public class AdminController {
 	@RequestMapping("/stempupdate.tm")
 	public String stempupdate(AdminStempDTO adminStempDTO){
 		dao.stempupdate(adminStempDTO);
+		return "redirect:/tmadmin/searchstemp.tm";
+	}
+	
+	/**
+	 * 스탬프 QR생성
+	 */
+	@RequestMapping("/stempcreation.tm")
+	public String stempcreation(String num){
+		String url = "192.168.0.104/tmmoblie/mstemp.tm?parstempNum="+num;
+		QRUtil.makeQR(url, num);
+		dao.stempcreation(num);
+		
 		return "redirect:/tmadmin/searchstemp.tm";
 	}
 }

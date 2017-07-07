@@ -1,0 +1,14 @@
+/** 헤더 */
+/** travelmaker 로고*/
+body nav .container .navbar-header .navbar-brand{
+	font-family: 맑은고딕;
+ 	font-weight: bold;
+ 	font-size: 2em;
+}
+
+/** 다른 페이지 이동 링크*/
+body nav .container .collapse ul li{
+	font-family: 맑은고딕;
+ 	font-weight: bold;
+	 font-size: 1.2em;
+}

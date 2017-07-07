@@ -222,7 +222,8 @@
       		  FROM (SELECT s.parstemp_num, 
       		  				p.partner_num, 
       		  				s.partner_name, 
-      		  				s.partner_addr, 
+      		  				s.partner_addr,
+      		  				s.parstemp_qrcodeimg, 
       		  				p.partner_ceoname,
       		  				p.partner_reginum, 
       		  				p.partner_comname, 
@@ -263,7 +264,13 @@
 		parstemp_num = #{parstempNum}
 	</update>
 	
-	
+	<update id="stempcreation" parameterType="hashMap">
+		UPDATE parstemp
+		SET
+		parstemp_qrcodeimg = #{parstempQrcodeimg}
+		WHERE
+		parstemp_num = #{parstempNum}
+	</update>
 	
 	<!-- partner -->
 	

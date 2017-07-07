@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+<%
+	String user_id = (String)request.getAttribute("userId"); 
+	String _id = (String)request.getAttribute("_id");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -82,8 +86,8 @@
       <div class="row">
          <form id="reviewForm" action="/travelReview/insertReview.tm" enctype="multipart/form-data" method="post">
 
-            <input type="hidden" name="scNum" value="127"> <input
-               type="hidden" name="userId" value="doohee94"> <input
+            <input type="hidden" name="scNum" value=<%=_id %>> <input
+               type="hidden" name="userId" value=<%=user_id%>> <input
                type="hidden" name="totalreLikecount" value="0">
 
             <!-- Projects Row -->
@@ -93,9 +97,8 @@
                for (int i = 0; i < 4; i++) {
             %>
             <div class="col-md-3 img-portfolio " style="margin-bottom: 2px;">
-               <a href="#"> <img class="img-responsive img-hover"
-                  id="photow<%=i + 1%>" src="http://placehold.it/750x450" alt="">
-               </a> <input type="file" name="photo<%=i + 1%>" id="photo<%=i + 1%>">
+               <img class="img-responsive img-hover" id="photow<%=i + 1%>" src="http://placehold.it/750x450" alt="">
+               <input type="file" name="photo<%=i + 1%>" id="photo<%=i + 1%>" class="photo">
             </div>
             <%
                }
@@ -148,7 +151,17 @@
                 e.preventDefault();
                 return false;
               }
-            });
+          });
+         
+         $("#photo1").on('change',function(){
+        	if($(this).files && $(this).files[0]){
+        		var reader = new FileReader();
+        		reader.onload = function(e){
+        			$("#photow1").attr("src",e.target.result);
+        		}
+        		reader.readAsDataURL($(this).files[0]);
+        	} 
+         });
       });
    </script>
 

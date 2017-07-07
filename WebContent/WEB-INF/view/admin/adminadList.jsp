@@ -216,6 +216,9 @@
 																				<td style="width : 100px;">
 																					<div class="checkbox" >
 																						<c:choose>
+																							<c:when test="${a.state eq '10' }">
+																								
+																							</c:when>
 																							<c:when test="${a.adCheck eq '20' }">
 																								<label><input name="checkboxin" type="checkbox" value="${a.adNum }"  checked="checked"/></label>
 																							</c:when>
@@ -277,14 +280,6 @@
 																			<tr align="center" >
 																				<td style="width : 100px;">
 																					<div class="checkbox" >
-																						<c:choose>
-																							<c:when test="${a.adCheck eq '20' }">
-																								<label><input type="checkbox" checked="checked"/></label>
-																							</c:when>
-																							<c:otherwise>
-																								<label><input type="checkbox" /></label>
-																							</c:otherwise>
-																						</c:choose>
 																					</div>	
 																				</td>
 																				<td style="width:1200px; font-size: 1.5em;">
