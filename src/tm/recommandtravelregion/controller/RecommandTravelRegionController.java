@@ -223,7 +223,7 @@ public class RecommandTravelRegionController {
 			String userId = session.getAttribute("userId").toString();
 			data = dao.searchLikeSpot(userId);
 		}
-		
+		System.out.println("관심지역>>>"+data);
 		return data;
 	}
 	

@@ -25,9 +25,8 @@ function getTextLength(str) {
 	 			,type:"post"
 	 		    ,success:function(keyData){ 	
 	 		    	var keyword = keyData.trim();
-	 		    	
 	 		    	//로그인을 한 사람의 경우
-	 		    	if(keyword != "None" && keyword != null){
+	 		    	if(keyword != "None" && keyword != ""){
 	 		    		
 	 		    		  $("#myinteresttab").empty();
 	 		    		
@@ -98,7 +97,7 @@ function getTextLength(str) {
 		 		    	
 	 		    		
 	 		    		
-	 		    	}else if(keyword == null){
+	 		    	}else if(keyword == ""){ //관심지역이 없는 경우 
 	 		    		  $("#myinteresttab").empty();
 	 		    		$("#myinteresttab").append('<br/><br/>'
 	 		    				+'<div align="center" id="NoneLikeSpot">'
