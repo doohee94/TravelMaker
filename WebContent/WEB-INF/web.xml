@@ -34,6 +34,7 @@
   		/WEB-INF/springconfig/recommandTravelRegion-servlet.xml
   		/WEB-INF/springconfig/totalre-servlet.xml
   		/WEB-INF/springconfig/reviewlike-servlet.xml
+  		/WEB-INF/springconfig/error-servlet.xml
   		</param-value>
   	</init-param>
   </servlet>
@@ -43,6 +44,40 @@
   	<url-pattern>*.tm</url-pattern>
   </servlet-mapping>
   
+   <!-- 에러 페이지 -->
+  	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/tm/error/throwable</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/tm/error/exception</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/tm/error/404</location>
+	</error-page>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/tm/error/403</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/tm/error/500</location>
+	</error-page>
+	<error-page>
+		<error-code>503</error-code>
+		<location>/tm/error/503</location>
+	</error-page>
+	<error-page>
+		<error-code>400</error-code>
+		<location>/tm/error/400</location>
+	</error-page>
+	<error-page>
+		<error-code>405</error-code>
+		<location>/tm/error/405</location>
+	</error-page>
+	
   <!-- 한글 인코딩 -->
   <filter>
   	<filter-name>CharacterEncoding</filter-name>
@@ -57,5 +92,6 @@
   	<filter-name>CharacterEncoding</filter-name>
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
+  
   
 </web-app>
