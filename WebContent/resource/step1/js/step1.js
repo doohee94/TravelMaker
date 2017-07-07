@@ -26,34 +26,34 @@ $(".nextbtnstep2").click(function(event) {
 	// hidden에 넣어준 값을 넘겨주기.
 	//
 
-	var str1 = document.getElementById('ttitle');
-	var str2 = document.getElementById('sregion');
-	var str3 = document.getElementById('tregion');
-	var str4 = document.getElementById('aregion');
-	var str5 = document.getElementById('stdate');
-	var str6 = document.getElementById('enddate');
+	var ttitle = document.getElementById('ttitle');
+	var sregion = document.getElementById('sregion');
+	var tregion = document.getElementById('tregion');
+	var aregion = document.getElementById('aregion');
+	var stdate = document.getElementById('stdate');
+	var enddate = document.getElementById('enddate');
 
-	if (str2.value == '' || str2.value == null) {
+	if (sregion.value == '' || sregion.value == null) {
 		alert('출발지역 입력해주세요');
 		return false;
 		
-	} else if (str3.value == '' || str3.value == null) {
+	} else if (tregion.value == '' || tregion.value == null) {
 		alert('경유지역을 입력해주세요');
 		return false;
 		
-	} else if (str4.value == '' || str4.value == null) {
+	} else if (aregion.value == '' || aregion.value == null) {
 		alert('도착지를 입력해주세요');
 		return false;
 		
-	} else if (str1.value == '' || str1.value == null) {
+	} else if (ttitle.value == '' || ttitle.value == null) {
 		alert('일정 제목을 입력해주세요');
 		return false;
 		
-	} else if (str5.value == '' || str5.value == null) {
+	} else if (stdate.value == '' || stdate.value == null) {
 		alert('출발날짜를 선택해주세요');
 		return false;
 		
-	} else if (str6.value == '' || str6.value == null) {
+	} else if (enddate.value == '' || enddate.value == null) {
 		alert('도착날짜를 선택해주세요');
 		return false;
 		
@@ -188,7 +188,7 @@ $(".reset").click(function() {
 // startdate = 출발날짜, arrivaldate = 도착날짜
 $("#startdate").datepicker({
 	minDate : 0,
-	dateFormat : "yy-MM-dd",
+	dateFormat : "yy-mm-dd",
 	onSelect : function(selected) {
 		$("#arrivaldate").datepicker("option", "minDate", selected)
 	}
@@ -196,7 +196,7 @@ $("#startdate").datepicker({
 
 $("#arrivaldate").datepicker({
 	minDate : 0,
-	dateFormat : "yy-MM-dd",
+	dateFormat : "yy-mm-dd",
 	onSelect : function(selected) {
 		$("#startdate").datepicker("option", "maxDate", selected)
 	}
