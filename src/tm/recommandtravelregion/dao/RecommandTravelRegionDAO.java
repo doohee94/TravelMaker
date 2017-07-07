@@ -1,5 +1,7 @@
 package tm.recommandtravelregion.dao;
 
-public class RecommandTravelRegionDAO {
+public interface RecommandTravelRegionDAO {
 
+	public String searchLikeSpot(String userId);
+	
 }

@@ -17,6 +17,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -47,7 +48,7 @@ public class Mypage_checklistController {
 	}
 	
 	@RequestMapping("/checklist.tm")
-	public ModelAndView showlist(String _id){
+	public ModelAndView showlist(@RequestParam("_id") String _id){
 		ModelAndView mv = new ModelAndView();
 		
 		System.out.println("체크리스트 아이디"+_id);

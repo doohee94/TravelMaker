@@ -170,30 +170,22 @@
 
 			</div>
 
-			<!-- 내 관심순 탭 -->
+			<!-- 내 관심순 탭 --> 
 			<div id="myinteresttab" class="tab-pane fade">
 
 				<!--여행지추천페이지 - 관심순 페이지 -->
-				<%
-					for (int i = 0; i < 6; i++) {
-				%>
-				<div class="col-md-4 text-center">
-					<div class="thumbnail">
-						<a href="#">
-							<img class="img-responsive" src="http://placehold.it/750x450"
-							style="height:250px"	alt="">
-							<div class="caption">
-								<h3>
-									대제목 공간<br>
-								</h3>
-								<p>내용 공간</p>
-							</div>
-						</a>
-					</div>
+				<br/><br/>
+				<div align="center" id="NonuUserId">
+					<br/>
+					<h1><span class="glyphicon glyphicon-remove"></span>이런, 로그인을 안하셨네요!</h1>
+					<h3>로그인 하시면 관심지역의 여행지를 보실 수 있습니다!</h3>
+					<a href="/member/loginForm.tm" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-chevron-down"></span> 로그인</a>
+					<br/><br/>
 				</div>
-				<%
-					}
-				%>
+				<br/>
+				
+			
+				
 				<!-- end 여행지추천페이지 - 인기순 페이지 -->
 			</div>
 

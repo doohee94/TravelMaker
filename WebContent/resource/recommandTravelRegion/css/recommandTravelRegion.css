@@ -30,6 +30,26 @@ body #secondcontainer{
 	margin-bottom:20px;
 }
 
+#NonuUserId{
+	background-color: #efefef;
+}
+#NonuUserId h1{
+	border: 3px;
+	background-color: #efefef;
+	font-family: 타이포_쌍문동;	
+}
+
+#NonuUserId h3{
+	border: 3px;
+	background-color: #efefef;
+	font-family: 맑은고딕;	
+}
+
+.glyphicon-remove{
+	
+	
+	color: #f00;
+}
 /* 헤더에 있는 다음 버튼 */
 /* #nextbtn{ */
 /* 	padding-bottom:2px; */
