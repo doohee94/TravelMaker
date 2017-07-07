@@ -1,5 +1,20 @@
 @CHARSET "UTF-8";
 
+/** 헤더 */
+/** travelmaker 로고*/
+body nav .container .navbar-header .navbar-brand{
+	font-family: 맑은고딕;
+ 	font-weight: bold;
+ 	font-size: 2em;
+}
+
+/** 다른 페이지 이동 링크*/
+body nav .container .collapse ul li{
+	font-family: 맑은고딕;
+ 	font-weight: bold;
+	 font-size: 1.2em;
+}
+
 /** 다음 버튼  */
 .contnsubform #container .prevnextbtn center .nextbtnstep2{
 	padding-bottom:2px;
@@ -8,12 +23,12 @@
 	width:70px;
 	height:30px;
 	font-size:15px;
-	font-family: 'Nanum Gothic'serif;
+	font-family: 맑은고딕;
 	color:white;
 	font-weight:600;
 	background-color:#103e68;
 	border:none;
-	border-radius:7px;
+	border-radius:3px;
 }
 
 /** 메인 버튼 */
@@ -24,12 +39,12 @@
 	width:70px;
 	height:30px;
 	font-size:15px;
-	font-family: 'Nanum Gothic'serif;
+	font-family: 맑은고딕;
 	color:white;
 	font-weight:600;
 	background-color:#103e68;
 	border:none;
-	border-radius:7px;
+	border-radius:3px;
 }
 
 /** 출발지, 경유지, 도착지 탭 */
@@ -50,20 +65,10 @@ body .contnsubform #container .col-lg-12 #titlediv{
 .contnsubform .container .pathoutput{
 	margin-top:20px;
 	margin-bottom:20px;
-	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: 맑은고딕;
 }
 										
-.contnsubform .container .pathoutput .reset{
-	width:120px;
-	height:50px;
-	background-color:#103e68;
-	border:1px solid #103e68;
-	border-radius:3px;
-	color:white;
-	font-family: 'Nanum Gothic';
-	font-size:15px;
-}
-	
+
 /** 가로 줄 (공간 구분용)*/
 body hr{
 	margin-top:5px;
@@ -132,7 +137,7 @@ background-color:white;
 /** 선택한 동행자 출력 장소  */
 .contnsubform #secondcontainer .fourrow .fellowpeople{
 	width:1015px; height:50px;
-	font-size:16px; font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size:18px; font-family: 맑은고딕;
 	text-align:center;
 	border:2px solid #dedede;
 }
@@ -146,7 +151,7 @@ background-color:white;
 .contnsubform #secondcontainer .threerow .traveltitle{
 	width:1140px; height:50px;
 	border:2px solid #dedede;
-	font-size:16px; font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size:18px; font-family: 맑은고딕;
 	text-align:center;
 }
 
@@ -167,23 +172,35 @@ background-color:white;
 	border:2px solid #dedede;
 	width:180px; height:50px;
 	text-align:center;
-	font-size:16px;
+	font-size:18px;
 }
 
 .contnsubform .container .pathoutput .listthrough{
 	border:2px solid #dedede;
-	width:628px; height:50px;
+	width:624px; height:50px;
 	text-align:center;
-	font-size:16px;
+	font-size:18px;
 }
 
 .contnsubform .container .pathoutput .listarrival{
 	border:2px solid #dedede;
 	width:200px; height:50px;
 	text-align:center;
-	font-size:16px;
+	font-size:18px;
 }
  
+.contnsubform .container .pathoutput .reset{
+	width:120px;
+	height:50px;
+	background-color:#103e68;
+	border:2px solid #103e68;
+	border-radius:3px;
+	color:white;
+	font-family: 'Nanum Gothic';
+	font-size:15px;
+	bottom:2px;
+}
+	
  
 /**  modal 출발날짜, 도착날짜 입력창 및 동행자 아이디 검색창 */
 .contnsubform #secondcontainer #myModal .modal-dialog .modal-content .modal-body .form-control{
@@ -224,7 +241,7 @@ background-color:white;
 .contnsubform #secondcontainer #myModal .modal-dialog .modal-content .modal-footer #ftrsbtn{
 	background-color:white; color: #2995F7;
 	height:34px;
-	border-radius:4px;
+	border-radius:3px;
 	border:1px solid #2995F7;
 }
 

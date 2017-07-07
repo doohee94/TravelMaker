@@ -36,13 +36,13 @@
 		<img id="loading-image" alt="로딩중" src="/resource/step2/loding.gif" />
 
 		<form action="stepinfo.tm" method='post' id="hiddeninfofrm">
-			<input type="hidden" id="sregion" name="liststart" value="">
-			<input type="hidden" id="tregion" name="listthrough" value="">
-			<input type="hidden" id="aregion" name="listarrival" value="">
-			<input type="hidden" id="ttitle" name="title" value=""> <input
-				type="hidden" id="ffellow" name="partystr" value=""> <input
-				type="hidden" id="stdate" name="startDate" value=""> <input
-				type="hidden" id="enddate" name="endDate" value="">
+			<input type="hidden" id="sregion" name="liststart" >
+			<input type="hidden" id="tregion" name="listthrough" >
+			<input type="hidden" id="aregion" name="listarrival" >
+			<input type="hidden" id="ttitle" name="title" >
+			<input type="hidden" id="ffellow" name="partystr" >
+			<input type="hidden" id="stdate" name="startDate" >
+			<input type="hidden" id="enddate" name="endDate" >
 		</form>
 
 		<form id="hiddenmodalfrm" method="post" action="step1searchfellow.tm">
@@ -80,8 +80,8 @@
 					<li style="padding: 10px" id="mobile_search"><input
 						type="text" />
 					<button id="#searchBtn"
-							style="background-color: #fafafa; border: 0px; border-style: none; height: 25px;">
-							<span class="glyphicon glyphicon-search"></span> search
+							style="background-color: #fafafa; border: 0px; border-style: none; height: 27px;">
+							<span class="glyphicon glyphicon-search"></span>
 						</button></li>
 					<!-- 로그인 할때 생기는 버튼 -->
 					<c:choose>
@@ -1123,7 +1123,7 @@
 					readonly="readonly" />
 
 				<!-- 경유지비우기 버튼 -->
-				<input type="button" class="reset" value="경유지 비우기" />
+				<input type="button" class="reset" value="경유지 비우기" readonly="readonly"/>
 			</div>
 
 			<!-- end contnsubform class  -->
@@ -1149,7 +1149,7 @@
 			<!-- 동행자 팝업버튼 -->
 			<div class="fourrow">
 				<input type="text" class="fellowpeople" id="fellowpeople"
-					placeholder="동행자를 선택해주세요.">
+					placeholder="동행자를 선택해주세요." readonly="readonly">
 				<button type="button" class="btn btn-info btn-lg"
 					data-toggle="modal" data-target="#myModal">동행자</button>
 
@@ -1220,12 +1220,13 @@
 
 			<!--	출발날짜 도착날짜 공간	-->
 			<div class="input-group input-group-lg" id="datediv">
-				<span class="input-group-addon" id="sizing-addon1">출발날짜</span> <input
-					type="text" id="startdate" class="form-control" placeholder="선택"
-					aria-describedby="sizing-addon1"> <span
-					class="input-group-addon" id="sizing-addon1">도착날짜</span> <input
-					type="text" id="arrivaldate" class="form-control" placeholder="선택"
-					aria-describedby="sizing-addon1">
+				<span class="input-group-addon" id="sizing-addon1"style="background-color:#eee">출발날짜</span>
+				<input type="text" id="startdate" class="form-control" placeholder="선택"	
+				aria-describedby="sizing-addon1" readonly="readonly" style="background-color:white">
+				
+				<span class="input-group-addon" id="sizing-addon1"style="background-color:#eee">도착날짜</span>
+				<input type="text" id="arrivaldate" class="form-control" placeholder="선택"
+					aria-describedby="sizing-addon1" readonly="readonly" style="background-color:white">
 			</div>
 
 
