@@ -160,7 +160,7 @@ public class TravelReviewController {
 			dto.setReply(reply);
 			dto.setWriteDate(curDate);
 			
-			reviewReplyDTO reviewDTO = dao.insertReply(dto);
+			//reviewReplyDTO reviewDTO = dao.insertReply(dto);
 			
 		} catch (ParseException e) {
 			e.printStackTrace();

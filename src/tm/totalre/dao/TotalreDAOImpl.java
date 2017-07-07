@@ -70,13 +70,13 @@ public class TotalreDAOImpl implements TotalreDAO {
 		return result;
 	}
 
-	@Override
-	public reviewReplyDTO insertReply(reviewReplyDTO reviewReplyDTO) {
-		
-		int result = ss.insert("namespace" + ".insertReply",reviewReplyDTO);
-		
-		
-		return null;
-	}
+//	@Override
+//	public reviewReplyDTO insertReply(reviewReplyDTO reviewReplyDTO) {
+//		
+//		int result = ss.insert("namespace" + ".insertReply",reviewReplyDTO);
+//		
+//		
+//		return null;
+//	}
 
 }
