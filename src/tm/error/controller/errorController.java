@@ -1,4 +1,4 @@
-package tm.error.contoroller;
+package tm.error.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,8 +11,8 @@ import com.mongodb.diagnostics.logging.Logger;
 
 @Controller
 @RequestMapping("/tm/error")
-public class ErrorController {
-	private static final Logger logger = (Logger) LoggerFactory.getLogger(ErrorController.class);
+public class errorController {
+	private static final Logger logger = (Logger) LoggerFactory.getLogger(errorController.class);
 
 	@RequestMapping(value = "/throwable")
 	public String throwable(HttpServletRequest request, Model model) {
