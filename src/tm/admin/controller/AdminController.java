@@ -665,10 +665,6 @@ public class AdminController {
 		
 		List<AdminStempDTO> list = dao.stemp(page[1],page[2]);
 		
-		for (AdminStempDTO a : list) {
-			System.out.println(a.getParstempNum()+"이미지 명 : "+a.getParstempQrcodeimg());
-		}
-		
 		mv.setViewName(dir+"adminstemp");
 		mv.addObject("list", list);
 		mv.addObject("totalpage", page[0]);
