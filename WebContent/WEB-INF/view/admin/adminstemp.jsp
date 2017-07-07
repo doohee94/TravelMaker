@@ -180,6 +180,18 @@
 																			<input type="text" class="form-control" name="partnerAddr" id="partnerAddr" readonly="readonly" value="${a.partnerAddr }">
 																		</div>
 																		<div class="form-group">
+																			<label for="partnerNum">QR</label>
+																			<c:choose>
+																				<c:when test="${a.parstempQrcodeimg == null }">
+																					생성된 QR이 없습니다
+																					<button type="button" class="closebtnf btn btn-primary" onclick="location.href='stempcreation.tm?num=${a.parstempNum }'">생성</button>
+																				</c:when>
+																				<c:otherwise>
+																					<img alt="QR이미지" src="/upload/admin/stempqr/${a.parstempQrcodeimg }">
+																				</c:otherwise>
+																			</c:choose>
+																		</div>
+																		<div class="form-group">
 																			<button type="submit" class="updatebtn btn btn-info">수정</button>
 																			<button type="button" data-dismiss="modal" class="closebtnf btn btn-primary">닫기</button>
 																		</div>

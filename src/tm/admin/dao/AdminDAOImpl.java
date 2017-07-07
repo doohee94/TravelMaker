@@ -414,6 +414,14 @@ public class AdminDAOImpl implements AdminDAO {
 		return res;
 	}
 	
+	public int stempcreation(String num){
+		HashMap map = new HashMap();
+		map.put("parstempNum",num);
+		map.put("parstempQrcodeimg",num+".png");
+		
+		return ss.update(namespace + ".stempcreation", map);
+	}
+	
 	
 	/****************   제휴승인 처리  *****************/
 	

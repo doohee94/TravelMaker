@@ -132,6 +132,11 @@ public interface AdminDAO {
 	 */
 	public int stempupdate(AdminStempDTO adminStempDTO);
 	
+	/**
+	 * stempcreation
+	 * 스탬프 이미지 등록
+	 */
+	public int stempcreation(String num);
 	
 	
 	

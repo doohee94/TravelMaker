@@ -9,6 +9,7 @@ import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -663,6 +664,11 @@ public class AdminController {
 		 */
 		
 		List<AdminStempDTO> list = dao.stemp(page[1],page[2]);
+		
+		for (AdminStempDTO a : list) {
+			System.out.println(a.getParstempNum()+"이미지 명 : "+a.getParstempQrcodeimg());
+		}
+		
 		mv.setViewName(dir+"adminstemp");
 		mv.addObject("list", list);
 		mv.addObject("totalpage", page[0]);
@@ -747,6 +753,8 @@ public class AdminController {
 	public String stempcreation(String num){
 		String url = "192.168.0.104/tmmoblie/mstemp.tm?parstempNum="+num;
 		QRUtil.makeQR(url, num);
+		dao.stempcreation(num);
+		
 		return "redirect:/tmadmin/searchstemp.tm";
 	}
 }

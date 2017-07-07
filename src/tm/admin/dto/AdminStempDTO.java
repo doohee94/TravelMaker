@@ -7,6 +7,7 @@ CREATE TABLE parstemp (
 	partner_num      VARCHAR2(50)   NOT NULL, -- 제휴ID
 	partner_name     VARCHAR2(50)   NOT NULL, -- 제휴스템프 지점명
 	partner_addr     VARCHAR2(50)   NOT NULL, -- 지점 주소
+	PARSTEMP_QRCODEIMG VARCHAR2(20)			  -- QR이미지
     CONSTRAINT fk_tm_stemp_partner_num FOREIGN Key (partner_num) REFERENCES partner(partner_num)
 );
  */
@@ -14,6 +15,7 @@ CREATE TABLE parstemp (
 	private String partnerNum;
 	private String partnerName;
 	private String partnerAddr;
+	private String parstempQrcodeimg;
 	
 	private String partnerReginum;
 	private String partnerComname;
@@ -117,6 +119,12 @@ CREATE TABLE parstemp (
 	}
 	public void setPartnerType(int partnerType) {
 		this.partnerType = partnerType;
+	}
+	public String getParstempQrcodeimg() {
+		return parstempQrcodeimg;
+	}
+	public void setParstempQrcodeimg(String parstempQrcodeimg) {
+		this.parstempQrcodeimg = parstempQrcodeimg;
 	}
 	
 }
