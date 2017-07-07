@@ -34,7 +34,6 @@
   		/WEB-INF/springconfig/recommandTravelRegion-servlet.xml
   		/WEB-INF/springconfig/totalre-servlet.xml
   		/WEB-INF/springconfig/reviewlike-servlet.xml
-  		/WEB-INF/springconfig/error-servlet.xml
   		</param-value>
   	</init-param>
   </servlet>
