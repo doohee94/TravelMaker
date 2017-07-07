@@ -1,21 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!-- jQuery Mobile 기본구조 -->
-<% session.setAttribute("parstempNum", "4"); %>
-<% session.setAttribute("userId", "test"); %>
 <!DOCTYPE html>
 <html>
-<head lang="en">
+<head lang="utf-8">
     <meta charset="UTF-8">
     <title>TravelMaker Mobile</title>
-    
-   <!-- 1. viewport 설정 -->
-   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scaleable=no">
 
-   <!-- jquery mobile -->
-   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
-   <!-- 지정 css -->
-   <link rel="stylesheet" href="/resource/mobile/css/base.css" />
    </head>
    
    <body>
@@ -41,12 +32,36 @@
            <button class="ui-btn ui-corner-all" id="btn-calcel">취소 하기</button>   
        </div>
 
-   </div> 
-   <!-- jquery  -->  
-   <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-   <!-- jquery mobile -->
-   <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+
    <!-- 지정 js -->
-   <script src="/resource/mobile/js/moblieStemp.js"></script>
+   <script type="text/javascript">
+   		$(document).on('click', '#btn-ok', function(e){
+   			//hidden 태크에 저장되어있는 userId값과 parstempNum 값을 변수처리
+   			var userId = $("#userId").val();
+   			var parstempNum = $("#parstempNum").val();
+   			//변수로 지정된 값을 통해 Ajax로 db에 입력처리함 성공시 이미지 변환시킴
+   			// ajax데이터 타입 post형식 보내는값 userId, parstempNum
+   			alert("아이디는 : ["+userId+"] 장소번호는 : ["+parstempNum+"]");
+   			$.ajax({
+   				type : "POST",
+   				url : "/tmmobile/insert.tm",
+   				data : {
+   					userId : userId,
+   					parstempNum : parstempNum,
+   				},
+   				success : function(data){
+   					alert("입력되었습니다.");
+   					//이미지 완료형으로 바꾸는 쿼리
+   					$("#stamp").attr("src","/resource/mobile/images/stamp.png");
+   				},
+   				error : function(err){
+   					alert("작성실패"+err.status);
+   				} 
+   			});
+		});
+
+   
+   </script>
+   </div> 
 </body>
 </html>
