@@ -25,6 +25,9 @@
     
     <!-- Header CSS -->
     <link href="/resource/bootstrap/css/header.css" rel="stylesheet" type="text/css">
+    
+    <!-- 헤더 css -->
+	<link href="/resource/header/css/header.css" rel="stylesheet" />
 </head>
 <body>
 	<!-- 메인 헤더 부분 -->

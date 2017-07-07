@@ -23,6 +23,9 @@
     <!-- step2 CSS -->
     <link href="/resource/step2/css/step2.css" rel="stylesheet" type="text/css">
     
+    <!-- 헤더 css -->
+	<link href="/resource/header/css/header.css" rel="stylesheet" />
+    
 </head>
 <body>
 	<!-- 메인 헤더 부분 -->
