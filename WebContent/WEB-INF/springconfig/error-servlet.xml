@@ -9,7 +9,7 @@
 
 		
 	<!-- @Controller @Service @Repository어노테이션 설정시 자동 빈 생성 -->
-	<context:component-scan base-package="tm.error.controller" />
+	<context:component-scan base-package="tm.error" />
 	
 	
 </beans>
