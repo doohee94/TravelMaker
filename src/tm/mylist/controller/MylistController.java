@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import tm.mylist.dao.MylistDAO;
+
 @Controller
 @RequestMapping("mylist/")
 public class MylistController {
@@ -62,6 +64,48 @@ public class MylistController {
 		
 				
 		return list; 
+	}
+	
+	@Autowired
+	MylistDAO dao;
+	/**
+	 * 일정 리스트에서 _id를 받아와 일정 삭제/ 여행한 일정+리뷰가 작성 된 경우 오라클쪽도 삭제
+	 * 파라메터 : _id 몽고디비 아이디 값 // num :몽고디비 save_state값
+	 * 리턴타입 : 바로 리스트로 갈 수 잇도록 
+	 * */
+	@RequestMapping("/delete.tm")
+	public String delete(String _id, String num){
+		
+		String result = "";
+		Criteria c = new Criteria("_id").is(_id);
+		Query query = new Query(c);
+		mongoTemplate.remove(query, "schedule");
+		
+		
+		//여행한 일정일 경우 -> 리뷰를 작성한 경우 
+		if(num.equals("3")){
+			String totalre_num = dao.findReview(_id);
+			
+			if(totalre_num != null){
+				dao.deleteReview(_id);
+			}
+			
+		}
+		
+		
+		
+		if(num.equals("0")){
+			result = "redirect:/mylist/inglist.tm";
+		}else if(num.equals("1")){
+			result ="redirect:/mylist/donelist.tm";
+		}else if(num.equals("2")){
+			result = "redirect:/mylist/startlist.tm";
+		}else if(num.equals("3")){
+			result ="redirect:/mylist/endlist.tm";
+		}
+		
+		return result;
+		
 	}
 	
 	

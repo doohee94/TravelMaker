@@ -279,7 +279,8 @@ $(function(){
 							 +'<h3>'+data[i].sDate+'~'+data[i].eDate+'</h3>'
 		    				 +'<p>'+data[i].cityList[0]+'>'+data[i].cityList[(data[i].cityList.length -1)]+'</p>'
 		    				 + '<p>'+data[i].tour_title+'</p>'
-		    				 +'<a href="#" class="read-more">일정체크</a>'
+		    				 +'<a href="#" class="read-more" id="check">일정체크</a><br/><br/>'
+		    				 +'<a class="read-more" id="delete">일정삭제</a><br/><br/>'
 		    				 +'<input type="hidden" value="'+data[i]._id+'"  class="_id"/>'	
 		    				 +'</figcaption></figure>'		    		
 		    		);// append
@@ -294,14 +295,20 @@ $(function(){
 		
 	});//end ajax
 
-	$('.schedule-list').on('click', '.read-more', function(){
+	$('.schedule-list').on('click', '#check', function(){
 		var _id = $(this).siblings("._id").val().trim();
 		alert(_id);
 		location.href="/mypage_checklist/checklist.tm?_id="+_id;
 		
 	});
 	
+var num = "2";
 	
+	$('.schedule-list').on('click', '#delete', function(){
+		var _id = $(this).siblings("._id").val().trim();
+		location.href="/mylist/delete.tm?_id="+_id+"&num="+num;
+		
+	});
 	
 });//end function
 
