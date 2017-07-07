@@ -137,8 +137,8 @@ public class TravelReviewController {
 		return mv;
 	}
 	
-	@Autowired
-	reviewReplyDTO dto;
+//	@Autowired
+//	reviewReplyDTO dto;
 	
 	@RequestMapping("/insertReply.tm")
 	@ResponseBody
@@ -155,10 +155,10 @@ public class TravelReviewController {
 			
 			String curDate = new java.text.SimpleDateFormat("yy-MM-dd").format(new java.util.Date());
 			
-			dto.setUserId(userId);
-			dto.setScNum(scNum);
-			dto.setReply(reply);
-			dto.setWriteDate(curDate);
+//			dto.setUserId(userId);
+//			dto.setScNum(scNum);
+//			dto.setReply(reply);
+//			dto.setWriteDate(curDate);
 			
 			//reviewReplyDTO reviewDTO = dao.insertReply(dto);
 			
