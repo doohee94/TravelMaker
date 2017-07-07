@@ -274,14 +274,25 @@ $(function(){
 		    	
 		    	
 		    	for(var i=0; i<data.length; i++){
+		    		
+		    		//작성된 리뷰가 있는지 확인하는 에이작스
+		    		$.ajax({
+		    			
+		    			
+		    		});
+		    		
+		    		
+		    		
+		    		
 		    		$(".schedule-list").append('<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done">'
 							 +'<img src="/resource/mylist/images/image_2.JPG" />'
 							 +'<figcaption>'
 							 +'<h3>'+data[i].sDate+'~'+data[i].eDate+'</h3>'
 		    				 +'<p>'+data[i].cityList[0]+'>'+data[i].cityList[(data[i].cityList.length -1)]+'</p>'
 		    				 + '<p>'+data[i].tour_title+'</p>'
-		    				 +'<a href="#" class="read-more">상세일정보기</a><br/><br/>'
-		    				 +'<a href="#" class="read-more">리뷰등록</a>'
+		    				 +'<a href="#" class="read-more" id="view">상세일정보기</a><br/><br/>'
+		    				 +'<a href="#" class="read-more" id="insert">리뷰등록</a><br/><br/>'
+		    				 +'<a class="read-more" id="delete">일정삭제</a><br/><br/>'
 		    				 +'<input type="hidden" value="'+data[i]._id+'"  class="_id"/>'	
 		    				 +'</figcaption></figure>'		    		
 		    		);// append
@@ -299,13 +310,20 @@ $(function(){
 		
 	});//end ajax
 	
-	$('.schedule-list').on('click', '.read-more', function(){
+	$('.schedule-list').on('click', '#insert', function(){
 		var _id = $(this).siblings("._id").val().trim();
 		alert(_id);
 		location.href="/travelReview/registReview.tm?_id="+_id;
 		
 	});
 
+	var num = "3";
+	$('.schedule-list').on('click', '#delete', function(){
+		var _id = $(this).siblings("._id").val().trim();
+		location.href="/mylist/delete.tm?_id="+_id+"&num="+num;
+		
+	});
+	
 });//end function
 
 </script>
