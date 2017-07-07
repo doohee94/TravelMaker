@@ -41,6 +41,6 @@
    
    <insert id="insertReply" parameterType="reviewReplyDTO">
    	INSERT INTO reviewreply
-   	VALUES(#{seq_reviewreply.nextval,#{userId},#{scNum},#{writeDate},#{reply}})
+   	VALUES(seq_reviewreply.nextval,#{userId},#{scNum},#{writeDate},#{reply}})
    </insert>
 </mapper>
