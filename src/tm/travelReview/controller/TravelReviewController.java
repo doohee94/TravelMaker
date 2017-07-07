@@ -70,6 +70,10 @@ public class TravelReviewController {
 		mv.setViewName(dir + "reviewDetail");
 
 		TotalreDTO dto = dao.showReview(_id);
+		
+		ArrayList replyList = dao.showReply(_id);
+		
+		mv.addObject("replyList",replyList);
 
 		//이미 좋아요를 누른건지 아닌지 확인
 		int reviewlike = 0;
@@ -81,6 +85,7 @@ public class TravelReviewController {
 		mv.addObject("user_id", user_id);
 
 		mv.addObject("totalre", dto);
+		
 
 
 		//몽고디비에서 일정 불러오기
@@ -118,8 +123,6 @@ public class TravelReviewController {
 		
 		String _id = totalreDTO.getScNum();
 
-		ModelAndView mv = new ModelAndView();
-
 		TotalreDTO dto = dao.showReview(_id);
 
 		return "redirect:/travelReview/reviewlist.tm";
@@ -137,36 +140,16 @@ public class TravelReviewController {
 		return mv;
 	}
 	
-//	@Autowired
-//	reviewReplyDTO dto;
-	
 	@RequestMapping("/insertReply.tm")
-	@ResponseBody
-	public JSONObject insertReply(@RequestBody String reviewReply){
+	public String insertReply(reviewReplyDTO reviewReplyDTO){
 		
-		JSONObject response  = new JSONObject();
+		String curDate = new java.text.SimpleDateFormat("yy-MM-dd").format(new java.util.Date());
+		System.out.println("현재날짜"+curDate);
+		reviewReplyDTO.setWriteDate(curDate);
 		
-		JSONParser jsonParser = new JSONParser();
-        try {
-			JSONObject jsonObj = (JSONObject) jsonParser.parse(reviewReply);
-			String scNum = (String)jsonObj.get("_id");
-			String reply = (String)jsonObj.get("reply");
-			String userId = (String)jsonObj.get("user_id");
-			
-			String curDate = new java.text.SimpleDateFormat("yy-MM-dd").format(new java.util.Date());
-			
-//			dto.setUserId(userId);
-//			dto.setScNum(scNum);
-//			dto.setReply(reply);
-//			dto.setWriteDate(curDate);
-			
-			//reviewReplyDTO reviewDTO = dao.insertReply(dto);
-			
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		int result = dao.insertReply(reviewReplyDTO);
 		
-		return response;
+		return "redirect:/travelReview/reviewDetail.tm?_id="+reviewReplyDTO.getScNum();
 	}
 
 }

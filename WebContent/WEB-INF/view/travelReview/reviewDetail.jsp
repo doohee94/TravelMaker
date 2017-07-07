@@ -5,6 +5,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
+	ArrayList replyList = (ArrayList)request.getAttribute("replyList");
 	int result = (Integer) request.getAttribute("result");
 	String _id = (String)request.getAttribute("_id");
 	String user_id = (String) request.getAttribute("user_id");
@@ -268,14 +269,24 @@
 			<th>작성자</th>
 			<th>날짜</th>
 		</tr>
-		<tr>
-			<td>ㅌ</td>
-			<td>ㅌ</td>
-			<td>ㅌㄴ</td>
-		</tr>
+		<c:choose>
+			<c:when test="${! empty replyList }">
+				<c:forEach items="${replyList}" var="list">
+					<tr>
+						<td>${list.reply }</td>
+						<td>${list.userId }</td>
+						<td>${list.writeDate }</td>
+					</tr>
+				</c:forEach>
+			</c:when>
+		</c:choose>
 	</table>
 	<br/>
-	<input style="width:70%; margin-bottom:5px" type="text" placeholder="댓글" id="reply"><button id="write">입력</button>
+	<form action="/travelReview/insertReply.tm">
+	<input type="hidden" value="<%=_id%>" id="_id" name="scNum">
+	<input type="hidden" value="<%=user_id%>" id="user_id" name="userId">
+	<input style="width:70%; margin-bottom:5px" type="text" placeholder="댓글" id="reply" name="reply"><input type="submit" value="입력">
+	</form>
 	</div>
 
 </body>
