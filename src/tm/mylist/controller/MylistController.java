@@ -108,8 +108,23 @@ public class MylistController {
 		
 	}
 	
-	
-	
+	@RequestMapping("/findReview.tm")
+	@ResponseBody
+	public String findReview(@RequestBody String _idData){
+		
+		JSONParser parser = new JSONParser();
+		JSONObject obj =null;
+		try {
+			obj = (JSONObject)parser.parse(_idData);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		String _id = obj.get("_id").toString();
+		String totalre_num = dao.findReview(_id);
+		
+		return totalre_num; 
+	}
 	
 	
 }

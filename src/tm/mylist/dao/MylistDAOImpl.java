@@ -19,7 +19,9 @@ public class MylistDAOImpl implements MylistDAO {
 		
 		HashMap map = new HashMap();		
 		map.put("_id",_id);
+		System.out.println("마이리스트"+_id);
 		String totalre_num = ss.selectOne(namespace+".searchNum",map);
+		System.out.println("받아온값"+totalre_num);
 		return totalre_num;
 	}
 

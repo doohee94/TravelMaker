@@ -30,6 +30,7 @@
 				<value>classpath:tm/mobile/mapper/*.xml</value>      
             	<value>classpath:tm/main/mapper/*.xml</value>
             	<value>classpath:tm/recommandtravelregion/mapper/*.xml</value>
+            	<value>classpath:tm/mylist/mapper/*.xml</value>
 			</array>
 		</property>
 	</bean>

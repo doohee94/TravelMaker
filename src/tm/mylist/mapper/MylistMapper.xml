@@ -3,7 +3,7 @@
 
 <mapper namespace="mylist">
 	
-<select id="searchNum" parameterType="hashMap" resultType="java.lang.String">
+<select id="searchNum" parameterType="hashMap" resultType="string">
 	SELECT totalre_num
 	FROM totalre
 	WHERE sc_num = #{_id}

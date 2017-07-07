@@ -271,32 +271,66 @@ $(function(){
 			,contentType:"application/json "
 			,data:JSON.stringify(list_num)
 		    ,success:function(data){ 
-		    	
+		    
 		    	
 		    	for(var i=0; i<data.length; i++){
+		    		var godata = data[i];
+		    		var _idData= {
+			    			"_id":data[i]._id
+			    	}
 		    		
+			    	
 		    		//작성된 리뷰가 있는지 확인하는 에이작스
 		    		$.ajax({
+		    			url : "/mylist/findReview.tm"
+				 			,type:"post"
+				 		    ,contentType:"application/json "
+				 		    ,data:JSON.stringify(_idData)
+				 		     ,success:function(getData){  
+				 		    
+				 		    	
+				 		    	 if(getData == null || getData == ""){ //리뷰가 등록 안돼있을 경우
+				 		    		 
+				 		    		$(".schedule-list").append('<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done">'
+											 +'<img src="/resource/mylist/images/image_2.JPG" />'
+											 +'<figcaption>'
+											 +'<h3>'+godata.sDate+'~'+godata.eDate+'</h3>'
+						    				 +'<p>'+godata.cityList[0]+'>'+godata.cityList[(godata.cityList.length -1)]+'</p>'
+						    				 + '<p>'+godata.tour_title+'</p>'
+						    				 +'<a href="#" class="read-more" id="view">상세일정보기</a><br/><br/>'
+						    				 +'<a href="#" class="read-more" id="insert">리뷰등록</a><br/><br/>'
+						    				 +'<a class="read-more" id="delete">일정삭제</a><br/><br/>'
+						    				 +'<input type="hidden" value="'+godata._id+'"  class="_id"/>'	
+						    				 +'</figcaption></figure>'		    		
+						    		);// append
+				 		    		 
+				 		    		 
+				 		    	 }else{//리뷰가 등록 돼 있는 경우
+				 		    		 
+				 		    		$(".schedule-list").append('<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done">'
+											 +'<img src="/resource/mylist/images/image_2.JPG" />'
+											 +'<figcaption>'
+											 +'<h3>'+godata.sDate+'~'+godata.eDate+'</h3>'
+						    				 +'<p>'+godata.cityList[0]+'>'+godata.cityList[(godata.cityList.length -1)]+'</p>'
+						    				 + '<p>'+godata.tour_title+'</p>'
+						    				 +'<a href="#" class="read-more" id="view">상세일정보기</a><br/><br/>'
+						    				 +'<a class="read-more" id="delete">일정삭제</a><br/><br/>'
+						    				 +'<input type="hidden" value="'+godata._id+'"  class="_id"/>'	
+						    				 +'</figcaption></figure>'		    		
+						    		);// append
+				 		    		 
+				 		    		 
+				 		    		 
+				 		    		 
+				 		    	 }//end else if
+				 		     
+	 
+				 		     }//end success
+				 			,error:function(err,status,error){
+				 				alert("여행한리스트생성실패!"+err.status+error);
+				 			}
 		    			
-		    			
-		    		});
-		    		
-		    		
-		    		
-		    		
-		    		$(".schedule-list").append('<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done">'
-							 +'<img src="/resource/mylist/images/image_2.JPG" />'
-							 +'<figcaption>'
-							 +'<h3>'+data[i].sDate+'~'+data[i].eDate+'</h3>'
-		    				 +'<p>'+data[i].cityList[0]+'>'+data[i].cityList[(data[i].cityList.length -1)]+'</p>'
-		    				 + '<p>'+data[i].tour_title+'</p>'
-		    				 +'<a href="#" class="read-more" id="view">상세일정보기</a><br/><br/>'
-		    				 +'<a href="#" class="read-more" id="insert">리뷰등록</a><br/><br/>'
-		    				 +'<a class="read-more" id="delete">일정삭제</a><br/><br/>'
-		    				 +'<input type="hidden" value="'+data[i]._id+'"  class="_id"/>'	
-		    				 +'</figcaption></figure>'		    		
-		    		);// append
-		    	
+		    		});//end ajax
 		    	}//end for i
 		    	
 		    	
@@ -312,7 +346,6 @@ $(function(){
 	
 	$('.schedule-list').on('click', '#insert', function(){
 		var _id = $(this).siblings("._id").val().trim();
-		alert(_id);
 		location.href="/travelReview/registReview.tm?_id="+_id;
 		
 	});
