@@ -43,7 +43,6 @@
 
 <!-- 지역탭 부분 css링크 -->
 <script src="/resource/travelReview/js/reviewlist.js"></script>
-<script src="/resource/travelReview/js/travelRegion.js"></script>
 
 </head>
 
@@ -132,7 +131,7 @@
 				<!-- Project One -->
         <div class="row">
             <div class="col-md-7">
-                <a>
+                <a href="reviewDetail.tm?_id=${a.scNum}">
                     <img class="img-responsive img-hover images" src="http://placehold.it/700x300" alt="">
                 </a>
             </div>
@@ -140,7 +139,7 @@
                 <h3>${a.totalreTitle}</h3>
                 <h4>해시태그자리</h4>
                 <p>${a.totalreContent}</p>
-                <a class="btn btn-primary images">상세보기</i></a>
+                <a href="reviewDetail.tm?_id=${a.scNum}" class="btn btn-primary images">상세보기</i></a>
             </div>
         </div>
         <!-- /.row -->

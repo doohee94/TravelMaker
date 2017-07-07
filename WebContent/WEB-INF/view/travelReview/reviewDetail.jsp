@@ -6,6 +6,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	int result = (Integer) request.getAttribute("result");
+	String _id = (String)request.getAttribute("_id");
+	String user_id = (String) request.getAttribute("user_id");
 	System.out.println(result);
 %>
 <% 
@@ -87,68 +89,6 @@
 	
 <script type="text/javascript" src="/resource/bootstrap/js/bootstrap.js"></script>
 
-<script type="text/javascript">
-	$(function(){
-		
-		//일정에서 가각의 탭을 눌렀을 때 해당 지역을 지도에 마커로 표시해준다
-		$('#myTab > li').click(function(){
-			var arrayX=[];
-			var arrayY=[];
-			var arrayTitle=[];
-			
-			$(this).find(".mapx").each(function(i,item){
-				arrayX[i] = $(this).val();
-			});
-			
-			$(this).find(".mapy").each(function(i,item){
-				arrayY[i] = $(this).val();
-			});
-			
-			$(this).find(".title").each(function(i,item){
-				arrayTitle[i] = $(this).val();
-			});
-			
-			/*불러온 정보에서 위도, 경도 정보를 받아 지도 위에 마커찍기*/
-            var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-            mapOption = { 
-               center: new daum.maps.LatLng(arrayY[0], arrayX[0]), // 지도의 중심좌표
-               level: 8 // 지도의 확대 레벨
-            };
-
-            var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-            for(var i=0; i<arrayX.length; i++){
-
-               //마커가 표시될 위치입니다 
-               var markerPosition  = new daum.maps.LatLng(arrayY[i], arrayX[i]); 
-
-               // 마커를 생성합니다
-               var marker = new daum.maps.Marker({
-                  position: markerPosition
-               });
-               
-            	// 마커가 지도 위에 표시되도록 설정합니다
-               marker.setMap(map);
-            	
-            // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-               var iwContent = '<div style="padding:5px;">'+arrayTitle[i]+'</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-                   iwRemoveable = true, // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
-               	   iwPosition = new daum.maps.LatLng(arrayY[i], arrayX[i]); //인포윈도우 표시 위치입니다
-               	   
-            // 인포윈도우를 생성합니다
-               var infowindow = new daum.maps.InfoWindow({
-            	   position : iwPosition, 
-                   content : iwContent,
-                   removable : iwRemoveable
-               });
-               
-            // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
-               infowindow.open(map, marker); 
-            }
-		});
-	});
-</script>
-
 </head>
 
 <body>
@@ -212,6 +152,8 @@
 					<li>리뷰 </li>
 					<li>리뷰상세</li>
 				</ol>
+				<input type="hidden" value="<%=_id%>" id="_id">
+				<input type="hidden" value="<%=user_id%>" id="user_id">
 			</div>
 		</div>
 		<!-- /.row -->
@@ -319,8 +261,21 @@
 	<!-- 지도 구성 -->
 	<div id="map" style="width: 30%; height: 450px;" class="map"></div>
 	<hr>
-
-
+	
+	<table class="table-striped" border=1>
+		<tr>
+			<th>#</th>
+			<th>내용</th>
+			<th>작성자</th>
+			<th>날짜</th>
+		</tr>
+		<tr>
+			<td>ㅇㅇ</td>
+			<td>ㅌ</td>
+			<td>ㅌ</td>
+			<td>ㅌㄴ</td>
+		</tr>
+	</table>
 
 </body>
 </html>
