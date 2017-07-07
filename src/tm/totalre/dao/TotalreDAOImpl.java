@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import tm.reviewlike.dto.ReviewLikeDTO;
 import tm.totalre.dto.TotalreDTO;
+import tm.totalre.dto.reviewReplyDTO;
 
 @Service
 public class TotalreDAOImpl implements TotalreDAO {
@@ -67,6 +68,15 @@ public class TotalreDAOImpl implements TotalreDAO {
 
 		int result = ss.insert(namespace+".insertHashtag",totalreDTO);
 		return result;
+	}
+
+	@Override
+	public reviewReplyDTO insertReply(reviewReplyDTO reviewReplyDTO) {
+		
+		int result = ss.insert("namespace" + ".insertReply",reviewReplyDTO);
+		
+		
+		return null;
 	}
 
 }

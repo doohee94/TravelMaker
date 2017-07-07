@@ -51,6 +51,27 @@ $(function() {
   			}
   		});
   		
+  		$("#write").click(function(){
+  			var reviewReply = {
+  	  				"reply" : $("#reply").val(),
+  	  				"user_id" : $("#user_id").val(),
+  	  				"sc_num" : $("#_id").val()
+  	  		};
+  	  		
+  	  		$.ajax({
+  	            	 url : "/insertReply.tm"
+  	        	     ,type:"post"
+  	        	     ,contentType:"application/json"
+  	        	     ,data:JSON.stringify(reviewReply)
+  	        	     ,success:function(data){
+  	        	    	 alert(data);
+  	        	     }
+  	             ,error:function(err,status,error){
+  	    	         alert("실패!"+err.status+error);
+  	    	      }
+  	        });
+  		});
+  		
   		
   		//지도 관련 부분 스크립트
   		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 

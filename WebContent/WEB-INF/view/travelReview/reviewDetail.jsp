@@ -260,22 +260,23 @@
 	
 	<!-- 지도 구성 -->
 	<div id="map" style="width: 30%; height: 450px;" class="map"></div>
-	<hr>
-	
-	<table class="table-striped" border=1>
+
+	<div style="width:80%; margin-left:10%" align="center">
+	<table class="table table-striped">
 		<tr>
-			<th>#</th>
 			<th>내용</th>
 			<th>작성자</th>
 			<th>날짜</th>
 		</tr>
 		<tr>
-			<td>ㅇㅇ</td>
 			<td>ㅌ</td>
 			<td>ㅌ</td>
 			<td>ㅌㄴ</td>
 		</tr>
 	</table>
+	<br/>
+	<input style="width:70%; margin-bottom:5px" type="text" placeholder="댓글" id="reply"><button id="write">입력</button>
+	</div>
 
 </body>
 </html>

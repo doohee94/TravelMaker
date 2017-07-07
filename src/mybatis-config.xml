@@ -20,6 +20,7 @@
 		<typeAlias alias="ReviewLikeDTO" type="tm.reviewlike.dto.ReviewLikeDTO"/>
 		<typeAlias alias="step1DTO" type="tm.step1.dto.StepDTO"/>
 		<typeAlias alias="memberDTO" type="tm.member.dto.MemberDTO"/>
+		<typeAlias alias="reviewReplyDTO" type="tm.totalre.dto.reviewReplyDTO"/>
 	</typeAliases>
 
 </configuration>

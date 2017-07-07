@@ -3,6 +3,7 @@ package tm.totalre.dao;
 import java.util.ArrayList;
 
 import tm.totalre.dto.TotalreDTO;
+import tm.totalre.dto.reviewReplyDTO;
 
 public interface TotalreDAO {
 	
@@ -15,4 +16,6 @@ public interface TotalreDAO {
 	public int insertReview(TotalreDTO totalreDTO);
 	
 	public int insertHashtag(TotalreDTO totalreDTO);
+	
+	public reviewReplyDTO insertReply(reviewReplyDTO reviewReplyDTO);
 }

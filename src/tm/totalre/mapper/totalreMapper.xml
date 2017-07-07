@@ -38,4 +38,9 @@
       INSERT INTO hashtag
       VALUES(#{scNum},#{hashtag})
    </insert>
+   
+   <insert id="insertReply" parameterType="ReviewReply">
+   	INSERT INTO reviewreply
+   	VALUES(#{seq_reviewreply.nextval,#{userId},#{scNum},#{writeDate},#{reply}})
+   </insert>
 </mapper>

@@ -1,6 +1,5 @@
 package tm.travelReview.controller;
 
-import java.lang.ProcessBuilder.Redirect;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
@@ -17,15 +16,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import tm.reviewlike.dao.ReviewLikeDAO;
-import tm.reviewlike.dto.ReviewLikeDTO;
 import tm.totalre.dao.TotalreDAO;
 import tm.totalre.dto.TotalreDTO;
+import tm.totalre.dto.reviewReplyDTO;
 
 
 /**
@@ -138,6 +135,38 @@ public class TravelReviewController {
 		mv.addObject("_id", _id);
 		mv.addObject("userId",userId);
 		return mv;
+	}
+	
+	@Autowired
+	reviewReplyDTO dto;
+	
+	@RequestMapping("/insertReply.tm")
+	@ResponseBody
+	public JSONObject insertReply(@RequestBody String reviewReply){
+		
+		JSONObject response  = new JSONObject();
+		
+		JSONParser jsonParser = new JSONParser();
+        try {
+			JSONObject jsonObj = (JSONObject) jsonParser.parse(reviewReply);
+			String scNum = (String)jsonObj.get("_id");
+			String reply = (String)jsonObj.get("reply");
+			String userId = (String)jsonObj.get("user_id");
+			
+			String curDate = new java.text.SimpleDateFormat("yy-MM-dd").format(new java.util.Date());
+			
+			dto.setUserId(userId);
+			dto.setScNum(scNum);
+			dto.setReply(reply);
+			dto.setWriteDate(curDate);
+			
+			reviewReplyDTO reviewDTO = dao.insertReply(dto);
+			
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		return response;
 	}
 
 }
