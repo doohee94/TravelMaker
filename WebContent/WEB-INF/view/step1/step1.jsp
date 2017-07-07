@@ -27,6 +27,8 @@
 <!-- 출발지 경유지 도착지 탭 css -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<!-- 헤더 css -->
+<link href="/resource/header/css/header.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -1115,15 +1117,16 @@
 					readonly="readonly" />
 
 				<!-- 경유지 출력공간 -->
-				<input type="text" class="listthrough" placeholder="경유지"
-					readonly="readonly">
+				<input type="textarea" class="listthrough" placeholder="경유지"
+					readonly="readonly"/>
 
 				<!-- 도착지 출력공간 -->
 				<input type="text" class="listarrival" placeholder="도착지"
 					readonly="readonly" />
 
 				<!-- 경유지비우기 버튼 -->
-				<input type="button" class="reset" value="경유지 비우기" readonly="readonly"/>
+				<input type="text" class="reset" value="경유지 비우기"
+					readonly="readonly" />
 			</div>
 
 			<!-- end contnsubform class  -->
@@ -1177,10 +1180,9 @@
 							<div class="input-group">
 								<form id="modalfrm" method="post" action="step1searchfellow.tm">
 									<input id="modalsearchplace" type="text" class="form-control"
-										placeholder="Search ID.."> <span
-										class="input-group-btn"> <input type="button"
-										id="modalsearchbtn" class="modalsearchbtn btn btn-default"
-										value='SEARCH'> <!-- 											<button id="modalsearchbtn" class="btn btn-default" type="button">Search</button> -->
+										placeholder="Search ID.."> 
+										<span class="input-group-btn"> 
+										<input type="button" id="modalsearchbtn" class="modalsearchbtn btn btn-default"	value='SEARCH'>
 									</span>
 								</form>
 							</div>

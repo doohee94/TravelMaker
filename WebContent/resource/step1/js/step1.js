@@ -34,7 +34,7 @@ $(".nextbtnstep2").click(function(event) {
 	var enddate = document.getElementById('enddate');
 
 	if (sregion.value == '' || sregion.value == null) {
-		alert('출발지역 입력해주세요');
+		alert('출발지역을 입력해주세요');
 		return false;
 		
 	} else if (tregion.value == '' || tregion.value == null) {
@@ -73,7 +73,6 @@ $(".nextbtnstep2").click(function(event) {
 });
 
 // 동행자 팝업 창에서 search 버튼 눌렀을때
-
 $("#modalsearchbtn").click(function() {
 
 					// 입력된 값 저장 변수
@@ -153,6 +152,7 @@ $(".ftrsbtn").click(function() {
 	okcount = 0;
 });
 
+//동행자 팝업창에서 완료 버트 눌렀을때 일정 만들기 페이지로 선택한 아이디 가져간다.
 $(document).on('click', '.ftokbtn', function() {
 
 	// step1 동행자 공간 id,class 는 fellowpeople
@@ -480,170 +480,304 @@ $(".Chungcheongbukdo3").click(function() {
 // 여행지 지역 선택 3행으로 이루어진상태
 var tempstart;
 
-// 1행 travelregion
+// 출발지 탭 1행 
 $(".wrap .city0 .a").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
 });
 
-// 2행 travelregion
+// 출발지 탭 2행 
 $(".wrap .city1 .a").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
 });
 
-// 3행 travelregion
+// 출발지 탭 3행 
 $(".wrap .city2 .a").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
 });
 
-/** 강원도 하위 버튼 (travelregion) */
+// 출발지 탭 강원도 하위 버튼  
 $(".wrap .Gangwondodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
 });
 
-/** 경기도 하위 버튼 (travelregion) */
+// 출발지 탭 경기도 하위 버튼 
 $(".wrap .Gyeonggidodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
 });
 
-/** 경상남도 하위 버튼 (travelregion) */
+// 출발지 탭 경상남도 하위 버튼  
 $(".wrap .Gyeongsangnamdodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
 });
-/** 경상북도 하위 버튼 (travelregion) */
+// 출발지 탭 경상북도 하위 버튼  
 $(".wrap .Gyeongsangbukdodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
 });
-/** 전남 하위 버튼 (travelregion) */
+// 출발지 탭 전남 하위 버튼  
 $(".wrap .Jeollanamdodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
 });
-/** 전북 하위 버튼 (travelregion) */
+// 출발지 탭 전북 하위 버튼  
 $(".wrap .Jeollabukdodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
 });
-/** 충남 하위 버튼 (travelregion) */
+// 출발지 탭 충남 하위 버튼  
 $(".wrap .Chungcheongnamdodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
 });
-/** 충북 하위 버튼 (travelregion) */
+// 출발지 탭 충북 하위 버튼  
 $(".wrap .Chungcheongbukdodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
 });
 
-/** 1행 travelregion2 */
+// 경유지탭 1행*/
 var temp = [];
+
 $(".wrap .city0 .b").click(function() {
-	temp += $(this).val() + ">";
-	$(".listthrough").val(temp);
+    //첫번째 if문 출발지 탭에서 선택한 값을 경유지 탭에서 선택 못하게 하는 기능.
+	//두번째 if문 경유지 탭에서 동일한 지역을 입력 못하도록 하는 기능.
+	if( $(".liststart").val() != $(this).val() ){
+		
+		if( $(this).attr("class") == ""){
+			return false;
+		}else{
+			temp += $(this).val() + ">";
+	    	$(".listthrough").val(temp);
+	    	$(this).attr("class", "");
+		}
+	}else{
+		return false;
+	}
+    
 });
-/** 2행 travelregion */
+// 경유지탭 2행 travelregion */
 $(".wrap .city1 .b").click(function() {
-	temp += $(this).val() + ">";
-	$(".listthrough").val(temp);
+    //첫번째 if문 출발지 탭에서 선택한 값을 경유지 탭에서 선택 못하게 하는 기능.
+	//경유지 탭에서 동일한 지역을 입력 못하도록 하는 기능.
+	if( $(".liststart").val() != $(this).val() ){
+		
+		if( $(this).attr("class") == ""){
+			return false;
+		}else{
+			temp += $(this).val() + ">";
+	    	$(".listthrough").val(temp);
+	    	$(this).attr("class", "");
+		}
+	}else{
+		return false;
+	}
 });
-/** 3행 travelregion */
+// 경유지탭 3행 travelregion */
 $(".wrap .city2 .b").click(function() {
-	temp += $(this).val() + ">";
-	$(".listthrough").val(temp);
+    //첫번째 if문 출발지 탭에서 선택한 값을 경유지 탭에서 선택 못하게 하는 기능.
+	//경유지 탭에서 동일한 지역을 입력 못하도록 하는 기능.
+	if( $(".liststart").val() != $(this).val() ){
+		
+		if( $(this).attr("class") == ""){
+			return false;
+		}else{
+			temp += $(this).val() + ">";
+	    	$(".listthrough").val(temp);
+	    	$(this).attr("class", "");
+		}
+	}else{
+		return false;
+	}
 });
 
-/** 강원도 하위 버튼 (travelregion2) */
+// 경유지탭 강원도 하위 버튼 (travelregion2) 
 $(".wrap .Gangwondodiv2 input").click(function() {
-	temp += $(this).val() + ">";
-	$(".listthrough").val(temp);
+    //첫번째 if문 출발지 탭에서 선택한 값을 경유지 탭에서 선택 못하게 하는 기능. 
+	//경유지 탭에서 동일한 지역을 입력 못하도록 하는 기능.
+	if( $(".liststart").val() != $(this).val() ){
+		
+		if( $(this).attr("class") == ""){
+			return false;
+		}else{
+			temp += $(this).val() + ">";
+	    	$(".listthrough").val(temp);
+	    	$(this).attr("class", "");
+		}
+	}else{
+		return false;
+	}
 });
-/** 경기도 하위 버튼 (travelregion2) */
+// 경유지탭 경기도 하위 버튼 (travelregion2) 
 $(".wrap .Gyeonggidodiv2 input").click(function() {
-	temp += $(this).val() + ">";
-	$(".listthrough").val(temp);
+    //첫번째 if문 출발지 탭에서 선택한 값을 경유지 탭에서 선택 못하게 하는 기능.
+	//경유지 탭에서 동일한 지역을 입력 못하도록 하는 기능.
+	if( $(".liststart").val() != $(this).val() ){
+		
+		if( $(this).attr("class") == ""){
+			return false;
+		}else{
+			temp += $(this).val() + ">";
+	    	$(".listthrough").val(temp);
+	    	$(this).attr("class", "");
+		}
+	}else{
+		return false;
+	}
 });
 
-/** 경상남도 하위 버튼 (travelregion2) */
+// 경유지탭 경상남도 하위 버튼 (travelregion2) 
 $(".wrap .Gyeongsangnamdodiv2 input").click(function() {
-	temp += $(this).val() + ">";
-	$(".listthrough").val(temp);
+    //첫번째 if문 출발지 탭에서 선택한 값을 경유지 탭에서 선택 못하게 하는 기능.
+	//경유지 탭에서 동일한 지역을 입력 못하도록 하는 기능.
+	if( $(".liststart").val() != $(this).val() ){
+		
+		if( $(this).attr("class") == ""){
+			return false;
+		}else{
+			temp += $(this).val() + ">";
+	    	$(".listthrough").val(temp);
+	    	$(this).attr("class", "");
+		}
+	}else{
+		return false;
+	}
 });
-/** 경상북도 하위 버튼 (travelregion2) */
+// 경유지탭 경상북도 하위 버튼 (travelregion2) 
 $(".wrap .Gyeongsangbukdodiv2 input").click(function() {
-	temp += $(this).val() + ">";
-	$(".listthrough").val(temp);
+    //첫번째 if문 출발지 탭에서 선택한 값을 경유지 탭에서 선택 못하게 하는 기능.
+	//경유지 탭에서 동일한 지역을 입력 못하도록 하는 기능.
+	if( $(".liststart").val() != $(this).val() ){
+		
+		if( $(this).attr("class") == ""){
+			return false;
+		}else{
+			temp += $(this).val() + ">";
+	    	$(".listthrough").val(temp);
+	    	$(this).attr("class", "");
+		}
+	}else{
+		return false;
+	}
 });
-/** 전남 하위 버튼 (travelregion2) */
+// 경유지탭 전남 하위 버튼 (travelregion2) 
 $(".wrap .Jeollanamdodiv2 input").click(function() {
-	temp += $(this).val() + ">";
-	$(".listthrough").val(temp);
+    //첫번째 if문 출발지 탭에서 선택한 값을 경유지 탭에서 선택 못하게 하는 기능.
+	//경유지 탭에서 동일한 지역을 입력 못하도록 하는 기능.
+	if( $(".liststart").val() != $(this).val() ){
+		
+		if( $(this).attr("class") == ""){
+			return false;
+		}else{
+			temp += $(this).val() + ">";
+	    	$(".listthrough").val(temp);
+	    	$(this).attr("class", "");
+		}
+	}else{
+		return false;
+	}
 });
-/** 전북 하위 버튼 (travelregion2) */
+// 경유지탭 전북 하위 버튼 (travelregion2) 
 $(".wrap .Jeollabukdodiv2 input").click(function() {
-	temp += $(this).val() + ">";
-	$(".listthrough").val(temp);
+    //첫번째 if문 출발지 탭에서 선택한 값을 경유지 탭에서 선택 못하게 하는 기능.
+	//경유지 탭에서 동일한 지역을 입력 못하도록 하는 기능.
+	if( $(".liststart").val() != $(this).val() ){
+		
+		if( $(this).attr("class") == ""){
+			return false;
+		}else{
+			temp += $(this).val() + ">";
+	    	$(".listthrough").val(temp);
+	    	$(this).attr("class", "");
+		}
+	}else{
+		return false;
+	}
 });
-/** 충남 하위 버튼 (travelregion2) */
+// 경유지탭 충남 하위 버튼 (travelregion2) 
 $(".wrap .Chungcheongnamdodiv2 input").click(function() {
-	temp += $(this).val() + ">";
-	$(".listthrough").val(temp);
+    //첫번째 if문 출발지 탭에서 선택한 값을 경유지 탭에서 선택 못하게 하는 기능.
+	//경유지 탭에서 동일한 지역을 입력 못하도록 하는 기능.
+	if( $(".liststart").val() != $(this).val() ){
+		
+		if( $(this).attr("class") == ""){
+			return false;
+		}else{
+			temp += $(this).val() + ">";
+	    	$(".listthrough").val(temp);
+	    	$(this).attr("class", "");
+		}
+	}else{
+		return false;
+	}
 });
-/** 충북 하위 버튼 (travelregion2) */
+// 경유지탭 충북 하위 버튼 (travelregion2) 
 $(".wrap .Chungcheongbukdodiv2 input").click(function() {
-	temp += $(this).val() + ">";
-	$(".listthrough").val(temp);
+    //첫번째 if문 출발지 탭에서 선택한 값을 경유지 탭에서 선택 못하게 하는 기능.
+	//경유지 탭에서 동일한 지역을 입력 못하도록 하는 기능.
+	if( $(".liststart").val() != $(this).val() ){
+		
+		if( $(this).attr("class") == ""){
+			return false;
+		}else{
+			temp += $(this).val() + ">";
+	    	$(".listthrough").val(temp);
+	    	$(this).attr("class", "");
+		}
+	}else{
+		return false;
+	}
 });
 
-/** 1행 travelregion3 */
+//  도착지 탭 1행  
 $(".wrap .city0 .c").click(function() {
 	// $(".container .liststart").val($(this).val());
 	$(".listarrival").val($(this).val());
 });
-/** 2행 travelregion */
+// 도착지 탭 2행 
 $(".wrap .city1 .c").click(function() {
 	$(".listarrival").val($(this).val());
 });
-/** 3행 travelregion */
+// 도착지 탭  3행 
 $(".wrap .city2 .c").click(function() {
 	$(".listarrival").val($(this).val());
 });
 
-/** 강원도 하위 버튼 (travelregion3) */
+// 도착지 탭 강원도 하위 버튼 (travelregion3) 
 $(".wrap .Gangwondodiv3 input").click(function() {
 	$(".listarrival").val($(this).val());
 });
-/** 경기도 하위 버튼 (travelregion3) */
+// 도착지 탭 경기도 하위 버튼 (travelregion3) 
 $(".wrap .Gyeonggidodiv3 input").click(function() {
 	$(".listarrival").val($(this).val());
 });
 
-/** 경상남도 하위 버튼 (travelregion3) */
+// 도착지 탭 경상남도 하위 버튼 (travelregion3) 
 $(".wrap .Gyeongsangnamdodiv3 input").click(function() {
 	$(".listarrival").val($(this).val());
 });
-/** 경상북도 하위 버튼 (travelregion3) */
+// 도착지 탭 경상북도 하위 버튼 (travelregion3) 
 $(".wrap .Gyeongsangbukdodiv3 input").click(function() {
 	$(".listarrival").val($(this).val());
 });
-/** 전남 하위 버튼 (travelregion3) */
+// 도착지 탭 전남 하위 버튼 (travelregion3) 
 $(".wrap .Jeollanamdodiv3 input").click(function() {
 	$(".listarrival").val($(this).val());
 });
-/** 전북 하위 버튼 (travelregion3) */
+// 도착지 탭 전북 하위 버튼 (travelregion3) 
 $(".wrap .Jeollabukdodiv3 input").click(function() {
 	$(".listarrival").val($(this).val());
 });
-/** 충남 하위 버튼 (travelregion3) */
+// 도착지 탭 충남 하위 버튼 (travelregion3) 
 $(".wrap .Chungcheongnamdodiv3 input").click(function() {
 	$(".listarrival").val($(this).val());
 });
-/** 충북 하위 버튼 (travelregion3) */
+// 도착지 탭 충북 하위 버튼 (travelregion3) 
 $(".wrap .Chungcheongbukdodiv3 input").click(function() {
 	$(".listarrival").val($(this).val());
 });
