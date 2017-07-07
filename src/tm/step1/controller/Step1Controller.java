@@ -33,28 +33,32 @@ public class Step1Controller {
 	@Autowired
 	Step1DAO dao;
 
-	// step1 동행자 팝업 검색 목록 ( 아이디 와 닉네임 출력 )
+	/**
+	 * step1 동행자 팝업 검색 목록 ( 아이디 와 닉네임 출력 )
+	 */
 	@RequestMapping("/step1searchfellow.tm")
 	public @ResponseBody List<MemberDTO> setp1searchfellow(String step1search, HttpSession session) {
-		
+
 		String userId = (String)session.getAttribute("userId");
-		if( userId == null ){
+		if (userId == null) {
 			userId = " ";
 		}
-		
-		List<MemberDTO> list = dao.fellowsearch(step1search,userId);
-		
-	
-		
+
+		List<MemberDTO> list = dao.fellowsearch(step1search, userId);
+
 		return list;
 	}
-	
-	// step1 일정만들기에서 입력한 정보를 step2 로 넘겨주는데 세션을 이용.
+
+	/**
+	 * step1 일정만들기에서 입력한 정보를 step2 로 넘겨주는데 세션을 이용.
+	 */
 	@RequestMapping("/stepinfo.tm")
-	public String nextBtn(StepDTO stepdto, HttpSession session){
-		
-		// 출발지 경유지 도착지 를 넘기는데 경유지는 한 곳 이상이 들어오기 때문에 
-		// 스트링토크나이저를 이용하여 값만 전달(">" 구분자 제외)
+	public String nextBtn(StepDTO stepdto, HttpSession session) {
+
+		/**
+		 * 출발지 경유지 도착지 를 넘기는데 경유지는 한 곳 이상이 들어오기 때문에
+		 * 스트링토크나이저를 이용하여 값만 전달(">" 구분자 제외)
+		 */
 		ArrayList<String> schedule = stepdto.getSchedule();
 		schedule.add(stepdto.getListstart());
 		StringTokenizer st = new StringTokenizer(stepdto.getListthrough(), ">");
@@ -65,9 +69,10 @@ public class Step1Controller {
 			}
 		}
 		schedule.add(stepdto.getListarrival());
-		
-		// 동행자는 한 명이상 최대4명(나를제외한) 입력가능하다.
-		// 스트링토크나이저를 이용하여 값만 전달( " " 구분자 제외)
+
+		/**
+		 * 동행자는 한 명이상, 최대4명(나를제외한) 입력가능하다. 스트링토크나이저를 이용하여 값만 전달( " " 구분자 제외)
+		 */
 		ArrayList<String> party = stepdto.getParty();
 		StringTokenizer stp = new StringTokenizer(stepdto.getPartystr(), " ");
 		while (stp.hasMoreTokens()) {
@@ -76,18 +81,19 @@ public class Step1Controller {
 				party.add(temp);
 			}
 		}
-		
-		// 아래 stepdto.setId(userId) 코드를 주석처리를 하는 이유는 step3에서 id 따로 만들었기 때문.
-		String userId = (String)session.getAttribute("userId");
-		//stepdto.setId(userId);
-		
+
+		/**
+		 * 아래 stepdto.setId(userId) 코드를 주석처리를 하는 이유는 step3에서 id 따로 만들었기 때문.
+		 */
+		String userId = (String) session.getAttribute("userId");
+		// stepdto.setId(userId);
+
 		System.out.println("아마도 시간만 나올껄 : " + stepdto.getId());
-		
-		session.setAttribute(userId+"dto", stepdto);
-		
+
+		session.setAttribute(userId + "dto", stepdto);
+
 		return "redirect:/step2/step2.tm";
 	}
-	
 
 	/**
 	 * 인자값 전달이 필요없는 부분 담당
