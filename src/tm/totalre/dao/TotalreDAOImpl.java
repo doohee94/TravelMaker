@@ -70,13 +70,25 @@ public class TotalreDAOImpl implements TotalreDAO {
 		return result;
 	}
 
-//	@Override
-//	public reviewReplyDTO insertReply(reviewReplyDTO reviewReplyDTO) {
-//		
-//		int result = ss.insert("namespace" + ".insertReply",reviewReplyDTO);
-//		
-//		
-//		return null;
-//	}
+	@Override
+	public ArrayList showReply(String _id) {
+		
+		HashMap map = new HashMap();
+		map.put("scNum", _id);
+		
+		ArrayList<reviewReplyDTO> list = (ArrayList)ss.selectList(namespace+".showReply",map);
+		return list;
+	}
+
+	@Override
+	public int insertReply(reviewReplyDTO reviewReplyDTO) {
+		
+		int result = ss.insert(namespace+".insertReply",reviewReplyDTO);
+		
+		
+		return result;
+	}
+	
+	
 
 }

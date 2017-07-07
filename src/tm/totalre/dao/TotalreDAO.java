@@ -17,5 +17,7 @@ public interface TotalreDAO {
 	
 	public int insertHashtag(TotalreDTO totalreDTO);
 	
-//	public reviewReplyDTO insertReply(reviewReplyDTO reviewReplyDTO);
+	public int insertReply(reviewReplyDTO reviewReplyDTO);
+	
+	public ArrayList showReply(String _id);
 }
