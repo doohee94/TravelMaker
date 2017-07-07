@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 
@@ -24,7 +25,8 @@
     
     <!-- 내가 준 css -->
         <link href="/resource/searchpage/css/search.css" rel="stylesheet" type="text/css">
-
+<!--  헤더 css -->
+<link href="/resource/header/css/header.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -37,6 +39,7 @@
 <body>
 
  <!-- Navigation -->
+   <!-- 메인 헤더 부분 -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -47,7 +50,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="tmmain/main.tm">Travel Maker</a>
+                <a class="navbar-brand" href="/tmmain/main.tm">Travel Maker</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -58,18 +61,37 @@
                     <li>
                         <a href="/recommandtravelregion/recommandTravelRegion.tm">여행지추천</a>
                     </li>
+                    <!-- 로그인 할때 생기는 버튼 -->
+                    <c:if test="${not empty sessionScope.userNick }">
                     <li>
                         <a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
                     </li>
                     <li>
-                        <a href="/challengeschedule/challengeSchedule.tm">도전일정</a>
+                        <a href="/mylist/menubar.tm">마이페이지</a>
                     </li>
-                     <li style="padding:10px">
-                       <input type="text"/> <button>검색</button>
-                    </li>                      
-                     <li>
-                        <a href="member/loginForm.tm">로그인</a>
+                    </c:if>
+                    <li style="padding:10px" id="mobile_search">
+                       <input type="text"/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px;"><span class="glyphicon glyphicon-search"></span> search</button> 
                     </li>
+                    <!-- 로그인 할때 생기는 버튼 -->
+                    <c:choose>
+                       <c:when test="${not empty sessionScope.userNick }">
+                           <li>
+                             <a href="#">${sessionScope.userNick }&nbsp;&nbsp;님</a>
+                          </li>                      
+                          <li>
+                              <a href="/tmmain/logout.tm">로그아웃</a>
+                          </li>
+                       </c:when>
+                       <c:otherwise>
+                           <li>
+                              <a href="/member/loginForm.tm">로그인</a>
+                          </li>
+                          <li>
+                              <a href="/member/signupForm.tm">회원가입</a>
+                          </li>   
+                       </c:otherwise>
+                    </c:choose>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

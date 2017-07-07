@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.servlet.http.HttpSession;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -15,7 +17,10 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import tm.recommandtravelregion.dao.RecommandTravelRegionDAO;
 
 @Controller
 @RequestMapping("/recommandtravelregion")
@@ -170,12 +175,13 @@ public class RecommandTravelRegionController {
 						temp[2]=i;
 					}
 				}
-				
+			
 				for(int i=0; i<top3Title.length; i++){
 					top3Title[i] = titleTemp.get(temp[i]);
 					top3Image[i] = imageTemp.get(temp[i]);
 					top3Addr[i] = addrTemp.get(temp[i]);
-					System.out.println();
+					System.out.println("도전일정 top3길이"+top3Title.length);
+					
 					System.out.println(i+"*********"+top3Title[i]);
 				}
 				
@@ -196,7 +202,31 @@ public class RecommandTravelRegionController {
 				e.printStackTrace();
 			}
 		}//end if
-
+			
 		return mv;
 	}
+	
+	@Autowired
+	RecommandTravelRegionDAO dao;
+	
+	@RequestMapping("/likeList.tm")
+	@ResponseBody
+	public String likeList(HttpSession session){
+		
+		//세션이 null일 경우 로그인을 하면 여기를 볼수 잇다고 해놓고
+		String data = "";
+		//세션이 있을 경우 아이디에 있는 관심지역 불러서 시부분만 보내버리깅ㅎ
+		
+		if(session.getAttribute("userId") == null){
+			data = "None";
+		}else{
+			String userId = session.getAttribute("userId").toString();
+			data = dao.searchLikeSpot(userId);
+		}
+		System.out.println("관심지역>>>"+data);
+		return data;
+	}
+	
+	
+	
 }

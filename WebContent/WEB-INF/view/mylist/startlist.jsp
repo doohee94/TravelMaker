@@ -279,7 +279,7 @@ $(function(){
 							 +'<h3>'+data[i].sDate+'~'+data[i].eDate+'</h3>'
 		    				 +'<p>'+data[i].cityList[0]+'>'+data[i].cityList[(data[i].cityList.length -1)]+'</p>'
 		    				 + '<p>'+data[i].tour_title+'</p>'
-		    				 +'<a href="/mypage_checklist/checklist.tm" class="read-more">일정체크</a>'
+		    				 +'<a href="#" class="read-more">일정체크</a>'
 		    				 +'<input type="hidden" value="'+data[i]._id+'"  class="_id"/>'	
 		    				 +'</figcaption></figure>'		    		
 		    		);// append
