@@ -1,5 +1,6 @@
 package tm.mylist.dao;
 
-public class MylistDAO {
-
+public interface MylistDAO {
+	public String findReview(String _id);
+	public void deleteReview(String _id);
 }
