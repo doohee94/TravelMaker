@@ -74,80 +74,53 @@ $(".nextbtnstep2").click(function(event) {
 
 // 동행자 팝업 창에서 search 버튼 눌렀을때
 
-$("#modalsearchbtn")
-		.click(
-				function() {
+$("#modalsearchbtn").click(function() {
 
 					// 입력된 값 저장 변수
 					tempid = $("#modalsearchplace").val();
 
-					$
-							.ajax({
-								url : "/step1/step1searchfellow.tm",
-								type : "POST",
-								data : {
-									"step1search" : tempid
-								},
-								dataType : "json",
-								success : function(data) {
-									// 내용값을 지우고
-									$(".idlistfrm").empty();
-									// 결과 리스트를 읽어와서 추가
-									for (var i = 0; i < data.length; i++) {
-										$(".idlistfrm")
-												.append(
-														"<label class='idlb'>ID</label>");
-										$(".idlistfrm")
-												.append(
-														"<input type='text' class='idlist'name='idlist' value='"
-																+ data[i].userId
-																+ "' readonly='readonly'>");
-										$(".idlistfrm")
-												.append(
-														"<label class='nicklb'>닉네임</label>");
-										$(".idlistfrm")
-												.append(
-														"<input type='text' class='nicklist'name='nicklist' value='"
-																+ data[i].userNick
-																+ "' readonly='readonly'>");
-										$(".idlistfrm")
-												.append(
-														"<input type='button' value='O' class='okbtn'>");
-										$(".idlistfrm").append("<br>");
-									}
-								}
-							});
-				});
+					$.ajax({
+					url : "/step1/step1searchfellow.tm",
+					type : "POST",
+					data : {
+					"step1search" : tempid
+					},
+					dataType : "json",
+					success : function(data) {
+					// 내용값을 지우고
+					$(".idlistfrm").empty();
+					// 결과 리스트를 읽어와서 추가
+						for (var i = 0; i < data.length; i++) {
+						$(".idlistfrm").append("<label class='idlb'>ID</label>");
+						$(".idlistfrm").append("<input type='text' class='idlist'name='idlist' value='"	+ data[i].userId+ "' readonly='readonly'>");
+						$(".idlistfrm").append("<label class='nicklb'>닉네임</label>");
+						$(".idlistfrm").append("<input type='text' class='nicklist'name='nicklist' value='"+ data[i].userNick+ "' readonly='readonly'>");
+						$(".idlistfrm").append("<input type='button' value='O' class='okbtn'>");
+						$(".idlistfrm").append("<br>");
+						}
+					
+				    }
+					});
+});
 
 // 동행자 최대4명만 선택할 수 있도록 카운트를 구하기위해 필요한 변수.
 var okcount = 0;
 // 출력된 아이디와 닉네임을 확인하여 O버튼을 클릭하면 팝업창 하단에 선택된 아이디 출력.
-$(document)
-		.on(
-				'click',
-				'.okbtn',
-				function() {
-
-					if (okcount < 4) {
-
-						var searchedid = $(this).prev().prev().prev().val();
-						$(".mbbul")
-								.append(
-										"<li class='mbulli'>"
-												+ searchedid
-												+ "<input type='button' value='X' class='cancelbtn'/>"
-												+ " " + "</li>");
+$(document).on('click',	'.okbtn', function() {
+			if (okcount < 4) {
+				var searchedid = $(this).prev().prev().prev().val();
+				$(".mbbul").append("<li class='mbulli'>"+ searchedid+ 
+						"<input type='button' value='X' class='cancelbtn'/>"+ 
+						" " + "</li>");
 
 						// 동행자 카운트 1 증가
 						++okcount;
 
-					} else {
+			}else{
+				alert("동행자는 최대 4명까지 선택 가능합니다. 즐거운 여행되세요.");
+			}
 
-						alert("동행자는 최대 4명까지 선택 가능합니다. 즐거운 여행되세요.");
-
-					}
-
-				});
+});
 
 // 동행자 검색 창에서 검색한 아이디를 선택하고 선택한 아이디를 다시 삭제.
 $(document).on('click', '.cancelbtn', function() {
