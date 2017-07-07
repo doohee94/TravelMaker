@@ -22,6 +22,7 @@ import tm.admin.dto.AdminMemberDTO;
 import tm.admin.dto.AdminQnaDTO;
 import tm.admin.dto.AdminStempDTO;
 import tm.admin.dto.AdminadDTO;
+import tm.admin.dto.QRUtil;
 import tm.alliance.dto.AllianceDTO;
 
 /**
@@ -736,6 +737,16 @@ public class AdminController {
 	@RequestMapping("/stempupdate.tm")
 	public String stempupdate(AdminStempDTO adminStempDTO){
 		dao.stempupdate(adminStempDTO);
+		return "redirect:/tmadmin/searchstemp.tm";
+	}
+	
+	/**
+	 * 스탬프 QR생성
+	 */
+	@RequestMapping("/stempcreation.tm")
+	public String stempcreation(String num){
+		String url = "192.168.0.104/tmmoblie/mstemp.tm?parstempNum="+num;
+		QRUtil.makeQR(url, num);
 		return "redirect:/tmadmin/searchstemp.tm";
 	}
 }
