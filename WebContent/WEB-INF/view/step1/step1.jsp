@@ -106,12 +106,12 @@
 
 		<div class="container" id="container">
 
-			<div class="prevnextbtn">
+<!-- 			<div class="prevnextbtn"> -->
 				<center>
 <!-- 					<input type="button" value="< 메인" class="nextbtnmain"onclick="location.href='/tmmain/main.tm'"> -->
 <!-- 					<input type="button" value="다음 >" class="nextbtnstep2"> -->
 				</center>
-			</div>
+<!-- 			</div> -->
 
 			<div class="row">
 	            <div class="col-lg-12">

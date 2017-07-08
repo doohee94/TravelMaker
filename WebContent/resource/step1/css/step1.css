@@ -5,12 +5,12 @@
 }
 /* 상단 음영처리된 부분 1단계 2단계 3단계 폰트 css*/
 .contnsubform .row .col-lg-12 .breadcrumb li{
-	font-size:17px;
+	font-size:15px;
 	font-family:맑은고딕;
 	font-weight:600;
 	color:#9d9d9d;
 }
-/* 현재 페이지 1단계 */
+/* 현재 페이지 1단계 글씨 효과 */
 .contnsubform .row .col-lg-12 .breadcrumb .step1blur{
 	font-size:17px;
 	font-family:맑은고딕;
