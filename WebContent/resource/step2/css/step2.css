@@ -1,20 +1,59 @@
 @CHARSET "UTF-8";
 
-/*버튼 속성*/
-.nextbtn{
-	padding-bottom:2px;
-	margin-top:7px;
-	margin-left:2%;
+/** 화면 상단 단계표시 공간 */
+.container .row .col-lg-12 .breadcrumb {
+	margin-top:25px;
+    height:47px;
+}
+
+/* 상단 음영처리된 부분 1단계 2단계 3단계 폰트 css*/
+.container .row .col-lg-12 .breadcrumb li{
+	font-size:15px;
+	font-family:맑은고딕;
+	font-weight:600;
+	color:#9d9d9d;
+}
+
+/* 현재 페이지 2단계 */
+.container .row .col-lg-12 .breadcrumb .step1blur{
+	font-size:17px;
+	font-family:맑은고딕;
+	font-weight:600;
+	color:black;
+}
+
+/* 이전, 다음 버튼*/
+.container .row .col-lg-12 .breadcrumb .nextbtn{
+	float:right;
+	top:2px;
 	width:70px;
 	height:30px;
 	font-size:15px;
-	font-family: 'Nanum Gothic';
+	font-family: 맑은고딕;
 	color:white;
 	font-weight:600;
 	background-color:#103e68;
 	border:none;
-	border-radius:7px;
+	border-radius:3px;
+	margin-left:5px;
 }
+
+
+/*버튼 속성*/
+/* .nextbtn{ */
+/* 	padding-bottom:2px; */
+/* 	margin-top:7px; */
+/* 	margin-left:2%; */
+/* 	width:70px; */
+/* 	height:30px; */
+/* 	font-size:15px; */
+/* 	font-family: 'Nanum Gothic'; */
+/* 	color:white; */
+/* 	font-weight:600; */
+/* 	background-color:#103e68; */
+/* 	border:none; */
+/* 	border-radius:7px; */
+/* } */
 
 /*추천 여행지 LIST*/
 #selectlist {
