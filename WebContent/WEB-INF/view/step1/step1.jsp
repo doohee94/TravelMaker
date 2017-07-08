@@ -1164,8 +1164,9 @@
 			<div class="fourrow">
 				<input type="text" class="fellowpeople" id="fellowpeople"
 					placeholder="동행자를 선택해주세요." readonly="readonly">
+				
 				<button type="button" class="btn btn-info btn-lg"
-					data-toggle="modal" data-target="#myModal">동행자</button>
+					data-toggle="modal" data-target="#myModal"><img src="/resource/step1/images/addfriendsicon.jpg"></button>
 
 			</div>
 

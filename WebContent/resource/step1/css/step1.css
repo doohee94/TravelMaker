@@ -155,17 +155,23 @@ background-color:white;
 
 /** 동행자 버튼 */
 .contnsubform #secondcontainer .fourrow button{
-	width:120px; height:50px;
+	padding:0;
+	width:120px; height:52px;
 	margin-bottom:7px;
 	border-radius:3px;
 	color:white;
-	background-color:#103e68;
-	border:1px solid #103e68;
+	background-color:white;
+	border:1px solid white;
 }
+/** 동행자 버튼 이미지 */
+.contnsubform #secondcontainer .fourrow button img{
+
+}
+
 
 /** 선택한 동행자 출력 장소  */
 .contnsubform #secondcontainer .fourrow .fellowpeople{
-	width:1015px; height:50px;
+	width:1015px; height:53px;
 	font-size:18px; font-family: 'Nanum Gothic';
 	text-align:center;
 	border:2px solid #dedede;
