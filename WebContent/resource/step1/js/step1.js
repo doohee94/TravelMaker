@@ -28,17 +28,12 @@ $(".nextbtnstep2").click(function(event) {
 
 	var ttitle = document.getElementById('ttitle');
 	var sregion = document.getElementById('sregion');
-	var tregion = document.getElementById('tregion');
 	var aregion = document.getElementById('aregion');
 	var stdate = document.getElementById('stdate');
 	var enddate = document.getElementById('enddate');
 
 	if (sregion.value == '' || sregion.value == null) {
 		alert('출발지역을 입력해주세요');
-		return false;
-		
-	} else if (tregion.value == '' || tregion.value == null) {
-		alert('경유지역을 입력해주세요');
 		return false;
 		
 	} else if (aregion.value == '' || aregion.value == null) {
@@ -91,7 +86,7 @@ $("#modalsearchbtn").click(function() {
 					// 결과 리스트를 읽어와서 추가
 						for (var i = 0; i < data.length; i++) {
 						$(".idlistfrm").append("<label class='idlb'>ID</label>");
-						$(".idlistfrm").append("<input type='text' class='idlist'name='idlist' value='"	+ data[i].userId+ "' readonly='readonly'>");
+						$(".idlistfrm").append("<input type='text' class='idlist'name='idlist' value='"	+ data[i].userId+ "' readonly='readonly' />");
 						$(".idlistfrm").append("<label class='nicklb'>닉네임</label>");
 						$(".idlistfrm").append("<input type='text' class='nicklist'name='nicklist' value='"+ data[i].userNick+ "' readonly='readonly'>");
 						$(".idlistfrm").append("<input type='button' value='O' class='okbtn'>");
@@ -484,6 +479,10 @@ var tempstart;
 $(".wrap .city0 .a").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
+	
+	$(".nav .tabstopover").attr("class","active");
+	$(".nav .tabstart").attr("class","");
+	$(".nav .tabstopover").click();
 });
 
 // 출발지 탭 2행 
@@ -733,6 +732,24 @@ $(".wrap .Chungcheongbukdodiv2 input").click(function() {
 		return false;
 	}
 });
+
+
+// 경유지역에서 선택한 지역을 
+//var stopoverlist;
+//stopoverlist = $(".listthrough").val();
+//
+//StringTokenizer st = new StringTokenizer(stopoverlist ,">");
+
+
+//while(st.hasMoreTokens()){
+//	String temp = st.nextToken();
+//	if(!(temp.equals("") || temp == null)){
+//		
+//	}
+//}
+//
+
+
 
 //  도착지 탭 1행  
 $(".wrap .city0 .c").click(function() {

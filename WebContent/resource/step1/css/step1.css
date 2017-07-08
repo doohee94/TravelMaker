@@ -151,6 +151,15 @@ background-color:white;
 	margin-bottom:30px;
 }
 
+
+
+/** 출발지, 경유지, 도착지 탭 마우스 오버 전/이후 글씨 색상 및 효과 */
+.contnsubform .container .nav-tabs li a{
+ font-size:23px;
+}
+
+
+
 /** 출발지, 경유지, 도착지 탭의 버튼의 그룹(행을 기준으로 그룹) */
 .contnsubform .container .pathoutput .liststart{
 	border:2px solid #dedede;
@@ -161,7 +170,7 @@ background-color:white;
 
 .contnsubform .container .pathoutput .listthrough{
 	border:2px solid #dedede;
-	width:580px; height:50px;
+	width:585px; height:50px;
 	text-align:center;
 	font-size:18px;
 	overflow-x:auto;
@@ -218,7 +227,7 @@ background-color:white;
 
 /** modal footer 완료 버튼 */
 .contnsubform #secondcontainer #myModal .modal-dialog .modal-content .modal-footer #ftokbtn{
-	background-color:white; color: #2995F7;
+	background-color:white; color: #2995F7; font-weight:bold;
 }
 
 /** modal footer 목록 초기화 버튼 */
@@ -227,12 +236,14 @@ background-color:white;
 	height:34px;
 	border-radius:3px;
 	border:1px solid #2995F7;
+	font-weight:bold;
 }
 
 /** modal 검색한 아이디가 출력되는 장소 */
 .contnsubform #secondcontainer #myModal .modal-dialog .modal-content .modal-body .col-md-13	{
 	width:100%; 
 	margin-top:10px;
+	margin-left:20px;
 }
 
 /** 검색한 아이디가 출력되는 형식의  */
@@ -259,6 +270,7 @@ background-color:white;
 	border:1px solid #2995F7;
 	width:27.55px; height:28px;
 	margin-bottom:3px;
+	font-size:17px;
 }
 
 /** 검색한 아이디를 선택한 다음 취소 시키기 위한 x 버튼 */

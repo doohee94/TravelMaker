@@ -10,7 +10,9 @@
 			AND user_id != #{userId}
 			<if test="id != null" >
 				AND user_id like '%'||#{id}||'%'
+<!-- 				AND user_id like #{id} -->
 			</if>
+			
 		</where> 
 	</select>
 

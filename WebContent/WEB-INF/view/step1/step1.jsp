@@ -122,9 +122,9 @@
 			<!--   출발지 경유지 도착지 탭	-->
 
 			<ul class="nav nav-tabs">
-				<li class="active"><a data-toggle="tab" href="#menu1">출발지</a></li>
-				<li><a data-toggle="tab" href="#menu2">경유지</a></li>
-				<li><a data-toggle="tab" href="#menu3">도착지</a></li>
+				<li class="active tabstart"><a data-toggle="tab" href="#menu1" style="width:370px; text-align:center">출발지</a></li>
+				<li class="tabstopover"><a data-toggle="tab" href="#menu2" style="width:370px; text-align:center">경유지</a></li>
+				<li class="tabarrival"><a data-toggle="tab" href="#menu3" style="width:370px; text-align:center">도착지</a></li>
 			</ul>
 
 			<div class="tab-content">
@@ -1180,9 +1180,10 @@
 							<div class="input-group">
 								<form id="modalfrm" method="post" action="step1searchfellow.tm">
 									<input id="modalsearchplace" type="text" class="form-control"
-										placeholder="Search ID.."> 
+										placeholder="아이디를 검색해주세요."> 
 										<span class="input-group-btn"> 
-										<input type="button" id="modalsearchbtn" class="modalsearchbtn btn btn-default"	value='SEARCH'>
+										<input type="button" id="modalsearchbtn" 
+										style="font-family:맑은고딕"class="modalsearchbtn btn btn-default"	value='SEARCH'>
 									</span>
 								</form>
 							</div>
