@@ -72,6 +72,11 @@ public class MobileDAOImpl implements MobileDAO{
 		return dto;
 	}
 	
+	/**
+	 * check
+	 * 스탬프를 찍었는지 확인
+	 * 찍었다면 dto를 결과로 리턴
+	 */
 	@Override
 	public MoblieStemoDTO check(String userId, String parstempNum){
 		HashMap map = new HashMap();

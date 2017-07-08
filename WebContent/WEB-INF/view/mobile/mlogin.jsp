@@ -13,8 +13,13 @@
 	src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script>
 	$(document).on("pagecreate", "#pageone", function() {
+		//로그인 상태값을 가져옴
 		var state = $("#state").val();
-		
+		/*
+			10 : 로그인 안됨
+			20 : 로그인 실패
+			30 : 로그인 성공
+		*/
 		if(state == '10'){
 			alert("로그인이 필요한 페이지 입니다.");
 		}else if(state == '20'){
@@ -22,6 +27,7 @@
 		}
 		
 		$("#btn_login").on("click", function() {
+			//로그인이 완료되면 30으로 변경
 			$("#state").val(30);
 		});
 	});
