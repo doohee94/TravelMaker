@@ -1,12 +1,14 @@
 package tm.mobile.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import tm.mobile.dto.MobileDTO;
+import tm.mobile.dto.MoblieStemoDTO;
 
 @Service
 public class MobileDAOImpl implements MobileDAO{
@@ -68,6 +70,17 @@ public class MobileDAOImpl implements MobileDAO{
 		MobileDTO dto = ss.selectOne(namespace+".login",map);
 		//dto를 리턴
 		return dto;
+	}
+	
+	@Override
+	public MoblieStemoDTO check(String userId, String parstempNum){
+		HashMap map = new HashMap();
+		//map에 userId를 담음
+		map.put("userId", userId);
+		//map에 parstempNum를 담음
+		map.put("parstempNum", parstempNum);
+		
+		return ss.selectOne(namespace+".check", map);
 	}
 
 }

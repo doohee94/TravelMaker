@@ -16,5 +16,9 @@
 		INTO stemp (stemp_num, user_id, parstemp_num, stemp_date) 
 		VALUES (#{stempNum}, #{userId}, #{parstempNum}, SYSDATE )
 	</insert>
-	
+	<select id="check" parameterType="hashMap" resultType="tm.mobile.dto.MoblieStemoDTO">
+		SELECT *
+		FROM stemp
+		WHERE user_id = #{userId} AND parstemp_num = #{parstempNum}
+	</select>
 </mapper>

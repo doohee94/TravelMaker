@@ -1,53 +1,51 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!-- jQuery Mobile 기본구조 -->
 <!DOCTYPE html>
 <html>
-<head lang="utf-8">
-    <meta charset="UTF-8">
-    <title>TravelMaker Mobile</title>
-    
-   <!-- 1. viewport 설정 -->
-   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scaleable=no">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<link rel="stylesheet" href="/resource/mobile/css/base.css" />
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script
+	src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script>
+	$(document).on("pagecreate", "#pageone", function() {
+		var state = $("#state").val();
+		
+		if(state == '10'){
+			alert("로그인이 필요한 페이지 입니다.");
+		}else if(state == '20'){
+			alert("로그인 정보가 잘못되었습니다");
+		}
+		
+		$("#btn_login").on("click", function() {
+			$("#state").val(30);
+		});
+	});
+</script>
+</head>
+<body>
 
-   <!-- jquery mobile -->
-   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
-   <!-- 지정 css -->
-   <link rel="stylesheet" href="/resource/mobile/css/base.css" />
-   </head>
-   
-   <body>
+	<div data-role="page" id="pageone">
+		<div data-role="header">
+			<img id="logo" src="/resource/mobile/images/samplelogo.png" />
+		</div>
 
-   <!-- 2. page  -->
-   <div id="home" data-role="page">
-
-       <!-- 3. header -->
-       <div data-role="header" data-position="fixed" data-theme="a">
-          <img id="logo" src="/resource/mobile/images/samplelogo.png"/>
-       </div>
-       
-       <!-- 4. content --> 
-       <div data-role="content" data-theme="d">
-       	<form action="/tmmobile/mstemp.tm" method="post" > 		
-       	    <label for="text-3">ID</label>
-     		<input type="text" data-clear-btn="true" name="userId" id="text-3">
-       	    <label for="text-3">Password</label>
-     		<input type="password" data-clear-btn="true" name="userPw" id="text-3">
-     		<input type="hidden" id="parstempNum"value="<%=request.getParameter("parstempNum")%>">
-      		<button type=submit class="ui-btn" id="btn_login">LogIn</button>
-  
-       </form>		
-       </div>
-       <!-- 5.footer -->
-       <div data-role="footer"data-position="fixed" data-theme="a">
-       	  	<div data-role="main" class="ui-content">
-  			</div>
-       </div>
-
-   </div> 
-    <!-- jquery  -->  
-   <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-   <!-- jquery mobile -->
-   <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+		<div data-role="main" class="ui-content">
+			<form action="login.tm" method="post" > 		
+	       	    <label for="text-3">ID</label>
+	     		<input type="text" data-clear-btn="true" name="userId" id="text-3">
+	       	    <label for="text-3">Password</label>
+	     		<input type="password" data-clear-btn="true" name="userPw" id="text-3">
+	     		<input type="hidden" id="parstempNum" name="parstempNum"  value="${parstempNum }">
+	     		<input type="hidden" id="state" name="state" value="${state }">
+	      		<button type=submit class="ui-btn" id="btn_login">LogIn</button>
+      		</form>	
+		</div>
+	</div>
 
 </body>
 </html>

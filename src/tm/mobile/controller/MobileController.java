@@ -1,15 +1,19 @@
 package tm.mobile.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import tm.mobile.dao.MobileDAO;
 import tm.mobile.dto.MobileDTO;
+import tm.mobile.dto.MoblieStemoDTO;
 /*
  * MobileController
  * 모바일화면 매핑 처리
@@ -34,56 +38,78 @@ public class MobileController {
 	}
 	/**
 	 * insert
-	 * userId, parstempNum값을 받아서 
+	 * parstempNum값을 받아서 
 	 * MobileDAO에게 값을 넘김
-	 * @param userId 사용자 아이디값
 	 * @param parstempNum 지점번호값
 	 * @return mstemp페이지
 	 */
-	@RequestMapping("insert.tm")
-	public String insert(String userId, String parstempNum){
-		System.out.println("왔니??");
-		//db에 userId와 parstempNum를 입력시킴
-		dao.inputPlace(userId, parstempNum);
-		System.out.println("입력성공!");
-		//mstemp페이지를 리턴
-		return dir+"mstemp";
+	@RequestMapping("/insert.tm")
+	public String insert(String parstempNum, HttpSession session){
+		String id = (String) session.getAttribute("userId");
+		MoblieStemoDTO dto = dao.check(id, parstempNum);
+		int res = 0;
+		String result = "";
+		if(dto == null){
+			res = dao.inputPlace(id, parstempNum);
+		}else{
+			result = "redirect:/tmmobile/mstemp.tm?parstempNum="+parstempNum;
+		}
+		if(res > 0){
+			result = "redirect:/tmmobile/mstemp.tm?parstempNum="+parstempNum;
+		}
+		return result;
 	}
+	
+	@RequestMapping("/mstemp.tm")
+	public ModelAndView mainmo(String parstempNum, HttpSession session){
+		String id = (String) session.getAttribute("userId");
+		ModelAndView mv = new ModelAndView();
+		
+		if(id == null || id.equals("")){
+			mv.setViewName("redirect:/tmmobile/mlogin.tm?parstempNum="+parstempNum+"&state=10");
+			return mv;
+		}
+		
+		MoblieStemoDTO dto = dao.check(id, parstempNum);
+		if(dto != null){
+			mv.addObject("result", "result");
+			mv.addObject("checkdate", dto.getStempDate());
+		}
+		
+		mv.setViewName(dir+"mstemp");
+		mv.addObject("parstempNum", parstempNum);
+		
+		return mv;
+	}
+	
+	
 	/**
 	 * mobileMain
-	 * qr코드에서 파라미터 값을 얻어와  세션에 저장한후
-	 * 로그인폼으로 연결해줌
-	 * @param parstempNum
-	 * @return 로그인 폼 페이지
 	 */
-	@RequestMapping("mlogin.tm")
-	public String mobileMain(String parstempNum, HttpSession session ){
-		//장소페이지를 받아와 저장
-		session.setAttribute("parstempNum", parstempNum);
-		//mlogin페이지 리턴
-		return dir+"mlogin";
+	@RequestMapping("/mlogin.tm")
+	public ModelAndView mobileMain(String parstempNum,String state, HttpSession session ){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName(dir+"mlogin");
+		mv.addObject("parstempNum", parstempNum);
+		mv.addObject("state", state);
+		return mv;
 	}
 	/**
 	 * login
-	 * db에서 userId,userPass를 비교후 일치하는 컬럼을  MobileDTO dto에 담아
-	 * 값이 있으면 세션에 userId와  parstempNum를 저장후 mstemp페이지 리턴
-	 * 없으면 다시 로그인 폼으로 이동
-	 * @return 결과값
 	 */
-	@RequestMapping("login.tm")
-	public String login(String userId, String userPw,String parstempNum, HttpSession session){
+	@RequestMapping("/login.tm")
+	public String login(String userId, String userPw, String parstempNum, HttpSession session){
 		//db에서 userId,userPw와 일치하는 컬럼을 검색
-		MobileDTO dto = dao.login(userId,userPw);		
+		MobileDTO dto = dao.login(userId,userPw);	
 		//리턴시킬 결과값
 		String result = "";
 		if(dto!=null){
-			System.out.println("로그인성공");
+			System.out.println(userId + " : 로그인성공");
 			session.setAttribute("userId", userId);
-			session.setAttribute("parstempNum", parstempNum);
-			result= dir+"mstemp";
+			result= "redirect:/tmmobile/mstemp.tm?parstempNum="+parstempNum;
 		}else{
 			System.out.println("로그인 실패");
-			result = "redirect:/tmmobile/mlogin.tm?parstempNum="+parstempNum;
+			result = "redirect:/tmmobile/mlogin.tm?parstempNum="+parstempNum+"&state=20";
 		}
 		return result;
 	}
