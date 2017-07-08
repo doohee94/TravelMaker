@@ -1,10 +1,26 @@
 @CHARSET "UTF-8";
-
-/** 다음 버튼  */
-.contnsubform #container .prevnextbtn center .nextbtnstep2{
-	padding-bottom:2px;
-	margin-top:7px;
-	margin-left:2%;
+/* 다음 버튼이 있는 음영처리된 공간*/
+.contnsubform .row .col-lg-12 .breadcrumb{
+	height:47px;
+}
+/* 상단 음영처리된 부분 1단계 2단계 3단계 폰트 css*/
+.contnsubform .row .col-lg-12 .breadcrumb li{
+	font-size:17px;
+	font-family:맑은고딕;
+	font-weight:600;
+	color:#9d9d9d;
+}
+/* 현재 페이지 1단계 */
+.contnsubform .row .col-lg-12 .breadcrumb .step1blur{
+	font-size:17px;
+	font-family:맑은고딕;
+	font-weight:600;
+	color:black;
+}
+/* 다음 버튼*/
+.contnsubform .row .col-lg-12 .breadcrumb .nextbtnstep2{
+	float:right;
+	top:2px;
 	width:70px;
 	height:30px;
 	font-size:15px;
@@ -15,6 +31,23 @@
 	border:none;
 	border-radius:3px;
 }
+
+
+/** 다음 버튼  */
+/* .contnsubform #container .prevnextbtn center .nextbtnstep2{ */
+/* 	padding-bottom:2px; */
+/* 	margin-top:7px; */
+/* 	margin-left:2%; */
+/* 	width:70px; */
+/* 	height:30px; */
+/* 	font-size:15px; */
+/* 	font-family: 맑은고딕; */
+/* 	color:white; */
+/* 	font-weight:600; */
+/* 	background-color:#103e68; */
+/* 	border:none; */
+/* 	border-radius:3px; */
+/* } */
 
 /** 메인 버튼 */
 .contnsubform #container .prevnextbtn center .nextbtnmain{
@@ -117,6 +150,7 @@ background-color:white;
 /** 동행자 버튼 및 선택한 동행자 출력 장소 */
 .contnsubform #secondcontainer .fourrow{
 	margin-top:10px;
+	margin-bottom:12px;
 }
 
 /** 동행자 버튼 */
@@ -139,7 +173,7 @@ background-color:white;
 
 /** 일정 제목 장소 */
 .contnsubform #secondcontainer .threerow{
-	margin-bottom:40px;
+	margin-bottom:20px;
 }
 
 /** 일정제목 입력 공간 */
