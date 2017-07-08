@@ -490,55 +490,105 @@ $(".wrap .city0 .a").click(function() {
 $(".wrap .city1 .a").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
+	
+	$(".nav .tabstopover").attr("class","active");
+	$(".nav .tabstart").attr("class","");
+	$(".tab-content .active").attr("class", "tab-pane fade");
+	$(".tab-content #menu2").attr("class","tab-pane fade in active");
 });
 
 // 출발지 탭 3행 
 $(".wrap .city2 .a").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
+	
+	$(".nav .tabstopover").attr("class","active");
+	$(".nav .tabstart").attr("class","");
+	$(".tab-content .active").attr("class", "tab-pane fade");
+	$(".tab-content #menu2").attr("class","tab-pane fade in active");
 });
 
-// 출발지 탭 강원도 하위 버튼  
+// 출발지 탭 강원도 하위에 포함된 버튼  
 $(".wrap .Gangwondodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
+	
+	$(".nav .tabstopover").attr("class","active");
+	$(".nav .tabstart").attr("class","");
+	$(".tab-content .active").attr("class", "tab-pane fade");
+	$(".tab-content #menu2").attr("class","tab-pane fade in active");
 });
 
-// 출발지 탭 경기도 하위 버튼 
+// 출발지 탭 경기도 하위에 포함된 버튼  
 $(".wrap .Gyeonggidodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
+	
+	$(".nav .tabstopover").attr("class","active");
+	$(".nav .tabstart").attr("class","");
+	$(".tab-content .active").attr("class", "tab-pane fade");
+	$(".tab-content #menu2").attr("class","tab-pane fade in active");
 });
 
-// 출발지 탭 경상남도 하위 버튼  
+// 출발지 탭 경상남도 하위에 포함된 버튼  
 $(".wrap .Gyeongsangnamdodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
+	
+	$(".nav .tabstopover").attr("class","active");
+	$(".nav .tabstart").attr("class","");
+	$(".tab-content .active").attr("class", "tab-pane fade");
+	$(".tab-content #menu2").attr("class","tab-pane fade in active");
 });
-// 출발지 탭 경상북도 하위 버튼  
+// 출발지 탭 경상북도 하위에 포함된 버튼    
 $(".wrap .Gyeongsangbukdodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
+	
+	$(".nav .tabstopover").attr("class","active");
+	$(".nav .tabstart").attr("class","");
+	$(".tab-content .active").attr("class", "tab-pane fade");
+	$(".tab-content #menu2").attr("class","tab-pane fade in active");
 });
-// 출발지 탭 전남 하위 버튼  
+// 출발지 탭 전남 하위에 포함된 버튼  
 $(".wrap .Jeollanamdodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
+	
+	$(".nav .tabstopover").attr("class","active");
+	$(".nav .tabstart").attr("class","");
+	$(".tab-content .active").attr("class", "tab-pane fade");
+	$(".tab-content #menu2").attr("class","tab-pane fade in active");
 });
-// 출발지 탭 전북 하위 버튼  
+// 출발지 탭 전북 하위에 포함된 버튼  
 $(".wrap .Jeollabukdodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
+	
+	$(".nav .tabstopover").attr("class","active");
+	$(".nav .tabstart").attr("class","");
+	$(".tab-content .active").attr("class", "tab-pane fade");
+	$(".tab-content #menu2").attr("class","tab-pane fade in active");
 });
-// 출발지 탭 충남 하위 버튼  
+// 출발지 탭 충남 하위에 포함된 버튼  
 $(".wrap .Chungcheongnamdodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
+	
+	$(".nav .tabstopover").attr("class","active");
+	$(".nav .tabstart").attr("class","");
+	$(".tab-content .active").attr("class", "tab-pane fade");
+	$(".tab-content #menu2").attr("class","tab-pane fade in active");
 });
-// 출발지 탭 충북 하위 버튼  
+// 출발지 탭 충북 하위에 포함된 버튼  
 $(".wrap .Chungcheongbukdodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
+	
+	$(".nav .tabstopover").attr("class","active");
+	$(".nav .tabstart").attr("class","");
+	$(".tab-content .active").attr("class", "tab-pane fade");
+	$(".tab-content #menu2").attr("class","tab-pane fade in active");
 });
 
 // 경유지탭 1행*/
