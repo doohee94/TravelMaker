@@ -1,3 +1,58 @@
+/** 화면 상단 단계표시 공간 */
+.container .row .col-lg-12 .breadcrumb {
+	margin-top:25px;
+    height:47px;
+}
+
+/* 상단 음영처리된 부분 1단계 2단계 3단계 폰트 css*/
+.container .row .col-lg-12 .breadcrumb li{
+	font-size:15px;
+	font-family:맑은고딕;
+	font-weight:600;
+	color:#9d9d9d;
+}
+
+/* 현재 페이지 3단계 글씨 효과 */
+.container .row .col-lg-12 .breadcrumb .step1blur{
+	font-size:17px;
+	font-family:맑은고딕;
+	font-weight:600;
+	color:black;
+}
+
+/* 저장 버튼*/
+.container .row .col-lg-12 .breadcrumb .headbtnsave{
+	float:right;
+	top:2px;
+	width:70px;
+	height:30px;
+	font-size:15px;
+	font-family: 맑은고딕;
+	color:white;
+	font-weight:600;
+	background-color:#103e68;
+	border:none;
+	border-radius:3px;
+	margin-left:5px;
+}
+
+/* 친구추가 버튼 */
+.container .row .col-lg-12 .breadcrumb .headbtnaddfriend{
+	float:right;
+	top:2px;
+	width:90px;
+	height:30px;
+	font-size:15px;
+	font-family: 맑은고딕;
+	color:white;
+	font-weight:600;
+	background-color:#103e68;
+	border:none;
+	border-radius:3px;
+	margin-left:5px;
+}
+
+
 /*지도와 여행지 리스트 float 속성 적용 하기*/
 .inline{display:inline-block;}
 
