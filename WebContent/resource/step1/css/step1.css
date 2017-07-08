@@ -32,6 +32,17 @@
 	border-radius:3px;
 }
 
+/** 화면 상단 단계표시 공간 */
+.breadcrumb {
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    margin-top:20px;
+    list-style: none;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+
+
 /** 출발지, 경유지, 도착지 탭 */
 .contnsubform #container{
 	margin-top:55px;
@@ -43,7 +54,7 @@
 
 /** 경로 타이틀 */
 body .contnsubform #container .col-lg-12 #titlediv{
-	margin-top:40px;
+	margin-top:10px;
 }
 
 /** path list css */

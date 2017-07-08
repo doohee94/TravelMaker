@@ -482,7 +482,8 @@ $(".wrap .city0 .a").click(function() {
 	
 	$(".nav .tabstopover").attr("class","active");
 	$(".nav .tabstart").attr("class","");
-	$(".nav .tabstopover").click();
+	$(".tab-content .active").attr("class", "tab-pane fade");
+	$(".tab-content #menu2").attr("class","tab-pane fade in active");
 });
 
 // 출발지 탭 2행 
