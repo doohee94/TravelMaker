@@ -3,6 +3,7 @@ package tm.recommandtravelregion.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -109,10 +110,10 @@ public class RecommandTravelRegionController {
 				ArrayList<String> addr = new ArrayList<String>();
 				ArrayList<String> contentid = new ArrayList<String>();
 				//받아온 타이틀을 중복제거 위해 HashSet에 저장
-				Set<String> titleSet = new HashSet<String>();
-				Set<String> imageSet = new HashSet<String>();
-				Set<String> addrSet = new HashSet<String>();
-				Set<String> contentidSet = new HashSet<String>();
+				Set<String> titleSet = new LinkedHashSet<String>();
+				Set<String> imageSet = new LinkedHashSet<String>();
+				Set<String> addrSet = new LinkedHashSet<String>();
+				Set<String> contentidSet = new LinkedHashSet<String>();
 				
 				
 				
@@ -128,15 +129,6 @@ public class RecommandTravelRegionController {
 					contentidSet.add(contentid.get(i));
 				}
 				
-				System.out.println("----------------------------------");
-				for(int i= 0; i<contentid.size(); i++){
-					System.out.println(">>타이틀" + title.get(i));
-					System.out.println(">>이미지" + image.get(i));
-					System.out.println(">>주소" + addr.get(i));
-					System.out.println(">>컨텐트id" + contentid.get(i));
-					System.out.println();
-				}
-				
 				
 				
 				ArrayList<String> titleTemp = new ArrayList<String>(titleSet);
@@ -146,14 +138,6 @@ public class RecommandTravelRegionController {
 				int[] result = new int[titleTemp.size()];
 				for(int i=0; i<result.length; i++){
 					result[i] = 0;
-				}
-				System.out.println("----------------------------------");
-				for(int i= 0; i<addrTemp.size(); i++){
-					System.out.println("타이틀" + titleTemp.get(i));
-					System.out.println("이미지" + imageTemp.get(i));
-					System.out.println("주소" + addrTemp.get(i));
-					System.out.println("컨텐트id" + contentidTemp.get(i));
-					System.out.println();
 				}
 				
 				

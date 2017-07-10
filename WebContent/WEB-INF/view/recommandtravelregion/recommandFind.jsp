@@ -18,7 +18,6 @@
 
     <!-- Custom Fonts -->
     <link href="/resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    
    
 <title>TravelMaker</title>
 </head>
@@ -32,8 +31,8 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">여행지상세
-                    <small>Subheading</small>
+                <h1 class="page-header title">
+                    
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="/tmmain/main.tm">Home</a>
@@ -59,7 +58,7 @@
         	<div class="col-lg-12">
                 <h2 class="page-header">소개</h2>
             </div>
-            <div class="col-md-6 overview">
+            <div class="col-md-6 overview" style="width:100%">
             <!--  개요부분 -->
             </div>
         </div>

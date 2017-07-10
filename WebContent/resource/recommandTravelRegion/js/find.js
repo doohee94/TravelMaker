@@ -11,6 +11,11 @@ $(function(){
 				
 				var item = data.response.body.items.item;
 				
+				//제목붙이기
+				$(".title").append(item.title
+						+'<small>상세페이지</small>');
+				
+				
 				//개요 붙이기--------------------------------------------
 				$(".overview").append('<h2>'+item.title+'</h2>'
 						+'<p>'+item.overview+'</p>'
@@ -22,7 +27,7 @@ $(function(){
 	                firstimage=item.firstimage;
 	            
 	             }
-				$(".image").append(' <img class="img-responsive" src="'+firstimage+'" alt="">');
+				$(".image").append(' <img class="img-responsive" style="width:100%;" src="'+firstimage+'" alt="">');
 				
 				//주소 홈페이지 전화번호 붙이기-----------------------------
 				 //주소
