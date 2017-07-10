@@ -60,6 +60,9 @@ $(".updatebtn").click(function(){
 	});
 	
 	$(".stempdel").click(function(){
+		var check = confirm("삭제 하시겠습니까? \n삭제 하시면 스탬프 목록도 삭제가 됩니다");
 		var parstempNum = $(this).next().val();
-		location.href = "/tmadmin/stempdelete.tm?parstempNum=" + parstempNum;
+		if (check) {
+			location.href = "/tmadmin/stempdelete.tm?parstempNum=" + parstempNum;
+		}
 	});
