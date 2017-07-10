@@ -58,7 +58,7 @@
 <br/>
 <a href="tmtour/detailtour.tm">여행지 상세</a>
 <br/>
-<a href="tmmobile/mlogin.tm?parstempNum=st00000021">모바일 보기</a>
+<a href="tmmobile/mstemp.tm?parstempNum=st00000021">모바일 보기</a>
 <br/>
 <a href="tmheader/header.tm">헤더</a>
 <br/>
