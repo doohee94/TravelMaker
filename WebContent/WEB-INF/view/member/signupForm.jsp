@@ -77,7 +77,7 @@
                 
                 <div class="form-group">
                 <label>주소 :　</label>
-                    <select name="userCity" id="userCity" onchange="doChange(this, 'userBorough')">
+                    <select name="userCity" id="userCity" >
 		            <option value="시,도">시,도</option>
 		            <option value="서울특별시 ">서울특별시</option>
 		            <option value="부산광역시 ">부산광역시</option>
@@ -105,7 +105,7 @@
                 
 				<div class="local">
                 <label>관심지역 :　</label>
-                    <select name='selOne' id='selOne' onchange='doChange(this, "selTwo")'>
+                    <select name='selOne' id='selOne' class="likeloc" onchange='doChange(this, "selTwo")'>
 		            <option value='시,도'>시,도</option>
 		            <option value='서울특별시 '>서울특별시</option>
 		            <option value='부산광역시 '>부산광역시</option>
@@ -128,13 +128,20 @@
 		          
 		          <select name='selTwo' id='selTwo'>
 		          	<option value='default'>시, 군, 구</option>
-		          </select>&emsp;<img src="/resource/member/image/signupplus.png" id="localplus" width="20" height="20" style="cursor:pointer"> 
+		          </select>&emsp;
+		          	<img src="/resource/member/image/signupplus.png" id="localplus" width="20" height="20" style="cursor:pointer"> 
+                 	<input type="hidden" id="addloc1" value="0">
+                 	<input type="hidden" id="addloc2" value="0">
+                 	<div class="addloc1">
+                 	</div>
+                 	<div class="addloc2">
+                 	</div>
+					                 	
                 </div>
                 
                 <br/>
                 
                 <button type="submit" class="signbuttons btn btn-primary" id="signupbutton" name="signupbutton" style="background: #5d6062;">회원가입하기</button>
-                
            </form>     
         </div>
         

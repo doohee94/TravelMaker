@@ -190,43 +190,61 @@ $(function(){
 		$("#passcheck").show();
 		$("#pw-block").hide();
 	});
+	
+	
+	$("#userCity").change(doChange);
+	$(document).on('change', '.likeloc',doChange);
 });
 
 /* 관심지역 + 버튼 누르면 항목이 추가되게 */
 $(document).on('click', '#localplus', function() {
-	$(".local").append(
-		          "<br/>"+ "&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;"+
-		          "<select name='selOne' id='selOne' onchange='doChange(this, 'selTwo')'>"+
-            "<option value='시,도'>시,도</option>"+
-            "<option value='서울특별시 '>서울특별시</option>"+
-            "<option value='부산광역시 '>부산광역시</option>"+
-            "<option value='대구광역시 '>대구광역시</option>"+
-            "<option value='인천광역시 '>인천광역시</option>"+
-            "<option value='광주광역시 '>광주광역시</option>"+
-            "<option value='대전광역시 '>대전광역시</option>"+
-            "<option value='울산광역시 '>울산광역시</option>"+
-            "<option value='세종특별자치시 '>세종특별자치시</option>"+
-            "<option value='경기도 '>경기도</option>"+
-            "<option value='강원도 '>강원도</option>"+
-            "<option value='충청북도 '>충청북도</option>"+
-            "<option value='충청남도 '>충청남도</option>"+
-            "<option value='전라북도 '>전라북도</option>"+
-            "<option value='전라남도 '>전라남도</option>"+
-            "<option value='경상북도 '>경상북도</option>"+
-            "<option value='경상남도 '>경상남도</option>"+
-            "<option value='제주특별자치도 '>제주특별자치도</option>"+
-          "</select>"+"&nbsp;"+
-          "<select name='selTwo' id='selTwo'>"+
-          	"<option value='default'>시, 군, 구</option>"
-	);
+	var temp = "";
+	
+	if($("#addloc1").val() == '0'){
+		temp = "addloc1";
+	}else if($("#addloc2").val() == '0'){
+		temp = "addloc2";
+	}
+	
+	if(temp != ""){
+		$("."+temp).append(
+			    "&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;"+
+			    "<select name='selOne' id='selOne' class='likeloc'>"+
+	            "<option value='시,도'>시,도</option>"+
+	            "<option value='서울특별시 '>서울특별시</option>"+
+	            "<option value='부산광역시 '>부산광역시</option>"+
+	            "<option value='대구광역시 '>대구광역시</option>"+
+	            "<option value='인천광역시 '>인천광역시</option>"+
+	            "<option value='광주광역시 '>광주광역시</option>"+
+	            "<option value='대전광역시 '>대전광역시</option>"+
+	            "<option value='울산광역시 '>울산광역시</option>"+
+	            "<option value='세종특별자치시 '>세종특별자치시</option>"+
+	            "<option value='경기도 '>경기도</option>"+
+	            "<option value='강원도 '>강원도</option>"+
+	            "<option value='충청북도 '>충청북도</option>"+
+	            "<option value='충청남도 '>충청남도</option>"+
+	            "<option value='전라북도 '>전라북도</option>"+
+	            "<option value='전라남도 '>전라남도</option>"+
+	            "<option value='경상북도 '>경상북도</option>"+
+	            "<option value='경상남도 '>경상남도</option>"+
+	            "<option value='제주특별자치도 '>제주특별자치도</option>"+
+	          "</select>"+"&nbsp;"+
+	          "<select name='selTwo' id='selTwo'>"+
+	          	"<option value='default'>시, 군, 구</option>"
+		);
+		$("#"+temp).val("1");
+	}
 });
 
+
+
+
 /* 시도 눌렀을 때 나오는 구 */
-function doChange(srcE, targetId){
-    var val = srcE.options[srcE.selectedIndex].value;
-    var targetE = document.getElementById(targetId);
-       
-    removeAll(targetE);
+function doChange(){
+    var val = $(this).val();
+    var targetE = $(this).next();
+    targetE.find("option").remove();
+    
 
     if(val == '서울특별시 '){
        addOption('강남구', targetE);
@@ -308,19 +326,11 @@ function doChange(srcE, targetId){
            addOption('북구', targetE);                addOption('울주군', targetE);
        }
        else if(val == '세종특별자치시 '){
-      	 addOption('조치원읍', targetE);                 addOption('연기면', targetE);                 addOption('연동면', targetE);
-           addOption('부강면', targetE);                 addOption('금남면', targetE);                 addOption('장군면', targetE);                 addOption('연서면', targetE);
-           addOption('전의면', targetE);                 addOption('전동면', targetE);                 addOption('소정면', targetE);
-           addOption('한솔동', targetE);                 addOption('도담동', targetE);                 addOption('아름동', targetE);
-           addOption('종촌동', targetE);                 addOption('고운동', targetE);                 addOption('보람동', targetE);
+      	 addOption('조치원읍', targetE);                 addOption('세종시', targetE);
       }
     
        else if(val == '경기도 '){
-           addOption('장안구', targetE);                addOption('권선구', targetE);                addOption('팔달구', targetE);
-           addOption('영통구', targetE);                addOption('수정구', targetE);                addOption('중원구', targetE);
-           addOption('분당구', targetE);                addOption('만안구', targetE);                addOption('동안구', targetE);
-           addOption('상록구', targetE);                addOption('단원구', targetE);                addOption('처인구', targetE);
-           addOption('기흥구', targetE);                addOption('수지구', targetE);                addOption('광명시', targetE);
+           addOption('광명시', targetE);
            addOption('평택시', targetE);                addOption('과천시', targetE);                addOption('오산시', targetE);
            addOption('시흥시', targetE);                addOption('군포시', targetE);                addOption('의왕시', targetE);
            addOption('하남시', targetE);                addOption('이천시', targetE);                addOption('안성시', targetE);
@@ -342,15 +352,14 @@ function doChange(srcE, targetId){
        }
     
        else if(val == '충청북도 '){
-           addOption('상당구', targetE);                addOption('서원구', targetE);                addOption('흥덕구', targetE);
-           addOption('청원구', targetE);                addOption('충주시', targetE);                addOption('제천시', targetE);
+           addOption('청주시', targetE);                addOption('충주시', targetE);                addOption('제천시', targetE);
            addOption('보은군', targetE);                addOption('옥천군', targetE);                addOption('영동군', targetE);
            addOption('진천군', targetE);                addOption('괴산군', targetE);                addOption('음성군', targetE);
            addOption('단양군', targetE);                addOption('증평군', targetE);
            }
     
        else if(val == '충청남도 '){
-           addOption('동남구', targetE);                addOption('서북구', targetE);                addOption('공주시', targetE);
+           addOption('천안시', targetE);                addOption('공주시', targetE);
            addOption('보령시', targetE);                addOption('아산시', targetE);                addOption('서산시', targetE);
            addOption('논산시', targetE);                addOption('계롱시', targetE);                addOption('당진시', targetE);
            addOption('금산군', targetE);                addOption('부여군', targetE);                addOption('서천군', targetE);
@@ -358,7 +367,7 @@ function doChange(srcE, targetId){
            addOption('태안군', targetE);
            }
        else if(val == '전라북도 '){
-           addOption('완산구', targetE);                addOption('덕진구', targetE);                addOption('군산시', targetE);
+           addOption('전주시', targetE);                addOption('군산시', targetE);
            addOption('익산시', targetE);                addOption('정읍시', targetE);                addOption('남원시', targetE);
            addOption('김제시', targetE);                addOption('완주군', targetE);                addOption('진안군', targetE);
            addOption('무주군', targetE);                addOption('장수군', targetE);                addOption('임실군', targetE);
@@ -377,7 +386,7 @@ function doChange(srcE, targetId){
        }
     
        else if(val == '경상북도 '){
-           addOption('포항시 남구', targetE);                addOption('포항시 북구', targetE);                addOption('경주시', targetE);
+           addOption('포항시', targetE);                addOption('포항시', targetE);                addOption('경주시', targetE);
            addOption('김천시', targetE);                addOption('안동시', targetE);                addOption('구미시', targetE);
            addOption('영주시', targetE);                addOption('영천시', targetE);                addOption('상주시', targetE);                
            addOption('문경시', targetE);                addOption('경산시', targetE);                addOption('군위군', targetE);                addOption('의성군', targetE);
@@ -388,8 +397,7 @@ function doChange(srcE, targetId){
        }
     
        else if(val == '경상남도 '){
-           addOption('의창구', targetE);                addOption('성산구', targetE);                addOption('마산합포구', targetE);
-           addOption('마산회원구', targetE);                addOption('진해구', targetE);                addOption('진주시', targetE);
+           addOption('창원시', targetE);                addOption('진주시', targetE);
            addOption('통영시', targetE);                addOption('사천시', targetE);                addOption('김해시', targetE);
            addOption('밀양시', targetE);                addOption('거제시', targetE);                addOption('양산시', targetE);
            addOption('의령군', targetE);                addOption('함안군', targetE);                addOption('창녕군', targetE);
@@ -404,12 +412,7 @@ function doChange(srcE, targetId){
     
    }
         function addOption(value, e){
-            var o = new Option(value);
-            try{
-                e.add(o);
-            }catch(ee){
-                e.add(o, null);
-            }
+            e.append("<option value="+value+">"+value+"</option>");
         }
 
         function removeAll(e){
