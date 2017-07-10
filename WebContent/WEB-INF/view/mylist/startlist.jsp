@@ -273,8 +273,8 @@ $(function(){
 		    	
 		    	
 		    	for(var i=0; i<data.length; i++){
-		    		$(".schedule-list").append('<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done">'
-							 +'<img src="/resource/mylist/images/image_2.JPG" />'
+		    		$(".schedule-list").append('<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done" style="height:350px">'
+							 +'<img src="'+data[i].tour[0].place[0].image+'" style="height:100%"/>'
 							 +'<figcaption>'
 							 +'<h3>'+data[i].sDate+'~'+data[i].eDate+'</h3>'
 		    				 +'<p>'+data[i].cityList[0]+'>'+data[i].cityList[(data[i].cityList.length -1)]+'</p>'
