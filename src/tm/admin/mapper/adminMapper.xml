@@ -245,12 +245,17 @@
 	</select>
 	
 	<insert id="insertstemp" parameterType="tm.admin.dto.AdminStempDTO">
-		INSERT INTO parstemp
+		INSERT INTO parstemp(
+		parstemp_num,
+		partner_num,
+		partner_name,
+		partner_addr
+  		)
 		VALUES(
 		#{parstempNum},
 		#{partnerNum},
 		#{partnerName},
-		#{partnerAddr}
+		#{partnerAddr},
 		)
 	</insert>
 	
