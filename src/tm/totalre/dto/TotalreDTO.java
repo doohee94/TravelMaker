@@ -46,7 +46,7 @@ MultipartFile photo1,photo2,photo3,photo4;
          String genId = UUID.randomUUID().toString();
          this.totalrePhoto1fake = genId + totalrePhoto1;
          //파일 저장 경로
-         File f = new File("C:\\TravelMaker\\WebContent\\upload\\review\\"+totalrePhoto1fake);
+         File f = new File("C:\\TravelMaker\\TravelMaker\\WebContent\\upload\\review\\"+totalrePhoto1fake);
          try {
             photo1.transferTo(f);
          } catch (IllegalStateException | IOException e) {
@@ -68,7 +68,7 @@ MultipartFile photo1,photo2,photo3,photo4;
                String genId = UUID.randomUUID().toString();
                this.totalrePhoto2fake = genId + totalrePhoto2;
                //파일 저장 경로
-               File f = new File("C:\\TravelMaker\\WebContent\\upload\\review\\"+totalrePhoto2fake);
+               File f = new File("C:\\TravelMaker\\TravelMaker\\WebContent\\upload\\review\\"+totalrePhoto2fake);
                try {
                   photo2.transferTo(f);
                } catch (IllegalStateException | IOException e) {
@@ -90,7 +90,7 @@ MultipartFile photo1,photo2,photo3,photo4;
                String genId = UUID.randomUUID().toString();
                this.totalrePhoto3fake = genId + totalrePhoto3;
                //파일 저장 경로
-               File f = new File("C:\\TravelMaker\\WebContent\\upload\\review\\"+totalrePhoto3fake);
+               File f = new File("C:\\TravelMaker\\TravelMaker\\WebContent\\upload\\review\\"+totalrePhoto3fake);
                try {
                   photo3.transferTo(f);
                } catch (IllegalStateException | IOException e) {
@@ -112,7 +112,7 @@ MultipartFile photo1,photo2,photo3,photo4;
                String genId = UUID.randomUUID().toString();
                this.totalrePhoto4fake = genId + totalrePhoto4;
                //파일 저장 경로
-               File f = new File("C:\\TravelMaker\\WebContent\\upload\\review\\"+totalrePhoto4fake);
+               File f = new File("C:\\TravelMaker\\TravelMaker\\WebContent\\upload\\review\\"+totalrePhoto4fake);
                try {
                   photo4.transferTo(f);
                } catch (IllegalStateException | IOException e) {
