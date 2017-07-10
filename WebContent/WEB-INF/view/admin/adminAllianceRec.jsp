@@ -187,6 +187,9 @@
 																						value="${a.partnerDate }">
 																				</div>
 																				<div class="form-group">
+																					<textarea class="form-control ckeditor" name="partnerContent" rows="3" readonly="readonly">${a.partnerContent }</textarea>
+																				</div>
+																				<div class="form-group">
 																					<label for="imgshow">사업자 등록증</label>
 																				</div>
 																				<div class="form-group">

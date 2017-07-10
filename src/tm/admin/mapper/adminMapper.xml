@@ -199,6 +199,11 @@
 		WHERE ad_num=#{adnum}
 	</delete>
 	
+	<delete id="advedelete" parameterType="hashMap">
+		DELETE FROM advertisement
+		WHERE partner_num=#{partnernum}
+	</delete>
+	
 	<update id="adupdate" parameterType="tm.admin.dto.AdminadDTO">
 		UPDATE advertisement
 		SET
@@ -239,6 +244,9 @@
                   WHERE s.partner_num = p.partner_num
                   <if test="partnerName != null">
                   	AND s.partner_name like '%'||#{partnerName}||'%'
+            	  </if>
+            	  <if test="partnernum != null">
+            	  	AND p.partner_num = #{partnernum}
             	  </if>
                   ORDER BY s.parstemp_num desc) g)
         <where>
