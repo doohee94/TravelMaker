@@ -52,7 +52,7 @@
 
 <div id="blurExample" class="bgBlur">
 <!-- 	<input type="button" class ="maintitlelink" value="TravelMaker" > -->
-	<div class ="maintitlelink"><a class="movemain" href="/tmmain/main.tmTravelMaker">메인으로 돌아가기</a></div>
+	<div class ="maintitlelink"><a class="movemain" href="/tmmain/main.tm">메인으로 돌아가기</a></div>
 </div>
 
 </body>
