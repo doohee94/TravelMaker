@@ -398,10 +398,19 @@ public class AdminDAOImpl implements AdminDAO {
 		
 		HashMap map = new HashMap();
 		map.put("partnernum", partnernum);
+		
 		int cnt = ss.selectOne(namespace + ".cntad", map);
 		
 		if(cnt > 0 ){
-			int resad = ss.delete(namespace + ".addelete", map);
+			int resad = ss.delete(namespace + ".advedelete", map);
+		}
+		
+		List<AdminStempDTO> list = ss.selectList(namespace + ".stemplist" ,map);
+		
+		if(list != null){
+			for (AdminStempDTO dto : list) {
+				stempdelete(dto.getParstempNum());
+			}
 		}
 		
 		int resal = ss.delete(namespace + ".alliancedel", map);
