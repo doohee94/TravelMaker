@@ -171,6 +171,7 @@ public class Step3Controller {
          JSONArray image = (JSONArray)jsonObj.get("image");
          JSONArray mapx = (JSONArray)jsonObj.get("mapx");
          JSONArray mapy = (JSONArray)jsonObj.get("mapy");
+         JSONArray contentid = (JSONArray)jsonObj.get("contentid");
          
          //파싱한 데이터의 값만큼 배열 잡아주기
          String []titleArr = new String[title.size()];
@@ -178,6 +179,7 @@ public class Step3Controller {
          String []imageArr = new String[image.size()];
          String []mapxArr = new String[mapx.size()];
          String []mapyArr = new String[mapy.size()];
+         String []contentidArr = new String[contentid.size()];
          
          //x,y좌표를 이용해 두 점사이의 거리를 구하여 2차원 배열에 저장
          double distance[][] = range((JSONArray)jsonObj.get("mapx") , (JSONArray)jsonObj.get("mapy"));
@@ -189,7 +191,7 @@ public class Step3Controller {
          imageArr[routeIndex] = image.get(routeIndex).toString();
          mapxArr[routeIndex] = mapx.get(routeIndex).toString();
          mapyArr[routeIndex] = mapy.get(routeIndex).toString();
-         
+         contentidArr[routeIndex] = contentid.get(routeIndex).toString();
         //임시 저장 리스트 
         ArrayList<Integer> temp = new ArrayList<Integer>();
         //현재 인덱스
@@ -233,6 +235,7 @@ public class Step3Controller {
          imageArr[routeIndex] = image.get(rowindex).toString();
          mapxArr[routeIndex] = mapx.get(rowindex).toString();
          mapyArr[routeIndex] = mapy.get(rowindex).toString();
+         contentidArr[routeIndex] = contentid.get(routeIndex).toString();
       }//end K
       
      
@@ -243,7 +246,7 @@ public class Step3Controller {
       responseList.put("image", imageArr);
       responseList.put("mapx", mapxArr);
       responseList.put("mapy", mapyArr);
-      
+      responseList.put("contentid", contentidArr);
       
       
       } catch (ParseException e) {

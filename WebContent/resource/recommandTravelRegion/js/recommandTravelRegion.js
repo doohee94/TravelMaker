@@ -41,7 +41,7 @@ function getTextLength(str) {
 		 		    				"pageNo":1,
 		 		    				"arrange":"B",
 		 		    				"_type":"json",
-		 		    				"numOfRows":100
+		 		    				"numOfRows":30
 		 		    			}
 		 		    			,success:function(data){
 		 		    				
@@ -73,14 +73,15 @@ function getTextLength(str) {
 		 					               }
 		 					               
 		 						            
-		 						            
+		 						            var url = "/recommandtravelregion/find.tm?contentid="+item[i].contentid;
 		 						           $("#myinteresttab").append('<div class="col-md-4 text-center">'
 		 						        		   +'<div class="thumbnail">'
-		 						        		   +'<a href="#">'
+		 						        		   +'<a href="'+url+'" class="list">'
 		 						        		   +'<img class="img-responsive" src="'+firstimage+'"style="height:250px"	alt="'+item[i].title+'">'
 		 						        		   +'<div class="caption">'
 		 						        		   +titleTag
 		 						        		   +'<p>'+addr+'</p>'
+		 						        		   +'<input type="hidden" id="contentid" value="'+item[i].contentid+'"/>'
 		 						        		   +'</div></a></div></div>'	 						         
 		 						           );
 		 		    							    					
@@ -118,13 +119,6 @@ function getTextLength(str) {
     	});
     	
     	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
     	$(".return-top").hide(); // 탑 버튼 숨김
                  
         $(window).scroll(function () {
@@ -141,4 +135,11 @@ function getTextLength(str) {
             }, 350);  // 탑 이동 스크롤 속도
             return false;
         });
+        
+        
+        
+        //리스트 클릭 시 해당 페이지로 넘어가기 -------------------------------------------------------------------------------------------------
+
+        
+        
     });

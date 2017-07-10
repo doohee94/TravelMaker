@@ -107,32 +107,56 @@ public class RecommandTravelRegionController {
 				ArrayList<String> title = new ArrayList<String>();	
 				ArrayList<String> image = new ArrayList<String>();
 				ArrayList<String> addr = new ArrayList<String>();
-
+				ArrayList<String> contentid = new ArrayList<String>();
 				//받아온 타이틀을 중복제거 위해 HashSet에 저장
 				Set<String> titleSet = new HashSet<String>();
 				Set<String> imageSet = new HashSet<String>();
 				Set<String> addrSet = new HashSet<String>();
-
+				Set<String> contentidSet = new HashSet<String>();
+				
+				
 				
 				for(int i=0; i<placeTemp3.size(); i++){
 					title.add(placeTemp3.get(i).get("title").toString());
 					image.add(placeTemp3.get(i).get("image").toString());
 					addr.add(placeTemp3.get(i).get("addr").toString());
-					
+					contentid.add(placeTemp3.get(i).get("contentid").toString());
 					//System.out.println(title.get(i));
 					titleSet.add(title.get(i));
 					imageSet.add(image.get(i));
 					addrSet.add(addr.get(i));
-					
+					contentidSet.add(contentid.get(i));
 				}
+				
+				System.out.println("----------------------------------");
+				for(int i= 0; i<contentid.size(); i++){
+					System.out.println(">>타이틀" + title.get(i));
+					System.out.println(">>이미지" + image.get(i));
+					System.out.println(">>주소" + addr.get(i));
+					System.out.println(">>컨텐트id" + contentid.get(i));
+					System.out.println();
+				}
+				
+				
+				
 				ArrayList<String> titleTemp = new ArrayList<String>(titleSet);
 				ArrayList<String> imageTemp = new ArrayList<String>(imageSet);
 				ArrayList<String> addrTemp = new ArrayList<String>(addrSet);
+				ArrayList<String> contentidTemp = new ArrayList<String>(contentidSet);
 				int[] result = new int[titleTemp.size()];
 				for(int i=0; i<result.length; i++){
 					result[i] = 0;
 				}
-
+				System.out.println("----------------------------------");
+				for(int i= 0; i<addrTemp.size(); i++){
+					System.out.println("타이틀" + titleTemp.get(i));
+					System.out.println("이미지" + imageTemp.get(i));
+					System.out.println("주소" + addrTemp.get(i));
+					System.out.println("컨텐트id" + contentidTemp.get(i));
+					System.out.println();
+				}
+				
+				
 				for(int i=0; i<title.size(); i++){
 					for(int j=0; j<titleTemp.size(); j++){
 						if(title.get(i).toString().equals(titleTemp.get(j).toString())){
@@ -145,6 +169,7 @@ public class RecommandTravelRegionController {
 				String[] top3Title = new String[3];
 				String[] top3Image = new String[3];
 				String[] top3Addr = new String[3];
+				String[] top3Contentid = new String[3];
 				int[] temp = new int[3];
 				
 //				for(int i=0; i<titleTemp.size(); i++){
@@ -180,6 +205,7 @@ public class RecommandTravelRegionController {
 					top3Title[i] = titleTemp.get(temp[i]);
 					top3Image[i] = imageTemp.get(temp[i]);
 					top3Addr[i] = addrTemp.get(temp[i]);
+					top3Contentid[i] = contentidTemp.get(temp[i]);
 					System.out.println("도전일정 top3길이"+top3Title.length);
 					
 					System.out.println(i+"*********"+top3Title[i]);
@@ -194,6 +220,9 @@ public class RecommandTravelRegionController {
 				
 				finalSet.put("top3Addr", top3Addr);
 				finalSet.put("addrTemp", addrTemp);
+				
+				finalSet.put("top3Contentid", top3Contentid);
+				finalSet.put("contentidTemp", contentidTemp);
 				
 				mv.addObject("finalSet",finalSet);
 				
@@ -227,6 +256,13 @@ public class RecommandTravelRegionController {
 		return data;
 	}
 	
+	@RequestMapping("/find.tm")
+	public ModelAndView content(String contentid){
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("contentid", contentid);
+		mv.setViewName(dir +"recommandFind");
+		return mv;
+	}
 	
 	
 }

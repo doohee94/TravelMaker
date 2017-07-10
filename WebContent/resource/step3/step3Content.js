@@ -225,6 +225,7 @@ $( function() {
                        '<span style="color:#000;" class="addr" >'+day[0][j].addr+'</span>'+
                        '<input type="hidden" class="mapx" value="'+day[0][j].mapx+'"/>'+
                        '<input type="hidden" class="mapy" value="'+day[0][j].mapy+'"/>'+
+                       '<input type="hidden" class="contentid" value="'+day[0][j].contentid+'"/>'+
                        '</div><div class="clearfix"></div></li>');
 		   }//end for j		
        	   	
@@ -258,6 +259,7 @@ $( function() {
 	                           '<span style="color:#000;" class="addr" >'+day[i][j].addr+'</span>'+
 	                           '<input type="hidden" class="mapx" value="'+day[i][j].mapx+'"/>'+
 	                           '<input type="hidden" class="mapy" value="'+day[i][j].mapy+'"/>'+
+	                           '<input type="hidden" class="contentid" value="'+day[i][j].contentid+'"/>'+
 	                           '</div><div class="clearfix"></div></li>');
 				   }//end for j		
 			 }else{
@@ -278,13 +280,15 @@ $( function() {
 	      var addr = [];
 	      var mapx = [];
 	      var mapy = [];
+	      var contentid = [];
 	      
 	      var titleTemp = [];
 	      var imageTemp = [];
 	      var addrTemp = [];
 	      var mapxTemp = [];
 	      var mapyTemp = [];
-
+	      var contentidTemp = [];
+	      
 	      var index1=0;
 	      var index2=0;
 	      //리스트의 정보를 ajax로 넘긴다
@@ -296,6 +300,7 @@ $( function() {
 	         addr[index1] = $(item).find(".addr").text();
 	         mapx[index1] = $(item).find(".mapx").attr("value");
 	         mapy[index1] = $(item).find(".mapy").attr("value"); 
+	         contentid[index1] = $(item).find(".contentid").attr("value"); 
 	         index1++;
 	    	 }else{
 	    		 titleTemp[index2] = $(item).find(".name").text();
@@ -303,6 +308,7 @@ $( function() {
 		         addrTemp[index2] = $(item).find(".addr").attr("value");
 		         mapxTemp[index2] = $(item).find(".mapx").attr("value");
 		         mapyTemp[index2] = $(item).find(".mapy").attr("value");
+		         contentidTemp[index2] = $(item).find(".contentid").attr("value"); 
 	    	 }
 	         //alert(i + '/' + title);
 	      });
@@ -312,7 +318,8 @@ $( function() {
 	            "title":title,
 	            "addr":addr,
 	            "mapx":mapx,
-	            "mapy":mapy
+	            "mapy":mapy,
+	            "contentid":contentid
 	      };
 
 	      $.ajax({
@@ -336,6 +343,7 @@ $( function() {
 	                              '<span style="color:#000;" class="addr" >'+data.addr[i]+'</span>'+
 	                              '<input type="hidden" class="mapx" value="'+data.mapx[i]+'"/>'+
 	                              '<input type="hidden" class="mapy" value="'+data.mapy[i]+'"/>'+
+	                              '<input type="hidden" class="contentid" value="'+data.contentid[i]+'"/>'+
 	                              '</div><div class="clearfix"></div></li>');
 
 	            	   }//end for
@@ -348,6 +356,7 @@ $( function() {
 		                              '<input type="hidden" class="addr" value="'+addrTemp[i]+'"/>'+
 		                              '<input type="hidden" class="mapx" value="'+mapxTemp[i]+'"/>'+
 		                              '<input type="hidden" class="mapy" value="'+mapyTemp[i]+'"/>'+
+		                              '<input type="hidden" class="contentid" value="'+data.contentid[i]+'"/>'+
 		                              '</div><div class="clearfix"></div></li>');
 	            	   }
 //--------------------------------지도에 새로 바뀐경로 찍어주기-----------------------------------------------	            	   
@@ -457,7 +466,8 @@ $( function() {
 	        	            	        	           	    "addr":$(item).find(".addr").text(),
 	        	            	        	           	    "image":$(item).find("img").attr("src"),
 	        	            	        	           	    "mapx":$(item).find(".mapx").attr("value"),
-	        	            	        	           	    "mapy":$(item).find(".mapy").attr("value"),  
+	        	            	        	           	    "mapy":$(item).find(".mapy").attr("value"), 
+	        	            	        	           	    "contentid":$(item).find(".contentid").attr("value"), 
 	        	            	        	           	    "check":"0",
 	        	            	        	           	 "oneline_review":""
 	        	            	                      }
@@ -547,6 +557,7 @@ $( function() {
    var arrayX = [];
    var arrayY=[];
    var arrayTitle=[];
+   var arrayContentid=[];
 
    $( "#myList" ).sortable({
          connectWith: "ul",
@@ -558,6 +569,7 @@ $( function() {
            $('#myList > li').each(function(i,item){
               var mapx = $(item).find(".mapx").attr("value");
               var mapy = $(item).find(".mapy").attr("value");
+              var contentid = $(item).find(".contentid").attr("value");
               var title =$(item).find(".name").text();
               
               
@@ -565,6 +577,7 @@ $( function() {
             	  arrayX[i] = mapx;
             	  arrayY[i] = mapy;
             	  arrayTitle[i] = title;
+            	  arrayContentid[i] = contentid;
               }
             });
           
@@ -660,6 +673,7 @@ $( function() {
 	            	        	           	    "image":$(item).find("img").attr("src"),
 	            	        	           	    "mapx":$(item).find(".mapx").attr("value"),
 	            	        	           	    "mapy":$(item).find(".mapy").attr("value"),  
+	            	        	           	    "contentid":$(item).find(".contentid").attr("value"),  
 	            	        	           	    "check":"0",
 	            	        	           	 "oneline_review":""
 	            	                      }
@@ -824,6 +838,7 @@ $( function() {
                      '<span style="color:#000;" class="addr" >'+item[i].addr1+'</span>'+
                      '<input type="hidden" class="mapx" value="'+item[i].mapx+'"/>'+
                      '<input type="hidden" class="mapy" value="'+item[i].mapy+'"/>'+
+                     '<input type="hidden" class="contentid" value="'+item[i].contentid+'"/>'+
                      '</div><div class="clearfix"></div></li>'
                );
 
@@ -931,6 +946,7 @@ $( function() {
 		            	            	        	           	    "image":$(item).find("img").attr("src"),
 		            	            	        	           	    "mapx":$(item).find(".mapx").attr("value"),
 		            	            	        	           	    "mapy":$(item).find(".mapy").attr("value"),  
+		            	            	        	           	    "contentid":$(item).find(".contentid").attr("value"),  
 		            	            	        	           	    "check":"0",
 		            	            	        	           	 "oneline_review":""
 		            	            	                      }
@@ -1085,6 +1101,7 @@ $( function() {
                         '<span style="color:#000;"class="addr" >'+item[i].addr1+'</span>'+
                         '<input type="hidden" class="mapx" value="'+item[i].mapx+'"/>'+
                         '<input type="hidden" class="mapy" value="'+item[i].mapy+'"/>'+
+                        '<input type="hidden" class="contentid" value="'+item[i].contentid+'"/>'+
                         '</div><div class="clearfix"></div></li>'
                   );
 
@@ -1231,6 +1248,7 @@ $( function() {
                         '<span style="color:#000;" class="addr">'+item[i].addr1+'</span>'+
                         '<input type="hidden" class="mapx" value="'+item[i].mapx+'"/>'+
                         '<input type="hidden" class="mapy" value="'+item[i].mapy+'"/>'+
+                        '<input type="hidden" class="contentid" value="'+item[i].contentid+'"/>'+
                         '</div><div class="clearfix"></div></li>'
                   );
 
@@ -1350,6 +1368,7 @@ $( function() {
        	                           '<span style="color:#000;" class="addr" >'+day[i][j].addr+'</span>'+
        	                           '<input type="hidden" class="mapx" value="'+day[i][j].mapx+'"/>'+
        	                           '<input type="hidden" class="mapy" value="'+day[i][j].mapy+'"/>'+
+       	                           '<input type="hidden" class="contentid" value="'+day[i][j].contentid+'"/>'+
        	                           '</div><div class="clearfix"></div></li>');
        				   }//end for j		
        			 }else{

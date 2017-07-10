@@ -8,11 +8,12 @@
 	String[] top3Title = (String[])map.get("top3Title");
 	String[] top3Image = (String[])map.get("top3Image");
 	String[] top3Addr = (String[])map.get("top3Addr");
+	String[] top3Contentid = (String[])map.get("top3Contentid");
 	
 	ArrayList title = (ArrayList)map.get("titleTemp");
 	ArrayList image = (ArrayList)map.get("imageTemp");
 	ArrayList addr = (ArrayList)map.get("addrTemp");
-	
+	ArrayList contentid = (ArrayList)map.get("contentidTemp");
 %>
 
 <!-- 여행지 추천 페이지 -->
@@ -50,8 +51,7 @@
 	src="/resource/recommandTravelRegion/js/recommandTravelRegion.js"></script>
 
 </head>
-<body>
-	<!-- Navigation -->
+<body>	<!-- Navigation -->
    <!-- 메인 헤더 부분 -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -127,10 +127,11 @@
 			</div>
 
 			<div class="topthreediv">
-				<%for(int i=0; i<top3Title.length; i++){ %>
+				<%for(int i=0; i<top3Title.length; i++){
+					String url ="/recommandtravelregion/find.tm?contentid="+top3Contentid[i];%>
 				<div class="col-md-4 text-center">
 					<div class="thumbnail">
-						<a href="#">
+						<a href="<%=url%>">
 							<img class="img-responsive" src=<%=top3Image[i]%> style="height:250px" alt="">
 							<div class="caption">
 								<h3>
@@ -169,11 +170,13 @@
 					for (int i = 0; i < 100; i++) {
 						if(image.size() > 100){break;}
 						if(image.size() == i){break;}
+						String url ="/recommandtravelregion/find.tm?contentid="+contentid.get(i).toString();
 				%>
 				<div class="col-md-4 text-center">
 					<div class="thumbnail">
-						<a href="#">
+						<a href="<%=url%>">
 							<img class="img-responsive" src=<%=image.get(i).toString() %> alt="" style="height:250px">
+							<input type="hidden" value="<%=contentid.get(i).toString()%>"/>
 							<div class="caption">
 								<h3>
 									<%=title.get(i).toString() %><br>
