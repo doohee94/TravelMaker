@@ -102,7 +102,7 @@
                for (int i = 0; i < 4; i++) {
             %>
             <div class="col-md-3 img-portfolio " style="margin-bottom: 2px;">
-               <img class="img-responsive img-hover" id="photow<%=i + 1%>" src="http://placehold.it/750x450" alt="">
+               <img style="width:450px; height:200px" class="img-responsive img-hover" id="photow<%=i + 1%>" src="http://placehold.it/750x450" alt="">
                <input type="file" name="photo<%=i + 1%>" id="photo<%=i + 1%>" class="photo">
             </div>
             <%
@@ -212,7 +212,7 @@
  			if (input.files && input.files[0]) {
  				var reader = new FileReader();
  				reader.onload = function (e) {
- 					$('#photow4').attr('src', e.target.result); 
+ 					$('#photow4').attr('src', e.target.result);
  				}
  				reader.readAsDataURL(input.files[0]); 
  			}
