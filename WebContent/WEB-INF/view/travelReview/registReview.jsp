@@ -90,7 +90,7 @@
 
       <div class="row">
          <form id="reviewForm" action="/travelReview/insertReview.tm" enctype="multipart/form-data" method="post">
-
+		<div>
             <input type="hidden" name="scNum" value=<%=_id %>> <input
                type="hidden" name="userId" value=<%=user_id%>> <input
                type="hidden" name="totalreLikecount" value="0">
@@ -108,24 +108,25 @@
             <%
                }
             %>
-            <br />
+            </div>
+            <br/>
 
                <div id="noEnter" class="control-group form-group">
 
                   <div class="controls">
-                     <label>제목</label> <input type="text" class="form-control"
+                     <h4>제목</h4> <input type="text" class="form-control"
                         id="title" name="totalreTitle">
                      <p class="help-block"></p>
                   </div>
                   <div class="example example_multivalue">
-                     <h3>해시태그</h3>
+                     <h4>해시태그</h4>
                      <input type="text" name="hashtag" value="" data-role="tagsinput" />
                   </div>
                 </div>
 
                   <div class="control-group form-group">
                      <div class="controls">
-                        <label>리뷰</label>
+                        <h4>리뷰</h4>
                         <textarea rows="10" cols="100" class="form-control" id="content"
                            style="resize: none" name="totalreContent"></textarea>
                      </div>
@@ -141,80 +142,7 @@
 
 
    <script src="/resource/travelReview/dist/bootstrap-tagsinput.min.js"></script>
-   <script type="text/javascript">
-      $(function(){
-         
-         //입력 폼에서 엔터누를때 디비가는거 못하게막기
-         $('#noEnter').on('keyup keypress', function(e) {
-              var keyCode = e.keyCode || e.which;
-              if (keyCode === 13) { 
-                e.preventDefault();
-                return false;
-              }
-          });
-         
-       //미리보기 부분
- 		$("#photo1").change(function(){
- 			showImg1(this);
- 		});
-       
- 		$("#photo2").change(function(){
- 			showImg2(this);
- 		});
- 		
- 		$("#photo3").change(function(){
- 			showImg3(this);
- 		});
- 		
- 		$("#photo4").change(function(){
- 			showImg4(this);
- 		});
- 		
- 		
- 		
- 		//현재 이미지를 읽어서 미리보여줌
- 		function showImg1(input){	
- 			if (input.files && input.files[0]) {
- 				var reader = new FileReader();
- 				reader.onload = function (e) {
- 					$('#photow1').attr('src', e.target.result); 
- 				}
- 				reader.readAsDataURL(input.files[0]); 
- 			}
- 		}
- 		
- 		function showImg2(input){	
- 			if (input.files && input.files[0]) {
- 				var reader = new FileReader();
- 				reader.onload = function (e) {
- 					$('#photow2').attr('src', e.target.result); 
- 				}
- 				reader.readAsDataURL(input.files[0]); 
- 			}
- 		}
- 		
- 		function showImg3(input){	
- 			if (input.files && input.files[0]) {
- 				var reader = new FileReader();
- 				reader.onload = function (e) {
- 					$('#photow3').attr('src', e.target.result); 
- 				}
- 				reader.readAsDataURL(input.files[0]); 
- 			}
- 		}
- 		
- 		function showImg4(input){	
- 			if (input.files && input.files[0]) {
- 				var reader = new FileReader();
- 				reader.onload = function (e) {
- 					$('#photow4').attr('src', e.target.result);
- 				}
- 				reader.readAsDataURL(input.files[0]); 
- 			}
- 		}
- 		
-      });
-   </script>
+   <script type="text/javascript" src="/resource/travelReview/js/registReview.js"></script>
 
 </body>
 </html>

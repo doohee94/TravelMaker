@@ -159,7 +159,7 @@
          <br/>
 	  <div class="thumbnail">
          <div class="caption-full">
-            <p><%=totalreDTO.getTotalreContent() %></p>
+            <p style="font-size:17px"><%=totalreDTO.getTotalreContent() %></p>
          </div>
       </div>
    </div>

@@ -10,7 +10,6 @@
 	</select>
 
 	<delete id="delete" parameterType="hashMap">
-
 		DELETE
 		FROM totalre
 		WHERE sc_num = #{_id}
