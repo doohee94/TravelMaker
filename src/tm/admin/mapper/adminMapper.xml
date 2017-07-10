@@ -35,9 +35,9 @@
                   WHERE s.partner_num = p.partner_num
                   ORDER BY s.ad_num desc) g)
         <where>
-         <if test="partnerComname != null">
-         	partner_comname like '%'||#{partnerComname}||'%'
-         </if>
+	        <if test="sel != null">
+	       		${sel} like '%'||#{con}||'%'
+	        </if>
         </where>
 	</select>
 	
@@ -151,13 +151,13 @@
                   p.partner_ceoname 
                   FROM advertisement s, partner p
                   WHERE s.partner_num = p.partner_num
+                  <if test="partnerComname != null">
+				  	AND partner_comname like '%'||#{partnerComname}||'%'
+				  </if>
                   ORDER BY s.ad_num desc) g)
        	<where>
        		<if test="startnum != null">
 				rnum <![CDATA[>=]]>  #{startnum} AND rnum <![CDATA[<=]]> #{endnum}
-			</if>
-			<if test="partnerComname != null">
-				AND partner_comname like '%'||#{partnerComname}||'%'
 			</if>
 			<if test="adnum != null">
 				ad_num = #{adnum}

@@ -369,7 +369,6 @@ public class AdminController {
 		if(pageNumber != null) pageNum = Integer.parseInt(pageNumber);
 		
 		int[] page = dao.SettingPageNum("advertisement", 6, pageNum, "partner_comname", partnerComname);
-		
 		// 날짜 형식 지정
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		// 현재 날짜를 가져옴
@@ -384,7 +383,7 @@ public class AdminController {
 		int ed = 0;
 
 		List<AdminadDTO> list = dao.adsearch(page[1], page[2], partnerComname);
-
+		
 		for (AdminadDTO a : list) {
 			try {
 				// 광고 시작일과 완료 날짜를 형식에 맞게 저장
