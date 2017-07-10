@@ -34,7 +34,7 @@
       VALUES(seq_totalre.nextval,#{userId},#{scNum},#{totalreTitle},#{totalreContent},#{totalrePhoto4},#{totalrePhoto4fake},#{totalrePhoto3},#{totalrePhoto3fake},#{totalrePhoto2},#{totalrePhoto2fake},#{totalrePhoto1},#{totalrePhoto1fake},#{totalreLikecount})
    </insert>
    
-   <insert id="insertHashtag" parameterType="TotalreDTO">
+   <insert id="insertHashtag" parameterType="hashMap">
       INSERT INTO hashtag
       VALUES(#{scNum},#{hashtag})
    </insert>
@@ -47,6 +47,12 @@
    <select id="showReply" parameterType="hashMap" resultType="reviewReplyDTO">
    	SELECT *
    	FROM reviewreply
+   	WHERE sc_num = #{scNum}
+   </select>
+   
+   <select id="selectTag" parameterType="hashMap" resultType="String">
+   	SELECT hashtag
+   	FROM hashtag
    	WHERE sc_num = #{scNum}
    </select>
 </mapper>

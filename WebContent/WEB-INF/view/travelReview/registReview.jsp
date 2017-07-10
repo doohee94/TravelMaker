@@ -64,6 +64,11 @@
 <!-- jquery cdn -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
+
+<header>
+    <jsp:include page="/tmmain/header.tm"></jsp:include>
+</header>
+
 <body>
 
    <div class="container">

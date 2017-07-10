@@ -1,6 +1,7 @@
 package tm.travelReview.controller;
 
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpSession;
 
@@ -53,10 +54,22 @@ public class TravelReviewController {
 	@RequestMapping("/reviewlist.tm")
 	public ModelAndView reviewList(String searchContent){
 		ModelAndView mv = new ModelAndView();
-
+		
+		mv.setViewName(dir+"reviewlist");
+		
+		//검색결과 리스트 뿌려주기
 		ArrayList<TotalreDTO> list = dao.reviewList(searchContent);
 		mv.addObject("list",list);
-		mv.setViewName(dir+"reviewlist");
+		
+		//해시태그 가져오기
+		ArrayList<ArrayList> tagList = new ArrayList<ArrayList>();
+		for(int i=0; i<list.size(); i++){
+			String scNum = list.get(i).getScNum();
+			ArrayList temp = dao.tagList(scNum);
+			tagList.add(temp);
+		}
+		mv.addObject("tagList",tagList);
+		
 		return mv;
 	}
 
@@ -126,17 +139,17 @@ public class TravelReviewController {
 	//리뷰 디비에 등록하기
 	@RequestMapping("/insertReview.tm")
 	public String insertReview(TotalreDTO totalreDTO){
+		
+		String _id = totalreDTO.getScNum();
 
 		//리뷰 등록
 		int result = dao.insertReview(totalreDTO);
 		
 		//해시태그 등록
-		int hashtagResult = dao.insertHashtag(totalreDTO);
-
-
-		String _id = totalreDTO.getScNum();
-
-		TotalreDTO dto = dao.showReview(_id);
+		StringTokenizer st = new StringTokenizer(totalreDTO.getHashtag(),",");
+		for(int i=0; st.hasMoreTokens(); i++){
+			dao.insertHashtag(st.nextToken(),_id);
+		}
 
 		return "redirect:/travelReview/reviewlist.tm";
 

@@ -15,9 +15,11 @@ public interface TotalreDAO {
 	
 	public int insertReview(TotalreDTO totalreDTO);
 	
-	public int insertHashtag(TotalreDTO totalreDTO);
+	public int insertHashtag(String hashtag, String scNum);
 	
 	public int insertReply(reviewReplyDTO reviewReplyDTO);
 	
 	public ArrayList showReply(String _id);
+	
+	public ArrayList tagList(String scNum);
 }

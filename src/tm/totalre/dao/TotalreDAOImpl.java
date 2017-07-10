@@ -64,9 +64,13 @@ public class TotalreDAOImpl implements TotalreDAO {
 	   }
 
 	@Override
-	public int insertHashtag(TotalreDTO totalreDTO) {
+	public int insertHashtag(String hashtag, String scNum) {
+		
+		HashMap map = new HashMap();
+		map.put("hashtag", hashtag);
+		map.put("scNum", scNum);
 
-		int result = ss.insert(namespace+".insertHashtag",totalreDTO);
+		int result = ss.insert(namespace+".insertHashtag",map);
 		return result;
 	}
 
@@ -87,6 +91,16 @@ public class TotalreDAOImpl implements TotalreDAO {
 		
 		
 		return result;
+	}
+
+	@Override
+	public ArrayList tagList(String scNum) {
+		
+		HashMap map = new HashMap();
+		map.put("scNum", scNum);
+		
+		ArrayList tag = (ArrayList)ss.selectList(namespace + ".selectTag",map);
+		return tag;
 	}
 	
 	

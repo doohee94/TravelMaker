@@ -1,3 +1,4 @@
+<%@page import="java.util.Iterator"%>
 <%@page import="tm.totalre.dto.TotalreDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="org.json.simple.JSONArray"%>
@@ -97,41 +98,11 @@
 
 </head>
 
+<header>
+	<jsp:include page="/tmmain/header.tm"></jsp:include>
+</header>
+
 <body>
-
-	<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="tmmain/main.tm">Travel Maker</a>
-			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/step1/step1.tm">일정만들기</a></li>
-					<li><a href="/recommandtravelregion/recommandTravelRegion.tm">여행지추천</a>
-					</li>
-					<li><a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
-					</li>
-					<li><a href="/challengeschedule/challengeSchedule.tm">도전일정</a>
-					</li>
-					<li style="padding: 10px"><input type="text" />
-						<button>검색</button></li>
-					<li><a href="member/loginForm.tm">로그인</a></li>
-				</ul>
-			</div>
-			<!-- /.navbar-collapse -->
-	</nav>
-
-
 	<div class="container">
 		<!-- Page Heading/Breadcrumbs -->
 		<div class="row">
@@ -240,13 +211,13 @@
 								JSONObject temp = new JSONObject();
 								temp  = (JSONObject)placeArray[i].get(j);
 								String title = temp.get("title").toString();
-								String online_review = "";
-								if(temp.containsKey("online_review")){
-									online_review = temp.get("online_review").toString();
-								}
+								String oneline_review = "";
+									if(temp.get("oneline_review") != null){
+										oneline_review = temp.get("oneline_review").toString();
+									}
 						%>
 						<h4><%= title%></h4>
-						<p><%=online_review %></p>
+						<p><%=oneline_review %></p>
 						<hr>
 						<%
 							}

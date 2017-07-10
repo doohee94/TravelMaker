@@ -1,7 +1,9 @@
 
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<% ArrayList<ArrayList> list = (ArrayList)request.getAttribute("tagList"); %>
 <!-- 여행일정 리뷰리스트 페이지입니다. -->
 <!DOCTYPE html>
 <html>
@@ -45,49 +47,10 @@
 <script src="/resource/travelReview/js/reviewlist.js"></script>
 
 </head>
-
+<header>
+    <jsp:include page="/tmmain/header.tm"></jsp:include>
+</header>
 <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="tmmain/main.tm">Travel Maker</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/step1/step1.tm">일정만들기</a>
-                    </li>
-                    <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행지추천</a>
-                    </li>
-                    <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
-                    </li>
-                    <li>
-                        <a href="/challengeschedule/challengeSchedule.tm">도전일정</a>
-                    </li>
-                     <li style="padding:10px">
-                       <input type="text"/> <button>검색</button>
-                    </li>                      
-                     <li>
-                        <a href="member/loginForm.tm">로그인</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-    </nav>
-    
    
 	<!-- Page Content -->
 	<div class="container">
@@ -117,13 +80,7 @@
 <!-- 		<div id="menu1" class="tab-pane fade in active"> -->
 <%-- 			<p><%@ include file="travelregion.jsp"%></p> --%>
 <!-- 	</div> -->
-	
-	<!--  검색창 -->
-	<div class="container">
-	
-	
-	</div>
-	<hr>
+
 	<div class="container" id="divCon">
 	<c:choose>
 		<c:when test="${! empty list }">
@@ -132,12 +89,17 @@
         <div class="row">
             <div class="col-md-7">
                 <a href="reviewDetail.tm?_id=${a.scNum}">
-                    <img class="img-responsive img-hover images" src="http://placehold.it/700x300" alt="">
+                    <img class="img-responsive img-hover images" src="/upload/review/${a.totalrePhoto1fake}" style="width:700px; height:300px" alt="">
                 </a>
             </div>
             <div class="col-md-5">
                 <h3>${a.totalreTitle}</h3>
-                <h4>해시태그자리</h4>
+                <% for(int i=0; i<list.size(); i++){ 
+                	for(int j=0; j<list.get(i).size();j++){
+                %>
+                <p style="font-weight:bold; color:white; display: inline-block; background-color: #0A0A2A; border-radius:5px; padding:2px">#<%=list.get(i).get(j).toString() %></p>
+                	<%} 
+               		}%>
                 <p>${a.totalreContent}</p>
                 <a href="reviewDetail.tm?_id=${a.scNum}" class="btn btn-primary images">상세보기</i></a>
             </div>
