@@ -103,10 +103,10 @@
 </header>
 
 <body>
-	<div class="container">
+	<div class="container" style="width: 71%; margin-left: 15%">
 		<!-- Page Heading/Breadcrumbs -->
-		<div class="row">
-			<div class="col-lg-12">
+<!-- 		<div class="row"> -->
+			<div class="col-lg-12" style="border:1px solid white">
 				<h1 class="page-header"><%=totalreDTO.getTotalreTitle() %>
 					<small> <a href="#"><i
 							class="fa fa-facebook-square fa-2x" id="shareBtn"></i></a> <%if(result == 0) {%>
@@ -123,11 +123,11 @@
 				<input type="hidden" value="<%=_id%>" id="_id"> <input
 					type="hidden" value="<%=user_id%>" id="user_id">
 			</div>
-		</div>
+<!-- 		</div> -->
 		<!-- /.row -->
 
 		<!-- 사진 나열 -->
-		<div class="thumbnail">
+		<div class="thumbnail" style="border:1px solid white">
 			<div class="carousel slide article-slide" id="article-photo-carousel">
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner cont-slider" style="width:">
@@ -140,21 +140,20 @@
 				</div>
 				<!-- Indicators -->
 				<ol class="carousel-indicators">
-					<li class="active" data-slide-to="0"
-						data-target="#article-photo-carousel"><img alt=""
-						src="/upload/review/<%=totalreDTO.getTotalrePhoto1fake() %>"
-						class="img-responsive"></li>
-					<li class="" data-slide-to="1"
-						data-target="#article-photo-carousel"><img alt=""
-						src="/upload/review/<%=totalreDTO.getTotalrePhoto2fake() %>">
+					<li class="active" data-slide-to="0"data-target="#article-photo-carousel">
+						<img alt=""src="/upload/review/<%=totalreDTO.getTotalrePhoto1fake() %>"class="img-responsive">
 					</li>
-					<li class="" data-slide-to="2"
-						data-target="#article-photo-carousel"><img alt=""
-						src="/upload/review/<%=totalreDTO.getTotalrePhoto3fake() %>">
+					
+					<li class="" data-slide-to="1"data-target="#article-photo-carousel">
+						<img alt=""src="/upload/review/<%=totalreDTO.getTotalrePhoto2fake() %>">
 					</li>
-					<li class="" data-slide-to="3"
-						data-target="#article-photo-carousel"><img alt=""
-						src="/upload/review/<%=totalreDTO.getTotalrePhoto4fake() %>">
+					
+					<li class="" data-slide-to="2"data-target="#article-photo-carousel">
+						<img alt=""src="/upload/review/<%=totalreDTO.getTotalrePhoto3fake() %>">
+					</li>
+					
+					<li class="" data-slide-to="3"data-target="#article-photo-carousel">
+						<img alt=""src="/upload/review/<%=totalreDTO.getTotalrePhoto4fake() %>">
 					</li>
 				</ol>
 			</div>
@@ -165,12 +164,16 @@
 		</div>
 	</div>
 
-	<div class="container map" style="width: 40%; margin-left: 15%">
+
+	<div class="col-lg-12"style="width: 71%; margin-left: 15%">
+				<h2 class="page-header">일정</h2>
+	</div>
+			
+	<div class="container map" style="width: 33%; margin-left: 15%">
+			
 		<!-- Service Tabs -->
 		<div class="row map">
-			<div class="col-lg-12">
-				<h2 class="page-header">일정</h2>
-			</div>
+			
 			<div class="col-lg-12">
 
 				<ul id="myTab" class="nav nav-tabs nav-justified">
@@ -235,9 +238,9 @@
 	</div>
 
 	<!-- 지도 구성 -->
-	<div id="map" style="width: 30%; height: 450px;" class="map"></div>
-
-	<div style="width: 80%; margin-left: 10%" align="center">
+	<div id="map" style="width: 37%; height: 450px;" class="map"></div>
+	
+	<div style="width: 69.5%; margin-left: 15.6%;margin-top:20px; margin-bottom:100px">
 		<table class="table table-striped">
 			<tr>
 				<th>내용</th>
@@ -258,12 +261,12 @@
 		</table>
 		<br />
 
-		<form action="/travelReview/insertReply.tm">
+		<form action="/travelReview/insertReply.tm" align="center">
 			<input type="hidden" value="<%=_id%>" id="_id" name="scNum">
 			<input type="hidden" value="<%=user_id%>" id="user_id" name="userId">
-			<input style="width: 70%; margin-bottom: 5px" type="text"
-				placeholder="댓글" id="reply" name="reply"><input
-				type="submit" value="입력">
+			<input style="width: 90%; height:50px; font-size:15px" type="text"
+				placeholder="댓글" id="reply" name="reply">
+				<input style="padding-bottom:5px;width:120px;height:50px; background-color:#103e68 ;border:1px solid #103e68;color:white; font-size:20px;"type="submit" value="입력">
 		</form>
 	</div>
 
