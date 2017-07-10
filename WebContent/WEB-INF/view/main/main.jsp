@@ -71,9 +71,6 @@
                     <li>
                         <a href="/travelReview/reviewlist.tm">여행리뷰</a>
                     </li>
-                    <li>
-                        <a href="/mylist/ing.tm">마이페이지</a>
-                    </li>
                     <%} //end of if %>
 <!--                     <li> -->
 <!--                         <a href="/challengeschedule/challengeSchedule.tm">도전일정</a> -->
@@ -84,7 +81,7 @@
                     <!-- 로그인 할때 생기는 버튼 -->
                     <%if(userNick!=null){ %>
                     <li>
-                    	<a href="#"><%=userNick%>&nbsp;&nbsp;님</a>
+                    	<a href="/mylist/ing.tm"><%=userNick%>&nbsp;&nbsp;님</a>
                     </li>                      
                     <li>
                         <a href="/tmmain/logout.tm">로그아웃</a>

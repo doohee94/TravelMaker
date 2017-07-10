@@ -49,18 +49,19 @@
                     <li>
                         <a href="/travelReview/reviewlist.tm">여행리뷰</a>
                     </li>
-                    <li>
-                        <a href="/mylist/menubar.tm">마이페이지</a>
-                    </li>
                     </c:if>
                     <li style="padding:10px" id="mobile_search">
-                       <input type="text"/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px;"><span class="glyphicon glyphicon-search"></span> search</button> 
+                       <input type="text"/>
+                       <button id="#searchBtn" style="background-color: #fafafa;
+                       border:0px; border-style: none; height: 27px;">
+                       <span class="glyphicon glyphicon-search"></span>
+                       </button> 
                     </li>
                     <!-- 로그인 할때 생기는 버튼 -->
                     <c:choose>
                     	<c:when test="${not empty sessionScope.userNick }">
                     		<li>
-		                    	<a href="#">${sessionScope.userNick }&nbsp;&nbsp;님</a>
+		                    	<a href="/mylist/menubar.tm">${sessionScope.userNick }&nbsp;&nbsp;님</a>
 		                    </li>                      
 		                    <li>
 		                        <a href="/tmmain/logout.tm">로그아웃</a>
