@@ -217,7 +217,7 @@
 						<input type="hidden" id="totalpage" value="${totalpage }">
 						<a href="adminQna.tm?pageNumber=1" class="pagebtn btn btn-default" type="button">&#171;</a>
 						<button class="pagebtn btn btn-default" id="prevPage" type="button">&#60;</button>
-						<c:forEach var="i" begin="1" end="${totalpage }">
+						<c:forEach var="i" begin="${startpageNum}" end="${endpageNum }">
 							<c:choose>
 								<c:when test="${pageNum == i}">
 									<a class="pagebtn btn btn-primary" type="button">${i }</a>
