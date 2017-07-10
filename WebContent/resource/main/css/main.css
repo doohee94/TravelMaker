@@ -1,3 +1,8 @@
+/* 메인 이미지 */
+body #myCarousel{
+	margin-bottom:3%;
+}
+
 /* 푸터 위치 조정 */
 footer .foot_logo{
 	float: right;

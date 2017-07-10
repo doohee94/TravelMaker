@@ -52,8 +52,7 @@
                     </c:if>
                     <li style="padding:10px" id="mobile_search">
                        <input type="text"/>
-                       <button id="#searchBtn" style="background-color: #fafafa;
-                       border:0px; border-style: none; height: 27px;">
+                       <button id="#searchBtn" style="background-color: #fafafa;border:0px; border-style: none; height: 27px;">
                        <span class="glyphicon glyphicon-search"></span>
                        </button> 
                     </li>
