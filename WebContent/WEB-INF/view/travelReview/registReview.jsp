@@ -110,22 +110,19 @@
             %>
             <br />
 
-
-            <div class="col-md-8">
-
-               <div class="control-group form-group">
+               <div id="noEnter" class="control-group form-group">
 
                   <div class="controls">
                      <label>제목</label> <input type="text" class="form-control"
                         id="title" name="totalreTitle">
                      <p class="help-block"></p>
                   </div>
-               </div>
-               <div class="control-group form-group">
                   <div class="example example_multivalue">
                      <h3>해시태그</h3>
                      <input type="text" name="hashtag" value="" data-role="tagsinput" />
                   </div>
+                </div>
+
                   <div class="control-group form-group">
                      <div class="controls">
                         <label>리뷰</label>
@@ -136,8 +133,6 @@
                   <div id="success"></div>
                   <!-- For success/fail messages -->
                   <button type="submit" class="btn btn-primary">등록</button>
-               </div>
-            </div>
          </form>
       </div>
       <!-- /.row -->
@@ -150,7 +145,7 @@
       $(function(){
          
          //입력 폼에서 엔터누를때 디비가는거 못하게막기
-         $('#reviewForm').on('keyup keypress', function(e) {
+         $('#noEnter').on('keyup keypress', function(e) {
               var keyCode = e.keyCode || e.which;
               if (keyCode === 13) { 
                 e.preventDefault();

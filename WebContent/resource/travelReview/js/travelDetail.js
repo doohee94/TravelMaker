@@ -10,6 +10,7 @@ $(function() {
 
 	//공유하기 버튼 눌렀을 때
 	$("#shareBtn").click(function(){
+		alert("넌 왜 갑자기 안되냐?");
 		window.open('http://www.facebook.com/sharer/sharer.php?u=http://localhost:8080/ProjectUIPractice/TravelSpotReview/reviewDetail.jsp')
 	});
 
@@ -17,12 +18,12 @@ $(function() {
 
 	//좋아요 버튼 눌렀을 때 이미지 변경
 	$("#heartBtn").click(function(){
+		alert("눌러지냐?");
 		var user_id = $("#user_id").val();
 		if(user_id == ""){
 			alert("로그인 후 이용할 수 있습니다");
 		}
 		else{
-
 			//좋아요를 누른경우 디비에 좋아요 저장하고 하트이미지 변경하기
 			if($("#heartBtn").attr("src") == "/resource/travelReview/images/heart1.png"){
 

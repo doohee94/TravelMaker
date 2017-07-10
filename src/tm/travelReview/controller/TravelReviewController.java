@@ -141,6 +141,11 @@ public class TravelReviewController {
 	public String insertReview(TotalreDTO totalreDTO){
 		
 		String _id = totalreDTO.getScNum();
+		
+		//TextArea에서 엔터친거 디비에 저장하기 전에 치환해주기
+		String content = totalreDTO.getTotalreContent();
+		content = content.replace("\r\n", "<br>");
+		totalreDTO.setTotalreContent(content);
 
 		//리뷰 등록
 		int result = dao.insertReview(totalreDTO);
