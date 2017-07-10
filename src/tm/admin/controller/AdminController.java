@@ -929,7 +929,8 @@ public class AdminController {
 	 */
 	@RequestMapping("/stempcreation.tm")
 	public String stempcreation(String num){
-		String url = "192.168.0.104/tmmoblie/mstemp.tm?parstempNum="+num;
+		//http://192.168.0.104/tmmobile/mstemp.tm?parstempNum=st00000002
+		String url = "http://192.168.0.104/tmmobile/mstemp.tm?parstempNum="+num;
 		QRUtil.makeQR(url, num);
 		dao.stempcreation(num);
 		
