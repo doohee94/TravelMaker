@@ -63,4 +63,19 @@
 	where user_id = #{userId} AND user_pw = #{userPw}
 	</update>
 	
+	<select id="seqnum" resultType="String">
+		SELECT seq_likeloc.nextval as num
+		FROM dual
+	</select>
+	
+	<insert id="insertlikeloc" parameterType="tm.member.dto.LikelocDTO">
+	insert into likeloc (
+		likeloc_num,
+		user_id,
+		likeloc_name)
+	values (
+		#{likelocNum},
+		#{userId},
+		#{likelocName})
+	</insert>
 </mapper>

@@ -199,17 +199,23 @@ $(function(){
 /* 관심지역 + 버튼 누르면 항목이 추가되게 */
 $(document).on('click', '#localplus', function() {
 	var temp = "";
+	var tempc = "";
+	var tempb = "";
 	
 	if($("#addloc1").val() == '0'){
 		temp = "addloc1";
+		tempc = "selTwoCity";
+		tempb = "selTwoBorough";
 	}else if($("#addloc2").val() == '0'){
 		temp = "addloc2";
+		tempc = "selThrCity";
+		tempb = "selThrBorough";
 	}
 	
 	if(temp != ""){
 		$("."+temp).append(
 			    "&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;"+
-			    "<select name='selOne' id='selOne' class='likeloc'>"+
+			    "<select name='"+tempc+"' class='likeloc'>"+
 	            "<option value='시,도'>시,도</option>"+
 	            "<option value='서울특별시 '>서울특별시</option>"+
 	            "<option value='부산광역시 '>부산광역시</option>"+
@@ -229,7 +235,7 @@ $(document).on('click', '#localplus', function() {
 	            "<option value='경상남도 '>경상남도</option>"+
 	            "<option value='제주특별자치도 '>제주특별자치도</option>"+
 	          "</select>"+"&nbsp;"+
-	          "<select name='selTwo' id='selTwo'>"+
+	          "<select name='"+tempb+"'>"+
 	          	"<option value='default'>시, 군, 구</option>"
 		);
 		$("#"+temp).val("1");
@@ -336,10 +342,10 @@ function doChange(){
            addOption('하남시', targetE);                addOption('이천시', targetE);                addOption('안성시', targetE);
            addOption('김포시', targetE);                addOption('화성시', targetE);                addOption('광주시', targetE);
            addOption('여주시', targetE);                addOption('부천시', targetE);                addOption('양평군', targetE);
-           addOption('고양시', targetE);                addOption('일산동구', targetE);                addOption('일산서구', targetE);
+           addOption('고양시', targetE);                addOption('일산', targetE); 
            addOption('의정부시', targetE);                addOption('동두천시', targetE);                addOption('구리시', targetE);
            addOption('남양주시', targetE);                addOption('파주시', targetE);                addOption('양주시', targetE);
-           addOption('포천시', targetE);                addOption('연천군', targetE);                addOption('가평군', targetE);
+           addOption(' 포천시', targetE);                addOption(' 연천군', targetE);                addOption('가평군', targetE);
        }
     
        else if(val == '강원도 '){

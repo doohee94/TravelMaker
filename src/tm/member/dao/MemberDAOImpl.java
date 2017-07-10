@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import tm.member.dto.LikelocDTO;
 import tm.member.dto.MemberDTO;
 
 @Service
@@ -56,5 +57,28 @@ public class MemberDAOImpl implements MemberDAO{
 		map.put("userId", userId);
 		map.put("userEmail", userEmail);
 		return ss.selectOne("member.searchpw",map);
+	}
+	
+	/*관심지역 추가*/
+	public int insertLoc(LikelocDTO likelocdto){
+		//글번호 작성 부분
+
+		// 시퀀스 값을 가져옴
+		String num = ss.selectOne("member.seqnum");
+
+		// 글번호 생성 부분
+		// 글번호 앞에 붙일 이름을 설정 후
+		String str = "loc";
+
+		// 번호의 길이를 비교후 빈공간에 0을 채우고
+		for (int i = 0; i < 8 - num.length(); i++) {
+			str += "0";
+		}
+
+		// 생성된 번호를 뒤에 붙임
+		str += num;
+		likelocdto.setLikelocNum(str);
+		
+		return ss.insert("member.insertlikeloc",likelocdto);
 	}
 }

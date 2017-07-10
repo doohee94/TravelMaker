@@ -2,6 +2,7 @@ package tm.member.dao;
 
 import java.util.List;
 
+import tm.member.dto.LikelocDTO;
 import tm.member.dto.MemberDTO;
 
 public interface MemberDAO {
@@ -36,5 +37,9 @@ public interface MemberDAO {
 	 */
 	public MemberDTO searchPw(String userId, String userEmail);
 	
+	/**
+	 * 관심지역 추가
+	 */
+	public int insertLoc(LikelocDTO likelocdto);
 	
 }

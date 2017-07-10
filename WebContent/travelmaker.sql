@@ -110,6 +110,16 @@ CREATE SEQUENCE seq_likespot
 INCREMENT BY 1
 START WITH 1;
 
+CREATE TABLE likeloc (
+	likeloc_num  VARCHAR2(50) NOT NULL CONSTRAINT pk_tm_likeloc_num PRIMARY KEY, -- 관심지역번호
+	user_id      VARCHAR2(50) NOT NULL, -- 회원ID
+	likeloc_name VARCHAR2(50) NOT NULL,  -- 지역이름
+	CONSTRAINT fk_tm_likeloc_user_id FOREIGN Key (user_id) REFERENCES member(user_id)
+);
+
+CREATE SEQUENCE seq_likeloc
+INCREMENT BY 1
+START WITH 1;
 
 
 CREATE TABLE totalre (

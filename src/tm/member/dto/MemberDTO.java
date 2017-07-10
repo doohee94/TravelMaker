@@ -25,6 +25,14 @@ public class MemberDTO {
 	private String userEmail;
 	private int userType;
 	private String userDate;
+	private String selOneCity;
+	private String selOneBorough;
+	private String selTwoCity;
+	private String selTwoBorough;
+	private String selThrCity;
+	private String selThrBorough;
+	
+	
 	
 	
 	public String getUserId() {
@@ -93,7 +101,41 @@ public class MemberDTO {
 	public void setUserDate(String userDate) {
 		this.userDate = userDate;
 	}
-	
-	
+	public String getSelOneCity() {
+		return selOneCity;
+	}
+	public void setSelOneCity(String selOneCity) {
+		this.selOneCity = selOneCity;
+	}
+	public String getSelOneBorough() {
+		return selOneBorough;
+	}
+	public void setSelOneBorough(String selOneBorough) {
+		this.selOneBorough = selOneBorough;
+	}
+	public String getSelTwoCity() {
+		return selTwoCity;
+	}
+	public void setSelTwoCity(String selTwoCity) {
+		this.selTwoCity = selTwoCity;
+	}
+	public String getSelTwoBorough() {
+		return selTwoBorough;
+	}
+	public void setSelTwoBorough(String selTwoBorough) {
+		this.selTwoBorough = selTwoBorough;
+	}
+	public String getSelThrCity() {
+		return selThrCity;
+	}
+	public void setSelThrCity(String selThrCity) {
+		this.selThrCity = selThrCity;
+	}
+	public String getSelThrBorough() {
+		return selThrBorough;
+	}
+	public void setSelThrBorough(String selThrBorough) {
+		this.selThrBorough = selThrBorough;
+	}
 	
 }

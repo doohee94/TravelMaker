@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import tm.member.dao.MemberDAO;
+import tm.member.dto.LikelocDTO;
 import tm.member.dto.MemberDTO;
 
 @Controller
@@ -48,7 +49,78 @@ private String dir = "member/";
 	@RequestMapping(value="/signupOk.tm")
 	public String insert(MemberDTO memberdto){
 		memberdto.setUserAddr(memberdto.getUserCity()+ memberdto.getUserBorough());
-		int res = dao.insert(memberdto);
+			if(memberdto.getSelOneCity() != null && !(memberdto.getSelOneCity().equals("시,도"))){
+				LikelocDTO onedto = new LikelocDTO();
+				onedto.setUserId(memberdto.getUserId());
+				if(memberdto.getSelOneBorough()!=null && !(memberdto.getSelOneBorough().equals("default"))){
+					if(memberdto.getSelOneCity().contains("특별시")){
+						onedto.setLikelocName("서울");
+					}else if(memberdto.getSelOneCity().contains("광역시")){
+						onedto.setLikelocName(memberdto.getSelOneCity().replace("광역시", ""));
+					}else if(memberdto.getSelOneBorough().contains("시") || memberdto.getSelOneBorough().contains("군")){
+						onedto.setLikelocName(
+								memberdto.getSelOneBorough().substring(
+										0, memberdto.getSelOneBorough().length()-1));
+					}else if(memberdto.getSelOneCity().contains("특별자치")){
+						onedto.setLikelocName(
+								memberdto.getSelOneBorough().substring(
+										0, memberdto.getSelOneBorough().length()-1));
+					}
+				}
+				if(onedto.getLikelocName() != null){
+					dao.insertLoc(onedto);
+				}
+			}
+			
+			
+			if(memberdto.getSelTwoCity() != null && !(memberdto.getSelTwoCity().equals("시,도"))){
+				LikelocDTO twodto = new LikelocDTO();
+				twodto.setUserId(memberdto.getUserId());
+				if(memberdto.getSelTwoBorough()!=null && !(memberdto.getSelTwoBorough().equals("default"))){
+					if(memberdto.getSelTwoCity().contains("특별시")){
+						twodto.setLikelocName("서울");
+					}else if(memberdto.getSelTwoCity().contains("광역시")){
+						twodto.setLikelocName(memberdto.getSelTwoCity().replace("광역시", ""));
+					}else if(memberdto.getSelTwoBorough().contains("시") || memberdto.getSelTwoBorough().contains("군")){
+						twodto.setLikelocName(
+								memberdto.getSelTwoBorough().substring(
+										0, memberdto.getSelTwoBorough().length()-1));
+					}else if(memberdto.getSelTwoCity().contains("특별자치")){
+						twodto.setLikelocName(
+								memberdto.getSelTwoBorough().substring(
+										0, memberdto.getSelTwoBorough().length()-1));
+					}
+				}
+				if(twodto.getLikelocName() != null){
+					dao.insertLoc(twodto);
+				}
+			}
+			
+			
+			if(memberdto.getSelThrCity() != null && !(memberdto.getSelThrCity().equals("시,도"))){
+				LikelocDTO thrdto = new LikelocDTO();
+				thrdto.setUserId(memberdto.getUserId());
+				if(memberdto.getSelThrBorough()!=null && !(memberdto.getSelThrBorough().equals("default"))){
+					if(memberdto.getSelThrCity().contains("특별시")){
+						thrdto.setLikelocName("서울");
+					}else if(memberdto.getSelThrCity().contains("광역시")){
+						thrdto.setLikelocName(memberdto.getSelThrCity().replace("광역시", ""));
+					}else if(memberdto.getSelThrBorough().contains("시") || memberdto.getSelThrBorough().contains("군")){
+						thrdto.setLikelocName(
+								memberdto.getSelThrBorough().substring(
+										0, memberdto.getSelThrBorough().length()-1));
+					}else if(memberdto.getSelThrCity().contains("특별자치")){
+						thrdto.setLikelocName(
+								memberdto.getSelThrBorough().substring(
+										0, memberdto.getSelThrBorough().length()-1));
+					}
+				}
+				if(thrdto.getLikelocName() != null){
+					dao.insertLoc(thrdto);
+				}
+			}
+//		}
+		
 		return "redirect:/member/loginForm.tm";
 	}
 	

@@ -105,7 +105,7 @@
                 
 				<div class="local">
                 <label>관심지역 :　</label>
-                    <select name='selOne' id='selOne' class="likeloc" onchange='doChange(this, "selTwo")'>
+                    <select name='selOneCity' id='selOne' class="likeloc" onchange='doChange(this, "selTwo")'>
 		            <option value='시,도'>시,도</option>
 		            <option value='서울특별시 '>서울특별시</option>
 		            <option value='부산광역시 '>부산광역시</option>
@@ -126,7 +126,7 @@
 		            <option value='제주특별자치도 '>제주특별자치도</option>
 		          </select>
 		          
-		          <select name='selTwo' id='selTwo'>
+		          <select name='selOneBorough' id='selTwo'>
 		          	<option value='default'>시, 군, 구</option>
 		          </select>&emsp;
 		          	<img src="/resource/member/image/signupplus.png" id="localplus" width="20" height="20" style="cursor:pointer"> 
