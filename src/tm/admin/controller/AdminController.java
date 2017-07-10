@@ -891,9 +891,9 @@ public class AdminController {
 	 */
 	@RequestMapping("/insertstemp.tm")
 	public String insertStemp(AdminStempDTO adminStempDTO) {
-		dao.insertstemp(adminStempDTO);
+		String num = dao.insertstemp(adminStempDTO);
 		
-		return "redirect:/tmadmin/searchstemp.tm";
+		return "redirect:/tmadmin/stempcreation.tm?num="+num;
 	}
 	
 	/**
@@ -921,7 +921,7 @@ public class AdminController {
 	@RequestMapping("/stempupdate.tm")
 	public String stempupdate(AdminStempDTO adminStempDTO){
 		dao.stempupdate(adminStempDTO);
-		return "redirect:/tmadmin/searchstemp.tm";
+		return "redirect:/tmadmin/adminstemp.tm";
 	}
 	
 	/**
@@ -929,11 +929,10 @@ public class AdminController {
 	 */
 	@RequestMapping("/stempcreation.tm")
 	public String stempcreation(String num){
-		//http://192.168.0.104/tmmobile/mstemp.tm?parstempNum=st00000002
 		String url = "http://192.168.0.104/tmmobile/mstemp.tm?parstempNum="+num;
 		QRUtil.makeQR(url, num);
 		dao.stempcreation(num);
 		
-		return "redirect:/tmadmin/searchstemp.tm";
+		return "redirect:/tmadmin/adminstemp.tm";
 	}
 }

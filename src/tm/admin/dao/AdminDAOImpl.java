@@ -299,7 +299,7 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	@Override
-	public int insertstemp(AdminStempDTO adminStempDTO){
+	public String insertstemp(AdminStempDTO adminStempDTO){
 		// 시퀀스 값을 가져옴
 		String num = ss.selectOne(namespace + ".stempnumber");
 
@@ -320,7 +320,7 @@ public class AdminDAOImpl implements AdminDAO {
 		
 		int res = ss.insert(namespace + ".insertstemp", adminStempDTO);
 		
-		return res;
+		return adminStempDTO.getParstempNum();
 	}
 	
 	public AdminStempDTO showStemp(String parstempNum){

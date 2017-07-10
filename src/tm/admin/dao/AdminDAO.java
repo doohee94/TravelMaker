@@ -113,7 +113,7 @@ public interface AdminDAO {
 	 * insertstemp
 	 * 스탬프 추가
 	 */
-	public int insertstemp(AdminStempDTO adminStempDTO);
+	public String insertstemp(AdminStempDTO adminStempDTO);
 	
 	/**
 	 * searchstemp
