@@ -255,7 +255,7 @@
 		#{parstempNum},
 		#{partnerNum},
 		#{partnerName},
-		#{partnerAddr},
+		#{partnerAddr}
 		)
 	</insert>
 	
