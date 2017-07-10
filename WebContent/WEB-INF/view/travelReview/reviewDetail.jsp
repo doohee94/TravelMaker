@@ -1,3 +1,4 @@
+<%@page import="tm.totalre.dto.TotalreDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="org.json.simple.JSONArray"%>
 <%@page import="org.json.simple.JSONObject"%>
@@ -9,7 +10,10 @@
 	int result = (Integer) request.getAttribute("result");
 	String _id = (String)request.getAttribute("_id");
 	String user_id = (String) request.getAttribute("user_id");
-	System.out.println(result);
+	
+	TotalreDTO totalreDTO = (TotalreDTO)request.getAttribute("totalreDTO");
+	
+	//System.out.println(result);
 %>
 <% 
 	JSONArray tourarray = (JSONArray)request.getAttribute("obj");
@@ -86,8 +90,9 @@
 	src="//apis.daum.net/maps/maps3.js?apikey=d7cd900845b5f9c431bb5325b827e675&libraries=services"></script>
 
 <!-- 페이지 js파일 -->
-<script type="text/javascript" src="/resource/travelReview/js/travelDetail.js"></script>
-	
+<script type="text/javascript"
+	src="/resource/travelReview/js/travelDetail.js"></script>
+
 <script type="text/javascript" src="/resource/bootstrap/js/bootstrap.js"></script>
 
 </head>
@@ -95,105 +100,101 @@
 <body>
 
 	<!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="tmmain/main.tm">Travel Maker</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/step1/step1.tm">일정만들기</a>
-                    </li>
-                    <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행지추천</a>
-                    </li>
-                    <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
-                    </li>
-                    <li>
-                        <a href="/challengeschedule/challengeSchedule.tm">도전일정</a>
-                    </li>
-                     <li style="padding:10px">
-                       <input type="text"/> <button>검색</button>
-                    </li>                      
-                     <li>
-                        <a href="member/loginForm.tm">로그인</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        
-    </nav>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="tmmain/main.tm">Travel Maker</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/step1/step1.tm">일정만들기</a></li>
+					<li><a href="/recommandtravelregion/recommandTravelRegion.tm">여행지추천</a>
+					</li>
+					<li><a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
+					</li>
+					<li><a href="/challengeschedule/challengeSchedule.tm">도전일정</a>
+					</li>
+					<li style="padding: 10px"><input type="text" />
+						<button>검색</button></li>
+					<li><a href="member/loginForm.tm">로그인</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+	</nav>
 
 
 	<div class="container">
 		<!-- Page Heading/Breadcrumbs -->
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">리뷰페이지
-					<small>
-					<a href="#"><i class="fa fa-facebook-square fa-2x" id="shareBtn"></i></a>
-				<%if(result == 0) {%>
-				<input type="image" id="heartBtn" src="/resource/travelReview/images/heart1.png"/>
-				<%}else{%>
-				<input type="image" id="heartBtn" src="/resource/travelReview/images/heart2.png"/>
-				<%}%>
+				<h1 class="page-header"><%=totalreDTO.getTotalreTitle() %>
+					<small> <a href="#"><i
+							class="fa fa-facebook-square fa-2x" id="shareBtn"></i></a> <%if(result == 0) {%>
+						<input type="image" id="heartBtn"
+						src="/resource/travelReview/images/heart1.png" /> <%}else{%> <input
+						type="image" id="heartBtn"
+						src="/resource/travelReview/images/heart2.png" /> <%}%>
 					</small>
 				</h1>
 				<ol class="breadcrumb">
-					<li>리뷰 </li>
+					<li>리뷰</li>
 					<li>리뷰상세</li>
 				</ol>
-				<input type="hidden" value="<%=_id%>" id="_id">
-				<input type="hidden" value="<%=user_id%>" id="user_id">
+				<input type="hidden" value="<%=_id%>" id="_id"> <input
+					type="hidden" value="<%=user_id%>" id="user_id">
 			</div>
 		</div>
 		<!-- /.row -->
 
 		<!-- 사진 나열 -->
-		<div class="carousel slide article-slide" id="article-photo-carousel">
-			<!-- Wrapper for slides -->
-			<div class="carousel-inner cont-slider" style="width:">
-				<div class="item active" style="width: 100%; height: 400px;">
-					<img alt="" title=""
-						src="/resource/travelReview/images/${totalre.totalrePhoto1fake}"
-						class="img-responsive" style="width: 100%; height: 400px">
+		<div class="thumbnail">
+			<div class="carousel slide article-slide" id="article-photo-carousel">
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner cont-slider" style="width:">
+					<div class="item active" style="width: 100%; height: 400px;">
+						<img alt="" title=""
+							src="/resource/travelReview/images/<%=totalreDTO.getTotalrePhoto1fake() %>"
+							class="img-responsive" style="width: 100%; height: 400px">
+					</div>
+					<hr>
 				</div>
-				<hr>
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li class="active" data-slide-to="0"
+						data-target="#article-photo-carousel"><img alt=""
+						src="/upload/review/<%=totalreDTO.getTotalrePhoto1fake() %>"
+						class="img-responsive"></li>
+					<li class="" data-slide-to="1"
+						data-target="#article-photo-carousel"><img alt=""
+						src="/upload/review/<%=totalreDTO.getTotalrePhoto2fake() %>">
+					</li>
+					<li class="" data-slide-to="2"
+						data-target="#article-photo-carousel"><img alt=""
+						src="/upload/review/<%=totalreDTO.getTotalrePhoto3fake() %>">
+					</li>
+					<li class="" data-slide-to="3"
+						data-target="#article-photo-carousel"><img alt=""
+						src="/upload/review/<%=totalreDTO.getTotalrePhoto4fake() %>">
+					</li>
+				</ol>
 			</div>
-			<!-- Indicators -->
-			<ol class="carousel-indicators">
-				<li class="active" data-slide-to="0"
-					data-target="#article-photo-carousel"><img alt=""
-					src="/resource/travelReview/images/${totalre.totalrePhoto1fake}"
-					class="img-responsive"></li>
-				<li class="" data-slide-to="1" data-target="#article-photo-carousel">
-					<img alt=""
-					src="/resource/travelReview/images/${totalre.totalrePhoto2fake}">
-				</li>
-				<li class="" data-slide-to="2" data-target="#article-photo-carousel">
-					<img alt=""
-					src="/resource/travelReview/images/${totalre.totalrePhoto3fake}">
-				</li>
-				<li class="" data-slide-to="3" data-target="#article-photo-carousel">
-					<img alt=""
-					src="/resource/travelReview/images/${totalre.totalrePhoto4fake}">
-				</li>
-			</ol>
+
+			<div class="caption-full">
+				<p><%=totalreDTO.getTotalreContent() %></p>
+			</div>
 		</div>
-		
 	</div>
 
-	<div class="container map" style="width: 40%; margin-left:15%">
+	<div class="container map" style="width: 40%; margin-left: 15%">
 		<!-- Service Tabs -->
 		<div class="row map">
 			<div class="col-lg-12">
@@ -207,8 +208,7 @@
 						for (int i = 0; i < tourarray.size() && placeArray[i] != null; i++) {
 					%>
 					<li class="mapInfo"><a href="#service-<%=i %>"
-						data-toggle="tab"><i class="fa fa-tree"></i>DAY<%=i+1 %></a>
-					<%
+						data-toggle="tab"><i class="fa fa-tree"></i>DAY<%=i+1 %></a> <%
 						//위에서 만든 place배열에서 title, mapx, mapy 정보 가져오기
 							for (int j = 0; j < placeArray[i].size(); j++) {
 								JSONObject temp = new JSONObject();
@@ -217,22 +217,21 @@
 								String mapx = temp.get("mapx").toString();
 								String mapy = temp.get("mapy").toString();
 								String title = temp.get("title").toString();
-						%>
-						<input type="hidden" class="mapx" value=<%=mapx %>>
-						<input type="hidden" class="mapy" value=<%=mapy %>>
-						<input type="hidden" class="title" value=<%=title %>>	
-						<%
+						%> <input type="hidden" class="mapx" value=<%=mapx %>> <input
+						type="hidden" class="mapy" value=<%=mapy %>> <input
+						type="hidden" class="title" value=<%=title %>> <%
 							}
-						%>
-					</li>
+						%></li>
 					<%
 						}
 					%>
 				</ul>
 
-				<div id="myTabContent" class="tab-content" style="height:400px; overflow: scroll;">
+				<div id="myTabContent" class="tab-content"
+					style="height: 400px; overflow: scroll;">
 					<%
-					for (int i = 0; i < tourarray.size() && placeArray[i] != null; i++) {
+					for (int i = 0; i < tourarray.size(); i++) {
+						if(placeArray[i] != null){
 					%>
 					<div class="tab-pane fade in" id="service-<%=i %>">
 						<%
@@ -241,9 +240,13 @@
 								JSONObject temp = new JSONObject();
 								temp  = (JSONObject)placeArray[i].get(j);
 								String title = temp.get("title").toString();
+								String online_review = "";
+								if(temp.containsKey("online_review")){
+									online_review = temp.get("online_review").toString();
+								}
 						%>
 						<h4><%= title%></h4>
-						<p>		여기 일단 음 디게 재밌었다ㅎㅎㅎㅎㅎ</p>
+						<p><%=online_review %></p>
 						<hr>
 						<%
 							}
@@ -251,6 +254,7 @@
 					</div>
 
 					<%
+						}
 					}
 					%>
 				</div>
@@ -258,35 +262,38 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- 지도 구성 -->
 	<div id="map" style="width: 30%; height: 450px;" class="map"></div>
 
-	<div style="width:80%; margin-left:10%" align="center">
-	<table class="table table-striped">
-		<tr>
-			<th>내용</th>
-			<th>작성자</th>
-			<th>날짜</th>
-		</tr>
-		<c:choose>
-			<c:when test="${! empty replyList }">
-				<c:forEach items="${replyList}" var="list">
-					<tr>
-						<td>${list.reply }</td>
-						<td>${list.userId }</td>
-						<td>${list.writeDate }</td>
-					</tr>
-				</c:forEach>
-			</c:when>
-		</c:choose>
-	</table>
-	<br/>
-	<form action="/travelReview/insertReply.tm">
-	<input type="hidden" value="<%=_id%>" id="_id" name="scNum">
-	<input type="hidden" value="<%=user_id%>" id="user_id" name="userId">
-	<input style="width:70%; margin-bottom:5px" type="text" placeholder="댓글" id="reply" name="reply"><input type="submit" value="입력">
-	</form>
+	<div style="width: 80%; margin-left: 10%" align="center">
+		<table class="table table-striped">
+			<tr>
+				<th>내용</th>
+				<th>작성자</th>
+				<th>날짜</th>
+			</tr>
+			<c:choose>
+				<c:when test="${! empty replyList }">
+					<c:forEach items="${replyList}" var="list">
+						<tr>
+							<td>${list.reply }</td>
+							<td>${list.userId }</td>
+							<td>${list.writeDate }</td>
+						</tr>
+					</c:forEach>
+				</c:when>
+			</c:choose>
+		</table>
+		<br />
+
+		<form action="/travelReview/insertReply.tm">
+			<input type="hidden" value="<%=_id%>" id="_id" name="scNum">
+			<input type="hidden" value="<%=user_id%>" id="user_id" name="userId">
+			<input style="width: 70%; margin-bottom: 5px" type="text"
+				placeholder="댓글" id="reply" name="reply"><input
+				type="submit" value="입력">
+		</form>
 	</div>
 
 </body>

@@ -49,6 +49,7 @@ public class TravelReviewController {
 	@Autowired
 	TotalreDAO dao;
 
+	//리뷰 리스트 뿌려주기
 	@RequestMapping("/reviewlist.tm")
 	public ModelAndView reviewList(String searchContent){
 		ModelAndView mv = new ModelAndView();
@@ -63,29 +64,37 @@ public class TravelReviewController {
 
 	@RequestMapping(value="/reviewDetail.tm")
 	public ModelAndView showReviewDetail(@RequestParam("_id") String _id, HttpSession session){
-		//public ModelAndView showReviewDetail(){
 
-		String user_id = session.getAttribute("userId").toString();
 		ModelAndView mv = new ModelAndView();
+
+		String user_id = "";
+		int reviewlike = 0;
+		if(session.getAttribute("userId") != null){
+			user_id = session.getAttribute("userId").toString();
+			//이미 좋아요를 누른건지 아닌지 확인
+			reviewlike = dao.checkLike(user_id,_id);
+		}
+
+		//System.out.println(user_id);
+		mv.addObject("result",reviewlike);
+
 		mv.setViewName(dir + "reviewDetail");
 
+		//오라클디비에서 리뷰가져오기
 		TotalreDTO dto = dao.showReview(_id);
-		
+
+		//리뷰에대한 댓글 가져오기
 		ArrayList replyList = dao.showReply(_id);
+
 		
+		//가져온 정보들 ModelandView에 보내기
 		mv.addObject("replyList",replyList);
 
-		//이미 좋아요를 누른건지 아닌지 확인
-		int reviewlike = 0;
-		reviewlike = dao.checkLike(user_id,_id);
-
-		mv.addObject("result",reviewlike);
-		
 		mv.addObject("_id",_id);
 		mv.addObject("user_id", user_id);
 
-		mv.addObject("totalre", dto);
-		
+		mv.addObject("totalreDTO", dto);
+
 
 
 		//몽고디비에서 일정 불러오기
@@ -114,13 +123,17 @@ public class TravelReviewController {
 	}
 
 
+	//리뷰 디비에 등록하기
 	@RequestMapping("/insertReview.tm")
 	public String insertReview(TotalreDTO totalreDTO){
 
+		//리뷰 등록
 		int result = dao.insertReview(totalreDTO);
+		
+		//해시태그 등록
 		int hashtagResult = dao.insertHashtag(totalreDTO);
 
-		
+
 		String _id = totalreDTO.getScNum();
 
 		TotalreDTO dto = dao.showReview(_id);
@@ -128,10 +141,11 @@ public class TravelReviewController {
 		return "redirect:/travelReview/reviewlist.tm";
 
 	}
-	
+
+	//리뷰등록페이지로 이동
 	@RequestMapping("/registReview.tm")
 	public ModelAndView registReview( @RequestParam("_id") String _id, HttpSession session){
-		
+
 		String userId = session.getAttribute("userId").toString();
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(dir+"registReview");
@@ -139,16 +153,19 @@ public class TravelReviewController {
 		mv.addObject("userId",userId);
 		return mv;
 	}
-	
+
+	//리뷰에 대한 댓글달기
 	@RequestMapping("/insertReply.tm")
 	public String insertReply(reviewReplyDTO reviewReplyDTO){
-		
-		String curDate = new java.text.SimpleDateFormat("yy-MM-dd").format(new java.util.Date());
-		System.out.println("현재날짜"+curDate);
-		reviewReplyDTO.setWriteDate(curDate);
-		
-		int result = dao.insertReply(reviewReplyDTO);
-		
+
+		if(!(reviewReplyDTO.getUserId().equals(""))){
+
+			String curDate = new java.text.SimpleDateFormat("yy-MM-dd").format(new java.util.Date());
+			System.out.println("현재날짜"+curDate);
+			reviewReplyDTO.setWriteDate(curDate);
+			int result = dao.insertReply(reviewReplyDTO);
+		}
+
 		return "redirect:/travelReview/reviewDetail.tm?_id="+reviewReplyDTO.getScNum();
 	}
 
