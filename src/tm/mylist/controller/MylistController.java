@@ -42,7 +42,7 @@ public class MylistController {
 	@RequestMapping("/inglistsearch.tm")
 	@ResponseBody
 	public ArrayList<JSONObject> ingList(@RequestBody String list_num,HttpSession session){
-		
+		System.out.println("리스트 서치");
 		//리스트 save_state가져오기
 		JSONParser parser = new JSONParser();
 		JSONObject obj = null;
@@ -126,7 +126,7 @@ public class MylistController {
 	@RequestMapping("/findReview.tm")
 	@ResponseBody
 	public String findReview(@RequestBody String _idData){
-		
+		System.out.println("여기 와??");
 		JSONParser parser = new JSONParser();
 		JSONObject obj =null;
 		try {
