@@ -74,6 +74,58 @@ $(function(){
 		$("#frm").submit();
 	}); 
  });
+	 
+	/*$(document).ready(function() {
+	        $.ajax({
+	            type: "POST",
+	            dataType: 'json',
+	            url: "idCheck.tm",
+	            context: this,
+	            data: id,
+	            success: function(data) {
+	                var json_data = JSON.stringify(data);
+	                var parse_data = JSON.parse(json_data);
+	                
+	                if(id == parse_data.id) {
+	                    $('.id_err').bad_inform("이미 사용중인 아이디입니다.");
+	                }
+	            },
+	            error: function () {
+	                if(len == 0) $('.id_err').bad_inform("아이디를 입력하세요.");
+	                else if(len < 4) $('.id_err').bad_inform("아이디는 4자 이상만 사용가능합니다.");
+	                else {
+	                    $(this).valid_border();
+	                    $('.id_err').valid_inform("사용가능한 아이디입니다.");
+	                }
+	            }
+	        })
+	})*/
+	
+	/*memberIdCheck.click(function(){
+        console.log(memberId.val());
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: '../member/memberIdCheck.php',
+            data: {memberId: memberId.val()},
+ 
+            success: function (json) {
+                if(json.res == 'good') {
+                    console.log(json.res);
+                    memberIdComment.text('사용가능한 아이디 입니다.');
+                    idCheck.val('1');
+                }else{
+                    memberIdComment.text('다른 아이디를 입력해 주세요.');
+                    memberId.focus();
+                }
+            },
+ 
+            error: function(){
+              console.log('failed');
+ 
+            }
+        })
+    });*/
  
  /*아이디 중복확인*/
 	/*$(function(){
@@ -141,10 +193,10 @@ $(function(){
 });
 
 /* 관심지역 + 버튼 누르면 항목이 추가되게 */
-/*$(document).on('click', '#localplus', function() {
+$(document).on('click', '#localplus', function() {
 	$(".local").append(
-		          "<br/>"+
-		          "<select name='selOne' id='selOne' onchange='doChange(this, "selTwo")'>"+
+		          "<br/>"+ "&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;"+
+		          "<select name='selOne' id='selOne' onchange='doChange(this, 'selTwo')'>"+
             "<option value='시,도'>시,도</option>"+
             "<option value='서울특별시 '>서울특별시</option>"+
             "<option value='부산광역시 '>부산광역시</option>"+
@@ -163,11 +215,11 @@ $(function(){
             "<option value='경상북도 '>경상북도</option>"+
             "<option value='경상남도 '>경상남도</option>"+
             "<option value='제주특별자치도 '>제주특별자치도</option>"+
-          "</select>"+
+          "</select>"+"&nbsp;"+
           "<select name='selTwo' id='selTwo'>"+
           	"<option value='default'>시, 군, 구</option>"
-	); 
-});*/
+	);
+});
 
 /* 시도 눌렀을 때 나오는 구 */
 function doChange(srcE, targetId){
