@@ -1,3 +1,18 @@
+/* 헤더 css */
+/* 로고 */
+body #wrapper .navbar .navbar-header .tmlogo{
+	font-family: 맑은고딕;
+ 	font-weight: bold;
+ 	font-size: 2.35em;
+ 	padding-left: 383px;
+}
+/** 다른 페이지 이동 링크*/
+body #wrapper .navbar .navbar-right li a{
+	font-family: 맑은고딕;
+ 	font-weight: bold;
+	font-size: 1.4em;
+}
+
 /* 화면 이탈 방지 */
 *, html, body
 	{

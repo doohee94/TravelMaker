@@ -152,25 +152,27 @@ $(function(){
                 </button>
             <!-- /모바일 버전때 생성되는 버튼 -->   
             <!-- 로고 --> 
-                <a class="navbar-brand" href="tmmain/main.tm" style="padding-left: 378.5px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">Travel Maker</a>
+                <a class="tmlogo navbar-brand" href="tmmain/main.tm">Travel Maker</a>
             <!-- /로고 -->
             </div>
             <!-- 네비 헤더  메뉴 부분 -->
       		   <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/step1/step1.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">일정만들기</a>
+                        <a href="/step1/step1.tm">일정만들기</a>
                     </li>
                     <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">여행지추천</a>
+                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행지추천</a>
                     </li>
                     <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">여행리뷰</a>
+                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
                     </li>
                     <li style="padding:10px;">
-                       <input type="text" style="width: 170px; height: 26px; "/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px; width: 77px; font-size: 15px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; color:#2e2e2e"><span class="glyphicon glyphicon-search"></span> search</button>
+                       <input type="text" style="height: 27px; margin-right:5px;"/><button id="#searchBtn" style="background-color: #fafafa;border:0px; border-style: none; height: 27px;width:30px">
+                       <span class="glyphicon glyphicon-search"></span>
+                       </button> 
                     </li>                      
                      <li>
-                        <a href="/member/loginForm.tm" style="padding-right: 378px; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">로그인　</a>
+                        <a href="/member/loginForm.tm" style="padding-right: 378px">로그인　</a>
                     </li>
                 </ul>
             <!-- /네비 헤더  메뉴 부분 -->
