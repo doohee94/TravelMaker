@@ -307,7 +307,7 @@ $(function(){
 				 		    	 if(getData == null || getData == ""){ //리뷰가 등록 안돼있을 경우
 				 		    		 
 				 		    		$(".schedule-list").append('<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done" style="height:350px">'
-				 		    				 +'<img src="'+data[i].tour[0].place[0].image+'" style="height:100%" />'
+				 		    				 +'<img src="'+godata.tour[0].place[0].image+'" style="height:100%" />'
 											 +'<figcaption>'
 											 +'<h3>'+godata.sDate+'~'+godata.eDate+'</h3>'
 						    				 +'<p>'+godata.cityList[0]+'>'+godata.cityList[(godata.cityList.length -1)]+'</p>'
@@ -323,7 +323,7 @@ $(function(){
 				 		    	 }else{//리뷰가 등록 돼 있는 경우
 				 		    		 
 				 		    		$(".schedule-list").append('<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done">'
-				 		    				 +'<img src="'+data[i].tour[0].place[0].image+'" style="height:100%"/>'
+				 		    				 +'<img src="'+godata.tour[0].place[0].image+'" style="height:100%"/>'
 											 +'<figcaption>'
 											 +'<h3>'+godata.sDate+'~'+godata.eDate+'</h3>'
 						    				 +'<p>'+godata.cityList[0]+'>'+godata.cityList[(godata.cityList.length -1)]+'</p>'
