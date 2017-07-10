@@ -98,7 +98,7 @@ public class AdminController {
 		
 		//결과값을 배열에 저장
 		res[0] = startpageNum;
-		res[0] = endpageNum;
+		res[1] = endpageNum;
 		
 		return res;
 	}
