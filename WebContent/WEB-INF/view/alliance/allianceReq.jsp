@@ -49,32 +49,36 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label" for="partnerComname">회사명</label>
 					<div class="col-sm-3">
-						<input type="text" class="form-control" name="partnerComname" id="partnerComname" placeholder="회사명을 입력해주세요">
+						<input type="text" class="form-control" name="partnerComname" id="partnerComname" placeholder="회사명을 입력해주세요" required="required">
 					</div>
+					<span class="help-block" id="partnerComnameHint" style="color: red"></span>
 				</div>
 
 
 				<div class="form-group">
 					<label class="col-sm-3 control-label" for="partnerCeoname">대표명</label>
 					<div class="col-sm-3">
-						<input type="text" class="form-control" name="partnerCeoname" id="partnerCeoname" placeholder="대표자 성함을 입력해주세요">
+						<input type="text" class="form-control" name="partnerCeoname" id="partnerCeoname" placeholder="대표자 성함을 입력해주세요" required="required">
 					</div>
+					<span class="help-block" id="partnerCeonameHint" style="color: red"></span>
 				</div>
 
 				<div class="form-group">
 					<label class="col-sm-3 control-label" for="partnerReginum">사업자 등록번호</label>
 					<div class="col-sm-3">
 						<input type="text" class="form-control" name="partnerReginum" id="partnerReginum"
-							placeholder="사업자번호를 (-) 없이 입력해주세요" >
+							placeholder="사업자번호를 (-) 없이 입력해주세요" required="required">
 					</div>
+					<span class="help-block" id="partnerReginumHint" style="color: red"></span>  
 				</div>
 
 				<div class="form-group">
 					<label class="col-sm-3 control-label" for="partnerEmail">E-Mail</label>
 					<div class="col-sm-3">
 						<input type="text" class="form-control" name="partnerEmail" id="partnerEmail"
-							placeholder="E-mail 주소를 입력해주세요">
+							placeholder="E-mail 주소를 입력해주세요" required="required">
 					</div>
+					<span class="help-block" id="partnerEmailHint" style="color: red"></span>
 				</div>
 
 
@@ -82,14 +86,15 @@
 					<label class="col-sm-3 control-label" for="partnerTel1">연락처</label>
 					<div class="row">
 						<div class="col-sm-1">
-							<input type="text" class="form-control" name="partnerTel1" id="partnerTel1">
+							<input type="text" class="form-control" name="partnerTel1" id="partnerTel1" required="required">
 						</div>
 						<div class="col-sm-1">
-							<input type="text" class="form-control" name="partnerTel2" id="partnerTel2">
+							<input type="text" class="form-control" name="partnerTel2" id="partnerTel2" required="required">
 						</div>
 						<div class="col-sm-1">
-							<input type="text" class="form-control" name="partnerTel3" id="partnerTel3">
+							<input type="text" class="form-control" name="partnerTel3" id="partnerTel3" required="required">
 						</div>
+						<span class="help-block" id="partnerTelHint" style="color: red"></span>
 					</div>
 				</div>
 				
@@ -97,15 +102,17 @@
 					<label class="col-sm-3 control-label" for="file">파일업로드</label>
 					<div class="col-sm-3">
 						<input type="file" class="form-control" name="file" id="file"
-							placeholder="">
+							placeholder="" required="required">
 					</div>
+					<span class="help-block" id="fileHint" style="color: red"></span>
 				</div>
 
 				<div class="form-group">
 					<label class="col-sm-3 control-label" for="partnerContent">문의내용</label>
 					<div class="col-sm-5">
-						<textarea class="form-control" name="partnerContent" id="partnerContent" rows="5"></textarea>
+						<textarea class="form-control" name="partnerContent" id="partnerContent" rows="5" required="required"></textarea>
 					</div>
+					<span class="help-block" id="partnerContentHint" style="color: red"></span>
 				</div>
 
 
@@ -127,92 +134,9 @@
     <script src="/resource/bootstrap/js/bootstrap.min.js"></script>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>   
-	<script type="text/javascript">
-		$(".btn-info").click(function(){
-			if($("#partnerComname").val() == "" || $("#partnerComname").val() == null){
-				alert("회사명 누락");
-				$("#partnerComname").focus();
-				return false;
-			}
-			
-			if($("#partnerCeoname").val() == "" || $("#partnerCeoname").val() == null){
-				alert("대표자명 누락");
-				$("#partnerCeoname").focus();
-				return false;
-			}
-			
-			if($("#partnerReginum").val() == "" || $("#partnerReginum").val() == null){
-				alert("사업자번호 누락");
-				$("#partnerReginum").focus();
-				return false;
-			}
-			
-			var pattern1=/[0-9]{10}$/;
-			if(!(pattern1.test($("#partnerReginum").val()))){
-				alert("잘못된 입력");
-				$("#partnerReginum").focus();
-				return false;
-			}
-			
-			if($("#partnerEmail").val() == "" || $("#partnerEmail").val() == null){
-				alert("E-mail 누락");
-				$("#partnerEmail").focus();
-				return false;
-			}
-			
-			var pattern2=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-			if(!(pattern2.test($("#partnerEmail").val()))){
-				alert("E-mail 잘못");
-				$("#partnerEmail").focus();
-				return false;
-			}
-			
-			var pattern3=/[0-9]{2,3}$/;
-			if($("#partnerTel1").val() == "" || $("#partnerTel1").val() == null){
-				alert("전화번호 누락");
-				$("#partnerTel1").focus();
-				return false;
-			}
-			if(!(pattern3.test($("#partnerTel1").val()))){
-				alert("전화번호 잘못된입력");
-				$("#partnerTel1").focus();
-				return false;
-			}
-			
-			var pattern4=/[0-9]{3,4}$/;
-			if($("#partnerTel2").val() == "" || $("#partnerTel2").val() == null){
-				alert("전화번호 누락");
-				$("#partnerTel2").focus();
-				return false;
-			}
-			if(!(pattern4.test($("#partnerTel2").val()))){
-				alert("전화번호 잘못된입력");
-				$("#partnerTel2").focus();
-				return false;
-			}
-			
-			var pattern5=/[0-9]{4}$/;
-			if($("#partnerTel3").val() == "" || $("#partnerTel3").val() == null){
-				alert("전화번호 누락");
-				$("#partnerTel3").focus();
-				return false;
-			}
-			if(!(pattern5.test($("#partnerTel3").val()))){
-				alert("전화번호 잘못된입력");
-				$("#partnerTel3").focus();
-				return false;
-			}
-			
-			if($("#partnerContent").val() == "" || $("#partnerContent").val() == null){
-				alert("내용 누락");
-				$("#partnerContent").focus();
-				return false;
-			}
-			
-			$("#frm").attr("action","allianceOk.tm");
-			$("#frm").submit();
-		});
-	</script>
+	
+	<!-- allianceReq JS -->
+	<script src="/resource/alliance/js/allianceReq.js"></script>
 
 </body>
 </html>
