@@ -87,6 +87,13 @@
 		WHERE partner_num = #{partnernum}
 	</select>
 	
+	<select id="stempcntall" parameterType="hashMap" resultType="java.lang.Integer">
+		SELECT count(*)
+		FROM stemp
+		WHERE parstemp_num = #{parstempNum}
+	</select>
+	
+	
 	
 	<!-- Member -->
 	
@@ -276,6 +283,17 @@
 		WHERE
 		parstemp_num = #{parstempNum}
 	</update>
+	
+	<delete id="stempdelete" parameterType="hashMap">
+		DELETE FROM parstemp
+		WHERE parstemp_num = #{parstempNum}
+	</delete>
+	
+	<delete id="stempdel" parameterType="hashMap">
+		DELETE FROM stemp
+		WHERE parstemp_num = #{parstempNum}
+	</delete>
+	
 	
 	<!-- partner -->
 	

@@ -133,6 +133,13 @@ public interface AdminDAO {
 	public int stempupdate(AdminStempDTO adminStempDTO);
 	
 	/**
+	 * stempdelete
+	 * 스탬프 삭제
+	 */
+	public int stempdelete(String parstempNum);
+	
+	
+	/**
 	 * stempcreation
 	 * 스탬프 이미지 등록
 	 */

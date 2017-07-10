@@ -335,6 +335,19 @@ public class AdminDAOImpl implements AdminDAO {
 		return ss.update(namespace + ".stempupdate" , adminStempDTO);
 	}
 	
+	public int stempdelete(String parstempNum){
+		HashMap map = new HashMap();
+		map.put("parstempNum", parstempNum);
+		
+		int res = ss.selectOne(namespace + ".stempcntall", map);
+		
+		if(res > 0){
+			ss.delete(namespace + ".stempdel", map);
+		}
+		
+		return ss.delete(namespace + ".stempdelete", map);
+	}
+	
 	
 	/****************   제휴 처리  *****************/
 	

@@ -925,6 +925,15 @@ public class AdminController {
 	}
 	
 	/**
+	 * 스탬프 삭제
+	 */
+	@RequestMapping("/stempdelete.tm")
+	public String stempdelete(String parstempNum){
+		dao.stempdelete(parstempNum);
+		return "redirect:/tmadmin/adminstemp.tm";
+	}
+	
+	/**
 	 * 스탬프 QR생성
 	 */
 	@RequestMapping("/stempcreation.tm")

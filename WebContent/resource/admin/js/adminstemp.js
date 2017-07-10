@@ -58,3 +58,8 @@ $(".updatebtn").click(function(){
 			location.href = "/tmadmin/"+url+"?pageNumber=" + nextNumber;
 		}
 	});
+	
+	$(".stempdel").click(function(){
+		var parstempNum = $(this).next().val();
+		location.href = "/tmadmin/stempdelete.tm?parstempNum=" + parstempNum;
+	});
