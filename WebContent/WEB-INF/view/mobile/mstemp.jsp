@@ -21,9 +21,10 @@
 
 		<div data-role="main" class="ui-content">
 			<br />
+			<!-- 스탬프를 찍었는지 확인 후 결과 출력 -->
 			<div class="images">
 				<c:choose>
-					<!-- 스탬프를 찍었는지 확인 후 결과 출력 -->
+					
 					<c:when test="${empty result }">
 						<img id="stamp" src="/resource/mobile/images/d-stamp.png" />
 					</c:when>
@@ -41,9 +42,10 @@
 				<br />
 				<br />
 			</div>
+			<!-- 이미 스탬프를 찍었다면 버튼 숨김 -->
 			<div id="result">
 			<c:choose>
-				<!-- 이미 스탬프를 찍었다면 버튼 숨김 -->
+				
 				<c:when test="${empty result }">
 					<form action="insert.tm" method="post">
 						<input type="hidden" id="parstempNum" name="parstempNum" value="${parstempNum }" />
