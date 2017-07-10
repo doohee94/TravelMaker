@@ -85,6 +85,25 @@ public class AdminController {
 		 * 1 : 시작 rownum
 		 * 2 : 끝 rownum
 		 */
+
+		int startpageNum = 0;
+		int endpageNum = 0;
+		
+		if(pageNum <= 10){
+			startpageNum = 1;
+			if(page[0] <= 10){
+				endpageNum = page[0];
+			}else{
+				endpageNum = 10;
+			}
+		}else{
+			startpageNum = (pageNum/10) * 10 + 1;
+			if( (startpageNum+9) <= page[0] ){
+				endpageNum = (startpageNum+9);
+			}else{
+				endpageNum = page[0];
+			}
+		}
 		
 		List<AdminMemberDTO> list =  dao.MemberList(page[1],page[2]);
 		mv.setViewName(dir+"/adminMember");
@@ -93,6 +112,9 @@ public class AdminController {
 		mv.addObject("totalpage",page[0]);
 		mv.addObject("pageNum", pageNum);
 		mv.addObject("url", "adminMember.tm");
+		mv.addObject("startpageNum", startpageNum);
+		mv.addObject("endpageNum", endpageNum);
+		
 		return mv;
 		
 	}
