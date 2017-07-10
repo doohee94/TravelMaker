@@ -14,7 +14,7 @@
 
 <style type="text/css">
 #blurExample{
- 	background: url(/resource/error/errorpage405.PNG) center; 
+ 	background: url(/resource/error/errorpage403.PNG) center; 
 	background-size:cover;
 	width:1900px;
 	height:800px;
@@ -37,7 +37,7 @@
 .bgBlur .maintitlelink .movemain{
 	display:block;
 	margin-top:400px;
-	margin-left:1065px;
+	margin-left:955px;
 	border:0px;
 	font-size:25px;
 	font-family:맑은고딕;
