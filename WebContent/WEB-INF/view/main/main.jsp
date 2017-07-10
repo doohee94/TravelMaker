@@ -213,10 +213,9 @@
         <hr/>
     </div>
     <!-- /.container -->
-	<hr>
-	  <!-- Footer -->
-	<footer >
 	
+	<!-- Footer -->
+	<footer>
 		<div class="footer" align="center">
 			<br/>
 			<div class="foot_content" align="center">
