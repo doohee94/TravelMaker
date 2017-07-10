@@ -273,8 +273,8 @@
 		<!--main content end-->
 	</section>
 	<!-- container section start -->
-	<input id="url" value="${url }">
-	<input id="partnerComname" value="${partnerComname }">
+	<input type="hidden" id="url" value="${url }">
+	<input type="hidden" id="partnerComname" value="${partnerComname }">
 	<!-- javascripts -->
 	<script src="/resource/admin/js/jquery.js"></script>
 	<script src="/resource/admin/js/jquery-ui-1.10.4.min.js"></script>

@@ -230,14 +230,14 @@
       		  				p.partner_tel
                   FROM parstemp s, partner p
                   WHERE s.partner_num = p.partner_num
+                  <if test="partnerName != null">
+                  	AND s.partner_name like '%'||#{partnerName}||'%'
+            	  </if>
                   ORDER BY s.parstemp_num desc) g)
         <where>
 			<if test="startnum != null">
 				rnum <![CDATA[>=]]>  #{startnum} AND rnum <![CDATA[<=]]> #{endnum}
 			</if>
-			<if test="partnerName != null">
-                  	AND partner_name like '%'||#{partnerName}||'%'
-            </if>
             <if test="parstempNum != null">
             	parstemp_num = #{parstempNum}
             </if>
@@ -280,13 +280,13 @@
       		  FROM (SELECT * 
             		FROM partner
             		WHERE partner_state = 20   
+            		<if test="partnerComname != null">
+						AND partner_comname like '%'||#{partnerComname}||'%'
+					</if>
             		order by partner_num desc) g)
 		<where>
 			<if test="startnum != null">
 				rnum <![CDATA[>=]]>  #{startnum} AND rnum <![CDATA[<=]]> #{endnum}
-			</if>
-			<if test="partnerComname != null">
-				AND partner_comname like '%'||#{partnerComname}||'%'
 			</if>
 		</where>
 	</select>
@@ -296,14 +296,14 @@
 		FROM (SELECT rownum as rnum, g.*  
       		  FROM (SELECT * 
             		FROM partner
-            		WHERE partner_state = 10 
+            		WHERE partner_state = 10
+            		<if test="partnerComname != null">
+						AND partner_comname like '%'||#{partnerComname}||'%'
+					</if>
             		order by partner_num desc) g)
 		<where>
 			<if test="startnum != null">
 				rnum <![CDATA[>=]]>  #{startnum} AND rnum <![CDATA[<=]]> #{endnum}
-			</if>
-			<if test="partnerComname != null">
-				AND partner_comname like '%'||#{partnerComname}||'%'
 			</if>
 		</where>
 	</select>
