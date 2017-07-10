@@ -315,6 +315,7 @@ $(function(){
 						    				 + '<p>'+godata.tour_title+'</p>'
 						    				 +'<a href="#" class="read-more" id="view">상세일정보기</a><br/><br/>'
 						    				 +'<a class="read-more" id="delete">일정삭제</a><br/><br/>'
+						    				 +'<a class="read-more" id="deleteReview">리뷰삭제</a><br/><br/>'
 						    				 +'<input type="hidden" value="'+godata._id+'"  class="_id"/>'	
 						    				 +'</figcaption></figure>'		    		
 						    		);// append
@@ -354,6 +355,12 @@ $(function(){
 	$('.schedule-list').on('click', '#delete', function(){
 		var _id = $(this).siblings("._id").val().trim();
 		location.href="/mylist/delete.tm?_id="+_id+"&num="+num;
+		
+	});
+	
+	$('.schedule-list').on('click', '#deleteReview', function(){
+		var _id = $(this).siblings("._id").val().trim();
+		location.href="/mylist/deleteReview.tm?_id="+_id;
 		
 	});
 	

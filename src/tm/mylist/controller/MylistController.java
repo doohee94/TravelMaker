@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import tm.mylist.dao.MylistDAO;
@@ -106,6 +107,20 @@ public class MylistController {
 		
 		return result;
 		
+	}
+	
+	
+	/**
+	 * 해당 일정의 리뷰가 등록되어있는경우 삭제
+	 * 파라메터 : _id 일정 번호
+	 * 리턴타입 : 리스트로 바로 갈 수 있는 경로 
+	 * */
+	@RequestMapping("/deleteReview.tm")
+	public String deleteReview(@RequestParam("_id") String _id){
+		
+		dao.deleteReview(_id);
+		
+		return "redirect:/mylist/endlist.tm";
 	}
 	
 	@RequestMapping("/findReview.tm")
