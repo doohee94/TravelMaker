@@ -36,7 +36,7 @@
 	<div class="container">
 		
 		<div class="row">
-	            <div class="col-lg-12">
+	            <div class="col-lg-13">
 	                <ol class="breadcrumb">
 	                    <li>1단계</li>
 	                    <li class="step1blur">2단계</li>
@@ -47,7 +47,7 @@
 <!-- 	                    <input type="button" value="다음 >" class="nextbtnstep2"> -->
 	                </ol>
 	            </div>
-    </div>
+    	</div>
         
         <!-- Page Heading/Breadcrumbs -->
 		<div class="row">
@@ -93,7 +93,7 @@
 		<!-- 변경 여행지 start -->
 			<form id="frm" method="post">
 				<input type="hidden" id="changelisthidden" name="changelist" />
-				<div style="width: 1200px; margin: auto;">
+				<div style="width: 1150px; margin: auto;"class="locchangebtn">
 					<input type="button" id="changelistbtn" value="변경" class="nextbtn" style="float: right; margin-top: 0">
 					<span style="padding-right:30px; float:right; text-align: right; font-size: 1.5em;">변경 여행 리스트</span>
 				</div>
