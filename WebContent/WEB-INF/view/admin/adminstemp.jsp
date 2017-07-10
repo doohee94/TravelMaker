@@ -200,9 +200,10 @@
 															</div>
 														</div>
 													</div>
-													<a class="btn btn-danger" href="#">
+													<a class="stempdel btn btn-danger" href="#">
 														<i class="delete icon_close_alt2" id="deletebtn"> 삭제</i>
 													</a>
+													<input type="hidden" value="${a.parstempNum }">
 												</td>
 											</tr>
 											</c:forEach>
