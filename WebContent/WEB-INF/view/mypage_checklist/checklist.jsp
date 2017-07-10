@@ -132,7 +132,9 @@ for(int i=0; i<date.size(); i++){
 		<div class="row">
 		<input type="hidden" id="_id" value="<%=_id%>"/>
 			<div id="accordion" style="">
-				<%for(int i=0; i<date.size() && place[i] != null; i++){ %>
+				<%for(int i=0; i<date.size(); i++){
+					
+					if( place[i] != null){%>
 				  <h3 class="day">day<%=i+1 %></h3>
 				<div>
 
@@ -172,7 +174,9 @@ for(int i=0; i<date.size(); i++){
 						</div>
 					</div>
 				</div>
-				<%}%>
+				<%}else{
+						continue;
+				}}%>
 			</div>
 		</div>
 	</div>

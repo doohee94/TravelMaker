@@ -202,20 +202,20 @@ $( function() {
 	    			 );
 	    		 }//end if  
 	    	 }//end for
-	    		 
-	    		 
-	    		 
-	    		 
-       	    	
-	 			
+	    			
        	    if(data.tour != null){
-       	    	for(var i=0; i<data.tour.length && data.tour[i].place != null; i++){	
+       	    	for(var i=0; i<data.tour.length ; i++){	
+       	    		
+       	    	if(data.tour[i].place != null)	{
        	    		var place = [];
        	    		for(var j=0; j<data.tour[i].place.length; j++){
        	    			place[j] = data.tour[i].place[j];
        	    		}
        	    		day[i] = place;
-       	    	}   
+       	    	}else{
+       	    		continue;
+       	    	}
+       	    	} //for i  
        	    	      	    	
        	    	for(var j=0; j<day[0].length;  j++){ 
 			 		$("#myList").append(' <li class="list-group-item remove draggable"  style="color:#000;"> <div class="col-xs-12 col-sm-3">'+
