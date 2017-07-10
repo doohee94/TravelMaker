@@ -75,7 +75,7 @@ $.ajax({
 					
 					//리스트 넣기-----------------------------------------------
 					for(var i=0; i<item.length; i++){
-						
+						  var url = "/recommandtravelregion/find.tm?contentid="+item[i].contentid;   
 						//이미지 널값 처리
 						var firstimage = "/resource/tour/images/noimage.jpg";
 			               if(item[i].firstimage != null){
@@ -85,10 +85,10 @@ $.ajax({
 						
 			             //타이틀 글자수 처리  ------------------------------    
 			               var title = item[i].title;
-			               var titleTag = '<a href="#" class="sTitle">'+item[i].title+'</a>';
+			               var titleTag = '<a href="'+url+'" class="sTitle">'+item[i].title+'</a>';
 			               if(getTextLength(title)>25){
 			            	   
-			            	   titleTag = '<a href="#" class="bTitle" alt="'+item[i].title+'">'+item[i].title.substring(0,20)+"..."+'</a>'
+			            	   titleTag = '<a href="'+url+'" class="bTitle" alt="'+item[i].title+'">'+item[i].title.substring(0,20)+"..."+'</a>'
 			            	   
 			               }
 			               
@@ -99,10 +99,9 @@ $.ajax({
 			              
 			               }
 			               
-			               
 			               //리스트에 붙이기
 						$(".List").append('<div class="col-md-4 img-portfolio">'
-								+'<a href="#">'
+								+'<a href="'+url+'">'
 								+'<img class="img-responsive img-hover list-image" src="'+firstimage+'" alt="'+item[i].title+'">'
 								+' </a>'
 								+' <h3>'
