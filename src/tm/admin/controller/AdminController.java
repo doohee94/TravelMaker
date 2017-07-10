@@ -61,6 +61,48 @@ public class AdminController {
 		return "redirect:/tmmain/main.tm";
 	}
 	
+	/**
+	 * 페이지의 시작 번호와 끝번호를 계산하는 메소드
+	 * @param totalpage : 총 페이지 수
+	 * @param pageNum : 현재 페이지
+	 * @return int res : 0->시작번호, 1->끝번호
+	 */
+	public int[] pageNumber(int totalpage, int pageNum){
+		int[] res = new int[2];
+		//시작번호와 끝번호가 저장될 변수
+		int startpageNum = 0;
+		int endpageNum = 0;
+		
+		//10보다 작거나 같을때
+		if(pageNum <= 10){
+			//시작번호는 1
+			startpageNum = 1;
+			//끝번호가 토탈페이지수보다 작을때 끝번호는 토탈페이지수
+			if(totalpage <= 10){
+				endpageNum = totalpage;
+			}else{
+				endpageNum = 10;
+			}
+		//10보다 클때
+		}else{
+			//시작번호는 현재 페이지의 1로 끝나는 숫자
+			startpageNum = (pageNum/10) * 10 + 1;
+			
+			//끝번호가 토탈페이지수보다 작을때 끝번호는 토탈페이지수
+			if( (startpageNum+9) <= totalpage ){
+				endpageNum = (startpageNum+9);
+			}else{
+				endpageNum = totalpage;
+			}
+		}
+		
+		//결과값을 배열에 저장
+		res[0] = startpageNum;
+		res[0] = endpageNum;
+		
+		return res;
+	}
+	
 	/***********************   member(회원)     **************************/
 	
 	/**
@@ -86,24 +128,6 @@ public class AdminController {
 		 * 2 : 끝 rownum
 		 */
 
-		int startpageNum = 0;
-		int endpageNum = 0;
-		
-		if(pageNum <= 10){
-			startpageNum = 1;
-			if(page[0] <= 10){
-				endpageNum = page[0];
-			}else{
-				endpageNum = 10;
-			}
-		}else{
-			startpageNum = (pageNum/10) * 10 + 1;
-			if( (startpageNum+9) <= page[0] ){
-				endpageNum = (startpageNum+9);
-			}else{
-				endpageNum = page[0];
-			}
-		}
 		
 		List<AdminMemberDTO> list =  dao.MemberList(page[1],page[2]);
 		mv.setViewName(dir+"/adminMember");
@@ -112,8 +136,17 @@ public class AdminController {
 		mv.addObject("totalpage",page[0]);
 		mv.addObject("pageNum", pageNum);
 		mv.addObject("url", "adminMember.tm");
-		mv.addObject("startpageNum", startpageNum);
-		mv.addObject("endpageNum", endpageNum);
+		
+		
+		
+		int[] sten = pageNumber(page[0], pageNum);
+		/*
+		 *  0 : startPageNum
+		 *  1 : endPageNum
+		 */
+		
+		mv.addObject("startpageNum", sten[0]);
+		mv.addObject("endpageNum", sten[1]);
 		
 		return mv;
 		
@@ -165,6 +198,16 @@ public class AdminController {
 		mv.addObject("url", "adminsearchmem.tm");
 		mv.addObject("sel", sel);
 		mv.addObject("con", con);
+		
+		int[] sten = pageNumber(page[0], pageNum);
+		/*
+		 *  0 : startPageNum
+		 *  1 : endPageNum
+		 */
+		
+		mv.addObject("startpageNum", sten[0]);
+		mv.addObject("endpageNum", sten[1]);
+		
 		return mv;
 	}
 	
@@ -201,6 +244,15 @@ public class AdminController {
 		mv.addObject("qnalist", list);
 		mv.addObject("totalpage", page[0]);
 		mv.addObject("pageNum", pageNum);
+		
+		int[] sten = pageNumber(page[0], pageNum);
+		/*
+		 *  0 : startPageNum
+		 *  1 : endPageNum
+		 */
+		
+		mv.addObject("startpageNum", sten[0]);
+		mv.addObject("endpageNum", sten[1]);
 		
 		return mv;
 	}
@@ -289,6 +341,16 @@ public class AdminController {
 		mv.addObject("totalpage", page[0]);
 		mv.addObject("pageNum", pageNum);
 		mv.addObject("url", "adminadList.tm");
+		
+		int[] sten = pageNumber(page[0], pageNum);
+		/*
+		 *  0 : startPageNum
+		 *  1 : endPageNum
+		 */
+		
+		mv.addObject("startpageNum", sten[0]);
+		mv.addObject("endpageNum", sten[1]);
+		
 		return mv;
 	}
 	
@@ -355,6 +417,16 @@ public class AdminController {
 		mv.addObject("pageNum", pageNum);
 		mv.addObject("url", "adminadsearch.tm");
 		mv.addObject("partnerComname", partnerComname);
+		
+		int[] sten = pageNumber(page[0], pageNum);
+		/*
+		 *  0 : startPageNum
+		 *  1 : endPageNum
+		 */
+		
+		mv.addObject("startpageNum", sten[0]);
+		mv.addObject("endpageNum", sten[1]);
+		
 		return mv;
 	}
 	
@@ -524,6 +596,15 @@ public class AdminController {
 		mv.addObject("pageNum", pageNum);
 		mv.addObject("url", "adminAllianceList.tm");
 		
+		int[] sten = pageNumber(page[0], pageNum);
+		/*
+		 *  0 : startPageNum
+		 *  1 : endPageNum
+		 */
+		
+		mv.addObject("startpageNum", sten[0]);
+		mv.addObject("endpageNum", sten[1]);
+		
 		return mv;
 	}
 	
@@ -558,6 +639,16 @@ public class AdminController {
 		mv.addObject("pageNum", pageNum);
 		mv.addObject("url", "searchalli.tm");
 		mv.addObject("partnerComname", partnerComname);
+		
+		int[] sten = pageNumber(page[0], pageNum);
+		/*
+		 *  0 : startPageNum
+		 *  1 : endPageNum
+		 */
+		
+		mv.addObject("startpageNum", sten[0]);
+		mv.addObject("endpageNum", sten[1]);
+		
 		return mv;
 	}
 	
@@ -620,6 +711,15 @@ public class AdminController {
 		mv.addObject("pageNum", pageNum);
 		mv.addObject("url", "adminAllianceRec.tm");
 		
+		int[] sten = pageNumber(page[0], pageNum);
+		/*
+		 *  0 : startPageNum
+		 *  1 : endPageNum
+		 */
+		
+		mv.addObject("startpageNum", sten[0]);
+		mv.addObject("endpageNum", sten[1]);
+		
 		return mv;
 	}
 	
@@ -655,6 +755,16 @@ public class AdminController {
 		mv.addObject("pageNum", pageNum);
 		mv.addObject("url", "searchallirec.tm");
 		mv.addObject("partnerComname", partnerComname);
+		
+		int[] sten = pageNumber(page[0], pageNum);
+		/*
+		 *  0 : startPageNum
+		 *  1 : endPageNum
+		 */
+		
+		mv.addObject("startpageNum", sten[0]);
+		mv.addObject("endpageNum", sten[1]);
+		
 		return mv;
 	}
 	
@@ -721,6 +831,15 @@ public class AdminController {
 		mv.addObject("pageNum", pageNum);
 		mv.addObject("url","adminstemp.tm");
 		
+		int[] sten = pageNumber(page[0], pageNum);
+		/*
+		 *  0 : startPageNum
+		 *  1 : endPageNum
+		 */
+		
+		mv.addObject("startpageNum", sten[0]);
+		mv.addObject("endpageNum", sten[1]);
+		
 		return mv;
 	}
 	
@@ -755,6 +874,16 @@ public class AdminController {
 		mv.addObject("pageNum", pageNum);
 		mv.addObject("url","searchstemp.tm");
 		mv.addObject("partnerName",partnerName);
+		
+		int[] sten = pageNumber(page[0], pageNum);
+		/*
+		 *  0 : startPageNum
+		 *  1 : endPageNum
+		 */
+		
+		mv.addObject("startpageNum", sten[0]);
+		mv.addObject("endpageNum", sten[1]);
+		
 		return mv;
 	}
 	
