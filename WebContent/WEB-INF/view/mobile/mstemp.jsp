@@ -15,7 +15,7 @@
 <body>
 
 	<div data-role="page" id="pageone">
-		<div data-role="header">
+		<div data-role="header"  data-theme="b">
 			<img id="logo" src="/resource/mobile/images/samplelogo.png" />
 		</div>
 
@@ -58,6 +58,9 @@
 			</c:choose>
 			</div>
 		</div>
+		<div data-role="footer"data-position="fixed" data-theme="b">
+       	  	<div data-role="main" class="ui-content"></div>
+        </div>
 	</div>
 
 </body>
