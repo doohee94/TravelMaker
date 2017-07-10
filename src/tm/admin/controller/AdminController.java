@@ -447,25 +447,13 @@ public class AdminController {
 	 * 광고DB등록
 	 */
 	@RequestMapping("/adadinsert.tm")
-	public ModelAndView insertad(AdminadDTO adminadDTO, HttpSession session) {
-		ModelAndView mv = new ModelAndView();
-		
-		//관리자 로그인이 안되었다면 메인페이지로 이동
-		String admin = (String)session.getAttribute("admin");
-		if(admin == null){
-			mv.setViewName("redirect:/tmmain/main.tm");
-			return mv;
-		}
-		
+	public String insertad(AdminadDTO adminadDTO) {
 		adminadDTO.setAdStdate(adminadDTO.getStartyear()+"/"+adminadDTO.getStartmonth()+"/"+adminadDTO.getStartday());
 		adminadDTO.setAdEddate(adminadDTO.getEndyear()+"/"+adminadDTO.getEndmonth()+"/"+adminadDTO.getEndday());
 		
 		int res = dao.adadinsert(adminadDTO);
 		
-		List<AdminadDTO> list = dao.adlist();
-		mv.setViewName(dir+"adminadList");
-		mv.addObject("adlist", list);
-		return mv;
+		return "redirect:/tmadmin/adminadList.tm";
 	}
 	
 	/**
