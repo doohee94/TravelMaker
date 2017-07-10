@@ -132,7 +132,7 @@
 							<table class="table table-hover">
 								<thead>
 									<tr>
-										<th>문의 번호</th>
+										<th>문의 번호 <input type="hidden" id="pageNumber" name="pageNumber" value="${pageNum }"/></th>
 										<th>문의 유형</th>
 										<th>작성자</th>
 										<th>답변여부</th>
@@ -186,7 +186,6 @@
 																				</c:choose>
 																				<c:if test="${empty q.qnaReply }">
 																					<a class="replybtn btn btn-success" data-dismiss="modal" id="replybtn" title="Bootstrap 3 themes generator" style="margin-left: 80%; margin-top: 2%;">답변완료</a>
-																					<input type="hidden" id="pageNumber" name="pageNumber" value="${pageNum }"/>
 																				</c:if>
 																			</div>
 																		</form>

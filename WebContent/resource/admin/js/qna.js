@@ -25,6 +25,7 @@ $("#prevPage").click(function() {
 		//위에 조건이 안걸리면 전페이지로 이동
 		nextNumber = pageNumber - 1;
 	}
+	
 	location.href = "/tmadmin/adminQna.tm?pageNumber=" + nextNumber;
 });
 
@@ -42,6 +43,5 @@ $("#nextPage").click(function() {
 		//아니라면 다음페이지로 이동
 		nextNumber = parseInt(pageNumber) + 1;
 	}
-
 	location.href = "/tmadmin/adminQna.tm?pageNumber=" + nextNumber;
 });
