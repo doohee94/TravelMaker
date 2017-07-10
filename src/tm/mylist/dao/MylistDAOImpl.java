@@ -29,7 +29,14 @@ public class MylistDAOImpl implements MylistDAO {
 	public void deleteReview(String _id) {
 		HashMap map = new HashMap();		
 		map.put("_id",_id);
+		//리뷰 삭제
 		ss.delete(namespace+".delete", map);
+		//해당 리뷰의 댓글 삭제
+		ss.delete(namespace+".deleteReply",map);
+		//해당 리뷰의 좋아요 삭제
+		ss.delete(namespace+".deleteLike",map);
+		//해당 리뷰의 해시태그 삭제
+		ss.delete(namespace+".deleteHashtag",map);
 		
 	}
 

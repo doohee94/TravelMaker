@@ -111,7 +111,7 @@ public class MylistController {
 	
 	
 	/**
-	 * 해당 일정의 리뷰가 등록되어있는경우 삭제
+	 * 해당 일정의 리뷰가 등록되어있는경우 삭제, 해당 일정 번호의 댓글, 좋아요 눌렀을 때 삭제
 	 * 파라메터 : _id 일정 번호
 	 * 리턴타입 : 리스트로 바로 갈 수 있는 경로 
 	 * */
@@ -126,7 +126,7 @@ public class MylistController {
 	@RequestMapping("/findReview.tm")
 	@ResponseBody
 	public String findReview(@RequestBody String _idData){
-		System.out.println("여기 와??");
+		//System.out.println("여기 와??");
 		JSONParser parser = new JSONParser();
 		JSONObject obj =null;
 		try {
