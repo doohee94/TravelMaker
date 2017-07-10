@@ -9,15 +9,14 @@ $(function(){
 	$("#noagreeF").click(function(){
 		alert("동의하지 않으면 가입하실 수 없습니다");
 	});
-	$("#req").checkFocus
 });
 
 /* 동의함 누르면 버튼 readonly */
-/*$(function(){
+$(function(){
 	$("#agreeF").click(function(){
-		$("#req").Attr(onclick="return false;");
+		$("#req").attr("onclick","return false;");
 	});
-});*/
+});
  
  /* 약관동의 자세히 보기 팝업 */
  $(function(){
@@ -141,7 +140,7 @@ $(function(){
 	});
 });
 
-/* 주소 */
+/* 시도 눌렀을 때 나오는 구 */
 function doChange(srcE, targetId){
     var val = srcE.options[srcE.selectedIndex].value;
     var targetE = document.getElementById(targetId);

@@ -130,7 +130,7 @@
 		          
 		          <select name="selTwo" id="selTwo">
 		          	<option value="default">시, 군, 구</option>
-		          </select>
+		          </select>&emsp;<img src="/resource/member/image/signupplus.png" width="20" height="20"> 
                 </div>
                 
                 <button type="submit" class="signbuttons btn btn-primary" id="signupbutton" name="signupbutton" style="background: #5d6062;">회원가입하기</button>
