@@ -49,6 +49,10 @@ private String dir = "member/";
 	@RequestMapping(value="/signupOk.tm")
 	public String insert(MemberDTO memberdto){
 		memberdto.setUserAddr(memberdto.getUserCity()+ memberdto.getUserBorough());
+	    int res = dao.insert(memberdto);
+	    
+	    if(res > 0){
+	    	memberdto.setUserAddr(memberdto.getUserCity()+ memberdto.getUserBorough());
 			if(memberdto.getSelOneCity() != null && !(memberdto.getSelOneCity().equals("시,도"))){
 				LikelocDTO onedto = new LikelocDTO();
 				onedto.setUserId(memberdto.getUserId());
@@ -119,7 +123,7 @@ private String dir = "member/";
 					dao.insertLoc(thrdto);
 				}
 			}
-//		}
+		}
 		
 		return "redirect:/member/loginForm.tm";
 	}
