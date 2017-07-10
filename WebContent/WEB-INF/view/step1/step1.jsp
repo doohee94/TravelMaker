@@ -1171,7 +1171,7 @@
 						<!-- 동행자 팝업 푸터 (클로즈버튼) -->
 						<div class="modal-footer">
 							<button type="button" class="ftrsbtn btn btn-default ftokbtn"
-								id="ftrsbtn">목록초기화</button>
+								id="ftrsbtn">동행자 초기화</button>
 							<button type="button" class="btn btn-default ftokbtn"
 								data-dismiss="modal" id="ftokbtn">완료</button>
 						</div>

@@ -239,10 +239,11 @@ background-color:white;
 	border-radius:3px;
 	width:180px; height:50px;
 	text-align:center;
-	font-size:18px;
+	font-size:20px;
 	color:white;
 	background-color:#103e68;
 	cursor:pointer;
+	padding-bottom:2px;
 }
 	
  
@@ -273,20 +274,20 @@ background-color:white;
 /** popup  id search*/
 /** modal footer 공간 */
 .contnsubform #secondcontainer #myModal .modal-dialog .modal-content .modal-footer{
-	margin-top:5%; background-color: #2995F7;
+	margin-top:5%; background-color: #103e68;
 }
 
 /** modal footer 완료 버튼 */
 .contnsubform #secondcontainer #myModal .modal-dialog .modal-content .modal-footer #ftokbtn{
-	background-color:white; color: #2995F7; font-weight:bold;
+	background-color:white; color: #103e68; font-weight:bold;
 }
 
 /** modal footer 목록 초기화 버튼 */
 .contnsubform #secondcontainer #myModal .modal-dialog .modal-content .modal-footer #ftrsbtn{
-	background-color:white; color: #2995F7;
+	background-color:white; color: #103e68;
 	height:34px;
 	border-radius:3px;
-	border:1px solid #2995F7;
+	border:1px solid #103e68;
 	font-weight:bold;
 }
 
@@ -317,11 +318,12 @@ background-color:white;
 
 /** 검색한 아이디 오른쪽에 있는 o 버튼 */
 .contnsubform #secondcontainer #myModal .modal-dialog .modal-content .modal-body .col-md-13 .okbtn{
-	background-color: #2995F7;	color: white;
-	border:1px solid #2995F7;
+	background-color: #5058F2;	color: white;
+	border:1px solid #5058F2;
 	width:27.55px; height:28px;
 	margin-bottom:3px;
-	font-size:17px;
+	font-size:18px;
+	font-family:맑은고딕;
 }
 
 /** 검색한 아이디를 선택한 다음 취소 시키기 위한 x 버튼 */
