@@ -226,7 +226,7 @@
         
         <div class ="col-md-6">
 			<h3 class="headerSign"></h3>
-				<form action="" method="">
+				<form action="likeloc.tm" method="">
                 <br/><center><h1 style="font-size: 20px;">관심지역</h1></center>
                 
                 <br/><br/><br/><center><div class="form-group">
@@ -310,7 +310,7 @@
 		          </select>
                 </div></center>
                 
-                <br/><br/><br/><center><button type="button" class="signbuttons btn btn-primary" id="uselsel" name="uselsel" style="background: #5d6062; border-color:#5d6062">수정하기</a></button>
+                <br/><br/><br/><center><button type="button" class="signbuttons btn btn-primary" id="updatesel" name="updatesel" style="background: #5d6062; border-color:#5d6062">수정하기</a></button>
                 <button type="submit" class="signbuttons btn btn-primary" id="insertsel" name="insertsel" style="background: #5d6062; border-color:#5d6062">완료</a></button></center>
                 <br/><br/><br/><br/>
    </form>                             

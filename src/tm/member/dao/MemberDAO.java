@@ -57,4 +57,8 @@ public interface MemberDAO {
 	 */
 	public List<LikelocDTO> likeloclist(String id);
 	
+	/**
+	 * 관심지역 수정
+	 */
+	public int likelocmodify(LikelocDTO likelocdto);
 }

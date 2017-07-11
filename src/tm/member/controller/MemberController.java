@@ -227,6 +227,17 @@ private String dir = "member/";
 	}
 	
 /**
+* 관심여행지 수정
+*/
+	@RequestMapping("/likeloc.tm")
+	public String likeloc(HttpSession session, LikelocDTO likelocdto){
+		String id = (String)session.getAttribute("userId");
+		likelocdto.setUserId(id);
+		dao.insertLoc(likelocdto);
+		return "redirect:/member/memberUpdate.tm";
+	}
+	
+/**
 * 회원탈퇴
 */
 	@RequestMapping(value="/memberOut.tm")

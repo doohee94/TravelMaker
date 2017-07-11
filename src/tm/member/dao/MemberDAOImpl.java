@@ -105,4 +105,10 @@ public class MemberDAOImpl implements MemberDAO{
 		map.put("id", id);
 		return ss.selectList("member.likeloclist", map);
 	}
+	
+	/*관심지역 수정*/
+	@Override
+	public int likelocmodify(LikelocDTO likelocdto){
+		return ss.update("member.likelocmodify",likelocdto);
+	}
 }
