@@ -169,17 +169,16 @@ public class MypageController {
 	public ModelAndView qnalist(String tempPage, HttpSession session){
 		// 세션에서 userId를 받음
 	      String userId = (String) session.getAttribute("userId");
-	      
+	      //list 생성
 	      List<QnaDTO> list;
-	      ModelAndView mv = new ModelAndView();
-	      
+	      //ModelAndView mv생성
+	      ModelAndView mv = new ModelAndView();	      
 	      // 정상적인 접근시
 	      if (userId != null) {
 	         try {
 	            // 페이징 부분
 	            // db에서 끝 컬럼번호를 받아옴
 	            int qnaedNum = dao.findPage(userId);
-
 	            // 기본적인 페이지 번호
 	            int pageNum = 0;
 	            // 페이지 번호를 가지고 있지 않을때 초기 접속시
@@ -226,7 +225,6 @@ public class MypageController {
 	            // mv를 리턴
 	            return mv;
 	         }
-
 	      }
 	      // 비정상적인 접근
 	      else {

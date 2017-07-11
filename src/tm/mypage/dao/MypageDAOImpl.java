@@ -75,7 +75,7 @@ public class MypageDAOImpl implements MypageDAO{
 	}
 	/**
 	 * findPage
-	 * qna list중에서 시작 번호와 끝번호를 받아옴
+	 * qna list중에서 끝번호를 받아옴
 	 * QnaDTO dto를 리턴
 	 */
 	@Override
@@ -85,19 +85,17 @@ public class MypageDAOImpl implements MypageDAO{
 		//map에 userId를 담음
 		map.put("userId", userId);
 		//db에서 userId와 일치하는 컬럼들을 QnaDTO dto에 담음
-		System.out.println("디비타기전");
 		List<QnaDTO> list = ss.selectList(namespace + ".textQna",map);
-		System.out.println("리스트는 ?"+list);
+		//db에서 list값이 null이면 0을 리턴시킴
 		if(list == null){
 			return 0;
-		} else {
-
-			int qnaedNum = ss.selectOne(namespace + ".findqnanum",map);
-			return qnaedNum;
-
-			
 		}
-		//QnaDTO dto를 리턴
+		//list값이 있으면 db에서 해당되는 컬럼중 제일 마지막 컬럼의 번호를 가지고 온다.
+		else {
+			int qnaedNum = ss.selectOne(namespace + ".findqnanum",map);
+			//마지막 컬럼 번호 리턴
+			return qnaedNum;			
+		}
 	}	
 	/**
 	 * listQnA
