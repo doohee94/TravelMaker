@@ -6,7 +6,7 @@
 		SELECT *
 		from member
 		<where>
-		user_id =#{userId} AND user_pw =#{userPw}
+		user_id =#{userId} AND user_pw =#{userPw} AND user_type != 20
 		</where>
 	</select>
 </mapper>
