@@ -756,6 +756,7 @@ $( function() {
                         '<input type="hidden" class="addr" value="없음" >'+
                         '<input type="hidden" class="mapx" value=0.0 >'+
                         '<input type="hidden" class="mapy" value=0.0 >'+
+                        '<input type="hidden" class="contentid" value="" >'+
                         '</div><div class="clearfix"></div></li>'//결과 값 리스트에 붙이기
                   );   //결과 값 리스트에 붙이기
             }

@@ -104,12 +104,12 @@ public class RecommandTravelRegionController {
 					}
 				}
 
-				//placeTemp3배열에서 title정보를 빼서 title배열에 저장
+				//placeTemp3배열에서 각각의 정보를 저장할 ArrayList선언
 				ArrayList<String> title = new ArrayList<String>();	
 				ArrayList<String> image = new ArrayList<String>();
 				ArrayList<String> addr = new ArrayList<String>();
 				ArrayList<String> contentid = new ArrayList<String>();
-				//받아온 타이틀을 중복제거 위해 HashSet에 저장
+				//받아온 타이틀을 중복제거 위해 HashSet선언
 				Set<String> titleSet = new LinkedHashSet<String>();
 				Set<String> imageSet = new LinkedHashSet<String>();
 				Set<String> addrSet = new LinkedHashSet<String>();
@@ -117,7 +117,9 @@ public class RecommandTravelRegionController {
 				
 				
 				
+				//LinkedHashSet에 불러온 리스트들 저장해서 중복제거(순서도 보장)
 				for(int i=0; i<placeTemp3.size(); i++){
+					if(!placeTemp3.get(i).containsKey("contentid")) continue;
 					title.add(placeTemp3.get(i).get("title").toString());
 					image.add(placeTemp3.get(i).get("image").toString());
 					addr.add(placeTemp3.get(i).get("addr").toString());
@@ -128,9 +130,8 @@ public class RecommandTravelRegionController {
 					addrSet.add(addr.get(i));
 					contentidSet.add(contentid.get(i));
 				}
-				
-				
-				
+
+				//ArrayList에 LinkedHashSet저장
 				ArrayList<String> titleTemp = new ArrayList<String>(titleSet);
 				ArrayList<String> imageTemp = new ArrayList<String>(imageSet);
 				ArrayList<String> addrTemp = new ArrayList<String>(addrSet);
