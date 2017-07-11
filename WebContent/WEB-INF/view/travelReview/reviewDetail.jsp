@@ -138,9 +138,9 @@
                </div>
             </div>
             <!-- Indicators -->
-            <ol class="carousel-indicators">
+            <ol style="margin-left:30%" class="carousel-indicators">
                <li class="active" data-slide-to="0"
-                  data-target="#article-photo-carousel"><img style="cursor:pointer; width:100px; height:54px" alt=""
+                  data-target="#article-photo-carousel"><img style=" cursor:pointer; width:100px; height:54px" alt=""
                   src="/upload/review/<%=totalreDTO.getTotalrePhoto1fake() %>"
                   class="img-responsive"></li>
                <li class="" data-slide-to="1"
