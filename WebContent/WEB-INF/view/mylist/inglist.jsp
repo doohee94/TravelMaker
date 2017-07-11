@@ -60,27 +60,6 @@
 
 <!--     </style> -->
 
-<!--  메뉴바 -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script type="text/javascript">
-$(function() {
-    $(".subtitle:not(:first)").attr('class','subtitle sub_on');
-    $(".sub:first").css("display","block");
-    $(".sub:not(:first)").css("display","none");
-    $(".subtitle").click(function() { 
-        if ($(this).next(".sub").css("display") == "none") {
-            $(this).attr('class','subtitle');
-        } else {
-            $(this).attr('class','subtitle sub_on');
-        }
-        $(this).next(".sub").slideToggle('fast');
-    });
-});
-</script>
-
-
-
-
 </head>
 <body>
     <div id="wrapper">

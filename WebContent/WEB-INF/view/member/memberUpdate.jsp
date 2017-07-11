@@ -78,94 +78,36 @@
 </head>
 <body>
 
-		<!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-            <!--  모바일 버전때 생성되는 버튼 -->
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            <!-- /모바일 버전때 생성되는 버튼 -->   
-            <!-- 로고 --> 
-                <a class="navbar-brand" href="tmmain/main.tm" style="padding-left: 381px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">Travel Maker</a>
-            <!-- /로고 -->
-            </div>
-            <!-- 네비 헤더  메뉴 부분 -->
-         <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/step1/step1.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">일정만들기</a>
-                    </li>
-                    <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">여행지추천</a>
-                    </li>
-                    <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">여행리뷰</a>
-                    </li>
-                    <li>
-                        <a href="/challengeschedule/challengeSchedule.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">도전일정</a>
-                    </li>
-                     <li style="padding:10px;">
-                       <input type="text" style="width: 170px; height: 26px"/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px; width: 77px; font-size: 15px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; color:#2e2e2e"><span class="glyphicon glyphicon-search"></span> search</button>
-                    </li>                      
-                     <li>
-                        <a href="/member/loginForm.tm" style="padding-right: 398px; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">로그인　</a>
-                    </li>
-                </ul>
-            <!-- /네비 헤더  메뉴 부분 -->
-
-            <div class="navbar-inverse sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li>
-                            <a href="#" style="color: #e2e2e2; font-weight: bold; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;"><i class="fa fa-user fa-user"></i>  내 정보<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="/member/memberUpdate.tm" style="color: #e2e2e2; font-weight: bold; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">  정보수정</a>
-                                </li>
-                                <li>
-                                    <a href="/member/memberDelete.tm" style="color: #e2e2e2; font-weight: bold; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">  회원탈퇴</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#" style="color: #e2e2e2; font-weight: bold; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;"><i class="fa fa-list-alt fa-list-alt"></i>  내 일정<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="/mylist/inglist.tm" style="color: #e2e2e2; font-weight: bold; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">  계획중인일정</a>
-                                </li>
-                                <li>
-                                    <a href="/mylist/donelist.tm" style="color: #e2e2e2; font-weight: bold; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">  완성된일정</a>
-                                </li>
-                                <li>
-                                    <a href="/mylist/startlist.tm" style="color: #e2e2e2; font-weight: bold; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">  시작된일정</a>
-                                </li>
-                                <li>
-                                    <a href="/mylist/endlist.tm" style="color: #e2e2e2; font-weight: bold; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">  여행한일정</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="/tmmypage/likespot.tm" style="color: #e2e2e2; font-weight: bold; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;"><i class="fa fa-check-square-o fa-fw"></i>  관심 여행지</a>
-                        </li>
-                        <li>
-                            <a href="/tmmypage/schedule.tm" style="color: #e2e2e2; font-weight: bold; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;"><i class="fa fa-check-square-o fa-fw"></i>  관심 일정</a>
-                        </li>
-                        <li>
-                            <a href="/tmmypage/qna.tm" style="color: #e2e2e2; font-weight: bold; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;"><i class="fa fa-comments fa-fw"></i>  QnA</a>
-                        </li>
-                        <li>
-                            <a href="/tmmypage/stemp.tm" style="color: #e2e2e2; font-weight: bold; font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;"><i class="fa fa-map-marker fa-fw"></i>  스템프</a>
-                        </li>                        
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-            <!-- /.navbar-static-side -->
-        </nav>
+		    <div id="wrapper">
+       	<!-- Navigation -->
+       <jsp:include page="/tmmain/mypageheader.tm"></jsp:include>
+		<!-- 바디 부분 -->
+        <div id="page-wrapper">
+			<div class="container">
+				<!-- 바디 타이틀  -->
+          		<div class="row">
+            		<div class="col-lg-12">
+                		<h1 class="page-header">정보수정
+                		<small>Finish Schedule</small>
+                		</h1>
+            		</div>
+            	<!-- /바디 타이틀 -->
+            	  <!-- 바디 부분 -->
+        <div id="page-wrapper" style="margin-left: 0px; min-height:0px;">
+		<!-- 각 일정 보여주는 곳 -->
+		
+		<div class="schedule-list">                
+				</div> 
+			
+        </div>
+  
+		</div><!-- /container -->
+        </div>
+      
+    
+    </div>
+    
+    </div>
 
 
 

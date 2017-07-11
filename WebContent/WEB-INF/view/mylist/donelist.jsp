@@ -61,55 +61,6 @@
 
 <!--     </style> -->
 
-<!--  메뉴바 -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script type="text/javascript">
-$(function() {
-    $(".subtitle:not(:first)").attr('class','subtitle sub_on');
-    $(".sub:first").css("display","block");
-    $(".sub:not(:first)").css("display","none");
-    $(".subtitle").click(function() { 
-        if ($(this).next(".sub").css("display") == "none") {
-            $(this).attr('class','subtitle');
-        } else {
-            $(this).attr('class','subtitle sub_on');
-        }
-        $(this).next(".sub").slideToggle('fast');
-    });
-});
-</script>
-
-<!--  탭관련 js
-	클릭시 해당하는 일정 페이지로 넘어간다.-->
-<script type="text/javascript">
-$(function(){
-	//전체 일정을 보여준다
-	$('#all').click(function(){
-		$('#all').attr('href','menubar.tm');//여기 경로만 수정해주세요
-	});
-	//계획중인 일정을 누르면 계획중인 일정 페이지로 넘어간다. 
-	$('#ing').click(function(){
-		$('#ing').attr('href','inglist.tm');//여기 경로만 수정해주세요
-	});
-	
-	//완성된 일정을 페이지로 넘어감. 
-	$('#done').click(function(){
-		$('#done').attr('href','donelist.tm'); //여기 경로만 수정해주세요
-	});
-	
-	//시작된 일정 페이지로 넘어감
-	$('#start').click(function(){
-		$('#start').attr('href','startlist.tm');//여기 경로만 수정해주세요
-	});
-	
-	//여행한 일정 페이지로 넘어감.
-	$('#end').click(function(){
-		$('#end').attr('href','endlist.tm');//여기 경로만 수정해주세요
-	});
-	
-});
-
-</script>
 
 
 </head>
