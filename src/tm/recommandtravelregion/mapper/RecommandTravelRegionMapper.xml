@@ -11,4 +11,19 @@
 </select>
 
 
+<insert id="plusLike" parameterType="hashMap">
+
+		INSERT INTO recommandregionlike
+		VALUES(#{user_id},#{sc_num})
+		
+</insert>
+	
+<delete id="minusLike" parameterType="hashMap">
+
+		DELETE FROM recommandregionlike
+		WHERE user_id = #{user_id} AND sc_num = #{sc_num}
+		
+</delete>
+
+
 </mapper>

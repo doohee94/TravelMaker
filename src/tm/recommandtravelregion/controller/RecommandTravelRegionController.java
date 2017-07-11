@@ -2,9 +2,7 @@ package tm.recommandtravelregion.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.servlet.http.HttpSession;
@@ -17,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -249,5 +248,17 @@ public class RecommandTravelRegionController {
 		return mv;
 	}
 	
+	@RequestMapping("/plusLikeBtn.tm")
+	@ResponseBody
+	public void plusLikeBtn(@RequestBody String content){
+
+		//ReviewLikeController  insertLike.tm 참고
+	}
 	
+	@RequestMapping("/minusLikeBtn.tm")
+	@ResponseBody
+	public void minusLikeBtn(@RequestBody String content){
+
+		//ReviewLikeController  deleteLike.tm 참고
+	}
 }

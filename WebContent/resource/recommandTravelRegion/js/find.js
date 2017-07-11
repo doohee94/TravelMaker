@@ -13,7 +13,7 @@ $(function(){
 				
 				//제목붙이기
 				$(".title").append(item.title
-						+'<small>상세페이지</small>');
+						+'<small>상세페이지</small>'+ '<span><input type="image" id="heartBtn" src="/resource/travelReview/images/heart1.png" style="float:right"></span>');
 				
 				
 				//개요 붙이기--------------------------------------------
@@ -75,7 +75,65 @@ $(function(){
 		});//end ajax
 		
 		
+		// 여행지 상세페이지 좋아요 버튼(하트버튼) 눌렀을때.
+		$(".title").on('click', '#heartBtn', function(){
+			alert("좋아요 클릭 확인 ");
 			
-	
+			var user_id = $("#user_id").val();
+			if(user_id == ""){
+				
+				alert("로그인 후 이용할 수 있습니다");
+				
+			}else{
+				if($("#heartBtn").attr("src") == "/resource/travelReview/images/heart1.png"){
+					
+					
+				$.ajax({
+					url:"plusLikeBtn.tm",
+					type:"post",
+					contentType:"application/json",
+					data:JSON.stringfy(likeinfo),
+					success:function(data){
+						$("#heartBtn").attr("src","/resource/travelReview/images/heart2.png");
+					},
+					error:function(err,status,error){
+						alert("실패..!" + err.status+error);
+					}
+				});
+				
+				}else{
+					$.ajax({
+						url:"minusLikeBtn.tm",
+						type:"post",
+						contentType:"apllication/json",
+						data:JSON.stringfy(likeinf),
+						succes:function(data){
+							$("#heartBtn").attr("src","/resource/travelReview/images/heart1.png");
+						},
+						error:function(err,status,error){
+							alert("실패.....!" + err.status+error);
+						}
+					});
+					
+				}// end of heartBtn click/unclick else
+				
+			}// end of login yes/no else
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		});
 		
 });
+
+
+

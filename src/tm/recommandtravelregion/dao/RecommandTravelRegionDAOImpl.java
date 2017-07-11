@@ -25,4 +25,43 @@ public class RecommandTravelRegionDAOImpl implements RecommandTravelRegionDAO {
 		return likespot;
 	}
 
+	
+	
+	@Override
+	public void plusLikeBtn(){
+		
+		HashMap map = new HashMap();
+		
+		map.put("user_id", user_id);
+		
+		// 해당 여행지를 식별할 수 있는 값
+		map.put(key, value);
+		
+		// 좋아요 버튼 개수
+		map.put(key, value);
+		
+		ss.insert(namespace+".plusLike", map);
+	}
+	
+	
+	@Override
+	public void minusLikeBtn(){
+		
+		HashMap map = new HashMap();
+		
+		map.put("user_id", user_id);
+		
+		// 해당 여행지를 식별할 수 있는 값
+		map.put(key, value);
+		
+		// 좋아요 버튼 개수
+		map.put(key, value);
+		
+		ss.delete(namespace+".minusLike", map);
+		
+	}
+	
+	
+	
+	
 }
