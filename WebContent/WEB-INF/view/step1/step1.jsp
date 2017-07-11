@@ -1117,7 +1117,7 @@
 			<!-- 동행자 팝업버튼 -->
 			<div class="fourrow" data-toggle="modal" data-target="#myModal">
 				<input type="text" class="fellowpeople" id="fellowpeople"
-					placeholder="친구는 4명까지만 선택가능 합니다." readonly="readonly">
+					placeholder="동행자는 4명까지만 선택가능 합니다." readonly="readonly">
 				
 				<button type="button" class="btn btn-info btn-lg">
 					<img src="/resource/step1/images/addfriendsicon.jpg">
