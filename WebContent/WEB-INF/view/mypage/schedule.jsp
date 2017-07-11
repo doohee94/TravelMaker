@@ -3,12 +3,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<% 
- String userId = (String)session.getAttribute("userId");
- String userNick = (String)session.getAttribute("userNick");
- 
- ArrayList<TotalreDTO> list = (ArrayList)request.getAttribute("likelist");
- %>
+<%
+	String userId = (String) session.getAttribute("userId");
+	String userNick = (String) session.getAttribute("userNick");
+
+	ArrayList<TotalreDTO> list = (ArrayList) request.getAttribute("likelist");
+%>
 <!DOCTYPE html>
 <html lang="UTF-8">
 
@@ -70,11 +70,11 @@
 <body>
 
 	<div id="wrapper">
-	<jsp:include page="/tmmain/mypageheader.tm"></jsp:include>
+		<jsp:include page="/tmmain/mypageheader.tm"></jsp:include>
 		<!-- 바디 부분 -->
 		<div id="page-wrapper">
 			<article>
-				<div class="container">
+				<div class="container" style="margin-right:65%">
 					<!-- 바디 타이틀  -->
 					<div class="row">
 						<div class="col-lg-12">
@@ -84,31 +84,35 @@
 						</div>
 						<!-- /바디 타이틀 -->
 					</div>
-					
-				<%
-				if(list != null){
-				for(int i=0; i<list.size(); i++){ %>
+
+					<%
+						if (list != null) {
+							for (int i = 0; i < list.size(); i++) {
+					%>
 					<section class="grid-wrap">
 						<ul class="grid swipe-right" id="grid">
 							<li><a href="#"><img class="imagelist"
-									src="<%=list.get(i).getTotalrePhoto1fake() %>" /></a>
+									src="<%=list.get(i).getTotalrePhoto1fake()%>" /></a>
 								<h3>
-								<p style="color: white;"><%=list.get(i).getTotalreTitle() %></p>
-								<br/> <input type="hidden" class="likeNum" value="<%=list.get(i).getScNum()%>" />
-								</h3>
-							</li>
+									<p style="color: white;"><%=list.get(i).getTotalreTitle()%></p>
+									<br /> <input type="hidden" class="likeNum"
+										value="<%=list.get(i).getScNum()%>" />
+								</h3></li>
 
 						</ul>
 					</section>
-				<%} 
-				}else{
-				%>
+					<%
+						}
+						} else {
+					%>
 
 					<H1>저장하신 관심 일정이 없습니다.</H1>
 					<div class='nonlist'>
 						<section class="grid-wrap"></section>
 					</div>
-				<%} %>
+					<%
+						}
+					%>
 				</div>
 				<!-- /container -->
 			</article>
@@ -139,9 +143,9 @@
 	<script src="/resource/mypage/schedule/js/schedule.js"></script>
 
 	<script>
-	new GridScrollFx( document.getElementById( 'grid' ), {
-	viewportFactor : 0.4
-	} );
+		new GridScrollFx(document.getElementById('grid'), {
+			viewportFactor : 0.4
+		});
 	</script>
 
 </body>
