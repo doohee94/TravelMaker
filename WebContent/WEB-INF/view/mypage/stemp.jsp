@@ -63,7 +63,7 @@
 
 <body>
     <div id="wrapper">
-          <!-- Navigation -->
+        <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
             <!--  모바일 버전때 생성되는 버튼 -->
@@ -78,13 +78,13 @@
             </div>
             <!-- 로고 --> 
             <div class="logobox">
-                <a class="navbar-brand" href="/tmmain/main.tm">Travel Maker</a>
+                <a class="navbar-brand" href="/tmmain/main.tm" >Travel Maker</a>
             </div>
             <!-- /로고 -->
             <!-- 네비 헤더  메뉴 부분 -->
-            <ul class="nav navbar-nav navbar-right">
+         	<ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/step1/step1.tm" >일정만들기</a>
+                        <a href="/step1/step1.tm">일정만들기</a>
                     </li>
                     <li>
                         <a href="/recommandtravelregion/recommandTravelRegion.tm" >여행지추천</a>
@@ -92,16 +92,16 @@
                     <!-- 로그인 할때 생기는 버튼 -->
                     <%if(userNick!=null){ %>
                     <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
+                        <a href="/travelReview/reviewlist.tm">여행리뷰</a>
                     </li>
                     <%} //end of if %>
                      <li style="padding:10px;">
-                       <input type="text" id="tf_search" style="width: 170px; height: 26px"/><button id="searchBtn"><span class="glyphicon glyphicon-search"></span> search</button>
+                       <input type="text" id="tf_search" style="width: 170px; height: 26px"/><button id="searchBtn"><span class="glyphicon glyphicon-search"></span></button>
                     </li>                                         
                                       <!-- 로그인 할때 생기는 버튼 -->
                     <%if(userNick!=null){ %>
                     <li>
-                       <a href="/mylist/menubar.tm"><%=userNick%>&nbsp;&nbsp;님</a>
+                    	<a href="/mylist/menubar.tm"><%=userNick%>&nbsp;&nbsp;님</a>
                     </li>                      
                     <li>
                         <a href="/tmmain/logout.tm">로그아웃</a>
@@ -122,45 +122,44 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="#"><i class="fa fa-user fa-user"></i>  내 정보<span class="fa arrow"></span></a>
+                            <a href="#" style="color: #9d9d9d;"><i class="fa fa-user fa-user"></i>  내 정보<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/member/memberUpdate.tm">  정보수정</a>
+                                    <a href="/member/memberUpdate.tm" style="color: #9d9d9d;">  정보수정</a>
                                 </li>
                                 <li>
-                                    <a href="/member/memberDelete.tm">  회원탈퇴</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="/mylist/menubar.tm"><i class="fa fa-list-alt fa-list-alt"></i>  내 일정<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="/mylist/inglist.tm">  계획중인일정</a>
-                                </li>
-                                <li>
-                                    <a href="/mylist/donelist.tm">  완성된일정</a>
-                                </li>
-                                <li>
-                                    <a href="/mylist/startlist.tm">  시작된일정</a>
-                                </li>
-                                <li>
-                                    <a href="/mylist/endlist.tm">  여행한일정</a>
+                                    <a href="/member/memberDelete.tm" style="color: #9d9d9d;">  회원탈퇴</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="/tmmypage/likespot.tm"><i class="fa fa-heart fa-heart"></i>  관심 여행지</a>
+                            <a href="/mylist/menubar.tm" style="color: #9d9d9d;"><i class="fa fa-list-alt fa-list-alt"></i>  내 일정<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/mylist/inglist.tm" style="color: #9d9d9d;">  계획중인일정</a>
+                                </li>
+                                <li>
+                                    <a href="/mylist/donelist.tm" style="color: #9d9d9d;">  완성된일정</a>
+                                </li>
+                                <li>
+                                    <a href="/mylist/startlist.tm" style="color: #9d9d9d;">  시작된일정</a>
+                                </li>
+                                <li>
+                                    <a href="/mylist/endlist.tm" style="color: #9d9d9d;">  여행한일정</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
-                            <a href="/tmmypage/schedule.tm"><i class="fa fa-calendar fa-calendar"></i>  관심 일정</a>
+                            <a href="/tmmypage/likespot.tm" style="color: #9d9d9d;"><i class="fa fa-heart fa-heart"></i>  관심 여행지</a>
                         </li>
                         <li>
-                            <a href="/tmmypage/qna.tm"><i class="fa fa-omments fa-comments"></i>  QnA</a>
+                            <a href="/tmmypage/schedule.tm" style="color: #9d9d9d;"><i class="fa fa-calendar fa-calendar"></i>  관심 일정</a>
                         </li>
                         <li>
-                            <a href="/tmmypage/stemp.tm"><i class="fa fa-flag fa-flag"></i>  스템프</a>
+                            <a href="/tmmypage/qna.tm" style="color: #9d9d9d;"><i class="fa fa-omments fa-comments"></i>  QnA</a>
+                        </li>
+                        <li>
+                            <a href="/tmmypage/stemp.tm" style="color: #9d9d9d;"><i class="fa fa-flag fa-flag"></i>  스템프</a>
                         </li>                        
                     </ul>
                 </div>

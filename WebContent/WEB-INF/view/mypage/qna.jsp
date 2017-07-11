@@ -250,7 +250,7 @@
 											<c:choose>
 													<c:when test="${pageNum < qnaedNum}">
 													<div class ="text-center">
-														<a href="#" class="btn btn-default more" id="btn-moreqna">더보기</a>
+														<a href="#" class="btn btn-warning btn-lg" id="btn-moreqna">더보기</a>
 														<input type ="hidden" id="pageNum" value="${pageNum}">
 													</div>
 													</c:when>

@@ -10,6 +10,8 @@
   		  var content = $('#content').val();
   		  //select box값
 		  var select = $('#select-box').val();
+		  //db에 들어가기 전에 content 문자열 치환
+		  content = content.replace(/\n/g, "<br>");
 		  //예외 처리 값이 비었을때
 		  if(content==""||select=="")
 		  { 
