@@ -190,7 +190,7 @@
 										</c:otherwise>
 									</c:choose>
 												<h3>
-													<p>${i.likespotName}</p>
+													<p style="color: white;">${i.likespotName}</p>
 													<br/>
 													<a href="#" class="btn btn-s btn-danger">삭제</a>
 													<input type="hidden" class="likeNum" value="${i.likespotNum}"/>

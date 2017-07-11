@@ -191,8 +191,8 @@
 											</c:otherwise>
 										</c:choose>
 													<h3>
-														<p>${i.totalreTitle}</p>
-														<p>${i.totalreLikecount} 명이 좋아합니다.</p>
+														<p style="color: white;">${i.totalreTitle}</p>
+														<p style="color: white;">${i.totalreLikecount} 명이 좋아합니다.</p>
 														<br/>
 														<a href="#" class="btn btn-s btn-danger">삭제</a>
 														<input type="hidden" class="likeNum" value="${i.likescNum}"/>
