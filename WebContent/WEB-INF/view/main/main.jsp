@@ -221,7 +221,7 @@
 			<div class="foot_content" align="center">
 			<span class="footer_content_span">고객센터</span><br/>
 			<a class="footer_content_a" href="/alliance/allianceMain.tm">제휴문의</a><br/>
-			<a class="footer_content_a">회사소개</a><br/>
+			<a class="footer_content_a" href="#">회사소개</a><br/>
 			</div>
 			
 			<div class="foot_logo">
