@@ -131,10 +131,23 @@
                                     <a href="/member/memberDelete.tm">  회원탈퇴</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="/mylist/menubar.tm"><i class="fa fa-list-alt fa-list-alt"></i>  내 일정</a>
+                            <a href="/mylist/menubar.tm"><i class="fa fa-list-alt fa-list-alt"></i>  내 일정<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/mylist/inglist.tm">  계획중인일정</a>
+                                </li>
+                                <li>
+                                    <a href="/mylist/donelist.tm">  완성된일정</a>
+                                </li>
+                                <li>
+                                    <a href="/mylist/startlist.tm">  시작된일정</a>
+                                </li>
+                                <li>
+                                    <a href="/mylist/endlist.tm">  여행한일정</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="/tmmypage/likespot.tm"><i class="fa fa-heart fa-heart"></i>  관심 여행지</a>
