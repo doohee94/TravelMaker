@@ -27,6 +27,7 @@ $(function(){
     		$('#reviewMore').click(function(){
     			$(location).attr('href',"/travelReview/reviewlist.tm");
     		});
+    		//여행지 더보기 누르면 여행지 리스트 화면으로 이동
     		$('#spotMore').click(function(){
     			$(location).attr('href',"/recommandtravelregion/recommandTravelRegion.tm");
     		});

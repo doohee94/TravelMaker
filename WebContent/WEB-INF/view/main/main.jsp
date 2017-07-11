@@ -4,8 +4,6 @@
  <% 
  String userId = (String)session.getAttribute("userId");
  String userNick = (String)session.getAttribute("userNick");
- System.out.println("세션의 아이디"+userId);
- System.out.println("세션의 닉네임"+userNick); 
  %>   
 <!DOCTYPE html>
 <html lang="UFT-8">
