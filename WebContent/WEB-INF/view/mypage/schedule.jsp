@@ -93,7 +93,7 @@
                     </li>
                     <%} //end of if %>
                      <li style="padding:10px;">
-                       <input type="text" id="tf_search" style="width: 170px; height: 26px"/><button id="searchBtn"> search</button>
+                       <input type="text" id="tf_search" style="width: 170px; height: 26px"/><button id="searchBtn"><span class="glyphicon glyphicon-search"></span></button>
                     </li>                                         
                                       <!-- 로그인 할때 생기는 버튼 -->
                     <%if(userNick!=null){ %>
