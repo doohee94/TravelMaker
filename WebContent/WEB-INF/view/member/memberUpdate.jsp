@@ -117,7 +117,21 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="/mylist/menubar.tm"><i class="fa fa-edit fa-fw"></i>  내 일정</a>
+                            <a href="#"><i class="fa fa-list-alt fa-list-alt"></i>  내 일정<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/mylist/inglist.tm">  계획중인일정</a>
+                                </li>
+                                <li>
+                                    <a href="/mylist/donelist.tm">  완성된일정</a>
+                                </li>
+                                <li>
+                                    <a href="/mylist/startlist.tm">  시작된일정</a>
+                                </li>
+                                <li>
+                                    <a href="/mylist/endlist.tm">  여행한일정</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="/tmmypage/likespot.tm"><i class="fa fa-check-square-o fa-fw"></i>  관심 여행지</a>
@@ -147,7 +161,7 @@
 <div class="registerInner">
         <div class="col-md-6 signUp">
         <form action="membermodify.tm" method="post" id="frm" name="frm">
-            <br/><center><h1 style="font-size: 20px;">회원정보수정</h1></center>
+            <br/><center><h3  style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif">회원정보수정</h3></center>
             
 <br/>
 <br/>
@@ -188,7 +202,7 @@
                 </div>
                 
 				<div class="form-group">
-				<label>주소 :　</label>
+				<font style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 15px;">주소 :　</font>
                     <select name="userCity" id="userCity">
 		            <option value="시,도">시,도</option>
 		            <option value="서울특별시 ">서울특별시</option>
@@ -229,10 +243,10 @@
 			<h3 class="headerSign"></h3>
 				<form action="likeloc.tm" method="post">
 				
-                <br/><center><h1 style="font-size: 20px;">관심지역</h1></center>
+                <br/><center><h3 style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif">관심지역</h3></center>
                 
                 <br/><br/><br/><center><div class="form-group">
-				<h2 style="float: left;">관심지역1 :　</h2>
+				<font style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 15px;">관심지역1 :　</font>
                   <select name="selOneCity" id="selOne" >
 		          	<option value="시,도">시,도</option>
 		            <option value="서울특별시 ">서울특별시</option>
@@ -259,7 +273,7 @@
                 </div></center>
                 
                 <center><div class="form-group">
-				<h2 style="float: left;">관심지역2 :　</h2>
+				<font  style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 15px;">관심지역2 :　</font>
                   <select name="selTwoCity" id="selTwo" >
 		          	<option value="시,도">시,도</option>
 		            <option value="서울특별시 ">서울특별시</option>
@@ -286,7 +300,7 @@
                 </div></center>
                 
                 <center><div class="form-group">
-				<h2 style="float: left;">관심지역3 :　</h2>
+				<font  style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 15px;">관심지역3 :　</font>
                   <select name="selThrCity" id="selThree">
 		          	<option value="시,도">시,도</option>
 		            <option value="서울특별시 ">서울특별시</option>

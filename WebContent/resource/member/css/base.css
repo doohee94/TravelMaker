@@ -2,7 +2,6 @@
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 /* Reset */
 body,h1,h2,h3,h4,h5,h6,div,p,blockquote,pre,address,ul,ol,li,dl,dt,dd,table,caption,th,td,form,fieldset,legend,hr {margin:0;padding:0;}
-h1, h2, h3, h4, h5, h6 {font-size:100%;}
 ul, ol {list-style:none;}
 table {margin:0;padding:0;border-spacing:0;border:0;_border-collapse:collapse;}
 table, th, td {border: 0 none;border-collapse:collapse;margin: 0;}

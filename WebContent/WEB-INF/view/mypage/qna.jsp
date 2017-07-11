@@ -126,7 +126,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="/mylist/menubar.tm" style="color: #9d9d9d;"><i class="fa fa-list-alt fa-list-alt"></i>  내 일정<span class="fa arrow"></span></a>
+                            <a href="#" style="color: #9d9d9d;"><i class="fa fa-list-alt fa-list-alt"></i>  내 일정<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="/mylist/inglist.tm" style="color: #9d9d9d;">  계획중인일정</a>
