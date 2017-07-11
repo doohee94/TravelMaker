@@ -257,20 +257,50 @@ $(function(){
 		    	
 		    	
 		    	for(var i=0; i<data.length; i++){
-		    		$(".schedule-list").append('<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done" style="height:350px">'
-							 +'<img src="'+data[i].tour[0].place[0].image+'" style="height:100%"/>'
-							 +'<figcaption>'
-							 +'<h3>'+data[i].sDate+'~'+data[i].eDate+'</h3>'
-		    				 +'<p>'+data[i].cityList[0]+'>'+data[i].cityList[(data[i].cityList.length -1)]+'</p>'
-		    				 + '<p>'+data[i].tour_title+'</p>'
-		    				 +'<a href="#" class="read-more" id="check">일정체크</a><br/><br/>'
-		    				 +'<a class="read-more" id="delete">일정삭제</a><br/><br/>'
-		    				 +'<input type="hidden" value="'+data[i]._id+'"  class="_id"/>'	
-		    				 +'</figcaption></figure>'		    		
-		    		);// append
+		    		//이미지 널값처리
+		    		var image = "/resource/step3/step3_image/cityscape.png";	    		
+		    		if(data[i].tour == null ){
+
+			    		$(".schedule-list").append('<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done" style="height:350px">'
+			    				 +'<img src="'+image+'" style="height:100%" />'
+								 +'<figcaption>'
+								 +'<h3>'+data[i].sDate+'~'+data[i].eDate+'</h3>'
+			    				 +'<p>'+data[i].cityList[0]+'>'+data[i].cityList[(data[i].cityList.length -1)]+'</p>'
+			    				 + '<p>'+data[i].tour_title+'</p>'
+			    				 +'<a class="read-more" id="modify">일정편집</a><br/><br/>'
+			    				 +'<a class="read-more" id="delete">일정삭제</a><br/><br/>'
+			    				 +'<input type="hidden" value="'+data[i]._id+'"  class="_id"/>'	
+			    				 +'</figcaption></figure>'		    		
+			    		);// append
+		    		}else if(data[i].tour[0].place[0] == null){
+
+			    		$(".schedule-list").append('<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done" style="height:350px">'
+			    				 +'<img src="'+image+'" style="height:100%" />'
+								 +'<figcaption>'
+								 +'<h3>'+data[i].sDate+'~'+data[i].eDate+'</h3>'
+			    				 +'<p>'+data[i].cityList[0]+'>'+data[i].cityList[(data[i].cityList.length -1)]+'</p>'
+			    				 + '<p>'+data[i].tour_title+'</p>'
+			    				 +'<a class="read-more" id="modify">일정편집</a><br/><br/>'
+			    				 +'<a class="read-more" id="delete">일정삭제</a><br/><br/>'
+			    				 +'<input type="hidden" value="'+data[i]._id+'"  class="_id"/>'	
+			    				 +'</figcaption></figure>'		    		
+			    		);// append
+		    		}else{
+		    			
+		    			$(".schedule-list").append('<figure class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter done" style="height:350px">'
+			    				 +'<img src="'+data[i].tour[0].place[0].image+'" style="height:100%" />'
+								 +'<figcaption>'
+								 +'<h3>'+data[i].sDate+'~'+data[i].eDate+'</h3>'
+			    				 +'<p>'+data[i].cityList[0]+'>'+data[i].cityList[(data[i].cityList.length -1)]+'</p>'
+			    				 + '<p>'+data[i].tour_title+'</p>'
+			    				 +'<a class="read-more" id="modify">일정편집</a><br/><br/>'
+			    				 +'<a class="read-more" id="delete">일정삭제</a><br/><br/>'
+			    				 +'<input type="hidden" value="'+data[i]._id+'"  class="_id"/>'	
+			    				 +'</figcaption></figure>'	
+		    			);
+		    		}
 		    	
 		    	}//end for i
-		    	
 		    	
 		     }//end success
 			,error:function(err,status,error){
