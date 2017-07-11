@@ -25,7 +25,7 @@
     			$(location).attr('href',"/travelReview/reviewlist.tm");
     		});
     		$('#spotMore').click(function(){
-    			
+    			$(location).attr('href',"/recommandtravelregion/recommandTravelRegion.tm");
     		});
     		
     	});
