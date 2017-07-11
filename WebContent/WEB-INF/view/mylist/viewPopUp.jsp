@@ -4,32 +4,41 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+table, td, th {    
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+}
+a{
+	cursor:pointer;
+}
+a:link, a:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+a:hover, a:active {
+    background-color: red;
+}
+
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="/resource/mylist/js/jquery.techbytarun.excelexportjs.min.js"></script>
 <title>상세일정 엑셀</title>
-</head>
-<body>
-<div  id="tableContainer">
-	<table id="myTable" border=3px;>
-		<thead>
-			<tr id="thead_tr">
-				<!--  day 출력부분 -->
-			</tr>
-		</thead><!-- end 테이블 헤더 -->
-	<!-- 일정 출력 부분 -->
-		<tbody  id="tbody">
-		</tbody><!-- end테이블 바디 -->
-
-
-	</table><!-- 테이블 끝 -->
-	</div><!--  컨테이너 끝 -->
-	
-	<div>
-		<a id="export">엑셀로 저장하기</a>
-	</div>
-	
-
-</body>
 <script type="text/javascript">
 var _id = '${_id}';
 var _idcheck={
@@ -49,7 +58,7 @@ $.ajax({
 		     ,success:function(data){
 		    	//투어타이틀------------------
 		    	title = data.tour_title;
-		    	
+		    	$("#tour_title").val(title);
 		    	//day 붙이기------------------------
 		    	for(var i=0; i<data.dayNum; i++ ){
 		    		$("#thead_tr").append('<th>'+'day'+(i+1)+'</th>');
@@ -99,6 +108,39 @@ $.ajax({
 			}	
 });//end ajax;
 
+
+
+
+
+
+
+
+</script>
+</head>
+<body>
+<input type="hidden" id = "tour_title" />
+<div  id="tableContainer">
+	<table id="myTable" border=3px;>
+		<thead>
+			<tr id="thead_tr">
+				<!--  day 출력부분 -->
+			</tr>
+		</thead><!-- end 테이블 헤더 -->
+	<!-- 일정 출력 부분 -->
+		<tbody  id="tbody">
+		</tbody><!-- end테이블 바디 -->
+
+
+	</table><!-- 테이블 끝 -->
+	</div><!--  컨테이너 끝 -->
+	<br/><br/><br/><br/>
+	<div align="center">
+		<a id="export">엑셀로 저장하기</a>
+	</div>
+
+</body>
+<script type="text/javascript">
+
 $(function(){
 //엑셀저장-------------------------------------------------------------
 	var uri = $("#myTable").excelexportjs({
@@ -109,8 +151,7 @@ $(function(){
 		,returnUri:true
 	});
 
-	alert(uri);
-	$("#export").attr("download", "하이").attr("href",uri).attr("target","_blank");
+	$("#export").attr("download", $("#tour_title").val()).attr("href",uri).attr("target","_blank");
 }); //end function
 
 </script>
