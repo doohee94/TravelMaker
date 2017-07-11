@@ -447,11 +447,34 @@ public class AdminController {
 	 * 광고DB등록
 	 */
 	@RequestMapping("/adadinsert.tm")
-	public String insertad(AdminadDTO adminadDTO) {
+	public String insertad(AdminadDTO adminadDTO, String partnerType) {
 		adminadDTO.setAdStdate(adminadDTO.getStartyear()+"/"+adminadDTO.getStartmonth()+"/"+adminadDTO.getStartday());
 		adminadDTO.setAdEddate(adminadDTO.getEndyear()+"/"+adminadDTO.getEndmonth()+"/"+adminadDTO.getEndday());
 		
 		int res = dao.adadinsert(adminadDTO);
+		
+		/*
+		 * <option value="10">제휴</option>
+			<option value="20">광고</option>
+			<option value="30">스탬프</option>
+			<option value="40">광고/스탬프</option>
+		 */
+		
+		if(res > 0){
+			if(partnerType.equals("10")){
+				partnerType = "20";
+				AllianceDTO dto = new AllianceDTO();
+				dto.setPartnerType(Integer.parseInt(partnerType));
+				dto.setPartnerNum(adminadDTO.getPartnerNum());
+				dao.typeupdate(dto);
+			}else if(partnerType.equals("30")){
+				partnerType = "40";
+				AllianceDTO dto = new AllianceDTO();
+				dto.setPartnerType(Integer.parseInt(partnerType));
+				dto.setPartnerNum(adminadDTO.getPartnerNum());
+				dao.typeupdate(dto);
+			}
+		}
 		
 		return "redirect:/tmadmin/adminadList.tm";
 	}
@@ -878,8 +901,31 @@ public class AdminController {
 	 * 스탬프 등록
 	 */
 	@RequestMapping("/insertstemp.tm")
-	public String insertStemp(AdminStempDTO adminStempDTO) {
+	public String insertStemp(AdminStempDTO adminStempDTO, String partnerType) {
 		String num = dao.insertstemp(adminStempDTO);
+		
+		/*
+		 * <option value="10">제휴</option>
+			<option value="20">광고</option>
+			<option value="30">스탬프</option>
+			<option value="40">광고/스탬프</option>
+		 */
+		
+		if(num != null){
+			if(partnerType.equals("10")){
+				partnerType = "30";
+				AllianceDTO dto = new AllianceDTO();
+				dto.setPartnerType(Integer.parseInt(partnerType));
+				dto.setPartnerNum(adminStempDTO.getPartnerNum());
+				dao.typeupdate(dto);
+			}else if(partnerType.equals("20")){
+				partnerType = "40";
+				AllianceDTO dto = new AllianceDTO();
+				dto.setPartnerType(Integer.parseInt(partnerType));
+				dto.setPartnerNum(adminStempDTO.getPartnerNum());
+				dao.typeupdate(dto);
+			}
+		}
 		
 		return "redirect:/tmadmin/stempcreation.tm?num="+num;
 	}

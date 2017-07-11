@@ -208,13 +208,6 @@
 																						name="partnerStateview" id="partnerStateview"  readonly="readonly"
 																						value='${str }'>
 																					<input type="hidden" value="${a.partnerType}">
-																					<button type="button" class="partnerch btn btn-info">변경</button>
-																					<select class="partnerType form-control m-bot15" id="partnerType" name="partnerType">
-																						<option value="10">제휴</option>
-																						<option value="20">광고</option>
-																						<option value="30">스탬프</option>
-																						<option value="40">광고/스탬프</option>
-																					</select>
 																				</div>
 																				<div class="form-group">
 																					<label for="imgshow">사업자 등록증</label>

@@ -129,7 +129,8 @@
 						$("tbody").append("<tr class='for"+i+" allisttr' data-dismiss='modal'>");
 						$(".for"+i).append("<td>"+data[i].partnerNum);	
 						$(".for"+i).append("<td>"+data[i].partnerComname);	
-						$(".for"+i).append("<td>"+data[i].partnerReginum);	
+						$(".for"+i).append("<td>"+data[i].partnerReginum);
+						$(".for"+i).append("<input type='hidden' value='"+data[i].partnerType+"'>");
 					}
 				}
 			});
@@ -140,7 +141,9 @@
 			
 			var num = $(this).children().first();
 			var name = num.next().text();
+			var type = num.next().next().next().val();
 			
 			$("#partnername").val(name);
 			$("#partnerNum").val(num.text());
+			$("#partnerType").val(type);
 		});

@@ -82,22 +82,6 @@ $(".delete").click(function() {
 	}
 });
 
-$(".partnerch").click(function() {
-	$(".partnerType").show();
-
-	$(".partnerStatech").show();
-
-	$(".state").hide();
-	$(this).hide();
-	var pre = $(this).prev();
-	$(this).next().find("option").each(function() {
-		if ($(this).val() == pre.val()) {
-			$(this).attr('selected', true);
-		}
-		;
-	});
-
-});
 
 $(".closebtnf").click(function() {
 	$(".partnerType").hide();
