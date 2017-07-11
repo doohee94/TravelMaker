@@ -11,7 +11,7 @@ display: inline-block;
 float: right;
 }
 /*검색버튼*/
-#searchBtn{
+#reviewpagesearchBtn{
 	height: 30px;
 	background-color: #fff;
 	font-size: 0.5em;

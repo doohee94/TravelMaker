@@ -25,13 +25,6 @@
 <!-- 커스텀 css -->
 <link rel="stylesheet"
 	href="/resource/travelReview/css/reviewlist.css">
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-<!-- jquery cdn -->
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-
 
 <!-- Bootstrap Core CSS -->
     <link href="/resource/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +35,14 @@
 <!-- Custom Fonts -->
 <link href="/resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<!-- jquery cdn -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
 <script type="text/javascript" src="/resource/bootstrap/js/bootstrap.min.js"></script>
 
@@ -50,10 +50,10 @@
 <script src="/resource/travelReview/js/reviewlist.js"></script>
 
 </head>
-<header>
-    <jsp:include page="/tmmain/header.tm"></jsp:include>
-</header>
+
 <body>
+   <!-- 메인 헤더 부분 -->
+   <jsp:include page="/tmmain/header.tm"></jsp:include>
    
 	<!-- Page Content -->
 	<div class="container">
@@ -64,7 +64,7 @@
 				<h1 class="page-header">
 					리뷰페이지 <small>여러분의 후기를 공유해보세요</small>	
 					<div id="div_search" class="">
-					<input type="text" placeholder="ex)서울여행, 서울, 함께" id="reviewSearchContent" /><button id="searchBtn">검색</button>
+					<input type="text" placeholder="ex)서울여행, 서울, 함께" id="reviewSearchContent" /><button id="reviewpagesearchBtn">검색</button>
 					</div>
 				</h1>
 
