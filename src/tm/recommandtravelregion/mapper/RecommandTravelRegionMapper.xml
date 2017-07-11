@@ -13,17 +13,23 @@
 
 <insert id="plusLike" parameterType="hashMap">
 
-		INSERT INTO recommandregionlike
-		VALUES(#{user_id},#{sc_num})
+		INSERT INTO likespot(LIKESPOT_NUM, USER_ID, LIKESPOT_NAME,likespot_reason)
+		VALUES(seq_LIKESPOT.nextval,#{userId},#{contentid},'false')
 		
 </insert>
 	
 <delete id="minusLike" parameterType="hashMap">
 
-		DELETE FROM recommandregionlike
-		WHERE user_id = #{user_id} AND sc_num = #{sc_num}
+		DELETE FROM likespot
+		WHERE USER_ID = #{userId} AND LIKESPOT_NAME = #{contentid}
 		
 </delete>
 
+<select id="findLikeSpot" parameterType="hashMap" resultType="java.lang.String">
+SELECT LIKESPOT_NUM FROM likespot
+WHERE USER_ID = #{userId} AND LIKESPOT_NAME = #{contentid}
+
+
+</select>
 
 </mapper>
