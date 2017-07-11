@@ -94,7 +94,7 @@ CREATE TABLE member (
 	user_email		VARCHAR2(50)	NOT NULL  -- 이메일
 );
 
-CREATE SEQUENCE seq_member
+CREATE SEQUENCE  seq_member
 INCREMENT BY 1
 START WITH 1;
 

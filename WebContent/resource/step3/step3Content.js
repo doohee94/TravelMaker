@@ -16,8 +16,6 @@ $( function() {
 
 	//쓰레기통에 리스트 넣으면 사라짐
 	$( "#trash" ).sortable({
-		connectWith: "ul",
-        item:'#myList > li',
         update:function(event, ui){
         	$("#trash li").remove();
        }//update end
