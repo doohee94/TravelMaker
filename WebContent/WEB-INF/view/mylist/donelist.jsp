@@ -299,7 +299,7 @@ $(function(){
 									 +'<h3>'+data[i].sDate+'~'+data[i].eDate+'</h3>'
 				    				 +'<p>'+data[i].cityList[0]+'>'+data[i].cityList[(data[i].cityList.length -1)]+'</p>'
 				    				 + '<p>'+data[i].tour_title+'</p>'
-				    				 +'<a class="read-more" id="modify">일정편집</a><br/><br/>'
+				    				 +'<a class="read-more" id="view">일정보기</a><br/><br/>'
 				    				 +'<a class="read-more" id="delete">일정삭제</a><br/><br/>'
 				    				 +'<input type="hidden" value="'+data[i]._id+'"  class="_id"/>'	
 				    				 +'</figcaption></figure>'		    		
@@ -312,7 +312,7 @@ $(function(){
 									 +'<h3>'+data[i].sDate+'~'+data[i].eDate+'</h3>'
 				    				 +'<p>'+data[i].cityList[0]+'>'+data[i].cityList[(data[i].cityList.length -1)]+'</p>'
 				    				 + '<p>'+data[i].tour_title+'</p>'
-				    				 +'<a class="read-more" id="modify">일정편집</a><br/><br/>'
+				    				 +'<a class="read-more" id="view">일정보기</a><br/><br/>'
 				    				 +'<a class="read-more" id="delete">일정삭제</a><br/><br/>'
 				    				 +'<input type="hidden" value="'+data[i]._id+'"  class="_id"/>'	
 				    				 +'</figcaption></figure>'		    		
@@ -325,7 +325,7 @@ $(function(){
 									 +'<h3>'+data[i].sDate+'~'+data[i].eDate+'</h3>'
 				    				 +'<p>'+data[i].cityList[0]+'>'+data[i].cityList[(data[i].cityList.length -1)]+'</p>'
 				    				 + '<p>'+data[i].tour_title+'</p>'
-				    				 +'<a class="read-more" id="modify">일정편집</a><br/><br/>'
+				    				 +'<a class="read-more" id="view">일정보기</a><br/><br/>'
 				    				 +'<a class="read-more" id="delete">일정삭제</a><br/><br/>'
 				    				 +'<input type="hidden" value="'+data[i]._id+'"  class="_id"/>'	
 				    				 +'</figcaption></figure>'	
@@ -347,10 +347,6 @@ $(function(){
 //일정체크 클릭시 -------------------------------------------------------------------
 
 
-$('.schedule-list').on('click', '#view', function(){
-	var _id = $(this).siblings("._id").val().trim();
-
-});
 
 var num = "1";
 
