@@ -143,6 +143,7 @@
 												<input type="hidden" id="pendyear" value="${dto.endyear }"/>
 												<input type="hidden" id="pendmonth" value="${dto.endmonth }"/>
 												<input type="hidden" id="pendday" value="${dto.endday }"/>
+												<input type="hidden" name="partnerType" id="partnerType"/>
 											</div>
 											<a class="btn btn-info" href="#allist" data-toggle="modal" title="Bootstrap 3 themes generator">리스트 보기</a>
 											<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="allist" class="modal fade">

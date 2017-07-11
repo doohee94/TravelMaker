@@ -179,10 +179,14 @@ public class MypageController {
 		//페이징 부분
 		//db에서 끝 컬럼번호를 받아옴
 		int qnaedNum = dao.findPage(userId);
+		
 		//기본적인 페이지 번호
 		int pageNum = 0;
 		 //페이지 번호를 가지고 있지 않을때 초기 접속시
-		System.out.println("가져온 페이지 번호는 ?" +tempPage);
+		List<QnaDTO> list;
+		//ModelAndView mv를 생성
+		ModelAndView mv = new ModelAndView();
+		if(qnaedNum != 0){
 		 if(tempPage ==null){
 			 //페이지 번호를 5로 맞추어 준다
 			 pageNum = 5;
@@ -200,24 +204,31 @@ public class MypageController {
 				 pageNum = qnaedNum;
 			 }
 		 }
-		 System.out.println("페이지 번호는 ?" + pageNum);
-		//db에서 userId와 일치하는 컬럼들을 list로 받음
-		List<QnaDTO> list = dao.listQnA(userId, pageNum);
-		System.out.println("가져온 데이터 길이 " + list.size());
-		//ModelAndView mv를 생성
-		ModelAndView mv = new ModelAndView();
+		 		//db에서 userId와 일치하는 컬럼들을 list로 받음
+		 		list = dao.listQnA(userId, pageNum);
+				//mv에 viewName를 지정
+				mv.setViewName(dir+"/qna");
+				//mv에 list를 담음
+				mv.addObject("qnalist",list);
+				//mv에 pageNum을 담음
+				mv.addObject("pageNum", pageNum);
+				//mv에 qnaedNum을 담음
+				mv.addObject("qnaedNum", qnaedNum);
+				//세션을 유지를 위해 userId를 다시 세션에 저장
+				session.setAttribute("userId", userId);
+				//mv를 리턴
+				return mv;
+		} else {
+		list = null;	
 		//mv에 viewName를 지정
 		mv.setViewName(dir+"/qna");
 		//mv에 list를 담음
 		mv.addObject("qnalist",list);
-		//mv에 pageNum을 담음
-		mv.addObject("pageNum", pageNum);
-		//mv에 qnaedNum을 담음
-		mv.addObject("qnaedNum", qnaedNum);
-		//세션을 유지를 위해 userId를 다시 세션에 저장
-		session.setAttribute("userId", userId);
 		//mv를 리턴
 		return mv;
+		}
+		
+		
 		}
 		//비정상적인 접근
 		else {

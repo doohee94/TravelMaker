@@ -32,9 +32,10 @@
 <body>
 	<!-- 로딩페이지 -->
 	<div id="loading" style="display: none;">
-
+		
 		<img id="loading-image" alt="로딩중" src="/resource/step2/loding.gif" />
-
+		
+		<!-- 다음 버튼을 눌렀을때 입력된 정보를 가져가는 폼 -->
 		<form action="stepinfo.tm" method='post' id="hiddeninfofrm">
 			<input type="hidden" id="sregion" name="liststart" >
 			<input type="hidden" id="tregion" name="listthrough" >
@@ -44,7 +45,8 @@
 			<input type="hidden" id="stdate" name="startDate" >
 			<input type="hidden" id="enddate" name="endDate" >
 		</form>
-
+		
+		<!-- 동행자 팝업에서 검색할 아이디 정보를 가져가는 폼 -->
 		<form id="hiddenmodalfrm" method="post" action="step1searchfellow.tm">
 			<input type="hidden" id="searchid" name="userId">
 		</form>
@@ -57,14 +59,7 @@
 	<form class="contnsubform" method='post' id="infofrm">
 
 		<div class="container" id="container">
-
-<!-- 			<div class="prevnextbtn"> -->
-				<center>
-<!-- 					<input type="button" value="< 메인" class="nextbtnmain"onclick="location.href='/tmmain/main.tm'"> -->
-<!-- 					<input type="button" value="다음 >" class="nextbtnstep2"> -->
-				</center>
-<!-- 			</div> -->
-
+			<!-- 현재 페이지 상태 나타내주는 공간 -->
 			<div class="row">
 	            <div class="col-lg-12">
 	                <ol class="breadcrumb">
@@ -75,14 +70,14 @@
 	                </ol>
 	            </div>
         	</div>
-		
+        	
+			<!-- 경로 라벨 -->
 			<div class="col-lg-12">
 				<h2 class="page-header" id="titlediv">경로</h2>
 			</div>
 
 
 			<!--   출발지 경유지 도착지 탭	-->
-
 			<ul class="nav nav-tabs">
 				<li class="active tabstart"><a data-toggle="tab" href="#menu1" style="width:370px; text-align:center">출발지</a></li>
 				<li class="tabstopover"><a data-toggle="tab" href="#menu2" style="width:370px; text-align:center">경유지</a></li>

@@ -60,7 +60,7 @@ $("#nextPage").click(function() {
 						+ nextNumber;
 	}
 });
-
+//modal이 열렸을떄 다른데 클릭 못하게 변경
 $(".infodiv").click(function() {
 	$(this).next().modal({
 		backdrop : 'static'
@@ -74,9 +74,12 @@ $(".imgshow").click(function() {
 	doImgPop($(this).attr("src"));
 });
 
+//삭제 버튼이 눌렸을때 경고문
 $(".delete").click(function() {
+	//경고문
 	var check = confirm("삭제 하시겠습니까? \n삭제 하시면 관련광고와 함께 삭제됩니다");
 	var num = $(this).next().val();
+	//확인을 눌렀을때
 	if (check) {
 		location.href = "adminalliancedel.tm?num=" + num;
 	}
@@ -88,17 +91,6 @@ $(".closebtnf").click(function() {
 	$(".partnerStatech").hide();
 	$(".state").show();
 	$(".partnerch").show();
-});
-
-$(".partnerStatech").click(function() {
-	$(".partnerType").hide();
-	$(".partnerStatech").hide();
-	$(".state").show();
-	$(".partnerch").show();
-
-	var form = $(this).parents();
-	form.attr("action", "stateupdate.tm");
-	form.submit();
 });
 
 function doImgPop(img) {

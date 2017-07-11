@@ -138,9 +138,11 @@
 		
 		//불려진 값에 이벤트, 선택된 값을 입력
 		$(document).on("click",".allisttr",function(){
-			
+			//선택한 번호
 			var num = $(this).children().first();
+			//선택한 회사명
 			var name = num.next().text();
+			//회사 타입 번호
 			var type = num.next().next().next().val();
 			
 			$("#partnername").val(name);

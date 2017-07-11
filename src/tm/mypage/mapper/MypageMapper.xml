@@ -25,6 +25,11 @@
 				ORDER BY rownum DESC)
 		WHERE rownum = 1
 	</select>
+	<select id="textQna" parameterType="hashMap"  resultType="qnaDTO">
+		SELECT *
+		FROM qna
+		WHERE user_id = #{userId}
+	</select>
 	<select id="listqna" parameterType="hashMap" resultType="qnaDTO">
 		SELECT *
 		FROM (	SELECT *
