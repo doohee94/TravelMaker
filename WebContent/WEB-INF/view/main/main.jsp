@@ -81,7 +81,7 @@
                     <!-- 로그인 할때 생기는 버튼 -->
                     <%if(userNick!=null){ %>
                     <li>
-                    	<a href="/mylist/menubar.tm"><%=userNick%>&nbsp;&nbsp;님</a>
+                    	<a href="/mylist/inglist.tm"><%=userNick%>&nbsp;&nbsp;님</a>
                     </li>                      
                     <li>
                         <a href="/tmmain/logout.tm">로그아웃</a>
