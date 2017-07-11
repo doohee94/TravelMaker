@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
     <!-- 회원정보보기 페이지 -->
     
 <!-- Latest compiled and minified CSS -->
@@ -213,9 +214,9 @@
 		          </select>
 		          <input type="hidden" id="userBoroughdto" value="${dto.userBorough }">
 		          <input type="hidden" id="userCitydto" value="${dto.userCity }">
-		          <input type="hidden" id="OneCity" value="${dto.selOneCity }">
-		          <input type="hidden" id="TwoCity" value="${dto.selTwoCity }">
-		          <input type="hidden" id="ThrCity" value="${dto.selThrCity }">
+				 <input type="hidden" id="OneCity" value="${dto.selOneCity }">
+		         <input type="hidden" id="TwoCity" value="${dto.selTwoCity }">
+		         <input type="hidden" id="ThrCity" value="${dto.selThrCity }">
                 </div>
                 
                 <center><button type="button" class="signbuttons btn btn-primary" id="updatebutton" name="updatebutton" style="background: #5d6062; border-color:#5d6062">수정하기</a></button>
@@ -226,12 +227,13 @@
         
         <div class ="col-md-6">
 			<h3 class="headerSign"></h3>
-				<form action="likeloc.tm" method="">
+				<form action="likeloc.tm" method="post">
+				
                 <br/><center><h1 style="font-size: 20px;">관심지역</h1></center>
                 
                 <br/><br/><br/><center><div class="form-group">
 				<h2 style="float: left;">관심지역1 :　</h2>
-                  <select name="selOne" id="selOne" >
+                  <select name="selOneCity" id="selOne" >
 		          	<option value="시,도">시,도</option>
 		            <option value="서울특별시 ">서울특별시</option>
 		            <option value="부산광역시 ">부산광역시</option>
@@ -252,13 +254,13 @@
 		            <option value="제주특별자치도 ">제주특별자치도</option>
 		          </select>
 		          
-		          <select name="oneSel" id="oneSel">
+		          <select name="selOneBorough" id="oneSel">
 		          </select>
                 </div></center>
                 
                 <center><div class="form-group">
 				<h2 style="float: left;">관심지역2 :　</h2>
-                  <select name="selTwo" id="selTwo" >
+                  <select name="selTwoCity" id="selTwo" >
 		          	<option value="시,도">시,도</option>
 		            <option value="서울특별시 ">서울특별시</option>
 		            <option value="부산광역시 ">부산광역시</option>
@@ -279,13 +281,13 @@
 		            <option value="제주특별자치도 ">제주특별자치도</option>
 		          </select>
 		          
-		          <select name="twoSel" id="twoSel"   >
+		          <select name="selTwoBorough" id="twoSel"   >
 		          </select>
                 </div></center>
                 
                 <center><div class="form-group">
 				<h2 style="float: left;">관심지역3 :　</h2>
-                  <select name="selThree" id="selThree">
+                  <select name="selThrCity" id="selThree">
 		          	<option value="시,도">시,도</option>
 		            <option value="서울특별시 ">서울특별시</option>
 		            <option value="부산광역시 ">부산광역시</option>
@@ -306,12 +308,27 @@
 		            <option value="제주특별자치도 ">제주특별자치도</option>
 		          </select>
 		          
-		          <select name="threeSel" id="threeSel"  >
+		          <select name="selThrBorough" id="threeSel"  >
 		          </select>
                 </div></center>
                 
-                <br/><br/><br/><center><button type="button" class="signbuttons btn btn-primary" id="updatesel" name="updatesel" style="background: #5d6062; border-color:#5d6062">수정하기</a></button>
-                <button type="submit" class="signbuttons btn btn-primary" id="insertsel" name="insertsel" style="background: #5d6062; border-color:#5d6062">완료</a></button></center>
+				<c:if test="${!empty list }">
+					<c:forEach var="l" items="${list }" varStatus="cnt">
+						<c:choose>
+							<c:when test="${cnt.index eq '0' }">
+								<input type="hidden"  name="OneCity" value="${l.likelocNum }">
+							</c:when>
+							<c:when test="${cnt.index eq '1' }">
+								<input type="hidden"  name="TwoCity" value="${l.likelocNum }">
+							</c:when>
+							<c:when test="${cnt.index eq '2' }">
+								<input type="hidden"  name="ThrCity" value="${l.likelocNum }">
+							</c:when>
+						</c:choose>
+					</c:forEach>
+				</c:if>
+				
+                <br/><br/><br/><center><button type="submit" class="btn btn-primary" id="updatesel" name="updatesel" style="background: #5d6062; border-color:#5d6062">수정하기</a></button>
                 <br/><br/><br/><br/>
    </form>                             
             
@@ -320,6 +337,7 @@
       </div>  
         
 </div>
+
 
 </body>
 

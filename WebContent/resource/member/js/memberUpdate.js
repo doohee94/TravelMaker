@@ -159,7 +159,7 @@
 		var temp = "";
 		var state = 0;
 		for(var i = 0 ; i < si.length ; i++){
-			if(si[i].match(OneCity) != null){
+			if(si[i].match(OneCity.trim()) != null){
 				temp = si[i];
 				state = 1;
 			}
@@ -201,9 +201,10 @@
 			});
 		}
 		
+		temp = "";
 		
 		for(var i = 0 ; i < si.length ; i++){
-			if(si[i].match(TwoCity) != null){
+			if(si[i].match(TwoCity.trim()) != null){
 				temp = si[i];
 				state = 1;
 			}
@@ -217,6 +218,7 @@
 				}
 			}
 		}
+		
 		
 		if(TwoCity == ""){
 			state = 0;
@@ -246,8 +248,10 @@
 		}
 		
 		
+		temp = "";
+		
 		for(var i = 0 ; i < si.length ; i++){
-			if(si[i].match(ThrCity) != null){
+			if(si[i].match(ThrCity.trim()) != null){
 				temp = si[i];
 				state = 1;
 			}
