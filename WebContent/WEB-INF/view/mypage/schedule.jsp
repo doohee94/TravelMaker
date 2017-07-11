@@ -170,7 +170,7 @@
 					</div>
 					
 				<%
-				if(list == null){
+				if(list != null){
 				for(int i=0; i<list.size(); i++){ %>
 					<section class="grid-wrap">
 						<ul class="grid swipe-right" id="grid">
@@ -178,9 +178,7 @@
 									src="<%=list.get(i).getTotalrePhoto1fake() %>" /></a>
 								<h3>
 								<p style="color: white;"><%=list.get(i).getTotalreTitle() %></p>
-
-								<br/> <a href="#" class="btn btn-s btn-danger">삭제</a> <input
-										type="hidden" class="likeNum" value="<%=list.get(i).getScNum()%>" />
+								<br/> <input type="hidden" class="likeNum" value="<%=list.get(i).getScNum()%>" />
 								</h3>
 							</li>
 
@@ -194,7 +192,7 @@
 					<div class='nonlist'>
 						<section class="grid-wrap"></section>
 					</div>
-					<%} %>
+				<%} %>
 				</div>
 				<!-- /container -->
 			</article>

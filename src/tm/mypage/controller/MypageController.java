@@ -129,7 +129,9 @@ public class MypageController {
 		ArrayList<TotalreDTO> likelist = new ArrayList<TotalreDTO>();
 		
 		for(int i=0; i<list.size(); i++){
+			//System.out.println("#####"+list.get(i).toString());
 			likelist.add(dao.selectReview(list.get(i).toString()));
+			//System.out.println(likelist.get(i).getTotalreTitle());
 		}
 		
 		mv.addObject("likelist",likelist);
