@@ -1,4 +1,4 @@
-package tm.likeloc.dto;
+package tm.member.dto;
 
 public class LikelocDTO {
 /*

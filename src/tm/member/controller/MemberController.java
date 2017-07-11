@@ -1,5 +1,7 @@
 package tm.member.controller;
 
+import java.util.StringTokenizer;
+
 import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -14,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import tm.likeloc.dto.LikelocDTO;
 import tm.member.dao.MemberDAO;
+import tm.member.dto.LikelocDTO;
 import tm.member.dto.MemberDTO;
 
 @Controller
@@ -174,6 +176,20 @@ private String dir = "member/";
 		MemberDTO pdto = new MemberDTO();
 		pdto.setUserId(id);
 		MemberDTO dto = dao.update(pdto);
+		
+		StringTokenizer st = new StringTokenizer(dto.getUserAddr(), " ");
+		int cnt = 0;
+		while (st.hasMoreTokens()) {
+			String temp = st.nextToken();
+			if(cnt == 0){
+				dto.setUserCity(temp);
+			}else if(cnt == 1){
+				dto.setUserBorough(temp);
+			}
+		}
+		
+		System.out.println("찍기1 : " + dto.getUserCity());
+		System.out.println("찍기 2: " + dto.getUserBorough());
 		mv.addObject("dto", dto);
 		mv.setViewName(dir+"memberUpdate");
 		return mv;
