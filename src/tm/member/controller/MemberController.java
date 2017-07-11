@@ -64,26 +64,37 @@ private String dir = "member/";
 	    int res = dao.insert(memberdto);
 	    
 	    if(res > 0){
-	    	memberdto.setUserAddr(memberdto.getUserCity()+ memberdto.getUserBorough());
+	    	//관심지역 이 입력되었을 때
 			if(memberdto.getSelOneCity() != null && !(memberdto.getSelOneCity().equals("시,도"))){
 				LikelocDTO onedto = new LikelocDTO();
+				//ID 값 입력
 				onedto.setUserId(memberdto.getUserId());
+				//두번째 셀렉트도 선택이 되었을때
 				if(memberdto.getSelOneBorough()!=null && !(memberdto.getSelOneBorough().equals("default"))){
+					//특별시라면
 					if(memberdto.getSelOneCity().contains("특별시")){
+						//특별시 라면 서울만 입력
 						onedto.setLikelocName("서울");
+					//광역시 일때
 					}else if(memberdto.getSelOneCity().contains("광역시")){
+						//광역시라면 광역시를 제외한 나머지 도시명만 입력
 						onedto.setLikelocName(memberdto.getSelOneCity().replace("광역시", ""));
+					//시/군일때
 					}else if(memberdto.getSelOneBorough().contains("시") || memberdto.getSelOneBorough().contains("군")){
+						//시/군일때는 마지막 시/군만 제외한 도시명만 입력
 						onedto.setLikelocName(
 								memberdto.getSelOneBorough().substring(
 										0, memberdto.getSelOneBorough().length()-1));
+					//특별자치일때
 					}else if(memberdto.getSelOneCity().contains("특별자치")){
+						//특별자치시일때도 마지막글자를 제외한  도시명만 입력
 						onedto.setLikelocName(
 								memberdto.getSelOneBorough().substring(
 										0, memberdto.getSelOneBorough().length()-1));
 					}
 				}
 				if(onedto.getLikelocName() != null){
+					//관심지역이 등록되었을때만 db추가
 					dao.insertLoc(onedto);
 				}
 			}
@@ -145,8 +156,10 @@ private String dir = "member/";
 */
 	@RequestMapping(value = "/idCheck.tm")
 	public @ResponseBody String idinsert(String userId) {
+		//db에서 id를 갖고있는 값이 있는지 확인
 		int res = dao.idcheck(userId);
 		String result = "";
+		//만약 값이 있다면 no 아니라면 Yes를 리턴
 		if(res > 0){
 			result = "NO";
 		}else{
@@ -187,9 +200,10 @@ private String dir = "member/";
 		MemberDTO dto = dao.update(pdto);
 		
 		List<LikelocDTO> list = dao.likeloclist(id);
-		
+		//저장된 관심지역이 있을 때
 		int count = 1; 
 		if(list != null){
+			//리스트의 값이 있는 만큼 추가
 			for (LikelocDTO l : list) {
 				switch (count) {
 				case 1: dto.setSelOneCity(l.getLikelocName()); count++; break;
@@ -206,9 +220,11 @@ private String dir = "member/";
 		int cnt = 0;
 		while (st.hasMoreTokens()) {
 			String temp = st.nextToken();
+			//주소로 나누어진 첫부분을 시/도에 추가
 			if(cnt == 0){
 				dto.setUserCity(temp);
 				cnt++;
+			//나머지 부분을 시/군/구쪽에 추가
 			}else if(cnt == 1){
 				dto.setUserBorough(temp);
 				cnt++;
@@ -261,10 +277,13 @@ private String dir = "member/";
 				}
 			}
 			if(onedto.getLikelocName() != null){
+				//원래 관심일정이 등록된것이 있었다면
 				if(OneCity != null){
+					//수정
 					onedto.setLikelocNum(OneCity);
 					dao.likelocmodify(onedto);
 				}else{
+					//없다면 입력
 					dao.insertLoc(onedto);
 				}
 			}
