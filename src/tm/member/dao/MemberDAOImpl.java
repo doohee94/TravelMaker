@@ -23,6 +23,22 @@ public class MemberDAOImpl implements MemberDAO{
 		return ss.insert("member.insert", memberdto);
 	}
 	
+	/*ID 중복체크*/
+	@Override
+	public int idcheck(String userid){
+		HashMap map = new HashMap<>();
+		map.put("userid", userid);
+		return ss.selectOne("member.check",map);
+	}
+	
+	/*email체크*/
+	@Override
+	public int emailcheck(String userEmail){
+		HashMap map = new HashMap<>();
+		map.put("userEmail", userEmail);
+		return ss.selectOne("member.check",map);
+	}
+	
 	/*회원정보보기*/
 	@Override
 	public MemberDTO update(MemberDTO memberdto){

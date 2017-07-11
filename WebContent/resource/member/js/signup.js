@@ -128,42 +128,69 @@ $(function(){
     });*/
  
  /*아이디 중복확인*/
-	/*$(function(){
-		$('#userId').blur(function(){
-			$.ajax({
-				type:"POST",
-				url:"idCheck.tm",
-				data:{
-					"userId":$('#userId').val()
-				},
-				success:function(data){
-					if(data.trim()=="YES"){
-						$('#idchk').html('<b style="font.size:18px;color:blue">사용가능</b>');
-					}else{
-						$('#idchk').html('<b style="font.size:18px;color:red">사용불가</b>');
+	$(function(){
+		$('#userId').keyup(function(){
+			//글자수 길이 체크
+			var cnt = $('#userId').val().length;
+			//4글자 이상일때만 
+			if(cnt > 4){
+				/*ID중복체크 후 사용가능하면 YES를 리턴하고 불가능하면 NO를 리턴 */
+				$.ajax({
+					type:"POST",
+					url:"/member/idCheck.tm",
+					data:{
+						"userId":$('#userId').val()
+					},
+					dataType:"text",
+					success:function(data){
+						if(data.trim()=="YES"){
+							//YES일떄 정규식 테스트 후 맞는 조건이라면 사용가능 그렇지 않다면 사용불가
+							var reg_id=/^[a-z0-9_]{4,20}$/;
+							if(!(reg_id.test($("#userId").val()))){
+								$('#idchk').html('<b style="font.size:18px;color:red">사용불가</b>');
+							}else{
+								$('#idchk').html('<b style="font.size:18px;color:blue">사용가능</b>');
+							}
+						}else{
+							$('#idchk').html('<b style="font.size:18px;color:red">사용불가</b>');
+						}
 					}
-				}
-			});
+				});
+			}else{
+				$('#idchk').html('<b style="font.size:18px;color:red">사용불가</b>');
+			}
 		});
-/* 닉네임 중복확인 */
-		/*$('#userNick').blur(function(){
-			$.ajax({
-				type:"POST",
-				url:"nickcCheck.tm",
-				data:{
-					"userNick":$('#userNick').val()
-				},
-				success:function(data){
-					if(data.trim()=="YES"){
-						$('#nickchk').html('<b style="font.size:18px;color:blue">사용가능</b>');
-					}else{
-						$('#nickchk').html('<b style="font.size:18px;color:red">사용불가</b>'); 
+		/* 이메일 중복확인 */
+		$('#userEmail').keyup(function(){
+			//글자수 체크
+			var cnt = $('#userEmail').val().length;
+			//7자 이상일경우에만
+			if(cnt > 7){
+				$.ajax({
+					type:"POST",
+					url:"/member/emailCheck.tm",
+					data:{
+						"userEmail":$('#userEmail').val()
+					},
+					dataType:"text",
+					success:function(data){
+						if(data.trim()=="YES"){
+							//yes값을 받았다면 정규식 체크 후 사용가능/불가 체크
+							var reg_email=/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+							if(!(reg_email.test($("#userEmail").val()))){
+									$('#emailchk').html('<b style="font.size:18px;color:red">사용불가</b>'); 
+							}else{
+								$('#emailchk').html('<b style="font.size:18px;color:blue">사용가능</b>');
+							}
+						}else{
+							$('#emailchk').html('<b style="font.size:18px;color:red">사용불가</b>'); 
+						}
 					}
-				}
-			});
-		});*/
-/* 이메일 중복확인 */
-/*	});*/
+				});
+			}
+		});
+
+	});
 
 
 /* 비밀번호 체크 */

@@ -13,6 +13,16 @@ public interface MemberDAO {
 	public int insert(MemberDTO memberdto);
 	
 	/**
+	 * ID중복체크
+	 */
+	public int idcheck(String userid);
+	
+	/**
+	 * Email 체크
+	 */
+	public int emailcheck(String useremail);
+	
+	/**
 	 * 회원정보보기
 	 */
 	public MemberDTO update(MemberDTO memberdto);

@@ -22,6 +22,20 @@
 	</where>
 	</select>
 	
+	<!-- ID 중복체크 -->
+	<select id="check" parameterType="hashMap" resultType="java.lang.Integer">
+		select count(*)
+		from member
+		<where>
+			<if test="userid != null">
+				user_id = #{userid}
+			</if> 
+			<if test="userEmail != null">
+				user_email = #{userEmail}
+			</if> 
+		</where>
+	</select>
+	
 	<!-- 회원 PW찾기 -->
 	<select id="searchpw" parameterType="hashMap" resultType="tm.member.dto.MemberDTO">
 		select *

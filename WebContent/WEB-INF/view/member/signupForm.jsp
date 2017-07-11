@@ -160,11 +160,11 @@
                 	<span id="idchk">　　</span>
                 </div>
                 
-                <div class="form-group">
+                <div class="form-group" style="margin-top: -20px;">
                 	<p class="help-block">숫자 또는 특수문자 포함 6자 이상이여야 합니다</p>
                 </div>
                 
-                <div class="form-group">
+                <div class="form-group" style="margin-top: -20px;">
 	                <font id="passcheck" name="passcheck" size="2" color="red"></font>
 	                <p class="help-block" id="pw-block">비밀번호를 한번 더 입력해주세요</p><span id="passchk"></span>
                 </div>
@@ -177,8 +177,8 @@
                 
                 <div class="form-group"></div>
                 
-                <div class="form-group">
-                	<p class="help-block">ID/PW 찾기 시 꼭 필요한 항목이오니 정확히 적어주시기 바랍니다</p>
+                <div class="form-group" style="margin-top: 80px;">
+                	<p class="help-block" id="emailchk">ID/PW 찾기 시 꼭 필요한 항목이오니 정확히 적어주시기 바랍니다</p>
                 </div>
                                 
          </form>   
