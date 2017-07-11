@@ -119,7 +119,7 @@ public class RecommandTravelRegionController {
 				
 				//LinkedHashSet에 불러온 리스트들 저장해서 중복제거(순서도 보장)
 				for(int i=0; i<placeTemp3.size(); i++){
-					if(!placeTemp3.get(i).containsKey("contentid")) continue;
+					if(placeTemp3.get(i).get("contentid").toString().equals("00000")) continue;
 					title.add(placeTemp3.get(i).get("title").toString());
 					image.add(placeTemp3.get(i).get("image").toString());
 					addr.add(placeTemp3.get(i).get("addr").toString());

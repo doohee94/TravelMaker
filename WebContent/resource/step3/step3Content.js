@@ -294,6 +294,7 @@ $( function() {
 	      //리스트의 정보를 ajax로 넘긴다
 	      $('#myList > li').each(function(i,item){	
 	    	  
+	    	  //개인일정 추가한 것은 경로최적화에서 뺀다
 	    	if($(item).find(".mapx").attr("value") != 0.0){    	  
 	         title[index1] = $(item).find(".name").text();
 	         image[index1] = $(item).find("img").attr("src");
@@ -302,7 +303,7 @@ $( function() {
 	         mapy[index1] = $(item).find(".mapy").attr("value"); 
 	         contentid[index1] = $(item).find(".contentid").attr("value"); 
 	         index1++;
-	    	 }else{
+	    	 }else{//일정추가는 따로 배열에 저장해놓는다
 	    		 titleTemp[index2] = $(item).find(".name").text();
 		         imageTemp[index2] = $(item).find("img").attr("src");
 		         addrTemp[index2] = $(item).find(".addr").attr("value");
@@ -356,7 +357,7 @@ $( function() {
 		                              '<input type="hidden" class="addr" value="'+addrTemp[i]+'"/>'+
 		                              '<input type="hidden" class="mapx" value="'+mapxTemp[i]+'"/>'+
 		                              '<input type="hidden" class="mapy" value="'+mapyTemp[i]+'"/>'+
-		                              '<input type="hidden" class="contentid" value="'+data.contentid[i]+'"/>'+
+		                              '<input type="hidden" class="contentid" value="'+contentidTemp[i]+'"/>'+
 		                              '</div><div class="clearfix"></div></li>');
 	            	   }
 //--------------------------------지도에 새로 바뀐경로 찍어주기-----------------------------------------------	            	   
@@ -759,6 +760,99 @@ $( function() {
                         '<input type="hidden" class="contentid" value="00000" >'+
                         '</div><div class="clearfix"></div></li>'//결과 값 리스트에 붙이기
                   );   //결과 값 리스트에 붙이기
+            	
+            	
+            	//몽고디비에 바뀐 경로로 저장하기                                  
+                var group_number={
+                    	 "group_num":group_num
+                     }
+                     
+                     $.ajax({
+                    	 url : "/step/find_id.tm"
+       	            	     ,type:"post"
+       	            	     ,contentType:"application/json "
+       	            	     ,data:JSON.stringify(group_number)
+       	            	     ,success:function(_IDdata){	    
+       	            	   for(var x=0; x<_IDdata.length; x++){
+       	            		   
+       	            		   var place =[];
+       	            	        //select box에서 선택된 값의 인덱스
+       	            	          var index = $("#DaySelectBox option").index($("#DaySelectBox option:selected"));
+       	            	          for(var j=0; j<$("#DaySelectBoxNum").val(); j++){
+       	            	        	  
+       	            	        	//만약에 여기서 셀렉트 값이 day1 이면 배열 day[1]에 저장 
+       	            	              if(index == j){
+
+       	            	        		  $('#myList > li').each(function(i,item){ 
+       	            	                      var list={
+       	            	                    		"num":i,
+       	            	        	           	    "title":$(item).find(".name").text(),
+       	            	        	           	    "addr":$(item).find(".addr").text(),
+       	            	        	           	    "image":$(item).find("img").attr("src"),
+       	            	        	           	    "mapx":$(item).find(".mapx").attr("value"),
+       	            	        	           	    "mapy":$(item).find(".mapy").attr("value"), 
+       	            	        	           	    "contentid":$(item).find(".contentid").attr("value"), 
+       	            	        	           	    "check":"0",
+       	            	        	           	 "oneline_review":""
+       	            	                      }
+       	            	                      
+       	            	                      place[i] = list;
+       	            	                      
+       	            	                   });
+       	            	        		  
+       	            	        		  day[j] = place;
+       	            	        	  }
+       	            	          }
+
+       	            	          var tour =[$("#DaySelectBoxNum").val()];
+       	            	          
+       	            	          for(var i=0; i<$("#DaySelectBoxNum").val(); i++){
+       	            	          	tour[i] = {
+       	            	          			
+       	            	          			"date" : "day"+(i+1),
+       	            	          			"city" : "",
+       	            	          			"place":day[i]
+       	            	          			
+       	            	          	}
+       	            	          }      
+       	            	   	     var state=0;
+       	            	   	     var schedule={
+       	            	   	    		"_id":_IDdata[x]._id,	        	            
+       	            	   	    		"member_id":_IDdata[x].member_id,
+       	            	   	    		"group_num":group_num,
+       	            	   	    		"tour_title":_IDdata[x].tour_title,
+       	            	   	    		"sDate":_IDdata[x].sDate,
+       	            	   	    		"eDate":_IDdata[x].eDate,
+       	            	   	    		"dayNum":_IDdata[x].dayNum,
+       	            	   	    		"tour":tour,
+       	            	   	    		"cityList":_IDdata[x].cityList,
+       	            	   	    		"save_state":state
+       	            	   	      }                     
+       	            	          //정렬 될 때 마다 리스트 순서를 불러와서 ajax로 넘겨 준 후 디비에 저장!
+       	            	   	     $.ajax({
+       	            	        	 url : "/step/listSave.tm"
+       	            	    	     ,type:"post"
+       	            	    	     ,contentType:"application/json "
+       	            	    	     ,data:JSON.stringify(schedule)
+       	            	    	     ,success:function(data){    	    
+       	            	    	     }
+       	            	         ,error:function(err,status,error){
+       	            		         alert("리스트저장실패!"+err.status+error);
+       	            		        
+       	            		      }
+       	            	         });
+       	            	          
+       	            		   
+       	            	   }//end for 
+       	            	    	 
+       	            	     
+       	            	     }//end success 
+       	                 ,error:function(err,status,error){
+       	        	         alert("_id 찾기실패!"+err.status+error);
+       	        	        
+       	        	      }//end 아이디 찾기 error
+                    	 
+                     });//end find _id ajax
             }
          },
          alias : "flag1",
@@ -1255,16 +1349,6 @@ $( function() {
                   );
 
                }//end for
-
-
-               /*불러온 정보에서 위도, 경도 정보를 받아 지도 위에 마커찍기*/
-//               var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-//               mapOption = { 
-//                  center: new daum.maps.LatLng(item[0].mapy, item[0].mapx), // 지도의 중심좌표
-//                  level: 8 // 지도의 확대 레벨
-//               };
-//
-//               var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
                for(var i=0; i<item.length; i++){
 
