@@ -90,7 +90,7 @@
         <div class="row">
             <div class="col-md-7">
                 <a href="reviewDetail.tm?_id=<%=list.get(i).getScNum()%>">
-                    <img class="img-responsive img-hover images" src="/upload/review/${a.totalrePhoto1fake}" style="width:700px; height:300px" alt="">
+                    <img class="img-responsive img-hover images" src="/upload/review<%=list.get(i).getTotalrePhoto1fake()%>" style="width:700px; height:300px" alt="">
                 </a>
             </div>
             <div class="col-md-5">
