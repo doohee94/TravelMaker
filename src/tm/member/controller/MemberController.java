@@ -47,6 +47,14 @@ private String dir = "member/";
 		return dir + url;
 	}
 	
+	@RequestMapping("/loginForm.tm")
+	public ModelAndView login(String state){
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("state",state);
+		mv.setViewName(dir + "loginForm");
+		return mv;
+	}
+	
 /**
 * 회원가입
 */

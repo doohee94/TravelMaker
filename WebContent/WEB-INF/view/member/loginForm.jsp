@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
    <!-- 로그인 페이지 -->
    
 <!-- Latest compiled and minified CSS -->
@@ -33,8 +34,12 @@
             <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
             <input id="password" type="password" class="form-control" name="user_pw" placeholder="PASSWORD">
           </div>
-        
-          
+        	
+          <div class="form-group">
+          		<c:if test="${!empty state}">
+          			<center><span style="color: red">로그인이 실패하셨습니다</span></center>
+          		</c:if>
+          </div>
           <div class="form-group">
               <button type="submit"  class="btn btn-danger btn-lg btn-block login-button" >로그인</button>
           </div>

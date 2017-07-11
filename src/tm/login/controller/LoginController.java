@@ -144,7 +144,7 @@ public class LoginController {
 
 		}else{
 			System.out.println("로그인 실패");
-			result = "redirect:/member/loginForm.tm";
+			result = "redirect:/member/loginForm.tm?state=20";
 		}
 		System.out.println(result);
 		return result;
