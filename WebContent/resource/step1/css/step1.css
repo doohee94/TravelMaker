@@ -32,23 +32,6 @@
 	border-radius:3px;
 }
 
-
-/** 다음 버튼  */
-/* .contnsubform #container .prevnextbtn center .nextbtnstep2{ */
-/* 	padding-bottom:2px; */
-/* 	margin-top:7px; */
-/* 	margin-left:2%; */
-/* 	width:70px; */
-/* 	height:30px; */
-/* 	font-size:15px; */
-/* 	font-family: 맑은고딕; */
-/* 	color:white; */
-/* 	font-weight:600; */
-/* 	background-color:#103e68; */
-/* 	border:none; */
-/* 	border-radius:3px; */
-/* } */
-
 /** 메인 버튼 */
 .contnsubform #container .prevnextbtn center .nextbtnmain{
 	padding-bottom:2px;
@@ -80,6 +63,7 @@
 .contnsubform #container{
 	margin-top:5px;
 }
+
 .contnsubform .container ul li a{
 	font-size:18px;
 	font-weight:600;
@@ -186,26 +170,16 @@ background-color:white;
 	text-align:center;
 }
 
-/** */
-/* .contnsubform #secondcontainer .threerow button{ */
-/* 	width:10%; */
-/* 	margin-bottom:4px; */
-/* } */
-
 /** 날짜 공간 */
 .contnsubform #secondcontainer #datediv{
 	margin-top:40px;
 	margin-bottom:30px;
 }
 
-
-
 /** 출발지, 경유지, 도착지 탭 마우스 오버 전/이후 글씨 색상 및 효과 */
 .contnsubform .container .nav-tabs li a{
  font-size:23px;
 }
-
-
 
 /** 출발지, 경유지, 도착지 탭의 버튼의 그룹(행을 기준으로 그룹) */
 .contnsubform .container .pathoutput .liststart{
@@ -242,7 +216,6 @@ background-color:white;
 	padding-bottom:2px;
 }
 	
- 
 /**  modal 출발날짜, 도착날짜 입력창 및 동행자 아이디 검색창 */
 .contnsubform #secondcontainer #myModal .modal-dialog .modal-content .modal-body .form-control{
 	width:100%;

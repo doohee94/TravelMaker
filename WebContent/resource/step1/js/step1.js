@@ -317,7 +317,7 @@ $(".Gyeonggido2").click(function() {
 	// $(".Gyeonggidodiv").slideToggle("fast");
 });
 
-// //경유지 탭 경상남도 접기/펼치기
+// 경유지 탭 경상남도 접기/펼치기
 $(".Gyeongsangnamdo2").click(function() {
 	var con = document.getElementById("Gyeongsangnamdodiv2");
 	if (con.style.display == "none") {
@@ -393,7 +393,6 @@ $(".Gangwondo3").click(function() {
 		con.style.display = "none";
 	}
 
-	// $(".Gangwondodiv").css("display","block");
 });
 
 // 도착지 탭 경기도 접기/펼치기
@@ -404,7 +403,6 @@ $(".Gyeonggido3").click(function() {
 	} else {
 		con.style.display = "none";
 	}
-	// $(".Gyeonggidodiv").slideToggle("fast");
 });
 
 // 도착지 탭 경상남도 접기/펼치기
@@ -415,7 +413,6 @@ $(".Gyeongsangnamdo3").click(function() {
 	} else {
 		con.style.display = "none";
 	}
-	// $(".Gyeongsangnamdodiv").slideToggle("fast");
 });
 
 // 도착지 탭 경상북도 접기/펼치기
@@ -426,7 +423,6 @@ $(".Gyeongsangbukdo3").click(function() {
 	} else {
 		con.style.display = "none";
 	}
-	// $(".Gyeongsangbukdodiv").slideToggle("fast");
 });
 
 // 도착지 탭 전라남도 접기/펼치기
@@ -783,24 +779,6 @@ $(".wrap .Chungcheongbukdodiv2 input").click(function() {
 		return false;
 	}
 });
-
-
-// 경유지역에서 선택한 지역을 
-//var stopoverlist;
-//stopoverlist = $(".listthrough").val();
-//
-//StringTokenizer st = new StringTokenizer(stopoverlist ,">");
-
-
-//while(st.hasMoreTokens()){
-//	String temp = st.nextToken();
-//	if(!(temp.equals("") || temp == null)){
-//		
-//	}
-//}
-//
-
-
 
 //  도착지 탭 1행  
 $(".wrap .city0 .c").click(function() {

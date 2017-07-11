@@ -1192,14 +1192,10 @@
 					aria-describedby="sizing-addon1" readonly="readonly" style="background-color:white">
 			</div>
 
-
 			<!-- end contnsubform -->
 		</div>
 		<!-- end class container id secondcontainer -->
 	</form>
-
-
-
 
 	<!-- 출발지 경유지 도착지 탭 script -->
 	<script
