@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import tm.member.dto.MemberDTO;
 import tm.step1.dao.Step1DAO;
@@ -32,6 +30,27 @@ public class Step1Controller {
 
 	@Autowired
 	Step1DAO dao;
+	
+	
+	/** 헤더에서 일정만들기 버튼누르면 step1 페이지로 이동.
+	 * 
+	 */
+	@RequestMapping("/step1.tm")
+	public String step1page(HttpSession session){
+		
+		String tmp ="";
+		
+		if ( session.getAttribute("userId") == null) {
+
+			tmp ="redirect:/member/loginForm.tm";
+			
+		}else{
+			tmp =dir+"step1";
+		}
+
+		
+		return tmp;
+	}
 
 	/**
 	 * step1 동행자 팝업 검색 목록 ( 아이디 와 닉네임 출력 )
