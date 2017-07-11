@@ -197,8 +197,8 @@ public class MypageDAOImpl implements MypageDAO{
 		HashMap map = new HashMap();
 		map.put("scNum", scNum);
 		
-		ss.selectOne(namespace + ".selectReview",map);
-		return null;
+		TotalreDTO result = ss.selectOne(namespace + ".selectReview",map);
+		return result;
 	}
 
 
