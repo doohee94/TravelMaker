@@ -117,9 +117,9 @@
                <a href="#"><i class="fa fa-facebook-square fa-2x" id="shareBtn"></i></a>
                </small>
             </h1>
-            <ol class="breadcrumb">
-               <li>리뷰</li>
-               <li>리뷰상세</li>
+            <ol class="breadcrumb"  style="height:40px" >
+               <li  style="font-size:17px;font-weight:bold;font-family:맑은고딕">리뷰</li>
+               <li  style="font-size:17px;font-family:맑은고딕">리뷰 상세페이지</li>
             </ol>
             <input type="hidden" value="<%=_id%>" id="_id">
             <input type="hidden" value="<%=user_id%>" id="user_id">

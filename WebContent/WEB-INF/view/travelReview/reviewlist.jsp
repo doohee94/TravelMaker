@@ -68,10 +68,10 @@
 					</div>
 				</h1>
 
-				<ol class="breadcrumb">
-					<li>리뷰 > </li>
-					<li><a href="">최신순</a></li>
-					<li class="active"><a href="">인기순</a></li>
+				<ol class="breadcrumb" style="height:40px">
+					<li style="font-size:17px;font-weight:bold;font-family:맑은고딕">리뷰 </li>
+					<li ><a href="" style="font-size:17px;font-family:맑은고딕">최신순</a></li>
+					<li class="active"><a href="" style="font-size:17px;font-family:맑은고딕">인기순</a></li>
 				</ol>
 			</div>
 		</div>
