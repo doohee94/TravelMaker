@@ -11,7 +11,6 @@ $(function(){
 				
 				var item = data.response.body.items.item;
 				var result = $("#result").val();
-				alert(result);
 				//제목붙이기
 				if(result == 0){//디비에 없는 상태
 				$(".title").append(item.title
@@ -26,7 +25,7 @@ $(function(){
 				$(".overview").append('<h2>'+item.title+'</h2>'
 						+'<p>'+item.overview+'</p>'
 				);
-				
+			
 				//사진 붙이기 ---------------------------------------------
 				var firstimage = "/resource/tour/images/noimage.jpg";
 				if(item.firstimage != null){

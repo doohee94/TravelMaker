@@ -28,7 +28,12 @@
 <select id="findLikeSpot" parameterType="hashMap" resultType="java.lang.String">
 SELECT LIKESPOT_NUM FROM likespot
 WHERE USER_ID = #{userId} AND LIKESPOT_NAME = #{contentid}
+</select>
 
+<select id="findList" resultType="java.lang.String">
+SELECT LIKESPOT_NAME
+FROM likespot
+WHERE USER_ID = 'doohee94'
 
 </select>
 

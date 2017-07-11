@@ -1,5 +1,7 @@
 package tm.recommandtravelregion.dao;
 
+import java.util.ArrayList;
+
 public interface RecommandTravelRegionDAO {
 
 	public String searchLikeSpot(String userId);
@@ -18,4 +20,6 @@ public interface RecommandTravelRegionDAO {
 	public void minusLikeBtn(String userId, String contentid);
 	
 	public String likeSpotList(String userId, String contentid);
+	
+	public ArrayList<String> findList();
 }

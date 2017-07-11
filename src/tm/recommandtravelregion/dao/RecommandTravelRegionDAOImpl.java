@@ -1,5 +1,6 @@
 package tm.recommandtravelregion.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -75,6 +76,17 @@ public class RecommandTravelRegionDAOImpl implements RecommandTravelRegionDAO {
 		
 		
 		return result;
+	}
+
+
+
+	@Override
+	public ArrayList<String> findList() {
+		
+		ArrayList list = (ArrayList)ss.selectList(namespace+".findList");
+		
+		
+		return list;
 	}
 	
 	

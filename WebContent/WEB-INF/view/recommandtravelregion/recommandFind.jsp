@@ -34,7 +34,7 @@ int result = (int)request.getAttribute("result");
   	<input type="hidden" value="${contentid}" id="contentid">
    <!-- Page Content -->
     <div class="container">
-<input type="text" id="user_id" value="${sessionScope.userId}"/>
+<input type="hidden" id="user_id" value="${sessionScope.userId}"/>
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">

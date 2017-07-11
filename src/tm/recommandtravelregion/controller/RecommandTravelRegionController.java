@@ -245,10 +245,8 @@ public class RecommandTravelRegionController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("contentid", contentid);
 		mv.setViewName(dir +"recommandFind");
-		String userId = session.getAttribute("userId").toString();
+		String userId = (String)session.getAttribute("userId");
 		
-		
-		System.out.println(userId);
 		if(userId != null){
 			String result = dao.likeSpotList(userId, contentid);
 			System.out.println("결과값"+result);
@@ -257,7 +255,7 @@ public class RecommandTravelRegionController {
 			}else if(result == null || result == ""){
 				mv.addObject("result", 0);
 			}
-		}else{
+		}else if(userId == null){
 			mv.addObject("result", 0);
 			
 		}

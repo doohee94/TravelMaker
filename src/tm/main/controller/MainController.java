@@ -1,5 +1,6 @@
 package tm.main.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import tm.main.dao.MainDAO;
 import tm.main.dto.TotalreDTO;
+import tm.recommandtravelregion.dao.RecommandTravelRegionDAO;
 /**
  * MainController
  * 메인화면 매핑 처리
@@ -25,6 +27,10 @@ public class MainController {
 		
 		@Autowired
 		MainDAO dao;
+		
+		@Autowired
+		RecommandTravelRegionDAO redao;
+		
 		/**
 		 * main 
 		 * 커맨드 요청이 없는 일반 호출 
@@ -90,8 +96,23 @@ public class MainController {
 			mv.addObject("reuserId"+i,reviewList.get(i).getUserId());
 			mv.addObject("rescNum"+i,reviewList.get(i).getScNum());
 			mv.addObject("retotalNum"+i,reviewList.get(i).getTotalreNum());
+			
+			
+			
+			//여행지 top3컨텐트 아이디 가져오기
+			
+			
+			
 			}
 			//mv를 리턴
+			
+			ArrayList<String> list = redao.findList();
+			for(int j=0; j<3; j++){
+				mv.addObject("reco"+j, list.get(j));
+			}
+			
+			
+			
 			return mv;		
 		}
 		
