@@ -29,9 +29,9 @@
     <!-- Custom Fonts -->
     <link href="/resource/main/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
  
- 	<!-- Modernizr -->
-  	<script src="/resource/tour/js/modernizr.js"></script>
-  	
+    <!-- Modernizr -->
+     <script src="/resource/tour/js/modernizr.js"></script>
+     
     <!-- 지정 css -->
     
     <link href="/resource/main/css/main.css" rel="stylesheet" type="text/css">
@@ -75,7 +75,7 @@
                     <!-- 로그인 할때 생기는 버튼 -->
                     <%if(userNick!=null){ %>
                     <li>
-                    	<a href="/mylist/inglist.tm"><%=userNick%>&nbsp;&nbsp;님</a>
+                       <a href="/mylist/inglist.tm"><%=userNick%>&nbsp;&nbsp;님</a>
                     </li>                      
                     <li>
                         <a href="/tmmain/logout.tm">로그아웃</a>
@@ -98,46 +98,47 @@
     <!-- Header Carousel -->
     <header id="myCarousel" class="carousel slide">
     <div class="main_search">
-    	<div class="imageBox">
-	   		<img class="img-responsive" src="/resource/main/images/main1.png">
-    	</div>
-    	<div class="m_imageBox">
-    		<img class="img-responsive" src="/resource/main/images/main2.png">
-    	</div>
-    	<div class="searchBox">
-    		<div class="headlogo">
-    			<img class="img-responsive" src="/resource/main/images/logo.png">
-    		</div>
-    		<form class="form-inline search_menu">
-    			<input class="form-control input-lg" id="search_bar" type="text" placeholder="검색어를 입력하세요">
-    			<a href="#" class="btn btn-lg btn-danger btn-search">Search</a>
-    		</form>
-    	</div>
+       <div class="imageBox">
+            <img class="img-responsive" src="/resource/main/images/main1.png">
+       </div>
+       <div class="m_imageBox">
+          <img class="img-responsive" src="/resource/main/images/main2.png">
+       </div>
+       <div class="searchBox">
+          <div class="headlogo">
+             <img class="img-responsive" src="/resource/main/images/logo.png">
+          </div>
+<!--           <label id="simble" style="font-family: nanum gothic  ">여행일정을 공유하고 리뷰를 나눕니다.</label> -->
+          <form class="form-inline search_menu">
+             <input class="form-control input-lg" id="search_bar" type="text" placeholder="검색어를 입력하세요">
+             <a href="#" class="btn btn-lg btn-danger btn-search">Search</a>
+          </form>
+       </div>
     </div>
     </header>
     
 
     <!-- Page Content -->
     <div class="container">
-	 <hr>
-	 <!-- Features Section 광고부분-->
+    <hr>
+    <!-- Features Section 광고부분-->
         <div class="row"> 
             <div class="" align="left">
-            	<c:choose>
-					<c:when test="${!empty adImgPath}">
-		                <img class="img-responsive" style="width: 100%; height: 10%;" src="/upload/admin/${adImgPath}" alt="">
-					</c:when>
-					<c:otherwise>
-		                <img class="img-responsive" style="width: 100%; height: 175px;" src="http://placehold.it/700x450" alt="">
-					</c:otherwise>
-            	</c:choose>
+               <c:choose>
+               <c:when test="${!empty adImgPath}">
+                      <img class="img-responsive" style="width: 100%; height: 10%;" src="/upload/admin/${adImgPath}" alt="">
+               </c:when>
+               <c:otherwise>
+                      <img class="img-responsive" style="width: 100%; height: 175px;" src="http://placehold.it/700x450" alt="">
+               </c:otherwise>
+               </c:choose>
             </div>
         </div>
         <!-- /.row -->
-		<hr>
+      <hr>
 
      <!-- Portfolio Section  일정 best 3-->
-        <div class="row" id="best3">
+        <div class="row">
             <div class="col-lg-12"><!--  제목 -->
                 <h2 class="page-header" style="display: inline-block;">리뷰 TOP3</h2>
                 <a href="#" class="btn btn-default more" id="reviewMore">더보기</a>
@@ -145,32 +146,32 @@
             <div class="col-md-4 col-sm-6" align="center">
                 <a href="#" class="review">
                     <img class="img-responsive img-portfolio img-hover" src="/upload/review/${reviewimg0}" alt="review top 1">
-                	<span  class="challengeTitle">${reviewtitle0}</span>                	
+                   <span  class="challengeTitle">${reviewtitle0}</span>                   
                 </a>
-                	<input type="hidden" class="reuserId" value="${reuserId0}">
-                	<input type="hidden" class="rescNum" value="${rescNum0}">
-                	<input type="hidden" class="retotalNum" value="${retotalNum0}">
-                	<br/><small>${reviewlike0}명이 좋아합니다</small>
+                   <input type="hidden" class="reuserId" value="${reuserId0}">
+                   <input type="hidden" class="rescNum" value="${rescNum0}">
+                   <input type="hidden" class="retotalNum" value="${retotalNum0}">
+                
             </div>
             <div class="col-md-4 col-sm-6" align="center">
                 <a href="#" class="review">
                     <img class="img-responsive img-portfolio img-hover" src="/upload/review/${reviewimg1}" alt="review top 1">
-                	<span class="challengeTitle">${reviewtitle1}</span>
+                   <span class="challengeTitle">${reviewtitle1}</span>
                 </a>
-                	<input type="hidden" class="reuserId" value="${reuserId1}">
-                	<input type="hidden" class="rescNum" value="${rescNum1}">
-                	<input type="hidden" class="retotalNum" value="${retotalNum1}">
-                	<br/><small>${reviewlike1}명이 좋아합니다</small>
+                   <input type="hidden" class="reuserId" value="${reuserId1}">
+                   <input type="hidden" class="rescNum" value="${rescNum1}">
+                   <input type="hidden" class="retotalNum" value="${retotalNum1}">
+                   
             </div>
             <div class="col-md-4 col-sm-6" align="center">
                 <a href="#" class="review">
                     <img class="img-responsive img-portfolio img-hover" src="/upload/review/${reviewimg2}" alt="review top 1">
-                	<span class="challengeTitle">${reviewtitle2}</span>
+                   <span class="challengeTitle">${reviewtitle2}</span>
                 </a>
-                	<input type="hidden" class="reuserId" value="${reuserId2}">
-                	<input type="hidden" class="rescNum" value="${rescNum2}">
-                	<input type="hidden" class="retotalNum" value="${retotalNum2}">
-                	<br/><small>${reviewlike2}명이 좋아합니다</small>
+                   <input type="hidden" class="reuserId" value="${reuserId2}">
+                   <input type="hidden" class="rescNum" value="${rescNum2}">
+                   <input type="hidden" class="retotalNum" value="${retotalNum2}">
+                   
             </div>
         </div>
         <!-- /.row -->
@@ -178,54 +179,48 @@
         <hr>
         <!-- Portfolio Section  여행지 top3-->
         <div class="row">
+        <input type="hidden" id="reco0" value="${reco0}">
+         <input type="hidden" id="reco1" value="${reco1}">
+          <input type="hidden" id="reco2" value="${reco2}">
             <div class="col-lg-12"><!--  제목 -->
                 <h2 class="page-header" style="display: inline-block;">여행지 TOP3</h2>
                 <a href="#" class="btn btn-default more" id="spotMore">더보기</a>
             </div>
-            <div class="col-md-4 col-sm-6" align="center">
-                <a href="#">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                	<span  class="tourTop3">여행지 1순위~~</span>
-                	
-                </a>
+            <div class="col-md-4 col-sm-6 reco0" align="center">
+                
             </div>
-            <div class="col-md-4 col-sm-6" align="center">
-                <a href="#">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                	<span class="tourTop3">2순위~~~</span>
-                </a>
+            <div class="col-md-4 col-sm-6 reco1" align="center">
+                
             </div>
-            <div class="col-md-4 col-sm-6" align="center">
-                <a href="#">
-                    <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-                	<span class="tourTop3">3순위~~~</span>
-                </a>
+            <div class="col-md-4 col-sm-6 reco2" align="center">
+               
+               
             </div>
         </div>
         <!-- /.row -->
         <hr/>
     </div>
     <!-- /.container -->
-	
-	<!-- Footer -->
-	<footer>
-		<div class="footer" align="center">
-			<br/>
-			<div class="foot_content" align="center">
-			<span class="footer_content_span">고객센터</span><br/>
-			<a class="footer_content_a" href="/alliance/allianceMain.tm">제휴문의</a><br/>
-			<a class="footer_content_a" href="#">회사소개</a><br/>
-			</div>
-			
-			<div class="foot_logo">
-				<img class="logo" src="/resource/main/images/logo.png">
-			</div>
-		</div>
-	</footer>
-	
-	
-	
-	<!-- jQuery -->
+   
+   <!-- Footer -->
+   <footer>
+      <div class="footer" align="center">
+         <br/>
+         <div class="foot_content" align="center">
+         <span class="footer_content_span">고객센터</span><br/>
+         <a class="footer_content_a" href="/alliance/allianceMain.tm">제휴문의</a><br/>
+         <a class="footer_content_a" href="#">회사소개</a><br/>
+         </div>
+         
+         <div class="foot_logo">
+            <img class="logo" src="/resource/main/images/logo.png">
+         </div>
+      </div>
+   </footer>
+   
+   
+   
+   <!-- jQuery -->
     <script src="/resource/bootstrap/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
