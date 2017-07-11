@@ -108,7 +108,6 @@
     		<div class="headlogo">
     			<img class="img-responsive" src="/resource/main/images/logo.png">
     		</div>
-<!--     		<label id="simble" style="font-family: nanum gothic  ">여행일정을 공유하고 리뷰를 나눕니다.</label> -->
     		<form class="form-inline search_menu">
     			<input class="form-control input-lg" id="search_bar" type="text" placeholder="검색어를 입력하세요">
     			<a href="#" class="btn btn-lg btn-danger btn-search">Search</a>
@@ -138,7 +137,7 @@
 		<hr>
 
      <!-- Portfolio Section  일정 best 3-->
-        <div class="row">
+        <div class="row" id="best3">
             <div class="col-lg-12"><!--  제목 -->
                 <h2 class="page-header" style="display: inline-block;">리뷰 TOP3</h2>
                 <a href="#" class="btn btn-default more" id="reviewMore">더보기</a>
