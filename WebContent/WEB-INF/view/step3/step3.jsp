@@ -111,10 +111,8 @@
 					<!--  앞에서  선택된 지역 리스트 -->
 
 				</ul>
-
-				<ul id="trash">
-					<img src="/resource/step3/step3_image/trash.png">
-				</ul>
+				
+				<ul id="trash" class="droptrue"><img src="/resource/step3/step3_image/trash.png"></ul>
 
 			</div>
 			<!--  지역 끝 -->
