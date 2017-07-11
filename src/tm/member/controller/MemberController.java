@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import tm.member.dao.MemberDAO;
@@ -131,11 +132,32 @@ private String dir = "member/";
 /**
 * 아이디 중복 체크
 */
-	/*@RequestMapping(value="/idCheck.tm")
-	public @ResponseBody void idinsert(@RequestBody String id){
-	    boolean flag = true;
-	    new JoinValidator().validate(id);
-		}*/
+	@RequestMapping(value = "/idCheck.tm")
+	public @ResponseBody String idinsert(String userId) {
+		int res = dao.idcheck(userId);
+		String result = "";
+		if(res > 0){
+			result = "NO";
+		}else{
+			result = "YES";
+		}
+		return result;
+	}
+	
+/**
+ * 	이메일 체크
+ */
+	@RequestMapping(value = "/emailCheck.tm")
+	public @ResponseBody String emailinsert(String userEmail) {
+		int res = dao.emailcheck(userEmail);
+		String result = "";
+		if(res > 0){
+			result = "NO";
+		}else{
+			result = "YES";
+		}
+		return result;
+	}
 	
 /**
 * 회원정보보기
