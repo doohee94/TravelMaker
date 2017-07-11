@@ -131,11 +131,16 @@ public class MypageDAOImpl implements MypageDAO{
 		//db에서 userId와 일치하는 컬럼들을 QnaDTO dto에 담음
 		System.out.println("디비타기전");
 		List<QnaDTO> list = ss.selectList(namespace + ".textQna",map);
-		if(list != null){
-			 int qnaedNum = ss.selectOne(namespace + ".findqnanum",map);
-			 return qnaedNum;
-		} else {
+		System.out.println("리스트는 ?"+list);
+		if(list == null){
 			return 0;
+		} else {
+			try{
+			int qnaedNum = ss.selectOne(namespace + ".findqnanum",map);
+			return qnaedNum;
+			}catch (Exception e){
+				System.out.println(e.getMessage());
+			}
 		}
 		//QnaDTO dto를 리턴
 	}	
