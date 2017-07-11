@@ -674,18 +674,7 @@ public class AdminController {
 		return "redirect:/tmadmin/adminAllianceList.tm";
 	}
 	
-	/**
-	 * stateupdate
-	 * 제휴형태 변경
-	 */
-	@RequestMapping("/stateupdate.tm")
-	public String stateupdate(AllianceDTO allianceDTO) {
 		
-		dao.typeupdate(allianceDTO);
-		
-		return "redirect:/tmadmin/adminAllianceList.tm";
-	}
-	
 	
 	/***********************   Alliance Rec(승인)     **************************/
 	
