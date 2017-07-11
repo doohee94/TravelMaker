@@ -42,14 +42,10 @@
 <script type="text/javascript"
 	src="//apis.daum.net/maps/maps3.js?apikey=1464ab905ce0a7acbcb1f9933dbd5961&libraries=services"></script>
 
-<!-- jquery, jquery mobile 관련 cdn -->
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script type="text/javascript" src="/resource/step3/step3Content.js"></script>
+
 
 <!-- 팝업 관련 파일 -->
-<script type="text/javascript"
-	src="/resource/step3/script/alopex-ui.min.js"></script>
+
 <link rel="stylesheet" type="text/css"
 	href="/resource/step3/css/alopex-ui-default.css" />
 
@@ -159,4 +155,11 @@
 		<!--  지도/리스트들 끝끝 -->
 	</div>
 </body>
+<!-- jquery, jquery mobile 관련 cdn -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript"
+	src="/resource/step3/script/alopex-ui.min.js"></script>
+<script type="text/javascript" src="/resource/step3/step3Content.js"></script>
+
 </html>
