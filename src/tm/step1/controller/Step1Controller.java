@@ -32,8 +32,9 @@ public class Step1Controller {
 	Step1DAO dao;
 	
 	
-	/** 헤더에서 일정만들기 버튼누르면 step1 페이지로 이동.
-	 * 
+	/** 메인 헤더에서 일정만들기 버튼 누르면 로그인 유무를 확인하여 
+	 *  로그인 안했으면 로그인폼으로 이동
+	 *  로그인 했으면 일정만들기(step1) 페이지로 이동.
 	 */
 	@RequestMapping("/step1.tm")
 	public String step1page(HttpSession session){
@@ -48,7 +49,6 @@ public class Step1Controller {
 			tmp =dir+"step1";
 		}
 
-		
 		return tmp;
 	}
 
