@@ -90,7 +90,6 @@
 
       <div class="row">
          <form id="reviewForm" action="/travelReview/insertReview.tm" enctype="multipart/form-data" method="post">
-		<div>
             <input type="hidden" name="scNum" value=<%=_id %>> <input
                type="hidden" name="userId" value=<%=user_id%>> <input
                type="hidden" name="totalreLikecount" value="0">
@@ -108,8 +107,7 @@
             <%
                }
             %>
-            </div>
-            <br/>
+            <hr>
 
                <div id="noEnter" class="control-group form-group">
 
