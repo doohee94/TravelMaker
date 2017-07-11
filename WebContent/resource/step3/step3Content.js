@@ -978,6 +978,7 @@ $( function() {
 		            	            	   	    		"sDate":_IDdata[x].sDate,
 		            	            	   	    		"eDate":_IDdata[x].eDate,
 		            	            	   	    		"tour":tour,
+		            	            	   	    		"dayNum":_IDdata[x].dayNum,
 		            	            	   	    		"cityList":_IDdata[x].cityList,
 		            	            	   	    		"save_state":stateData
 		            	            	   	      }                     
