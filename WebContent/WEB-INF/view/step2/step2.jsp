@@ -26,6 +26,10 @@
     
 </head>
 <body>
+	<div id="loading" style="display: none;">
+		<img id="loading-image" alt="로딩중" src="/resource/step2/loding.gif" />
+	</div>
+	<div id="main">
 	<jsp:include page="/tmmain/header.tm"></jsp:include>
 <%--     	<center> --%>
 <%--     		<input type="button" value="< 이전" class="nextbtn" onclick="location.href='/step1/step1.tm'"> --%>
@@ -157,6 +161,8 @@
     <br/>
     <br/>
     <br/>
+    
+    </div>
     <!-- jQuery -->
     <script src="/resource/bootstrap/js/jquery.js"></script>
 

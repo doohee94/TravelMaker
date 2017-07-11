@@ -68,6 +68,7 @@ $( function() {
     
     //경유지를 추가 후 다시 화면을 불러온다
     $("#changelistbtn").click(function(){
+    	
     	var str = "";
     	//리스트의 값을 불러옴
     	$(".changelist li").each(function(){
@@ -76,9 +77,20 @@ $( function() {
     	});
     	//form안에 값을 입력
     	$("#changelisthidden").val(str.trim());
+    	
+    	//main내용숨김
+		$("#main").hide();
+		// 로딩페이지출력
+		$("#loading").show();
+    	
     	//form을 submit
     	$("#frm").attr("action","step2.tm");
     	$("#frm").submit();
     });
+    
+    //로딩페이지는 숨김
+    $("#loading").hide();
+    
+
     
   } );
