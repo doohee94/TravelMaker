@@ -178,7 +178,6 @@
 		if(OneCity == ""){
 			state = 0;
 		}
-		
 		if(state == 0){
 			
 		}else if(state == 1){
@@ -193,6 +192,11 @@
 				if($(this).val().match(temp) != null){
 					$(this).attr("selected","selected");
 					$("#selOne").trigger("change");
+					$("#oneSel").find("option").each(function(){
+						if($(this).val().match(OneCity) != null){
+							$(this).attr("selected","selected");
+						}
+					});
 				}
 			});
 		}
@@ -232,6 +236,11 @@
 				if($(this).val().match(temp) != null){
 					$(this).attr("selected","selected");
 					$("#selTwo").trigger("change");
+					$("#twoSel").find("option").each(function(){
+						if($(this).val().match(TwoCity) != null){
+							$(this).attr("selected","selected");
+						}
+					});
 				}
 			});
 		}
@@ -256,7 +265,6 @@
 		if(ThrCity == ""){
 			state = 0;
 		}
-		
 		if(state == 0){
 			
 		}else if(state == 1){
@@ -271,6 +279,11 @@
 				if($(this).val().match(temp) != null){
 					$(this).attr("selected","selected");
 					$("#selThree").trigger("change");
+					$("#threeSel").find("option").each(function(){
+						if($(this).val().match(ThrCity) != null){
+							$(this).attr("selected","selected");
+						}
+					});
 				}
 			});
 		}
