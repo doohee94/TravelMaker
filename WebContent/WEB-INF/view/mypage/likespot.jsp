@@ -1,9 +1,14 @@
+<%@page import="tm.mypage.dto.LikeSpotDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>   
  <% 
  String userId = (String)session.getAttribute("userId");
  String userNick = (String)session.getAttribute("userNick");
+ 
+ ArrayList<LikeSpotDTO> list = (ArrayList)request.getAttribute("likelist");
+ 
  %>   
 <!DOCTYPE html>
 <html lang="UTF-8">
@@ -175,39 +180,25 @@
             	<!-- /바디 타이틀 -->
         		</div>
           	<article>
-				<c:choose>
-					<c:when test="${!empty likelist}">
+          	<input type="hidden" id="listNum" value="<%=list.size()%>"/>
+          	<%for(int i=0; i<list.size(); i++){%>
+          	<input type="hidden" class="likeNum<%=i%>" value="<%=list.get(i).getLikespotName()%>"/>
+          	<%} %>
+				
 						<section class="grid-wrap">
 							<ul class="grid swipe-right" id="grid">
 								<!--  likelist 길이 만큼 for문 돌리기 		-->
-								<c:forEach var="i" items="${likelist}">
-									<c:choose>	
-										<c:when test="${!empty i.imagePath}">
-											<li><a href="#"><img class ="imagelist" src="${i.imagePath}" /></a>
-										</c:when>
-										<c:otherwise>
-											<li><a href="#"><img class ="imagelist" src="/resource/mypage/likespot/images/noimage.jpg"/></a>							
-										</c:otherwise>
-									</c:choose>
-												<h3>
-													<p style="color: white;">${i.likespotName}</p>
-													<br/>
-													<a href="#" class="btn btn-s btn-danger">삭제</a>
-													<input type="hidden" class="likeNum" value="${i.likespotNum}"/>
-												</h3> 
-											</li>
-								</c:forEach>
+								
+									
+								
 							</ul>
 						</section>
-					</c:when>
-					<c:otherwise>
-						<H1>저장하신 관심 일정이 없습니다.</H1>
+					
 						<div class='nonlist'>
 								<section class="grid-wrap">
 								</section>
 						</div>
-					</c:otherwise>
-				</c:choose>
+					
 		  	</article>  
 			</div><!-- /container -->
         </div>

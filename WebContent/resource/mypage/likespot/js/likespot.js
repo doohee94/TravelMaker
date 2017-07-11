@@ -1,4 +1,55 @@
 $(document).ready(function() {
+	
+	var num = $("#listNum").val();
+	for(var i=0; i<num; i++){
+		
+		var contentid = $(".likeNum"+i).val();
+		alert(contentid);
+		$.ajax({
+			
+			url : "http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon?ServiceKey=6eo8W%2BYDwcd6mq99M0oUaSvi0uKT5iYW8SvMUzSnq8iSDXL2tJcbbQlYNqKsq2k6xovjplHXuqBJq1m8ud1hIQ%3D%3D"
+					+"&defaultYN=Y&addrinfoYN=Y&overviewYN=Y&firstImageYN=Y&mapinfoYN=Y&contentId="+contentid+"&MobileOS=ETC&MobileApp=AppTesting"
+			,dataType:"json"
+			,success:function(data){
+				
+				var item = data.response.body.items.item;
+				alert(item.title);
+				var firstimage = "/resource/tour/images/noimage.jpg";
+				if(item.firstimage != null){
+	                firstimage=item.firstimage;
+	             }
+				$("#grid").append('<li class="shown">'
+						+'<a href="#">'
+							+'<img class ="imagelist" src="'+firstimage+'"/>'
+						+'</a>'	
+						+'<br/>'
+						+'<h3>'+item.title+'</h3>'
+						+'</li>'
+				);
+				
+			}
+			,error:function(err){
+			alert("상세정보가져오기실패!"+err.status);
+			}	
+		});//end ajax
+		
+	}// end for i
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	//삭제 버튼을 눌러렀을때 이벤트
 	$(".btn-danger").click(function(){
 		//likenum의 값을 받아옴
