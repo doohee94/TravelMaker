@@ -102,7 +102,7 @@ $.ajax({
 			               //리스트에 붙이기
 						$(".List").append('<div class="col-md-4 img-portfolio">'
 								+'<a href="'+url+'">'
-								+'<img class="img-responsive img-hover list-image" src="'+firstimage+'" alt="'+item[i].title+'">'
+								+'<img class="img-responsive img-hover list-image" src="'+firstimage+'" alt="'+item[i].title+'" style="width:360px; height:240px;">'
 								+' </a>'
 								+' <h3>'
 								+titleTag
