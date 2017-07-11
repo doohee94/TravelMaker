@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import tm.member.dto.LikelocDTO;
+import tm.likeloc.dto.LikelocDTO;
 import tm.member.dto.MemberDTO;
 
 @Service

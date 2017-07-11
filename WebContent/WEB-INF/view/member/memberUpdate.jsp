@@ -187,7 +187,7 @@
                 </div>
                 
 				<div class="form-group">
-				<label style="float: left;">주소 :　</label>
+				<label>주소 :　</label>
                     <select name="userCity" id="userCity" onchange="doChange(this, 'userBorough')" value="${dto.userCity }"  >
 		            <option value="시,도">시,도</option>
 		            <option value="서울특별시 ">서울특별시</option>

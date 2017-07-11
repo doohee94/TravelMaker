@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import tm.likeloc.dto.LikelocDTO;
 import tm.member.dao.MemberDAO;
-import tm.member.dto.LikelocDTO;
 import tm.member.dto.MemberDTO;
 
 @Controller
@@ -178,6 +178,8 @@ private String dir = "member/";
 		mv.setViewName(dir+"memberUpdate");
 		return mv;
 	}
+	
+	
 	
 /**
 * 회원수정

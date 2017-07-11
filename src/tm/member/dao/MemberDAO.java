@@ -2,7 +2,7 @@ package tm.member.dao;
 
 import java.util.List;
 
-import tm.member.dto.LikelocDTO;
+import tm.likeloc.dto.LikelocDTO;
 import tm.member.dto.MemberDTO;
 
 public interface MemberDAO {
