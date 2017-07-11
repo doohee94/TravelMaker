@@ -28,11 +28,11 @@ public class RecommandTravelRegionDAOImpl implements RecommandTravelRegionDAO {
 	
 	
 	@Override
-	public void plusLikeBtn(){
+	public void plusLikeBtn(String userId){
 		
 		HashMap map = new HashMap();
 		
-		map.put("user_id", user_id);
+		map.put("user_id", userId);
 		
 		// 해당 여행지를 식별할 수 있는 값
 		map.put(key, value);

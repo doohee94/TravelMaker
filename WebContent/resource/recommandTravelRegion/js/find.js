@@ -86,18 +86,21 @@ $(function(){
 				
 			}else{
 				if($("#heartBtn").attr("src") == "/resource/travelReview/images/heart1.png"){
-					
+				
+				var user_id = {
+						"user_id":user_id
+				}
 					
 				$.ajax({
-					url:"plusLikeBtn.tm",
+					url:"/recommandtravelregion/plusLikeBtn.tm",
 					type:"post",
 					contentType:"application/json",
-					data:JSON.stringfy(likeinfo),
+					data:JSON.stringfy(user_id),
 					success:function(data){
 						$("#heartBtn").attr("src","/resource/travelReview/images/heart2.png");
 					},
 					error:function(err,status,error){
-						alert("실패..!" + err.status+error);
+						alert("좋아요 클릭실패" + err.status+error);
 					}
 				});
 				
@@ -111,7 +114,7 @@ $(function(){
 							$("#heartBtn").attr("src","/resource/travelReview/images/heart1.png");
 						},
 						error:function(err,status,error){
-							alert("실패.....!" + err.status+error);
+							alert("좋아요클릭실패" + err.status+error);
 						}
 					});
 					

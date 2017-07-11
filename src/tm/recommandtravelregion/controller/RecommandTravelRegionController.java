@@ -250,9 +250,23 @@ public class RecommandTravelRegionController {
 	
 	@RequestMapping("/plusLikeBtn.tm")
 	@ResponseBody
-	public void plusLikeBtn(@RequestBody String content){
-
-		//ReviewLikeController  insertLike.tm 참고
+	public void plusLikeBtn(@RequestBody String user_id){
+		
+		//아이디 파싱------------------------------------
+		JSONParser parser = new JSONParser();
+		JSONObject obj = null;
+		try {
+			obj = (JSONObject)parser.parse(user_id);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String userId = obj.get("user_id").toString();
+		
+		
+		
+		dao.plusLikeBtn(userId);
+		
 	}
 	
 	@RequestMapping("/minusLikeBtn.tm")
