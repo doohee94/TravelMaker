@@ -220,12 +220,12 @@
                  </c:if>                       
                  </div>
              </div>
-            <div class="hidden">
-               <input type="hidden" id="doneAddr" value="${doneAddr}">
-               <input type="hidden" id="doneName" value="${doneName}">
-               <input type="hidden" id="nonAddr" value="${nonAddr}">
-               <input type="hidden" id="nonName" value="${nonName}">
-            </div>   
+<!--             <div class="hidden"> -->
+<%--                <input type="hidden" id="doneAddr" value="${doneAddr}"> --%>
+<%--                <input type="hidden" id="doneName" value="${doneName}"> --%>
+<%--                <input type="hidden" id="nonAddr" value="${nonAddr}"> --%>
+<%--                <input type="hidden" id="nonName" value="${nonName}"> --%>
+<!--             </div>    -->
          </article>                
        </div>
        <!-- /#wrapper -->
@@ -243,7 +243,7 @@
     <!-- list js -->
    <script src="/resource/mypage/stemp/js/list.js"></script>
    <!-- daum map api -->   
-   <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=141438a76ce74e385ae8e735b840f26c&libraries=services"></script>
+   <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=1464ab905ce0a7acbcb1f9933dbd5961&libraries=services"></script>
    <!-- map js -->
 
     <!-- 마이페이지 공통 js -->
@@ -294,9 +294,9 @@
           var geocoder1 = new daum.maps.services.Geocoder();
           var geocoder2 = new daum.maps.services.Geocoder();
           
+          
           done();
           missing();
-          
           
           
           //스탬프 찍은 것들 보여주기
@@ -346,6 +346,7 @@
              var temp = missingNameList[i];
              // 주소로 좌표를 검색합니다
              geocoder2.addr2coord(missingAddrList[i], function(status, result) {
+            	 
                  // 정상적으로 검색이 완료됐으면 
                   if (status === daum.maps.services.Status.OK) {
 
@@ -360,7 +361,7 @@
 
                      // 인포윈도우로 장소에 대한 설명을 표시합니다
                      var infowindow = new daum.maps.InfoWindow({
-                         content: '<div style="width:150px;text-align:center;padding:6px 0;">'+temp+'</div>'
+                         content: '<div style="width:150px;text-align:center;padding:6px 0;">'+missingNameList[i]+'</div>'
                      });
                      infowindow.open(map, marker);
 
@@ -384,6 +385,25 @@
           //아직 안찍은거 버튼 눌렀을 경우
           $("#missing").click(function(){
              missing();
+          });
+          
+          
+          //각각의 스탬프 눌렀을 때 찍어져 있는쪽으로 이동하기
+          $(".place").click(function(){
+        	  
+        	  var addr = $(this).next().val();
+        	  
+        	  var geocoder = new daum.maps.services.Geocoder();
+        	  
+        	// 주소로 좌표를 검색합니다
+              geocoder.addr2coord(addr, function(status, result) {
+                  // 정상적으로 검색이 완료됐으면 
+                   if (status === daum.maps.services.Status.OK) {
+
+                      var coords = new daum.maps.LatLng(result.addr[0].lat, result.addr[0].lng);
+                      map.setCenter(coords);
+                  } 
+              });
           });
        });
     </script>
