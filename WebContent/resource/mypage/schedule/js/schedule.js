@@ -1,7 +1,10 @@
 $(document).ready(function() {
 	$(".btn-danger").click(function(){
+		//likenum의 값을 받음
 		var likenum = $(this).next().val();
-		//db타고 와서 해당 여행지 삭제 시기기
+		//ajax
+		//방식 post방식
+		//likenum에 해당되는 컬럼을 삭제후 페이지 새로고침 실패시 경고창 생성
 			$.ajax({
 				type : "POST",
 				url : "/tmmypage/deleteschedule.tm",

@@ -1,9 +1,11 @@
 $(document).ready(function() {
 	//삭제 버튼을 눌러렀을때 이벤트
 	$(".btn-danger").click(function(){
+		//likenum의 값을 받아옴
 		var likenum = $(this).next().val();
-		alert("삭제버튼 눌림" + likenum);
-		//db타고 와서 해당 여행지 삭제 시기기
+		//ajax 
+		//방식 post방식
+		//likenum을 받아서 해당되는 컬럼 삭제시키고 페이지 새로고침 실패시 경고창생성
 		$.ajax({
 			type : "POST",
 			url : "/tmmypage/deletespot.tm",
