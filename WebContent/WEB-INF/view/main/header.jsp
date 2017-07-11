@@ -15,9 +15,6 @@
     <!-- Custom Fonts -->
     <link href="/resource/main/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
  
- 	<!-- Modernizr -->
-  	<script src="/resource/tour/js/modernizr.js"></script>
-  	
  	<!-- 헤더 css -->
 	<link href="/resource/header/css/header.css" rel="stylesheet" />
 </head>
@@ -51,8 +48,8 @@
                     </li>
                     </c:if>
                     <li style="padding:10px" id="mobile_search">
-                       <input type="text"/>
-                       <button id="#searchBtn" style="background-color: #fafafa;border:0px; border-style: none; height: 27px;">
+                       <input id="searchplace" type="text"/>
+                       <button id="searchBtn" style="background-color: #fafafa;border:0px; border-style: none; height: 27px;">
                        <span class="glyphicon glyphicon-search"></span>
                        </button> 
                     </li>
@@ -80,6 +77,15 @@
             <!-- /.navbar-collapse -->
         </div>
     </nav>
+    
+    
+    <!-- Modernizr -->
+  	<script src="/resource/tour/js/modernizr.js"></script>
+  	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- 헤더 검색 js -->
+	<script src="/resource/header/js/header.js"></script>
 
 
 </body>

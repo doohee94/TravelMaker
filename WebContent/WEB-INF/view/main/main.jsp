@@ -66,12 +66,11 @@
                     <li>
                         <a href="/recommandtravelregion/recommandTravelRegion.tm">여행지추천</a>
                     </li>
-                    <!-- 로그인 할때 생기는 버튼 -->
                     <li>
                         <a href="/travelReview/reviewlist.tm">여행리뷰</a>
                     </li>
                     <li style="padding:10px" id="mobile_search">
-                       <input type="text"/><button id="#searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px;"><span class="glyphicon glyphicon-search"></span> search</button> 
+                       <input type="text"/><button id="searchBtn" style="background-color: #fafafa; border:0px; border-style: none; height: 25px;"><span class="glyphicon glyphicon-search"></span> search</button> 
                     </li>
                     <!-- 로그인 할때 생기는 버튼 -->
                     <%if(userNick!=null){ %>

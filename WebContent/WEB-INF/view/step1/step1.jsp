@@ -27,8 +27,6 @@
 <!-- 출발지 경유지 도착지 탭 css -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-<!-- 헤더 css -->
-<link href="/resource/header/css/header.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -1220,7 +1218,6 @@
 
 	<!-- js -->
 	<script src="/resource/step1/js/step1.js"></script>
-
 
 </body>
 </html>
