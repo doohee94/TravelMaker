@@ -13,8 +13,9 @@ public interface RecommandTravelRegionDAO {
 	// 해댱 여행지 정보는 api 에서 받아오는거 같은데 그렇다면 이 정보를 구별하는 값은 뭐지?
 	
 	
-	public void plusLikeBtn(String userId);
+	public void plusLikeBtn(String userId, String contentid);
 	
-	public void minusLikeBtn(String userId);
+	public void minusLikeBtn(String userId, String contentid);
 	
+	public String likeSpotList(String userId, String contentid);
 }

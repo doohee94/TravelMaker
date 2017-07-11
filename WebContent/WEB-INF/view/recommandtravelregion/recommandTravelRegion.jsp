@@ -113,7 +113,6 @@
 
 
 	<div class="container" id="secondcontainer">
-
 		<div class="col-lg-12">
 			<h2 class="page-header">
 				여행지 추천

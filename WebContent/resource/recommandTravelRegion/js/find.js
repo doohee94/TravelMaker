@@ -10,11 +10,17 @@ $(function(){
 			,success:function(data){
 				
 				var item = data.response.body.items.item;
-				
+				var result = $("#result").val();
+				alert(result);
 				//제목붙이기
+				if(result == 0){//디비에 없는 상태
 				$(".title").append(item.title
 						+'<small>상세페이지</small>'+ '<span><input type="image" id="heartBtn" src="/resource/travelReview/images/heart1.png" style="float:right"></span>');
-				
+				}else{
+					
+					$(".title").append(item.title
+							+'<small>상세페이지</small>'+ '<span><input type="image" id="heartBtn" src="/resource/travelReview/images/heart2.png" style="float:right"></span>');
+				}
 				
 				//개요 붙이기--------------------------------------------
 				$(".overview").append('<h2>'+item.title+'</h2>'
@@ -77,47 +83,54 @@ $(function(){
 		
 		// 여행지 상세페이지 좋아요 버튼(하트버튼) 눌렀을때.
 		$(".title").on('click', '#heartBtn', function(){
-			alert("좋아요 클릭 확인 ");
 			
-			var user_id = $("#user_id").val();
-			if(user_id == ""){
+			var user_id = $("#user_id").val().trim();
+			if(user_id == "" || user_id == null || user_id =="null"){
 				
 				alert("로그인 후 이용할 수 있습니다");
 				
 			}else{
 				if($("#heartBtn").attr("src") == "/resource/travelReview/images/heart1.png"){
 				
-				var user_id = {
-						"user_id":user_id
-				}
-					
-				$.ajax({
-					url:"/recommandtravelregion/plusLikeBtn.tm",
-					type:"post",
-					contentType:"application/json",
-					data:JSON.stringfy(user_id),
-					success:function(data){
-						$("#heartBtn").attr("src","/resource/travelReview/images/heart2.png");
-					},
-					error:function(err,status,error){
-						alert("좋아요 클릭실패" + err.status+error);
-					}
-				});
+						var userid = {
+								"user_id":user_id,
+								"contentid":contentid
+						}
+						$.ajax({
+							url:"/recommandtravelregion/plusLikeBtn.tm",
+							type:"post",
+							contentType:"application/json",
+							data:JSON.stringify(userid),
+							success:function(pdata){
+								$("#heartBtn").attr("src","/resource/travelReview/images/heart2.png");
+							},
+							error:function(err,status,error){
+								alert("좋아요 클릭실패" + err.status+error);
+							}
+						});
 				
 				}else{
-					$.ajax({
-						url:"minusLikeBtn.tm",
-						type:"post",
-						contentType:"apllication/json",
-						data:JSON.stringfy(likeinf),
-						succes:function(data){
-							$("#heartBtn").attr("src","/resource/travelReview/images/heart1.png");
-						},
-						error:function(err,status,error){
-							alert("좋아요클릭실패" + err.status+error);
-						}
-					});
 					
+					var userid = {
+							"user_id":user_id,
+							"contentid":contentid
+					}
+					
+						
+							$.ajax({
+								url:"/recommandtravelregion/minusLikeBtn.tm",
+								type:"post",
+								contentType:"apllication/json",
+								data:JSON.stringify(userid),
+								success:function(mdata){
+									
+									$("#heartBtn").attr("src","/resource/travelReview/images/heart1.png");
+								},
+								error:function(err,status,error){
+									alert("좋아요클릭실패" + err.status+error);
+								}
+							});
+							
 				}// end of heartBtn click/unclick else
 				
 			}// end of login yes/no else

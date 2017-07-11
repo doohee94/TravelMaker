@@ -241,38 +241,68 @@ public class RecommandTravelRegionController {
 	}
 	
 	@RequestMapping("/find.tm")
-	public ModelAndView content(String contentid){
+	public ModelAndView content(String contentid, HttpSession session){
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("contentid", contentid);
 		mv.setViewName(dir +"recommandFind");
+		String userId = session.getAttribute("userId").toString();
+		
+		
+		System.out.println(userId);
+		if(userId != null){
+			String result = dao.likeSpotList(userId, contentid);
+			System.out.println("결과값"+result);
+			if(result != null){
+				mv.addObject("result", 1);
+			}else if(result == null || result == ""){
+				mv.addObject("result", 0);
+			}
+		}else{
+			mv.addObject("result", 0);
+			
+		}
+		
 		return mv;
 	}
 	
 	@RequestMapping("/plusLikeBtn.tm")
 	@ResponseBody
-	public void plusLikeBtn(@RequestBody String user_id){
-		
+	public void plusLikeBtn(@RequestBody String userid){
+
 		//아이디 파싱------------------------------------
 		JSONParser parser = new JSONParser();
 		JSONObject obj = null;
 		try {
-			obj = (JSONObject)parser.parse(user_id);
+			obj = (JSONObject)parser.parse(userid);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		String userId = obj.get("user_id").toString();
+		String contentid = obj.get("contentid").toString();
 		
 		
-		
-		dao.plusLikeBtn(userId);
+		dao.plusLikeBtn(userId, contentid);
 		
 	}
 	
 	@RequestMapping("/minusLikeBtn.tm")
 	@ResponseBody
-	public void minusLikeBtn(@RequestBody String content){
-
+	public void minusLikeBtn(@RequestBody String userid){
+		
+		//아이디 파싱------------------------------------
+				JSONParser parser = new JSONParser();
+				JSONObject obj = null;
+				try {
+					obj = (JSONObject)parser.parse(userid);
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				String userId = obj.get("user_id").toString();
+				String contentid = obj.get("contentid").toString();
+				
+				dao.minusLikeBtn(userId, contentid);
 		//ReviewLikeController  deleteLike.tm 참고
 	}
 }
