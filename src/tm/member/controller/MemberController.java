@@ -1,5 +1,6 @@
 package tm.member.controller;
 
+import java.util.List;
 import java.util.StringTokenizer;
 
 import javax.mail.MessagingException;
@@ -177,19 +178,35 @@ private String dir = "member/";
 		pdto.setUserId(id);
 		MemberDTO dto = dao.update(pdto);
 		
+		List<LikelocDTO> list = dao.likeloclist(id);
+		
+		int count = 1; 
+		if(list != null){
+			for (LikelocDTO l : list) {
+				switch (count) {
+				case 1: dto.setSelOneCity(l.getLikelocName()); count++; break;
+				case 2: dto.setSelTwoCity(l.getLikelocName()); count++; break;
+				case 3: dto.setSelThrCity(l.getLikelocName()); count++; break;
+				default:
+					break;
+				}
+			}
+		}
+		
+		
 		StringTokenizer st = new StringTokenizer(dto.getUserAddr(), " ");
 		int cnt = 0;
 		while (st.hasMoreTokens()) {
 			String temp = st.nextToken();
 			if(cnt == 0){
 				dto.setUserCity(temp);
+				cnt++;
 			}else if(cnt == 1){
 				dto.setUserBorough(temp);
+				cnt++;
 			}
 		}
 		
-		System.out.println("찍기1 : " + dto.getUserCity());
-		System.out.println("찍기 2: " + dto.getUserBorough());
 		mv.addObject("dto", dto);
 		mv.setViewName(dir+"memberUpdate");
 		return mv;

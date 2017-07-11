@@ -188,7 +188,7 @@
                 
 				<div class="form-group">
 				<label>주소 :　</label>
-                    <select name="userCity" id="userCity" onchange="doChange(this, 'userBorough')" value="${dto.userCity }"  >
+                    <select name="userCity" id="userCity">
 		            <option value="시,도">시,도</option>
 		            <option value="서울특별시 ">서울특별시</option>
 		            <option value="부산광역시 ">부산광역시</option>
@@ -208,10 +208,14 @@
 		            <option value="경상남도 ">경상남도</option>
 		            <option value="제주특별자치도 ">제주특별자치도</option>
 		          </select>
-		          
-		          <select name="userBorough" id="userBorough" value="${dto.userBorough }"  >
+		          <select name="userBorough" id="userBorough" >
 		          	<option value="default">시, 군, 구</option>
 		          </select>
+		          <input type="hidden" id="userBoroughdto" value="${dto.userBorough }">
+		          <input type="hidden" id="userCitydto" value="${dto.userCity }">
+		          <input type="hidden" id="OneCity" value="${dto.selOneCity }">
+		          <input type="hidden" id="TwoCity" value="${dto.selTwoCity }">
+		          <input type="hidden" id="ThrCity" value="${dto.selThrCity }">
                 </div>
                 
                 <center><button type="button" class="signbuttons btn btn-primary" id="updatebutton" name="updatebutton" style="background: #5d6062; border-color:#5d6062">수정하기</a></button>
@@ -227,28 +231,82 @@
                 
                 <br/><br/><br/><center><div class="form-group">
 				<h2 style="float: left;">관심지역1 :　</h2>
-                    <select name="selOne" id="selOne" onchange="doChange(this, 'oneSel')" value="${dto.userCity }"  >
+                  <select name="selOne" id="selOne" >
+		          	<option value="시,도">시,도</option>
+		            <option value="서울특별시 ">서울특별시</option>
+		            <option value="부산광역시 ">부산광역시</option>
+		            <option value="대구광역시 ">대구광역시</option>
+		            <option value="인천광역시 ">인천광역시</option>
+		            <option value="광주광역시 ">광주광역시</option>
+		            <option value="대전광역시 ">대전광역시</option>
+		            <option value="울산광역시 ">울산광역시</option>
+		            <option value="세종특별자치시 ">세종특별자치시</option>
+		            <option value="경기도 ">경기도</option>
+		            <option value="강원도 ">강원도</option>
+		            <option value="충청북도 ">충청북도</option>
+		            <option value="충청남도 ">충청남도</option>
+		            <option value="전라북도 ">전라북도</option>
+		            <option value="전라남도 ">전라남도</option>
+		            <option value="경상북도 ">경상북도</option>
+		            <option value="경상남도 ">경상남도</option>
+		            <option value="제주특별자치도 ">제주특별자치도</option>
 		          </select>
 		          
-		          <select name="oneSel" id="oneSel" value="${dto.userBorough }"  >
+		          <select name="oneSel" id="oneSel">
 		          </select>
                 </div></center>
                 
                 <center><div class="form-group">
 				<h2 style="float: left;">관심지역2 :　</h2>
-                    <select name="selTwo" id="selTwo" onchange="doChange(this, 'twoSel')" value="${dto.userCity }"  >
+                  <select name="selTwo" id="selTwo" >
+		          	<option value="시,도">시,도</option>
+		            <option value="서울특별시 ">서울특별시</option>
+		            <option value="부산광역시 ">부산광역시</option>
+		            <option value="대구광역시 ">대구광역시</option>
+		            <option value="인천광역시 ">인천광역시</option>
+		            <option value="광주광역시 ">광주광역시</option>
+		            <option value="대전광역시 ">대전광역시</option>
+		            <option value="울산광역시 ">울산광역시</option>
+		            <option value="세종특별자치시 ">세종특별자치시</option>
+		            <option value="경기도 ">경기도</option>
+		            <option value="강원도 ">강원도</option>
+		            <option value="충청북도 ">충청북도</option>
+		            <option value="충청남도 ">충청남도</option>
+		            <option value="전라북도 ">전라북도</option>
+		            <option value="전라남도 ">전라남도</option>
+		            <option value="경상북도 ">경상북도</option>
+		            <option value="경상남도 ">경상남도</option>
+		            <option value="제주특별자치도 ">제주특별자치도</option>
 		          </select>
 		          
-		          <select name="twoSel" id="twoSel" value="${dto.userBorough }"  >
+		          <select name="twoSel" id="twoSel"   >
 		          </select>
                 </div></center>
                 
                 <center><div class="form-group">
 				<h2 style="float: left;">관심지역3 :　</h2>
-                    <select name="selThree" id="selThree" onchange="doChange(this, 'threeSel')" value="${dto.userCity }"  >
+                  <select name="selThree" id="selThree">
+		          	<option value="시,도">시,도</option>
+		            <option value="서울특별시 ">서울특별시</option>
+		            <option value="부산광역시 ">부산광역시</option>
+		            <option value="대구광역시 ">대구광역시</option>
+		            <option value="인천광역시 ">인천광역시</option>
+		            <option value="광주광역시 ">광주광역시</option>
+		            <option value="대전광역시 ">대전광역시</option>
+		            <option value="울산광역시 ">울산광역시</option>
+		            <option value="세종특별자치시 ">세종특별자치시</option>
+		            <option value="경기도 ">경기도</option>
+		            <option value="강원도 ">강원도</option>
+		            <option value="충청북도 ">충청북도</option>
+		            <option value="충청남도 ">충청남도</option>
+		            <option value="전라북도 ">전라북도</option>
+		            <option value="전라남도 ">전라남도</option>
+		            <option value="경상북도 ">경상북도</option>
+		            <option value="경상남도 ">경상남도</option>
+		            <option value="제주특별자치도 ">제주특별자치도</option>
 		          </select>
 		          
-		          <select name="threeSel" id="threeSel" value="${dto.userBorough }"  >
+		          <select name="threeSel" id="threeSel"  >
 		          </select>
                 </div></center>
                 

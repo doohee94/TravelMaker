@@ -52,4 +52,9 @@ public interface MemberDAO {
 	 */
 	public int insertLoc(LikelocDTO likelocdto);
 	
+	/**
+	 * 관심지역 가져오기likeloclist
+	 */
+	public List<LikelocDTO> likeloclist(String id);
+	
 }

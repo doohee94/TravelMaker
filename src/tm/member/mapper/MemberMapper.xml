@@ -92,4 +92,10 @@
 		#{userId},
 		#{likelocName})
 	</insert>
+	
+	<select id="likeloclist" parameterType="hashMap" resultType="tm.member.dto.LikelocDTO">
+		Select * 
+		from likeloc
+		where user_id = #{id}
+	</select>
 </mapper>

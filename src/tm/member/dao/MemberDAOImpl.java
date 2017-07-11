@@ -1,6 +1,7 @@
 package tm.member.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -96,5 +97,12 @@ public class MemberDAOImpl implements MemberDAO{
 		likelocdto.setLikelocNum(str);
 		
 		return ss.insert("member.insertlikeloc",likelocdto);
+	}
+	
+	/*관심지역 가져오기*/
+	public List<LikelocDTO> likeloclist(String id){
+		HashMap map = new HashMap<>();
+		map.put("id", id);
+		return ss.selectList("member.likeloclist", map);
 	}
 }
