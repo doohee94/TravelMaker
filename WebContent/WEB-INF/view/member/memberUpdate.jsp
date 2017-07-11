@@ -34,7 +34,7 @@
     <script src="/resource/bootstrap/js/sb-admin-2.js"></script>
 	
     <!-- Bootstrap Core CSS -->
-    <link href="/resource/bootstrap//css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resource/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
     <link href="/resource/bootstrap/css/metisMenu.min.css" rel="stylesheet">
@@ -52,14 +52,29 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-<!--  메뉴바 -->
-<link rel="stylesheet" type="text/css" href="/resource/member/css/base.css" />
-<link rel="stylesheet" type="text/css" href="/resource/member/css/style.css" />
+	<!-- 마이페이지 공통 css -->
+    <link href="/resource/mypage/base/css/mypage.css" rel="stylesheet" type="text/css">
 
-<!-- CSS -->
-<link rel="stylesheet" type="text/css" href="/resource/member/css/insert.css">
-<!-- JS -->
-<script src="/resource/member/js/memberUpdate.js"></script>
+	<!--  메뉴바 -->
+	<link rel="stylesheet" type="text/css" href="/resource/member/css/base.css" />
+	<link rel="stylesheet" type="text/css" href="/resource/member/css/style.css" />
+	
+	<!-- jQuery -->
+    <script src="/resource/bootstrap/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/resource/bootstrap/js/bootstrap.min.js"></script>
+
+	 <!--     Metis Menu Plugin JavaScript --> 
+    <script src="/resource/bootstrap/js/metisMenu.min.js"></script>
+    
+	 <!--     Custom Theme JavaScript --> 
+    <script src="/resource/bootstrap/js/sb-admin-2.js"></script>
+	
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="/resource/member/css/insert.css">
+	<!-- JS -->
+	<script src="/resource/member/js/memberUpdate.js"></script>
 </head>
 <body>
 
