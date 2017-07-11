@@ -327,7 +327,15 @@ $('.schedule-list').on('click', '#delete', function(){
 	
 });
 	
+
+$('.schedule-list').on('click', '#view', function(){
+	var _id = $(this).siblings("._id").val().trim();
+	var url = "/mylist/viewPopUp.tm?_id="+_id;
+	window.open(url,"상세보기팝업","width=700px, height=500px, scrollbars=yes");
 	
+});
+	
+
 });//end function
 
 </script>

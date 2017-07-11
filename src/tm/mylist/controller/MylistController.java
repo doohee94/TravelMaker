@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import tm.mylist.dao.MylistDAO;
 
@@ -42,7 +43,6 @@ public class MylistController {
 	@RequestMapping("/inglistsearch.tm")
 	@ResponseBody
 	public ArrayList<JSONObject> ingList(@RequestBody String list_num,HttpSession session){
-		System.out.println("리스트 서치");
 		//리스트 save_state가져오기
 		JSONParser parser = new JSONParser();
 		JSONObject obj = null;
@@ -122,11 +122,14 @@ public class MylistController {
 		
 		return "redirect:/mylist/endlist.tm";
 	}
-	
+	/**
+	 * _id로 리뷰가 있는지 없는지 검사
+	 * 파라메터 : 몽고디비의 _id
+	 * 리턴값 : 오라클 디비의 시퀀스넘버
+	 * */
 	@RequestMapping("/findReview.tm")
 	@ResponseBody
 	public String findReview(@RequestBody String _idData){
-		//System.out.println("여기 와??");
 		JSONParser parser = new JSONParser();
 		JSONObject obj =null;
 		try {
@@ -141,5 +144,47 @@ public class MylistController {
 		return totalre_num; 
 	}
 	
+	/**
+	 * 팝업에 _id를 전달
+	 * 파라메터 : _id
+	 * 
+	 * */
+	@RequestMapping("/viewPopUp.tm")
+	public ModelAndView popup(String _id){
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("_id", _id);
+		return mv;
+		
+	}
+	/**
+	 * 
+	 * _id에 해당하는 스케쥴을 찾아 JSONObject로 넘김
+	 * 파라메터 : _id
+	 * 리턴값 : _id에 해당하는 스케쥴
+	 * 
+	 * */
+	@RequestMapping("/findSchedule.tm")
+	@ResponseBody
+	public JSONObject schedule(@RequestBody String _idcheck){
+		//_id 찾기 --------------------------------------
+		JSONParser parser = new JSONParser();
+		JSONObject obj =null;
+		try {
+			obj = (JSONObject)parser.parse(_idcheck);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		String _id = obj.get("_id").toString();
+		
+		
+		//해당 아이디에 해당하는 몽고디비찾기---------------------
+		Criteria c = new Criteria("_id");
+		c.is(_id);
+		Query query = new Query(c);
+		
+		JSONObject goData = (JSONObject)mongoTemplate.findOne(query, JSONObject.class, "schedule");
+		
+		return goData;
+	}
 	
 }
