@@ -156,12 +156,12 @@ public class RecommandTravelRegionController {
 				String[] top3Contentid = new String[3];
 				int[] temp = new int[3];
 				
-//				for(int i=0; i<titleTemp.size(); i++){
-//					System.out.print(titleTemp.get(i)+"///");
-//					System.out.println();
-//					System.out.println(result[i]+"!!!!!");
-//					System.out.println();
-//				}
+				for(int i=0; i<titleTemp.size(); i++){
+					System.out.print(imageTemp.get(i)+"///");
+					System.out.println();
+					System.out.println(result[i]+"!!!!!");
+					System.out.println();
+				}
 				
 				for(int i=0; i<result.length; i++){
 					if(first <= result[i]){
