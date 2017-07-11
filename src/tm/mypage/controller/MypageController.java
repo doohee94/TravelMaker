@@ -24,6 +24,7 @@ import tm.mypage.dto.LikeSCDTO;
 import tm.mypage.dto.LikeSpotDTO;
 import tm.mypage.dto.QnaDTO;
 import tm.mypage.dto.StempDTO;
+import tm.totalre.dto.TotalreDTO;
 
 /**
  MypageController
@@ -118,31 +119,23 @@ public class MypageController {
 	 * @return list
 	 */
 	@RequestMapping("/schedule.tm")
-	public ModelAndView scheduleListShow(String userId, HttpSession session){
-		//세션에서 userId를 받음
-		userId = (String)session.getAttribute("userId");
-		//정상적인 접근시
-		if(userId!=null){
-		//db에서 userId와 일치하는 컬럼들을 list로 받음
-		List<LikeSCDTO> list = dao.listSchedule(userId);
-		//ModelAndView mv를 생성
+	public ModelAndView scheduleListShow(HttpSession session){
+		
 		ModelAndView mv = new ModelAndView();
-		//mv에 viewName를 지정
-		mv.setViewName(dir+"/schedule");
-		//mv에 list를 담음
-		mv.addObject("sclist",list);
-		//세션을 유지를 위해 userId를 다시 세션에 저장
-		session.setAttribute("userId", userId);
-		//mv를 리턴
-		return mv;
+		
+		String userId = (String)session.getAttribute("userId");
+		ArrayList list = dao.selectLikeReview(userId);
+		
+		ArrayList<TotalreDTO> likelist = new ArrayList<TotalreDTO>();
+		
+		for(int i=0; i<list.size(); i++){
+			likelist.add(dao.selectReview(list.get(i).toString()));
 		}
-		//비정상적인 접근
-		else {
-		ModelAndView mv = new ModelAndView();
-		//로그인 페이지로 넘김
-		mv.setViewName("redirect:/member/loginForm.tm");
+		
+		mv.addObject("likelist",likelist);
+		mv.setViewName(dir + "schedule");
+		
 		return mv;
-		}
 	}
 	/**
 	 * deleteSchedule

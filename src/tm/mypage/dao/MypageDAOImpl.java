@@ -1,5 +1,6 @@
 package tm.mypage.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import tm.mypage.dto.LikeSCDTO;
 import tm.mypage.dto.LikeSpotDTO;
 import tm.mypage.dto.QnaDTO;
 import tm.mypage.dto.StempDTO;
+import tm.totalre.dto.TotalreDTO;
 
 @Service
 public class MypageDAOImpl implements MypageDAO{
@@ -54,53 +56,7 @@ public class MypageDAOImpl implements MypageDAO{
 		//결과값을 리턴시킴
 		return result;
 	}
-	/**
-	 *listSchedule
-	 *HashMap map에 userId를 넣어 db에서	sclist를 받아와서 넣기
-	 *sclist의 scNum을 가져와 db에서 imagePath값을 얻어와서 sclist에 값을 넣기
-	 *다 넣은 sclist를 리턴
-	 */
-	@Override
-	public List<LikeSCDTO> listSchedule(String userId) {
-		//HashMap map생성
-		HashMap map = new HashMap();
-		//map에 userId담기
-		map.put("userId", userId);
-		//scNum을 받을수 있는 scNum객체 생성
-		String scNum;
-		//임시로 list를 받을수 있는 List temp객체 생성
-		List<LikeSCDTO> temp;
-		//임시 이미지주소와, 이름, 좋아요 수를 받을수 있는 객체(tempimg, temptitle, templike) 생성
-		String tempimg, temptitle, templike;
-		//DB에서 userId와 일치하는 컬럼들을 받아와 List에 담음
-		List<LikeSCDTO> sclist = ss.selectList(namespace+".listsc",map);
-		//List sclist에서  각각 scNum을 받아  
-		//db에서 이미지주소와, 이름, 좋아요 수를 임시List에 받아서
-		//for문을 통해 sclist에 담기 
-		for(int i = 0 ; i < sclist.size() ; i++){
-			//scNum을  sclist에서 받음
-			scNum = sclist.get(i).getScNum();
-			//HashMap map를 생성
-			HashMap scMap = new HashMap();
-			//map에 scNum을 담음
-			scMap.put("scNum", scNum);
-			//임시 list temp에 scnum을 통해 좋아요수, 제목, 이미지주소 받아오기
-			temp = ss.selectList(namespace+".findimg",scMap);
-			//temp에 있는 데이터를 sclist에 담음 for문
-			for(int j = 0 ; j < temp.size(); j++){
-			//임시 로 담을 이미지주소, 제목, 좋아요수	
-				tempimg = temp.get(j).getTotalrePhoto1fake();
-				templike = temp.get(j).getTotalreLikecount();
-				temptitle = temp.get(j).getTotalreTitle();	
-			//cslist에 담기
-				sclist.get(i).setTotalrePhoto1fake(tempimg);
-				sclist.get(i).setTotalreLikecount(templike);
-				sclist.get(i).setTotalreTitle(temptitle);
-			}//end of for (temp)
-		}//end of for(scNum)
-		//sclist를 리턴
-		return sclist;
-	}
+	
 	/**
 	 * deleteSchedule
 	 * likescNum을 받아와 db에서 해당likescNum에 해당하는 컬럼을 삭제
@@ -135,12 +91,11 @@ public class MypageDAOImpl implements MypageDAO{
 		if(list == null){
 			return 0;
 		} else {
-			try{
+
 			int qnaedNum = ss.selectOne(namespace + ".findqnanum",map);
 			return qnaedNum;
-			}catch (Exception e){
-				System.out.println(e.getMessage());
-			}
+
+			
 		}
 		//QnaDTO dto를 리턴
 	}	
@@ -225,6 +180,25 @@ public class MypageDAOImpl implements MypageDAO{
 		List<StempDTO> list = ss.selectList(namespace+".tempstemp",map);
 		//list를 리턴
 		return list;
+	}
+	@Override
+	public ArrayList selectLikeReview(String userId) {
+		
+		HashMap map = new HashMap();
+		map.put("userId", userId);
+		
+		ArrayList like = (ArrayList)ss.selectList(namespace + ".selectLike",map);
+				
+		return like;
+	}
+	@Override
+	public TotalreDTO selectReview(String scNum) {
+		
+		HashMap map = new HashMap();
+		map.put("scNum", scNum);
+		
+		ss.selectOne(namespace + ".selectReview",map);
+		return null;
 	}
 
 
