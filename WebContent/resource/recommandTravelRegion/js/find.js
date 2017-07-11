@@ -14,11 +14,11 @@ $(function(){
 				//제목붙이기
 				if(result == 0){//디비에 없는 상태
 				$(".title").append(item.title
-						+'<small>상세페이지</small>'+ '<span><input type="image" id="heartBtn" src="/resource/travelReview/images/heart1.png" style="float:right"></span>');
+						+ '<span><input type="image" id="heartBtn" src="/resource/travelReview/images/heart1.png" style="float:right"></span>');
 				}else{
 					
 					$(".title").append(item.title
-							+'<small>상세페이지</small>'+ '<span><input type="image" id="heartBtn" src="/resource/travelReview/images/heart2.png" style="float:right"></span>');
+						+ '<span><input type="image" id="heartBtn" src="/resource/travelReview/images/heart2.png" style="float:right"></span>');
 				}
 				
 				//개요 붙이기--------------------------------------------

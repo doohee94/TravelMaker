@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 /* 헤더와 top3 글자 사이 간격*/
 body #secondcontainer{
-	margin-top:60px;
+	margin-top:10px;
 }
 
 /* top3 라벨*/
@@ -28,6 +28,19 @@ body #secondcontainer{
 /* 인기/관심순 탭과 하위 게시글 사이 공간 만들기*/
 #thirdcontainer ul{
 	margin-bottom:20px;
+}
+
+/* 인기 /관심순 탭 크기*/
+#thirdcontainer ul li{
+	width:120px;
+	text-align:center;
+	
+}
+/* 인기/관심순 탭 글씨*/
+#thirdcontainer ul li{
+	font-size:20px;
+	font-family:맑은고딕;
+	font-weight:600;
 }
 
 #NonuUserId{

@@ -42,10 +42,8 @@ int result = (int)request.getAttribute("result");
                     
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="/tmmain/main.tm">Home</a>
-                    </li>
-                    <li class="active">추천여행지</li>
-                    <li class="active">여행지상세</li>
+                    <li style="font-size:17px;font-weight:bold;font-family:맑은고딕">여행지추천</li>
+                    <li class="active"><a href='#'style="font-size:17px;font-family:맑은고딕">여행지상세</li>
                 </ol>
             </div>
         </div>
