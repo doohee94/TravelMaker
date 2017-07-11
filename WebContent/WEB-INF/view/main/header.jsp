@@ -57,7 +57,7 @@
                     <c:choose>
                     	<c:when test="${not empty sessionScope.userNick }">
                     		<li>
-		                    	<a href="/mylist/menubar.tm">${sessionScope.userNick }&nbsp;&nbsp;님</a>
+		                    	<a href="/mylist/inglist.tm">${sessionScope.userNick }&nbsp;&nbsp;님</a>
 		                    </li>                      
 		                    <li>
 		                        <a href="/tmmain/logout.tm">로그아웃</a>
