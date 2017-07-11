@@ -96,7 +96,7 @@
                     	<a href="/mylist/inglist.tm" style="font-size: 17px; font-family: 맑은고딕; font-weight: bold;"><%=userNick%>&nbsp;&nbsp;님</a>
                     </li>                      
                     <li>
-                        <a href="/tmmain/logout.tm"  style="font-size: 17px; font-family: 맑은고딕;  font-weight: bold; padding-right: 210.5px;">로그아웃</a>
+                        <a href="/tmmain/logout.tm"  style="font-size: 17px; font-family: 맑은고딕;  font-weight: bold; padding-right: 210.4px;">로그아웃</a>
                     </li>
                     <!-- 로그인 안 할때 생기는 버튼 -->
                     <%}else{ %>

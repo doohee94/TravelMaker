@@ -112,7 +112,7 @@
                     </li>
                     <%} //end of if %>
                      <li style="padding:10px;">
-                       <input type="text" id="tf_search" style="width: 170px; height: 26px"/>&nbsp;&nbsp;<button id="searchBtn"><span class="glyphicon glyphicon-search"></span></button>
+                       <input type="text" id="tf_search" style="width: 170px; height: 26px"/>&nbsp;&nbsp;<button id="searchBtn" style="width: 29px;height: 27px;"><span class="glyphicon glyphicon-search"></span></button>
                     </li>                                         
                                       <!-- 로그인 할때 생기는 버튼 -->
                     <%if(userNick!=null){ %>
@@ -120,7 +120,7 @@
                     	<a href="/mylist/inglist.tm" style="font-size: 17px; font-family: 맑은고딕; font-weight: bold;"><%=userNick%>&nbsp;&nbsp;님</a>
                     </li>                      
                     <li>
-                        <a href="/tmmain/logout.tm"  style="font-size: 17px; font-family: 맑은고딕;  font-weight: bold; padding-right: 210.5px;">로그아웃</a>
+                        <a href="/tmmain/logout.tm"  style="font-size: 17px; font-family: 맑은고딕;  font-weight: bold; padding-right: 23px;">로그아웃</a>
                     </li>
                     <!-- 로그인 안 할때 생기는 버튼 -->
                     <%}else{ %>
