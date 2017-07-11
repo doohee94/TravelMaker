@@ -41,11 +41,6 @@
 	
 	<!-- list Plug-In -->
 	<script src="/resource/mypage/likespot/js/modernizr.custom.js"></script>
-
-	<!--  메뉴바 -->
-	<link rel="stylesheet" type="text/css" href="/resource/mypage/likespot/css/base.css" />
-	
-	<link rel="stylesheet" type="text/css" href="/resource/mypage/likespot/css/style.css" />
 	    
     <!-- 마이페이지 공통 css -->
     <link href="/resource/mypage/base/css/mypage.css" rel="stylesheet" type="text/css">
@@ -98,7 +93,7 @@
                     </li>
                     <%} //end of if %>
                      <li style="padding:10px;">
-                       <input type="text" id="tf_search" style="width: 170px; height: 26px"/><button id="searchBtn"><span class="glyphicon glyphicon-search"></span> search</button>
+                       <input type="text" id="tf_search" style="width: 170px; height: 26px"/><button id="searchBtn"> search</button>
                     </li>                                         
                                       <!-- 로그인 할때 생기는 버튼 -->
                     <%if(userNick!=null){ %>

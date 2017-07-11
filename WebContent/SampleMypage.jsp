@@ -30,13 +30,7 @@
     <link href="/resource/bootstrap/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="/resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!--  메뉴바 -->
-	<link rel="stylesheet" type="text/css" href="/resource/mypage/likespot/css/base.css" />
-	
-	<link rel="stylesheet" type="text/css" href="/resource/mypage/likespot/css/style.css" />
-	    
+    <link href="/resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">	    
     <!-- 마이페이지 공통 css -->
     <link href="/resource/mypage/base/css/mypage.css" rel="stylesheet" type="text/css">
 
@@ -46,9 +40,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-<!--     <style type="text/css"> -->
 
-<!--     </style> -->
 </head>
 <body>
     <div id="wrapper">
