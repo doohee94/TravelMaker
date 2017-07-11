@@ -18,6 +18,7 @@ public class Step1DAOImpl implements Step1DAO{
 	
 	private String namespace ="step1";
 	
+	/** 동행자 검색*/
 	@Override
 	public List<MemberDTO> fellowsearch(String modalsearchplace, String userId){
 		HashMap map = new HashMap();
@@ -29,12 +30,4 @@ public class Step1DAOImpl implements Step1DAO{
 		return list;
 	}
 
-//	@Override
-//	public List<Step1DTO> Step1list() {
-//		
-//		List<Step1DTO> list = ss.selectList(namespace+".step1list");
-//		
-//		return list;
-//		
-//	}
 }
