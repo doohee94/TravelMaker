@@ -42,11 +42,6 @@
    
     <!-- 지정 css -->
     <link href="/resource/mypage/stemp/css/stemp.css" rel="stylesheet" type="text/css">
-
-    <!--  메뉴바 -->
-   <link rel="stylesheet" type="text/css" href="/resource/mypage/likespot/css/base.css" />
-   
-   <link rel="stylesheet" type="text/css" href="/resource/mypage/likespot/css/style.css" />   
              
     <!-- 마이페이지 공통 css -->
     <link href="/resource/mypage/base/css/mypage.css" rel="stylesheet" type="text/css">

@@ -60,6 +60,8 @@ public class MypageController {
 	public ModelAndView spotListShow(String userId, HttpSession session){
 		//세션에서 userId를 받음
 		userId = (String)session.getAttribute("userId");
+		//정상적인 로그인시에
+		if(userId!=null){
 		//db에서 userId와 일치하는 컬럼들을 list로 받음
 		List<LikeSpotDTO>list = dao.listSpot(userId);
 		//받아온 list에서 spotName를 통해 api에서 이미지 주소 받아오기 반복문
@@ -79,6 +81,14 @@ public class MypageController {
 		session.setAttribute("userId", userId);
 		//mv를 리턴
 		return mv;
+		}
+		//비정상적인 접근
+		else {
+		ModelAndView mv = new ModelAndView();
+		//로그인 페이지로 넘김
+		mv.setViewName("redirect:/member/loginForm.tm");
+		return mv;
+		}
 	}
 	/**
 	 * deleteSpot
@@ -111,6 +121,8 @@ public class MypageController {
 	public ModelAndView scheduleListShow(String userId, HttpSession session){
 		//세션에서 userId를 받음
 		userId = (String)session.getAttribute("userId");
+		//정상적인 접근시
+		if(userId!=null){
 		//db에서 userId와 일치하는 컬럼들을 list로 받음
 		List<LikeSCDTO> list = dao.listSchedule(userId);
 		//ModelAndView mv를 생성
@@ -123,6 +135,14 @@ public class MypageController {
 		session.setAttribute("userId", userId);
 		//mv를 리턴
 		return mv;
+		}
+		//비정상적인 접근
+		else {
+		ModelAndView mv = new ModelAndView();
+		//로그인 페이지로 넘김
+		mv.setViewName("redirect:/member/loginForm.tm");
+		return mv;
+		}
 	}
 	/**
 	 * deleteSchedule
@@ -154,6 +174,8 @@ public class MypageController {
 	public ModelAndView qnalist(String tempPage, HttpSession session){
 		//세션에서 userId를 받음
 		String userId = (String)session.getAttribute("userId");
+		//정상적인 접근시
+		if(userId!=null){
 		//페이징 부분
 		//db에서 끝 컬럼번호를 받아옴
 		int qnaedNum = dao.findPage(userId);
@@ -196,6 +218,14 @@ public class MypageController {
 		session.setAttribute("userId", userId);
 		//mv를 리턴
 		return mv;
+		}
+		//비정상적인 접근
+		else {
+		ModelAndView mv = new ModelAndView();
+		//로그인 페이지로 넘김
+		mv.setViewName("redirect:/member/loginForm.tm");
+		return mv;
+		}
 	}
 	/**
 	 * inputQna
@@ -227,6 +257,8 @@ public class MypageController {
 	public ModelAndView listStemp(String userId,  HttpSession session){
 		//세션에서 userId를 받음
 		userId = (String)session.getAttribute("userId");
+		//정상적인 접근시
+		if(userId!=null){
 		//userId와 일치하는 달성한 list를 받아옴
 		List<StempDTO> doneList = dao.ListStemp(userId);
 		//달성한 장소 주소 리스트 객체 생성
@@ -267,6 +299,14 @@ public class MypageController {
 		mv.addObject("nonName",nonName);
 		//mv를 리턴
 		return mv;
+		}
+		//비정상적인 접근
+		else {
+			ModelAndView mv = new ModelAndView();
+			//로그인 페이지로 넘김
+			mv.setViewName("redirect:/member/loginForm.tm");
+			return mv;
+		}	
 	}
 	
 
