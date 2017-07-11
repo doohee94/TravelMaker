@@ -129,9 +129,15 @@ public class MypageDAOImpl implements MypageDAO{
 		//map에 userId를 담음
 		map.put("userId", userId);
 		//db에서 userId와 일치하는 컬럼들을 QnaDTO dto에 담음
-		int qnaedNum = ss.selectOne(namespace + ".findqnanum",map);
+		System.out.println("디비타기전");
+		List<QnaDTO> list = ss.selectList(namespace + ".textQna",map);
+		if(list != null){
+			 int qnaedNum = ss.selectOne(namespace + ".findqnanum",map);
+			 return qnaedNum;
+		} else {
+			return 0;
+		}
 		//QnaDTO dto를 리턴
-		return qnaedNum;
 	}	
 	/**
 	 * listQnA
