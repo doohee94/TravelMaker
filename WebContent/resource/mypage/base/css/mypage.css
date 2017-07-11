@@ -112,19 +112,10 @@ p{
 	font-size: 14px; 
 	font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
 }
-#searchBtn{
-	background-color: #fafafa; 
-	border:0px; 
-	border-style: none; 
-	height: 27px; 
-	width: 30px; 
-	font-size: 15px; 
-	font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; 
-	color:#2e2e2e"
-}
 .navbar-right{
 	margin-right: 10%;
 }
+/** 헤더 travelMaker 로고  */
 .navbar-brand{
 	font-family: 맑은고딕;
     font-size: 2em;

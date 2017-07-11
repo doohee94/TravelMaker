@@ -44,7 +44,6 @@
 	                    
 	                    <input type="button" value="다음 >" class="nextbtn" onclick="location.href='/step/step3.tm'">
 	                    <input type="button" value="< 이전" class="nextbtn" onclick="location.href='/step1/step1.tm'">
-<!-- 	                    <input type="button" value="다음 >" class="nextbtnstep2"> -->
 	                </ol>
 	            </div>
     	</div>

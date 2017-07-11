@@ -60,38 +60,61 @@
 
 <!--     </style> -->
 
+<!--  메뉴바 -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+    $(".subtitle:not(:first)").attr('class','subtitle sub_on');
+    $(".sub:first").css("display","block");
+    $(".sub:not(:first)").css("display","none");
+    $(".subtitle").click(function() { 
+        if ($(this).next(".sub").css("display") == "none") {
+            $(this).attr('class','subtitle');
+        } else {
+            $(this).attr('class','subtitle sub_on');
+        }
+        $(this).next(".sub").slideToggle('fast');
+    });
+});
+</script>
+
+
+
+
 </head>
 <body>
     <div id="wrapper">
+    
        	<!-- Navigation -->
         <jsp:include page="/tmmain/mypageheader.tm"></jsp:include>
+        
 		<!-- 바디 부분 -->
-        <div id="page-wrapper">
-			<div class="container">
+		<div id="page-wrapper">
+			<div class="container"  style="margin-right:65%">
 				<!-- 바디 타이틀  -->
-          		<div class="row">
-            		<div class="col-lg-12">
-                		<h1 class="page-header">계획중인 일정
-                		<small>Plan Schedule</small>
-                		</h1>
-            		</div>
-            	<!-- /바디 타이틀 -->
-            	  <!-- 바디 부분 -->
-        <div id="page-wrapper" style="margin-left: 0px; min-height:0px;">
-		<!-- 각 일정 보여주는 곳 -->
-		
-		<div class="schedule-list">                
-				</div> 
-			
-        </div>
-  
-		</div><!-- /container -->
-        </div>
-      
-    
-    </div>
-    
-    </div>
+				<div class="row">
+					<div class="col-lg-12">
+						<h1 class="page-header">
+							계획중인 일정 <small>Plan Schedule</small>
+						</h1>
+					</div>
+					<!-- /바디 타이틀 -->
+					<!-- 바디 부분 -->
+					<div id="page-wrapper" style="margin-left: 0px; min-height: 0px;">
+						<!-- 각 일정 보여주는 곳 -->
+
+						<div class="schedule-list"></div>
+
+					</div>
+
+				</div>
+				<!-- /container -->
+			</div>
+
+
+		</div>
+
+	</div>
           
     
     <!-- /#wrapper -->

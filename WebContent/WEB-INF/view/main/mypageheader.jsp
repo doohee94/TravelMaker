@@ -35,41 +35,38 @@
             <!-- 네비 헤더  메뉴 부분 -->
          	<ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/step1/step1.tm" >일정만들기</a>
+                        <a href="/step1/step1.tm"style="font-size:1.2em;font-weight:bold;font-family:맑은고딕">일정만들기</a>
                     </li>
                     <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm" >여행지추천</a>
+                        <a href="/recommandtravelregion/recommandTravelRegion.tm"style="font-size:1.2em;font-weight:bold;font-family:맑은고딕">여행지추천</a>
                     </li>
                     <!-- 로그인 할때 생기는 버튼 -->
                     <%if(userNick!=null){ %>
                     <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
-                    </li>
-                    <li>
-                        <a href="/member/memberUpdate.tm">마이페이지</a>
+                        <a href="/recommandtravelregion/recommandTravelRegion.tm"style="font-size:1.2em;font-weight:bold;font-family:맑은고딕">여행리뷰</a>
                     </li>
                     <%} //end of if %>
 <!--                     <li> -->
 <!--                         <a href="/challengeschedule/challengeSchedule.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">도전일정</a> -->
 <!--                     </li> -->
                      <li style="padding:10px;">
-                       <input type="text" style="width: 170px; height: 26px"/><button id="searchBtn"><span class="glyphicon glyphicon-search"></span> search</button>
+                       <input type="text" style="width: 170px; height: 27px"/><button id="searchBtn"style="margin-left:5px;width:29px;height:27px"><span class="glyphicon glyphicon-search"></span></button>
                     </li>                                         
                                       <!-- 로그인 할때 생기는 버튼 -->
                     <%if(userNick!=null){ %>
                     <li>
-                    	<a href="#"><%=userNick%>&nbsp;&nbsp;님</a>
+                    	<a href="/member/memberUpdate.tm"style="font-size:1.2em;font-weight:bold;font-family:맑은고딕"><%=userNick%>&nbsp;&nbsp;님</a>
                     </li>                      
                     <li>
-                        <a href="/tmmain/logout.tm">로그아웃</a>
+                        <a href="/tmmain/logout.tm" style="font-size:1.2em;font-weight:bold;font-family:맑은고딕">로그아웃</a>
                     </li>
                     <!-- 로그인 안 할때 생기는 버튼 -->
                     <%}else{ %>
                     <li>
-                        <a href="/member/loginForm.tm">로그인</a>
+                        <a href="/member/loginForm.tm"style="font-size:1.2em;font-weight:bold;font-family:맑은고딕">로그인</a>
                     </li>
                     <li>
-                        <a href="/member/signupForm.tm">회원가입</a>
+                        <a href="/member/signupForm.tm"style="font-size:1.2em;font-weight:bold;font-family:맑은고딕">회원가입</a>
                     </li>   
                      <%} //end of if %>                 
                 </ul>
