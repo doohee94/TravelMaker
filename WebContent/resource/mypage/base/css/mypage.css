@@ -125,6 +125,11 @@ p{
 .navbar-right{
 	margin-right: 10%;
 }
+.navbar-brand{
+	font-family: 맑은고딕;
+    font-size: 2em;
+    font-weight: bold;
+}
 
 @media (max-width: 1360px){
 	.moblie_logo{

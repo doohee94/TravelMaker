@@ -78,13 +78,13 @@
             </div>
             <!-- 로고 --> 
             <div class="logobox">
-                <a class="navbar-brand" href="/tmmain/main.tm" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">Travel Maker</a>
+                <a class="navbar-brand" href="/tmmain/main.tm" >Travel Maker</a>
             </div>
             <!-- /로고 -->
             <!-- 네비 헤더  메뉴 부분 -->
          	<ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/step1/step1.tm" >일정만들기</a>
+                        <a href="/step1/step1.tm">일정만들기</a>
                     </li>
                     <li>
                         <a href="/recommandtravelregion/recommandTravelRegion.tm" >여행지추천</a>
@@ -94,20 +94,14 @@
                     <li>
                         <a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
                     </li>
-                    <li>
-                        <a href="/member/memberUpdate.tm">마이페이지</a>
-                    </li>
                     <%} //end of if %>
-<!--                     <li> -->
-<!--                         <a href="/challengeschedule/challengeSchedule.tm" style="font-size: 14px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">도전일정</a> -->
-<!--                     </li> -->
                      <li style="padding:10px;">
                        <input type="text" id="tf_search" style="width: 170px; height: 26px"/><button id="searchBtn"><span class="glyphicon glyphicon-search"></span> search</button>
                     </li>                                         
                                       <!-- 로그인 할때 생기는 버튼 -->
                     <%if(userNick!=null){ %>
                     <li>
-                    	<a href="#"><%=userNick%>&nbsp;&nbsp;님</a>
+                    	<a href="/mylist/menubar.tm"><%=userNick%>&nbsp;&nbsp;님</a>
                     </li>                      
                     <li>
                         <a href="/tmmain/logout.tm">로그아웃</a>
