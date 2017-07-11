@@ -480,8 +480,8 @@ $(".wrap .city0 .a").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
 	
-	$(".nav .tabstopover").attr("class","active");
-	$(".nav .tabstart").attr("class","");
+	$(".nav .tabstopover").attr("class","active tabstopover");
+	$(".nav .tabstart").attr("class","tabstart");
 	$(".tab-content .active").attr("class", "tab-pane fade");
 	$(".tab-content #menu2").attr("class","tab-pane fade in active");
 });
@@ -491,8 +491,8 @@ $(".wrap .city1 .a").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
 	
-	$(".nav .tabstopover").attr("class","active");
-	$(".nav .tabstart").attr("class","");
+	$(".nav .tabstopover").attr("class","active tabstopover");
+	$(".nav .tabstart").attr("class","tabstart");
 	$(".tab-content .active").attr("class", "tab-pane fade");
 	$(".tab-content #menu2").attr("class","tab-pane fade in active");
 });
@@ -502,8 +502,8 @@ $(".wrap .city2 .a").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
 	
-	$(".nav .tabstopover").attr("class","active");
-	$(".nav .tabstart").attr("class","");
+	$(".nav .tabstopover").attr("class","active tabstopover");
+	$(".nav .tabstart").attr("class","tabstart");
 	$(".tab-content .active").attr("class", "tab-pane fade");
 	$(".tab-content #menu2").attr("class","tab-pane fade in active");
 });
@@ -513,8 +513,8 @@ $(".wrap .Gangwondodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
 	
-	$(".nav .tabstopover").attr("class","active");
-	$(".nav .tabstart").attr("class","");
+	$(".nav .tabstopover").attr("class","active tabstopover");
+	$(".nav .tabstart").attr("class","tabstart");
 	$(".tab-content .active").attr("class", "tab-pane fade");
 	$(".tab-content #menu2").attr("class","tab-pane fade in active");
 });
@@ -524,8 +524,8 @@ $(".wrap .Gyeonggidodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
 	
-	$(".nav .tabstopover").attr("class","active");
-	$(".nav .tabstart").attr("class","");
+	$(".nav .tabstopover").attr("class","active tabstopover");
+	$(".nav .tabstart").attr("class","tabstart");
 	$(".tab-content .active").attr("class", "tab-pane fade");
 	$(".tab-content #menu2").attr("class","tab-pane fade in active");
 });
@@ -535,8 +535,8 @@ $(".wrap .Gyeongsangnamdodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
 	
-	$(".nav .tabstopover").attr("class","active");
-	$(".nav .tabstart").attr("class","");
+	$(".nav .tabstopover").attr("class","active tabstopover");
+	$(".nav .tabstart").attr("class","tabstart");
 	$(".tab-content .active").attr("class", "tab-pane fade");
 	$(".tab-content #menu2").attr("class","tab-pane fade in active");
 });
@@ -545,8 +545,8 @@ $(".wrap .Gyeongsangbukdodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
 	
-	$(".nav .tabstopover").attr("class","active");
-	$(".nav .tabstart").attr("class","");
+	$(".nav .tabstopover").attr("class","active tabstopover");
+	$(".nav .tabstart").attr("class","tabstart");
 	$(".tab-content .active").attr("class", "tab-pane fade");
 	$(".tab-content #menu2").attr("class","tab-pane fade in active");
 });
@@ -555,8 +555,8 @@ $(".wrap .Jeollanamdodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
 	
-	$(".nav .tabstopover").attr("class","active");
-	$(".nav .tabstart").attr("class","");
+	$(".nav .tabstopover").attr("class","active tabstopover");
+	$(".nav .tabstart").attr("class","tabstart");
 	$(".tab-content .active").attr("class", "tab-pane fade");
 	$(".tab-content #menu2").attr("class","tab-pane fade in active");
 });
@@ -565,8 +565,8 @@ $(".wrap .Jeollabukdodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
 	
-	$(".nav .tabstopover").attr("class","active");
-	$(".nav .tabstart").attr("class","");
+	$(".nav .tabstopover").attr("class","active tabstopover");
+	$(".nav .tabstart").attr("class","tabstart");
 	$(".tab-content .active").attr("class", "tab-pane fade");
 	$(".tab-content #menu2").attr("class","tab-pane fade in active");
 });
@@ -575,8 +575,8 @@ $(".wrap .Chungcheongnamdodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
 	
-	$(".nav .tabstopover").attr("class","active");
-	$(".nav .tabstart").attr("class","");
+	$(".nav .tabstopover").attr("class","active tabstopover");
+	$(".nav .tabstart").attr("class","tabstart");
 	$(".tab-content .active").attr("class", "tab-pane fade");
 	$(".tab-content #menu2").attr("class","tab-pane fade in active");
 });
@@ -585,8 +585,8 @@ $(".wrap .Chungcheongbukdodiv input").click(function() {
 	tempstart = $(this).val();
 	$(".liststart").val(tempstart);
 	
-	$(".nav .tabstopover").attr("class","active");
-	$(".nav .tabstart").attr("class","");
+	$(".nav .tabstopover").attr("class","active tabstopover");
+	$(".nav .tabstart").attr("class","tabstart");
 	$(".tab-content .active").attr("class", "tab-pane fade");
 	$(".tab-content #menu2").attr("class","tab-pane fade in active");
 });
