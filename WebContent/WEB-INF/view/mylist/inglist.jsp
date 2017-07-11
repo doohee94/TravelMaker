@@ -38,12 +38,7 @@
 	<link rel="stylesheet" type="text/css" href="/resource/mypage/likespot/css/style.css" />
 	    
     <!-- 마이페이지 공통 css -->
-    <link href="/resource/mypage/base/css/mypage.css" rel="stylesheet" type="text/css">
-
-
-	<!-- 각 list 틀 -->
-	<link rel="stylesheet" href="/resource/mylist/css/mylist.css">
-	
+    <link href="/resource/mypage/base/css/mypage.css" rel="stylesheet" type="text/css">	
 		
 	<!-- mouseover -->
 	<link rel="stylesheet" type="text/js" href="/resource/mylist/js/listmouse.js" />

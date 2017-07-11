@@ -46,12 +46,6 @@
 	type="text/css">
 
 
-<!-- 각 list 틀 -->
-<link rel="stylesheet" type="text/js"
-	href="/resource/mylist/js/mylist.js" />
-<link rel="stylesheet" href="/resource/mylist/css/mylist.css">
-
-
 <!-- mouseover -->
 <link rel="stylesheet" type="text/js"
 	href="/resource/mylist/js/listmouse.js" />
