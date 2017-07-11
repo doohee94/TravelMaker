@@ -264,9 +264,9 @@ $(function(){
     <script src="/resource/bootstrap/js/bootstrap.min.js"></script>
 
  <!--     Metis Menu Plugin JavaScript --> 
-<!--     <script src="/resource/bootstrap/js/metisMenu.min.js"></script> -->
+    <script src="/resource/bootstrap/js/metisMenu.min.js"></script>
  <!--     Custom Theme JavaScript --> 
-<!--     <script src="/resource/bootstrap/js/sb-admin-2.js"></script> -->
+    <script src="/resource/bootstrap/js/sb-admin-2.js"></script>
 	<!-- 마이페이지 공통 js -->
     <script src="/resource/mypage/base/js/base.js"></script>
 
