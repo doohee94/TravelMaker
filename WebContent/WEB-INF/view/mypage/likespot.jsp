@@ -87,7 +87,7 @@
                     <!-- 로그인 할때 생기는 버튼 -->
                     <%if(userNick!=null){ %>
                     <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm">여행리뷰</a>
+                        <a href="/travelReview/reviewlist.tm">여행리뷰</a>
                     </li>
                     <%} //end of if %>
                      <li style="padding:10px;">
