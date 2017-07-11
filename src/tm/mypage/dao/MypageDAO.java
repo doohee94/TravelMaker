@@ -16,11 +16,13 @@ public interface MypageDAO {
 
 	public int deleteSchedule(String likescNum);
 
-	public List<QnaDTO> listQnA(String userId);
+	public List<QnaDTO> listQnA(String userId, int pageNum);
 
 	public int inputQna(String userId,String qnaType,String qnaContent);
 
 	public List<StempDTO> ListStemp(String userId);
 
 	public List<StempDTO> listNotStemp(String userId);
+
+	int findPage(String userId);
 }

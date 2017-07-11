@@ -17,11 +17,21 @@
 		FROM TOTALRE
 		WHERE sc_num =#{scNum}
 	</select>
+	<select id="findqnanum"  parameterType="hashMap" resultType="integer">
+		SELECT *
+		FROM ( 	SELECT rownum as qnaed_num
+				FROM qna
+				WHERE user_id = #{userId}
+				ORDER BY rownum DESC)
+		WHERE rownum = 1
+	</select>
 	<select id="listqna" parameterType="hashMap" resultType="qnaDTO">
 		SELECT *
-		FROM qna
-		WHERE user_id =#{userId} 
-		ORDER BY qna_date DESC
+		FROM (	SELECT *
+				FROM qna
+				WHERE user_id =#{userId} 
+				ORDER BY qna_date DESC)
+		WHERE rownum BETWEEN 1 and #{pageNum}		
 	</select>
 	<select id="qnumber" resultType="String">
 		SELECT seq_qna.nextval as num

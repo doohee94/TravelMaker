@@ -253,33 +253,12 @@
 													</c:otherwise>
 												</c:choose>	
 											</c:forEach>
-											
-													<!--	페이지 넘기는 버튼	 -->
-<!-- 												<div class="text-center"> -->
-<!-- 													<ul class="pagination pagination-lg"> -->
-<!-- 														<li> -->
-<!-- 															<a href="#">Prev</a> -->
-<!-- 														</li> -->
-<!-- 														<li> -->
-<!-- 															<a href="#">1</a> -->
-<!-- 														</li> -->
-<!-- 														<li> -->
-<!-- 															<a href="#">2</a> -->
-<!-- 														</li> -->
-<!-- 														<li> -->
-<!-- 															<a href="#">3</a> -->
-<!-- 														</li> -->
-<!-- 														<li> -->
-<!-- 															<a href="#">4</a> -->
-<!-- 														</li> -->
-<!-- 														<li> -->
-<!-- 															<a href="#">5</a> -->
-<!-- 														</li> -->
-<!-- 														<li> -->
-<!-- 															<a href="#">Next</a> -->
-<!-- 														</li> -->
-<!-- 													</ul> -->
-<!-- 												</div> -->
+											<c:choose>
+													<c:when test="${pageNum < qnaedNum}">
+														<a href="#" class="btn btn-default more" id="btn-moreqna">더보기</a>
+														<input type ="hidden" id="pageNum" value="${pageNum}">
+													</c:when>
+											</c:choose>
 											</c:when>
 											<c:otherwise>
 												<h1>문의하시거나 신고한 내용이 없습니다.</h1>

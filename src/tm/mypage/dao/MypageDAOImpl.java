@@ -118,16 +118,34 @@ public class MypageDAOImpl implements MypageDAO{
 		return result;
 	}
 	/**
+	 * findPage
+	 * qna list중에서 시작 번호와 끝번호를 받아옴
+	 * QnaDTO dto를 리턴
+	 */
+	@Override
+	public int findPage(String userId) {
+		//HashMap map를 생성
+		HashMap map = new HashMap();
+		//map에 userId를 담음
+		map.put("userId", userId);
+		//db에서 userId와 일치하는 컬럼들을 QnaDTO dto에 담음
+		int qnaedNum = ss.selectOne(namespace + ".findqnanum",map);
+		//QnaDTO dto를 리턴
+		return qnaedNum;
+	}	
+	/**
 	 * listQnA
 	 * userId를 받아와  db에서 userId와 일치하는 컬럼들을 
 	 * List에 담아 리턴 
 	 */
 	@Override
-	public List<QnaDTO> listQnA(String userId) {
+	public List<QnaDTO> listQnA(String userId, int pageNum) {
 		//HashMap map를 생성
 		HashMap map = new HashMap();
 		//map에 userId를 담음
 		map.put("userId", userId);
+		//map에 pageNum를 담음
+		map.put("pageNum", pageNum);
 		//db에서 userId와 일치하는 컬럼들을 List에 담음
 		List<QnaDTO> list = ss.selectList(namespace+".listqna",map);
 		//list를 리턴
@@ -197,6 +215,7 @@ public class MypageDAOImpl implements MypageDAO{
 		//list를 리턴
 		return list;
 	}
+
 
 }
 

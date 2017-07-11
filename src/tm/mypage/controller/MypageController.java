@@ -151,17 +151,47 @@ public class MypageController {
 	 * @return list
 	 */
 	@RequestMapping("/qna.tm")
-	public ModelAndView qnalist(String userId, HttpSession session){
+	public ModelAndView qnalist(String tempPage, HttpSession session){
 		//세션에서 userId를 받음
-		userId = (String)session.getAttribute("userId");
+		String userId = (String)session.getAttribute("userId");
+		//페이징 부분
+		//db에서 끝 컬럼번호를 받아옴
+		int qnaedNum = dao.findPage(userId);
+		//기본적인 페이지 번호
+		int pageNum = 0;
+		 //페이지 번호를 가지고 있지 않을때 초기 접속시
+		System.out.println("가져온 페이지 번호는 ?" +tempPage);
+		 if(tempPage ==null){
+			 //페이지 번호를 5로 맞추어 준다
+			 pageNum = 5;
+		 }
+		 //페이지 번호를 가지고 있을때
+		 else if(tempPage !=null){
+			 //마지막 페이지와 기존의 페이지값 +5의 값의 비교를 위해 임시 변수 tempNum 생성
+			 int tempNum =Integer.parseInt(tempPage)+5;
+			 //tempNum가 qnaedNum보다 작을때 pageNum 는 tempNum로 지정
+			 if(tempNum < qnaedNum){
+				 pageNum =	tempNum;			 
+			 }
+			 //tempNum가 qnaedNum보다 크거나 같을 경우 페이지를 강제로 qnaedNum로 맞추기
+			 else{
+				 pageNum = qnaedNum;
+			 }
+		 }
+		 System.out.println("페이지 번호는 ?" + pageNum);
 		//db에서 userId와 일치하는 컬럼들을 list로 받음
-		List<QnaDTO> list = dao.listQnA(userId);
+		List<QnaDTO> list = dao.listQnA(userId, pageNum);
+		System.out.println("가져온 데이터 길이 " + list.size());
 		//ModelAndView mv를 생성
 		ModelAndView mv = new ModelAndView();
 		//mv에 viewName를 지정
 		mv.setViewName(dir+"/qna");
 		//mv에 list를 담음
 		mv.addObject("qnalist",list);
+		//mv에 pageNum을 담음
+		mv.addObject("pageNum", pageNum);
+		//mv에 qnaedNum을 담음
+		mv.addObject("qnaedNum", qnaedNum);
 		//세션을 유지를 위해 userId를 다시 세션에 저장
 		session.setAttribute("userId", userId);
 		//mv를 리턴

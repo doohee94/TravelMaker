@@ -35,6 +35,12 @@
 					}
 				});
 		  }
-
+    	});
+    	//더보기 버튼을 누를때
+    	$('#btn-moreqna').click(function(){
+    		//페이지 번호를 받음
+    		var tempPage = $('#pageNum').val();
+    		//페이지 번호를 파라메터로 보내서 호출
+    		$(location).attr("href","/tmmypage/qna.tm?tempPage="+tempPage);
     	});
     });
