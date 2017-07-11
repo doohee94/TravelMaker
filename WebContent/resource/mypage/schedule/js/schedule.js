@@ -22,4 +22,11 @@ $(document).ready(function() {
 					}
 			});
 	});
+	
+	
+	$("#grid").click(function(){
+		alert($(this).find("input").val());
+		var scNum = $(this).find("input").val();
+		location.href="/travelReview/reviewDetail.tm?_id="+scNum;
+	});
 });
