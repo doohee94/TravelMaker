@@ -97,11 +97,7 @@ public class MainController {
 			mv.addObject("rescNum"+i,reviewList.get(i).getScNum());
 			mv.addObject("retotalNum"+i,reviewList.get(i).getTotalreNum());
 			
-			
-			
 			//여행지 top3컨텐트 아이디 가져오기
-			
-			
 			
 			}
 			//mv를 리턴
@@ -110,8 +106,6 @@ public class MainController {
 			for(int j=0; j<3; j++){
 				mv.addObject("reco"+j, list.get(j));
 			}
-			
-			
 			
 			return mv;		
 		}

@@ -93,8 +93,6 @@ public class MylistController {
 			
 		}
 		
-		
-		
 		if(num.equals("0")){
 			result = "redirect:/mylist/inglist.tm";
 		}else if(num.equals("1")){
