@@ -228,6 +228,82 @@ $( function() {
                        '<input type="hidden" class="contentid" value="'+day[0][j].contentid+'"/>'+
                        '</div><div class="clearfix"></div></li>');
 		   }//end for j		
+       	    	
+       	     var arrayX = [];
+      	   var arrayY = [];
+      	   var arrayTitle=[];
+      	 //리스트가 바뀔 때마다 위도, 경도 정보 가져와 배열에 저장하기
+             $('#myList > li').each(function(i,item){
+               var mapx = $(item).find(".mapx").attr("value");
+               var mapy = $(item).find(".mapy").attr("value");
+               var title = $(item).find(".name").text();
+               
+               if(mapx != 0.0){
+             	  arrayX[i] = mapx;
+             	  arrayY[i] = mapy;
+             	  arrayTitle[i] = title;
+               }
+               
+             });	                   
+           
+           /*리스트 정보를 지도에 경로 표시*/
+           var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = { 
+                center: new daum.maps.LatLng(arrayY[0], arrayX[0]), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };  
+
+           var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+           
+           // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+           var linePath=[];
+           for(var i=0; i<arrayX.length; i++){
+              linePath[i] = new daum.maps.LatLng(arrayY[i], arrayX[i]);
+           }
+           //선 UI 설정
+           var polyline = new daum.maps.Polyline({
+              path: linePath, // 선을 구성하는 좌표배열 입니다
+               strokeWeight: 5, // 선의 두께 입니다
+               strokeColor: '#f00', // 선의 색깔입니다
+               strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+               strokeStyle: 'solid' // 선의 스타일입니다
+           });
+           
+           // 지도를 재설정할 범위정보를 가지고 있을 LatLngBounds 객체를 생성합니다
+           var bounds = new daum.maps.LatLngBounds();
+           
+           var i, marker;
+           for (i = 0; i < linePath.length; i++) {
+               // 배열의 좌표들이 잘 보이게 마커를 지도에 추가합니다
+               marker = new daum.maps.Marker({ position : linePath[i] });
+               marker.setMap(map);
+               
+               // LatLngBounds 객체에 좌표를 추가합니다
+               bounds.extend(linePath[i]);
+               
+            // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+               var iwContent = '<div style="padding:5px;">'+arrayTitle[i]+'</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+                   iwRemoveable = true, // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+               	   iwPosition = new daum.maps.LatLng(arrayY[i], arrayX[i]); //인포윈도우 표시 위치입니다
+
+
+               // 인포윈도우를 생성합니다
+               var infowindow = new daum.maps.InfoWindow({
+            	   position : iwPosition, 
+                   content : iwContent,
+                   removable : iwRemoveable
+               });
+               
+            // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+               infowindow.open(map, marker); 
+           }
+           
+           // LatLngBounds 객체에 추가된 좌표들을 기준으로 지도의 범위를 재설정합니다
+            // 이때 지도의 중심좌표와 레벨이 변경될 수 있습니다
+            map.setBounds(bounds);
+           
+           // 지도에 선을 표시합니다 
+           polyline.setMap(map);
        	   	
        	    }else{//저장된 값이 없을 경우 알림
        	    	alert("저장된 데이터 없음 ");

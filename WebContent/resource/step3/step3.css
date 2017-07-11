@@ -96,6 +96,10 @@
 	height: 30px;
 }
   
+/*손가락 커서*/
+span{
+	cursor: pointer;
+}
 
 /*아래 리스트부분 css*/
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
