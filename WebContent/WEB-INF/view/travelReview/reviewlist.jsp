@@ -1,9 +1,12 @@
 
+<%@page import="tm.totalre.dto.TotalreDTO"%>
+<%@page import="java.util.StringTokenizer"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
-<% ArrayList<ArrayList> list = (ArrayList)request.getAttribute("tagList"); %>
+<% ArrayList<TotalreDTO> list = (ArrayList)request.getAttribute("list"); 
+%>
 <!-- 여행일정 리뷰리스트 페이지입니다. -->
 <!DOCTYPE html>
 <html>
@@ -81,39 +84,39 @@
 <%-- 			<p><%@ include file="travelregion.jsp"%></p> --%>
 <!-- 	</div> -->
 
+<%for(int i=0; i<list.size(); i++) {%>
 	<div class="container" id="divCon">
-	<c:choose>
-		<c:when test="${! empty list }">
-			<c:forEach items="${list}" var="a">
 				<!-- Project One -->
         <div class="row">
             <div class="col-md-7">
-                <a href="reviewDetail.tm?_id=${a.scNum}">
+                <a href="reviewDetail.tm?_id=<%=list.get(i).getScNum()%>">
                     <img class="img-responsive img-hover images" src="/upload/review/${a.totalrePhoto1fake}" style="width:700px; height:300px" alt="">
                 </a>
             </div>
             <div class="col-md-5">
-                <h3>${a.totalreTitle}</h3>
-                <% for(int i=0; i<list.size(); i++){ 
-                	for(int j=0; j<list.get(i).size();j++){
+                <h3><%=list.get(i).getTotalreTitle()%></h3>
+                <%
+                	StringTokenizer st = new StringTokenizer(list.get(i).getHashtag(),"/");
+                	for(int j=0; st.hasMoreTokens(); j++){
+                		%>
+                		<p style="font-weight:bold; color:white; display: inline-block; background-color: #0A0A2A; border-radius:5px; padding:2px">#<%=st.nextToken() %></p>
+                		<%
+                	}
+
                 %>
-                <p style="font-weight:bold; color:white; display: inline-block; background-color: #0A0A2A; border-radius:5px; padding:2px">#<%=list.get(i).get(j).toString() %></p>
-                	<%} 
-               		}%>
-                <p>${a.totalreContent}</p>
-                <a href="reviewDetail.tm?_id=${a.scNum}" class="btn btn-primary images">상세보기</i></a>
+
+                <p><%=list.get(i).getTotalreContent()%></p>
+                <a href="reviewDetail.tm?_id=<%=list.get(i).getScNum()%>" class="btn btn-primary images">상세보기</i></a>
             </div>
         </div>
         <!-- /.row -->
 		
 		<!--  리뷰아이디/몽고디비 일정아이디  -->
-		<input type="hidden" id="totalreNum" value="${a.totalreNum}"/>
-		<input type="hidden" id="scNum" value="${a.scNum}"/>
+		<input type="hidden" id="totalreNum" value="<%=list.get(i).getTotalreNum()%>"/>
+		<input type="hidden" id="scNum" value="<%=list.get(i).getScNum()%>"/>
         <hr>
-			</c:forEach>
-		</c:when>
-	</c:choose>	
    </div>
+   <%} %>
 	<a class="btn btn-primary" id="move_top_btn" style="position:fixed; bottom:5px; right:5px">TOP</i></a>
 </body>
 </html>

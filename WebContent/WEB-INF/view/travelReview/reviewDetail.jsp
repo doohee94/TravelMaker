@@ -86,9 +86,9 @@
 <meta property="og:description" content="내용입니다 내용 내용 내용">
 <meta property="og:image" content="sample.JPG">
 
-<!-- 지도부분 api -->
+<!-- 지도 api 키 -->
 <script type="text/javascript"
-   src="//apis.daum.net/maps/maps3.js?apikey=d7cd900845b5f9c431bb5325b827e675&libraries=services"></script>
+	src="//apis.daum.net/maps/maps3.js?apikey=1464ab905ce0a7acbcb1f9933dbd5961&libraries=services"></script>
 
 <!-- 페이지 js파일 -->
 <script type="text/javascript"
@@ -108,20 +108,21 @@
       <div class="row">
          <div class="col-lg-12">
             <h1 class="page-header"><%=totalreDTO.getTotalreTitle() %>
-               <small> <a href="#"><i
-                     class="fa fa-facebook-square fa-2x" id="shareBtn"></i></a> <%if(result == 0) {%>
-                  <input type="image" id="heartBtn"
-                  src="/resource/travelReview/images/heart1.png" /> <%}else{%> <input
-                  type="image" id="heartBtn"
-                  src="/resource/travelReview/images/heart2.png" /> <%}%>
+               <small> 
+               <%if(result == 0) {%>
+                  <input style="margin-left:73%;" type="image" id="heartBtn" src="/resource/travelReview/images/heart1.png" /> 
+               <%}else{%> 
+               <input style="margin-left:73%;" type="image" id="heartBtn" src="/resource/travelReview/images/heart2.png" />
+               <%}%>
+               <a href="#"><i class="fa fa-facebook-square fa-2x" id="shareBtn"></i></a>
                </small>
             </h1>
             <ol class="breadcrumb">
                <li>리뷰</li>
                <li>리뷰상세</li>
             </ol>
-            <input type="hidden" value="<%=_id%>" id="_id"> <input
-               type="hidden" value="<%=user_id%>" id="user_id">
+            <input type="hidden" value="<%=_id%>" id="_id">
+            <input type="hidden" value="<%=user_id%>" id="user_id">
          </div>
       </div>
       <!-- /.row -->
@@ -139,19 +140,19 @@
             <!-- Indicators -->
             <ol class="carousel-indicators">
                <li class="active" data-slide-to="0"
-                  data-target="#article-photo-carousel"><img alt=""
+                  data-target="#article-photo-carousel"><img style="cursor:pointer; width:100px; height:54px" alt=""
                   src="/upload/review/<%=totalreDTO.getTotalrePhoto1fake() %>"
                   class="img-responsive"></li>
                <li class="" data-slide-to="1"
-                  data-target="#article-photo-carousel"><img alt=""
+                  data-target="#article-photo-carousel"><img style="cursor:pointer; width:100px; height:54px" alt=""
                   src="/upload/review/<%=totalreDTO.getTotalrePhoto2fake() %>">
                </li>
                <li class="" data-slide-to="2"
-                  data-target="#article-photo-carousel"><img alt=""
+                  data-target="#article-photo-carousel"><img style="cursor:pointer; width:100px; height:54px" alt=""
                   src="/upload/review/<%=totalreDTO.getTotalrePhoto3fake() %>">
                </li>
                <li class="" data-slide-to="3"
-                  data-target="#article-photo-carousel"><img alt=""
+                  data-target="#article-photo-carousel"><img style="cursor:pointer; width:100px; height:54px" alt=""
                   src="/upload/review/<%=totalreDTO.getTotalrePhoto4fake() %>">
                </li>
             </ol>
@@ -167,6 +168,9 @@
    <div class="container map" style="width: 40%; margin-left: 15%">
       <!-- Service Tabs -->
       <div class="row map">
+      <!-- 설명팁 -->
+<!--       	<img class="map" alt="" src="/resource/travelReview/images/Tab.JPG"> -->
+
          <div class="col-lg-12">
             <h2 class="page-header">일정</h2>
          </div>
@@ -177,7 +181,7 @@
                <%
                   for (int i = 0; i < tourarray.size() && placeArray[i] != null; i++) {
                %>
-               <li class="mapInfo"><a href="#service-<%=i %>"
+               <li class="mapInfo"><a style="cursor:pointer;" href="#service-<%=i %>"
                   data-toggle="tab"><i class="fa fa-tree"></i>DAY<%=i+1 %></a> <%
                   //위에서 만든 place배열에서 title, mapx, mapy 정보 가져오기
                      for (int j = 0; j < placeArray[i].size(); j++) {
@@ -236,8 +240,9 @@
    <!-- 지도 구성 -->
    <div id="map" style="width: 30%; height: 450px;" class="map"></div>
    <br/>
+   <!-- 댓글창 -->
    <div style="width: 70%; margin-left: 15%" align="center">
-      <table class="table table-striped">
+      <table class="table table-striped" style="font-size:15px;">
          <tr>
             <th>내용</th>
             <th>작성자</th>
@@ -261,9 +266,11 @@
          <input type="hidden" value="<%=_id%>" id="_id" name="scNum">
          <input type="hidden" value="<%=user_id%>" id="user_id" name="userId">
          <input style="width: 60%; height:30px; font-size:15px; margin-bottom:5px" type="text" placeholder="댓글" id="reply" name="reply">
-         <input type="submit" value="입력" style="padding-bottom:5px;width:100px;height:30px; background-color:#103e68 ;border:1px solid #103e68;color:white; font-size:20px;">
+         <input type="submit" value="입력" style="cursor:pointer;padding-bottom:5px;width:100px;height:30px; background-color:#103e68 ;border:1px solid #103e68;color:white; font-size:20px;">
       </form>
    </div>
 
 </body>
+
+
 </html>

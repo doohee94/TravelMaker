@@ -62,19 +62,23 @@ public class TravelReviewController {
 		mv.addObject("list",list);
 		
 		//해시태그 가져오기
-		ArrayList<ArrayList> tagList = new ArrayList<ArrayList>();
 		for(int i=0; i<list.size(); i++){
 			String scNum = list.get(i).getScNum();
-			ArrayList temp = dao.tagList(scNum);
-			tagList.add(temp);
+			ArrayList<String> temp = dao.tagList(scNum);
+			String tag = "";
+			for(int j=0; j<temp.size(); j++){
+				tag += temp.get(j).toString()+"/";
+			}
+		//System.out.println(i+"//"+tag);
+		list.get(i).setHashtag(tag);
 		}
-		mv.addObject("tagList",tagList);
 		
 		return mv;
 	}
 
 
 
+	//리뷰리스트 누르면 상세화면 가기페이지
 	@RequestMapping(value="/reviewDetail.tm")
 	public ModelAndView showReviewDetail(@RequestParam("_id") String _id, HttpSession session){
 
