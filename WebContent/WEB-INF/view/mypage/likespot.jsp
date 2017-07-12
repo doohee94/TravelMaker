@@ -67,7 +67,7 @@
         <jsp:include page="/tmmain/mypageheader.tm"></jsp:include>
 		<!-- 바디 부분 -->
         <div id="page-wrapper">
-			<div class="container" style="margin-right:65%">
+			<div class="container" >
 				<!-- 바디 타이틀  -->
           		<div class="row">
             		<div class="col-lg-12">
