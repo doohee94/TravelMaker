@@ -5,8 +5,8 @@
 <mapper namespace="recommand">
 
 <select id="recommandUserId" parameterType="hashMap" resultType="java.lang.String">
-	SELECT likespot_name
-	from likespot
+	SELECT LIKELOC_NAME
+	from likeloc
 	WHERE user_id =#{userId}
 </select>
 
