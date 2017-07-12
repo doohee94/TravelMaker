@@ -76,6 +76,7 @@
 <br/>
 <a href="travelReview/registReview.tm">리뷰등록</a>
 
+<% response.sendRedirect("/tmmain/main.tm");%>
 
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
