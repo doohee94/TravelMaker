@@ -92,7 +92,7 @@
 					<section class="grid-wrap">
 						<ul class="grid swipe-right" id="grid">
 							<li><a href="#"><img class="imagelist"
-									src="<%=list.get(i).getTotalrePhoto1fake()%>" /></a>
+									src="/upload/review/<%=list.get(i).getTotalrePhoto1fake()%>" /></a>
 								<h3>
 									<p style="color: white;"><%=list.get(i).getTotalreTitle()%></p>
 									<br /> <input type="hidden" class="likeNum"

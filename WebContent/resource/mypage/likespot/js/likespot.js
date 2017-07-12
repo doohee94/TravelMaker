@@ -4,7 +4,8 @@ $(document).ready(function() {
 	for(var i=0; i<num; i++){
 		
 		var contentid = $(".likeNum"+i).val();
-		alert(contentid);
+		
+		
 		$.ajax({
 			
 			url : "http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon?ServiceKey=6eo8W%2BYDwcd6mq99M0oUaSvi0uKT5iYW8SvMUzSnq8iSDXL2tJcbbQlYNqKsq2k6xovjplHXuqBJq1m8ud1hIQ%3D%3D"
@@ -13,7 +14,7 @@ $(document).ready(function() {
 			,success:function(data){
 				
 				var item = data.response.body.items.item;
-				alert(item.title);
+				
 				var firstimage = "/resource/tour/images/noimage.jpg";
 				if(item.firstimage != null){
 	                firstimage=item.firstimage;

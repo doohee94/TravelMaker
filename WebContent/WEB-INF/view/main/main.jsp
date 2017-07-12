@@ -143,7 +143,7 @@
             </div>
             <div class="col-md-4 col-sm-6" align="center">
                 <a href="#" class="review">
-                    <img class="img-responsive img-portfolio img-hover" src="/upload/review/${reviewimg0}" alt="review top 1">
+                    <img class="img-responsive img-portfolio img-hover" src="/upload/review/${reviewimg0}" style="width:350px; height:250px;" alt="review top 1">
                    <span  class="challengeTitle">${reviewtitle0}</span>                   
                 </a>
                    <input type="hidden" class="reuserId" value="${reuserId0}">
@@ -153,7 +153,7 @@
             </div>
             <div class="col-md-4 col-sm-6" align="center">
                 <a href="#" class="review">
-                    <img class="img-responsive img-portfolio img-hover" src="/upload/review/${reviewimg1}" alt="review top 1">
+                    <img class="img-responsive img-portfolio img-hover" src="/upload/review/${reviewimg1}"  style="width:350px; height:250px;" alt="review top 1">
                    <span class="challengeTitle">${reviewtitle1}</span>
                 </a>
                    <input type="hidden" class="reuserId" value="${reuserId1}">
@@ -163,7 +163,7 @@
             </div>
             <div class="col-md-4 col-sm-6" align="center">
                 <a href="#" class="review">
-                    <img class="img-responsive img-portfolio img-hover" src="/upload/review/${reviewimg2}" alt="review top 1">
+                    <img class="img-responsive img-portfolio img-hover" src="/upload/review/${reviewimg2}"   style="width:350px; height:250px;" alt="review top 1">
                    <span class="challengeTitle">${reviewtitle2}</span>
                 </a>
                    <input type="hidden" class="reuserId" value="${reuserId2}">
