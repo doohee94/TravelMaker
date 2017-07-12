@@ -43,7 +43,7 @@
                     <!-- 로그인 할때 생기는 버튼 -->
                     <%if(userNick!=null){ %>
                     <li>
-                        <a href="/recommandtravelregion/recommandTravelRegion.tm"style="font-size:1.2em;font-weight:bold;font-family:맑은고딕">여행리뷰</a>
+                        <a href="/travelReview/reviewlist.tm"style="font-size:1.2em;font-weight:bold;font-family:맑은고딕">여행리뷰</a>
                     </li>
                     <%} //end of if %>
 <!--                     <li> -->
