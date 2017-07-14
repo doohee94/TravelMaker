@@ -184,8 +184,10 @@ public class Step3Controller {
          //x,y좌표를 이용해 두 점사이의 거리를 구하여 2차원 배열에 저장
          double distance[][] = range((JSONArray)jsonObj.get("mapx") , (JSONArray)jsonObj.get("mapy"));
          
-         //배열 0번째에 각 출발점에 해당하는 값 넣어주기
+         //저장할 배열의 인덱스
          int routeIndex=0;
+         
+       //배열 0번째에 각 출발점에 해당하는 값 넣어주기
          titleArr[routeIndex] = title.get(routeIndex).toString();
          addrArr[routeIndex] = addr.get(routeIndex).toString();
          imageArr[routeIndex] = image.get(routeIndex).toString();
@@ -199,6 +201,7 @@ public class Step3Controller {
      
       temp.add(curIndex);
       
+      //list(2차원배열) 중에 행의 인덱스를 저장할 변수
       int rowindex=0;
       
       //경로 최적화
@@ -208,11 +211,13 @@ public class Step3Controller {
 
          END:
         	for(int i=1; i<title.size(); i++){
+        		
         	//rowindex 지점 -> i번째 지점일시 자기 자신에게 가는 길이므로 0. 넘어감
             if(distance[rowindex][i] == 0){
                continue;
             }
-            //
+            
+            //이미 거쳤던 경로면 넘어감
             for(int j=0; j<temp.size(); j++){
              
                if(i == temp.get(j)){
@@ -220,14 +225,21 @@ public class Step3Controller {
                }
             }//end J
             
+            //위에서 거치고 남은 경로 중에서 최소거리의 지점을 저장
             if(distance[rowindex][i] < min){
                min = distance[rowindex][i]; 
                
                curIndex=i;
             }
          }//end I
+         
+         //현재 인덱스를 행의 인덱스로 넣어주기
          rowindex = curIndex;
+         
+         //결과배열에 인덱스 순서 저장
          temp.add(rowindex);
+         
+         //결과 배열에 저장
          routeIndex++;
          
          titleArr[routeIndex] = title.get(rowindex).toString();
@@ -240,7 +252,7 @@ public class Step3Controller {
       
      
    
-      
+      //결과를 JSONObject로 보내기 위해 저장
       responseList.put("title", titleArr);
       responseList.put("addr", addrArr);
       responseList.put("image", imageArr);
@@ -286,6 +298,7 @@ public class Step3Controller {
        * 두 좌표간 거리 계산
        * 인자값 : x1,y1 과 x2,y2 좌표 2개
        * 결과값 : res (거리 : 단위 km)
+       * 
        */
       public double[][] range(JSONArray mapx, JSONArray mapy) {
          
