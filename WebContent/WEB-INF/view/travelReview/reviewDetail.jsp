@@ -82,9 +82,10 @@
 <!-- 페이스북 공유하기 관련 파일 -->
 <meta property="og:title" content="공유하기 연습">
 <meta property="og:url"
-   content="http://www.travelmaker.cf/travelReview/reviewDetail.tm?_id=<%=totalreDTO.getScNum()%>">
+   content="http://travelmaker.cf">
 <meta property="og:description" content="내용입니다 내용 내용 내용">
 <meta property="og:image" content="/upload/review/<%=totalreDTO.getTotalrePhoto1fake() %>">
+
 <!-- 지도 api 키 -->
 <script type="text/javascript"
 	src="//apis.daum.net/maps/maps3.js?apikey=1464ab905ce0a7acbcb1f9933dbd5961&libraries=services"></script>
