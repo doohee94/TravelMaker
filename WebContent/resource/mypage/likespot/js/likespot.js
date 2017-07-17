@@ -3,12 +3,12 @@ $(document).ready(function() {
 	var num = $("#listNum").val();
 	for(var i=0; i<num; i++){
 		
-		var contentid = $(".likeNum"+i).val();
-		
+		var contentid = $(".likeNum"+i).val().trim();
+		alert(contentid)
 		
 		$.ajax({
 			
-			url : "http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon?ServiceKey=6eo8W%2BYDwcd6mq99M0oUaSvi0uKT5iYW8SvMUzSnq8iSDXL2tJcbbQlYNqKsq2k6xovjplHXuqBJq1m8ud1hIQ%3D%3D"
+			url : "http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon?ServiceKey=CKOKxPOpAhEnu8gzrMSEwqHCW3zGNCxaFWAOjtXL%2B82aon1CjzdWU8g%2BkknZZRWgd9CnHDJywcDr495yzWoV4g%3D%3D"
 					+"&defaultYN=Y&addrinfoYN=Y&overviewYN=Y&firstImageYN=Y&mapinfoYN=Y&contentId="+contentid+"&MobileOS=ETC&MobileApp=AppTesting"
 			,dataType:"json"
 			,success:function(data){

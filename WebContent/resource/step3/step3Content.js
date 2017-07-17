@@ -1239,7 +1239,7 @@ $( function() {
      //ajax
      $.ajax({
 
-            url : "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?ServiceKey=6eo8W%2BYDwcd6mq99M0oUaSvi0uKT5iYW8SvMUzSnq8iSDXL2tJcbbQlYNqKsq2k6xovjplHXuqBJq1m8ud1hIQ%3D%3D"
+            url : "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?ServiceKey=GE8ffyGcbc8LhTbkPBlErwmb2Q7JWxA2rhMEQ6iqXszlPFG%2BtFLSmkYyusYF%2FeguXxpATpP9ZiikFJ9%2BzgqGKA%3D%3D"
                ,dataType:"json"
                   ,data : {
              
@@ -1255,7 +1255,7 @@ $( function() {
 
             $.ajax({
 
-               url : "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?ServiceKey=6eo8W%2BYDwcd6mq99M0oUaSvi0uKT5iYW8SvMUzSnq8iSDXL2tJcbbQlYNqKsq2k6xovjplHXuqBJq1m8ud1hIQ%3D%3D"
+               url : "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?ServiceKey=GE8ffyGcbc8LhTbkPBlErwmb2Q7JWxA2rhMEQ6iqXszlPFG%2BtFLSmkYyusYF%2FeguXxpATpP9ZiikFJ9%2BzgqGKA%3D%3D"
                   ,dataType:"json"
                      ,data : {
 
@@ -1488,15 +1488,11 @@ $( function() {
    
    
    //setIntrval---친구와 함께 작성 할 경우 ---------------------------------------------------------------------
-
-   
-   setInterval(function(){
-	   
+   setInterval(function(){   
 	   var findList = {
 				"_id":$("#scheduleId").val()
 		}
 		$.ajax({
-			
 			url : "/step/findList.tm"
       	     ,type:"post"
       	     ,contentType:"application/json "
@@ -1526,11 +1522,8 @@ $( function() {
             	    		}
             	    		day[i] = place;
             	    	}   
-            	    	
-            	    }else{//저장된 값이 없을 경우 알림
-            	    	
+            	    }else{//저장된 값이 없을 경우 알림 	
             	    }	
-            	  
             	    //현재 선택된 셀렉트 박스에 해당하는 여행 리스트를 myList에 뿌려줌
             	    $("#myList").empty(); 
             	  for(var i=0; i<day.length; i++){
@@ -1550,24 +1543,15 @@ $( function() {
        				 continue;
        			 }
        			  
-       		   }//end for i
-        		 
-        		  
+       		   }//end for i  
         	  }
-        	    	
-      	    	
-      	  
+
       	     }//end ajax success
            ,error:function(err,status,error){
   	         //alert("일정있을경우 일쩡뿌려오기실패!"+err.status+error);
   	        
   	      }
-			
 	   });//end ajax;
    },1000*5);//end setInterval
-   
-   
-  
-   
    
 });
