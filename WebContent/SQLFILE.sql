@@ -2,6 +2,73 @@
 --  파일이 생성됨 - 월요일-7월-17-2017   
 --------------------------------------------------------
 --------------------------------------------------------
+--  DDL for Sequence SEQ_ADVERTISEMENT
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TRAVELMAKER"."SEQ_ADVERTISEMENT"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 121 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_LIKELOC
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TRAVELMAKER"."SEQ_LIKELOC"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 41 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_LIKESC
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TRAVELMAKER"."SEQ_LIKESC"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_LIKESPOT
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TRAVELMAKER"."SEQ_LIKESPOT"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 41 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_MEMBER
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TRAVELMAKER"."SEQ_MEMBER"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_PARSTEMP
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TRAVELMAKER"."SEQ_PARSTEMP"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 101 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_PARTNER
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TRAVELMAKER"."SEQ_PARTNER"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 241 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_QNA
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TRAVELMAKER"."SEQ_QNA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 101 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_REVIEWREPLY
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TRAVELMAKER"."SEQ_REVIEWREPLY"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 61 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_STEMP
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TRAVELMAKER"."SEQ_STEMP"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 121 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_TEST
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TRAVELMAKER"."SEQ_TEST"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_TOTALRE
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TRAVELMAKER"."SEQ_TOTALRE"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 141 CACHE 20 NOORDER  NOCYCLE ;
+
+
+
+
+--------------------------------------------------------
+--  파일이 생성됨 - 월요일-7월-17-2017   
+--------------------------------------------------------
+--------------------------------------------------------
 --  DDL for Table ADVERTISEMENT
 --------------------------------------------------------
 
