@@ -1,0 +1,8 @@
+#오라클DB 버전 : 11g
+#오라클DB 포트번호 : 1521
+#username = "travelmaker"
+#password = "1234"
+
+#설정순서
+1. 소스코드 폴더 내 WebContent 밑 SQLFILE.sql 전체를 실행시킨다.
+2. 포트번호나 기타 설정이 다를 시  WebContent 밑 META-INF 폴더 내 context.xml파일 수정

@@ -1,0 +1,10 @@
+#MongoDB 버전 : 3.0.15
+#MongoDB 포트번호 : 27017
+
+#설정순서
+
+1. Data가 저장될 폴더 만들기
+2. mongo에 접속 후 use admin 입력
+3.아래 유저 생성 입력
+db.createUser({user : "tm",pwd : "1234",roles : [ { role : "readWrite", db: "schedule" } ]})
+4. 현재 실행중인 Mongo 서버를 중지 후  mongod.exe  -dbpath 본인생성폴더 경로  -auth로 재시작
